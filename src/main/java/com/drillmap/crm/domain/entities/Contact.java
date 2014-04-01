@@ -6,6 +6,8 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -19,4 +21,6 @@ import javax.persistence.Table;
 public class Contact extends AuditableEntity {
     String firstName;
     String lastName;
+    @ManyToOne
+    Company company;
 }
