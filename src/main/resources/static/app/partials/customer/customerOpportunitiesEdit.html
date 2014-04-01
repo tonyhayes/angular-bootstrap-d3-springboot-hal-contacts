@@ -1,0 +1,99 @@
+<div class="customerOpportunitiesEdit view">
+    <div class="row">
+        <header>
+            <h3>Customer Opportunities Maintenance</h3>
+        </header>
+        <br/><br/>
+
+        <div class="col-sm-6">
+
+            <form name="customerOpportunitiesForm" ng-submit="submitForm()">
+                <button type="submit" class="btn btn-primary" ng-disabled="customerOpportunitiesForm.$invalid">Submit
+                </button>
+
+                <fieldset>
+
+                    <div class="form-group"
+                         ng-class="{ 'has-error' : customerOpportunitiesForm.customer.$invalid && !customerOpportunitiesForm.customer.$pristine }">
+                        <label>Customer</label>
+                        <select required ng-model="master.customer" class="form-control" name="customer"
+                                ng-options="c.customerId as c.customerName for c in customerNames_array"></select>
+
+                        <p ng-show="customerOpportunitiesForm.customer.$invalid && !customerOpportunitiesForm.customer.$pristine"
+                           class="help-block">Customer is required.</p>
+                    </div>
+
+
+                    <div class="form-group"
+                         ng-class="{ 'has-error' : customerOpportunitiesForm.salesPerson.$invalid && !customerOpportunitiesForm.salesPerson.$pristine }">
+                        <label>Sales Person</label>
+                        <select required ng-model="master.salesPerson" class="form-control" name="salesPerson"
+                                ng-options="s.id as s.salesPerson for s in salesPerson_array"></select>
+
+                        <p ng-show="customerOpportunitiesForm.salesPerson.$invalid && !customerOpportunitiesForm.salesPerson.$pristine"
+                           class="help-block">Sales Person is required.</p>
+                    </div>
+
+
+                    <div class="form-group"
+                         ng-class="{ 'has-error' : customerOpportunitiesForm.contact.$invalid && !customerOpportunitiesForm.contact.$pristine }">
+                        <label>Contact</label>
+                        <select required ng-model="master.contact" class="form-control" name="contact"
+                                ng-options="c.id as c.contact for c in contact_array"></select>
+
+                        <p ng-show="customerOpportunitiesForm.contact.$invalid && !customerOpportunitiesForm.contact.$pristine"
+                           class="help-block">Customer Contact is required.</p>
+                    </div>
+
+
+                </fieldset>
+                <fieldset>
+
+                    <dynamic-form class="col-md-12 vertical" template="opportunityFormTemplate"
+                                  ng-model="master.opportunityForm">
+                    </dynamic-form>
+
+                </fieldset>
+                <fieldset>
+
+                    <h3>Statistics</h3>
+
+                    <div class="form-group"
+                         ng-class="{ 'has-error' : customerOpportunitiesForm.probability.$invalid && !customerOpportunitiesForm.probability.$pristine }">
+                        <label>Probability</label>
+                        <select required ng-model="master.probability" class="form-control" name="probability"
+                                ng-options="p.id as p.probability for p in probability_array"></select>
+
+                        <p ng-show="customerOpportunitiesForm.probability.$invalid && !customerOpportunitiesForm.probability.$pristine"
+                           class="help-block">Probability is required.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Potential Revenue</label>
+                        <input type="text" name="potentialRevenue" class="form-control"
+                               ng-model="master.potentialRevenue">
+                    </div>
+                    <div class="form-group">
+                        <label>Calculation Sales with Probability</label>
+                        <input type="text" name="potentialRevenueCalc" readonly class="form-control"
+                               ng-model="master.potentialRevenueCalc">
+                    </div>
+
+
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label>Discussion</label>
+                        <input type="textarea" rows="20" cols="500" name="discussion" class="form-control"
+                               ng-model="master.discussion">
+                    </div>
+                </fieldset>
+
+                <div ng-include src='"partials/customer/customerOpportunityActionGrid.html"'></div>
+                <button type="submit" class="btn btn-primary" ng-disabled="customerOpportunitiesForm.$invalid">Submit
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+</div>

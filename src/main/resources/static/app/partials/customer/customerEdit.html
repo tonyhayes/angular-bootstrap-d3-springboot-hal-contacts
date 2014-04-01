@@ -1,0 +1,96 @@
+<div class="customerEdit view">
+    <div class="row">
+        <header>
+            <h3>Customer Maintenance</h3>
+        </header>
+        <br/><br/>
+
+        <div class="col-sm-6">
+
+            <form name="customerForm" ng-submit="submitForm()">
+
+                <div class="form-group"
+                     ng-class="{ 'has-error' : customerForm.customerName.$invalid && !customerForm.customerName.$pristine }">
+                    <label>Customer Name</label>
+                    <input type="text" name="customerName" class="form-control" ng-model="master.customerName" required>
+
+                    <p ng-show="customerForm.customerName.$invalid && !customerForm.customerName.$pristine"
+                       class="help-block">The customer must be named.</p>
+                </div>
+
+                <div class="form-group"
+                     ng-class="{ 'has-error' : customerForm.contactName.$invalid && !customerForm.contactName.$pristine }">
+                    <label>Contact Name</label>
+                    <input type="text" name="contactName" class="form-control" ng-model="master.contactName" required>
+
+                    <p ng-show="customerForm.contactName.$invalid && !customerForm.contactName.$pristine"
+                       class="help-block">The contact name is required.</p>
+                </div>
+
+                <div class="form-group"
+                     ng-class="{ 'has-error' : customerForm.addressLine1.$invalid && !customerForm.addressLine1.$pristine }">
+                    <label>Address Line 1</label>
+                    <input type="text" name="addressLine1" class="form-control" ng-model="master.addressLine1" required>
+
+                    <p ng-show="customerForm.addressLine1.$invalid && !customerForm.addressLine1.$pristine"
+                       class="help-block">The Address Line1 is required.</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Address Line 2</label>
+                    <input type="text" name="addressLine2" class="form-control" ng-model="master.addressLine2">
+                </div>
+
+                <div class="form-group"
+                     ng-class="{ 'has-error' : customerForm.city.$invalid && !customerForm.city.$pristine }">
+                    <label>City</label>
+                    <input type="text" name="city" class="form-control" ng-model="master.city" required>
+
+                    <p ng-show="customerForm.city.$invalid && !customerForm.city.$pristine" class="help-block">City is
+                        required.</p>
+                </div>
+
+                <div class="form-group"
+                     ng-class="{ 'has-error' : customerForm.state.$invalid && !customerForm.state.$pristine }">
+                    <label>State</label>
+                    <select required ng-model="master.state" class="form-control" name="state"
+                            ng-options="s.id as s.state for s in state_array"></select>
+
+                    <p ng-show="customerForm.state.$invalid && !customerForm.state.$pristine" class="help-block">State
+                        is required.</p>
+                </div>
+
+                <div class="form-group"
+                     ng-class="{ 'has-error' : customerForm.zip.$invalid && !customerForm.zip.$pristine }">
+                    <label>Zip Code</label>
+                    <input type="text" name="zip" class="form-control" ng-model="master.zip" required>
+
+                    <p ng-show="customerForm.zip.$invalid && !customerForm.zip.$pristine" class="help-block">Zip is
+                        required.</p>
+                </div>
+
+                <div class="form-group"
+                     ng-class="{ 'has-error' : customerForm.email.$invalid && !customerForm.email.$pristine }">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control" ng-model="master.email">
+
+                    <p ng-show="customerForm.email.$invalid && !customerForm.email.$pristine" class="help-block">email
+                        is wrong.</p>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="text" name="phone" class="form-control" ng-model="master.phone">
+                </div>
+
+                <div class="form-group">
+                    <label>cell</label>
+                    <input type="text" name="cell" class="form-control" ng-model="master.cell">
+                </div>
+
+                <button type="submit" class="btn btn-primary" ng-disabled="customerForm.$invalid">Submit</button>
+            </form>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,218 @@
+body {
+    padding: 65px;
+}
+
+.view {
+    left: 60px;
+    position: relative;
+    opacity: 0.0;
+}
+
+.card {
+    background-color: #efefef;
+    border: 1px solid black;
+    height: 75px;
+    width: 275px;
+    margin-bottom: 20px;
+}
+
+.cardHeader {
+    background-color: #006dcc;
+    font-size: 10px;
+    color: white;
+    padding: 5px;
+}
+
+.cardClose {
+    color: white;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.cardContainer {
+    width: 90%;
+}
+
+.cardBody {
+    padding-left: 5px;
+}
+
+.lastRow {
+    background-color: #ccc;
+}
+
+.indent {
+    margin-left: 20px;
+}
+
+footer {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Bootstrap overrides */
+.navbar-inner {
+    padding-left: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background-color: #027FF4;
+    background-image: none;
+}
+
+.navbar-inner.toolbar {
+    background-color: #fafafa;
+}
+
+.navbar-inner.footer {
+    background-color: #fafafa;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
+    background-color: #efefef;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.navbar .nav li.toolbaritem a:hover, .navbar .nav li a:hover, .cardHeader a:hover {
+    color: #E03930;
+}
+
+.navbar .nav > li {
+    cursor: pointer;
+}
+
+.navbar .nav > li > a {
+    color: white;
+    font-weight: bold;
+    -webkit-text-shadow: none;
+    text-shadow: none;
+}
+
+.navbar .nav > li.toolbaritem > a {
+    color: black;
+    font-weight: bold;
+    -webkit-text-shadow: none;
+    text-shadow: none;
+}
+
+.navbar-fixed-top .navbar-inner,
+.navbar-static-top .navbar-inner {
+    -webkit-box-shadow: 0 1px 00px rgba(0, 0, 0, 0);
+    -moz-box-shadow: 0 1px 00px rgba(0, 0, 0, 0);
+    box-shadow: 0 1px 00px rgba(0, 0, 0, 0);
+}
+
+.nav.navBarPadding {
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.navbarText {
+    font-weight: bold;
+}
+
+.navbar .brand {
+    margin-top: 2px;
+    color: #fff;
+    -webkit-text-shadow: none;
+    text-shadow: none;
+}
+
+.close {
+    font-size: 15pt;
+    opacity: 1.0;
+}
+
+.modal-backdrop, .modal-backdrop.fade.in {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.btn.active {
+    background-color: #f7f7f7;
+}
+
+.novalidate {
+    border-left: none !important;
+}
+
+a {
+    cursor: pointer;
+}
+
+.css-form input.ng-invalid.ng-dirty {
+    background-color: #FA787E;
+}
+
+.css-form input.ng-valid.ng-dirty {
+    background-color: #78FA89;
+}
+
+.gridStyle {
+    border: 1px solid rgb(212, 212, 212);
+    width: 100%;
+    height: 300px
+}
+
+.vertical input[type="date"] {
+    display: block;
+}
+
+.vertical select, label {
+    display: block;
+}
+
+.vertical input[type="text"] {
+    display: block;
+}
+
+.vertical textarea {
+    display: block;
+}
+
+
+
+.vertical input[type="email"] {
+    display: block;
+}
+
+/* dynamic form builder stuff */
+.add-field {
+    text-align: center;
+}
+
+.add-field select {
+    margin-bottom: 0px;
+}
+
+.form-fields .accordion-group {
+    border: 1px solid #AAAAAA;
+}
+
+.form-fields .accordion-heading {
+    background-color: #E2E2E2;
+}
+
+.accordion-edit div, .field div {
+    line-height: 35px;
+}
+
+.form-properties .row {
+    line-height: 35px;
+}
+
+.form-field-label {
+    display: inline;
+}
+
+.required-error {
+    color: red;
+    font-size: smaller;
+}
+

@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <h3>{{modalOptions.headerText}}</h3>
+</div>
+<div class="modal-body">
+
+
+    <form name="opportunitiesActionForm" ng-submit="submitForm()" novalidate>
+
+
+        <fieldset>
+
+            <dynamic-form class="col-md-12 vertical" template="modalOptions.record.form" ng-model="modalOptions.model1">
+            </dynamic-form>
+
+        </fieldset>
+
+
+    </form>
+
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn" data-ng-click="modalOptions.close()">{{modalOptions.closeButtonText}}</button>
+    <button type="submit" class="btn btn-primary" ng-disabled="opportunitiesActionForm.$invalid"
+            data-ng-click="modalOptions.ok();">
+        {{modalOptions.actionButtonText}}
+    </button>
+</div>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html data-ng-app="customersApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Customer Relationship Manager</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet"/>
+    <link href="css/ng-grid.min.css" rel="stylesheet"/>
+    <link href="css/jquery-ui-1.10.4.custom.min.css" rel="stylesheet"/>
+    <link href="css/customerManagementStyles.css" rel="stylesheet"/>
+
+</head>
+<body>
+<div class="container">
+
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <a class="brand " href="#/">
+                <img src="css/Images/people.png" alt="logo"> Customer Manager
+            </a>
+            <ul class="nav nav-pills">
+                <li ng-class="{active: isCurrentPage(' ') }"><a href="#/customers">Customers</a></li>
+                <li ng-class="{active: isCurrentPage('create') }"><a href="#/forms/create">Form
+                    Administration</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- Note that AngularJS has a built-in ng-animation direction. Left in animated-view to show a 
+         custom directive -->
+    <div animated-view></div>
+    <ng-view></ng-view>
+
+
+    <div id="footer">
+        <div class="navbar navbar-fixed-bottom">
+            <div class="navbar-inner">
+                <footer>
+                    <div class="span4">
+                        Angular Drillmap
+                    </div>
+
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Vendor Libs: jQuery only used for Bootstrap functionality -->
+<script src="lib/jquery.min.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular/angular-route.js"></script>
+
+<script src="lib/bootstrap-ui.js"></script>
+
+<script src="lib/ng-grid-2.0.7.debug.js"></script>
+<script src="lib/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="lib/dynamic-forms.js"></script>
+
+<!-- application -->
+
+<script src="js/app.js"></script>
+<script src="js/services/customerServices.js"></script>
+<script src="js/controllers/customerControllers.js"></script>
+<script src="js/filters/customerFilters.js"></script>
+<script src="js/directives/directives.js"></script>
+
+<!-- form builder -->
+
+<script src="js/controllers/formController.js"></script>
+<script src="js/services/formService.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<div class="customerDetails view">
+    <header>
+        <h3>Customer Contact Card Details</h3>
+    </header>
+    <div>
+        <div class="row">
+            <div class="span12">
+                <div class="indent">
+                    <h4>For {{ customer.customerName }}</h4>
+                    {{customer.addressLine1}}
+                    <br/>
+                    {{customer.city}}
+                    <br/><br/>
+                </div>
+            </div>
+            <br/><br/>
+
+            <div class="span12">
+                <div class="row">
+                    <div class="span10">
+                        <div class="navbar">
+                            <div class="navbar-inner toolbar">
+                                <ul class="nav">
+                                    <li class="toolbaritem"><a data-ng-click="onDblClickRow()"><i class="icon-plus"></i>
+                                        Add Contact Card</a></li>
+                                </ul>
+                                <form class="navbar-form pull-right">
+                                    <span class="navbarText">Filter:</span>&nbsp;&nbsp;<input type="text"
+                                                                                              data-ng-model="filterOptions.filterText"
+                                                                                              class="novalidate"/>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gridStyle" ng-grid="myContacts"></div>
+            </div>
+        </div>
+    </div>
+</div>

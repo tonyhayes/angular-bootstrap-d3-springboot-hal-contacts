@@ -1,0 +1,53 @@
+<div class="modal-header">
+    <h3>{{modalOptions.headerText}}</h3>
+</div>
+<div class="modal-body">
+
+
+    <form name="opportunitiesActionForm" ng-submit="submitForm()" novalidate>
+
+
+        <div class="form-group"
+             ng-class="{ 'has-error' : opportunitiesActionForm.salesPerson.$invalid && !opportunitiesActionForm.salesPerson.$pristine }">
+            <label>Sales Person</label>
+            <select required ng-model="modalOptions.record.salesPerson" class="form-control" name="salesPerson"
+                    ng-options="s.id as s.salesPerson for s in modalOptions.model1"></select>
+
+            <p ng-show="opportunitiesActionForm.salesPerson.$invalid && !opportunitiesActionForm.salesPerson.$pristine"
+               class="help-block">
+                Sales Person is
+                required.</p>
+        </div>
+
+        <div class="form-group"
+             ng-class="{ 'has-error' : opportunitiesActionForm.followUpDate.$invalid && !opportunitiesActionForm.followUpDate.$pristine }">
+            <label>Follow Up Date</label>
+            <input type="text" ui-date name="followUpDate" class="form-control"
+                   ng-model="modalOptions.record.followUpDate" required>
+
+            <p ng-show="opportunitiesActionForm.followUpDate.$invalid && !opportunitiesActionForm.followUpDate.$pristine"
+               class="help-block">Follow Up Date is required.</p>
+        </div>
+
+        <div class="form-group"
+             ng-class="{ 'has-error' : opportunitiesActionForm.Action.$invalid && !opportunitiesActionForm.Action.$pristine }">
+            <label>Action</label>
+            <input type="text" name="Action" class="form-control" ng-model="modalOptions.record.Action">
+
+            <p ng-show="opportunitiesActionForm.Action.$invalid && !customerForm.Action.$pristine" class="help-block">
+                Action is
+                required.</p>
+        </div>
+
+
+    </form>
+
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn" data-ng-click="modalOptions.close()">{{modalOptions.closeButtonText}}</button>
+    <button type="submit" class="btn btn-primary" ng-disabled="opportunitiesActionForm.$invalid"
+            data-ng-click="modalOptions.ok();">
+        {{modalOptions.actionButtonText}}
+    </button>
+</div>
