@@ -19,6 +19,6 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class State extends AuditableEntity {
-    String state;
+    String stateAbbr;
     String name;
 }
