@@ -63,6 +63,11 @@ public class ContactRepositoryTest {
         c.setCompany(mySavedCompany);
         Contact c1 = contactRepository.save(c);
 
+//        Collection companyContact = mySavedCompany.getContacts();
+//        companyContact.add(c);
+//        companyRepository.save(mySavedCompany);
+
+
         assertThat(c1.getId(), notNullValue());
         c1 = contactRepository.findOne(c1.getId());
         assertThat(c1.getCompany(), notNullValue());

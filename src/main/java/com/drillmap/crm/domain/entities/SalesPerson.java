@@ -5,17 +5,20 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
- * Created by sfrensley on 3/29/14.
+ * Created by tony on 4/2/14.
  */
 @Entity
-@Table(name = "app_crm_contacts")
+@Table(name = "app_crm_salesPeople")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class Contact extends AuditableEntity {
+public class SalesPerson extends AuditableEntity {
     String firstName;
     String lastName;
     String title;
@@ -29,6 +32,5 @@ public class Contact extends AuditableEntity {
     String cell;
     String webPage;
     String notes;
-    @ManyToOne
-    Company company;
+
 }

@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -22,7 +19,24 @@ import java.util.Collection;
 @ToString(callSuper = true)
 public class Company extends AuditableEntity {
     String companyName;
+    String addressLine1;
+    String addressLine2;
+    String city;
+    String state;
+    String zip;
+    String email;
+    String phone;
+    String cell;
+    String webPage;
+    String notes;
+    String contactName;
+    @ManyToOne
+    Contact primaryContact;
+
 
     @OneToMany(mappedBy = "company",fetch = FetchType.EAGER)
-    Collection<Contact> contacts = new ArrayList<Contact>();
+    Collection<Contact> contacts;
+    @OneToMany(mappedBy = "company",fetch = FetchType.EAGER)
+    Collection<Opportunity> opportunities;
+
 }
