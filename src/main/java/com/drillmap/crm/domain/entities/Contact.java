@@ -5,7 +5,10 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * Created by sfrensley on 3/29/14.
@@ -29,6 +32,7 @@ public class Contact extends AuditableEntity {
     String cell;
     String webPage;
     String notes;
-    @ManyToOne
+
+    @ManyToOne(optional = false) //owning side of the relationship
     Company company;
 }

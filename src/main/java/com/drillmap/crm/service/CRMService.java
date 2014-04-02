@@ -21,7 +21,7 @@ public class CRMService {
     private ContactRepository contactRepository;
 
 
-    public Iterable<Contact> findAllContacts() {
+    public List<Contact> findAllContacts() {
         return contactRepository.findAll();
     }
 

@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * Created by tony on 4/2/14.
  */
 @Entity
-@Table(name = "app_crm_salesPeople")
+@Table(name = "app_crm_sales_people")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)

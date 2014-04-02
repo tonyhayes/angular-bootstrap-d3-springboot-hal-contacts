@@ -16,7 +16,7 @@ import java.util.Collection;
 @Table(name = "app_crm_company")
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
+@ToString(callSuper = true,exclude = {"contacts"})
 public class Company extends AuditableEntity {
     String companyName;
     String addressLine1;
@@ -30,6 +30,7 @@ public class Company extends AuditableEntity {
     String webPage;
     String notes;
     String contactName;
+
     @ManyToOne
     Contact primaryContact;
 

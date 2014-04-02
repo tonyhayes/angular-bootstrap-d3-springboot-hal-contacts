@@ -12,7 +12,7 @@ import java.util.Date;
  * Created by tony on 4/2/14.
  */
 @Entity
-@Table(name = "app_crm_opportunityDetails")
+@Table(name = "app_crm_opportunity_details")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
