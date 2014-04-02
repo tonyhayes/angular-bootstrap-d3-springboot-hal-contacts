@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * Created by anthonyhayes on 4/2/14.
  */
-public interface OpportunityForm extends JpaRepository<OpportunityForm, Long> {
+public interface StateRepository extends JpaRepository<StateRepository,Long> {
 }
