@@ -22,6 +22,6 @@ import javax.persistence.*;
 public class OpportunityForm extends AuditableEntity {
     String name;
     String value;
-    @OneToOne
+    @ManyToOne
     Opportunity opportunity;
 }

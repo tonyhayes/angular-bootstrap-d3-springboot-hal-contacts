@@ -36,7 +36,7 @@ public class ContactRepositoryTest {
     CompanyRepository companyRepository;
 
     @Test
-    public void testFind() {
+    public void testContactFind() {
         Company myCompany = new Company();
         myCompany.setCompanyName("myCompany");
         Company mySavedCompany = companyRepository.save(myCompany);
@@ -54,7 +54,7 @@ public class ContactRepositoryTest {
     }
 
     @Test
-    public void testRelationship() {
+    public void testCompanyRelationship() {
         Company myCompany = new Company();
         myCompany.setCompanyName("myCompany");
         Company mySavedCompany = companyRepository.save(myCompany);

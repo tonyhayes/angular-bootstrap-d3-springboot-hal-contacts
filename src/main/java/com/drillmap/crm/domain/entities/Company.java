@@ -14,8 +14,8 @@ import java.util.Set;
 @Entity
 @Table(name = "app_crm_company")
 @Data
-@EqualsAndHashCode(callSuper = true,exclude = {"contacts", "opportunities"})
-@ToString(callSuper = true,exclude = {"contacts", "opportunities"})
+@EqualsAndHashCode(callSuper = true,exclude = {"contacts", "opportunities" , "primaryContact"})
+@ToString(callSuper = true,exclude = {"contacts", "opportunities", "primaryContact"})
 public class Company extends AuditableEntity {
     String companyName;
     String addressLine1;
