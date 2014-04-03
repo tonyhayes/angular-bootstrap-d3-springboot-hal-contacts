@@ -59,8 +59,7 @@ public class ContactRepositoryTest {
         myCompany.setCompanyName("myCompany");
         Company mySavedCompany = companyRepository.save(myCompany);
         assertThat(mySavedCompany.getId(), notNullValue());
-        //
-        System.out.println(">>>>>>>" + mySavedCompany);
+
         Contact c = new Contact();
         c.setFirstName("Tony");
         c.setLastName("Hayes");
@@ -71,16 +70,6 @@ public class ContactRepositoryTest {
         c1 = contactRepository.findOne(c1.getId());
         assertThat(c1.getCompany(), notNullValue());
 
-        Company company1 = companyRepository.findOne(mySavedCompany.getId());
-        assertThat(company1,notNullValue());
-        Collection<Contact> contacts = company1.getContacts();
-        System.out.println(company1 + " >>>>>>> " + contacts);
-        assertThat(contacts.size(),is(greaterThan(0)));
-        //assertThat(contacts, hasItem(c1));
-        List<Contact> tony2 = contactRepository.findByFirstName("Tony");
-        System.out.println(">>>>"+tony2.get(0).getCompany());
-
-        System.out.println(">>>>>>>" + contacts);
     }
 
 }
