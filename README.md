@@ -9,3 +9,5 @@ Follow the Readme to build and install.
 
 Unfortunately, the HTTP method PATCH is not supported by the fork above.
 I have forked the fork to make the shell support patch.
+
+Details coming soon.
