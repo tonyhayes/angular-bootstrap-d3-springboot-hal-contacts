@@ -6,8 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Set;
 
 /**
  * Created by anthonyhayes on 4/1/14.
@@ -15,8 +14,8 @@ import java.util.Collection;
 @Entity
 @Table(name = "app_crm_company")
 @Data
-@EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true,exclude = {"contacts"})
+@EqualsAndHashCode(callSuper = true,exclude = {"contacts", "opportunities"})
+@ToString(callSuper = true,exclude = {"contacts", "opportunities"})
 public class Company extends AuditableEntity {
     String companyName;
     String addressLine1;
@@ -36,8 +35,8 @@ public class Company extends AuditableEntity {
 
 
     @OneToMany(mappedBy = "company",fetch = FetchType.EAGER)
-    Collection<Contact> contacts;
+    Set<Contact> contacts;
     @OneToMany(mappedBy = "company",fetch = FetchType.EAGER)
-    Collection<Opportunity> opportunities;
+    Set<Opportunity> opportunities;
 
 }

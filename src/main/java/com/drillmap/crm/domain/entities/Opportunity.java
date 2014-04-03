@@ -6,7 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.Set;
 
 /**
  * Created by tony on 4/2/14.
@@ -14,8 +14,8 @@ import java.util.Collection;
 @Entity
 @Table(name = "app_crm_opportunities")
 @Data
-@EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true, exclude = {"opportunityDetails","opportunityFormItems"})
+@ToString(callSuper = true, exclude = {"opportunityDetails","opportunityFormItems"})
 public class Opportunity extends AuditableEntity {
     @ManyToOne
     Company company;
@@ -29,9 +29,9 @@ public class Opportunity extends AuditableEntity {
     String potentialRevenue;
 
     @OneToMany(mappedBy = "opportunity",fetch = FetchType.EAGER)
-    Collection<OpportunityDetail> opportunityDetails;
+    Set<OpportunityDetail> opportunityDetails;
 
     @OneToMany(mappedBy = "opportunity",fetch = FetchType.EAGER)
-    Collection<OpportunityForm> opportunityFormItems;
+    Set<OpportunityForm> opportunityFormItems;
 
 }

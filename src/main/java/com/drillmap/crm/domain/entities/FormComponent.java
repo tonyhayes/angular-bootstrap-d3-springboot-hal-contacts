@@ -6,7 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.Set;
 
 /**
  * Created by tony on 4/2/14.
@@ -14,19 +14,19 @@ import java.util.Collection;
 @Entity
 @Table(name = "app_crm_form_component")
 @Data
-@EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true, exclude = "options")
+@ToString(callSuper = true,exclude = "options")
 public class FormComponent extends AuditableEntity {
 
-        String field_id;
-        String field_title;
-        String field_type;
-        String field_value;
-        String field_placeholder;
-        String field_required;
+    String field_id;
+    String field_title;
+    String field_type;
+    String field_value;
+    String field_placeholder;
+    String field_required;
 
     @OneToMany(mappedBy = "formComponent",fetch = FetchType.EAGER)
-    Collection<FormComponentOption> options;
+    Set<FormComponentOption> options;
 
 
 }
