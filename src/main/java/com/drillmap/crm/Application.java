@@ -41,7 +41,7 @@ public class Application {
     static class WebConfiguration {
         @Bean
         public CurieProvider curieProvider() {
-            return new DefaultCurieProvider("crm", new UriTemplate("http://localhost:8080/rels/{rel}"));
+            return new DefaultCurieProvider("crm", new UriTemplate("http://localhost:9090/rels/{rel}"));
         }
     }
 
