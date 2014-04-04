@@ -17,11 +17,11 @@ import java.util.Calendar;
 @ToString(callSuper = true)
 public class AuditableEntity extends BaseEntity {
 
-    @Column(name = "created_at", nullable = false, unique = true)
+    @Column(name = "created_at", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar createdAt;
 
-    @Column(name = "updated_at", nullable = false, unique = true)
+    @Column(name = "updated_at", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar updatedAt;
 

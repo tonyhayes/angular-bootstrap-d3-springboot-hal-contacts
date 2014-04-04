@@ -18,8 +18,8 @@ import java.util.Date;
 @ToString(callSuper = true)
 public class OpportunityDetail extends AuditableEntity {
     @ManyToOne
-    SalesPerson salesPerson;
-    Date followUpDate;
+    SalesPerson sales;
+    Date followUpdate;
     String action;
     @ManyToOne
     Opportunity opportunity;

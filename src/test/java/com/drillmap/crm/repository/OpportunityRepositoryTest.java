@@ -95,7 +95,7 @@ public class OpportunityRepositoryTest {
         //create a detail
         OpportunityDetail od = new OpportunityDetail();
         od.setAction("Call after christmas");
-        od.setSalesPerson(mySavedSalesPerson);
+        od.setSales(mySavedSalesPerson);
         od.setOpportunity(mySavedOpportunity);
         opportunityDetailRepository.save(od);
 
@@ -134,14 +134,14 @@ public class OpportunityRepositoryTest {
 
         Opportunity myOpportunity = new Opportunity();
         myOpportunity.setDiscussion("myOpportunity");
-        myOpportunity.setSalesPerson(mySavedSalesPerson);
+        myOpportunity.setSales(mySavedSalesPerson);
         myOpportunity.setProbability(mySavedProbability);
         Opportunity mySavedOpportunity = opportunityRepository.save(myOpportunity);
 
         //create a detail
         OpportunityDetail od = new OpportunityDetail();
         od.setAction("Call after christmas");
-        od.setSalesPerson(mySavedSalesPerson);
+        od.setSales(mySavedSalesPerson);
         od.setOpportunity(mySavedOpportunity);
         opportunityDetailRepository.save(od);
 
@@ -155,7 +155,7 @@ public class OpportunityRepositoryTest {
         assertThat(myOpportunity.getId(), notNullValue());
         myOpportunity = opportunityRepository.findOne(myOpportunity.getId());
         assertThat(myOpportunity.getOpportunityDetails(), notNullValue());
-        assertThat(myOpportunity.getSalesPerson(), notNullValue());
+        assertThat(myOpportunity.getSales(), notNullValue());
         assertThat(myOpportunity.getProbability(), notNullValue());
 
     }

@@ -21,6 +21,6 @@ public class FormComponentOption extends AuditableEntity {
     String option_title;
     String option_value;
     @ManyToOne
-    FormComponent formComponent;
+    FormComponent component;
 
 }

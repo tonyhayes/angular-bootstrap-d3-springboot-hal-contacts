@@ -55,7 +55,7 @@ public class OpportunityDetailRepositoryTest {
         //create a detail
         OpportunityDetail c = new OpportunityDetail();
         c.setAction("Call after christmas");
-        c.setSalesPerson(mySavedSalesPerson);
+        c.setSales(mySavedSalesPerson);
         c.setOpportunity(mySavedOpportunity);
 
         //save a contact
@@ -78,14 +78,14 @@ public class OpportunityDetailRepositoryTest {
 
         OpportunityDetail c = new OpportunityDetail();
         c.setAction("Call after christmas");
-        c.setSalesPerson(mySavedSalesPerson);
+        c.setSales(mySavedSalesPerson);
         c.setOpportunity(mySavedOpportunity);
         OpportunityDetail c1 = opportunityDetailRepository.save(c);
 
         assertThat(c1.getId(), notNullValue());
         c1 = opportunityDetailRepository.findOne(c1.getId());
         assertThat(c1.getOpportunity(), notNullValue());
-        assertThat(c1.getSalesPerson(), notNullValue());
+        assertThat(c1.getSales(), notNullValue());
 
     }
 

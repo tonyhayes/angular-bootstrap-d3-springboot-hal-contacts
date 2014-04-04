@@ -20,7 +20,7 @@ public class Opportunity extends AuditableEntity {
     @ManyToOne
     Company company;
     @ManyToOne
-    SalesPerson salesPerson;
+    SalesPerson sales;
     @ManyToOne
     Contact contact;
     @ManyToOne

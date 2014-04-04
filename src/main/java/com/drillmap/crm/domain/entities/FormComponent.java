@@ -25,7 +25,7 @@ public class FormComponent extends AuditableEntity {
     String field_placeholder;
     String field_required;
 
-    @OneToMany(mappedBy = "formComponent",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "component",fetch = FetchType.EAGER)
     Set<FormComponentOption> options;
 
 

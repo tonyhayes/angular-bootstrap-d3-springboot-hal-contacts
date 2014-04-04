@@ -44,7 +44,7 @@ public class FormComponentOptionRepositoryTest {
         //create a formComponentOption
         FormComponentOption formComponentOption = new FormComponentOption();
         formComponentOption.setOption_title("Option");
-        formComponentOption.setFormComponent(mySavedFormComponent);
+        formComponentOption.setComponent(mySavedFormComponent);
 
         //save a contact
         formComponentOptionRepository.save(formComponentOption);
@@ -62,12 +62,12 @@ public class FormComponentOptionRepositoryTest {
 
         FormComponentOption formComponentOption = new FormComponentOption();
         formComponentOption.setOption_title("Option");
-        formComponentOption.setFormComponent(mySavedFormComponent);
+        formComponentOption.setComponent(mySavedFormComponent);
         FormComponentOption c1 = formComponentOptionRepository.save(formComponentOption);
 
         assertThat(c1.getId(), notNullValue());
         c1 = formComponentOptionRepository.findOne(c1.getId());
-        assertThat(c1.getFormComponent(), notNullValue());
+        assertThat(c1.getComponent(), notNullValue());
 
     }
 
