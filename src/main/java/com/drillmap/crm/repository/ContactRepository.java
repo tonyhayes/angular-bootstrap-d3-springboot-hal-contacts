@@ -2,6 +2,7 @@ package com.drillmap.crm.repository;
 
 import com.drillmap.crm.domain.entities.Contact;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -10,6 +11,6 @@ import java.util.List;
  */
 public interface ContactRepository extends JpaRepository<Contact,Long> {
 
-    public List<Contact> findByFirstName(String firstName);
-    public List<Contact> findByLastName(String lastName);
+    public List<Contact> findByFirstName(@Param(value = "firstName") String firstName);
+    public List<Contact> findByLastName(@Param(value = "lastName") String lastName);
 }
