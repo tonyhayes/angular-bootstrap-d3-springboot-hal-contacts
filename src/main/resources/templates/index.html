@@ -14,7 +14,9 @@
     <link th:href="@{app/css/jquery-ui-1.10.4.custom.min.css}" rel="stylesheet"/>
     <link th:href="@{app/css/customerManagementStyles.css}" rel="stylesheet"/>
 
-
+    <script>
+        var dmApplicationEntryPoint = '//localhost:9090/companies';
+    </script>
 
     </head>
 <body>
@@ -64,11 +66,13 @@
 <script th:src="@{app/lib/ng-grid-2.0.7.debug.js}"></script>
 <script th:src="@{app/lib/jquery-ui-1.10.4.custom.min.js}"></script>
 <script th:src="@{app/lib/dynamic-forms.js}"></script>
+<script th:src="@{app/lib/ng-infinite-scroll.js}"></script>
 
 <!-- application -->
 
 <script th:src="@{app/js/app.js}"></script>
 <script th:src="@{app/js/services/customerServices.js}"></script>
+<script th:src="@{app/js/services/companyService.js}"></script>
 <script th:src="@{app/js/controllers/customerControllers.js}"></script>
 <script th:src="@{app/js/filters/customerFilters.js}"></script>
 <script th:src="@{app/js/directives/directives.js}"></script>

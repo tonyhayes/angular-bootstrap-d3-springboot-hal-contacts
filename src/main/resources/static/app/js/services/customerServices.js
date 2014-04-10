@@ -162,11 +162,11 @@ angular.module('customersApp.customerServices', []).
 
 //This handles retrieving data and is used by controllers. 3 options (server, factory, provider) with 
 //each doing the same thing just structuring the functions/data differently.
-    .service('customersService', function () {
+    .service('customersService', function ($http) {
         this.getCustomers = function () {
             return customers;
-        };
 
+        };
 
         this.deleteCustomer = function (id) {
             for (var i = customers.length - 1; i >= 0; i--) {

@@ -8,9 +8,11 @@ angular.module('customersApp', [
         'customersApp.customerControllers',
         'customersApp.formControllers',
         'customersApp.formsService',
+        'customersApp.companyService',
         'ui.bootstrap',
         'ngGrid',
-        'dynform'
+        'dynform',
+        'infinite-scroll'
     ]).
     config(['$routeProvider',
         function ($routeProvider, $locationProvider) {

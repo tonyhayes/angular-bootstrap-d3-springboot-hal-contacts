@@ -6,14 +6,17 @@ angular.module('customersApp.customerControllers', [])
 
 //This controller retrieves data from the customersService and associates it with the $scope
 //The $scope is ultimately bound to the customers view
-    .controller('CustomersController', ['$scope', '$location', '$filter', 'customersService', 'modalService',
+    .controller('CustomersController', ['$scope', '$location', '$filter', 'CompanyServices', 'customersService', 'modalService',
 
-        function ($scope, $location, $filter, customersService, modalService) {
+        function ($scope, $location, $filter, CompanyServices, customersService, modalService) {
 
             $scope.customers = [];
             $scope.filteredCustomers = [];
             $scope.filteredCount = 0;
-
+            $scope.scroll = {};
+            $scope.scroll.stop = true;
+            $scope.scroll.next = '';
+            $scope.pageNo = 0;
             init();
 
             $scope.deleteCustomer = function (id) {
@@ -59,16 +62,79 @@ angular.module('customersApp.customerControllers', [])
                 });
             }
 
+            $scope.loadMore = function() {
+                //stop the scrolling while we are reloading - important!
+
+                if ($scope.scroll.next && !$scope.scroll.stop ){
+
+                    //stop the scrolling while we are reloading - important!
+                    $scope.scroll.stop = true;
+
+                    //make the call to getCompanies and handle the promise returned;
+                    CompanyServices.getCompanies($scope.pageNo).then(function(data) {
+                        //this will execute when the
+                        //AJAX call completes.
+                        var items = data._embedded.companies;
+                        for (var i = 0; i < items.length; i++) {
+                            $scope.customers.push(items[i]);
+                        }
+
+                        if(data._links.next){
+                            $scope.scroll.next = data._links.next.href;
+                            $scope.scroll.stop = false;
+                            $scope.pageNo++;
+                        }else{
+                            $scope.scroll.next = '';
+                            $scope.scroll.stop = true;
+                        }
+
+
+                        console.log(data);
+                        if($scope.customers){
+                            $scope.totalRecords = $scope.customers.length;
+                            filterCustomers(''); //Trigger initial filter
+                        }
+                    });
+
+                }
+
+
+            }
+
+
+
             function getCustomersSummary() {
-                $scope.customers = customersService.getCustomers();
-                $scope.totalRecords = $scope.customers.length;
-                filterCustomers(''); //Trigger initial filter
+
+                //make the call to getCompanies and handle the promise returned;
+                CompanyServices.getCompanies($scope.pageNo).then(function(data) {
+                    //this will execute when the
+                    //AJAX call completes.
+                    $scope.customers = data._embedded.companies;
+                    if(data._links.next){
+                        $scope.scroll.next = data._links.next.href;
+                        $scope.scroll.stop = false;
+                        $scope.pageNo++;
+                    }else{
+                        $scope.scroll.next = '';
+                        $scope.scroll.stop = true;
+                    }
+
+
+                    console.log(data);
+                    if($scope.customers){
+                        $scope.totalRecords = $scope.customers.length;
+                        filterCustomers(''); //Trigger initial filter
+                    }
+                });
+
             }
 
 
             function filterCustomers(filterText) {
-                $scope.filteredCustomers = $filter("nameCityStateFilter")($scope.customers, filterText);
-                $scope.filteredCount = $scope.filteredCustomers.length;
+                if($scope.customers){
+                    $scope.filteredCustomers = $filter("nameCityStateFilter")($scope.customers, filterText);
+                    $scope.filteredCount = $scope.filteredCustomers.length;
+                }
             }
         }
     ])

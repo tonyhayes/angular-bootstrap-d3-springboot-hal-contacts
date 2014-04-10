@@ -18,10 +18,10 @@ angular.module('customersApp.filters', [])
             filterValue = filterValue.toLowerCase();
             for (var i = 0; i < customers.length; i++) {
                 var cust = customers[i];
-                if (cust.customerName.toLowerCase().indexOf(filterValue) > -1 ||
-                    cust.state.toLowerCase().indexOf(filterValue) > -1 ||
-                    cust.city.toLowerCase().indexOf(filterValue) > -1 ||
-                    cust.contactName.toLowerCase().indexOf(filterValue) > -1) {
+                if ((cust.companyName && cust.companyName.toLowerCase().indexOf(filterValue) > -1) ||
+                    (cust.state && cust.state.toLowerCase().indexOf(filterValue) > -1) ||
+                    (cust.city && cust.city.toLowerCase().indexOf(filterValue) > -1) ||
+                    (cust.contactName && cust.contactName.toLowerCase().indexOf(filterValue) > -1)) {
 
                     matches.push(cust);
 
@@ -45,7 +45,7 @@ angular.module('customersApp.filters', [])
         return function (customerNameId) {
             var customerName = customerNamesService.getCustomerName(customerNameId);
             if (customerName) {
-                return customerName.customerName;
+                return customerName.companyName;
             } else {
                 return 'unknown';
             }
