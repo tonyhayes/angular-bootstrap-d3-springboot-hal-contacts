@@ -2,7 +2,7 @@ angular.module('customersApp.formsService', [])
 
     .service('FormService', function FormService($http) {
 
-        var formsJsonPath = 'static-data/sample_forms.json';
+        var formsJsonPath = 'app/partials/static-data/sample_forms.json';
         var customFormTypes = [
             {
                 name: 'dealDate',

@@ -1630,7 +1630,7 @@ angular.module('customersApp.customerServices', []).
                 backdrop: true,
                 keyboard: true,
                 modalFade: true,
-                templateUrl: 'partials/modal.html'
+                templateUrl: 'app/partials/modal.html'
             };
 
             var modalOptions = {
@@ -1687,7 +1687,7 @@ angular.module('customersApp.customerServices', []).
                 keyboard: true,
                 backdropClick: true,
                 dialogFade: true,
-                templateUrl: 'partials/dialog.html'
+                templateUrl: 'app/partials/dialog.html'
             };
 
             var dialogOptions = {

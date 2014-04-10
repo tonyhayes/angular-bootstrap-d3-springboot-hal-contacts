@@ -15,31 +15,31 @@ angular.module('customersApp', [
     config(['$routeProvider',
         function ($routeProvider, $locationProvider) {
             $routeProvider.when('/customers', {
-                templateUrl: 'partials/customer/customers.html',
+                templateUrl: 'app/partials/customer/customers.html',
                 controller: 'CustomersController'
             });
             $routeProvider.when('/customercontactdetails/:customerID', {
-                templateUrl: 'partials/customer/customerContactDetails.html',
+                templateUrl: 'app/partials/customer/customerContactDetails.html',
                 controller: 'CustomerContactsController'
             });
             $routeProvider.when('/customeropportunitydetails/:customerID', {
-                templateUrl: 'partials/customer/customerOpportunityDetails.html',
+                templateUrl: 'app/partials/customer/customerOpportunityDetails.html',
                 controller: 'CustomerOpportunityController'
             });
             $routeProvider.when('/customerOpportunitiesEdit/:customerID/:id', {
-                templateUrl: 'partials/customer/customerOpportunitiesEdit.html',
+                templateUrl: 'app/partials/customer/customerOpportunitiesEdit.html',
                 controller: 'CustomerOpportunitiesEditController'
             });
             $routeProvider.when('/customeredit/:customerID', {
-                templateUrl: 'partials/customer/customerEdit.html',
+                templateUrl: 'app/partials/customer/customerEdit.html',
                 controller: 'CustomerEditController'
             });
             $routeProvider.when('/forms/create', {
-                templateUrl: 'partials/form/create.html',
+                templateUrl: 'app/partials/form/create.html',
                 controller: 'FormController'
             });
             $routeProvider.when('/createcustomfields', {
-                templateUrl: 'partials/form/createCustomFields.html',
+                templateUrl: 'app/partials/form/createCustomFields.html',
                 controller: 'FormFieldController'
             });
             $routeProvider.otherwise({

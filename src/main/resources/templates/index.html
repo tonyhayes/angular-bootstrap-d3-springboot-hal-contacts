@@ -1,6 +1,84 @@
 <!DOCTYPE html PUBLIC "http://www.thymeleaf.org/dtd/xhtml11-thymeleaf-spring4-4.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html data-ng-app="customersApp" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thttp://www.thymeleaf.org/dtd/xhtml11-thymeleaf-spring4-4.dtd">
 
-The application starts here there now.
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Customer Relationship Manager</title>
+    <link th:href="@{app/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{app/css/bootstrap-responsive.min.css}" rel="stylesheet"/>
+    <link th:href="@{app/css/ng-grid.min.css}" rel="stylesheet"/>
+    <link th:href="@{app/css/jquery-ui-1.10.4.custom.min.css}" rel="stylesheet"/>
+    <link th:href="@{app/css/customerManagementStyles.css}" rel="stylesheet"/>
+
+
+
+    </head>
+<body>
+<div class="container">
+
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <a class="brand " href="#/">
+                <img th:src= "@{app/css/images/people.png}" alt="logo"> Customer Manager
+            </a>
+            <ul class="nav nav-pills">
+                <li ng-class="{active: isCurrentPage(' ') }"><a href="#/customers">Customers</a></li>
+                <li ng-class="{active: isCurrentPage('create') }"><a href="#/forms/create">Form
+                    Administration</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- Note that AngularJS has a built-in ng-animation direction. Left in animated-view to show a
+         custom directive -->
+    <div animated-view></div>
+    <ng-view></ng-view>
+
+
+    <div id="footer">
+        <div class="navbar navbar-fixed-bottom">
+            <div class="navbar-inner">
+                <footer>
+                    <div class="span4">
+                        Drillmap
+                    </div>
+
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Vendor Libs: jQuery only used for Bootstrap functionality -->
+<script th:src="@{app/lib/jquery.min.js}"></script>
+<script th:src="@{app/lib/angular/angular.js}"></script>
+<script th:src="@{app/lib/angular/angular-route.js}"></script>
+
+<script th:src="@{app/lib/bootstrap-ui.js}"></script>
+
+<script th:src="@{app/lib/ng-grid-2.0.7.debug.js}"></script>
+<script th:src="@{app/lib/jquery-ui-1.10.4.custom.min.js}"></script>
+<script th:src="@{app/lib/dynamic-forms.js}"></script>
+
+<!-- application -->
+
+<script th:src="@{app/js/app.js}"></script>
+<script th:src="@{app/js/services/customerServices.js}"></script>
+<script th:src="@{app/js/controllers/customerControllers.js}"></script>
+<script th:src="@{app/js/filters/customerFilters.js}"></script>
+<script th:src="@{app/js/directives/directives.js}"></script>
+
+<!-- form builder -->
+
+<script th:src="@{app/js/controllers/formController.js}"></script>
+<script th:src="@{app/js/services/formService.js}"></script>
+
+
+</body>
+
 </html>

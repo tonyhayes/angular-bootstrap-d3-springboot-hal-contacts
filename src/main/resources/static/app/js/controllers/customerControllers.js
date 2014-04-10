@@ -22,7 +22,7 @@ angular.module('customersApp.customerControllers', [])
                 var custName = cust.customerName + ' ' + cust.city;
 
                 var modalDefaults = {
-                    templateUrl: 'partials/modal.html'
+                    templateUrl: 'app/partials/modal.html'
                 };
                 var modalOptions = {
                     closeButtonText: 'Cancel',
@@ -134,19 +134,19 @@ angular.module('customersApp.customerControllers', [])
                         columnDefs: [
                             {
                                 field: 'firstname',
-                                headerCellTemplate: 'partials/filterHeaderTemplate.html',
+                                headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
                                 width: '**',
                                 displayName: 'First Name'
                             },
                             {
                                 field: 'lastname',
-                                headerCellTemplate: 'partials/filterHeaderTemplate.html',
+                                headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
                                 width: '**',
                                 displayName: 'Last Name'
                             },
                             {
                                 field: 'title',
-                                headerCellTemplate: 'partials/filterHeaderTemplate.html',
+                                headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
                                 width: '***',
                                 displayName: 'Title'
 
@@ -154,14 +154,14 @@ angular.module('customersApp.customerControllers', [])
                             {
 
                                 field: 'addressLine1',
-                                headerCellTemplate: 'partials/filterHeaderTemplate.html',
+                                headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
                                 width: '***',
                                 displayName: 'Address'
                             },
                             {
 
                                 field: 'city',
-                                headerCellTemplate: 'partials/filterHeaderTemplate.html',
+                                headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
                                 width: '**',
                                 displayName: 'City'
                             }
@@ -184,7 +184,7 @@ angular.module('customersApp.customerControllers', [])
                 }
 
                 var modalDefaults = {
-                    templateUrl: 'partials/customer/modalContactEdit.html'
+                    templateUrl: 'app/partials/customer/modalContactEdit.html'
                 };
                 var modalOptions = {
                     closeButtonText: 'Cancel',
@@ -273,34 +273,34 @@ angular.module('customersApp.customerControllers', [])
                         columnDefs: [
                             {
                                 field: 'customer',
-                                headerCellTemplate: 'partials/filterHeaderTemplate.html',
+                                headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
                                 width: '*',
                                 cellFilter: 'mapCustomerName',
                                 displayName: 'Customer'
                             },
                             {
                                 field: 'salesPerson',
-                                headerCellTemplate: 'partials/filterHeaderTemplate.html',
+                                headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
                                 cellFilter: 'mapSalesPerson',
                                 width: '*',
                                 displayName: 'Sales'
                             },
                             {
                                 field: 'discussion',
-                                headerCellTemplate: 'partials/filterHeaderTemplate.html',
+                                headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
                                 width: '***',
                                 displayName: 'Discussion'
                             },
                             {
                                 field: 'probability',
-                                headerCellTemplate: 'partials/filterHeaderTemplate.html',
+                                headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
                                 cellFilter: 'mapProbability',
                                 width: '*',
                                 displayName: 'Probability'
                             },
                             {
                                 field: 'potentialRevenue',
-                                headerCellTemplate: 'partials/filterHeaderTemplate.html',
+                                headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
                                 width: '**',
                                 displayName: 'Potential Revenue'
                             }
@@ -454,20 +454,20 @@ angular.module('customersApp.customerControllers', [])
                     {
                         field: 'salesPerson',
                         cellFilter: 'mapSalesPerson',
-                        headerCellTemplate: 'partials/filterHeaderTemplate.html',
+                        headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
                         width: '*',
                         displayName: 'Sales'
                     },
                     {
                         field: 'followUpDate',
-                        headerCellTemplate: 'partials/filterHeaderTemplate.html',
+                        headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
                         width: '*',
                         cellFilter: 'date',
                         displayName: 'Date'
                     },
                     {
                         field: 'Action',
-                        headerCellTemplate: 'partials/filterHeaderTemplate.html',
+                        headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
                         width: '***',
                         displayName: 'Action'
 
@@ -491,7 +491,7 @@ angular.module('customersApp.customerControllers', [])
 
 
                 var modalDefaults = {
-                    templateUrl: 'partials/customer/modalOpportunityActionsEdit.html'
+                    templateUrl: 'app/partials/customer/modalOpportunityActionsEdit.html'
                 };
                 var modalOptions = {
                     closeButtonText: 'Cancel',
