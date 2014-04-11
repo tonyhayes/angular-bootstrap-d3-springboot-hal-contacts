@@ -83,24 +83,25 @@ angular.module('customersApp', [
 //        });
 
         // use $q.all to wait until all promises are resolved
-        $q.all([
-            CompanyServices.getCompanies(0),
-            service2,
-            service3,
-            userReady.promise
-        ]).then(
-            function(data) {
-                console.log('All services are resolved!');
-                // when evdrything has loaded, flip the switch, and let the
-                // routes do their work
-                $scope.loadingDone = true;
-            },
-            function(reason) {
-                // if any of the promises fails, handle it
-                // here, I'm just throwing an error message to
-                // the user.
-                $scope.failure = reason;
-            });
+//        $q.all([
+//            CompanyServices.getCompanies(0),
+//            service2,
+//            service3,
+//            userReady.promise
+//        ]).then(
+//            function(data) {
+//                console.log('All services are resolved!');
+//                // when evdrything has loaded, flip the switch, and let the
+//                // routes do their work
+//                $scope.loadingDone = true;
+//            },
+//            function(reason) {
+//                // if any of the promises fails, handle it
+//                // here, I'm just throwing an error message to
+//                // the user.
+//                $scope.failure = reason;
+//            });
+        $scope.loadingDone = true;
 
     }
 ]);
