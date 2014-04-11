@@ -8,7 +8,7 @@ angular.module('customersApp', [
         'customersApp.customerControllers',
         'customersApp.formControllers',
         'customersApp.formsService',
-        'customersApp.companyService',
+        'customersApp.ajaxService',
         'ui.bootstrap',
         'ngGrid',
         'dynform',
@@ -69,41 +69,36 @@ angular.module('customersApp', [
         };
 
 
-        // You should not use $http directly in a controller
-        // however, I wanted to show how to load real data
-        // here too. This should be handled by a service too!
-//        userLoadProm = $http.get('users.json');
-//        userLoadProm.then(function(response) {
-//            // I'm exposing the userList on my appController scope,
-//            // all normal scopes in my app inherrit from
-//            // here, so it's available everywhere!
-//            $scope.userList = response.data;
-//            console.log('Users are loaded, $http promise is resolved!');
-//        });
+        statesService.getConfiguredStates().then(function(data) {
+            //this will execute when the
+            //AJAX call completes.
+            statesService.setStates(data);
+         });
 
         // use $q.all to wait until all promises are resolved
-        $q.all([
-            CompanyServices.getCompanies(0),
-            statesService.getConfiguredStates
-        ]).then(
-            function(data) {
-                if(data[0]._embedded){
-                    customersService.saveCustomerPages(data[0]);
-                }
-//                if(data[1]){
-//                    statesService.setStates(data[1]);
+//        $q.all([
+//            CompanyServices.getCompanies(0),
+//            statesService.getConfiguredStates
+//        ]).then(
+//            function(data) {
+//                if(data[0]._embedded){
+//                    customersService.saveCustomerPages(data[0]);
 //                }
-                console.log('All services are resolved!');
-                // when evdrything has loaded, flip the switch, and let the
-                // routes do their work
-                $scope.loadingDone = true;
-            },
-            function(reason) {
-                // if any of the promises fails, handle it
-                // here, I'm just throwing an error message to
-                // the user.
-                $scope.failure = reason;
-            });
+//                if(data[1]){
+//                    statesService.setStates(data[0]);
+//                }
+//                console.log('All services are resolved!');
+//                // when evdrything has loaded, flip the switch, and let the
+//                // routes do their work
+//                $scope.loadingDone = true;
+//            },
+//            function(reason) {
+//                // if any of the promises fails, handle it
+//                // here, I'm just throwing an error message to
+//                // the user.
+//                $scope.failure = reason;
+//            });
+        $scope.loadingDone = true;
 
     }
 ]);
