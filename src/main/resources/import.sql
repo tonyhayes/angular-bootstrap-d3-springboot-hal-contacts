@@ -91,13 +91,13 @@ insert into app_crm_probabilities (name, percentage, created_at, updated_at) val
 
 
 -- States
-insert into app_crm_states (state_Abbr, name, created_at, updated_at) values ('TX', 'Texas', now(), now());
-insert into app_crm_states (state_Abbr, name, created_at, updated_at) values ('OK', 'Oklahoma', now(), now());
-insert into app_crm_states (state_Abbr, name, created_at, updated_at) values ('NM', 'New Mexico', now(), now());
-insert into app_crm_states (state_Abbr, name, created_at, updated_at) values ('ND', 'North Dakota', now(), now());
-insert into app_crm_states (state_Abbr, name, created_at, updated_at) values ('PA', 'Pennsylvania', now(), now());
-insert into app_crm_states (state_Abbr, name, created_at, updated_at) values ('AR', 'Arkansas', now(), now());
-insert into app_crm_states (state_Abbr, name, created_at, updated_at) values ('OH', 'Ohio', now(), now());
+insert into app_crm_states (state_abbr, name, created_at, updated_at) values ('TX', 'Texas', now(), now());
+insert into app_crm_states (state_abbr, name, created_at, updated_at) values ('OK', 'Oklahoma', now(), now());
+insert into app_crm_states (state_abbr, name, created_at, updated_at) values ('NM', 'New Mexico', now(), now());
+insert into app_crm_states (state_abbr, name, created_at, updated_at) values ('ND', 'North Dakota', now(), now());
+insert into app_crm_states (state_abbr, name, created_at, updated_at) values ('PA', 'Pennsylvania', now(), now());
+insert into app_crm_states (state_abbr, name, created_at, updated_at) values ('AR', 'Arkansas', now(), now());
+insert into app_crm_states (state_abbr, name, created_at, updated_at) values ('OH', 'Ohio', now(), now());
 
 
 -- opportunity

@@ -232,6 +232,22 @@ angular.module('customersApp.customerServices', []).
             }
             return null;
         };
+
+        this.saveCustomerPages = function (customerArray, Page) {
+            customerPageData = customerArray;
+        };
+
+        this.storeCustomer = function (customerObj) {
+            customerObject = customerObj;
+        };
+
+        this.getStoredCustomer = function () {
+            return customerObject;
+        };
+
+        var customerPageData = [];
+        var customerObject;
+
         var customers = [
             {
                 customerId: "ec5329ed-ba10-4ad6-894a-bbd348d12222",

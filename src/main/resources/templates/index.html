@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "http://www.thymeleaf.org/dtd/xhtml11-thymeleaf-spring4-4.dtd">
-<html data-ng-app="customersApp" xmlns="http://www.w3.org/1999/xhtml"
+<html data-ng-app="customersApp" data-ng-controller="appController" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thttp://www.thymeleaf.org/dtd/xhtml11-thymeleaf-spring4-4.dtd">
 
 <head>
@@ -16,6 +16,9 @@
 
     <script>
         var dmApplicationEntryPoint = '//localhost:9090/companies';
+        var dmSales = '//localhost:9090/salesPeople';
+        var dmStates = '//localhost:9090/states';
+
     </script>
 
     </head>
@@ -36,10 +39,27 @@
         </div>
     </div>
 
-    <!-- Note that AngularJS has a built-in ng-animation direction. Left in animated-view to show a
-         custom directive -->
-    <div animated-view></div>
-    <ng-view></ng-view>
+
+    <div ng-if='!loadingDone' class="col-md-10">
+        <!-- this is my loading div, it is taken out of the dom once everything is loaded! -->
+        <h2><small>Loading:</small></h2>
+        <div class="progress progress-striped active" ng-controller='loadingController'>
+            <div class="progress-bar" style="width: {{percentDone}}%">
+            </div>
+        </div>
+    </div>
+
+    <div ng-if='loadingDone'>
+        <!--
+           this is my working div, it is inserted to  the dom once everything is loaded!
+           By putting the ng-view in here, the routes only get fired AFTER I have
+           done al off my initializations, and requests.
+        -->
+        <!-- Note that AngularJS has a built-in ng-animation direction. Left in animated-view to show a
+              custom directive -->
+        <div animated-view></div>
+        <ng-view></ng-view>
+    </div>
 
 
     <div id="footer">

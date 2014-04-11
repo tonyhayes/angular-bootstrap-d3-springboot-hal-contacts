@@ -14,9 +14,10 @@ angular.module('customersApp.customerControllers', [])
             $scope.filteredCustomers = [];
             $scope.filteredCount = 0;
             $scope.scroll = {};
-            $scope.scroll.stop = true;
+            $scope.scroll.stop = false;
             $scope.scroll.next = '';
-            $scope.pageNo = 0;
+            $scope.pageNo = 1;
+
             init();
 
             $scope.deleteCustomer = function (id) {
@@ -44,12 +45,14 @@ angular.module('customersApp.customerControllers', [])
             };
 
             function init() {
-                $scope.customers = customersService.getCustomers();
                 createWatches();
                 getCustomersSummary();
             }
 
-            $scope.navigate = function (url) {
+            $scope.navigate = function (url, customerObject) {
+                if(customerObject){
+                    customersService.storeCustomer(customerObject);
+                }
                 $location.path(url);
             };
 
@@ -104,28 +107,33 @@ angular.module('customersApp.customerControllers', [])
 
 
             function getCustomersSummary() {
+                if (!$scope.scroll.stop ) {
 
-                //make the call to getCompanies and handle the promise returned;
-                CompanyServices.getCompanies($scope.pageNo).then(function(data) {
-                    //this will execute when the
-                    //AJAX call completes.
-                    $scope.customers = data._embedded.companies;
-                    if(data._links.next){
-                        $scope.scroll.next = data._links.next.href;
-                        $scope.scroll.stop = false;
-                        $scope.pageNo++;
-                    }else{
-                        $scope.scroll.next = '';
-                        $scope.scroll.stop = true;
-                    }
+                    //stop the scrolling while we are reloading - important!
+                    $scope.scroll.stop = true;
+
+                    //make the call to getCompanies and handle the promise returned;
+                    CompanyServices.getCompanies($scope.pageNo).then(function (data) {
+                        //this will execute when the
+                        //AJAX call completes.
+                        $scope.customers = data._embedded.companies;
+                        if (data._links.next) {
+                            $scope.scroll.next = data._links.next.href;
+                            $scope.scroll.stop = false;
+                            $scope.pageNo++;
+                        } else {
+                            $scope.scroll.next = '';
+                            $scope.scroll.stop = true;
+                        }
 
 
-                    console.log(data);
-                    if($scope.customers){
-                        $scope.totalRecords = $scope.customers.length;
-                        filterCustomers(''); //Trigger initial filter
-                    }
-                });
+                        console.log(data);
+                        if ($scope.customers) {
+                            $scope.totalRecords = $scope.customers.length;
+                            filterCustomers(''); //Trigger initial filter
+                        }
+                    });
+                }
 
             }
 
@@ -187,7 +195,7 @@ angular.module('customersApp.customerControllers', [])
 
 
                 if (customerID) {
-                    $scope.customer = customersService.getCustomer(customerID);
+                    $scope.customer = customersService.getStoredCustomer();
                     $scope.myContacts = {
                         data: 'customer.contacts',
                         showGroupPanel: true,
@@ -405,10 +413,10 @@ angular.module('customersApp.customerControllers', [])
             init();
 
             function init() {
-                //Grab planID off of the route
+                //Grab ID off of the route
                 var customerID = $routeParams.customerID;
                 if (customerID) {
-                    $scope.customer = customersService.getCustomer(customerID);
+                    $scope.customer = customersService.getStoredCustomer();
                     $scope.master = angular.copy($scope.customer);
                     $scope.state_array = statesService.getStates();
                 }
@@ -421,12 +429,11 @@ angular.module('customersApp.customerControllers', [])
                 if ($scope.customerForm.$valid) {
                     $scope.customer = angular.copy($scope.master);
 
-                    if (!$scope.customer.customerId) {
-                        $scope.customer.customerId = 'AAA' + Math.floor(Math.random() * 10000000);
+                    if (!customerId) {
                         customersService.insertCustomer($scope.customer);
 
                     } else {
-                        //assume a service
+                        //patch
                         customersService.updateCustomer($scope.customer);
                     }
 
@@ -437,7 +444,8 @@ angular.module('customersApp.customerControllers', [])
 
 
         }
-    ]).controller('CustomerOpportunitiesEditController', ['$scope', '$routeParams', '$location', '$filter', 'customersService',
+    ])
+    .controller('CustomerOpportunitiesEditController', ['$scope', '$routeParams', '$location', '$filter', 'customersService',
         'customerNamesService', 'salesPersonService', 'contactService', 'probabilityService', 'modalService', 'formFormatterService',
 
         function ($scope, $routeParams, $location, $filter, customersService, customerNamesService, salesPersonService, contactService, probabilityService, modalService, formFormatterService) {
@@ -595,4 +603,30 @@ angular.module('customersApp.customerControllers', [])
 
 
         }
+    ])
+    //this contoller is in charhe of the loadfing bar,
+    // it's quick and dirty, and does nothing fancy.
+    .controller("loadingController", [
+        "$scope", "$timeout",
+        function($scope, $timeout) {
+            $scope.percentDone = 0;
+
+            function animateBar() {
+                // very crude timeout based animator
+                // just to illustrate the sample
+                if ($scope.loadingDone) {
+                    // this is thighly coupled to the appController
+                    return;
+                }
+                if ($scope.percentDone == 100) {
+                    $scope.percentDone = 0;
+                    $timeout(animateBar, 1000);
+                } else {
+                    $scope.percentDone += 2;
+                    $timeout(animateBar, 200);
+                }
+            }
+            animateBar();
+        }
     ]);
+
