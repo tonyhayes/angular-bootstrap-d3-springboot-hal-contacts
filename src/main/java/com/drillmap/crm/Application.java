@@ -7,7 +7,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.core.convert.support.ConfigurableConversionService;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration;
 import org.springframework.hateoas.UriTemplate;
@@ -15,6 +14,9 @@ import org.springframework.hateoas.hal.CurieProvider;
 import org.springframework.hateoas.hal.DefaultCurieProvider;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
+import org.springframework.web.socket.config.annotation.AbstractWebSocketMessageBrokerConfigurer;
+import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
+import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 
 /**
  * Created by sfrensley on 3/27/14.
@@ -35,8 +37,11 @@ public class Application {
     static class ApplicationConfiguration {}
 
 
+    /**
+     * Web Configuration
+     */
     @Configuration
-    @Import({ ApplicationConfiguration.class, CustomRepositoryRestConfiguration.class })
+    @Import({ ApplicationConfiguration.class, CustomRepositoryRestConfiguration.class, WebSocketConfiguration.class})
     @ComponentScan(excludeFilters = @Filter({ Service.class, Configuration.class }))
     static class WebConfiguration {
         @Bean
@@ -45,6 +50,9 @@ public class Application {
         }
     }
 
+    /**
+     * Repository Configuration
+     */
     @Configuration
     static class CustomRepositoryRestConfiguration extends  RepositoryRestMvcConfiguration {
         @Override
@@ -54,4 +62,22 @@ public class Application {
         }
     }
 
+    /**
+     * WebSocket configuration
+     */
+    @Configuration
+    @EnableWebSocketMessageBroker
+    static class WebSocketConfiguration extends AbstractWebSocketMessageBrokerConfigurer {
+
+        @Override
+        public void registerStompEndpoints(StompEndpointRegistry registry) {
+            registry.addEndpoint("/socket").withSockJS();
+        }
+
+        @Override
+        public void configureMessageBroker(org.springframework.messaging.simp.config.MessageBrokerRegistry registry) {
+            registry.enableSimpleBroker("/queue/", "/topic/");
+            registry.setApplicationDestinationPrefixes("/app");
+        }
+    }
 }

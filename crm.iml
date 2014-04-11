@@ -42,9 +42,7 @@
     <orderEntry type="library" exported="" name="Gradle: spring-boot-starter-logging-1.0.0.BUILD-SNAPSHOT" level="project" />
     <orderEntry type="library" exported="" name="Gradle: spring-boot-starter-1.0.0.BUILD-SNAPSHOT" level="project" />
     <orderEntry type="library" exported="" name="Gradle: snakeyaml-1.13" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: tomcat-embed-core-7.0.52" level="project" />
     <orderEntry type="library" exported="" name="Gradle: tomcat-embed-el-7.0.52" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: tomcat-embed-logging-juli-7.0.52" level="project" />
     <orderEntry type="library" exported="" name="Gradle: spring-boot-starter-tomcat-1.0.0.BUILD-SNAPSHOT" level="project" />
     <orderEntry type="library" exported="" name="Gradle: jackson-core-2.3.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: jackson-databind-2.3.2" level="project" />
@@ -101,6 +99,12 @@
     <orderEntry type="library" exported="" name="Gradle: nekohtml-1.9.20" level="project" />
     <orderEntry type="library" exported="" name="Gradle: xml-apis-1.4.01" level="project" />
     <orderEntry type="library" exported="" name="Gradle: xercesImpl-2.10.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: spring-boot-starter-websocket-1.0.0.BUILD-SNAPSHOT" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: tomcat-embed-core-7.0.52" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: tomcat-embed-logging-juli-7.0.52" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: spring-websocket-4.0.3.RELEASE" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: tomcat-embed-websocket-7.0.52" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: spring-messaging-4.0.0.RELEASE" level="project" />
   </component>
 </module>
 
