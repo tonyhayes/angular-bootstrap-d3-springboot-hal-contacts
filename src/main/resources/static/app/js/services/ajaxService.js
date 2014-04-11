@@ -15,7 +15,7 @@ angular.module('customersApp.ajaxService', [])
         }
     })
     .factory('statesService', function ($http) {
-        var states;
+        var states = [];
         return {
             getConfiguredStates: function () {
                 //since $http.get returns a promise,
@@ -31,6 +31,7 @@ angular.module('customersApp.ajaxService', [])
             },
             setStates: function (data) {
                 states = data._embedded.states;
+
             }
 
         }

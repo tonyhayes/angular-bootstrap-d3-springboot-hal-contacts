@@ -405,7 +405,7 @@ angular.module('customersApp.customerControllers', [])
         function ($scope, $routeParams, $location, customersService, statesService) {
             $scope.master = {};
             $scope.customer = {};
-            $scope.state_array = [];
+            $scope.state_array = statesService.getStates();
 
 
             init();
@@ -416,7 +416,6 @@ angular.module('customersApp.customerControllers', [])
                 if (customerID) {
                     $scope.customer = customersService.getStoredCustomer();
                     $scope.master = angular.copy($scope.customer);
-                    $scope.state_array = statesService.getStates();
                 }
             }
 
