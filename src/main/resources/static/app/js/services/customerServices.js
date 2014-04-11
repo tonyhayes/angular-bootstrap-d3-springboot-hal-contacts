@@ -10,17 +10,28 @@ angular.module('customersApp.customerServices', []).
         this.getStates = function () {
             return states;
         };
-        var states = [
-            {
-                id: 'Arizona',
-                state: "Arizona"
-            },
-            {
-                id: 'Texas',
-                state: "Texas"
-            }
-        ];
 
+    })
+    .factory('statesService', function($http) {
+        var states;
+        return {
+            getConfiguredStates: function() {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.get(dmStates).then(function(result) {
+                    return result.data;
+                });
+            },
+            getStates: function() {
+                return states;
+            },
+            setStates: function(data) {
+                states = data._embedded.states;
+            }
+
+        }
     })
 
     .service('customerNamesService', function () {
@@ -246,8 +257,9 @@ angular.module('customersApp.customerServices', []).
         };
 
         var customerPageData = [];
+        var customerPage = 0;
         var customerObject;
-
+        var states;
         var customers = [
             {
                 customerId: "ec5329ed-ba10-4ad6-894a-bbd348d12222",

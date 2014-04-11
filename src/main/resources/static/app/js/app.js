@@ -66,7 +66,6 @@ angular.module('customersApp', [
 
         $scope.fail = function() {
             console.log('User handling promise rejected');
-            userReady.reject("between the desk and the chair! I told you not to touch that button didn't I? ;-P"); // resolve the promise.
         };
 
 
@@ -83,25 +82,28 @@ angular.module('customersApp', [
 //        });
 
         // use $q.all to wait until all promises are resolved
-//        $q.all([
-//            CompanyServices.getCompanies(0),
-//            service2,
-//            service3,
-//            userReady.promise
-//        ]).then(
-//            function(data) {
-//                console.log('All services are resolved!');
-//                // when evdrything has loaded, flip the switch, and let the
-//                // routes do their work
-//                $scope.loadingDone = true;
-//            },
-//            function(reason) {
-//                // if any of the promises fails, handle it
-//                // here, I'm just throwing an error message to
-//                // the user.
-//                $scope.failure = reason;
-//            });
-        $scope.loadingDone = true;
+        $q.all([
+            CompanyServices.getCompanies(0),
+            statesService.getConfiguredStates
+        ]).then(
+            function(data) {
+                if(data[0]._embedded){
+                    customersService.saveCustomerPages(data[0]);
+                }
+//                if(data[1]){
+//                    statesService.setStates(data[1]);
+//                }
+                console.log('All services are resolved!');
+                // when evdrything has loaded, flip the switch, and let the
+                // routes do their work
+                $scope.loadingDone = true;
+            },
+            function(reason) {
+                // if any of the promises fails, handle it
+                // here, I'm just throwing an error message to
+                // the user.
+                $scope.failure = reason;
+            });
 
     }
 ]);
