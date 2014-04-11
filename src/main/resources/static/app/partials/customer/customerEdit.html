@@ -54,7 +54,7 @@
                      ng-class="{ 'has-error' : customerForm.state.$invalid && !customerForm.state.$pristine }">
                     <label>State</label>
                     <select required ng-model="master.state" class="form-control" name="state"
-                            ng-options="s.id as s.state for s in state_array"></select>
+                            ng-options="s.stateAbbr as s.name for s in state_array"></select>
 
                     <p ng-show="customerForm.state.$invalid && !customerForm.state.$pristine" class="help-block">State
                         is required.</p>
