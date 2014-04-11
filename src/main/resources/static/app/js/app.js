@@ -1,19 +1,18 @@
-
 // Declare app level module which depends on filters, and services
 angular.module('customersApp', [
-        'ngRoute',
-        'customersApp.customerServices',
-        'customersApp.filters',
-        'customersApp.directives',
-        'customersApp.customerControllers',
-        'customersApp.formControllers',
-        'customersApp.formsService',
-        'customersApp.ajaxService',
-        'ui.bootstrap',
-        'ngGrid',
-        'dynform',
-        'infinite-scroll'
-    ]).
+    'ngRoute',
+    'customersApp.customerServices',
+    'customersApp.filters',
+    'customersApp.directives',
+    'customersApp.customerControllers',
+    'customersApp.formControllers',
+    'customersApp.formsService',
+    'customersApp.ajaxService',
+    'ui.bootstrap',
+    'ngGrid',
+    'dynform',
+    'infinite-scroll'
+]).
     config(['$routeProvider',
         function ($routeProvider, $locationProvider) {
             $routeProvider.when('/customers', {
@@ -50,32 +49,32 @@ angular.module('customersApp', [
         }
     ])
     .controller("appController", [
-    "$scope", "$timeout", "$q", "customersService", "statesService", "CompanyServices",
-    function($scope, $timeout, $q, customersService, statesService, CompanyServices) {
-        var userReady = $q.defer();
-        var userLoadProm;
-        $scope.loadingDone = false;
+        "$scope", "$timeout", "$q", "customersService", "statesService", "CompanyServices",
+        function ($scope, $timeout, $q, customersService, statesService, CompanyServices) {
+            var userReady = $q.defer();
+            var userLoadProm;
+            $scope.loadingDone = false;
 
-        $scope.done = function() {
-            // Here I'm handling the click of a button,
-            // but this can be anything,
-            // including wating for user log-on for example!
-            console.log('User handling promise resolved');
-            userReady.resolve(); // resolve the promise.
-        };
+            $scope.done = function () {
+                // Here I'm handling the click of a button,
+                // but this can be anything,
+                // including wating for user log-on for example!
+                console.log('User handling promise resolved');
+                userReady.resolve(); // resolve the promise.
+            };
 
-        $scope.fail = function() {
-            console.log('User handling promise rejected');
-        };
+            $scope.fail = function () {
+                console.log('User handling promise rejected');
+            };
 
 
-        statesService.getConfiguredStates().then(function(data) {
-            //this will execute when the
-            //AJAX call completes.
-            statesService.setStates(data);
-         });
+            statesService.getConfiguredStates().then(function (data) {
+                //this will execute when the
+                //AJAX call completes.
+                statesService.setStates(data);
+            });
 
-        // use $q.all to wait until all promises are resolved
+            // use $q.all to wait until all promises are resolved
 //        $q.all([
 //            CompanyServices.getCompanies(0),
 //            statesService.getConfiguredStates
@@ -98,10 +97,10 @@ angular.module('customersApp', [
 //                // the user.
 //                $scope.failure = reason;
 //            });
-        $scope.loadingDone = true;
+            $scope.loadingDone = true;
 
-    }
-]);
+        }
+    ]);
 
 
 

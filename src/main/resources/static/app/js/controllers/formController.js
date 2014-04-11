@@ -36,7 +36,7 @@ angular.module('customersApp.formControllers', [])
         // create new field button click
         $scope.addNewField = function () {
 
-            if($scope.form.form_fields.length === 10){
+            if ($scope.form.form_fields.length === 10) {
                 var modalDefaults = {
                     templateUrl: 'app/partials/modal.html'
                 };
@@ -48,7 +48,7 @@ angular.module('customersApp.formControllers', [])
                 modalService.showModal(modalDefaults, modalOptions).then(function (result) {
                 });
 
-            }else{
+            } else {
 
 
                 var newField = {
@@ -70,7 +70,7 @@ angular.module('customersApp.formControllers', [])
                         break;
                     }
                 }
-                if (!customField){
+                if (!customField) {
                     // put newField into fields array
                     $scope.form.form_fields.push(newField);
                     // incr field_id counter
@@ -84,7 +84,7 @@ angular.module('customersApp.formControllers', [])
             // if it is a custom field check to see if already on form - error if it is
             var duplicateCustomField = false;
             angular.forEach($scope.form.form_fields, function (field) {
-                if (field.field_id === $scope.addField.new ){
+                if (field.field_id === $scope.addField.new) {
                     duplicateCustomField = true;
                     var modalDefaults = {
                         templateUrl: 'app/partials/modal.html'
@@ -99,7 +99,7 @@ angular.module('customersApp.formControllers', [])
                 }
             });
 
-            if (!duplicateCustomField){
+            if (!duplicateCustomField) {
                 //get the form field, and add to form
                 $scope.form.form_fields.push(FormService.getCustomFormField($scope.addField.new));
                 // incr field_id counter
@@ -119,13 +119,13 @@ angular.module('customersApp.formControllers', [])
 
         // add new option to the field
         $scope.addOption = function (field) {
-            if (!field.field_options){
+            if (!field.field_options) {
                 field.field_options = [];
             }
 
             var lastOptionID = 0;
 
-            if (field.field_options[field.field_options.length - 1]){
+            if (field.field_options[field.field_options.length - 1]) {
                 lastOptionID = field.field_options[field.field_options.length - 1].option_id;
             }
 
@@ -190,10 +190,10 @@ angular.module('customersApp.formControllers', [])
 
             if ($scope.form.form_fields === null || $scope.form.form_fields.length === 0) {
 
-                 modalDefaults = {
+                modalDefaults = {
                     templateUrl: 'app/partials/modal.html'
                 };
-                 modalOptions = {
+                modalOptions = {
                     headerText: 'Error ',
                     bodyText: 'No fields added yet, please add fields to the form before preview.'
                 };
@@ -208,10 +208,10 @@ angular.module('customersApp.formControllers', [])
                 $scope.previewForm = formFormatterService.testDynamicForm($scope.form);
                 $scope.formData = {};
 
-                 modalDefaults = {
+                modalDefaults = {
                     templateUrl: 'app/partials/form/modalFormPreview.html'
                 };
-                 modalOptions = {
+                modalOptions = {
                     headerText: 'Form Preview ',
                     record: $scope.previewForm,
                     model1: $scope.formData
@@ -233,9 +233,9 @@ angular.module('customersApp.formControllers', [])
 
         // decides whether field options block will be shown (true for dropdown and radio fields)
         $scope.showAddOptions = function (field) {
-            if (field.field_type == "radio" || field.field_type == "dropdown" || field.field_type == "checklist"){
+            if (field.field_type == "radio" || field.field_type == "dropdown" || field.field_type == "checklist") {
                 return true;
-            }else{
+            } else {
                 return false;
             }
         };
@@ -266,7 +266,7 @@ angular.module('customersApp.formControllers', [])
             $location.path(url);
         };
     })
-    .controller('FormFieldController', function ($scope, $location, modalService, FormService ) {
+    .controller('FormFieldController', function ($scope, $location, modalService, FormService) {
 
         // get the current custom fields
         $scope.form_fields = FormService.getCustomFormFields();
@@ -284,20 +284,20 @@ angular.module('customersApp.formControllers', [])
         // create new field button click
         $scope.addNewField = function () {
 
-                // incr field_id counter
-                $scope.addField.lastAddedID++;
+            // incr field_id counter
+            $scope.addField.lastAddedID++;
 
 
-                var newField = {
-                    "field_id": $scope.addField.lastAddedID,
-                    "field_title": "New field - " + ($scope.addField.lastAddedID),
-                    "field_type": $scope.addField.new,
-                    "field_value": "",
-                    "field_placeholder": "",
-                    "field_required": true
-                };
-                    // put newField into fields array
-                    $scope.form_fields.push(newField);
+            var newField = {
+                "field_id": $scope.addField.lastAddedID,
+                "field_title": "New field - " + ($scope.addField.lastAddedID),
+                "field_type": $scope.addField.new,
+                "field_value": "",
+                "field_placeholder": "",
+                "field_required": true
+            };
+            // put newField into fields array
+            $scope.form_fields.push(newField);
 
 
         };
@@ -314,13 +314,13 @@ angular.module('customersApp.formControllers', [])
 
         // add new option to the field
         $scope.addOption = function (field) {
-            if (!field.field_options){
+            if (!field.field_options) {
                 field.field_options = [];
             }
 
             var lastOptionID = 0;
 
-            if (field.field_options[field.field_options.length - 1]){
+            if (field.field_options[field.field_options.length - 1]) {
                 lastOptionID = field.field_options[field.field_options.length - 1].option_id;
             }
 
@@ -350,10 +350,10 @@ angular.module('customersApp.formControllers', [])
 
         // decides whether field options block will be shown (true for dropdown and radio fields)
         $scope.showAddOptions = function (field) {
-            if (field.field_type == "radio" || field.field_type == "dropdown" || field.field_type == "checklist"){
+            if (field.field_type == "radio" || field.field_type == "dropdown" || field.field_type == "checklist") {
                 return true;
 
-            }else{
+            } else {
                 return false;
             }
         };
