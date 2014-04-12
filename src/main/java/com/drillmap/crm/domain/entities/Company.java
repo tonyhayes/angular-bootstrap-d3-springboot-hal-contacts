@@ -1,6 +1,7 @@
 package com.drillmap.crm.domain.entities;
 
 import com.drillmap.crm.domain.AuditableEntity;
+import com.fasterxml.jackson.annotation.JsonGetter;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -29,6 +30,15 @@ public class Company extends AuditableEntity {
     String webPage;
     String notes;
     String contactName;
+
+    public String getPrimaryContactDescription() {
+        Contact c = getPrimaryContact();
+        if (c != null) {
+            return c.getFirstName() + " " + c.getLastName();
+        }
+        return "No Primary Contact";
+    }
+
 
     @ManyToOne
     Contact primaryContact;
