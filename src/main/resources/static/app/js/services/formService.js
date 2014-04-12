@@ -281,7 +281,7 @@ angular.module('customersApp.formsService', [])
                 customFormFields = form_fields;
                 customFormTypes = [];
                 angular.forEach(customFormFields, function (field) {
-                    customFormTypes.push({"name":field.field_id, "value": field.field_title});
+                    customFormTypes.push({"name": field.field_id, "value": field.field_title});
                 });
 
             }

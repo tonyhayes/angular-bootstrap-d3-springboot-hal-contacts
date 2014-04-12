@@ -1,4 +1,3 @@
-
 /* Controllers */
 
 angular.module('customersApp.customerControllers', [])
@@ -50,7 +49,7 @@ angular.module('customersApp.customerControllers', [])
             }
 
             $scope.navigate = function (url, customerObject) {
-                if(customerObject){
+                if (customerObject) {
                     customersService.storeCustomer(customerObject);
                 }
                 $location.path(url);
@@ -65,16 +64,16 @@ angular.module('customersApp.customerControllers', [])
                 });
             }
 
-            $scope.loadMore = function() {
+            $scope.loadMore = function () {
                 //stop the scrolling while we are reloading - important!
 
-                if ($scope.scroll.next && !$scope.scroll.stop ){
+                if ($scope.scroll.next && !$scope.scroll.stop) {
 
                     //stop the scrolling while we are reloading - important!
                     $scope.scroll.stop = true;
 
                     //make the call to getCompanies and handle the promise returned;
-                    CompanyServices.getCompanies($scope.pageNo).then(function(data) {
+                    CompanyServices.getCompanies($scope.pageNo).then(function (data) {
                         //this will execute when the
                         //AJAX call completes.
                         var items = data._embedded.companies;
@@ -82,18 +81,18 @@ angular.module('customersApp.customerControllers', [])
                             $scope.customers.push(items[i]);
                         }
 
-                        if(data._links.next){
+                        if (data._links.next) {
                             $scope.scroll.next = data._links.next.href;
                             $scope.scroll.stop = false;
                             $scope.pageNo++;
-                        }else{
+                        } else {
                             $scope.scroll.next = '';
                             $scope.scroll.stop = true;
                         }
 
 
                         console.log(data);
-                        if($scope.customers){
+                        if ($scope.customers) {
                             $scope.totalRecords = $scope.customers.length;
                             filterCustomers(''); //Trigger initial filter
                         }
@@ -105,9 +104,8 @@ angular.module('customersApp.customerControllers', [])
             }
 
 
-
             function getCustomersSummary() {
-                if (!$scope.scroll.stop ) {
+                if (!$scope.scroll.stop) {
 
                     //stop the scrolling while we are reloading - important!
                     $scope.scroll.stop = true;
@@ -139,7 +137,7 @@ angular.module('customersApp.customerControllers', [])
 
 
             function filterCustomers(filterText) {
-                if($scope.customers){
+                if ($scope.customers) {
                     $scope.filteredCustomers = $filter("nameCityStateFilter")($scope.customers, filterText);
                     $scope.filteredCount = $scope.filteredCustomers.length;
                 }
@@ -167,9 +165,9 @@ angular.module('customersApp.customerControllers', [])
 
                 var templateCache =
                     "<div ng-dblclick=\"onDblClickRow(row)\" <div ng-style=\"{ 'cursor': row.cursor }\" ng-repeat=\"col in renderedColumns\" ng-class=\"col.colIndex()\" class=\"ngCell {{col.cellClass}}\">" +
-                        "   <div class=\"ngVerticalBar\" ng-style=\"{height: rowHeight}\" ng-class=\"{ ngVerticalBarVisible: !$last }\">&nbsp;</div>" +
-                        "   <div ng-cell></div>" +
-                        "</div>";
+                    "   <div class=\"ngVerticalBar\" ng-style=\"{height: rowHeight}\" ng-class=\"{ ngVerticalBarVisible: !$last }\">&nbsp;</div>" +
+                    "   <div ng-cell></div>" +
+                    "</div>";
 
                 var filterBarPlugin = {
                     init: function (scope, grid) {
@@ -307,9 +305,9 @@ angular.module('customersApp.customerControllers', [])
 
                 var templateCache =
                     "<div ng-dblclick=\"onDblClickRow(row)\" <div ng-style=\"{ 'cursor': row.cursor }\" ng-repeat=\"col in renderedColumns\" ng-class=\"col.colIndex()\" class=\"ngCell {{col.cellClass}}\">" +
-                        "   <div class=\"ngVerticalBar\" ng-style=\"{height: rowHeight}\" ng-class=\"{ ngVerticalBarVisible: !$last }\">&nbsp;</div>" +
-                        "   <div ng-cell></div>" +
-                        "</div>";
+                    "   <div class=\"ngVerticalBar\" ng-style=\"{height: rowHeight}\" ng-class=\"{ ngVerticalBarVisible: !$last }\">&nbsp;</div>" +
+                    "   <div ng-cell></div>" +
+                    "</div>";
 
                 var filterBarPlugin = {
                     init: function (scope, grid) {
@@ -407,18 +405,18 @@ angular.module('customersApp.customerControllers', [])
         function ($scope, $routeParams, $location, customersService, statesService) {
             $scope.master = {};
             $scope.customer = {};
-            $scope.state_array = [];
+            $scope.state_array = statesService.getStates();
+            $scope.customerUpdate = false;
 
 
             init();
 
             function init() {
                 //Grab ID off of the route
-                var customerID = $routeParams.customerID;
-                if (customerID) {
+                $scope.customerUpdate = parseInt($routeParams.customerID);
+                if ($scope.customerUpdate) {
                     $scope.customer = customersService.getStoredCustomer();
                     $scope.master = angular.copy($scope.customer);
-                    $scope.state_array = statesService.getStates();
                 }
             }
 
@@ -429,12 +427,12 @@ angular.module('customersApp.customerControllers', [])
                 if ($scope.customerForm.$valid) {
                     $scope.customer = angular.copy($scope.master);
 
-                    if (!customerId) {
-                        customersService.insertCustomer($scope.customer);
-
-                    } else {
+                    if ($scope.customerUpdate) {
                         //patch
                         customersService.updateCustomer($scope.customer);
+
+                    } else {
+                        customersService.insertCustomer($scope.customer);
                     }
 
                     $location.path('/customers');
@@ -489,9 +487,9 @@ angular.module('customersApp.customerControllers', [])
 
             var templateCache =
                 "<div ng-dblclick=\"onDblClickRow(row)\" <div ng-style=\"{ 'cursor': row.cursor }\" ng-repeat=\"col in renderedColumns\" ng-class=\"col.colIndex()\" class=\"ngCell {{col.cellClass}}\">" +
-                    "   <div class=\"ngVerticalBar\" ng-style=\"{height: rowHeight}\" ng-class=\"{ ngVerticalBarVisible: !$last }\">&nbsp;</div>" +
-                    "   <div ng-cell></div>" +
-                    "</div>";
+                "   <div class=\"ngVerticalBar\" ng-style=\"{height: rowHeight}\" ng-class=\"{ ngVerticalBarVisible: !$last }\">&nbsp;</div>" +
+                "   <div ng-cell></div>" +
+                "</div>";
 
             var filterBarPlugin = {
                 init: function (scope, grid) {
@@ -608,7 +606,7 @@ angular.module('customersApp.customerControllers', [])
     // it's quick and dirty, and does nothing fancy.
     .controller("loadingController", [
         "$scope", "$timeout",
-        function($scope, $timeout) {
+        function ($scope, $timeout) {
             $scope.percentDone = 0;
 
             function animateBar() {
@@ -626,6 +624,7 @@ angular.module('customersApp.customerControllers', [])
                     $timeout(animateBar, 200);
                 }
             }
+
             animateBar();
         }
     ]);
