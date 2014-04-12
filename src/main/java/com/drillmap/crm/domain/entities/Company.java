@@ -43,9 +43,9 @@ public class Company extends AuditableEntity {
     Contact primaryContact;
 
 
-    @OneToMany(mappedBy = "company",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "company")
     Set<Contact> contacts;
-    @OneToMany(mappedBy = "company",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "company")
     Set<Opportunity> opportunities;
 
 }

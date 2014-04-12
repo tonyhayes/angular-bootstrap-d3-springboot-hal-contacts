@@ -28,10 +28,10 @@ public class Opportunity extends AuditableEntity {
     String discussion;
     String potentialRevenue;
 
-    @OneToMany(mappedBy = "opportunity",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "opportunity")
     Set<OpportunityDetail> opportunityDetails;
 
-    @OneToMany(mappedBy = "opportunity",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "opportunity")
     Set<OpportunityForm> opportunityFormItems;
 
 }
