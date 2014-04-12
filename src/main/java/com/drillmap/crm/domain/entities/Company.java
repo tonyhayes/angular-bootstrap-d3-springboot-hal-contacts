@@ -1,7 +1,6 @@
 package com.drillmap.crm.domain.entities;
 
 import com.drillmap.crm.domain.AuditableEntity;
-import com.fasterxml.jackson.annotation.JsonGetter;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
