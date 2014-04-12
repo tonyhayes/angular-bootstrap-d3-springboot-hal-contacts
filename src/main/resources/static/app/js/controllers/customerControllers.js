@@ -406,14 +406,15 @@ angular.module('customersApp.customerControllers', [])
             $scope.master = {};
             $scope.customer = {};
             $scope.state_array = statesService.getStates();
+            $scope.customerUpdate = false;
 
 
             init();
 
             function init() {
                 //Grab ID off of the route
-                var customerID = parseInt($routeParams.customerID);
-                if (customerID) {
+                $scope.customerUpdate = parseInt($routeParams.customerID);
+                if ($scope.customerUpdate) {
                     $scope.customer = customersService.getStoredCustomer();
                     $scope.master = angular.copy($scope.customer);
                 }
@@ -426,12 +427,12 @@ angular.module('customersApp.customerControllers', [])
                 if ($scope.customerForm.$valid) {
                     $scope.customer = angular.copy($scope.master);
 
-                    if (!customerId) {
-                        customersService.insertCustomer($scope.customer);
-
-                    } else {
+                    if ($scope.customerUpdate) {
                         //patch
                         customersService.updateCustomer($scope.customer);
+
+                    } else {
+                        customersService.insertCustomer($scope.customer);
                     }
 
                     $location.path('/customers');
