@@ -38,14 +38,28 @@ public class Company extends AuditableEntity {
         return "No Primary Contact";
     }
 
+    public Integer getContactsCount() {
+        Set<Contact> c = getContacts();
+        if (c == null) {
+            return 0;
+        }
+        return c.size();
+    }
+    public Integer getOpportunitiesCount() {
+        Set<Opportunity> o = getOpportunities();
+        if (o == null) {
+            return 0;
+        }
+        return o.size();
+    }
 
     @ManyToOne
     Contact primaryContact;
 
 
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     Set<Contact> contacts;
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     Set<Opportunity> opportunities;
 
 }

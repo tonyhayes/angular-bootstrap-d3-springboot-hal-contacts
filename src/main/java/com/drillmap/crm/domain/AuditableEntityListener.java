@@ -7,7 +7,8 @@ import java.util.Calendar;
 /**
  * Created by sfrensley on 3/29/14.
  */
-public class AuditableEntityListener {
+public class
+        AuditableEntityListener {
 
     @PrePersist
     public void prePersist(AuditableEntity e) {

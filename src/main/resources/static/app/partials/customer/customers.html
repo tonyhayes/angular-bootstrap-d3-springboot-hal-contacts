@@ -24,19 +24,17 @@
 
         <div class="row cardContainer">
             <div infinite-scroll='loadMore()' infinite-scroll-immediate-check=false infinite-scroll-distance='0'>
-                <div class="span3 card" data-ng-repeat="customer in filteredCustomers | orderBy: 'companyName' ">
+                <div class="span3 card" data-ng-repeat="customer in filteredCustomers track by $index">
                     <button class="btn close cardClose" title="click to delete customer"
-                            data-ng-click="deleteCustomer(customer.customerId)">&times;</button>
+                            data-ng-click="deleteCustomer(customer)">&times;</button>
                     <div class="cardHeader">
 
                         <a data-ng-click="navigate('/customeredit/1',customer )" title="click to edit"
                            class="cardHeader btn-link">{{customer.companyName}}</a>
                     </div>
                     <div class="cardBody">{{customer.addressLine1 + ', ' + customer.city}}</div>
-                    <a data-ng-click="navigate('/customercontactdetails/1',customer)" class="cardBody btn-link">View {{
-                        customer.contacts.length }} Contacts</a>
-                    <a data-ng-click="navigate('/customeropportunitydetails/1',customer)" class="cardBody btn-link"> {{
-                        customer.opportunities.length }} Opportunity Cards</a>
+                    <a data-ng-click="navigate('/contactcards',customer)" class="cardBody btn-link">View {{customer.contactsCount}} Contacts</a>
+                    <a data-ng-click="navigate('/customeropportunitydetails',customer)" class="cardBody btn-link">{{customer.opportunitiesCount}} Opportunity Cards</a>
                 </div>
             </div>
         </div>

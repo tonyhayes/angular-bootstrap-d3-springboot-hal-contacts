@@ -31,6 +31,28 @@ angular.module('customersApp.filters', [])
         };
 
     })
+    .filter('contactNameCityStateFilter', function () {
+
+        return function (contacts, filterValue) {
+            if (!filterValue) return contacts;
+
+            var matches = [];
+            filterValue = filterValue.toLowerCase();
+            for (var i = 0; i < contacts.length; i++) {
+                var contact = contacts[i];
+                if ((contact.firstName && contact.firstName.toLowerCase().indexOf(filterValue) > -1) ||
+                    (contact.state && contact.state.toLowerCase().indexOf(filterValue) > -1) ||
+                    (contact.city && contact.city.toLowerCase().indexOf(filterValue) > -1) ||
+                    (contact.lastName && contact.lastName.toLowerCase().indexOf(filterValue) > -1)) {
+
+                    matches.push(contact);
+
+                }
+            }
+            return matches;
+        };
+
+    })
     .filter('mapSalesPerson', ['salesPersonService', function (salesPersonService) {
         return function (salesId) {
             var salesPerson = salesPersonService.getSalesPerson(salesId);

@@ -19,9 +19,9 @@ angular.module('customersApp', [
                 templateUrl: 'app/partials/customer/customers.html',
                 controller: 'CustomersController'
             });
-            $routeProvider.when('/customercontactdetails/:customerID', {
-                templateUrl: 'app/partials/customer/customerContactDetails.html',
-                controller: 'CustomerContactsController'
+            $routeProvider.when('/contactcards', {
+                templateUrl: 'app/partials/customer/contactCards.html',
+                controller: 'ContactsController'
             });
             $routeProvider.when('/customeropportunitydetails/:customerID', {
                 templateUrl: 'app/partials/customer/customerOpportunityDetails.html',

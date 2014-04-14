@@ -19,10 +19,9 @@ angular.module('customersApp.customerControllers', [])
 
             init();
 
-            $scope.deleteCustomer = function (id) {
+            $scope.deleteCustomer = function (cust) {
 
-                var cust = customersService.getCustomer(id);
-                var custName = cust.customerName + ' ' + cust.city;
+                var custName = cust.companyName + ' ' + cust.city;
 
                 var modalDefaults = {
                     templateUrl: 'app/partials/modal.html'
@@ -36,7 +35,7 @@ angular.module('customersApp.customerControllers', [])
 
                 modalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
-                        customersService.deleteCustomer(id);
+                        CompanyServices.deleteCompany(cust);
                     }
                     filterCustomers($scope.searchText);
                 });
@@ -76,18 +75,25 @@ angular.module('customersApp.customerControllers', [])
                     CompanyServices.getCompanies($scope.pageNo).then(function (data) {
                         //this will execute when the
                         //AJAX call completes.
-                        var items = data._embedded.companies;
-                        for (var i = 0; i < items.length; i++) {
-                            $scope.customers.push(items[i]);
-                        }
+                        if(data && data._embedded){
+                            var items = data._embedded.companies;
+                            for (var i = 0; i < items.length; i++) {
+                                $scope.customers.push(items[i]);
+                            }
 
-                        if (data._links.next) {
-                            $scope.scroll.next = data._links.next.href;
-                            $scope.scroll.stop = false;
-                            $scope.pageNo++;
-                        } else {
+                            if (data._links && data._links.next) {
+                                $scope.scroll.next = data._links.next.href;
+                                $scope.scroll.stop = false;
+                                $scope.pageNo++;
+                            }else{
+                                $scope.scroll.next = '';
+                                $scope.scroll.stop = true;
+
+                            }
+                        }else{
                             $scope.scroll.next = '';
                             $scope.scroll.stop = true;
+
                         }
 
 
@@ -111,15 +117,20 @@ angular.module('customersApp.customerControllers', [])
                     $scope.scroll.stop = true;
 
                     //make the call to getCompanies and handle the promise returned;
-                    CompanyServices.getCompanies($scope.pageNo).then(function (data) {
+                    CompanyServices.getCompanies(0).then(function (data) {
                         //this will execute when the
                         //AJAX call completes.
-                        $scope.customers = data._embedded.companies;
-                        if (data._links.next) {
-                            $scope.scroll.next = data._links.next.href;
-                            $scope.scroll.stop = false;
-                            $scope.pageNo++;
-                        } else {
+                        if (data && data._embedded){
+                            $scope.customers = data._embedded.companies;
+                            if (data._links && data._links.next) {
+                                $scope.scroll.next = data._links.next.href;
+                                $scope.scroll.stop = false;
+                            } else {
+                                $scope.scroll.next = '';
+                                $scope.scroll.stop = true;
+                            }
+
+                        }else{
                             $scope.scroll.next = '';
                             $scope.scroll.stop = true;
                         }
@@ -148,111 +159,144 @@ angular.module('customersApp.customerControllers', [])
 
 //This controller retrieves data from the customersService and associates it with the $scope
 //The $scope is bound to the details view
-    .controller('CustomerContactsController', ['$scope', '$routeParams', 'customersService', 'modalService', 'statesService',
+    .controller('ContactsController', ['$scope', '$routeParams',  '$filter','customersService', 'modalService', 'statesService', 'ContactServices',
 
-        function ($scope, $routeParams, customersService, modalService, statesService) {
+        function ($scope, $routeParams,  $filter, customersService, modalService, statesService, ContactServices) {
             $scope.customer = {};
             $scope.contacts = {};
             $scope.filterOptions = {
                 filterText: ''
             };
             $scope.state_array = {};
+            $scope.scroll = {};
+            $scope.scroll.stop = false;
+            $scope.scroll.next = '';
+            $scope.pageNo = 1;
+
             init();
 
             function init() {
-                //Grab planID off of the route
-                var customerID = $routeParams.customerID;
+                //Grab contacts for company
+                $scope.customer = customersService.getStoredCustomer();
+                // reset if no object
+                if(!$scope.customer){
+                    $location.path('/customers');
+                }
+                // get contacts
+                createWatches();
+                getContactSummary();
+             }
 
-                var templateCache =
-                    "<div ng-dblclick=\"onDblClickRow(row)\" <div ng-style=\"{ 'cursor': row.cursor }\" ng-repeat=\"col in renderedColumns\" ng-class=\"col.colIndex()\" class=\"ngCell {{col.cellClass}}\">" +
-                    "   <div class=\"ngVerticalBar\" ng-style=\"{height: rowHeight}\" ng-class=\"{ ngVerticalBarVisible: !$last }\">&nbsp;</div>" +
-                    "   <div ng-cell></div>" +
-                    "</div>";
+            function createWatches() {
+                //Watch searchText value and pass it and the customers to nameCityStateFilter
+                //Doing this instead of adding the filter to ng-repeat allows it to only be run once (rather than twice)
+                //while also accessing the filtered count via $scope.filteredCount above
+                $scope.$watch("searchText", function (filterText) {
+                    filterContacts(filterText);
+                });
+            }
 
-                var filterBarPlugin = {
-                    init: function (scope, grid) {
-                        filterBarPlugin.scope = scope;
-                        filterBarPlugin.grid = grid;
-                        $scope.$watch(function () {
-                            var searchQuery = "";
-                            angular.forEach(filterBarPlugin.scope.columns, function (col) {
-                                if (col.visible && col.filterText) {
-                                    var filterText = (col.filterText.indexOf('*') === 0 ? col.filterText.replace('*', '') : col.filterText) + ";";
-                                    searchQuery += col.displayName + ": " + filterText;
-                                }
-                            });
-                            return searchQuery;
-                        }, function (searchQuery) {
-                            filterBarPlugin.scope.$parent.filterText = searchQuery;
-                            filterBarPlugin.grid.searchProvider.evalFilter();
-                        });
-                    },
-                    scope: undefined,
-                    grid: undefined
-                };
+            $scope.loadMore = function () {
+                //stop the scrolling while we are reloading - important!
 
+                if ($scope.scroll.next && !$scope.scroll.stop) {
 
-                if (customerID) {
-                    $scope.customer = customersService.getStoredCustomer();
-                    $scope.myContacts = {
-                        data: 'customer.contacts',
-                        showGroupPanel: true,
-                        groups: [],
-                        showColumnMenu: true,
-                        plugins: [filterBarPlugin],
-                        headerRowHeight: 60, // give room for filter bar
-                        rowTemplate: templateCache,
-                        filterOptions: $scope.filterOptions,
-                        columnDefs: [
-                            {
-                                field: 'firstname',
-                                headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
-                                width: '**',
-                                displayName: 'First Name'
-                            },
-                            {
-                                field: 'lastname',
-                                headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
-                                width: '**',
-                                displayName: 'Last Name'
-                            },
-                            {
-                                field: 'title',
-                                headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
-                                width: '***',
-                                displayName: 'Title'
+                    //stop the scrolling while we are reloading - important!
+                    $scope.scroll.stop = true;
 
-                            },
-                            {
-
-                                field: 'addressLine1',
-                                headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
-                                width: '***',
-                                displayName: 'Address'
-                            },
-                            {
-
-                                field: 'city',
-                                headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
-                                width: '**',
-                                displayName: 'City'
+                    //make the call to getCompanies and handle the promise returned;
+                    ContactServices.getContacts($scope.customer._links['crm:contacts'].href, $scope.pageNo).then(function (data) {
+                        //this will execute when the
+                        //AJAX call completes.
+                        if(data && data._embedded){
+                            var items = data._embedded.contacts;
+                            for (var i = 0; i < items.length; i++) {
+                                $scope.contacts.push(items[i]);
                             }
-                        ]
-                    };
+
+                            if (data._links && data._links.next) {
+                                $scope.scroll.next = data._links.next.href;
+                                $scope.scroll.stop = false;
+                                $scope.pageNo++;
+                            } else {
+                                $scope.scroll.next = '';
+                                $scope.scroll.stop = true;
+                            }
+
+                        }else{
+                            $scope.scroll.next = '';
+                            $scope.scroll.stop = true;
+                        }
+
+
+                        console.log(data);
+                        if ($scope.contacts) {
+                            $scope.totalRecords = $scope.contacts.length;
+                            filterContacts(''); //Trigger initial filter
+                        }
+                    });
+
+                }
+
+
+            }
+
+
+            function getContactSummary() {
+                if (!$scope.scroll.stop) {
+
+                    //stop the scrolling while we are reloading - important!
+                    $scope.scroll.stop = true;
+
+                    //make the call to getCompanies and handle the promise returned;
+                    ContactServices.getContacts($scope.customer._links['crm:contacts'].href, 0).then(function (data) {
+                        //this will execute when the
+                        //AJAX call completes.
+                        if(data && data._embedded){
+                            $scope.contacts = data._embedded.contacts;
+                            if (data._links && data._links.next) {
+                                $scope.scroll.next = data._links.next.href;
+                                $scope.scroll.stop = false;
+                                $scope.pageNo++;
+                            } else {
+                                $scope.scroll.next = '';
+                                $scope.scroll.stop = true;
+                            }
+
+                        }else{
+                            $scope.scroll.next = '';
+                            $scope.scroll.stop = true;
+
+                        }
+
+
+                        console.log(data);
+                        if ($scope.contacts) {
+                            $scope.totalRecords = $scope.contacts.length;
+                            filterContacts(''); //Trigger initial filter
+                        }
+                    });
+                }
+
+            }
+
+
+            function filterContacts(filterText) {
+                if ($scope.contacts) {
+                    $scope.filteredContacts = $filter("contactNameCityStateFilter")($scope.contacts, filterText);
+                    $scope.filteredCount = $scope.filteredContacts.length;
                 }
             }
 
-            $scope.onDblClickRow = function (row) {
+            $scope.editContact = function (contactCard) {
 
                 $scope.state_array = statesService.getStates();
-                var customerID = $routeParams.customerID;
-                var cust = customersService.getCustomer(customerID);
-                var custName = cust.customerName + ', ' + cust.city;
-                var origRow = {};
+                var custName = $scope.customer.companyName + ', ' + $scope.customer.city;
+                var card = {};
                 var data = {};
-                if (row) {
-                    origRow = angular.copy(row.entity);
-                    data = row.entity;
+                if (contactCard) {
+                    origCard = angular.copy(contactCard);
+                    card = contactCard;
                 }
 
                 var modalDefaults = {
@@ -262,18 +306,20 @@ angular.module('customersApp.customerControllers', [])
                     closeButtonText: 'Cancel',
                     actionButtonText: 'Submit',
                     headerText: 'Contact at ' + custName,
-                    record: data,
+                    record: card,
                     model1: $scope.state_array
                 };
 
                 modalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
-                        if (!row) {
-                            customersService.insertContact(cust, data);
+                        if (contactCard) {
+                            ContactServices.patchContact(card);
+                        }else{
+                            ContactServices.postContact(card);
                         }
                     } else {
-                        if (row) {
-                            row.entity = origRow;
+                        if (contactCard) {
+                            contactCard = origCard;
                         }
                     }
                 });
@@ -400,9 +446,9 @@ angular.module('customersApp.customerControllers', [])
         }
     ])
 
-    .controller('CustomerEditController', ['$scope', '$routeParams', '$location', 'customersService', 'statesService',
+    .controller('CustomerEditController', ['$scope', '$routeParams', '$location', 'customersService', 'statesService', 'CompanyServices',
 
-        function ($scope, $routeParams, $location, customersService, statesService) {
+        function ($scope, $routeParams, $location, customersService, statesService, CompanyServices) {
             $scope.master = {};
             $scope.customer = {};
             $scope.state_array = statesService.getStates();
@@ -429,10 +475,11 @@ angular.module('customersApp.customerControllers', [])
 
                     if ($scope.customerUpdate) {
                         //patch
-                        customersService.updateCustomer($scope.customer);
+
+                        CompanyServices.patchCompany($scope.master);
 
                     } else {
-                        customersService.insertCustomer($scope.customer);
+                        CompanyServices.postCompany($scope.master);
                     }
 
                     $location.path('/customers');
