@@ -26,7 +26,7 @@
             <div infinite-scroll='loadMore()' infinite-scroll-immediate-check=false infinite-scroll-distance='0'>
                 <div class="span3 card" data-ng-repeat="customer in filteredCustomers track by $index">
                     <button class="btn close cardClose" title="click to delete customer"
-                            data-ng-click="deleteCustomer(customer)">&times;</button>
+                            data-ng-click="deleteCustomer($index, customer)">&times;</button>
                     <div class="cardHeader">
 
                         <a data-ng-click="navigate('/customeredit/1',customer )" title="click to edit"

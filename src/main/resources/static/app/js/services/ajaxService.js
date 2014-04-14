@@ -43,7 +43,6 @@ angular.module('customersApp.ajaxService', [])
                 //callback argument, we can return that.
                 var body = angular.copy(company)
                 var url = body._links.self.href;
-                delete body._links;
                 return $http.delete(url).then(function (result) {
                     return result.data;
                 });

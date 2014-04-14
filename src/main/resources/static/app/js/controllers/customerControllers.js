@@ -19,7 +19,7 @@ angular.module('customersApp.customerControllers', [])
 
             init();
 
-            $scope.deleteCustomer = function (cust) {
+            $scope.deleteCustomer = function (idx, cust) {
 
                 var custName = cust.companyName + ' ' + cust.city;
 
@@ -36,6 +36,7 @@ angular.module('customersApp.customerControllers', [])
                 modalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
                         CompanyServices.deleteCompany(cust);
+                        $scope.customers.splice(idx, 1);
                     }
                     filterCustomers($scope.searchText);
                 });
