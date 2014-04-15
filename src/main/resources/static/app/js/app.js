@@ -5,6 +5,8 @@ angular.module('customersApp', [
     'customersApp.filters',
     'customersApp.directives',
     'customersApp.customerControllers',
+    'customersApp.contactControllers',
+    'customersApp.opportunityControllers',
     'customersApp.formControllers',
     'customersApp.formsService',
     'customersApp.ajaxService',
