@@ -17,6 +17,7 @@ angular.module('customersApp.contactControllers', [])
             $scope.scroll.stop = false;
             $scope.scroll.next = '';
             $scope.pageNo = 1;
+            $scope.companyNumber;
 
             init();
 
@@ -31,6 +32,8 @@ angular.module('customersApp.contactControllers', [])
                 if (!$scope.customer){
                     window.location.href = '/crm';
                 }
+                var companyArray = $scope.customer._links.self.href.split('/')
+                $scope.companyNumber = companyArray[companyArray.length-1];
                 // get contacts
                 createWatches();
                 getContactSummary();
@@ -54,7 +57,7 @@ angular.module('customersApp.contactControllers', [])
                     $scope.scroll.stop = true;
 
                     //make the call to getCompanies and handle the promise returned;
-                    ContactServices.getContacts($scope.customer._links['crm:contacts'].href, $scope.pageNo, $scope.searchText).then(function (data) {
+                    ContactServices.getContacts($scope.companyNumber, $scope.pageNo, $scope.searchText).then(function (data) {
                         //this will execute when the
                         //AJAX call completes.
                         if(data && data._embedded){
@@ -98,7 +101,7 @@ angular.module('customersApp.contactControllers', [])
                     $scope.pageNo = 1;
 
                     //make the call to getCompanies and handle the promise returned;
-                    ContactServices.getContacts($scope.customer._links['crm:contacts'].href, 0,$scope.searchText).then(function (data) {
+                    ContactServices.getContacts($scope.companyNumber, 0,$scope.searchText).then(function (data) {
                         //this will execute when the
                         //AJAX call completes.
                         if(data && data._embedded){

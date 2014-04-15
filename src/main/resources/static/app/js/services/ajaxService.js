@@ -1,7 +1,6 @@
 angular.module('customersApp.ajaxService', [])
 
     .factory('CompanyServices', function ($http) {
-        var companySearch;
 
         return {
             getCompanies: function (pageNo, searchText) {
@@ -10,7 +9,7 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 if(searchText){
-                    return $http.get(companySearch+
+                    return $http.get(dmApplicationEntryPoint+'/search'+
                             '/findByCompanyNameStartsWithOrCityStartsWithOrStateStartsWithOrContactNameStartsWith', {
                             params: {
                                 sort: 'companyName', page: pageNo,
@@ -23,9 +22,8 @@ angular.module('customersApp.ajaxService', [])
                             return result.data;
                         });
                 }else{
-                    return $http.get(dmApplicationEntryPoint, {
+                    return $http.get(dmApplicationEntryPoint+'/companies', {
                         params: {sort: 'companyName',page: pageNo}}).then(function (result) {
-                        companySearch = result.data._links.search.href;
                         return result.data;
                     });
                 }
@@ -67,30 +65,30 @@ angular.module('customersApp.ajaxService', [])
     })
     .factory('ContactServices', function ($http) {
 
-        var contactPost;
         return {
-            getContacts: function (url, pageNo, searchText) {
+            getContacts: function (company, pageNo, searchText) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                contactPost = url;
                 if(searchText){
-                    return $http.get(contactPost+
-                            '/findByFirstNameOrLastNameOrCityOrState', {
+                    searchText += '%';
+                    return $http.get(dmApplicationEntryPoint+'/contacts/search' +
+                            '/findBySearch', {
                             params: {
-
+                                sort: 'lastName', page: pageNo,
                                 firstName: searchText,
                                 city: searchText,
                                 state: searchText,
-                                lastName: searchText}}
+                                lastName: searchText,
+                                company: company}}
                     ).then(function (result) {
                             //this sends back the search URL
                             return result.data;
                         });
                 }else {
-                    return $http.get(url, {
-                        params: {sort: 'lastName', page: pageNo}}).then(function (result) {
+                    return $http.get(dmApplicationEntryPoint+'/contacts/search' + '/findByCompany', {
+                        params: {sort: 'lastName', page: pageNo, company: company}}).then(function (result) {
                         return result.data;
                     });
                 }
@@ -192,7 +190,7 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                return $http.get(dmStates).then(function (result) {
+                return $http.get(dmApplicationEntryPoint+'/states').then(function (result) {
                     return result.data;
                 });
             },
@@ -205,4 +203,48 @@ angular.module('customersApp.ajaxService', [])
             }
 
         }
-    });
+    })
+    .factory('salesPersonService', function ($http) {
+        var salesPeople = [];
+        return {
+            getConfiguredStates: function () {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.get(dmApplicationEntryPoint+'/salesPeople').then(function (result) {
+                    return result.data;
+                });
+            },
+            getSalesPeople: function () {
+                return salesPeople;
+            },
+            setSalesPeople: function (data) {
+                salesPeople = data._embedded.salesPeople;
+
+            }
+
+        }
+    })
+    .factory('probabilitiesService', function ($http) {
+        var probabilities = [];
+        return {
+            getConfiguredProbabilities: function () {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.get(dmApplicationEntryPoint+'/probabilities').then(function (result) {
+                    return result.data;
+                });
+            },
+            geteProbabilities: function () {
+                return probabilities;
+            },
+            setProbabilities: function (data) {
+                probabilities = data._embedded.probabilities;
+
+            }
+
+        }
+    })
