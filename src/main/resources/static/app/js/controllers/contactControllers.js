@@ -54,7 +54,7 @@ angular.module('customersApp.contactControllers', [])
                     $scope.scroll.stop = true;
 
                     //make the call to getCompanies and handle the promise returned;
-                    ContactServices.getContacts($scope.customer._links['crm:contacts'].href, $scope.pageNo).then(function (data) {
+                    ContactServices.getContacts($scope.customer._links['crm:contacts'].href, $scope.pageNo, $scope.searchText).then(function (data) {
                         //this will execute when the
                         //AJAX call completes.
                         if(data && data._embedded){
@@ -81,7 +81,6 @@ angular.module('customersApp.contactControllers', [])
                         console.log(data);
                         if ($scope.contacts) {
                             $scope.totalRecords = $scope.contacts.length;
-                            filterContacts(''); //Trigger initial filter
                         }
                     });
 
@@ -96,9 +95,10 @@ angular.module('customersApp.contactControllers', [])
 
                     //stop the scrolling while we are reloading - important!
                     $scope.scroll.stop = true;
+                    $scope.pageNo = 1;
 
                     //make the call to getCompanies and handle the promise returned;
-                    ContactServices.getContacts($scope.customer._links['crm:contacts'].href, 0).then(function (data) {
+                    ContactServices.getContacts($scope.customer._links['crm:contacts'].href, 0,$scope.searchText).then(function (data) {
                         //this will execute when the
                         //AJAX call completes.
                         if(data && data._embedded){
@@ -122,8 +122,7 @@ angular.module('customersApp.contactControllers', [])
                         console.log(data);
                         if ($scope.contacts) {
                             $scope.totalRecords = $scope.contacts.length;
-                            filterContacts(''); //Trigger initial filter
-                        }
+                         }
                     });
                 }
 
@@ -131,10 +130,8 @@ angular.module('customersApp.contactControllers', [])
 
 
             function filterContacts(filterText) {
-                if ($scope.contacts) {
-                    $scope.filteredContacts = $filter("contactNameCityStateFilter")($scope.contacts, filterText);
-                    $scope.filteredCount = $scope.filteredContacts.length;
-                }
+                $scope.scroll.stop = false;
+                getContactSummary()
             }
 
             $scope.editContact = function (contact) {

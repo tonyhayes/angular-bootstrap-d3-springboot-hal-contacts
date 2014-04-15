@@ -13,7 +13,7 @@ angular.module('customersApp.ajaxService', [])
                     return $http.get(companySearch+
                             '/findByCompanyNameStartsWithOrCityStartsWithOrStateStartsWithOrContactNameStartsWith', {
                             params: {
-
+                                sort: 'companyName', page: pageNo,
                                 companyName: searchText,
                                 city: searchText,
                                 state: searchText,
@@ -69,16 +69,31 @@ angular.module('customersApp.ajaxService', [])
 
         var contactPost;
         return {
-            getContacts: function (url, pageNo) {
+            getContacts: function (url, pageNo, searchText) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 contactPost = url;
-                return $http.get(url, {
-                    params: {sort: 'lastName', page: pageNo}}).then(function (result) {
-                     return result.data;
-                });
+                if(searchText){
+                    return $http.get(contactPost+
+                            '/findByFirstNameOrLastNameOrCityOrState', {
+                            params: {
+
+                                firstName: searchText,
+                                city: searchText,
+                                state: searchText,
+                                lastName: searchText}}
+                    ).then(function (result) {
+                            //this sends back the search URL
+                            return result.data;
+                        });
+                }else {
+                    return $http.get(url, {
+                        params: {sort: 'lastName', page: pageNo}}).then(function (result) {
+                        return result.data;
+                    });
+                }
             },
             postContact: function (contact) {
                 //since $http.get returns a promise,

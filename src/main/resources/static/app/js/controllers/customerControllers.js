@@ -11,7 +11,7 @@ angular.module('customersApp.customerControllers', [])
 
             $scope.customers = [];
             $scope.scroll = {};
-            $scope.scroll.stop = false;
+            $scope.scroll.stop = true;
             $scope.scroll.next = '';
             $scope.pageNo = 1;
 
