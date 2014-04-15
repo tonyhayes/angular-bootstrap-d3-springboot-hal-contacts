@@ -25,12 +25,10 @@
                 customer must be named.</p>
         </div>
 
-        <div class="form-group" ng-class="{ 'has-error' : contactForm.title.$invalid && !contactForm.title.$pristine }">
+        <div class="form-group" >
             <label>Title</label>
-            <input type="text" name="title" class="form-control" ng-model="modalOptions.record.title" required>
+            <input type="text" name="title" class="form-control" ng-model="modalOptions.record.title">
 
-            <p ng-show="contactForm.title.$invalid && !contactForm.title.$pristine" class="help-block">The customer must
-                has a job title.</p>
         </div>
 
         <div class="form-group"
@@ -93,12 +91,12 @@
 
         <div class="form-group">
             <label>Web Page</label>
-            <input type="text" name="webPage" class="form-control" ng-model="master.webPage">
+            <input type="text" name="webPage" class="form-control" ng-model="modalOptions.record.webPage">
         </div>
 
         <div class="form-group">
             <label>Notes</label>
-            <textarea name="notes" class="form-control" ng-model="master.notes"/>
+            <textarea name="notes" class="form-control" ng-model="modalOptions.record.notes"/>
         </div>
 
     </form>

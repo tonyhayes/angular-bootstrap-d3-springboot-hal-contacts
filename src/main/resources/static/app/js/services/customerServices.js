@@ -254,6 +254,7 @@ angular.module('customersApp.customerServices', []).
                             $modalInstance.close('ok');
                         };
                         $scope.modalOptions.close = function (result) {
+
                             $modalInstance.close('cancel');
                         };
                     };

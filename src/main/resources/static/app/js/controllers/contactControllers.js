@@ -137,15 +137,17 @@ angular.module('customersApp.contactControllers', [])
                 }
             }
 
-            $scope.editContact = function (contactCard) {
+            $scope.editContact = function (contact) {
 
                 $scope.state_array = statesService.getStates();
                 var custName = $scope.customer.companyName + ', ' + $scope.customer.city;
-                var card = {};
-                var data = {};
-                if (contactCard) {
-                    origCard = angular.copy(contactCard);
-                    card = contactCard;
+                var origCard = {};
+                var editContact = true;
+                if (contact) {
+                    origCard = angular.copy(contact);
+                }else{
+                    contact = {};
+                    editContact = false;
                 }
 
                 var modalDefaults = {
@@ -155,20 +157,22 @@ angular.module('customersApp.contactControllers', [])
                     closeButtonText: 'Cancel',
                     actionButtonText: 'Submit',
                     headerText: 'Contact at ' + custName,
-                    record: card,
+                    record: contact,
                     model1: $scope.state_array
                 };
 
                 modalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
-                        if (contactCard) {
-                            ContactServices.patchContact(card);
+                        if (editContact) {
+                            ContactServices.patchContact(contact);
                         }else{
-                            ContactServices.postContact(card);
+                            ContactServices.postContact(contact);
                         }
                     } else {
-                        if (contactCard) {
-                            contactCard = origCard;
+                        if (contact) {
+                            angular.forEach(origCard, function(obj, dataset) {
+                                contact[dataset] = obj;
+                            });
                         }
                     }
                 });
