@@ -13,4 +13,10 @@ public interface ContactRepository extends JpaRepository<Contact,Long> {
 
     public List<Contact> findByFirstName(@Param(value = "firstName") String firstName);
     public List<Contact> findByLastName(@Param(value = "lastName") String lastName);
+
+    public List<Contact> findByFirstNameOrLastNameOrCityOrState(@Param(value = "firstName") String firstName,
+                                                                     @Param(value = "lastName") String lastName,
+                                                                     @Param(value = "city") String city,
+                                                                     @Param(value = "state") String state);
+
 }

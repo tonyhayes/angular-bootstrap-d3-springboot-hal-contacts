@@ -4,9 +4,9 @@
 angular.module('customersApp.contactControllers', [])
 //This controller retrieves data from the customersService and associates it with the $scope
 //The $scope is bound to the details view
-    .controller('ContactsController', ['$scope', '$routeParams',  '$filter','customersService', 'modalService', 'statesService', 'ContactServices',
+    .controller('ContactsController', ['$scope', '$routeParams', '$location', '$filter','customersService', 'modalService', 'statesService', 'ContactServices',
 
-        function ($scope, $routeParams,  $filter, customersService, modalService, statesService, ContactServices) {
+        function ($scope, $routeParams, $location, $filter, customersService, modalService, statesService, ContactServices) {
             $scope.customer = {};
             $scope.contacts = {};
             $scope.filterOptions = {
@@ -22,10 +22,14 @@ angular.module('customersApp.contactControllers', [])
 
             function init() {
                 //Grab contacts for company
-                $scope.customer = customersService.getStoredCustomer();
-                // reset if no object
-                if(!$scope.customer){
-                    $location.path('/customers');
+                try{
+                    $scope.customer = customersService.getStoredCustomer();
+                }catch(err){
+                    window.location.href = '/crm';
+                }
+
+                if (!$scope.customer){
+                    window.location.href = '/crm';
                 }
                 // get contacts
                 createWatches();

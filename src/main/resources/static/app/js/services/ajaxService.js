@@ -1,18 +1,34 @@
 angular.module('customersApp.ajaxService', [])
 
     .factory('CompanyServices', function ($http) {
+        var companySearch;
 
         return {
-            getCompanies: function (pageNo) {
+            getCompanies: function (pageNo, searchText) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                return $http.get(dmApplicationEntryPoint, {
-                    params: {sort: 'companyName',page: pageNo}}).then(function (result) {
-                    companyPost = result.data._links.self.href;
-                    return result.data;
-                });
+                if(searchText){
+                    return $http.get(companySearch+
+                            '/findByCompanyNameStartsWithOrCityStartsWithOrStateStartsWithOrContactNameStartsWith', {
+                            params: {
+
+                                companyName: searchText,
+                                city: searchText,
+                                state: searchText,
+                                contactName: searchText}}
+                    ).then(function (result) {
+                            //this sends back the search URL
+                            return result.data;
+                        });
+                }else{
+                    return $http.get(dmApplicationEntryPoint, {
+                        params: {sort: 'companyName',page: pageNo}}).then(function (result) {
+                        companySearch = result.data._links.search.href;
+                        return result.data;
+                    });
+                }
             },
             postCompany: function (company) {
                 //since $http.get returns a promise,
@@ -60,7 +76,7 @@ angular.module('customersApp.ajaxService', [])
                 //callback argument, we can return that.
                 contactPost = url;
                 return $http.get(url, {
-                    params: {page: pageNo}}).then(function (result) {
+                    params: {sort: 'lastName', page: pageNo}}).then(function (result) {
                      return result.data;
                 });
             },

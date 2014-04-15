@@ -10,8 +10,6 @@ angular.module('customersApp.customerControllers', [])
         function ($scope, $location, $filter, CompanyServices, customersService, modalService) {
 
             $scope.customers = [];
-            $scope.filteredCustomers = [];
-            $scope.filteredCount = 0;
             $scope.scroll = {};
             $scope.scroll.stop = false;
             $scope.scroll.next = '';
@@ -38,7 +36,6 @@ angular.module('customersApp.customerControllers', [])
                         CompanyServices.deleteCompany(cust);
                         $scope.customers.splice(idx, 1);
                     }
-                    filterCustomers($scope.searchText);
                 });
 
             };
@@ -73,7 +70,7 @@ angular.module('customersApp.customerControllers', [])
                     $scope.scroll.stop = true;
 
                     //make the call to getCompanies and handle the promise returned;
-                    CompanyServices.getCompanies($scope.pageNo).then(function (data) {
+                    CompanyServices.getCompanies($scope.pageNo, $scope.searchText).then(function (data) {
                         //this will execute when the
                         //AJAX call completes.
                         if(data && data._embedded){
@@ -101,7 +98,6 @@ angular.module('customersApp.customerControllers', [])
                         console.log(data);
                         if ($scope.customers) {
                             $scope.totalRecords = $scope.customers.length;
-                            filterCustomers(''); //Trigger initial filter
                         }
                     });
 
@@ -116,9 +112,10 @@ angular.module('customersApp.customerControllers', [])
 
                     //stop the scrolling while we are reloading - important!
                     $scope.scroll.stop = true;
+                    $scope.pageNo = 1;
 
                     //make the call to getCompanies and handle the promise returned;
-                    CompanyServices.getCompanies(0).then(function (data) {
+                    CompanyServices.getCompanies(0, $scope.searchText).then(function (data) {
                         //this will execute when the
                         //AJAX call completes.
                         if (data && data._embedded){
@@ -140,7 +137,6 @@ angular.module('customersApp.customerControllers', [])
                         console.log(data);
                         if ($scope.customers) {
                             $scope.totalRecords = $scope.customers.length;
-                            filterCustomers(''); //Trigger initial filter
                         }
                     });
                 }
@@ -149,10 +145,8 @@ angular.module('customersApp.customerControllers', [])
 
 
             function filterCustomers(filterText) {
-                if ($scope.customers) {
-                    $scope.filteredCustomers = $filter("nameCityStateFilter")($scope.customers, filterText);
-                    $scope.filteredCount = $scope.filteredCustomers.length;
-                }
+                $scope.scroll.stop = false;
+                getCustomersSummary()
             }
         }
     ])

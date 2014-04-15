@@ -147,17 +147,6 @@ angular.module('customersApp.customerServices', []).
 //each doing the same thing just structuring the functions/data differently.
     .service('customersService', function ($http) {
 
-        this.deleteCustomer = function (id) {
-            for (var i = customers.length - 1; i >= 0; i--) {
-                if (customers[i].customerId === id) {
-                    customers.splice(i, 1);
-                    break;
-                }
-            }
-        };
-        this.insertCustomer = function (customer) {
-            customers.push(customer);
-        };
         this.insertContact = function (record, contact) {
             for (var i = 0; i < customers.length; i++) {
                 if (customers[i].customerId === record.customerId) {
@@ -166,13 +155,6 @@ angular.module('customersApp.customerServices', []).
             }
         };
 
-        this.updateCustomer = function (record) {
-            for (var i = 0; i < customers.length; i++) {
-                if (customers[i].customerId === record.customerId) {
-                    customers[i] = record;
-                }
-            }
-        };
         this.updateCustomerOpportunity = function (customerId, opportunityId, record) {
             for (var i = 0; i < customers.length; i++) {
                 if (customers[i].customerId === customerId) {
@@ -203,14 +185,6 @@ angular.module('customersApp.customerServices', []).
             return null;
         };
 
-        this.getCustomer = function (id) {
-            for (var i = 0; i < customers.length; i++) {
-                if (customers[i].customerId === id) {
-                    return customers[i];
-                }
-            }
-            return null;
-        };
 
         this.saveCustomerPages = function (customerArray, Page) {
             customerPageData = customerArray;
@@ -221,7 +195,11 @@ angular.module('customersApp.customerServices', []).
         };
 
         this.getStoredCustomer = function () {
-            return customerObject;
+            if(customerObject){
+                return customerObject;
+            }else{
+                return null;
+            }
         };
 
         var customerPageData = [];

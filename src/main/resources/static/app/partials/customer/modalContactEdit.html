@@ -8,20 +8,20 @@
 
 
         <div class="form-group"
-             ng-class="{ 'has-error' : contactForm.firstname.$invalid && !contactForm.firstname.$pristine }">
+             ng-class="{ 'has-error' : contactForm.firstName.$invalid && !contactForm.firstName.$pristine }">
             <label>First Name</label>
-            <input type="text" name="firstname" class="form-control" ng-model="modalOptions.record.firstname" required>
+            <input type="text" name="firstName" class="form-control" ng-model="modalOptions.record.firstName" required>
 
-            <p ng-show="contactForm.firstname.$invalid && !contactForm.firstname.$pristine" class="help-block">The
+            <p ng-show="contactForm.firstName.$invalid && !contactForm.firstName.$pristine" class="help-block">The
                 customer must be named.</p>
         </div>
 
         <div class="form-group"
-             ng-class="{ 'has-error' : contactForm.lastname.$invalid && !contactForm.lastname.$pristine }">
+             ng-class="{ 'has-error' : contactForm.lastName.$invalid && !contactForm.lastName.$pristine }">
             <label>Last Name</label>
-            <input type="text" name="lastname" class="form-control" ng-model="modalOptions.record.lastname" required>
+            <input type="text" name="lastName" class="form-control" ng-model="modalOptions.record.lastName" required>
 
-            <p ng-show="contactForm.lastname.$invalid && !contactForm.lastname.$pristine" class="help-block">The
+            <p ng-show="contactForm.lastName.$invalid && !contactForm.lastName.$pristine" class="help-block">The
                 customer must be named.</p>
         </div>
 
@@ -59,7 +59,7 @@
         <div class="form-group" ng-class="{ 'has-error' : contactForm.state.$invalid && !contactForm.state.$pristine }">
             <label>State</label>
             <select required ng-model="modalOptions.record.state" class="form-control" name="state"
-                    ng-options="s.id as s.state for s in modalOptions.model1"></select>
+                    ng-options="s.stateAbbr as s.name for s in modalOptions.model1"></select>
 
             <p ng-show="contactForm.state.$invalid && !contactForm.state.$pristine" class="help-block">State is
                 required.</p>
@@ -91,6 +91,15 @@
             <input type="text" name="cell" class="form-control" ng-model="modalOptions.record.cell">
         </div>
 
+        <div class="form-group">
+            <label>Web Page</label>
+            <input type="text" name="webPage" class="form-control" ng-model="master.webPage">
+        </div>
+
+        <div class="form-group">
+            <label>Notes</label>
+            <textarea name="notes" class="form-control" ng-model="master.notes"/>
+        </div>
 
     </form>
 
