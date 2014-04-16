@@ -4,7 +4,7 @@
 angular.module('customersApp.contactControllers', [])
 //This controller retrieves data from the customersService and associates it with the $scope
 //The $scope is bound to the details view
-    .controller('ContactsController', ['$scope', '$routeParams', '$location', '$filter','customersService', 'modalService',
+    .controller('ContactsController', ['$scope', '$routeParams', '$location', '$filter', 'customersService', 'modalService',
         'statesService', 'ContactServices', 'CompanyServices',
 
         function ($scope, $routeParams, $location, $filter, customersService, modalService, statesService, ContactServices, CompanyServices) {
@@ -26,9 +26,9 @@ angular.module('customersApp.contactControllers', [])
                 //Grab contacts for company
                 $scope.companyNumber = parseInt($routeParams.customerID);
                 $scope.customer = customersService.getStoredCustomer();
-                if(!$scope.customer){
+                if (!$scope.customer) {
                     CompanyServices.getCompany($scope.companyNumber).then(function (data) {
-                       $scope.customer = data;
+                        $scope.customer = data;
                     });
                 }
 
@@ -58,7 +58,7 @@ angular.module('customersApp.contactControllers', [])
                     ContactServices.getContacts($scope.companyNumber, $scope.pageNo, $scope.searchText).then(function (data) {
                         //this will execute when the
                         //AJAX call completes.
-                        if(data && data._embedded){
+                        if (data && data._embedded) {
                             var items = data._embedded.contacts;
                             for (var i = 0; i < items.length; i++) {
                                 $scope.contacts.push(items[i]);
@@ -73,7 +73,7 @@ angular.module('customersApp.contactControllers', [])
                                 $scope.scroll.stop = true;
                             }
 
-                        }else{
+                        } else {
                             $scope.scroll.next = '';
                             $scope.scroll.stop = true;
                         }
@@ -99,10 +99,10 @@ angular.module('customersApp.contactControllers', [])
                     $scope.pageNo = 1;
 
                     //make the call to getCompanies and handle the promise returned;
-                    ContactServices.getContacts($scope.companyNumber, 0,$scope.searchText).then(function (data) {
+                    ContactServices.getContacts($scope.companyNumber, 0, $scope.searchText).then(function (data) {
                         //this will execute when the
                         //AJAX call completes.
-                        if(data && data._embedded){
+                        if (data && data._embedded) {
                             $scope.contacts = data._embedded.contacts;
                             if (data._links && data._links.next) {
                                 $scope.scroll.next = data._links.next.href;
@@ -113,7 +113,7 @@ angular.module('customersApp.contactControllers', [])
                                 $scope.scroll.stop = true;
                             }
 
-                        }else{
+                        } else {
                             $scope.scroll.next = '';
                             $scope.scroll.stop = true;
 
@@ -123,7 +123,7 @@ angular.module('customersApp.contactControllers', [])
                         console.log(data);
                         if ($scope.contacts) {
                             $scope.totalRecords = $scope.contacts.length;
-                         }
+                        }
                     });
                 }
 
@@ -165,7 +165,7 @@ angular.module('customersApp.contactControllers', [])
                 var editContact = true;
                 if (contact) {
                     origCard = angular.copy(contact);
-                }else{
+                } else {
                     contact = {};
                     editContact = false;
                 }
@@ -185,13 +185,13 @@ angular.module('customersApp.contactControllers', [])
                     if (result === 'ok') {
                         if (editContact) {
                             ContactServices.patchContact(contact);
-                        }else{
+                        } else {
                             ContactServices.postContact(contact, $scope.companyNumber);
                             $scope.contacts.push(contact);
                         }
                     } else {
                         if (contact) {
-                            angular.forEach(origCard, function(obj, dataset) {
+                            angular.forEach(origCard, function (obj, dataset) {
                                 contact[dataset] = obj;
                             });
                         }

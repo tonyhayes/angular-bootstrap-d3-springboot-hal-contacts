@@ -3,34 +3,34 @@
  */
 angular.module('customersApp.applicationControllers', [])
 
-.controller("appController", [
-    "$scope", "$timeout", "$q", "customersService", "statesService", "salesPersonService", "probabilitiesService",
-    function ($scope, $timeout, $q, customersService, statesService, salesPersonService, probabilitiesService) {
-        $scope.loadingDone = false;
+    .controller("appController", [
+        "$scope", "$timeout", "$q", "customersService", "statesService", "salesPersonService", "probabilitiesService",
+        function ($scope, $timeout, $q, customersService, statesService, salesPersonService, probabilitiesService) {
+            $scope.loadingDone = false;
 
 
-        $scope.fail = function () {
-            console.log('User handling promise rejected');
-        };
+            $scope.fail = function () {
+                console.log('User handling promise rejected');
+            };
 
 
-        statesService.getConfiguredStates().then(function (data) {
-            //this will execute when the
-            //AJAX call completes.
-            statesService.setStates(data);
-        });
-        salesPersonService.getConfiguredSalesPeople().then(function (data) {
-            //this will execute when the
-            //AJAX call completes.
-            salesPersonService.setSalesPeople(data);
-        });
-        probabilitiesService.getConfiguredProbabilities().then(function (data) {
-            //this will execute when the
-            //AJAX call completes.
-            probabilitiesService.setProbabilities(data);
-        });
+            statesService.getConfiguredStates().then(function (data) {
+                //this will execute when the
+                //AJAX call completes.
+                statesService.setStates(data);
+            });
+            salesPersonService.getConfiguredSalesPeople().then(function (data) {
+                //this will execute when the
+                //AJAX call completes.
+                salesPersonService.setSalesPeople(data);
+            });
+            probabilitiesService.getConfiguredProbabilities().then(function (data) {
+                //this will execute when the
+                //AJAX call completes.
+                probabilitiesService.setProbabilities(data);
+            });
 
-        // use $q.all to wait until all promises are resolved
+            // use $q.all to wait until all promises are resolved
 //        $q.all([
 //            CompanyServices.getCompanies(0),
 //            statesService.getConfiguredStates
@@ -53,10 +53,10 @@ angular.module('customersApp.applicationControllers', [])
 //                // the user.
 //                $scope.failure = reason;
 //            });
-        $scope.loadingDone = true;
+            $scope.loadingDone = true;
 
-    }
-])
+        }
+    ])
     //this contoller is in charhe of the loadfing bar,
     // it's quick and dirty, and does nothing fancy.
     .controller("loadingController", [
@@ -67,7 +67,7 @@ angular.module('customersApp.applicationControllers', [])
             function animateBar() {
                 // very crude timeout based animator
                 // just to illustrate the sample
-                $scope.percentDone +=5;
+                $scope.percentDone += 5;
                 if ($scope.loadingDone) {
                     // this is thighly coupled to the appController
                     return;

@@ -195,9 +195,9 @@ angular.module('customersApp.customerServices', []).
         };
 
         this.getStoredCustomer = function () {
-            if(customerObject){
+            if (customerObject) {
                 return customerObject;
-            }else{
+            } else {
                 return null;
             }
         };

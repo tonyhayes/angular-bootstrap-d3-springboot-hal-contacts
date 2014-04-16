@@ -52,7 +52,7 @@ angular.module('customersApp.customerControllers', [])
                     companyArray = customerObject._links.self.href.split('/')
                 }
 
-                $location.path(url+'/'+companyArray[companyArray.length-1]);
+                $location.path(url + '/' + companyArray[companyArray.length - 1]);
             };
 
             function createWatches() {
@@ -76,7 +76,7 @@ angular.module('customersApp.customerControllers', [])
                     CompanyServices.getCompanies($scope.pageNo, $scope.searchText).then(function (data) {
                         //this will execute when the
                         //AJAX call completes.
-                        if(data && data._embedded){
+                        if (data && data._embedded) {
                             var items = data._embedded.companies;
                             for (var i = 0; i < items.length; i++) {
                                 $scope.customers.push(items[i]);
@@ -86,12 +86,12 @@ angular.module('customersApp.customerControllers', [])
                                 $scope.scroll.next = data._links.next.href;
                                 $scope.scroll.stop = false;
                                 $scope.pageNo++;
-                            }else{
+                            } else {
                                 $scope.scroll.next = '';
                                 $scope.scroll.stop = true;
 
                             }
-                        }else{
+                        } else {
                             $scope.scroll.next = '';
                             $scope.scroll.stop = true;
 
@@ -121,7 +121,7 @@ angular.module('customersApp.customerControllers', [])
                     CompanyServices.getCompanies(0, $scope.searchText).then(function (data) {
                         //this will execute when the
                         //AJAX call completes.
-                        if (data && data._embedded){
+                        if (data && data._embedded) {
                             $scope.customers = data._embedded.companies;
                             if (data._links && data._links.next) {
                                 $scope.scroll.next = data._links.next.href;
@@ -131,7 +131,7 @@ angular.module('customersApp.customerControllers', [])
                                 $scope.scroll.stop = true;
                             }
 
-                        }else{
+                        } else {
                             $scope.scroll.next = '';
                             $scope.scroll.stop = true;
                         }
@@ -155,8 +155,6 @@ angular.module('customersApp.customerControllers', [])
     ])
 
 
-
-
     .controller('CustomerEditController', ['$scope', '$routeParams', '$location', 'customersService', 'statesService', 'CompanyServices',
 
         function ($scope, $routeParams, $location, customersService, statesService, CompanyServices) {
@@ -176,7 +174,7 @@ angular.module('customersApp.customerControllers', [])
 
                     // if the user reloads the page, I need to get the data from the server then reset the form
                     // as the promise is resolved after the page has been rendered
-                    if(!$scope.customer){
+                    if (!$scope.customer) {
                         CompanyServices.getCompany($scope.customerId).then(function (data) {
                             $scope.customer = data;
                             $scope.master = angular.copy($scope.customer);
