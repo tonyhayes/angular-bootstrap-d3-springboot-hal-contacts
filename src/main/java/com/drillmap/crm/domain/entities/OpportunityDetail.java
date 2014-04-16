@@ -24,6 +24,13 @@ public class OpportunityDetail extends AuditableEntity {
     @ManyToOne
     Opportunity opportunity;
 
+    public String getSalesPersonDescription() {
+        SalesPerson s = getSales();
+        if (s != null) {
+            return s.getFirstName() + " " + s.getLastName();
+        }
+        return "No salesperson for this opportunity";
+    }
 
 
 }

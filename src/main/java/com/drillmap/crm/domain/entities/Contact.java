@@ -33,6 +33,10 @@ public class Contact extends AuditableEntity {
     String webPage;
     String notes;
 
+    public String getContactDescription() {
+            return getFirstName() + " " + getLastName();
+    }
+
     @ManyToOne(optional = false) //owning side of the relationship
     Company company;
 }

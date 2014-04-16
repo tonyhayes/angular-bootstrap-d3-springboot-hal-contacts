@@ -141,26 +141,24 @@ angular.module('customersApp.ajaxService', [])
     })
     .factory('OpportunityServices', function ($http) {
 
-        var opportunityPost;
         return {
-            getOpportunities: function (url, pageNo) {
+            getOpportunities: function (company, pageNo, searchText) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                opportunityPost = url;
-
-                return $http.get(url, {
-                    params: {page: pageNo}}).then(function (result) {
+                return $http.get(dmApplicationEntryPoint + '/opportunities/search' + '/findByCompany', {
+                    params: {size: 999, page: pageNo, company: company}}).then(function (result) {
                     return result.data;
                 });
-            },
-            postOpportunity: function (opportunity) {
+             },
+            postOpportunity: function (opportunity, companyId) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                return $http.post(opportunityPost, opportunity).then(function (result) {
+                opportunity.company = dmApplicationEntryPoint + '/companies/' + companyId;
+                return $http.post(dmApplicationEntryPoint + '/opportunities', opportunity).then(function (result) {
                     return result.data;
                 });
             },

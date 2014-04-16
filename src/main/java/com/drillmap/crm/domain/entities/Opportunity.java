@@ -28,6 +28,29 @@ public class Opportunity extends AuditableEntity {
     String discussion;
     String potentialRevenue;
 
+    public String getContactDescription() {
+        Contact c = getContact();
+        if (c != null) {
+            return c.getFirstName() + " " + c.getLastName();
+        }
+        return "No contact for this opportunity";
+    }
+    public String getSalesPersonDescription() {
+        SalesPerson s = getSales();
+        if (s != null) {
+            return s.getFirstName() + " " + s.getLastName();
+        }
+        return "No salesperson for this opportunity";
+    }
+
+    public String getProbabilityDescription() {
+        Probability p = getProbability();
+        if (p != null) {
+            return p.getName();
+        }
+        return "No probability for this opportunity";
+    }
+
     @OneToMany(mappedBy = "opportunity", cascade = CascadeType.ALL)
     Set<OpportunityDetail> opportunityDetails;
 

@@ -33,4 +33,8 @@ public class SalesPerson extends AuditableEntity {
     String webPage;
     String notes;
 
+    public String getSalesPersonDescription() {
+        return getFirstName() + " " + getLastName();
+    }
+
 }
