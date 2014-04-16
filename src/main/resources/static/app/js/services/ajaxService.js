@@ -9,7 +9,7 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 if (searchText) {
-                    return $http.get(dmApplicationEntryPoint + '/search' +
+                    return $http.get(dmApplicationEntryPoint + '/companies/search' +
                             '/findByCompanyNameStartsWithOrCityStartsWithOrStateStartsWithOrContactNameStartsWith', {
                             params: {
                                 sort: 'companyName', page: pageNo,

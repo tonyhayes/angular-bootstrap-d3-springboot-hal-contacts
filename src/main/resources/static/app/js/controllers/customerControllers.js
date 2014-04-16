@@ -94,6 +94,7 @@ angular.module('customersApp.customerControllers', [])
                         } else {
                             $scope.scroll.next = '';
                             $scope.scroll.stop = true;
+                            $scope.customers = [];
 
                         }
 
@@ -134,6 +135,7 @@ angular.module('customersApp.customerControllers', [])
                         } else {
                             $scope.scroll.next = '';
                             $scope.scroll.stop = true;
+                            $scope.customers = [];
                         }
 
 

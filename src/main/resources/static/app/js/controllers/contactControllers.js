@@ -76,6 +76,7 @@ angular.module('customersApp.contactControllers', [])
                         } else {
                             $scope.scroll.next = '';
                             $scope.scroll.stop = true;
+                            $scope.contacts = {};
                         }
 
 
@@ -116,6 +117,7 @@ angular.module('customersApp.contactControllers', [])
                         } else {
                             $scope.scroll.next = '';
                             $scope.scroll.stop = true;
+                            $scope.contacts = {};
 
                         }
 

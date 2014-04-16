@@ -11,7 +11,7 @@
 
                 <div class="form-group"
                      ng-class="{ 'has-error' : customerForm.companyName.$invalid && !customerForm.companyName.$pristine }">
-                    <label>Customer Name</label>
+                    <label>Company Name</label>
                     <input type="text" name="companyName" class="form-control" ng-model="master.companyName" required>
 
                     <p ng-show="customerForm.companyName.$invalid && !customerForm.companyName.$pristine"
@@ -97,6 +97,13 @@
                 <div class="form-group">
                     <label>Notes</label>
                     <textarea name="notes" class="form-control" ng-model="master.notes"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Primary Contact</label>
+                    <select required ng-model="master.primaryContact" class="form-control" name="primaryContact"
+                            ng-options="s.stateAbbr as s.name for s in state_array"></select>
+
                 </div>
 
                 <button type="submit" class="btn btn-primary" ng-disabled="customerForm.$invalid">Submit</button>
