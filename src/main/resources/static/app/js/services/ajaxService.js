@@ -81,15 +81,15 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 if (searchText) {
-                    searchText += '%';
+                    var filter = angular.copy(searchText)+'%';
                     return $http.get(dmApplicationEntryPoint + '/contacts/search' +
                             '/findBySearch', {
                             params: {
                                 sort: 'lastName', page: pageNo,
-                                firstName: searchText,
-                                city: searchText,
-                                state: searchText,
-                                lastName: searchText,
+                                firstName: filter,
+                                city: filter,
+                                state: filter,
+                                lastName: filter,
                                 company: company}}
                     ).then(function (result) {
                             //this sends back the search URL
@@ -142,13 +142,13 @@ angular.module('customersApp.ajaxService', [])
     .factory('OpportunityServices', function ($http) {
 
         return {
-            getOpportunities: function (company, pageNo, searchText) {
+            getOpportunities: function (company) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 return $http.get(dmApplicationEntryPoint + '/opportunities/search' + '/findByCompany', {
-                    params: {size: 999, page: pageNo, company: company}}).then(function (result) {
+                    params: {size: 99999, page: 0, company: company}}).then(function (result) {
                     return result.data;
                 });
              },

@@ -94,7 +94,9 @@ angular.module('customersApp.customerControllers', [])
                         } else {
                             $scope.scroll.next = '';
                             $scope.scroll.stop = true;
-                            $scope.customers = [];
+                            if($scope.searchText) {
+                                $scope.customers = [];
+                            }
 
                         }
 
@@ -181,6 +183,7 @@ angular.module('customersApp.customerControllers', [])
                             $scope.customer = data;
                             $scope.master = angular.copy($scope.customer);
                             $scope.customerForm.$setPristine();
+                            customersService.storeCustomer(data);
                         });
                     }
                     $scope.master = angular.copy($scope.customer);

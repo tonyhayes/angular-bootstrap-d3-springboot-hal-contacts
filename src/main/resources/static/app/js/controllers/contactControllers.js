@@ -8,7 +8,7 @@ angular.module('customersApp.contactControllers', [])
         'statesService', 'ContactServices', 'CompanyServices',
 
         function ($scope, $routeParams, $location, $filter, customersService, modalService, statesService, ContactServices, CompanyServices) {
-            $scope.customer = {};
+            $scope.customer = customersService.getStoredCustomer();
             $scope.contacts = {};
             $scope.filterOptions = {
                 filterText: ''
@@ -18,17 +18,16 @@ angular.module('customersApp.contactControllers', [])
             $scope.scroll.stop = false;
             $scope.scroll.next = '';
             $scope.pageNo = 1;
-            $scope.companyNumber;
+            $scope.companyNumber = parseInt($routeParams.customerID);
 
             init();
 
             function init() {
                 //Grab contacts for company
-                $scope.companyNumber = parseInt($routeParams.customerID);
-                $scope.customer = customersService.getStoredCustomer();
                 if (!$scope.customer) {
                     CompanyServices.getCompany($scope.companyNumber).then(function (data) {
                         $scope.customer = data;
+                        customersService.storeCustomer(data);
                     });
                 }
 
@@ -76,7 +75,9 @@ angular.module('customersApp.contactControllers', [])
                         } else {
                             $scope.scroll.next = '';
                             $scope.scroll.stop = true;
-                            $scope.contacts = {};
+                            if($scope.searchText){
+                                $scope.contacts = {};
+                            }
                         }
 
 
