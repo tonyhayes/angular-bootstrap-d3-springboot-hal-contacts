@@ -4,9 +4,10 @@
 angular.module('customersApp.contactControllers', [])
 //This controller retrieves data from the customersService and associates it with the $scope
 //The $scope is bound to the details view
-    .controller('ContactsController', ['$scope', '$routeParams', '$location', '$filter','customersService', 'modalService', 'statesService', 'ContactServices',
+    .controller('ContactsController', ['$scope', '$routeParams', '$location', '$filter','customersService', 'modalService',
+        'statesService', 'ContactServices', 'CompanyServices',
 
-        function ($scope, $routeParams, $location, $filter, customersService, modalService, statesService, ContactServices) {
+        function ($scope, $routeParams, $location, $filter, customersService, modalService, statesService, ContactServices, CompanyServices) {
             $scope.customer = {};
             $scope.contacts = {};
             $scope.filterOptions = {
@@ -24,6 +25,12 @@ angular.module('customersApp.contactControllers', [])
             function init() {
                 //Grab contacts for company
                 $scope.companyNumber = parseInt($routeParams.customerID);
+                $scope.customer = customersService.getStoredCustomer();
+                if(!$scope.customer){
+                    CompanyServices.getCompany($scope.companyNumber).then(function (data) {
+                       $scope.customer = data;
+                    });
+                }
 
                 // get contacts
                 createWatches();
@@ -157,7 +164,7 @@ angular.module('customersApp.contactControllers', [])
                         if (editContact) {
                             ContactServices.patchContact(contact);
                         }else{
-                            ContactServices.postContact(contact);
+                            ContactServices.postContact(contact, $scope.companyNumber);
                         }
                     } else {
                         if (contact) {

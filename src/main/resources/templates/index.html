@@ -42,7 +42,7 @@
         <!-- this is my loading div, it is taken out of the dom once everything is loaded! -->
         <h2><small>Loading:</small></h2>
         <div class="progress progress-striped active" ng-controller='loadingController'>
-            <div class="progress-bar" style="width: {{percentDone}}%">
+            <div class="bar" style="width: {{percentDone}}%">
             </div>
         </div>
     </div>
@@ -91,6 +91,7 @@
 <script th:src="@{app/js/app.js}"></script>
 <script th:src="@{app/js/services/customerServices.js}"></script>
 <script th:src="@{app/js/services/ajaxService.js}"></script>
+<script th:src="@{app/js/controllers/applicationController.js}"></script>
 <script th:src="@{app/js/controllers/customerControllers.js}"></script>
 <script th:src="@{app/js/controllers/contactControllers.js}"></script>
 <script th:src="@{app/js/controllers/opportunityControllers.js}"></script>

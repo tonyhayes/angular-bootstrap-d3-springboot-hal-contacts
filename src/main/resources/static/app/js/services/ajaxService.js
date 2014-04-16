@@ -28,6 +28,15 @@ angular.module('customersApp.ajaxService', [])
                     });
                 }
             },
+            getCompany: function (companyId) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.get(dmApplicationEntryPoint+'/companies/'+companyId).then(function (result) {
+                    return result.data;
+                });
+            },
             postCompany: function (company) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
@@ -93,13 +102,13 @@ angular.module('customersApp.ajaxService', [])
                     });
                 }
             },
-            postContact: function (contact) {
+            postContact: function (contact,companyId) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                contact.company = contactPost+'/company';
-                return $http.put(contactPost,  contact).then(function (result) {
+                contact.company = dmApplicationEntryPoint+'/companies/'+companyId;
+                return $http.post(dmApplicationEntryPoint+'/contacts',  contact).then(function (result) {
                     return result.data;
                 });
             },
@@ -207,12 +216,12 @@ angular.module('customersApp.ajaxService', [])
     .factory('salesPersonService', function ($http) {
         var salesPeople = [];
         return {
-            getConfiguredStates: function () {
+            getConfiguredSalesPeople: function () {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                return $http.get(dmApplicationEntryPoint+'/salesPeople').then(function (result) {
+                return $http.get(dmApplicationEntryPoint+'/salesPersons').then(function (result) {
                     return result.data;
                 });
             },
@@ -238,7 +247,7 @@ angular.module('customersApp.ajaxService', [])
                     return result.data;
                 });
             },
-            geteProbabilities: function () {
+            getProbabilities: function () {
                 return probabilities;
             },
             setProbabilities: function (data) {

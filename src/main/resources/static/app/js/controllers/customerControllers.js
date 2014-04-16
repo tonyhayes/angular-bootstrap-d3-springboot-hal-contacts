@@ -173,6 +173,16 @@ angular.module('customersApp.customerControllers', [])
                 $scope.customerId = parseInt($routeParams.customerID);
                 if ($scope.customerId) {
                     $scope.customer = customersService.getStoredCustomer();
+
+                    // if the user reloads the page, I need to get the data from the server then reset the form
+                    // as the promise is resolved after the page has been rendered
+                    if(!$scope.customer){
+                        CompanyServices.getCompany($scope.customerId).then(function (data) {
+                            $scope.customer = data;
+                            $scope.master = angular.copy($scope.customer);
+                            $scope.customerForm.$setPristine();
+                        });
+                    }
                     $scope.master = angular.copy($scope.customer);
                 }
             }
@@ -201,25 +211,4 @@ angular.module('customersApp.customerControllers', [])
 
         }
     ])
-    //this contoller is in charhe of the loadfing bar,
-    // it's quick and dirty, and does nothing fancy.
-    .controller("loadingController", [
-        "$scope", "$timeout",
-        function ($scope, $timeout) {
-            $scope.percentDone = 0;
-
-            function animateBar() {
-                // very crude timeout based animator
-                // just to illustrate the sample
-                if ($scope.loadingDone) {
-                    // this is thighly coupled to the appController
-                    return;
-                }
-                    $timeout(animateBar, 200);
-
-            }
-
-            animateBar();
-        }
-    ]);
 
