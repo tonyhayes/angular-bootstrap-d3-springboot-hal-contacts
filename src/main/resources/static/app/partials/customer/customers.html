@@ -8,7 +8,7 @@
                 <div class="navbar">
                     <div class="navbar-inner toolbar">
                         <ul class="nav">
-                            <li class="toolbaritem"><a data-ng-click="navigate('/customeredit/0')"><i
+                            <li class="toolbaritem"><a data-ng-click="navigate('/customeredit')"><i
                                     class="icon-plus"></i> Add Customer</a></li>
                         </ul>
                         <form class="navbar-form pull-right">
@@ -29,7 +29,7 @@
                             data-ng-click="deleteCustomer($index, customer)">&times;</button>
                     <div class="cardHeader">
 
-                        <a data-ng-click="navigate('/customeredit/1',customer )" title="click to edit"
+                        <a data-ng-click="navigate('/customeredit',customer )" title="click to edit"
                            class="cardHeader btn-link">{{customer.companyName}}</a>
                     </div>
                     <div class="cardBody">{{customer.addressLine1 + ', ' + customer.city}}</div>

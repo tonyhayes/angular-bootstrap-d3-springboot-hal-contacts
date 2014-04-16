@@ -23,17 +23,8 @@ angular.module('customersApp.contactControllers', [])
 
             function init() {
                 //Grab contacts for company
-                try{
-                    $scope.customer = customersService.getStoredCustomer();
-                }catch(err){
-                    window.location.href = '/crm';
-                }
+                $scope.companyNumber = parseInt($routeParams.customerID);
 
-                if (!$scope.customer){
-                    window.location.href = '/crm';
-                }
-                var companyArray = $scope.customer._links.self.href.split('/')
-                $scope.companyNumber = companyArray[companyArray.length-1];
                 // get contacts
                 createWatches();
                 getContactSummary();

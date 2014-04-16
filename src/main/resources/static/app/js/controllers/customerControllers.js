@@ -46,10 +46,13 @@ angular.module('customersApp.customerControllers', [])
             }
 
             $scope.navigate = function (url, customerObject) {
+                var companyArray = [0];
                 if (customerObject) {
                     customersService.storeCustomer(customerObject);
+                    companyArray = customerObject._links.self.href.split('/')
                 }
-                $location.path(url);
+
+                $location.path(url+'/'+companyArray[companyArray.length-1]);
             };
 
             function createWatches() {
@@ -160,15 +163,15 @@ angular.module('customersApp.customerControllers', [])
             $scope.master = {};
             $scope.customer = {};
             $scope.state_array = statesService.getStates();
-            $scope.customerUpdate = false;
+            $scope.customerId = 0;
 
 
             init();
 
             function init() {
                 //Grab ID off of the route
-                $scope.customerUpdate = parseInt($routeParams.customerID);
-                if ($scope.customerUpdate) {
+                $scope.customerId = parseInt($routeParams.customerID);
+                if ($scope.customerId) {
                     $scope.customer = customersService.getStoredCustomer();
                     $scope.master = angular.copy($scope.customer);
                 }
@@ -181,7 +184,7 @@ angular.module('customersApp.customerControllers', [])
                 if ($scope.customerForm.$valid) {
                     $scope.customer = angular.copy($scope.master);
 
-                    if ($scope.customerUpdate) {
+                    if ($scope.customerId) {
                         //patch
 
                         CompanyServices.patchCompany($scope.master);
@@ -212,13 +215,8 @@ angular.module('customersApp.customerControllers', [])
                     // this is thighly coupled to the appController
                     return;
                 }
-                if ($scope.percentDone == 100) {
-                    $scope.percentDone = 0;
-                    $timeout(animateBar, 1000);
-                } else {
-                    $scope.percentDone += 2;
                     $timeout(animateBar, 200);
-                }
+
             }
 
             animateBar();
