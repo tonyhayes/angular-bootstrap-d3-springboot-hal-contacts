@@ -42,7 +42,7 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                return $http.post(dmApplicationEntryPoint,  company).then(function (result) {
+                return $http.post(dmApplicationEntryPoint+'/companies',  company).then(function (result) {
                     return result.data;
                 });
             },

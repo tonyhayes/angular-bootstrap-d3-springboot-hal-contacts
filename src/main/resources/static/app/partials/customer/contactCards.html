@@ -36,7 +36,7 @@
             <div infinite-scroll='loadMore()' infinite-scroll-immediate-check=false infinite-scroll-distance='0'>
                 <div class="span3 card" data-ng-repeat="contact in contacts track by $index">
                     <button class="btn close cardClose" title="click to delete contact"
-                            data-ng-click="deleteContact(contact)">&times;</button>
+                            data-ng-click="deleteContact($index, contact)">&times;</button>
                     <div class="cardHeader">
 
                         <a data-ng-click="editContact(contact)" title="click to edit"

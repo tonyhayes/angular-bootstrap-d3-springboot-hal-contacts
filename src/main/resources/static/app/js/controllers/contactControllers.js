@@ -135,6 +135,28 @@ angular.module('customersApp.contactControllers', [])
                 getContactSummary()
             }
 
+            $scope.deleteContact = function (idx, contact) {
+
+                var contactName = contact.firstName + ' ' + contact.lastName;
+
+                var modalDefaults = {
+                    templateUrl: 'app/partials/modal.html'
+                };
+                var modalOptions = {
+                    closeButtonText: 'Cancel',
+                    actionButtonText: 'Delete Contact',
+                    headerText: 'Delete ' + contactName + '?',
+                    bodyText: 'Are you sure you want to delete this contact?'
+                };
+
+                modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                    if (result === 'ok') {
+                        ContactServices.deleteContact(contact);
+                        $scope.contacts.splice(idx, 1);
+                    }
+                });
+
+            };
             $scope.editContact = function (contact) {
 
                 $scope.state_array = statesService.getStates();
@@ -165,6 +187,7 @@ angular.module('customersApp.contactControllers', [])
                             ContactServices.patchContact(contact);
                         }else{
                             ContactServices.postContact(contact, $scope.companyNumber);
+                            $scope.contacts.push(contact);
                         }
                     } else {
                         if (contact) {
