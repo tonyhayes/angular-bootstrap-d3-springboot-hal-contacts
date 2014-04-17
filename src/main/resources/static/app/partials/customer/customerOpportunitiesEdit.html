@@ -27,8 +27,9 @@
                     <div class="form-group"
                          ng-class="{ 'has-error' : customerOpportunitiesForm.salesPerson.$invalid && !customerOpportunitiesForm.salesPerson.$pristine }">
                         <label>Sales Person</label>
-                        <select required ng-model="master.salesPerson" class="form-control" name="salesPerson"
-                                ng-options="s.id as s.salesPerson for s in salesPerson_array"></select>
+                        <select required ng-model="master.salesPersonId" class="form-control" name="salesPerson"
+                                ng-options="s.salesPersonId as s.salesPersonDescription for s in salesPerson_array"></select>
+
 
                         <p ng-show="customerOpportunitiesForm.salesPerson.$invalid && !customerOpportunitiesForm.salesPerson.$pristine"
                            class="help-block">Sales Person is required.</p>

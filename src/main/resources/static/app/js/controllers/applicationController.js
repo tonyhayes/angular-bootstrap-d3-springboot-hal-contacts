@@ -14,46 +14,35 @@ angular.module('customersApp.applicationControllers', [])
             };
 
 
-            statesService.getConfiguredStates().then(function (data) {
-                //this will execute when the
-                //AJAX call completes.
-                statesService.setStates(data);
-            });
-            salesPersonService.getConfiguredSalesPeople().then(function (data) {
-                //this will execute when the
-                //AJAX call completes.
-                salesPersonService.setSalesPeople(data);
-            });
-            probabilitiesService.getConfiguredProbabilities().then(function (data) {
-                //this will execute when the
-                //AJAX call completes.
-                probabilitiesService.setProbabilities(data);
-            });
 
             // use $q.all to wait until all promises are resolved
-//        $q.all([
-//            CompanyServices.getCompanies(0),
-//            statesService.getConfiguredStates
-//        ]).then(
-//            function(data) {
-//                if(data[0]._embedded){
-//                    customersService.saveCustomerPages(data[0]);
-//                }
-//                if(data[1]){
-//                    statesService.setStates(data[0]);
-//                }
-//                console.log('All services are resolved!');
-//                // when evdrything has loaded, flip the switch, and let the
-//                // routes do their work
-//                $scope.loadingDone = true;
-//            },
-//            function(reason) {
-//                // if any of the promises fails, handle it
-//                // here, I'm just throwing an error message to
-//                // the user.
-//                $scope.failure = reason;
-//            });
-            $scope.loadingDone = true;
+        $q.all([
+            statesService.getConfiguredStates(),
+            salesPersonService.getConfiguredSalesPeople(),
+            probabilitiesService.getConfiguredProbabilities()
+        ]).then(
+            function(data) {
+                if(data[0]._embedded){
+                    statesService.setStates(data[0]);
+                }
+                if(data[1]){
+                    salesPersonService.setSalesPeople(data[1]);
+                }
+                if(data[2]){
+                    probabilitiesService.setProbabilities(data[2]);
+                }
+                console.log('All services are resolved!');
+                // when evdrything has loaded, flip the switch, and let the
+                // routes do their work
+                $scope.loadingDone = true;
+            },
+            function(reason) {
+                // if any of the promises fails, handle it
+                // here, I'm just throwing an error message to
+                // the user.
+                $scope.failure = reason;
+            });
+//            $scope.loadingDone = true;
 
         }
     ])
@@ -67,7 +56,7 @@ angular.module('customersApp.applicationControllers', [])
             function animateBar() {
                 // very crude timeout based animator
                 // just to illustrate the sample
-                $scope.percentDone += 5;
+                $scope.percentDone += 25;
                 if ($scope.loadingDone) {
                     // this is thighly coupled to the appController
                     return;

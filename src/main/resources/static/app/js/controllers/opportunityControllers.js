@@ -137,18 +137,18 @@ angular.module('customersApp.opportunityControllers', [])
     ])
     .controller('CustomerOpportunitiesEditController', ['$scope', '$routeParams', '$location', '$filter',
         'customersService', 'salesPersonService', 'ContactServices', 'probabilitiesService', 'modalService',
-        'formFormatterService', 'OpportunityDetailServices', 'CompanyServices',
+        'formFormatterService', 'OpportunityDetailServices', 'CompanyServices', 'OpportunityServices',
 
         function ($scope, $routeParams, $location, $filter,
                   customersService, salesPersonService, ContactServices, probabilitiesService, modalService,
-                  formFormatterService, OpportunityDetailServices, CompanyServices) {
+                  formFormatterService, OpportunityDetailServices, CompanyServices, OpportunityServices) {
 
             $scope.master = {};
             $scope.customer = {};
             $scope.opportunities = {};
             $scope.opportunity = {};
-            $scope.salesPerson_array =  salesPersonService.getSalesPeople();;
-            $scope.probability_array = probabilitiesService.getProbabilities;
+            $scope.salesPerson_array =  salesPersonService.getSalesPeople();
+            $scope.probability_array = probabilitiesService.getProbabilities();
             $scope.filterOptions = {
                 filterText: ''
             };
@@ -171,10 +171,13 @@ angular.module('customersApp.opportunityControllers', [])
                 }
                 if ($scope.opportunityID) {
                     $scope.opportunity = customersService.getStoredOpportunity();
+                    $scope.master = angular.copy($scope.opportunity);
                     if (!$scope.opportunity) {
-                        CompanyServices.getCompany($scope.opportunityID).then(function (data) {
+                        OpportunityServices.getOpportunity($scope.opportunityID).then(function (data) {
                             $scope.opportunity = data;
                             customersService.storeOpportunity(data);
+                            $scope.master = angular.copy($scope.opportunity);
+                            $scope.customerOpportunitiesForm.$setPristine();
                         });
                     }
 

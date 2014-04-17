@@ -280,7 +280,7 @@ angular.module('customersApp.ajaxService', [])
         }
     })
     .factory('salesPersonService', function ($http) {
-        var salesPeople = [];
+        var salesPersons = [];
         return {
             getConfiguredSalesPeople: function () {
                 //since $http.get returns a promise,
@@ -292,10 +292,10 @@ angular.module('customersApp.ajaxService', [])
                 });
             },
             getSalesPeople: function () {
-                return salesPeople;
+                return salesPersons;
             },
             setSalesPeople: function (data) {
-                salesPeople = data._embedded.salesPeople;
+                salesPersons = data._embedded.salesPersons;
 
             }
 

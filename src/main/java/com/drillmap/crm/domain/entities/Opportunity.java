@@ -42,6 +42,13 @@ public class Opportunity extends AuditableEntity {
         }
         return "No salesperson for this opportunity";
     }
+    public Long getSalesPersonId() {
+        SalesPerson s = getSales();
+        if (s != null) {
+            return s.getId();
+        }
+        return null;
+    }
 
     public String getProbabilityDescription() {
         Probability p = getProbability();
