@@ -20,12 +20,12 @@
         </div>
 
         <div class="form-group"
-             ng-class="{ 'has-error' : opportunitiesActionForm.followUpDate.$invalid && !opportunitiesActionForm.followUpDate.$pristine }">
+             ng-class="{ 'has-error' : opportunitiesActionForm.followUpdate.$invalid && !opportunitiesActionForm.followUpdate.$pristine }">
             <label>Follow Up Date</label>
-            <input type="text" ui-date name="followUpDate" class="form-control"
-                   ng-model="modalOptions.record.followUpDate" required>
+            <input type="text" ui-date name="followUpdate" class="form-control"
+                   ng-model="modalOptions.record.followUpdate" required>
 
-            <p ng-show="opportunitiesActionForm.followUpDate.$invalid && !opportunitiesActionForm.followUpDate.$pristine"
+            <p ng-show="opportunitiesActionForm.followUpdate.$invalid && !opportunitiesActionForm.followUpdate.$pristine"
                class="help-block">Follow Up Date is required.</p>
         </div>
 
