@@ -151,7 +151,16 @@ angular.module('customersApp.ajaxService', [])
                     params: {size: 99999, page: 0, company: company}}).then(function (result) {
                     return result.data;
                 });
-             },
+            },
+            getOpportunity: function (opportunityId) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.get(dmApplicationEntryPoint + '/opportunities/' + opportunityId).then(function (result) {
+                    return result.data;
+                });
+            },
             postOpportunity: function (opportunity, companyId) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
@@ -159,6 +168,65 @@ angular.module('customersApp.ajaxService', [])
                 //callback argument, we can return that.
                 opportunity.company = dmApplicationEntryPoint + '/companies/' + companyId;
                 return $http.post(dmApplicationEntryPoint + '/opportunities', opportunity).then(function (result) {
+                    return result.data;
+                });
+            },
+            patchOpportunity: function (opportunity) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                var body = angular.copy(opportunity)
+                var url = body._links.self.href;
+                delete body._links;
+                // angular does not support patch, use put for now
+                return $http.put(url, body).then(function (result) {
+                    return result.data;
+                });
+            },
+            deleteOpportunity: function (opportunity) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                var body = angular.copy(opportunity)
+                var url = body._links.self.href;
+                delete body._links;
+                return $http.delete(url).then(function (result) {
+                    return result.data;
+                });
+            }
+        }
+    })
+    .factory('OpportunityDetailServices', function ($http) {
+
+        return {
+            getOpportunities: function (opportunity) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.get(dmApplicationEntryPoint + '/opportunityDetails/search' + '/findByOpportunity', {
+                    params: {opportunity: opportunity}}).then(function (result) {
+                    return result.data;
+                });
+            },
+            getOpportunity: function (opportunityId) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.get(dmApplicationEntryPoint + '/opportunityDetails/' + opportunityId).then(function (result) {
+                    return result.data;
+                });
+            },
+            postOpportunity: function (opportunity, companyId) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                opportunity.company = dmApplicationEntryPoint + '/companies/' + companyId;
+                return $http.post(dmApplicationEntryPoint + '/opportunityDetails', opportunity).then(function (result) {
                     return result.data;
                 });
             },

@@ -118,50 +118,66 @@ angular.module('customersApp.opportunityControllers', [])
 
             $scope.onDblClickRow = function (row) {
 
-                var cust = customersService.getStoredCustomer();
-                var custName = cust.customerName + ', ' + cust.city;
-                var id = 'new';
+                var custName = $scope.customer.customerName + ', ' + $scope.customer.city;
+                var id = 0;
+                var opportunityArray = [0];
 
 
                 if (row) {
+                    customersService.storeOpportunity(row.entity);
                     id = row.entity.id;
+                    opportunityArray = row.entity._links.self.href.split('/')
                 }
 
-                $location.path('customerOpportunitiesEdit/' + $scope.customerID + '/' + id);
+                $location.path('customerOpportunitiesEdit/' + $scope.customerID + '/' + opportunityArray[opportunityArray.length - 1]);
 
 
             };
         }
     ])
-    .controller('CustomerOpportunitiesEditController', ['$scope', '$routeParams', '$location', '$filter', 'customersService',
-         'salesPersonService', 'contactService', 'probabilityService', 'modalService', 'formFormatterService',
+    .controller('CustomerOpportunitiesEditController', ['$scope', '$routeParams', '$location', '$filter',
+        'customersService', 'salesPersonService', 'ContactServices', 'probabilitiesService', 'modalService',
+        'formFormatterService', 'OpportunityDetailServices', 'CompanyServices',
 
-        function ($scope, $routeParams, $location, $filter, customersService, salesPersonService, contactService, probabilityService, modalService, formFormatterService) {
+        function ($scope, $routeParams, $location, $filter,
+                  customersService, salesPersonService, ContactServices, probabilitiesService, modalService,
+                  formFormatterService, OpportunityDetailServices, CompanyServices) {
+
             $scope.master = {};
             $scope.customer = {};
             $scope.opportunities = {};
-            $scope.customerNames_array = [];
-            $scope.salesPerson_array = [];
-            $scope.contact_array = [];
-            $scope.probability_array = [];
+            $scope.opportunity = {};
+            $scope.salesPerson_array =  salesPersonService.getSalesPeople();;
+            $scope.probability_array = probabilitiesService.getProbabilities;
             $scope.filterOptions = {
                 filterText: ''
             };
+            $scope.customerID = $routeParams.customerID;
+            $scope.opportunityID = ($routeParams.id);
 
 
             init();
 
             function init() {
-                //Grab planID off of the route
-                var customerID = $routeParams.customerID;
-                var opportunityID = ($routeParams.id);
-                if (customerID) {
-                    $scope.customer = customersService.getCustomerOpportunity(customerID, opportunityID);
-                    $scope.master = angular.copy($scope.customer);
-                    $scope.customerNames_array = customerNamesService.getCustomerNames();
-                    $scope.salesPerson_array = salesPersonService.getSalesPersons();
-                    $scope.contact_array = contactService.getContacts();
-                    $scope.probability_array = probabilityService.getProbabilities();
+                if ($scope.customerID) {
+                    $scope.customer = customersService.getStoredCustomer();
+                    if (!$scope.customer) {
+                        CompanyServices.getCompany($scope.customerID).then(function (data) {
+                            $scope.customer = data;
+                            customersService.storeCustomer(data);
+                        });
+                    }
+
+                }
+                if ($scope.opportunityID) {
+                    $scope.opportunity = customersService.getStoredOpportunity();
+                    if (!$scope.opportunity) {
+                        CompanyServices.getCompany($scope.opportunityID).then(function (data) {
+                            $scope.opportunity = data;
+                            customersService.storeOpportunity(data);
+                        });
+                    }
+
                 }
             }
 
@@ -207,7 +223,7 @@ angular.module('customersApp.opportunityControllers', [])
             };
 
             $scope.myOpportunityDetails = {
-                data: 'master.opportunityDetails',
+                data: 'opportunityDetails',
                 showGroupPanel: true,
                 groups: [],
                 showColumnMenu: true,
@@ -217,21 +233,20 @@ angular.module('customersApp.opportunityControllers', [])
                 filterOptions: $scope.filterOptions,
                 columnDefs: [
                     {
-                        field: 'salesPerson',
-                        cellFilter: 'mapSalesPerson',
+                        field: 'salesPersonDescription',
                         headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
                         width: '*',
                         displayName: 'Sales'
                     },
                     {
-                        field: 'followUpDate',
+                        field: 'followUpdate',
                         headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
                         width: '*',
                         cellFilter: 'date',
                         displayName: 'Date'
                     },
                     {
-                        field: 'Action',
+                        field: 'action',
                         headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
                         width: '***',
                         displayName: 'Action'
@@ -240,18 +255,27 @@ angular.module('customersApp.opportunityControllers', [])
                 ]
             };
 
+            if ($scope.opportunityID) {
+
+                //make the call to getCompanies and handle the promise returned;
+                OpportunityDetailServices.getOpportunities($scope.opportunityID).then(function (data) {
+                    //this will execute when the
+                    //AJAX call completes.
+                    $scope.opportunityDetails = data._embedded.opportunityDetails;
+
+                });
+
+            }
 
             $scope.onDblClickRow = function (row) {
 
-                var customerID = $routeParams.customerID;
-                var cust = customersService.getCustomer(customerID);
-                var custName = cust.customerName + ', ' + cust.city;
+                var custName = $scope.customer.companyName + ', ' + $scope.customer.city;
                 var origRow = {};
                 var data = {};
                 if (row) {
                     origRow = angular.copy(row.entity);
                     data = row.entity;
-                    data.followUpDate = $filter('date')(data.followUpDate, 'MM/dd/y');
+                    data.followUpdate = $filter('date')(data.followUpdate, 'MM/dd/y');
                 }
 
 
@@ -268,12 +292,18 @@ angular.module('customersApp.opportunityControllers', [])
 
                 modalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
+
+                        // need to write a service
+
                         if (!row) {
                             $scope.master.opportunityDetails.push(data);
                         }
                     } else {
                         if (row) {
-                            row.entity = origRow;
+ //                           row.entity = origRow;
+                            angular.forEach(origRow, function (obj, dataset) {
+                                row.entity[dataset] = obj;
+                            });
                         }
                     }
                 });

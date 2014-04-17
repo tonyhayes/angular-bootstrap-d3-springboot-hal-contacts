@@ -3,6 +3,15 @@
         <header>
             <h3>Customer Opportunities Maintenance</h3>
         </header>
+        <div class="span12">
+            <div class="indent">
+                <h4>For {{ customer.companyName }}</h4>
+                {{customer.addressLine1}}
+                <br/>
+                {{customer.city + ' '+ customer.state}}
+                <br/><br/>
+            </div>
+        </div>
         <br/><br/>
 
         <div class="col-sm-6">
@@ -13,15 +22,6 @@
 
                 <fieldset>
 
-                    <div class="form-group"
-                         ng-class="{ 'has-error' : customerOpportunitiesForm.customer.$invalid && !customerOpportunitiesForm.customer.$pristine }">
-                        <label>Customer</label>
-                        <select required ng-model="master.customer" class="form-control" name="customer"
-                                ng-options="c.customerId as c.customerName for c in customerNames_array"></select>
-
-                        <p ng-show="customerOpportunitiesForm.customer.$invalid && !customerOpportunitiesForm.customer.$pristine"
-                           class="help-block">Customer is required.</p>
-                    </div>
 
 
                     <div class="form-group"
@@ -88,7 +88,7 @@
                     </div>
                 </fieldset>
 
-                <div ng-include src='"partials/customer/customerOpportunityActionGrid.html"'></div>
+                <div ng-include src='"app/partials/customer/customerOpportunityActionGrid.html"'></div>
                 <button type="submit" class="btn btn-primary" ng-disabled="customerOpportunitiesForm.$invalid">Submit
                 </button>
 

@@ -12,12 +12,6 @@ angular.module('customersApp.customerServices', []).
     .service('customersService', function () {
 
 
-
-
-        this.saveCustomerPages = function (customerArray, Page) {
-            customerPageData = customerArray;
-        };
-
         this.storeCustomer = function (customerObj) {
             customerObject = customerObj;
         };
@@ -29,10 +23,20 @@ angular.module('customersApp.customerServices', []).
                 return null;
             }
         };
+        this.storeOpportunity = function (opportunityObj) {
+            opportunityObject = opportunityObj;
+        };
 
-        var customerPageData = [];
-        var customerPage = 0;
+        this.getStoredOpportunity = function () {
+            if (opportunityObject) {
+                return opportunityObject;
+            } else {
+                return null;
+            }
+        };
+
         var customerObject;
+        var opportunityObject;
 
 
     })
