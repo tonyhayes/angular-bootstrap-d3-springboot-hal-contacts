@@ -101,8 +101,8 @@
 
                 <div class="form-group">
                     <label>Primary Contact</label>
-                    <select required ng-model="master.primaryContact" class="form-control" name="primaryContact"
-                            ng-options="s.stateAbbr as s.name for s in state_array"></select>
+                    <select ng-model="master.primaryContactId" class="form-control" name="primaryContact"
+                            ng-options="c.contactId as c.contactDescription for c in contact_array"></select>
 
                 </div>
 

@@ -33,9 +33,16 @@ public class Company extends AuditableEntity {
     public String getPrimaryContactDescription() {
         Contact c = getPrimaryContact();
         if (c != null) {
-            return c.getFirstName() + " " + c.getLastName();
+            return c.getContactDescription();
         }
         return "No Primary Contact";
+    }
+    public Long getPrimaryContactId() {
+        Contact c = getPrimaryContact();
+        if (c != null) {
+            return c.getId();
+        }
+        return null;
     }
 
     public Integer getContactsCount() {

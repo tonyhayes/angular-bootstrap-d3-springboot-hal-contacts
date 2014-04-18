@@ -159,13 +159,16 @@ angular.module('customersApp.customerControllers', [])
     ])
 
 
-    .controller('CustomerEditController', ['$scope', '$routeParams', '$location', 'customersService', 'statesService', 'CompanyServices',
+    .controller('CustomerEditController', ['$scope', '$routeParams', '$location', 'customersService', 'statesService',
+        'CompanyServices', 'ContactServices',
 
-        function ($scope, $routeParams, $location, customersService, statesService, CompanyServices) {
+        function ($scope, $routeParams, $location, customersService, statesService,
+                  CompanyServices, ContactServices) {
             $scope.master = {};
             $scope.customer = {};
             $scope.state_array = statesService.getStates();
             $scope.customerId = 0;
+            $scope.contact_array = [];
 
 
             init();
@@ -174,6 +177,13 @@ angular.module('customersApp.customerControllers', [])
                 //Grab ID off of the route
                 $scope.customerId = parseInt($routeParams.customerID);
                 if ($scope.customerId) {
+
+                    // get all contacts for contact drop down
+                    ContactServices.getAllContacts($scope.customerId).then(function (data) {
+                        $scope.contact_array = data._embedded.contacts;
+//                            $scope.customerOpportunitiesForm.$setPristine();
+                    });
+
                     $scope.customer = customersService.getStoredCustomer();
 
                     // if the user reloads the page, I need to get the data from the server then reset the form

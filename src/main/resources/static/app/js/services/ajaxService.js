@@ -42,6 +42,9 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
+                if(company.primaryContactId){
+                    company.primaryContact = dmApplicationEntryPoint + '/contacts/' + company.primaryContactId;
+                }
                 return $http.post(dmApplicationEntryPoint + '/companies', company).then(function (result) {
                     return result.data;
                 });
@@ -51,6 +54,9 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
+                if(company.primaryContactId){
+                    company.primaryContact = dmApplicationEntryPoint + '/contacts/' + company.primaryContactId;
+                }
                 var body = angular.copy(company)
                 var url = body._links.self.href;
                 delete body._links;
