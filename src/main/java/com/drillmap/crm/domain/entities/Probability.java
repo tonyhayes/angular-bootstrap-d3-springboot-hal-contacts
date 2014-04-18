@@ -21,4 +21,9 @@ import javax.persistence.Table;
 public class Probability extends AuditableEntity {
     String name;
     Integer percentage;
+
+    public Long getProbabilityId() {
+        return getId();
+    }
+
 }

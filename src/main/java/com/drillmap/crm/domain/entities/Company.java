@@ -53,6 +53,11 @@ public class Company extends AuditableEntity {
         return o.size();
     }
 
+    public Long getCompanyId() {
+        return getId();
+    }
+
+
     @ManyToOne
     Contact primaryContact;
 

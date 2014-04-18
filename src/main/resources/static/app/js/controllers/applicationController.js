@@ -42,7 +42,6 @@ angular.module('customersApp.applicationControllers', [])
                 // the user.
                 $scope.failure = reason;
             });
-//            $scope.loadingDone = true;
 
         }
     ])

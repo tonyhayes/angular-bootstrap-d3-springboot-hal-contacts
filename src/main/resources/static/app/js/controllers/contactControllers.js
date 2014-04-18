@@ -90,7 +90,7 @@ angular.module('customersApp.contactControllers', [])
                 }
 
 
-            }
+            };
 
 
             function getContactSummary() {
@@ -174,7 +174,7 @@ angular.module('customersApp.contactControllers', [])
                 }
 
                 var modalDefaults = {
-                    templateUrl: 'app/partials/customer/modalContactEdit.html'
+                    templateUrl: 'app/partials/contact/modalContactEdit.html'
                 };
                 var modalOptions = {
                     closeButtonText: 'Cancel',

@@ -121,6 +121,7 @@ angular.module('customersApp.opportunityControllers', [])
                 var custName = $scope.customer.customerName + ', ' + $scope.customer.city;
                 var id = 0;
                 var opportunityArray = [0];
+                $scope.opportunityDetails = {};
 
 
                 if (row) {
@@ -129,7 +130,7 @@ angular.module('customersApp.opportunityControllers', [])
                     opportunityArray = row.entity._links.self.href.split('/')
                 }
 
-                $location.path('customerOpportunitiesEdit/' + $scope.customerID + '/' + opportunityArray[opportunityArray.length - 1]);
+                $location.path('opportunitiesedit/' + $scope.customerID + '/' + opportunityArray[opportunityArray.length - 1]);
 
 
             };
@@ -258,7 +259,7 @@ angular.module('customersApp.opportunityControllers', [])
                 ]
             };
 
-            if ($scope.opportunityID) {
+            if (parseInt($scope.opportunityID)) {
 
                 //make the call to getCompanies and handle the promise returned;
                 OpportunityDetailServices.getOpportunities($scope.opportunityID).then(function (data) {
@@ -283,7 +284,7 @@ angular.module('customersApp.opportunityControllers', [])
 
 
                 var modalDefaults = {
-                    templateUrl: 'app/partials/customer/modalOpportunityActionsEdit.html'
+                    templateUrl: 'app/partials/opportunity/modalOpportunityActionsEdit.html'
                 };
                 var modalOptions = {
                     closeButtonText: 'Cancel',
@@ -321,7 +322,7 @@ angular.module('customersApp.opportunityControllers', [])
                 //assume a service
                 customersService.updateCustomerOpportunity($routeParams.customerID, $routeParams.id, $scope.customer);
 
-                $location.path('/customeropportunitydetails/' + $routeParams.customerID);
+                $location.path('/opportunitydetails/' + $routeParams.customerID);
 
             };
 

@@ -23,15 +23,15 @@ angular.module('customersApp', [
                 controller: 'CustomersController'
             });
             $routeProvider.when('/contactcards/:customerID', {
-                templateUrl: 'app/partials/customer/contactCards.html',
+                templateUrl: 'app/partials/contact/contactCards.html',
                 controller: 'ContactsController'
             });
-            $routeProvider.when('/customeropportunitydetails/:customerID', {
-                templateUrl: 'app/partials/customer/customerOpportunityDetails.html',
+            $routeProvider.when('/opportunitydetails/:customerID', {
+                templateUrl: 'app/partials/opportunity/opportunityDetails.html',
                 controller: 'CustomerOpportunityController'
             });
-            $routeProvider.when('/customerOpportunitiesEdit/:customerID/:id', {
-                templateUrl: 'app/partials/customer/customerOpportunitiesEdit.html',
+            $routeProvider.when('/opportunitiesedit/:customerID/:id', {
+                templateUrl: 'app/partials/opportunity/opportunitiesEdit.html',
                 controller: 'CustomerOpportunitiesEditController'
             });
             $routeProvider.when('/customeredit/:customerID', {
