@@ -35,6 +35,13 @@ public class Opportunity extends AuditableEntity {
         }
         return "No contact for this opportunity";
     }
+    public Long getContactId() {
+        Contact c = getContact();
+        if (c != null) {
+            return c.getId();
+        }
+        return null;
+    }
     public String getSalesPersonDescription() {
         SalesPerson s = getSales();
         if (s != null) {
@@ -56,6 +63,13 @@ public class Opportunity extends AuditableEntity {
             return p.getName();
         }
         return "No probability for this opportunity";
+    }
+    public Long getProbabilityId() {
+        Probability p = getProbability();
+        if (p != null) {
+            return p.getId();
+        }
+        return null;
     }
 
     @OneToMany(mappedBy = "opportunity", cascade = CascadeType.ALL)

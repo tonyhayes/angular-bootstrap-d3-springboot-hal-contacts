@@ -10,8 +10,8 @@
         <div class="form-group"
              ng-class="{ 'has-error' : opportunitiesActionForm.salesPerson.$invalid && !opportunitiesActionForm.salesPerson.$pristine }">
             <label>Sales Person</label>
-            <select required ng-model="modalOptions.record.salesPerson" class="form-control" name="salesPerson"
-                    ng-options="s.id as s.salesPerson for s in modalOptions.model1"></select>
+            <select required ng-model="modalOptions.record.salesPersonId" class="form-control" name="salesPerson"
+                    ng-options="s.salesPersonId as s.salesPersonDescription for s in modalOptions.model1"></select>
 
             <p ng-show="opportunitiesActionForm.salesPerson.$invalid && !opportunitiesActionForm.salesPerson.$pristine"
                class="help-block">
@@ -30,11 +30,11 @@
         </div>
 
         <div class="form-group"
-             ng-class="{ 'has-error' : opportunitiesActionForm.Action.$invalid && !opportunitiesActionForm.Action.$pristine }">
+             ng-class="{ 'has-error' : opportunitiesActionForm.action.$invalid && !opportunitiesActionForm.action.$pristine }">
             <label>Action</label>
-            <input type="text" name="Action" class="form-control" ng-model="modalOptions.record.Action">
+            <input type="text" name="action" class="form-control" ng-model="modalOptions.record.action">
 
-            <p ng-show="opportunitiesActionForm.Action.$invalid && !customerForm.Action.$pristine" class="help-block">
+            <p ng-show="opportunitiesActionForm.action.$invalid && !opportunitiesActionForm.action.$pristine" class="help-block">
                 Action is
                 required.</p>
         </div>

@@ -19,6 +19,7 @@ public interface ContactRepository extends JpaRepository<Contact,Long> {
     public Page<Contact> findByFirstName(@Param(value = "firstName") String firstName, Pageable page);
     public Page<Contact> findByLastName(@Param(value = "lastName") String lastName, Pageable page);
     public Page<Contact> findByCompany(@Param(value = "company") Company company, Pageable page);
+    public List<Contact> findAllByCompany(@Param(value = "company") Company company);
     public Page<Contact> findByFirstNameStartsWithOrLastNameStartsWithOrCityStartsWithOrStateStartsWithAndCompany(
             @Param(value = "firstName") String firstName,
              @Param(value = "lastName") String lastName,
@@ -37,4 +38,5 @@ public interface ContactRepository extends JpaRepository<Contact,Long> {
                                       @Param(value = "company") Company company,
                                       Pageable page
     );
+
 }

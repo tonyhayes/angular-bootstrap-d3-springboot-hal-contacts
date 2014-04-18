@@ -150,6 +150,7 @@ angular.module('customersApp.opportunityControllers', [])
             $scope.opportunity = {};
             $scope.salesPerson_array =  salesPersonService.getSalesPeople();
             $scope.probability_array = probabilitiesService.getProbabilities();
+            $scope.contact_array = [];
             $scope.filterOptions = {
                 filterText: ''
             };
@@ -160,6 +161,12 @@ angular.module('customersApp.opportunityControllers', [])
             init();
 
             function init() {
+                // get all contacts for contact drop down
+                ContactServices.getAllContacts($scope.customerID).then(function (data) {
+                            $scope.contact_array = data._embedded.contacts;
+//                            $scope.customerOpportunitiesForm.$setPristine();
+                        });
+
                 if ($scope.customerID) {
                     $scope.customer = customersService.getStoredCustomer();
                     if (!$scope.customer) {
@@ -170,7 +177,7 @@ angular.module('customersApp.opportunityControllers', [])
                     }
 
                 }
-                if ($scope.opportunityID) {
+                if (parseInt($scope.opportunityID)) {
                     $scope.opportunity = customersService.getStoredOpportunity();
                     $scope.master = angular.copy($scope.opportunity);
                     if (!$scope.opportunity) {
@@ -275,11 +282,11 @@ angular.module('customersApp.opportunityControllers', [])
 
                 var custName = $scope.customer.companyName + ', ' + $scope.customer.city;
                 var origRow = {};
-                var data = {};
+                $scope.opportunityDetail = {};
                 if (row) {
                     origRow = angular.copy(row.entity);
-                    data = row.entity;
-                    data.followUpdate = $filter('date')(data.followUpdate, 'MM/dd/y');
+                    $scope.opportunityDetail = row.entity;
+                    $scope.opportunityDetail.followUpdate = $filter('date')($scope.opportunityDetail.followUpdate, 'MM/dd/y');
                 }
 
 
@@ -290,17 +297,22 @@ angular.module('customersApp.opportunityControllers', [])
                     closeButtonText: 'Cancel',
                     actionButtonText: 'Submit',
                     headerText: 'Opportunity at ' + custName,
-                    record: data,
+                    record: $scope.opportunityDetail,
                     model1: $scope.salesPerson_array
                 };
 
                 modalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
 
-                        // need to write a service
+                        if($scope.opportunityDetail.followUpdate){
+                            var d = new Date($scope.opportunityDetail.followUpdate);
+                            $scope.opportunityDetail.followUpdate = d.getTime();
+                        }
 
-                        if (!row) {
-                            $scope.master.opportunityDetails.push(data);
+                        if (row) {
+                            OpportunityDetailServices.patchOpportunity($scope.opportunityDetail);
+                        }else{
+                            OpportunityDetailServices.postOpportunity($scope.opportunityDetail, $scope.customerID);
                         }
                     } else {
                         if (row) {
@@ -317,10 +329,14 @@ angular.module('customersApp.opportunityControllers', [])
             // function to submit the form after all validation has occurred
             $scope.submitForm = function () {
 
-                $scope.customer = angular.copy($scope.master);
+                $scope.opportunity = angular.copy($scope.master);
 
-                //assume a service
-                customersService.updateCustomerOpportunity($routeParams.customerID, $routeParams.id, $scope.customer);
+                if (parseInt($scope.opportunityID)) {
+                    OpportunityServices.patchOpportunity($scope.master);
+                } else {
+                    OpportunityServices.postOpportunity($scope.master, $scope.customerID);
+
+                 }
 
                 $location.path('/opportunitydetails/' + $routeParams.customerID);
 

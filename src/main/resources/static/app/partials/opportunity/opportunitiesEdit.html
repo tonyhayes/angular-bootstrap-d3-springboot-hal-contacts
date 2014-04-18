@@ -39,8 +39,8 @@
                     <div class="form-group"
                          ng-class="{ 'has-error' : customerOpportunitiesForm.contact.$invalid && !customerOpportunitiesForm.contact.$pristine }">
                         <label>Contact</label>
-                        <select required ng-model="master.contact" class="form-control" name="contact"
-                                ng-options="c.id as c.contact for c in contact_array"></select>
+                        <select required ng-model="master.contactId" class="form-control" name="contact"
+                                ng-options="c.contactId as c.contactDescription for c in contact_array"></select>
 
                         <p ng-show="customerOpportunitiesForm.contact.$invalid && !customerOpportunitiesForm.contact.$pristine"
                            class="help-block">Customer Contact is required.</p>
@@ -62,8 +62,8 @@
                     <div class="form-group"
                          ng-class="{ 'has-error' : customerOpportunitiesForm.probability.$invalid && !customerOpportunitiesForm.probability.$pristine }">
                         <label>Probability</label>
-                        <select required ng-model="master.probability" class="form-control" name="probability"
-                                ng-options="p.id as p.probability for p in probability_array"></select>
+                        <select required ng-model="master.probabilityId" class="form-control" name="probability"
+                                ng-options="p.probabilityId as p.name for p in probability_array"></select>
 
                         <p ng-show="customerOpportunitiesForm.probability.$invalid && !customerOpportunitiesForm.probability.$pristine"
                            class="help-block">Probability is required.</p>

@@ -102,6 +102,16 @@ angular.module('customersApp.ajaxService', [])
                     });
                 }
             },
+            getAllContacts: function (company) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                    return $http.get(dmApplicationEntryPoint + '/contacts/search' + '/findAllByCompany', {
+                        params: {company: company}}).then(function (result) {
+                        return result.data;
+                    });
+            },
             postContact: function (contact, companyId) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
@@ -147,8 +157,8 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                return $http.get(dmApplicationEntryPoint + '/opportunities/search' + '/findByCompany', {
-                    params: {size: 99999, page: 0, company: company}}).then(function (result) {
+                return $http.get(dmApplicationEntryPoint + '/opportunities/search' + '/findAllByCompany', {
+                    params: {company: company}}).then(function (result) {
                     return result.data;
                 });
             },
@@ -167,6 +177,13 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 opportunity.company = dmApplicationEntryPoint + '/companies/' + companyId;
+
+                if(opportunity.salesPersonId){
+                    opportunity.sales = dmApplicationEntryPoint + '/salesPersons/' + opportunity.salesPersonId;
+                }
+                if(opportunity.contactId){
+                    opportunity.contact = dmApplicationEntryPoint + '/contacts/' + opportunity.contactId;
+                }
                 return $http.post(dmApplicationEntryPoint + '/opportunities', opportunity).then(function (result) {
                     return result.data;
                 });
@@ -176,6 +193,12 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
+                if(opportunity.salesPersonId){
+                    opportunity.sales = dmApplicationEntryPoint + '/salesPersons/' + opportunity.salesPersonId;
+                }
+                if(opportunity.contactId){
+                    opportunity.contact = dmApplicationEntryPoint + '/contacts/' + opportunity.contactId;
+                }
                 var body = angular.copy(opportunity)
                 var url = body._links.self.href;
                 delete body._links;
@@ -226,6 +249,9 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 opportunity.company = dmApplicationEntryPoint + '/companies/' + companyId;
+                if(opportunity.salesPersonId){
+                    opportunity.sales = dmApplicationEntryPoint + '/salesPersons/' + opportunity.salesPersonId;
+                }
                 return $http.post(dmApplicationEntryPoint + '/opportunityDetails', opportunity).then(function (result) {
                     return result.data;
                 });
@@ -235,6 +261,9 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
+                if(opportunity.salesPersonId){
+                    opportunity.sales = dmApplicationEntryPoint + '/salesPersons/' + opportunity.salesPersonId;
+                }
                 var body = angular.copy(opportunity)
                 var url = body._links.self.href;
                 delete body._links;
