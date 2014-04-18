@@ -243,12 +243,13 @@ angular.module('customersApp.ajaxService', [])
                     return result.data;
                 });
             },
-            postOpportunity: function (opportunity, companyId) {
+            postOpportunity: function (opportunity, companyId, opportunityId) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 opportunity.company = dmApplicationEntryPoint + '/companies/' + companyId;
+                opportunity.opportunity = dmApplicationEntryPoint + '/opportunities/' + opportunityId;
                 if(opportunity.salesPersonId){
                     opportunity.sales = dmApplicationEntryPoint + '/salesPersons/' + opportunity.salesPersonId;
                 }

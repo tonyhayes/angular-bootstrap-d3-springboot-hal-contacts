@@ -308,11 +308,18 @@ angular.module('customersApp.opportunityControllers', [])
                             var d = new Date($scope.opportunityDetail.followUpdate);
                             $scope.opportunityDetail.followUpdate = d.getTime();
                         }
+                        for (var i = 0; i < $scope.salesPerson_array.length; i++) {
+                            if ($scope.salesPerson_array[i].salesPersonId === $scope.opportunityDetail.salesPersonId) {
+                                $scope.opportunityDetail.salesPersonDescription = $scope.salesPerson_array[i].salesPersonDescription;
+                                break;
+                            }
+                        }
 
                         if (row) {
                             OpportunityDetailServices.patchOpportunity($scope.opportunityDetail);
                         }else{
-                            OpportunityDetailServices.postOpportunity($scope.opportunityDetail, $scope.customerID);
+                            OpportunityDetailServices.postOpportunity($scope.opportunityDetail, $scope.customerID, $scope.opportunityID);
+                            $scope.opportunityDetails.push($scope.opportunityDetail);
                         }
                     } else {
                         if (row) {

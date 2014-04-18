@@ -131,14 +131,16 @@ angular.module('customersApp.directives', []).
                             return controller.$setViewValue(element.datepicker("getDate"));
                         });
                     };
-                    if ($scope.uiDate.onSelect !== null) {
+                    if ($scope.uiDate && $scope.uiDate.onSelect !== null) {
                         usersOnSelectHandler = $scope.uiDate.onSelect;
                         $scope.uiDate.onSelect = function (value, picker) {
                             updateModel(value);
                             return usersOnSelectHandler(value, picker);
                         };
                     } else {
-                        $scope.uiDate.onSelect = updateModel;
+                        if( $scope.uiDate){
+                            $scope.uiDate.onSelect = updateModel;
+                        }
                     }
                     originalRender = controller.$render;
                     controller.$render = function () {
