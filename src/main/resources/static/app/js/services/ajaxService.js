@@ -293,6 +293,66 @@ angular.module('customersApp.ajaxService', [])
             }
         }
     })
+    .factory('OpportunityFormServices', function ($http) {
+
+        return {
+            getOpportunities: function (opportunity) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.get(dmApplicationEntryPoint + '/opportunityForms/search' + '/findByOpportunity', {
+                    params: {opportunity: opportunity}}).then(function (result) {
+                    return result.data;
+                });
+            },
+            getOpportunity: function (opportunityId) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.get(dmApplicationEntryPoint + '/opportunityForms/' + opportunityId).then(function (result) {
+                    return result.data;
+                });
+            },
+            postOpportunity: function (opportunity, companyId, opportunityId) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                opportunity.opportunity = dmApplicationEntryPoint + '/opportunities/' + opportunityId;
+                return $http.post(dmApplicationEntryPoint + '/opportunityForms', opportunity).then(function (result) {
+                    return result.data;
+                });
+            },
+            patchOpportunity: function (opportunity) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                opportunity.opportunity = dmApplicationEntryPoint + '/opportunities/' + opportunityId;
+                var body = angular.copy(opportunity)
+                var url = body._links.self.href;
+                delete body._links;
+                // angular does not support patch, use put for now
+                return $http.put(url, body).then(function (result) {
+                    return result.data;
+                });
+            },
+            deleteOpportunity: function (opportunity) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                var body = angular.copy(opportunity)
+                var url = body._links.self.href;
+                delete body._links;
+                return $http.delete(url).then(function (result) {
+                    return result.data;
+                });
+            }
+        }
+    })
     .factory('statesService', function ($http) {
         var states = [];
         return {
@@ -359,3 +419,99 @@ angular.module('customersApp.ajaxService', [])
 
         }
     })
+    .factory('formComponentService', function ($http, FormService, formFormatterService) {
+        var dynamicForm = [];
+        var opportunityForm = [];
+        return {
+                getOpportunityFormComponents: function () {
+                    //since $http.get returns a promise,
+                    //and promise.then() also returns a promise
+                    //that resolves to whatever value is returned in it's
+                    //callback argument, we can return that.
+                    return $http.get(dmApplicationEntryPoint + '/opportunityFormComponents').then(function (result) {
+                        return result.data;
+                    });
+                },
+                getOpportunityFormComponentOptions: function () {
+                    //since $http.get returns a promise,
+                    //and promise.then() also returns a promise
+                    //that resolves to whatever value is returned in it's
+                    //callback argument, we can return that.
+                    return $http.get(dmApplicationEntryPoint + '/opportunityFormComponentOptions').then(function (result) {
+                        return result.data;
+                    });
+                },
+                getFormComponents: function () {
+                    //since $http.get returns a promise,
+                    //and promise.then() also returns a promise
+                    //that resolves to whatever value is returned in it's
+                    //callback argument, we can return that.
+                    return $http.get(dmApplicationEntryPoint + '/formComponents').then(function (result) {
+                        return result.data;
+                    });
+                },
+                getFormComponentOptions: function () {
+                    //since $http.get returns a promise,
+                    //and promise.then() also returns a promise
+                    //that resolves to whatever value is returned in it's
+                    //callback argument, we can return that.
+                    return $http.get(dmApplicationEntryPoint + '/formComponentOptions').then(function (result) {
+                        return result.data;
+                    });
+                },
+                getOpportunityForm: function () {
+                    return opportunityForm;
+                },
+                setOpportunityForm: function (components, options, opportunityComponents, opportunityOptions) {
+
+                    var globalFromComponents = null;
+                    var globalFormOptions = null;
+                    var opportunityFormComponents = null;
+                    var opportunityFormOptions = null;
+                    //unpack
+                    if(components._embedded){
+                        globalFromComponents = components._embedded.formComponents;
+                    }
+                    if(options._embedded){
+                        globalFormOptions = options._embedded.formComponentOptions;
+                    }
+                    if(opportunityComponents._embedded){
+                        opportunityFormComponents = opportunityComponents._embedded.opportunityFormComponents;
+                    }
+                    if(opportunityOptions._embedded){
+                        opportunityFormOptions = opportunityOptions._embedded.opportunityFormComponentOptions;
+                    }
+
+                    // build up the form by reading the components
+                    opportunityForm = [];
+                    dynamicForm = [];
+
+                    angular.forEach(opportunityFormComponents, function (field) {
+
+                        var newField = null;
+
+                        // check to see if form type is in the custom field list
+                        var dynamicField = FormService.getDynamicFormField(field, globalFromComponents, globalFormOptions);
+                        if (dynamicField) {
+                            newField = dynamicField;
+                        } else {
+
+                            dynamicField = FormService.getDynamicFormField(field, opportunityFormComponents, opportunityFormOptions);
+                            if (dynamicField) {
+                                newField = dynamicField;
+                            }
+
+                        }
+
+                        // put newField into fields array
+                        if (newField) {
+                            dynamicForm.push(newField);
+                        }
+                    });
+
+                    opportunityForm = formFormatterService.setDynamicForm(dynamicForm);
+
+                }
+
+            }
+     })

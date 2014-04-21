@@ -134,7 +134,7 @@ angular.module('dynform', [])
                 else if (field.type === 'checklist') {
                   if (angular.isDefined(field.val)) {model[field.model] = angular.copy(field.val);}
                   if (angular.isDefined(field.options)) {
-                    if ( ! (angular.isDefined(model[field.model]) && angular.isObject(model[field.model]))) {model[field.model] = {};}
+//                    if ( ! (angular.isDefined(model[field.model]) && angular.isObject(model[field.model]))) {model[field.model] = {};}
                     angular.forEach(field.options, function (option, childId) {
                       newChild = angular.element('<input type="checkbox" />');
                       newChild.attr('name', field.model + '.' + childId);

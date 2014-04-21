@@ -14,8 +14,8 @@ import java.util.Set;
 @Entity
 @Table(name = "app_crm_opportunities")
 @Data
-@EqualsAndHashCode(callSuper = true, exclude = {"opportunityDetails","opportunityFormItems"})
-@ToString(callSuper = true, exclude = {"opportunityDetails","opportunityFormItems"})
+@EqualsAndHashCode(callSuper = true, exclude = {"opportunityDetails","opportunityForms"})
+@ToString(callSuper = true, exclude = {"opportunityDetails","opportunityForms"})
 public class Opportunity extends AuditableEntity {
     @ManyToOne
     Company company;
@@ -72,10 +72,19 @@ public class Opportunity extends AuditableEntity {
         return null;
     }
 
+    public Integer getOpportunityFormItemsCount() {
+        Set<OpportunityForm> o = getOpportunityForms();
+        if (o == null) {
+            return 0;
+        }
+        return o.size();
+    }
+
+
     @OneToMany(mappedBy = "opportunity", cascade = CascadeType.ALL)
     Set<OpportunityDetail> opportunityDetails;
 
     @OneToMany(mappedBy = "opportunity", cascade = CascadeType.ALL)
-    Set<OpportunityForm> opportunityFormItems;
+    Set<OpportunityForm> opportunityForms;
 
 }

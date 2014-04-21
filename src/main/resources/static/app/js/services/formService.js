@@ -1,202 +1,7 @@
 angular.module('customersApp.formsService', [])
 
-    .service('FormService', function FormService($http) {
+    .service('FormService', function FormService() {
 
-        var formsJsonPath = 'app/partials/static-data/sample_forms.json';
-        var customFormTypes = [
-            {
-                name: 'dealDate',
-                value: 'Deal Date'
-            },
-            {
-                name: 'status',
-                value: 'Status'
-            },
-            {
-                name: 'location',
-                value: 'Location'
-            },
-            {
-                name: 'typeConversation',
-                value: 'Type of Conversation'
-            },
-            {
-                name: 'revenueSchedule',
-                value: 'Revenue Schedule'
-            },
-            {
-                name: 'region',
-                value: 'Region'
-            }
-
-        ];
-        var customFormFields = [
-
-            {
-                "field_id": 'dealDate',
-                "field_title": "Deal Date",
-                "field_type": "date",
-                "field_value": '',
-                "field_placeholder": "date",
-                "field_required": false
-
-            },
-            {
-                "field_id": 'status',
-                "field_title": "Status",
-                "field_type": "dropdown",
-                "field_value": 'nothing selected',
-                "field_placeholder": "",
-                "field_required": false,
-                "field_options": [
-                    {
-                        "option_id": 1,
-                        "option_title": "won",
-                        "option_value": 1
-                    },
-                    {
-                        "option_id": 2,
-                        "option_title": "loss",
-                        "option_value": 2
-                    },
-                    {
-                        "option_id": 3,
-                        "option_title": "pending",
-                        "option_value": 3
-                    }
-                ]
-
-            },
-            {
-                "field_id": 'location',
-                "field_title": "Location",
-                "field_type": "dropdown",
-                "field_value": 'nothing selected',
-                "field_placeholder": "",
-                "field_required": false,
-                "field_options": [
-                    {
-                        "option_id": '15',
-                        "option_title": "London",
-                        "option_value": '15'
-                    },
-                    {
-                        "option_id": '2',
-                        "option_title": "Houston",
-                        "option_value": '2'
-                    },
-                    {
-                        "option_id": '3',
-                        "option_title": "Boston",
-                        "option_value": '3'
-                    }
-                ]
-
-            },
-            {
-                "field_id": 'typeConversation',
-                "field_title": "Type of Conversation",
-                "field_type": "dropdown",
-                "field_value": 'nothing selected',
-                "field_placeholder": "",
-                "field_required": false,
-                "field_options": [
-                    {
-                        "option_id": '1',
-                        "option_title": "New Business",
-                        "option_value": '15'
-                    },
-                    {
-                        "option_id": '2',
-                        "option_title": "Proposal",
-                        "option_value": '2'
-                    },
-                    {
-                        "option_id": 3,
-                        "option_title": "Continuing Business",
-                        "option_value": 3
-                    },
-                    {
-                        "option_id": 4,
-                        "option_title": "Follow-up",
-                        "option_value": 4
-                    },
-                    {
-                        "option_id": 5,
-                        "option_title": "Meeting",
-                        "option_value": 5
-                    }
-                ]
-
-            },
-            {
-                "field_id": 'revenueSchedule',
-                "field_title": "Revenue Schedule",
-                "field_type": "dropdown",
-                "field_value": 'nothing selected',
-                "field_placeholder": "",
-                "field_required": false,
-                "field_options": [
-                    {
-                        "option_id": 1,
-                        "option_title": "daily",
-                        "option_value": 1
-                    },
-                    {
-                        "option_id": 2,
-                        "option_title": "weekly",
-                        "option_value": 2
-                    },
-                    {
-                        "option_id": 3,
-                        "option_title": "monthly",
-                        "option_value": 3
-                    },
-                    {
-                        "option_id": 4,
-                        "option_title": "yearly",
-                        "option_value": 4
-                    }
-                ]
-
-            },
-            {
-                "field_id": 'region',
-                "field_title": "Region",
-                "field_type": "checklist",
-                "field_value": '',
-                "field_placeholder": "",
-                "field_required": false,
-                "field_options": [
-                    {
-                        "option_id": 1,
-                        "option_title": "North East",
-                        "option_value": 1
-                    },
-                    {
-                        "option_id": 2,
-                        "option_title": "All",
-                        "option_value": 2
-                    },
-                    {
-                        "option_id": 3,
-                        "option_title": "South Texas",
-                        "option_value": 3
-                    },
-                    {
-                        "option_id": 4,
-                        "option_title": "Permian",
-                        "option_value": 4
-                    },
-                    {
-                        "option_id": 15,
-                        "option_title": "Mid Continent",
-                        "option_value": 15
-                    }
-                ]
-
-            }
-        ];
 
         return {
             fields: [
@@ -234,6 +39,30 @@ angular.module('customersApp.formsService', [])
                 }
 
             ],
+
+            getDynamicFormField: function (component, formComponents, formComponentOptions) {
+                var formField = null;
+                angular.forEach(formComponents, function (field) {
+                    if (field.field_id === component.field_id) {
+                        formField = field;
+
+                        // now find the option, if any
+                        if (field.optionsCount) {
+                            formField.field_options = {};
+                            angular.forEach(formComponentOptions, function (fieldOption) {
+
+                                if (fieldOption.fieldDescription === formField.field_id) {
+                                   formField.field_options[fieldOption.option_id]= {};
+                                   formField.field_options[fieldOption.option_id].option_title = fieldOption.option_title;
+                                   formField.field_options[fieldOption.option_id].option_value = fieldOption.option_value;
+                                }
+                            });
+                        }
+                    }
+                });
+                return formField;
+            },
+
             form: function (id) {
                 // $http returns a promise, which has a then function, which also returns a promise
                 return $http.get(formsJsonPath).then(function (response) {
@@ -377,9 +206,7 @@ angular.module('customersApp.formsService', [])
             dynamicForm = form;
         };
         this.testDynamicForm = function (form) {
-            dynamicFormTester.formId = form.form_id;
-            dynamicFormTester.formName = form.form_name;
-            dynamicFormTester.form = {};
+            var dynamicFormTester = {};
             var fields = form.form_fields;
             for (var i = 0; i < fields.length; i++) {
                 var field = fields[i];
@@ -395,38 +222,33 @@ angular.module('customersApp.formsService', [])
                         type = field.field_type;
                 }
                 var name = field.field_id;
-                dynamicFormTester.form[name] = {};
-                dynamicFormTester.form[name].type = type;
-                dynamicFormTester.form[name].label = field.field_title;
-                dynamicFormTester.form[name].placeholder = field.field_placeholder;
-                dynamicFormTester.form[name].empty = field.field_value;
-                dynamicFormTester.form[name].required = field.field_required;
+                dynamicFormTester[name] = {};
+                dynamicFormTester[name].type = type;
+                dynamicFormTester[name].label = field.field_title;
+                dynamicFormTester[name].placeholder = field.field_placeholder;
+                dynamicFormTester[name].empty = field.field_value;
+                dynamicFormTester[name].required = field.field_required;
                 if (field.field_options) {
                     var options = field.field_options;
                     if (type === 'radio') {
-                        dynamicFormTester.form[name].values = {};
+                        dynamicFormTester[name].values = {};
                         for (var k = 0; k < options.length; k++) {
-                            dynamicFormTester.form[name].values[options[k].option_id] = options[k].option_title;
+                            dynamicFormTester[name].values[options[k].option_id] = options[k].option_title;
                         }
                     } else {
-                        dynamicFormTester.form[name].options = {};
+                        dynamicFormTester.form.options = {};
                         for (var j = 0; j < options.length; j++) {
-                            dynamicFormTester.form[name].options[options[j].option_id] = {};
-                            dynamicFormTester.form[name].options[options[j].option_id].label = options[j].option_title;
+                            dynamicFormTester[name].options[options[j].option_id] = {};
+                            dynamicFormTester[name].options[options[j].option_id].label = options[j].option_title;
                         }
                     }
-
-                }
-
-
+               }
             }
             return dynamicFormTester;
         };
         this.setDynamicForm = function (form) {
-            dynamicForm.formId = form.form_id;
-            dynamicForm.formName = form.form_name;
-            dynamicForm.form = {};
-            var fields = form.form_fields;
+            var dynamicForm = {};
+            var fields = form;
             for (var i = 0; i < fields.length; i++) {
                 var field = fields[i];
                 var type = '';
@@ -441,155 +263,29 @@ angular.module('customersApp.formsService', [])
                         type = field.field_type;
                 }
                 var name = field.field_id;
-                dynamicForm.form[name] = {};
-                dynamicForm.form[name].type = type;
-                dynamicForm.form[name].label = field.field_title;
-                dynamicForm.form[name].placeholder = field.field_placeholder;
-                dynamicForm.form[name].empty = field.field_value;
-                dynamicForm.form[name].required = field.field_required;
+                dynamicForm[name] = {};
+                dynamicForm[name].type = type;
+                dynamicForm[name].label = field.field_title;
+                dynamicForm[name].placeholder = field.field_placeholder;
+                dynamicForm[name].empty = field.field_value;
+                dynamicForm[name].required = field.field_required;
                 if (field.field_options) {
                     var options = field.field_options;
                     if (type === 'radio') {
-                        dynamicForm.form[name].values = {};
-                        for (var k = 0; k < options.length; k++) {
-                            dynamicForm.form[name].values[options[k].option_id] = options[k].option_title;
-                        }
+                        dynamicForm[name].values = {};
+                        angular.forEach(options, function (option) {
+                            dynamicForm[name].values[option.option_id] = option.option_title;
+
+                        });
                     } else {
-                        dynamicForm.form[name].options = {};
-                        for (var j = 0; j < options.length; j++) {
-                            dynamicForm.form[name].options[options[j].option_id] = {};
-                            dynamicForm.form[name].options[options[j].option_id].label = options[j].option_title;
-                        }
+                        angular.forEach(options, function (option, value) {
+                            option.label = option.option_title;
+                        });
+                        dynamicForm[name].options = options;
                     }
-
-                }
-
-
+               }
             }
             return dynamicForm;
-        };
-        var dynamicFormTester = {};
-
-        var dynamicForm =
-        {
-            formId: "1",
-            formName: "My Form",
-            form: {
-                "dealDate": {
-                    "type": "date",
-                    "label": "Deal Date",
-                    "placeholder": "date"
-                },
-                "status": {
-                    "type": "select",
-                    "label": "Status",
-                    "empty": "nothing selected",
-                    "options": {
-                        "1": {
-                            "label": "won"
-                        },
-                        "2": {
-                            "label": "loss"
-                        },
-                        "3": {
-                            "label": "pending"
-                        }
-                    }
-                },
-                "location": {
-                    "type": "select",
-                    "label": "Location",
-                    "empty": "nothing selected",
-                    "options": {
-                        "15": {
-                            "label": "London"
-                        },
-                        "2": {
-                            "label": "Houston"
-                        },
-                        "3": {
-                            "label": "Austin"
-                        }
-                    }
-                },
-                "typeConversation": {
-                    "type": "select",
-                    "label": "Type of Conversation",
-                    "empty": "nothing selected",
-                    "options": {
-                        "1": {
-                            "label": "New Business"
-                        },
-                        "2": {
-                            "label": "Proposal"
-                        },
-                        "3": {
-                            "label": "Continuing Business"
-                        },
-                        "4": {
-                            "label": "Follow-up"
-                        },
-                        "5": {
-                            "label": "Meeting"
-                        }
-                    }
-                },
-                "revenueSchedule": {
-                    "type": "select",
-                    "label": "Revenue Schedule",
-                    "empty": "nothing selected",
-                    "options": {
-                        "1": {
-                            "label": "daily"
-                        },
-                        "2": {
-                            "label": "weekly"
-                        },
-                        "3": {
-                            "label": "monthly"
-                        },
-                        "4": {
-                            "label": "yearly"
-                        }
-                    }
-                },
-                "radio": {
-                    "type": "radio",
-                    "label": "radio",
-                    "values": {
-                        "first": "first option",
-                        "second": "second option",
-                        "third": "third option",
-                        "fourth": "fourth option",
-                        "fifth": "fifth option"
-                    }
-                },
-
-                "region": {
-                    "type": "checklist",
-                    "label": "Region",
-                    "options": {
-                        "1": {
-                            "label": "North East"
-                        },
-                        "2": {
-                            "label": "All"
-                        },
-                        "3": {
-                            "label": "South Texas"
-                        },
-                        "4": {
-                            "label": "Permian"
-                        },
-                        "5": {
-                            "label": "Mid Continent"
-                        },
-                        "15": {
-                            "label": "West"
-                        }
-                    }
-                }
-            }
         };
 
     });

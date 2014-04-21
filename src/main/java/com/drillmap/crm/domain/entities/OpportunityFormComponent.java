@@ -25,6 +25,16 @@ public class OpportunityFormComponent extends AuditableEntity {
     String field_placeholder;
     String field_required;
 
+    public Integer getOptionsCount() {
+        Set<OpportunityFormComponentOption> o = getOptions();
+        if (o == null) {
+            return 0;
+        }
+        return o.size();
+    }
+
+
+
     @OneToMany(mappedBy = "component")
     Set<OpportunityFormComponentOption> options;
 

@@ -20,6 +20,16 @@ public class OpportunityFormComponentOption extends AuditableEntity {
     String option_id;
     String option_title;
     String option_value;
+
+    public String getFieldDescription() {
+        OpportunityFormComponent o = getComponent();
+        if (o != null) {
+            return o.getField_id();
+        }
+        return "No field association";
+    }
+
+
     @ManyToOne
     OpportunityFormComponent component;
 

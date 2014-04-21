@@ -138,16 +138,20 @@ angular.module('customersApp.opportunityControllers', [])
     ])
     .controller('CustomerOpportunitiesEditController', ['$scope', '$routeParams', '$location', '$filter',
         'customersService', 'salesPersonService', 'ContactServices', 'probabilitiesService', 'modalService',
-        'formFormatterService', 'OpportunityDetailServices', 'CompanyServices', 'OpportunityServices',
+        'formComponentService', 'OpportunityDetailServices', 'CompanyServices', 'OpportunityServices',
+        'OpportunityFormServices',
 
         function ($scope, $routeParams, $location, $filter,
                   customersService, salesPersonService, ContactServices, probabilitiesService, modalService,
-                  formFormatterService, OpportunityDetailServices, CompanyServices, OpportunityServices) {
+                  formComponentService, OpportunityDetailServices, CompanyServices, OpportunityServices,
+                  OpportunityFormServices) {
 
             $scope.master = {};
+            $scope.master.opportunityForm = {};
             $scope.customer = {};
             $scope.opportunities = {};
             $scope.opportunity = {};
+            $scope.opportunityForm = {};
             $scope.salesPerson_array =  salesPersonService.getSalesPeople();
             $scope.probability_array = probabilitiesService.getProbabilities();
             $scope.contact_array = [];
@@ -156,6 +160,7 @@ angular.module('customersApp.opportunityControllers', [])
             };
             $scope.customerID = $routeParams.customerID;
             $scope.opportunityID = ($routeParams.id);
+            $scope.opportunityFormTemplate = formComponentService.getOpportunityForm();
 
 
             init();
@@ -164,7 +169,6 @@ angular.module('customersApp.opportunityControllers', [])
                 // get all contacts for contact drop down
                 ContactServices.getAllContacts($scope.customerID).then(function (data) {
                             $scope.contact_array = data._embedded.contacts;
-//                            $scope.customerOpportunitiesForm.$setPristine();
                         });
 
                 if ($scope.customerID) {
@@ -178,6 +182,13 @@ angular.module('customersApp.opportunityControllers', [])
 
                 }
                 if (parseInt($scope.opportunityID)) {
+                    OpportunityFormServices.getOpportunities($scope.opportunityID).then(function (data) {
+                        if(data._embedded){
+                            $scope.opportunityForm = data._embedded.opportunityForms;
+                            $scope.master.opportunityForm = angular.copy($scope.opportunityForm);
+                       }
+                    });
+
                     $scope.opportunity = customersService.getStoredOpportunity();
                     $scope.master = angular.copy($scope.opportunity);
                     if (!$scope.opportunity) {
@@ -191,15 +202,6 @@ angular.module('customersApp.opportunityControllers', [])
 
                 }
             }
-
-            /*
-
-             Dynamic form processing
-
-
-             */
-
-            $scope.opportunityFormTemplate = formFormatterService.getDynamicForm().form;
 
 
             var templateCache =
@@ -340,8 +342,10 @@ angular.module('customersApp.opportunityControllers', [])
 
                 if (parseInt($scope.opportunityID)) {
                     OpportunityServices.patchOpportunity($scope.master);
+                    OpportunityFormServices.patchOpportunity($scope.master.opportunityForm, $scope.opportunityID);
                 } else {
                     OpportunityServices.postOpportunity($scope.master, $scope.customerID);
+                    OpportunityFormServices.postOpportunity($scope.master.opportunityForm, $scope.opportunityID);
 
                  }
 
