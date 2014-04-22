@@ -266,20 +266,28 @@ angular.module('customersApp.formsService', [])
                 dynamicForm[name] = {};
                 dynamicForm[name].type = type;
                 dynamicForm[name].label = field.field_title;
-                dynamicForm[name].placeholder = field.field_placeholder;
-                dynamicForm[name].empty = field.field_value;
-                dynamicForm[name].required = field.field_required;
+
+                if(type != 'checklist') {
+                    dynamicForm[name].required = field.field_required;
+                    dynamicForm[name].placeholder = field.field_placeholder;
+                    dynamicForm[name].empty = field.field_value;
+                }
+
                 if (field.field_options) {
                     var options = field.field_options;
                     if (type === 'radio') {
                         dynamicForm[name].values = {};
                         angular.forEach(options, function (option) {
                             dynamicForm[name].values[option.option_id] = option.option_title;
+                            delete dynamicForm[name].option_title;
+                            delete dynamicForm[name].option_value;
 
                         });
-                    } else {
+                    }else {
                         angular.forEach(options, function (option, value) {
                             option.label = option.option_title;
+                            delete option.option_title;
+                            delete option.option_value;
                         });
                         dynamicForm[name].options = options;
                     }

@@ -147,7 +147,7 @@ angular.module('customersApp.opportunityControllers', [])
                   OpportunityFormServices) {
 
             $scope.master = {};
-            $scope.master.opportunityForm = {};
+            $scope.opportunityFormObject = {};
             $scope.customer = {};
             $scope.opportunities = {};
             $scope.opportunity = {};
@@ -185,7 +185,12 @@ angular.module('customersApp.opportunityControllers', [])
                     OpportunityFormServices.getOpportunities($scope.opportunityID).then(function (data) {
                         if(data._embedded){
                             $scope.opportunityForm = data._embedded.opportunityForms;
-                            $scope.master.opportunityForm = angular.copy($scope.opportunityForm);
+
+                            $scope.opportunityFormObject = {};
+                            // read through the opportunity form and create 1 object
+                            angular.forEach($scope.opportunityForm, function (component) {
+                                $scope.opportunityFormObject[component.name] = component.value;
+                            });
                        }
                     });
 
@@ -282,56 +287,78 @@ angular.module('customersApp.opportunityControllers', [])
 
             $scope.onDblClickRow = function (row) {
 
-                var custName = $scope.customer.companyName + ', ' + $scope.customer.city;
-                var origRow = {};
-                $scope.opportunityDetail = {};
-                if (row) {
-                    origRow = angular.copy(row.entity);
-                    $scope.opportunityDetail = row.entity;
-                    $scope.opportunityDetail.followUpdate = $filter('date')($scope.opportunityDetail.followUpdate, 'MM/dd/y');
-                }
+                   // opportunity must exist before creating rows
+                if (!parseInt($scope.opportunityID)) {
+
+                    var modalDefaults = {
+                        templateUrl: 'app/partials/modal.html'
+                    };
+                    var modalOptions = {
+                        closeButtonText: 'Cancel',
+                        actionButtonText: 'OK',
+                        headerText: 'Submit This Opportunity',
+                        bodyText: 'Before adding action items, you must submit this opportunity'
+                    };
+
+                    modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                        if (result === 'ok') {
+                       }
+                    });
+
+                }else{
+                    var custName = $scope.customer.companyName + ', ' + $scope.customer.city;
+                    var origRow = {};
+                    $scope.opportunityDetail = {};
+                    if (row) {
+                        origRow = angular.copy(row.entity);
+                        $scope.opportunityDetail = row.entity;
+                        $scope.opportunityDetail.followUpdate = $filter('date')($scope.opportunityDetail.followUpdate, 'MM/dd/y');
+                    }
 
 
-                var modalDefaults = {
-                    templateUrl: 'app/partials/opportunity/modalOpportunityActionsEdit.html'
-                };
-                var modalOptions = {
-                    closeButtonText: 'Cancel',
-                    actionButtonText: 'Submit',
-                    headerText: 'Opportunity at ' + custName,
-                    record: $scope.opportunityDetail,
-                    model1: $scope.salesPerson_array
-                };
+                    var modalDefaults = {
+                        templateUrl: 'app/partials/opportunity/modalOpportunityActionsEdit.html'
+                    };
+                    var modalOptions = {
+                        closeButtonText: 'Cancel',
+                        actionButtonText: 'Submit',
+                        headerText: 'Opportunity at ' + custName,
+                        record: $scope.opportunityDetail,
+                        model1: $scope.salesPerson_array
+                    };
 
-                modalService.showModal(modalDefaults, modalOptions).then(function (result) {
-                    if (result === 'ok') {
+                    modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                        if (result === 'ok') {
 
-                        if($scope.opportunityDetail.followUpdate){
-                            var d = new Date($scope.opportunityDetail.followUpdate);
-                            $scope.opportunityDetail.followUpdate = d.getTime();
-                        }
-                        for (var i = 0; i < $scope.salesPerson_array.length; i++) {
-                            if ($scope.salesPerson_array[i].salesPersonId === $scope.opportunityDetail.salesPersonId) {
-                                $scope.opportunityDetail.salesPersonDescription = $scope.salesPerson_array[i].salesPersonDescription;
-                                break;
+                            if($scope.opportunityDetail.followUpdate){
+                                var d = new Date($scope.opportunityDetail.followUpdate);
+                                $scope.opportunityDetail.followUpdate = d.getTime();
+                            }
+                            for (var i = 0; i < $scope.salesPerson_array.length; i++) {
+                                if ($scope.salesPerson_array[i].salesPersonId === $scope.opportunityDetail.salesPersonId) {
+                                    $scope.opportunityDetail.salesPersonDescription = $scope.salesPerson_array[i].salesPersonDescription;
+                                    break;
+                                }
+                            }
+
+                            if (row) {
+                                OpportunityDetailServices.patchOpportunity($scope.opportunityDetail);
+                            }else{
+                                OpportunityDetailServices.postOpportunity($scope.opportunityDetail, $scope.customerID, $scope.opportunityID);
+                                $scope.opportunityDetails.push($scope.opportunityDetail);
+                            }
+                        } else {
+                            if (row) {
+                                //                           row.entity = origRow;
+                                angular.forEach(origRow, function (obj, dataset) {
+                                    row.entity[dataset] = obj;
+                                });
                             }
                         }
+                    });
 
-                        if (row) {
-                            OpportunityDetailServices.patchOpportunity($scope.opportunityDetail);
-                        }else{
-                            OpportunityDetailServices.postOpportunity($scope.opportunityDetail, $scope.customerID, $scope.opportunityID);
-                            $scope.opportunityDetails.push($scope.opportunityDetail);
-                        }
-                    } else {
-                        if (row) {
- //                           row.entity = origRow;
-                            angular.forEach(origRow, function (obj, dataset) {
-                                row.entity[dataset] = obj;
-                            });
-                        }
-                    }
-                });
+                }
+
             };
 
 
@@ -342,10 +369,35 @@ angular.module('customersApp.opportunityControllers', [])
 
                 if (parseInt($scope.opportunityID)) {
                     OpportunityServices.patchOpportunity($scope.master);
-                    OpportunityFormServices.patchOpportunity($scope.master.opportunityForm, $scope.opportunityID);
+
+                    // read through the opportunity form and send changes back to the mother ship
+                    angular.forEach($scope.opportunityForm, function (component) {
+                        component.value = $scope.opportunityFormObject[component.name];
+                        if(component._links.self.href){
+                            OpportunityFormServices.patchOpportunity(component, $scope.opportunityID);
+                        }else{
+                            OpportunityFormServices.postOpportunity(component, $scope.opportunityID);
+                        }
+                    });
+
+
                 } else {
-                    OpportunityServices.postOpportunity($scope.master, $scope.customerID);
-                    OpportunityFormServices.postOpportunity($scope.master.opportunityForm, $scope.opportunityID);
+                    OpportunityServices.postOpportunity($scope.master, $scope.customerID).then(function (data) {
+
+                        // need to get the opportunity #
+                        // function currently unfinished due to not knowing how to get return information from the post
+
+                        // read through the opportunity form and send changes back to the mother ship
+                        $scope.opportunityID = data;
+                            angular.forEach($scope.opportunityForm, function (component) {
+                                component.value = $scope.opportunityFormObject[component.name];
+                                if(component._links.self.href){
+                                    OpportunityFormServices.patchOpportunity(component, $scope.opportunityID);
+                                }else{
+                                    OpportunityFormServices.postOpportunity(component, $scope.opportunityID);
+                                }
+                            });
+                    });
 
                  }
 

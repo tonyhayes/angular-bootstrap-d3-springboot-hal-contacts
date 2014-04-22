@@ -623,11 +623,11 @@ insert into app_crm_form_component_option(option_id, option_title, option_value,
 insert into app_crm_form_component_option(option_id, option_title, option_value, component_id, created_at, updated_at) values (4, 'yearly', 4, 5, now(), now());
 
 --region
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id, created_at, updated_at) values (1, 'North East', 1, 6, now(), now());
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id, created_at, updated_at) values (2, 'All', 2, 6, now(), now());
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id, created_at, updated_at) values (3, 'South Texas', 3, 6, now(), now());
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id, created_at, updated_at) values (4, 'Permian', 4, 6, now(), now());
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id, created_at, updated_at) values (15, 'Mid Continent', 5, 6, now(), now());
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id, created_at, updated_at) values ('1', 'North East', '1', 6, now(), now());
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id, created_at, updated_at) values ('2', 'All', '2', 6, now(), now());
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id, created_at, updated_at) values ('3', 'South Texas', '3', 6, now(), now());
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id, created_at, updated_at) values ('4', 'Permian', '4', 6, now(), now());
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id, created_at, updated_at) values ('15', 'Mid Continent', '15', 6, now(), now());
 
 
 
