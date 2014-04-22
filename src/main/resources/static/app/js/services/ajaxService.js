@@ -46,7 +46,7 @@ angular.module('customersApp.ajaxService', [])
                     company.primaryContact = dmApplicationEntryPoint + '/contacts/' + company.primaryContactId;
                 }
                 return $http.post(dmApplicationEntryPoint + '/companies', company).then(function (result) {
-                    return result.data;
+                    return result.headers('location');
                 });
             },
             patchCompany: function (company) {
@@ -125,7 +125,7 @@ angular.module('customersApp.ajaxService', [])
                 //callback argument, we can return that.
                 contact.company = dmApplicationEntryPoint + '/companies/' + companyId;
                 return $http.post(dmApplicationEntryPoint + '/contacts', contact).then(function (result) {
-                    return result.data;
+                    return result.headers('location');
                 });
             },
             patchContact: function (contact) {
@@ -190,8 +190,11 @@ angular.module('customersApp.ajaxService', [])
                 if(opportunity.contactId){
                     opportunity.contact = dmApplicationEntryPoint + '/contacts/' + opportunity.contactId;
                 }
+                if(opportunity.probabilityId){
+                    opportunity.probability = dmApplicationEntryPoint + '/probabilities/' + opportunity.probabilityId;
+                }
                 return $http.post(dmApplicationEntryPoint + '/opportunities', opportunity).then(function (result) {
-                    return result.data;
+                    return result.headers('location');
                 });
             },
             patchOpportunity: function (opportunity) {
@@ -204,6 +207,9 @@ angular.module('customersApp.ajaxService', [])
                 }
                 if(opportunity.contactId){
                     opportunity.contact = dmApplicationEntryPoint + '/contacts/' + opportunity.contactId;
+                }
+                if(opportunity.probabilityId){
+                    opportunity.probability = dmApplicationEntryPoint + '/probabilities/' + opportunity.probabilityId;
                 }
                 var body = angular.copy(opportunity)
                 var url = body._links.self.href;
@@ -260,7 +266,7 @@ angular.module('customersApp.ajaxService', [])
                     opportunity.sales = dmApplicationEntryPoint + '/salesPersons/' + opportunity.salesPersonId;
                 }
                 return $http.post(dmApplicationEntryPoint + '/opportunityDetails', opportunity).then(function (result) {
-                    return result.data;
+                    return result.headers('location');
                 });
             },
             patchOpportunity: function (opportunity) {
@@ -315,17 +321,17 @@ angular.module('customersApp.ajaxService', [])
                     return result.data;
                 });
             },
-            postOpportunity: function (opportunity, companyId, opportunityId) {
+            postOpportunity: function (opportunity, opportunityId) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 opportunity.opportunity = dmApplicationEntryPoint + '/opportunities/' + opportunityId;
                 return $http.post(dmApplicationEntryPoint + '/opportunityForms', opportunity).then(function (result) {
-                    return result.data;
+                    return result.headers('location');
                 });
             },
-            patchOpportunity: function (opportunity) {
+            patchOpportunity: function (opportunity, opportunityId) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
@@ -459,6 +465,10 @@ angular.module('customersApp.ajaxService', [])
                         return result.data;
                     });
                 },
+                getDynamicForm: function () {
+                    return dynamicForm;
+                },
+
                 getOpportunityForm: function () {
                     return opportunityForm;
                 },
@@ -514,4 +524,4 @@ angular.module('customersApp.ajaxService', [])
                 }
 
             }
-     })
+     });

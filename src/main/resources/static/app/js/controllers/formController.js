@@ -11,6 +11,8 @@ angular.module('customersApp.formControllers', [])
         $scope.form.form_name = 'My Form';
 
         // get the current form
+        $scope.opportunityFormTemplate = formComponentService.getOpportunityForm();
+
         $scope.form.form_fields = formFormatterService.convertFormToFields();
 
         // previewForm - for preview purposes, form will be copied into this

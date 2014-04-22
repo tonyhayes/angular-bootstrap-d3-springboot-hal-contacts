@@ -109,7 +109,9 @@ angular.module('customersApp.opportunityControllers', [])
                     OpportunityServices.getOpportunities($scope.customerID).then(function (data) {
                         //this will execute when the
                         //AJAX call completes.
-                        $scope.opportunities = data._embedded.opportunities;
+                        if(data._embedded){
+                            $scope.opportunities = data._embedded.opportunities;
+                        }
 
                      });
 
@@ -168,8 +170,10 @@ angular.module('customersApp.opportunityControllers', [])
             function init() {
                 // get all contacts for contact drop down
                 ContactServices.getAllContacts($scope.customerID).then(function (data) {
-                            $scope.contact_array = data._embedded.contacts;
-                        });
+                    if(data._embedded){
+                        $scope.contact_array = data._embedded.contacts;
+                    }
+                });
 
                 if ($scope.customerID) {
                     $scope.customer = customersService.getStoredCustomer();
@@ -279,7 +283,9 @@ angular.module('customersApp.opportunityControllers', [])
                 OpportunityDetailServices.getOpportunities($scope.opportunityID).then(function (data) {
                     //this will execute when the
                     //AJAX call completes.
-                    $scope.opportunityDetails = data._embedded.opportunityDetails;
+                    if(data._embedded){
+                        $scope.opportunityDetails = data._embedded.opportunityDetails;
+                    }
 
                 });
 
@@ -371,32 +377,19 @@ angular.module('customersApp.opportunityControllers', [])
                     OpportunityServices.patchOpportunity($scope.master);
 
                     // read through the opportunity form and send changes back to the mother ship
-                    angular.forEach($scope.opportunityForm, function (component) {
-                        component.value = $scope.opportunityFormObject[component.name];
-                        if(component._links.self.href){
-                            OpportunityFormServices.patchOpportunity(component, $scope.opportunityID);
-                        }else{
-                            OpportunityFormServices.postOpportunity(component, $scope.opportunityID);
-                        }
-                    });
+                    opportunityFormProcessor();
 
 
                 } else {
                     OpportunityServices.postOpportunity($scope.master, $scope.customerID).then(function (data) {
 
                         // need to get the opportunity #
-                        // function currently unfinished due to not knowing how to get return information from the post
+                        var opportunityArray = data.split('/')
+                        $scope.opportunityID = opportunityArray[opportunityArray.length - 1];
 
                         // read through the opportunity form and send changes back to the mother ship
-                        $scope.opportunityID = data;
-                            angular.forEach($scope.opportunityForm, function (component) {
-                                component.value = $scope.opportunityFormObject[component.name];
-                                if(component._links.self.href){
-                                    OpportunityFormServices.patchOpportunity(component, $scope.opportunityID);
-                                }else{
-                                    OpportunityFormServices.postOpportunity(component, $scope.opportunityID);
-                                }
-                            });
+                        opportunityFormProcessor()
+
                     });
 
                  }
@@ -404,6 +397,36 @@ angular.module('customersApp.opportunityControllers', [])
                 $location.path('/opportunitydetails/' + $routeParams.customerID);
 
             };
+            function opportunityFormProcessor() {
+                var formTemplate = formComponentService.getDynamicForm();
+
+                // read through the opportunity form and send changes back to the mother ship
+                angular.forEach(formTemplate, function (component) {
+                    if( $scope.opportunityFormObject[component.field_id]){
+                        var formField = {};
+                        formField.name = component.field_id;
+                        formField.value = $scope.opportunityFormObject[component.field_id];
+
+                        // now find the link (if this is an edit of an existing value)
+                        var rec = null;
+                        angular.forEach($scope.opportunityForm, function (originalComponent) {
+                            if(originalComponent.name === formField.name){
+                                rec = originalComponent;
+                                rec.name = formField.name;
+                                rec.value = formField.value;
+                            }
+                        });
+
+                        if(rec){
+                            OpportunityFormServices.patchOpportunity(rec, $scope.opportunityID);
+                        }else{
+                            OpportunityFormServices.postOpportunity(formField, $scope.opportunityID);
+                        }
+                    }
+                });
+
+
+            }
 
 
         }

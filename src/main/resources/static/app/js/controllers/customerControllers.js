@@ -180,8 +180,9 @@ angular.module('customersApp.customerControllers', [])
 
                     // get all contacts for contact drop down
                     ContactServices.getAllContacts($scope.customerId).then(function (data) {
-                        $scope.contact_array = data._embedded.contacts;
-//                            $scope.customerOpportunitiesForm.$setPristine();
+                        if(data._embedded){
+                            $scope.contact_array = data._embedded.contacts;
+                        }
                     });
 
                     $scope.customer = customersService.getStoredCustomer();

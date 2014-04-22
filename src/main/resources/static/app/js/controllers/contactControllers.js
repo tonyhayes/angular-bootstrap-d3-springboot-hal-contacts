@@ -9,7 +9,7 @@ angular.module('customersApp.contactControllers', [])
 
         function ($scope, $routeParams, $location, $filter, customersService, modalService, statesService, ContactServices, CompanyServices) {
             $scope.customer = customersService.getStoredCustomer();
-            $scope.contacts = {};
+            $scope.contacts = [];
             $scope.filterOptions = {
                 filterText: ''
             };
