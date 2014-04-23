@@ -269,10 +269,11 @@ angular.module('customersApp.formControllers', [])
             $location.path(url);
         };
     })
-    .controller('FormFieldController', function ($scope, $location, modalService, FormService) {
+    .controller('FormFieldController', function ($scope, $location, modalService,
+                                                 FormService, formComponentService) {
 
         // get the current custom fields
-        $scope.form_fields = FormService.getCustomFormFields();
+        $scope.form_fields = formComponentService.getCustomFormFields();
 
 
         // add new field drop-down:
@@ -364,7 +365,7 @@ angular.module('customersApp.formControllers', [])
         // deletes all the fields and retrieves the current form
         $scope.reset = function () {
             // get the current form
-            $scope.form_fields = FormService.getCustomFormFields();
+            $scope.form_fields = formComponentService.getCustomFormFields();
             $scope.addField.lastAddedID = $scope.form_fields.length;
         };
 
