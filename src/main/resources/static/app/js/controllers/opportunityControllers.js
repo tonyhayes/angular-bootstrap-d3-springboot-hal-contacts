@@ -422,6 +422,15 @@ angular.module('customersApp.opportunityControllers', [])
                         }else{
                             OpportunityFormServices.postOpportunity(formField, $scope.opportunityID);
                         }
+                    }else{
+                        // it could be a delete - read through opportunity form for the original value, if it exists, then it is a delete
+                        var deleteComponent = component.field_id;
+                        angular.forEach($scope.opportunityForm, function (originalComponent) {
+                            if(originalComponent.name === deleteComponent){
+                                OpportunityFormServices.deleteOpportunity(originalComponent, $scope.opportunityID);
+                            }
+                        });
+
                     }
                 });
 
