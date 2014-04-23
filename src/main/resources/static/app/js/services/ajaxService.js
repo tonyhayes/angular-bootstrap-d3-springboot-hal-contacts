@@ -442,6 +442,40 @@ angular.module('customersApp.ajaxService', [])
                         return result.data;
                     });
                 },
+            postOpportunityFormComponents: function (opportunityComponent) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.post(dmApplicationEntryPoint + '/opportunityFormComponents', opportunityComponent).then(function (result) {
+                    return result.headers('location');
+                });
+            },
+            patchOpportunityFormComponents: function (opportunityComponent) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                var body = angular.copy(opportunityComponent)
+                var url = body._links.self.href;
+                delete body._links;
+                // angular does not support patch, use put for now
+                return $http.put(url, body).then(function (result) {
+                    return result.data;
+                });
+            },
+            deleteOpportunityFormComponents: function (opportunityComponent) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                var body = angular.copy(opportunityComponent)
+                var url = body._links.self.href;
+                delete body._links;
+                return $http.delete(url).then(function (result) {
+                    return result.data;
+                });
+            },
                 getOpportunityFormComponentOptions: function () {
                     //since $http.get returns a promise,
                     //and promise.then() also returns a promise
@@ -451,6 +485,43 @@ angular.module('customersApp.ajaxService', [])
                         return result.data;
                     });
                 },
+            postOpportunityFormComponentsOptions: function (opportunityComponentOption, opportunityFormComponentId) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                opportunityComponentOption.component = dmApplicationEntryPoint + '/opportunityFormComponents/' + opportunityFormComponentId;
+                return $http.post(dmApplicationEntryPoint + '/opportunityFormComponentOptions',
+                    opportunityComponentOption).then(function (result) {
+                    return result.headers('location');
+                });
+            },
+            patchOpportunityFormComponentsOptions: function (opportunityComponentOption, opportunityFormComponentId) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                opportunityComponentOption.component = dmApplicationEntryPoint + '/opportunityFormComponents/' + opportunityFormComponentId;
+                var body = angular.copy(opportunityComponentOption)
+                var url = body._links.self.href;
+                delete body._links;
+                // angular does not support patch, use put for now
+                return $http.put(url, body).then(function (result) {
+                    return result.data;
+                });
+            },
+            deleteOpportunityFormComponentsOptions: function (opportunityComponentOption) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                var body = angular.copy(opportunityComponentOption)
+                var url = body._links.self.href;
+                delete body._links;
+                return $http.delete(url).then(function (result) {
+                    return result.data;
+                });
+            },
                 getFormComponents: function () {
                     //since $http.get returns a promise,
                     //and promise.then() also returns a promise
@@ -460,6 +531,40 @@ angular.module('customersApp.ajaxService', [])
                         return result.data;
                     });
                 },
+            postFormComponents: function (component) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.post(dmApplicationEntryPoint + '/formComponents', component).then(function (result) {
+                    return result.headers('location');
+                });
+            },
+            patchFormComponents: function (component) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                var body = angular.copy(component)
+                var url = body._links.self.href;
+                delete body._links;
+                // angular does not support patch, use put for now
+                return $http.put(url, body).then(function (result) {
+                    return result.data;
+                });
+            },
+            deleteFormComponents: function (component) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                var body = angular.copy(component)
+                var url = body._links.self.href;
+                delete body._links;
+                return $http.delete(url).then(function (result) {
+                    return result.data;
+                });
+            },
                 getFormComponentOptions: function () {
                     //since $http.get returns a promise,
                     //and promise.then() also returns a promise
@@ -469,6 +574,43 @@ angular.module('customersApp.ajaxService', [])
                         return result.data;
                     });
                 },
+            postFormComponentsOptions: function (componentOption, formComponentId) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                componentOption.component = dmApplicationEntryPoint + '/formComponents/' + formComponentId;
+                return $http.post(dmApplicationEntryPoint + '/formComponentOptions',
+                    opportunityComponentOption).then(function (result) {
+                        return result.headers('location');
+                    });
+            },
+            patchFormComponentsOptions: function (componentOption, formComponentId) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                componentOption.component = dmApplicationEntryPoint + '/formComponents/' + formComponentId;
+                var body = angular.copy(componentOption)
+                var url = body._links.self.href;
+                delete body._links;
+                // angular does not support patch, use put for now
+                return $http.put(url, body).then(function (result) {
+                    return result.data;
+                });
+            },
+            deleteFormComponentsOptions: function (componentOption) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                var body = angular.copy(componentOption)
+                var url = body._links.self.href;
+                delete body._links;
+                return $http.delete(url).then(function (result) {
+                    return result.data;
+                });
+            },
                 getCustomFormTypes: function () {
                     return customFormTypes;
                 },
