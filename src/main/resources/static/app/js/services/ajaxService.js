@@ -427,11 +427,60 @@ angular.module('customersApp.ajaxService', [])
     })
     .factory('formUpdateService', function (formComponentService) {
         return {
-            updateForm: function (oldForm, newForm) {
+            updateForm: function (oldForm, newForm, form) {
                 // delete everything, then post ?
-
+                if(oldForm){
+                    angular.forEach(oldForm, function (field) {
+                        if (field._links) {
+                            // the delete command is self contained so any service can process it
+                            formComponentService.deleteFormComponentOptions(field) ;                       }
+                    });
+                }
                 // seperate options from the component, then delete the option from the componenet
                 // then send them up to the host
+                if(newForm){
+                    angular.forEach(newForm, function (field) {
+                        var options = null;
+                        if (field._links) {
+                            delete field._links;
+                        }
+                        if(field.field_options){
+                            options = angular.copy(field.field_options);
+                            delete field_options;
+
+                        }
+
+                        // send to host, then get back the location in order to send options
+
+                        if (form === 'global'){
+                            formComponentService.postFormComponents(field).then(function (data) {
+
+                                // need to get the form component #
+                                var formArray = data.split('/')
+                                var formID = formArray[formArray.length - 1];
+                                angular.forEach(options, function (optionField) {
+                                    formComponentService.postFormComponentOptions(optionField, formID);
+
+                                });
+
+                            });
+
+                        }else{
+                            formComponentService.postOpportunityFormComponents(field).then(function (data) {
+
+                                // need to get the form component #
+                                var formArray = data.split('/')
+                                var formID = formArray[formArray.length - 1];
+                                angular.forEach(options, function (optionField) {
+                                    formComponentService.postOpportunityFormComponentOptions(optionField, formID);
+
+                                });
+
+                            });
+
+                        }
+                    });
+                }
             }
 
         }
@@ -496,7 +545,7 @@ angular.module('customersApp.ajaxService', [])
                         return result.data;
                     });
                 },
-            postOpportunityFormComponentsOptions: function (opportunityComponentOption, opportunityFormComponentId) {
+            postOpportunityFormComponentOptions: function (opportunityComponentOption, opportunityFormComponentId) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
@@ -507,7 +556,7 @@ angular.module('customersApp.ajaxService', [])
                     return result.headers('location');
                 });
             },
-            patchOpportunityFormComponentsOptions: function (opportunityComponentOption, opportunityFormComponentId) {
+            patchOpportunityFormComponentOptions: function (opportunityComponentOption, opportunityFormComponentId) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
@@ -521,7 +570,7 @@ angular.module('customersApp.ajaxService', [])
                     return result.data;
                 });
             },
-            deleteOpportunityFormComponentsOptions: function (opportunityComponentOption) {
+            deleteOpportunityFormComponentOptions: function (opportunityComponentOption) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
@@ -585,7 +634,7 @@ angular.module('customersApp.ajaxService', [])
                         return result.data;
                     });
                 },
-            postFormComponentsOptions: function (componentOption, formComponentId) {
+            postFormComponentOptions: function (componentOption, formComponentId) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
@@ -596,7 +645,7 @@ angular.module('customersApp.ajaxService', [])
                         return result.headers('location');
                     });
             },
-            patchFormComponentsOptions: function (componentOption, formComponentId) {
+            patchFormComponentOptions: function (componentOption, formComponentId) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
@@ -610,7 +659,7 @@ angular.module('customersApp.ajaxService', [])
                     return result.data;
                 });
             },
-            deleteFormComponentsOptions: function (componentOption) {
+            deleteFormComponentOptions: function (componentOption) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's

@@ -12,8 +12,8 @@ angular.module('customersApp.formControllers', [])
         $scope.form.form_name = 'My Form';
 
         // get the current form
-        $scope.form.form_fields = formComponentService.getDynamicForm();
-//        $scope.form.form_fields = formFormatterService.convertFormToFields();
+        $scope.old_form_fields = formComponentService.getCustomFormFields();
+        $scope.form.form_fields= angular.copy($scope.old_form_fields);
 
         // previewForm - for preview purposes, form will be copied into this
         // otherwise, actual form might get manipulated in preview mode
@@ -228,8 +228,7 @@ angular.module('customersApp.formControllers', [])
         };
         // send all the fields to the store
         $scope.submit = function () {
-            formUpdateService.updateForm($scope.form);
-//            formFormatterService.setDynamicForm($scope.form);
+            formUpdateService.updateForm($scope.old_form_fields, $scope.form.form_fields, 'opportunity');
 
             // return to applications default page
             $location.path('/');
@@ -243,7 +242,8 @@ angular.module('customersApp.formControllers', [])
                                                  FormService, formComponentService, formUpdateService) {
 
         // get the current custom fields
-        $scope.form_fields = formComponentService.getCustomFormFields();
+        $scope.old_form_fields = formComponentService.getCustomFormFields();
+        $scope.form_fields = angular.copy($scope.old_form_fields);
 
 
         // add new field drop-down:
@@ -341,7 +341,7 @@ angular.module('customersApp.formControllers', [])
 
         // send all the fields to the store
         $scope.submit = function () {
-            formUpdateService.updateForm($scope.form_fields);
+            formUpdateService.updateForm($scope.old_form_fields, $scope.form.form_fields, 'global');
 
             // return to applications default page
             $location.path('/');
