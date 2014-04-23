@@ -426,8 +426,12 @@ angular.module('customersApp.ajaxService', [])
         }
     })
     .factory('formComponentService', function ($http, FormService, formFormatterService) {
+
         var dynamicForm = [];
         var opportunityForm = [];
+        var customFormTypes = [];
+        var customFormFields = [];
+
         return {
                 getOpportunityFormComponents: function () {
                     //since $http.get returns a promise,
@@ -465,6 +469,30 @@ angular.module('customersApp.ajaxService', [])
                         return result.data;
                     });
                 },
+                getCustomFormTypes: function () {
+                    return customFormTypes;
+                },
+                getCustomFormFields: function () {
+                    return customFormFields;
+                },
+                getCustomFormField: function (type) {
+                    var formField = {};
+                    angular.forEach(customFormFields, function (field) {
+                        if (field.field_id == type) {
+                            formField = field;
+                        }
+                    });
+                    return formField;
+                },
+                getCustomFormType: function (type) {
+                    var formField = null;
+                    angular.forEach(customFormFields, function (field) {
+                        if (field.field_id == type) {
+                            formField = field;
+                        }
+                    });
+                    return formField;
+                },
                 getDynamicForm: function () {
                     return dynamicForm;
                 },
@@ -495,6 +523,8 @@ angular.module('customersApp.ajaxService', [])
                     // build up the form by reading the components
                     opportunityForm = [];
                     dynamicForm = [];
+                    customFormTypes = [];
+                    customFormFields = [];
 
                     angular.forEach(opportunityFormComponents, function (field) {
 
@@ -504,6 +534,14 @@ angular.module('customersApp.ajaxService', [])
                         var dynamicField = FormService.getDynamicFormField(field, globalFromComponents, globalFormOptions);
                         if (dynamicField) {
                             newField = dynamicField;
+
+                            //create formTypes and formFields for form administration
+                            customFormFields.push(newField);
+                            var formType = {};
+                            formType.name = newField.field_id;
+                            formType.value = newField.field_title;
+                            customFormTypes.push(formType);
+
                         } else {
 
                             dynamicField = FormService.getDynamicFormField(field, opportunityFormComponents, opportunityFormOptions);
@@ -519,7 +557,7 @@ angular.module('customersApp.ajaxService', [])
                         }
                     });
 
-                    opportunityForm = formFormatterService.setDynamicForm(dynamicForm);
+                    opportunityForm = formFormatterService.setDynamicForm(angular.copy(dynamicForm));
 
                 }
 

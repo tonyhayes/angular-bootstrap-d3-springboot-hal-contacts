@@ -1,6 +1,7 @@
 angular.module('customersApp.formControllers', [])
 
-    .controller('FormController', function ($scope, $location, $anchorScroll, modalService, FormService, formFormatterService) {
+    .controller('FormController', function ($scope, $location, $anchorScroll, modalService,
+                                            FormService, formFormatterService, formComponentService) {
 
         // preview form mode
         $scope.previewMode = false;
@@ -11,9 +12,8 @@ angular.module('customersApp.formControllers', [])
         $scope.form.form_name = 'My Form';
 
         // get the current form
-        $scope.opportunityFormTemplate = formComponentService.getOpportunityForm();
-
-        $scope.form.form_fields = formFormatterService.convertFormToFields();
+        $scope.form.form_fields = formComponentService.getDynamicForm();
+//        $scope.form.form_fields = formFormatterService.convertFormToFields();
 
         // previewForm - for preview purposes, form will be copied into this
         // otherwise, actual form might get manipulated in preview mode
@@ -27,7 +27,7 @@ angular.module('customersApp.formControllers', [])
         $scope.addField = {};
 
         var types = FormService.fields;
-        var customFields = FormService.getCustomFormTypes();
+        var customFields = formComponentService.getCustomFormTypes();
         $scope.addField.types = types.concat(customFields);
 
 
@@ -103,7 +103,7 @@ angular.module('customersApp.formControllers', [])
 
             if (!duplicateCustomField) {
                 //get the form field, and add to form
-                $scope.form.form_fields.push(FormService.getCustomFormField($scope.addField.new));
+                $scope.form.form_fields.push(formComponentService.customFormField($scope.addField.new));
                 // incr field_id counter
                 $scope.addField.lastAddedID++;
             }
@@ -245,7 +245,8 @@ angular.module('customersApp.formControllers', [])
         // deletes all the fields and retrieves the current form
         $scope.reset = function () {
             // get the current form
-            $scope.form.form_fields = formFormatterService.convertFormToFields();
+            $scope.form.form_fields = formComponentService.getDynamicForm();
+//            $scope.form.form_fields = formFormatterService.convertFormToFields();
             $scope.addField.lastAddedID = $scope.form.form_fields.length;
         };
 
