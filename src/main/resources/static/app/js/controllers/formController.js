@@ -1,7 +1,7 @@
 angular.module('customersApp.formControllers', [])
 
     .controller('FormController', function ($scope, $location, $anchorScroll, modalService,
-                                            FormService, formFormatterService, formComponentService) {
+                                            FormService, formFormatterService, formComponentService, formUpdateService) {
 
         // preview form mode
         $scope.previewMode = false;
@@ -156,36 +156,6 @@ angular.module('customersApp.formControllers', [])
 
 
         // preview form
-        $scope.previewOn = function () {
-
-            if ($scope.form.form_fields === null || $scope.form.form_fields.length === 0) {
-
-                var modalDefaults = {
-                    templateUrl: 'app/partials/modal.html'
-                };
-                var modalOptions = {
-                    headerText: 'Error ',
-                    bodyText: 'No fields added yet, please add fields to the form before preview.'
-                };
-
-                modalService.showModal(modalDefaults, modalOptions).then(function (result) {
-                });
-
-            }
-            else {
-
-                $scope.previewMode = !$scope.previewMode;
-                $scope.form.submitted = false;
-                angular.copy($scope.form, $scope.previewForm);
-
-                $scope.scrollTo('admin-form'); // scroll to the form
-                // store for dynform retrival
-                $scope.previewForm = formFormatterService.testDynamicForm($scope.form);
-                $scope.formData = {};
-
-
-            }
-        };
         $scope.previewModalOn = function () {
             var modalDefaults;
             var modalOptions;
@@ -207,7 +177,7 @@ angular.module('customersApp.formControllers', [])
             }
             else {
 
-                $scope.previewForm = formFormatterService.testDynamicForm($scope.form);
+                $scope.previewForm = formFormatterService.setDynamicForm(angular.copy($scope.form.form_fields));
                 $scope.formData = {};
 
                 modalDefaults = {
@@ -258,8 +228,8 @@ angular.module('customersApp.formControllers', [])
         };
         // send all the fields to the store
         $scope.submit = function () {
-            FormService.updateForm($scope.form);
-            formFormatterService.setDynamicForm($scope.form);
+            formUpdateService.updateForm($scope.form);
+//            formFormatterService.setDynamicForm($scope.form);
 
             // return to applications default page
             $location.path('/');
@@ -270,7 +240,7 @@ angular.module('customersApp.formControllers', [])
         };
     })
     .controller('FormFieldController', function ($scope, $location, modalService,
-                                                 FormService, formComponentService) {
+                                                 FormService, formComponentService, formUpdateService) {
 
         // get the current custom fields
         $scope.form_fields = formComponentService.getCustomFormFields();
@@ -371,7 +341,7 @@ angular.module('customersApp.formControllers', [])
 
         // send all the fields to the store
         $scope.submit = function () {
-            FormService.updateCustomFormFields($scope.form_fields);
+            formUpdateService.updateForm($scope.form_fields);
 
             // return to applications default page
             $location.path('/');

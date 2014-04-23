@@ -34,7 +34,7 @@ public class FormComponent extends AuditableEntity {
     }
 
 
-    @OneToMany(mappedBy = "component")
+    @OneToMany(mappedBy = "component", cascade = CascadeType.ALL)
     Set<FormComponentOption> options;
 
 
