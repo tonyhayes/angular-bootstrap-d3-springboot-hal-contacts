@@ -459,7 +459,8 @@ angular.module('customersApp.ajaxService', [])
                                 // need to get the form component #
                                 var formArray = data.split('/')
                                 var formID = formArray[formArray.length - 1];
-                                angular.forEach(options, function (optionField) {
+                                angular.forEach(options, function (optionId, optionField) {
+                                    optionField.option_id = optionId;
                                     formComponentService.postFormComponentOptions(optionField, formID);
 
                                 });
@@ -472,7 +473,8 @@ angular.module('customersApp.ajaxService', [])
                                 // need to get the form component #
                                 var formArray = data.split('/')
                                 var formID = formArray[formArray.length - 1];
-                                angular.forEach(options, function (optionField) {
+                                angular.forEach(options, function (optionId,optionField) {
+                                    optionField.option_id = optionId;
                                     formComponentService.postOpportunityFormComponentOptions(optionField, formID);
 
                                 });
