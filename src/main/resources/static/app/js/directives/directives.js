@@ -138,7 +138,7 @@ angular.module('customersApp.directives', []).
                             return usersOnSelectHandler(value, picker);
                         };
                     } else {
-                        if( $scope.uiDate){
+                        if ($scope.uiDate) {
                             $scope.uiDate.onSelect = updateModel;
                         }
                     }

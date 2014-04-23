@@ -42,7 +42,7 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                if(company.primaryContactId){
+                if (company.primaryContactId) {
                     company.primaryContact = dmApplicationEntryPoint + '/contacts/' + company.primaryContactId;
                 }
                 return $http.post(dmApplicationEntryPoint + '/companies', company).then(function (result) {
@@ -54,7 +54,7 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                if(company.primaryContactId){
+                if (company.primaryContactId) {
                     company.primaryContact = dmApplicationEntryPoint + '/contacts/' + company.primaryContactId;
                 }
                 var body = angular.copy(company)
@@ -87,7 +87,7 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 if (searchText) {
-                    var filter = angular.copy(searchText)+'%';
+                    var filter = angular.copy(searchText) + '%';
                     return $http.get(dmApplicationEntryPoint + '/contacts/search' +
                             '/findBySearch', {
                             params: {
@@ -113,10 +113,10 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                    return $http.get(dmApplicationEntryPoint + '/contacts/search' + '/findAllByCompany', {
-                        params: {company: company}}).then(function (result) {
-                        return result.data;
-                    });
+                return $http.get(dmApplicationEntryPoint + '/contacts/search' + '/findAllByCompany', {
+                    params: {company: company}}).then(function (result) {
+                    return result.data;
+                });
             },
             postContact: function (contact, companyId) {
                 //since $http.get returns a promise,
@@ -184,13 +184,13 @@ angular.module('customersApp.ajaxService', [])
                 //callback argument, we can return that.
                 opportunity.company = dmApplicationEntryPoint + '/companies/' + companyId;
 
-                if(opportunity.salesPersonId){
+                if (opportunity.salesPersonId) {
                     opportunity.sales = dmApplicationEntryPoint + '/salesPersons/' + opportunity.salesPersonId;
                 }
-                if(opportunity.contactId){
+                if (opportunity.contactId) {
                     opportunity.contact = dmApplicationEntryPoint + '/contacts/' + opportunity.contactId;
                 }
-                if(opportunity.probabilityId){
+                if (opportunity.probabilityId) {
                     opportunity.probability = dmApplicationEntryPoint + '/probabilities/' + opportunity.probabilityId;
                 }
                 return $http.post(dmApplicationEntryPoint + '/opportunities', opportunity).then(function (result) {
@@ -202,13 +202,13 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                if(opportunity.salesPersonId){
+                if (opportunity.salesPersonId) {
                     opportunity.sales = dmApplicationEntryPoint + '/salesPersons/' + opportunity.salesPersonId;
                 }
-                if(opportunity.contactId){
+                if (opportunity.contactId) {
                     opportunity.contact = dmApplicationEntryPoint + '/contacts/' + opportunity.contactId;
                 }
-                if(opportunity.probabilityId){
+                if (opportunity.probabilityId) {
                     opportunity.probability = dmApplicationEntryPoint + '/probabilities/' + opportunity.probabilityId;
                 }
                 var body = angular.copy(opportunity)
@@ -262,7 +262,7 @@ angular.module('customersApp.ajaxService', [])
                 //callback argument, we can return that.
                 opportunity.company = dmApplicationEntryPoint + '/companies/' + companyId;
                 opportunity.opportunity = dmApplicationEntryPoint + '/opportunities/' + opportunityId;
-                if(opportunity.salesPersonId){
+                if (opportunity.salesPersonId) {
                     opportunity.sales = dmApplicationEntryPoint + '/salesPersons/' + opportunity.salesPersonId;
                 }
                 return $http.post(dmApplicationEntryPoint + '/opportunityDetails', opportunity).then(function (result) {
@@ -274,7 +274,7 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                if(opportunity.salesPersonId){
+                if (opportunity.salesPersonId) {
                     opportunity.sales = dmApplicationEntryPoint + '/salesPersons/' + opportunity.salesPersonId;
                 }
                 var body = angular.copy(opportunity)
@@ -429,22 +429,23 @@ angular.module('customersApp.ajaxService', [])
         return {
             updateForm: function (oldForm, newForm, form) {
                 // delete everything, then post ?
-                if(oldForm){
+                if (oldForm) {
                     angular.forEach(oldForm, function (field) {
                         if (field._links) {
                             // the delete command is self contained so any service can process it
-                            formComponentService.deleteFormComponentOptions(field) ;                       }
+                            formComponentService.deleteFormComponentOptions(field);
+                        }
                     });
                 }
                 // seperate options from the component, then delete the option from the componenet
                 // then send them up to the host
-                if(newForm){
+                if (newForm) {
                     angular.forEach(newForm, function (field) {
                         var options = null;
                         if (field._links) {
                             delete field._links;
                         }
-                        if(field.field_options){
+                        if (field.field_options) {
                             options = angular.copy(field.field_options);
                             delete field_options;
 
@@ -452,7 +453,7 @@ angular.module('customersApp.ajaxService', [])
 
                         // send to host, then get back the location in order to send options
 
-                        if (form === 'global'){
+                        if (form === 'global') {
                             formComponentService.postFormComponents(field).then(function (data) {
 
                                 // need to get the form component #
@@ -465,7 +466,7 @@ angular.module('customersApp.ajaxService', [])
 
                             });
 
-                        }else{
+                        } else {
                             formComponentService.postOpportunityFormComponents(field).then(function (data) {
 
                                 // need to get the form component #
@@ -493,15 +494,15 @@ angular.module('customersApp.ajaxService', [])
         var customFormFields = [];
 
         return {
-                getOpportunityFormComponents: function () {
-                    //since $http.get returns a promise,
-                    //and promise.then() also returns a promise
-                    //that resolves to whatever value is returned in it's
-                    //callback argument, we can return that.
-                    return $http.get(dmApplicationEntryPoint + '/opportunityFormComponents').then(function (result) {
-                        return result.data;
-                    });
-                },
+            getOpportunityFormComponents: function () {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.get(dmApplicationEntryPoint + '/opportunityFormComponents').then(function (result) {
+                    return result.data;
+                });
+            },
             postOpportunityFormComponents: function (opportunityComponent) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
@@ -536,15 +537,15 @@ angular.module('customersApp.ajaxService', [])
                     return result.data;
                 });
             },
-                getOpportunityFormComponentOptions: function () {
-                    //since $http.get returns a promise,
-                    //and promise.then() also returns a promise
-                    //that resolves to whatever value is returned in it's
-                    //callback argument, we can return that.
-                    return $http.get(dmApplicationEntryPoint + '/opportunityFormComponentOptions').then(function (result) {
-                        return result.data;
-                    });
-                },
+            getOpportunityFormComponentOptions: function () {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.get(dmApplicationEntryPoint + '/opportunityFormComponentOptions').then(function (result) {
+                    return result.data;
+                });
+            },
             postOpportunityFormComponentOptions: function (opportunityComponentOption, opportunityFormComponentId) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
@@ -553,8 +554,8 @@ angular.module('customersApp.ajaxService', [])
                 opportunityComponentOption.component = dmApplicationEntryPoint + '/opportunityFormComponents/' + opportunityFormComponentId;
                 return $http.post(dmApplicationEntryPoint + '/opportunityFormComponentOptions',
                     opportunityComponentOption).then(function (result) {
-                    return result.headers('location');
-                });
+                        return result.headers('location');
+                    });
             },
             patchOpportunityFormComponentOptions: function (opportunityComponentOption, opportunityFormComponentId) {
                 //since $http.get returns a promise,
@@ -582,15 +583,15 @@ angular.module('customersApp.ajaxService', [])
                     return result.data;
                 });
             },
-                getFormComponents: function () {
-                    //since $http.get returns a promise,
-                    //and promise.then() also returns a promise
-                    //that resolves to whatever value is returned in it's
-                    //callback argument, we can return that.
-                    return $http.get(dmApplicationEntryPoint + '/formComponents').then(function (result) {
-                        return result.data;
-                    });
-                },
+            getFormComponents: function () {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.get(dmApplicationEntryPoint + '/formComponents').then(function (result) {
+                    return result.data;
+                });
+            },
             postFormComponents: function (component) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
@@ -625,15 +626,15 @@ angular.module('customersApp.ajaxService', [])
                     return result.data;
                 });
             },
-                getFormComponentOptions: function () {
-                    //since $http.get returns a promise,
-                    //and promise.then() also returns a promise
-                    //that resolves to whatever value is returned in it's
-                    //callback argument, we can return that.
-                    return $http.get(dmApplicationEntryPoint + '/formComponentOptions').then(function (result) {
-                        return result.data;
-                    });
-                },
+            getFormComponentOptions: function () {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.get(dmApplicationEntryPoint + '/formComponentOptions').then(function (result) {
+                    return result.data;
+                });
+            },
             postFormComponentOptions: function (componentOption, formComponentId) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
@@ -671,97 +672,97 @@ angular.module('customersApp.ajaxService', [])
                     return result.data;
                 });
             },
-                getCustomFormTypes: function () {
-                    return customFormTypes;
-                },
-                getCustomFormFields: function () {
-                    return customFormFields;
-                },
-                getCustomFormField: function (type) {
-                    var formField = {};
-                    angular.forEach(customFormFields, function (field) {
-                        if (field.field_id == type) {
-                            formField = field;
-                        }
-                    });
-                    return formField;
-                },
-                getCustomFormType: function (type) {
-                    var formField = null;
-                    angular.forEach(customFormFields, function (field) {
-                        if (field.field_id == type) {
-                            formField = field;
-                        }
-                    });
-                    return formField;
-                },
-                getDynamicForm: function () {
-                    return dynamicForm;
-                },
-
-                getOpportunityForm: function () {
-                    return opportunityForm;
-                },
-                setOpportunityForm: function (components, options, opportunityComponents, opportunityOptions) {
-
-                    var globalFromComponents = null;
-                    var globalFormOptions = null;
-                    var opportunityFormComponents = null;
-                    var opportunityFormOptions = null;
-                    //unpack
-                    if(components._embedded){
-                        globalFromComponents = components._embedded.formComponents;
+            getCustomFormTypes: function () {
+                return customFormTypes;
+            },
+            getCustomFormFields: function () {
+                return customFormFields;
+            },
+            getCustomFormField: function (type) {
+                var formField = {};
+                angular.forEach(customFormFields, function (field) {
+                    if (field.field_id == type) {
+                        formField = field;
                     }
-                    if(options._embedded){
-                        globalFormOptions = options._embedded.formComponentOptions;
+                });
+                return formField;
+            },
+            getCustomFormType: function (type) {
+                var formField = null;
+                angular.forEach(customFormFields, function (field) {
+                    if (field.field_id == type) {
+                        formField = field;
                     }
-                    if(opportunityComponents._embedded){
-                        opportunityFormComponents = opportunityComponents._embedded.opportunityFormComponents;
-                    }
-                    if(opportunityOptions._embedded){
-                        opportunityFormOptions = opportunityOptions._embedded.opportunityFormComponentOptions;
-                    }
+                });
+                return formField;
+            },
+            getDynamicForm: function () {
+                return dynamicForm;
+            },
 
-                    // build up the form by reading the components
-                    opportunityForm = [];
-                    dynamicForm = [];
-                    customFormTypes = [];
-                    customFormFields = [];
+            getOpportunityForm: function () {
+                return opportunityForm;
+            },
+            setOpportunityForm: function (components, options, opportunityComponents, opportunityOptions) {
 
-                    angular.forEach(opportunityFormComponents, function (field) {
-
-                        var newField = null;
-
-                        // check to see if form type is in the custom field list
-                        var dynamicField = FormService.getDynamicFormField(field, globalFromComponents, globalFormOptions);
-                        if (dynamicField) {
-                            newField = dynamicField;
-
-                            //create formTypes and formFields for form administration
-                            customFormFields.push(newField);
-                            var formType = {};
-                            formType.name = newField.field_id;
-                            formType.value = newField.field_title;
-                            customFormTypes.push(formType);
-
-                        } else {
-
-                            dynamicField = FormService.getDynamicFormField(field, opportunityFormComponents, opportunityFormOptions);
-                            if (dynamicField) {
-                                newField = dynamicField;
-                            }
-
-                        }
-
-                        // put newField into fields array
-                        if (newField) {
-                            dynamicForm.push(newField);
-                        }
-                    });
-
-                    opportunityForm = formFormatterService.setDynamicForm(angular.copy(dynamicForm));
-
+                var globalFromComponents = null;
+                var globalFormOptions = null;
+                var opportunityFormComponents = null;
+                var opportunityFormOptions = null;
+                //unpack
+                if (components._embedded) {
+                    globalFromComponents = components._embedded.formComponents;
+                }
+                if (options._embedded) {
+                    globalFormOptions = options._embedded.formComponentOptions;
+                }
+                if (opportunityComponents._embedded) {
+                    opportunityFormComponents = opportunityComponents._embedded.opportunityFormComponents;
+                }
+                if (opportunityOptions._embedded) {
+                    opportunityFormOptions = opportunityOptions._embedded.opportunityFormComponentOptions;
                 }
 
+                // build up the form by reading the components
+                opportunityForm = [];
+                dynamicForm = [];
+                customFormTypes = [];
+                customFormFields = [];
+
+                angular.forEach(opportunityFormComponents, function (field) {
+
+                    var newField = null;
+
+                    // check to see if form type is in the custom field list
+                    var dynamicField = FormService.getDynamicFormField(field, globalFromComponents, globalFormOptions);
+                    if (dynamicField) {
+                        newField = dynamicField;
+
+                        //create formTypes and formFields for form administration
+                        customFormFields.push(newField);
+                        var formType = {};
+                        formType.name = newField.field_id;
+                        formType.value = newField.field_title;
+                        customFormTypes.push(formType);
+
+                    } else {
+
+                        dynamicField = FormService.getDynamicFormField(field, opportunityFormComponents, opportunityFormOptions);
+                        if (dynamicField) {
+                            newField = dynamicField;
+                        }
+
+                    }
+
+                    // put newField into fields array
+                    if (newField) {
+                        dynamicForm.push(newField);
+                    }
+                });
+
+                opportunityForm = formFormatterService.setDynamicForm(angular.copy(dynamicForm));
+
             }
-     });
+
+        }
+    });

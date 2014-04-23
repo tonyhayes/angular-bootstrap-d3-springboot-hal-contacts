@@ -75,7 +75,7 @@ angular.module('customersApp.contactControllers', [])
                         } else {
                             $scope.scroll.next = '';
                             $scope.scroll.stop = true;
-                            if($scope.searchText){
+                            if ($scope.searchText) {
                                 $scope.contacts = {};
                             }
                         }

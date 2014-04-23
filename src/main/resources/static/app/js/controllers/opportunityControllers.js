@@ -5,7 +5,7 @@ angular.module('customersApp.opportunityControllers', [])
 //This controller retrieves data from the customersService and associates it with the $scope
 //The $scope is bound to the details view
     .controller('CustomerOpportunityController', ['$scope', '$routeParams', '$location',
-        'customersService', 'modalService','OpportunityServices','CompanyServices',
+        'customersService', 'modalService', 'OpportunityServices', 'CompanyServices',
 
         function ($scope, $routeParams, $location, customersService, modalService, OpportunityServices, CompanyServices) {
 
@@ -31,13 +31,13 @@ angular.module('customersApp.opportunityControllers', [])
 
 
                 var templateCache =
-                        "<div ng-dblclick=\"onDblClickRow(row)\" <div ng-style=\"{ 'cursor': row.cursor }\" ng-repeat=\"col in renderedColumns\" ng-class=\"col.colIndex()\" class=\"ngCell {{col.cellClass}}\">\r" +
-                        "\n" +
-                        "\t<div class=\"ngVerticalBar\" ng-style=\"{height: rowHeight}\" ng-class=\"{ ngVerticalBarVisible: !$last }\">&nbsp;</div>\r" +
-                        "\n" +
-                        "\t<div ng-cell></div>\r" +
-                        "\n" +
-                        "</div>";
+                    "<div ng-dblclick=\"onDblClickRow(row)\" <div ng-style=\"{ 'cursor': row.cursor }\" ng-repeat=\"col in renderedColumns\" ng-class=\"col.colIndex()\" class=\"ngCell {{col.cellClass}}\">\r" +
+                    "\n" +
+                    "\t<div class=\"ngVerticalBar\" ng-style=\"{height: rowHeight}\" ng-class=\"{ ngVerticalBarVisible: !$last }\">&nbsp;</div>\r" +
+                    "\n" +
+                    "\t<div ng-cell></div>\r" +
+                    "\n" +
+                    "</div>";
                 var filterBarPlugin = {
                     init: function (scope, grid) {
                         filterBarPlugin.scope = scope;
@@ -109,11 +109,11 @@ angular.module('customersApp.opportunityControllers', [])
                     OpportunityServices.getOpportunities($scope.customerID).then(function (data) {
                         //this will execute when the
                         //AJAX call completes.
-                        if(data._embedded){
+                        if (data._embedded) {
                             $scope.opportunities = data._embedded.opportunities;
                         }
 
-                     });
+                    });
 
                 }
             }
@@ -143,10 +143,7 @@ angular.module('customersApp.opportunityControllers', [])
         'formComponentService', 'OpportunityDetailServices', 'CompanyServices', 'OpportunityServices',
         'OpportunityFormServices',
 
-        function ($scope, $routeParams, $location, $filter,
-                  customersService, salesPersonService, ContactServices, probabilitiesService, modalService,
-                  formComponentService, OpportunityDetailServices, CompanyServices, OpportunityServices,
-                  OpportunityFormServices) {
+        function ($scope, $routeParams, $location, $filter, customersService, salesPersonService, ContactServices, probabilitiesService, modalService, formComponentService, OpportunityDetailServices, CompanyServices, OpportunityServices, OpportunityFormServices) {
 
             $scope.master = {};
             $scope.opportunityFormObject = {};
@@ -154,7 +151,7 @@ angular.module('customersApp.opportunityControllers', [])
             $scope.opportunities = {};
             $scope.opportunity = {};
             $scope.opportunityForm = {};
-            $scope.salesPerson_array =  salesPersonService.getSalesPeople();
+            $scope.salesPerson_array = salesPersonService.getSalesPeople();
             $scope.probability_array = probabilitiesService.getProbabilities();
             $scope.contact_array = [];
             $scope.filterOptions = {
@@ -170,7 +167,7 @@ angular.module('customersApp.opportunityControllers', [])
             function init() {
                 // get all contacts for contact drop down
                 ContactServices.getAllContacts($scope.customerID).then(function (data) {
-                    if(data._embedded){
+                    if (data._embedded) {
                         $scope.contact_array = data._embedded.contacts;
                     }
                 });
@@ -187,7 +184,7 @@ angular.module('customersApp.opportunityControllers', [])
                 }
                 if (parseInt($scope.opportunityID)) {
                     OpportunityFormServices.getOpportunities($scope.opportunityID).then(function (data) {
-                        if(data._embedded){
+                        if (data._embedded) {
                             $scope.opportunityForm = data._embedded.opportunityForms;
 
                             $scope.opportunityFormObject = {};
@@ -195,7 +192,7 @@ angular.module('customersApp.opportunityControllers', [])
                             angular.forEach($scope.opportunityForm, function (component) {
                                 $scope.opportunityFormObject[component.name] = component.value;
                             });
-                       }
+                        }
                     });
 
                     $scope.opportunity = customersService.getStoredOpportunity();
@@ -283,7 +280,7 @@ angular.module('customersApp.opportunityControllers', [])
                 OpportunityDetailServices.getOpportunities($scope.opportunityID).then(function (data) {
                     //this will execute when the
                     //AJAX call completes.
-                    if(data._embedded){
+                    if (data._embedded) {
                         $scope.opportunityDetails = data._embedded.opportunityDetails;
                     }
 
@@ -293,7 +290,7 @@ angular.module('customersApp.opportunityControllers', [])
 
             $scope.onDblClickRow = function (row) {
 
-                   // opportunity must exist before creating rows
+                // opportunity must exist before creating rows
                 if (!parseInt($scope.opportunityID)) {
 
                     var modalDefaults = {
@@ -308,10 +305,10 @@ angular.module('customersApp.opportunityControllers', [])
 
                     modalService.showModal(modalDefaults, modalOptions).then(function (result) {
                         if (result === 'ok') {
-                       }
+                        }
                     });
 
-                }else{
+                } else {
                     var custName = $scope.customer.companyName + ', ' + $scope.customer.city;
                     var origRow = {};
                     $scope.opportunityDetail = {};
@@ -336,7 +333,7 @@ angular.module('customersApp.opportunityControllers', [])
                     modalService.showModal(modalDefaults, modalOptions).then(function (result) {
                         if (result === 'ok') {
 
-                            if($scope.opportunityDetail.followUpdate){
+                            if ($scope.opportunityDetail.followUpdate) {
                                 var d = new Date($scope.opportunityDetail.followUpdate);
                                 $scope.opportunityDetail.followUpdate = d.getTime();
                             }
@@ -349,7 +346,7 @@ angular.module('customersApp.opportunityControllers', [])
 
                             if (row) {
                                 OpportunityDetailServices.patchOpportunity($scope.opportunityDetail);
-                            }else{
+                            } else {
                                 OpportunityDetailServices.postOpportunity($scope.opportunityDetail, $scope.customerID, $scope.opportunityID);
                                 $scope.opportunityDetails.push($scope.opportunityDetail);
                             }
@@ -392,7 +389,7 @@ angular.module('customersApp.opportunityControllers', [])
 
                     });
 
-                 }
+                }
 
                 $location.path('/opportunitydetails/' + $routeParams.customerID);
 
@@ -402,7 +399,7 @@ angular.module('customersApp.opportunityControllers', [])
 
                 // read through the opportunity form and send changes back to the mother ship
                 angular.forEach(formTemplate, function (component) {
-                    if( $scope.opportunityFormObject[component.field_id]){
+                    if ($scope.opportunityFormObject[component.field_id]) {
                         var formField = {};
                         formField.name = component.field_id;
                         formField.value = $scope.opportunityFormObject[component.field_id];
@@ -410,23 +407,23 @@ angular.module('customersApp.opportunityControllers', [])
                         // now find the link (if this is an edit of an existing value)
                         var rec = null;
                         angular.forEach($scope.opportunityForm, function (originalComponent) {
-                            if(originalComponent.name === formField.name){
+                            if (originalComponent.name === formField.name) {
                                 rec = originalComponent;
                                 rec.name = formField.name;
                                 rec.value = formField.value;
                             }
                         });
 
-                        if(rec){
+                        if (rec) {
                             OpportunityFormServices.patchOpportunity(rec, $scope.opportunityID);
-                        }else{
+                        } else {
                             OpportunityFormServices.postOpportunity(formField, $scope.opportunityID);
                         }
-                    }else{
+                    } else {
                         // it could be a delete - read through opportunity form for the original value, if it exists, then it is a delete
                         var deleteComponent = component.field_id;
                         angular.forEach($scope.opportunityForm, function (originalComponent) {
-                            if(originalComponent.name === deleteComponent){
+                            if (originalComponent.name === deleteComponent) {
                                 OpportunityFormServices.deleteOpportunity(originalComponent, $scope.opportunityID);
                             }
                         });

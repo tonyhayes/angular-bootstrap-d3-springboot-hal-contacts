@@ -94,7 +94,7 @@ angular.module('customersApp.customerControllers', [])
                         } else {
                             $scope.scroll.next = '';
                             $scope.scroll.stop = true;
-                            if($scope.searchText) {
+                            if ($scope.searchText) {
                                 $scope.customers = [];
                             }
 
@@ -162,8 +162,7 @@ angular.module('customersApp.customerControllers', [])
     .controller('CustomerEditController', ['$scope', '$routeParams', '$location', 'customersService', 'statesService',
         'CompanyServices', 'ContactServices',
 
-        function ($scope, $routeParams, $location, customersService, statesService,
-                  CompanyServices, ContactServices) {
+        function ($scope, $routeParams, $location, customersService, statesService, CompanyServices, ContactServices) {
             $scope.master = {};
             $scope.customer = {};
             $scope.state_array = statesService.getStates();
@@ -180,7 +179,7 @@ angular.module('customersApp.customerControllers', [])
 
                     // get all contacts for contact drop down
                     ContactServices.getAllContacts($scope.customerId).then(function (data) {
-                        if(data._embedded){
+                        if (data._embedded) {
                             $scope.contact_array = data._embedded.contacts;
                         }
                     });

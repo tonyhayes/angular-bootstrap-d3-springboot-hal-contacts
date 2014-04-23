@@ -6,8 +6,7 @@ angular.module('customersApp.applicationControllers', [])
     .controller("appController", [
         "$scope", "$timeout", "$q", "customersService", "statesService", "salesPersonService", "probabilitiesService",
         "formComponentService",
-        function ($scope, $timeout, $q, customersService, statesService, salesPersonService, probabilitiesService,
-                  formComponentService) {
+        function ($scope, $timeout, $q, customersService, statesService, salesPersonService, probabilitiesService, formComponentService) {
 
             $scope.loadingDone = false;
 
@@ -17,45 +16,44 @@ angular.module('customersApp.applicationControllers', [])
             };
 
 
-
             // use $q.all to wait until all promises are resolved
-        $q.all([
-            statesService.getConfiguredStates(),
-            salesPersonService.getConfiguredSalesPeople(),
-            probabilitiesService.getConfiguredProbabilities(),
-            formComponentService.getFormComponents(),
-            formComponentService.getFormComponentOptions(),
-            formComponentService.getOpportunityFormComponents(),
-            formComponentService.getOpportunityFormComponentOptions()
-        ]).then(
-            function(data) {
-                if(data[0]._embedded){
-                    statesService.setStates(data[0]);
-                }
-                if(data[1]){
-                    salesPersonService.setSalesPeople(data[1]);
-                }
-                if(data[2]){
-                    probabilitiesService.setProbabilities(data[2]);
-                }
-                if(data[3] && data[4] && data[5] && data[6] ){
-                    formComponentService.setOpportunityForm(
-                        data[3],
-                        data[4],
-                        data[5],
-                        data[6] );
-                }
-                console.log('All services are resolved!');
-                // when evdrything has loaded, flip the switch, and let the
-                // routes do their work
-                $scope.loadingDone = true;
-            },
-            function(reason) {
-                // if any of the promises fails, handle it
-                // here, I'm just throwing an error message to
-                // the user.
-                $scope.failure = reason;
-            });
+            $q.all([
+                statesService.getConfiguredStates(),
+                salesPersonService.getConfiguredSalesPeople(),
+                probabilitiesService.getConfiguredProbabilities(),
+                formComponentService.getFormComponents(),
+                formComponentService.getFormComponentOptions(),
+                formComponentService.getOpportunityFormComponents(),
+                formComponentService.getOpportunityFormComponentOptions()
+            ]).then(
+                function (data) {
+                    if (data[0]._embedded) {
+                        statesService.setStates(data[0]);
+                    }
+                    if (data[1]) {
+                        salesPersonService.setSalesPeople(data[1]);
+                    }
+                    if (data[2]) {
+                        probabilitiesService.setProbabilities(data[2]);
+                    }
+                    if (data[3] && data[4] && data[5] && data[6]) {
+                        formComponentService.setOpportunityForm(
+                            data[3],
+                            data[4],
+                            data[5],
+                            data[6]);
+                    }
+                    console.log('All services are resolved!');
+                    // when evdrything has loaded, flip the switch, and let the
+                    // routes do their work
+                    $scope.loadingDone = true;
+                },
+                function (reason) {
+                    // if any of the promises fails, handle it
+                    // here, I'm just throwing an error message to
+                    // the user.
+                    $scope.failure = reason;
+                });
 
         }
     ])

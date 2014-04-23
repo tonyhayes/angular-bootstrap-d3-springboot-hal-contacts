@@ -52,9 +52,9 @@ angular.module('customersApp.formsService', [])
                             angular.forEach(formComponentOptions, function (fieldOption) {
 
                                 if (fieldOption.fieldDescription === formField.field_id) {
-                                   formField.field_options[fieldOption.option_id]= {};
-                                   formField.field_options[fieldOption.option_id].option_title = fieldOption.option_title;
-                                   formField.field_options[fieldOption.option_id].option_value = fieldOption.option_value;
+                                    formField.field_options[fieldOption.option_id] = {};
+                                    formField.field_options[fieldOption.option_id].option_title = fieldOption.option_title;
+                                    formField.field_options[fieldOption.option_id].option_value = fieldOption.option_value;
                                 }
                             });
                         }
@@ -63,7 +63,7 @@ angular.module('customersApp.formsService', [])
                 return formField;
             }
 
-         };
+        };
     })
     .service('formFormatterService', function () {
         this.setDynamicForm = function (form) {
@@ -87,7 +87,7 @@ angular.module('customersApp.formsService', [])
                 dynamicForm[name].type = type;
                 dynamicForm[name].label = field.field_title;
 
-                if(type != 'checklist') {
+                if (type != 'checklist') {
                     dynamicForm[name].required = field.field_required;
                     dynamicForm[name].placeholder = field.field_placeholder;
                     dynamicForm[name].empty = field.field_value;
@@ -103,7 +103,7 @@ angular.module('customersApp.formsService', [])
                             delete dynamicForm[name].option_value;
 
                         });
-                    }else {
+                    } else {
                         angular.forEach(options, function (option, value) {
                             option.label = option.option_title;
                             delete option.option_title;
@@ -111,7 +111,7 @@ angular.module('customersApp.formsService', [])
                         });
                         dynamicForm[name].options = options;
                     }
-               }
+                }
             }
             return dynamicForm;
         };

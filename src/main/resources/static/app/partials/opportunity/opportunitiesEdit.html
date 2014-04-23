@@ -14,14 +14,13 @@
         </div>
         <br/><br/>
 
-        <div class="col-sm-6">
+        <div class="span6">
 
             <form name="customerOpportunitiesForm" ng-submit="submitForm()">
                 <button type="submit" class="btn btn-primary" ng-disabled="customerOpportunitiesForm.$invalid">Submit
                 </button>
 
                 <fieldset>
-
 
 
                     <div class="form-group"
@@ -50,8 +49,8 @@
                 </fieldset>
                 <fieldset>
 
-                    <dynamic-form class="col-md-12 vertical" template="opportunityFormTemplate"
-                                  ng-model="opportunityFormObject"  >
+                    <dynamic-form class="span12 vertical" template="opportunityFormTemplate"
+                                  ng-model="opportunityFormObject">
                     </dynamic-form>
 
                 </fieldset>
