@@ -57,7 +57,7 @@ angular.module('customersApp.ajaxService', [])
                 if (company.primaryContactId) {
                     company.primaryContact = dmApplicationEntryPoint + '/contacts/' + company.primaryContactId;
                 }
-                var body = angular.copy(company)
+                var body = angular.copy(company);
                 var url = body._links.self.href;
                 delete body._links;
                 // angular does not support patch, use put for now
@@ -70,7 +70,7 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                var body = angular.copy(company)
+                var body = angular.copy(company);
                 var url = body._links.self.href;
                 return $http.delete(url).then(function (result) {
                     return result.data;
@@ -133,7 +133,7 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                var body = angular.copy(contact)
+                var body = angular.copy(contact);
                 var url = body._links.self.href;
                 delete body._links;
                 // angular does not support patch, use put for now
@@ -146,7 +146,7 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                var body = angular.copy(contact)
+                var body = angular.copy(contact);
                 var url = body._links.self.href;
                 delete body._links;
                 return $http.delete(url).then(function (result) {
@@ -211,7 +211,7 @@ angular.module('customersApp.ajaxService', [])
                 if (opportunity.probabilityId) {
                     opportunity.probability = dmApplicationEntryPoint + '/probabilities/' + opportunity.probabilityId;
                 }
-                var body = angular.copy(opportunity)
+                var body = angular.copy(opportunity);
                 var url = body._links.self.href;
                 delete body._links;
                 // angular does not support patch, use put for now
@@ -224,7 +224,7 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                var body = angular.copy(opportunity)
+                var body = angular.copy(opportunity);
                 var url = body._links.self.href;
                 delete body._links;
                 return $http.delete(url).then(function (result) {
@@ -277,7 +277,7 @@ angular.module('customersApp.ajaxService', [])
                 if (opportunity.salesPersonId) {
                     opportunity.sales = dmApplicationEntryPoint + '/salesPersons/' + opportunity.salesPersonId;
                 }
-                var body = angular.copy(opportunity)
+                var body = angular.copy(opportunity);
                 var url = body._links.self.href;
                 delete body._links;
                 // angular does not support patch, use put for now
@@ -290,7 +290,7 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                var body = angular.copy(opportunity)
+                var body = angular.copy(opportunity);
                 var url = body._links.self.href;
                 delete body._links;
                 return $http.delete(url).then(function (result) {
@@ -337,7 +337,7 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 opportunity.opportunity = dmApplicationEntryPoint + '/opportunities/' + opportunityId;
-                var body = angular.copy(opportunity)
+                var body = angular.copy(opportunity);
                 var url = body._links.self.href;
                 delete body._links;
                 // angular does not support patch, use put for now
@@ -350,7 +350,7 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                var body = angular.copy(opportunity)
+                var body = angular.copy(opportunity);
                 var url = body._links.self.href;
                 delete body._links;
                 return $http.delete(url).then(function (result) {
@@ -443,7 +443,7 @@ angular.module('customersApp.ajaxService', [])
                     var formFields = [];
                     angular.forEach(newForm, function (field) {
 
-                        formFields.push(angular.copy(field))
+                        formFields.push(angular.copy(field));
 
                         if (field._links) {
                             delete field._links;
@@ -458,7 +458,7 @@ angular.module('customersApp.ajaxService', [])
                             formComponentService.postFormComponents(field).then(function (data) {
 
                                 // need to get the form component #
-                                var formArray = data.split('/')
+                                var formArray = data.split('/');
                                 var formID = formArray[formArray.length - 1];
                                 //using the data header information; perform a get
                                 formComponentService.getFormComponent(formID).then(function (data) {
@@ -476,7 +476,7 @@ angular.module('customersApp.ajaxService', [])
                             formComponentService.postOpportunityFormComponents(field).then(function (data) {
 
                                 // need to get the form component #
-                                var formArray = data.split('/')
+                                var formArray = data.split('/');
                                 var formID = formArray[formArray.length - 1];
                                 //using the data header information; perform a get
                                 formComponentService.getOpportunityFormComponent(formID).then(function (data) {
@@ -537,7 +537,7 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                var body = angular.copy(opportunityComponent)
+                var body = angular.copy(opportunityComponent);
                 var url = body._links.self.href;
                 delete body._links;
                 // angular does not support patch, use put for now
@@ -550,7 +550,7 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                var body = angular.copy(opportunityComponent)
+                var body = angular.copy(opportunityComponent);
                 var url = body._links.self.href;
                 delete body._links;
                 return $http.delete(url).then(function (result) {
@@ -583,7 +583,7 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 opportunityComponentOption.component = dmApplicationEntryPoint + '/opportunityFormComponents/' + opportunityFormComponentId;
-                var body = angular.copy(opportunityComponentOption)
+                var body = angular.copy(opportunityComponentOption);
                 var url = body._links.self.href;
                 delete body._links;
                 // angular does not support patch, use put for now
@@ -596,7 +596,7 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                var body = angular.copy(opportunityComponentOption)
+                var body = angular.copy(opportunityComponentOption);
                 var url = body._links.self.href;
                 delete body._links;
                 return $http.delete(url).then(function (result) {
@@ -635,7 +635,7 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                var body = angular.copy(component)
+                var body = angular.copy(component);
                 var url = body._links.self.href;
                 delete body._links;
                 // angular does not support patch, use put for now
@@ -648,7 +648,7 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                var body = angular.copy(component)
+                var body = angular.copy(component);
                 var url = body._links.self.href;
                 delete body._links;
                 return $http.delete(url).then(function (result) {
@@ -681,7 +681,7 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 componentOption.component = dmApplicationEntryPoint + '/formComponents/' + formComponentId;
-                var body = angular.copy(componentOption)
+                var body = angular.copy(componentOption);
                 var url = body._links.self.href;
                 delete body._links;
                 // angular does not support patch, use put for now
@@ -694,7 +694,7 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                var body = angular.copy(componentOption)
+                var body = angular.copy(componentOption);
                 var url = body._links.self.href;
                 delete body._links;
                 return $http.delete(url).then(function (result) {
