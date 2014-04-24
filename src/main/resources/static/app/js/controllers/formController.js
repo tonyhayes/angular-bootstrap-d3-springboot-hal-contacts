@@ -227,7 +227,7 @@ angular.module('customersApp.formControllers', [])
         };
         // send all the fields to the store
         $scope.submit = function () {
-//            formUpdateService.updateForm($scope.old_form_fields, $scope.form.form_fields, 'opportunity');
+            formUpdateService.updateForm($scope.old_form_fields, $scope.form.form_fields, 'opportunity');
 
             // return to applications default page
             $location.path('/');
@@ -339,7 +339,7 @@ angular.module('customersApp.formControllers', [])
 
         // send all the fields to the store
         $scope.submit = function () {
- //           formUpdateService.updateForm($scope.old_form_fields, $scope.form.form_fields, 'global');
+            formUpdateService.updateForm($scope.old_form_fields, $scope.form_fields, 'global');
 
             // return to applications default page
             $location.path('/');

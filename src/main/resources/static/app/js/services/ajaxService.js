@@ -766,6 +766,7 @@ angular.module('customersApp.ajaxService', [])
                     var dynamicField = FormService.getDynamicFormField(field, globalFromComponents, globalFormOptions);
                     if (dynamicField) {
                         newField = dynamicField;
+                        newField._links = field._links;
 
                         //create formTypes and formFields for form administration
                         customFormFields.push(newField);
