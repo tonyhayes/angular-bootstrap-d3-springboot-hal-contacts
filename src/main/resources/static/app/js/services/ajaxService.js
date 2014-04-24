@@ -449,7 +449,7 @@ angular.module('customersApp.ajaxService', [])
                             delete field._links;
                         }
                         if (field.field_options) {
-                            delete field_options;
+                            delete field.field_options;
                         }
 
                         // send to host, then get back the location in order to send options
