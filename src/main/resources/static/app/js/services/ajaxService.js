@@ -440,15 +440,16 @@ angular.module('customersApp.ajaxService', [])
                 // seperate options from the component, then delete the option from the componenet
                 // then send them up to the host
                 if (newForm) {
+                    var formFields = [];
                     angular.forEach(newForm, function (field) {
-                        var options = null;
+
+                        formFields.push(angular.copy(field))
+
                         if (field._links) {
                             delete field._links;
                         }
                         if (field.field_options) {
-                            options = angular.copy(field.field_options);
                             delete field_options;
-
                         }
 
                         // send to host, then get back the location in order to send options
@@ -459,10 +460,17 @@ angular.module('customersApp.ajaxService', [])
                                 // need to get the form component #
                                 var formArray = data.split('/')
                                 var formID = formArray[formArray.length - 1];
-                                angular.forEach(options, function (optionId, optionField) {
-                                    optionField.option_id = optionId;
-                                    formComponentService.postFormComponentOptions(optionField, formID);
+                                //using the data header information; perform a get
+                                formComponentService.getFormComponent(formID).then(function (data) {
+                                    angular.forEach(formFields, function (formField) {
+                                        if(formField.field_id == data.field_id){
+                                            angular.forEach(formField.option_id, function (optionField, optionId) {
+                                                optionField.option_id = optionId;
+                                                formComponentService.postFormComponentOptions(optionField, formID);
+                                            });
+                                        }
 
+                                    });
                                 });
 
                             });
@@ -473,10 +481,17 @@ angular.module('customersApp.ajaxService', [])
                                 // need to get the form component #
                                 var formArray = data.split('/')
                                 var formID = formArray[formArray.length - 1];
-                                angular.forEach(options, function (optionId,optionField) {
-                                    optionField.option_id = optionId;
-                                    formComponentService.postOpportunityFormComponentOptions(optionField, formID);
+                                //using the data header information; perform a get
+                                formComponentService.getOpportunityFormComponent(formID).then(function (data) {
+                                    angular.forEach(formFields, function (formField) {
+                                        if(formField.field_id == data.field_id){
+                                            angular.forEach(formField.option_id, function (optionField, optionId) {
+                                                optionField.option_id = optionId;
+                                                formComponentService.postOpportunityFormComponentOptions(optionField, formID);
+                                            });
+                                        }
 
+                                    });
                                 });
 
                             });
@@ -488,6 +503,7 @@ angular.module('customersApp.ajaxService', [])
 
         }
     })
+
     .factory('formComponentService', function ($http, FormService, formFormatterService) {
 
         var dynamicForm = [];
@@ -502,6 +518,15 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 return $http.get(dmApplicationEntryPoint + '/opportunityFormComponents').then(function (result) {
+                    return result.data;
+                });
+            },
+            getOpportunityFormComponent: function (formComponentId) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.get(dmApplicationEntryPoint + '/opportunityFormComponents/' + formComponentId).then(function (result) {
                     return result.data;
                 });
             },
@@ -591,6 +616,15 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 return $http.get(dmApplicationEntryPoint + '/formComponents').then(function (result) {
+                    return result.data;
+                });
+            },
+            getFormComponent: function (formComponentId) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.get(dmApplicationEntryPoint + '/formComponents/' + formComponentId).then(function (result) {
                     return result.data;
                 });
             },
