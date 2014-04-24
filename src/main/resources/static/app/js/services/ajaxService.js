@@ -469,12 +469,9 @@ angular.module('customersApp.ajaxService', [])
                                                 formComponentService.postFormComponentOptions(optionField, formID);
                                             });
                                         }
-
                                     });
                                 });
-
                             });
-
                         } else {
                             formComponentService.postOpportunityFormComponents(field).then(function (data) {
 
@@ -490,17 +487,13 @@ angular.module('customersApp.ajaxService', [])
                                                 formComponentService.postOpportunityFormComponentOptions(optionField, formID);
                                             });
                                         }
-
                                     });
                                 });
-
                             });
-
                         }
                     });
                 }
             }
-
         }
     })
 
