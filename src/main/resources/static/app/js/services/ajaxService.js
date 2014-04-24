@@ -497,7 +497,7 @@ angular.module('customersApp.ajaxService', [])
         }
     })
 
-    .factory('formComponentService', function ($http, FormService, formFormatterService) {
+    .factory('formComponentService', function ($http, FormService) {
 
         var dynamicForm = [];
         var opportunityForm = [];
@@ -790,7 +790,7 @@ angular.module('customersApp.ajaxService', [])
                     }
                 });
 
-                opportunityForm = formFormatterService.setDynamicForm(angular.copy(dynamicForm));
+                opportunityForm = FormService.setDynamicForm(angular.copy(dynamicForm));
 
             }
 

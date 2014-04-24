@@ -1,6 +1,7 @@
 angular.module('customersApp.formControllers', [])
 
-    .controller('FormController', function ($scope, $location, $anchorScroll, modalService, FormService, formFormatterService, formComponentService, formUpdateService) {
+    .controller('FormController', function ($scope, $location, $anchorScroll, modalService,
+                                            FormService, formComponentService, formUpdateService) {
 
         // preview form mode
         $scope.previewMode = false;
@@ -237,7 +238,8 @@ angular.module('customersApp.formControllers', [])
             $location.path(url);
         };
     })
-    .controller('FormFieldController', function ($scope, $location, modalService, FormService, formComponentService, formUpdateService) {
+    .controller('FormFieldController', function ($scope, $location, modalService,
+                                                 FormService, formComponentService, formUpdateService) {
 
         // get the current custom fields
         $scope.old_form_fields = formComponentService.getCustomFormFields();
