@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -26,16 +27,16 @@ public class FormComponent extends AuditableEntity {
     String field_required;
 
     public Integer getOptionsCount() {
-        Set<FormComponentOption> o = getOptions();
+        List<FormComponentOption> o = getOptions();
         if (o == null) {
             return 0;
         }
         return o.size();
     }
 
-
-    @OneToMany(mappedBy = "component", cascade = CascadeType.ALL)
-    Set<FormComponentOption> options;
+    @ElementCollection
+    @CollectionTable(name="app_crm_form_component_option", joinColumns = @JoinColumn(name="component_id"))
+    List<FormComponentOption> options;
 
 
 }

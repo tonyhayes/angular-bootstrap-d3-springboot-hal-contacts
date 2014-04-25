@@ -24,13 +24,10 @@ public class OpportunityFormComponentOptionTest {
 
         OpportunityFormComponentOption opportunityFormComponentOption1 = new OpportunityFormComponentOption();
         opportunityFormComponentOption1.setOption_title("Austin");
-        opportunityFormComponentOption1.setCreatedAt(today);
-        opportunityFormComponentOption1.setId(1L);
 
         OpportunityFormComponentOption opportunityFormComponentOption2 = new OpportunityFormComponentOption();
         opportunityFormComponentOption2.setOption_title("Austin");
-        opportunityFormComponentOption2.setCreatedAt(yesterday);
-        opportunityFormComponentOption2.setId(1L);
+
 
         Set<OpportunityFormComponentOption> opportunityFormComponentOptions = new HashSet<OpportunityFormComponentOption>();
         opportunityFormComponentOptions.add(opportunityFormComponentOption1);

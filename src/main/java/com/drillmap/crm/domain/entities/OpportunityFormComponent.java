@@ -6,7 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 /**
  * Created by tony on 4/2/14.
@@ -26,17 +26,16 @@ public class OpportunityFormComponent extends AuditableEntity {
     String field_required;
 
     public Integer getOptionsCount() {
-        Set<OpportunityFormComponentOption> o = getOptions();
+        List<OpportunityFormComponentOption> o = getOptions();
         if (o == null) {
             return 0;
         }
         return o.size();
     }
 
-
-
-    @OneToMany(mappedBy = "component", cascade = CascadeType.ALL)
-    Set<OpportunityFormComponentOption> options;
+    @ElementCollection
+    @CollectionTable(name = "app_crm_opportunity_form_component_option", joinColumns = @JoinColumn(name="component_id"))
+    List<OpportunityFormComponentOption> options;
 
 
 }
