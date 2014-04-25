@@ -229,6 +229,7 @@ angular.module('customersApp.formControllers', [])
         // send all the fields to the store
         $scope.submit = function () {
             formUpdateService.updateForm($scope.old_form_fields, $scope.form.form_fields, 'opportunity');
+            formComponentService.replaceDynamicForm($scope.form.form_fields);
 
             // return to applications default page
             $location.path('/');

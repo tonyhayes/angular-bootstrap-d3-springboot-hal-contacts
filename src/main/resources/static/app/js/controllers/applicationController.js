@@ -4,9 +4,10 @@
 angular.module('customersApp.applicationControllers', [])
 
     .controller("appController", [
-        "$scope", "$timeout", "$q", "customersService", "statesService", "salesPersonService", "probabilitiesService",
-        "formComponentService",
-        function ($scope, $timeout, $q, customersService, statesService, salesPersonService, probabilitiesService, formComponentService) {
+        "$scope", "$timeout", "$q",
+        "customersService", "statesService", "salesPersonService", "probabilitiesService", "formComponentService",
+        function ($scope, $timeout, $q,
+                  customersService, statesService, salesPersonService, probabilitiesService, formComponentService) {
 
             $scope.loadingDone = false;
 
@@ -22,9 +23,7 @@ angular.module('customersApp.applicationControllers', [])
                 salesPersonService.getConfiguredSalesPeople(),
                 probabilitiesService.getConfiguredProbabilities(),
                 formComponentService.getFormComponents(),
-                formComponentService.getFormComponentOptions(),
-                formComponentService.getOpportunityFormComponents(),
-                formComponentService.getOpportunityFormComponentOptions()
+                formComponentService.getOpportunityFormComponents()
             ]).then(
                 function (data) {
                     if (data[0]._embedded) {
@@ -36,12 +35,8 @@ angular.module('customersApp.applicationControllers', [])
                     if (data[2]) {
                         probabilitiesService.setProbabilities(data[2]);
                     }
-                    if (data[3] && data[4] && data[5] && data[6]) {
-                        formComponentService.setOpportunityForm(
-                            data[3],
-                            data[4],
-                            data[5],
-                            data[6]);
+                    if (data[3] && data[4]) {
+                        formComponentService.setOpportunityForm(data[3], data[4]);
                     }
                     console.log('All services are resolved!');
                     // when evdrything has loaded, flip the switch, and let the
