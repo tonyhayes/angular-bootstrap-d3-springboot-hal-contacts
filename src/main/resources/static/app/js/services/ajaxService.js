@@ -629,7 +629,8 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                return $http.get(dmApplicationEntryPoint + '/opportunityFormComponents').then(function (result) {
+                return $http.get(dmApplicationEntryPoint + '/opportunityFormComponents', {
+                    params: {sort: 'fieldSequence'}}).then(function (result) {
                     return result.data;
                 });
             },
@@ -790,7 +791,10 @@ angular.module('customersApp.ajaxService', [])
                     var dynamicField = FormService.getDynamicFormField(field, globalFromComponents);
                     if (dynamicField) {
                         newField = dynamicField;
+
+                        // copy opportunity attributes into form component
                         newField._links = field._links;
+                        newField.field_sequence = field.field_sequence;
 
                         //create formTypes and formFields for form administration
                         customFormFields.push(newField);
