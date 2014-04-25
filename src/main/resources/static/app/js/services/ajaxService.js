@@ -1,8 +1,66 @@
 angular.module('customersApp.ajaxService', [])
+//  constructor function to encapsulate HTTP and pagination logic
+    .factory('CustomerPages', function($http) {
+        var CustomerPages = function() {
+            this.items = [];
+            this.busy = false;
+            this.pageNo = 0;
+            this.allPages = false;
+            this.searchText = null;
 
+        };
+
+        CustomerPages.prototype.nextPage = function() {
+            if (this.busy) return;
+            this.busy = true;
+
+            if (this.searchText) {
+                 $http.get(dmApplicationEntryPoint + '/companies/search' +
+                        '/findByCompanyNameStartsWithOrCityStartsWithOrStateStartsWithOrContactNameStartsWith', {
+                        params: {
+                            sort: 'companyName', page: this.pageNo,
+                            companyName: this.searchText,
+                            city: this.searchText,
+                            state: this.searchText,
+                            contactName: this.searchText}}
+                ).success(function (data) {
+                         var items = data._embedded.companies;
+                         for (var i = 0; i < items.length; i++) {
+                             this.items.push(items[i]);
+                         }
+                         if (data._links && data._links.next) {
+                             this.pageNo++;
+                             this.busy = false;
+                             this.allPages = false;
+                         } else {
+                             this.allPages = true;
+                         }
+                     }.bind(this));
+
+            } else {
+                $http.get(dmApplicationEntryPoint + '/companies', {
+                    params: {sort: 'companyName', page: this.pageNo}}).success(function (data) {
+                    var items = data._embedded.companies;
+                    for (var i = 0; i < items.length; i++) {
+                        this.items.push(items[i]);
+                    }
+                    if (data._links && data._links.next) {
+                        this.pageNo++;
+                        this.busy = false;
+                        this.allPages = false;
+                    } else {
+                        this.allPages = true;
+                    }
+                }.bind(this));
+            }
+        };
+
+        return CustomerPages;
+    })
     .factory('CompanyServices', function ($http) {
 
         return {
+            // getCompanies not used
             getCompanies: function (pageNo, searchText) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
@@ -78,9 +136,71 @@ angular.module('customersApp.ajaxService', [])
             }
         }
     })
+//  constructor function to encapsulate HTTP and pagination logic
+    .factory('ContactPages', function($http) {
+        var ContactPages = function() {
+            this.items = [];
+            this.busy = false;
+            this.pageNo = 0;
+            this.allPages = false;
+            this.searchText = null;
+            this.company = 0;
+
+        };
+
+        ContactPages.prototype.nextPage = function() {
+            if (this.busy) return;
+            this.busy = true;
+
+            if (this.searchText) {
+                var filter = angular.copy(this.searchText) + '%';
+                $http.get(dmApplicationEntryPoint + '/contacts/search' +
+                        '/findBySearch', {
+                        params: {
+                            sort: 'lastName', page: this.pageNo,
+                            firstName: filter,
+                            city: filter,
+                            state: filter,
+                            lastName: filter,
+                            company: this.company}}
+                ).success(function (data) {
+                        var items = data._embedded.contacts;
+                        for (var i = 0; i < items.length; i++) {
+                            this.items.push(items[i]);
+                        }
+                        if (data._links && data._links.next) {
+                            this.pageNo++;
+                            this.busy = false;
+                            this.allPages = false;
+                        } else {
+                            this.allPages = true;
+                        }
+                    }.bind(this));
+
+            } else {
+                $http.get(dmApplicationEntryPoint + '/contacts/search' + '/findByCompany', {
+                    params: {sort: 'lastName', page: this.pageNo, company: this.company}}).success(function (data) {
+                    var items = data._embedded.contacts;
+                    for (var i = 0; i < items.length; i++) {
+                        this.items.push(items[i]);
+                    }
+                    if (data._links && data._links.next) {
+                        this.pageNo++;
+                        this.busy = false;
+                        this.allPages = false;
+                    } else {
+                        this.allPages = true;
+                    }
+                }.bind(this));
+            }
+        };
+
+        return ContactPages;
+    })
     .factory('ContactServices', function ($http) {
 
         return {
+            // getContacts not used
             getContacts: function (company, pageNo, searchText) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise

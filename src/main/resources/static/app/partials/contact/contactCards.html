@@ -34,8 +34,8 @@
         <br/>
 
         <div class="row cardContainer">
-            <div infinite-scroll='loadMore()' infinite-scroll-immediate-check=false infinite-scroll-distance='0'>
-                <div class="span3 card" data-ng-repeat="contact in contacts track by $index">
+            <div infinite-scroll='contactPages.nextPage()' infinite-scroll-disabled='customerPages.busy' infinite-scroll-distance='1'>
+                <div class="span3 card" data-ng-repeat="contact in contactPages.items track by $index">
                     <button class="btn close cardClose" title="click to delete contact"
                             data-ng-click="deleteContact($index, contact)">&times;</button>
                     <div class="cardHeader">
