@@ -177,7 +177,7 @@ angular.module('customersApp.formControllers', [])
             }
             else {
 
-                $scope.previewForm = formFormatterService.setDynamicForm(angular.copy($scope.form.form_fields));
+                $scope.previewForm = FormService.setDynamicForm(angular.copy($scope.form.form_fields));
                 $scope.formData = {};
 
                 modalDefaults = {
