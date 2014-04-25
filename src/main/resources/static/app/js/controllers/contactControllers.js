@@ -11,7 +11,6 @@ angular.module('customersApp.contactControllers', [])
         function ($scope, $routeParams, $location, $filter,
                   customersService, modalService, statesService, ContactServices, CompanyServices, ContactPages) {
             $scope.customer = customersService.getStoredCustomer();
-            $scope.contacts = [];
             $scope.filterOptions = {
                 filterText: ''
             };
@@ -72,7 +71,7 @@ angular.module('customersApp.contactControllers', [])
                 modalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
                         ContactServices.deleteContact(contact);
-                        $scope.contacts.splice(idx, 1);
+                        $scope.contactPages.items.splice(idx, 1);
                     }
                 });
 

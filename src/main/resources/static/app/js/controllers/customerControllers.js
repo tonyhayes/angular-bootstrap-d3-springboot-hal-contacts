@@ -10,7 +10,7 @@ angular.module('customersApp.customerControllers', [])
 
         function ($scope, $location, $filter, CompanyServices, customersService, modalService, CustomerPages) {
 
-            $scope.customers = [];
+//            $scope.customers = [];
             $scope.customerPages = new CustomerPages();
             init();
 
@@ -31,7 +31,7 @@ angular.module('customersApp.customerControllers', [])
                 modalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
                         CompanyServices.deleteCompany(cust);
-                        $scope.customers.splice(idx, 1);
+                        $scope.customerPages.items.splice(idx, 1);
                     }
                 });
 

@@ -24,6 +24,7 @@ public class OpportunityFormComponent extends AuditableEntity {
     String field_value;
     String field_placeholder;
     String field_required;
+    Integer field_sequence;
 
     public Integer getOptionsCount() {
         List<OpportunityFormComponentOption> o = getOptions();
