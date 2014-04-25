@@ -226,6 +226,27 @@ angular.module('customersApp.formControllers', [])
             $anchorScroll();
             $location.hash(old);
         };
+
+        $scope.moveFieldUp = function (idx, field) {
+             // change the sequence number then sort the array
+            /*
+            find the sequence number for the item above field, and swap
+            if nothing is above, set sequence to 1
+            then sort by sequence
+             */
+            alert('here')
+
+        };
+        $scope.moveFieldDown = function (idx, field) {
+            // change the sequence number then sort the array
+            /*
+             find the sequence number for the item below field, and swap
+             if nothing is below, then set sequence to the size of the array
+             then sort by sequence
+             */
+
+
+        };
         // send all the fields to the store
         $scope.submit = function () {
             formUpdateService.updateForm($scope.old_form_fields, $scope.form.form_fields, 'opportunity');
