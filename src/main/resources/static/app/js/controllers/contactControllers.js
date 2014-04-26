@@ -4,21 +4,20 @@
 angular.module('customersApp.contactControllers', [])
 //This controller retrieves data from the customersService and associates it with the $scope
 //The $scope is bound to the details view
-    .controller('ContactsController', ['$scope', '$routeParams', '$location', '$filter', 'customersService', 'modalService',
-        'statesService', 'ContactServices', 'CompanyServices',
+    .controller('ContactsController', ['$scope', '$routeParams', '$location', '$filter',
+        'customersService', 'modalService',
+        'statesService', 'ContactServices', 'CompanyServices', 'ContactPages',
 
-        function ($scope, $routeParams, $location, $filter, customersService, modalService, statesService, ContactServices, CompanyServices) {
+        function ($scope, $routeParams, $location, $filter,
+                  customersService, modalService, statesService, ContactServices, CompanyServices, ContactPages) {
             $scope.customer = customersService.getStoredCustomer();
-            $scope.contacts = [];
             $scope.filterOptions = {
                 filterText: ''
             };
             $scope.state_array = {};
-            $scope.scroll = {};
-            $scope.scroll.stop = false;
-            $scope.scroll.next = '';
-            $scope.pageNo = 1;
             $scope.companyNumber = parseInt($routeParams.customerID);
+            $scope.contactPages = new ContactPages();
+            $scope.contactPages.company = $scope.companyNumber;
 
             init();
 
@@ -33,7 +32,6 @@ angular.module('customersApp.contactControllers', [])
 
                 // get contacts
                 createWatches();
-                getContactSummary();
             }
 
             function createWatches() {
@@ -45,97 +43,15 @@ angular.module('customersApp.contactControllers', [])
                 });
             }
 
-            $scope.loadMore = function () {
-                //stop the scrolling while we are reloading - important!
-
-                if ($scope.scroll.next && !$scope.scroll.stop) {
-
-                    //stop the scrolling while we are reloading - important!
-                    $scope.scroll.stop = true;
-
-                    //make the call to getCompanies and handle the promise returned;
-                    ContactServices.getContacts($scope.companyNumber, $scope.pageNo, $scope.searchText).then(function (data) {
-                        //this will execute when the
-                        //AJAX call completes.
-                        if (data && data._embedded) {
-                            var items = data._embedded.contacts;
-                            for (var i = 0; i < items.length; i++) {
-                                $scope.contacts.push(items[i]);
-                            }
-
-                            if (data._links && data._links.next) {
-                                $scope.scroll.next = data._links.next.href;
-                                $scope.scroll.stop = false;
-                                $scope.pageNo++;
-                            } else {
-                                $scope.scroll.next = '';
-                                $scope.scroll.stop = true;
-                            }
-
-                        } else {
-                            $scope.scroll.next = '';
-                            $scope.scroll.stop = true;
-                            if ($scope.searchText) {
-                                $scope.contacts = {};
-                            }
-                        }
-
-
-                        console.log(data);
-                        if ($scope.contacts) {
-                            $scope.totalRecords = $scope.contacts.length;
-                        }
-                    });
-
-                }
-
-
-            };
-
-
-            function getContactSummary() {
-                if (!$scope.scroll.stop) {
-
-                    //stop the scrolling while we are reloading - important!
-                    $scope.scroll.stop = true;
-                    $scope.pageNo = 1;
-
-                    //make the call to getCompanies and handle the promise returned;
-                    ContactServices.getContacts($scope.companyNumber, 0, $scope.searchText).then(function (data) {
-                        //this will execute when the
-                        //AJAX call completes.
-                        if (data && data._embedded) {
-                            $scope.contacts = data._embedded.contacts;
-                            if (data._links && data._links.next) {
-                                $scope.scroll.next = data._links.next.href;
-                                $scope.scroll.stop = false;
-                                $scope.pageNo++;
-                            } else {
-                                $scope.scroll.next = '';
-                                $scope.scroll.stop = true;
-                            }
-
-                        } else {
-                            $scope.scroll.next = '';
-                            $scope.scroll.stop = true;
-                            $scope.contacts = {};
-
-                        }
-
-
-                        console.log(data);
-                        if ($scope.contacts) {
-                            $scope.totalRecords = $scope.contacts.length;
-                        }
-                    });
-                }
-
-            }
 
 
             function filterContacts(filterText) {
-                $scope.scroll.stop = false;
-                getContactSummary()
+                $scope.contactPages.allPages = false;
+                $scope.contactPages.searchText = filterText;
+                $scope.contactPages.pageNo = 0;
+                $scope.contactPages.busy = false;
+                $scope.contactPages.items = [];
+                $scope.contactPages.nextPage();
             }
 
             $scope.deleteContact = function (idx, contact) {
@@ -155,7 +71,7 @@ angular.module('customersApp.contactControllers', [])
                 modalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
                         ContactServices.deleteContact(contact);
-                        $scope.contacts.splice(idx, 1);
+                        $scope.contactPages.items.splice(idx, 1);
                     }
                 });
 

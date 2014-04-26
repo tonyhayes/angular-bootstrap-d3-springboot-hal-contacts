@@ -49,14 +49,11 @@ angular.module('customersApp.formsService', [])
                         // now find the option, if any
                         if (field.optionsCount) {
                             formField.field_options = {};
-                            angular.forEach(formComponentOptions, function (fieldOption) {
-
-                                if (fieldOption.fieldDescription === formField.field_id) {
-                                    formField.field_options[fieldOption.option_id] = {};
-                                    formField.field_options[fieldOption.option_id].option_title = fieldOption.option_title;
-                                    formField.field_options[fieldOption.option_id].option_value = fieldOption.option_value;
-                                }
-                            });
+                            angular.forEach(field.options, function (fieldOption) {
+                                formField.field_options[fieldOption.option_id] = {};
+                                formField.field_options[fieldOption.option_id].option_title = fieldOption.option_title;
+                                formField.field_options[fieldOption.option_id].option_value = fieldOption.option_value;
+                             });
                         }
                     }
                 });

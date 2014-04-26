@@ -5,16 +5,13 @@ angular.module('customersApp.customerControllers', [])
 
 //This controller retrieves data from the customersService and associates it with the $scope
 //The $scope is ultimately bound to the customers view
-    .controller('CustomersController', ['$scope', '$location', '$filter', 'CompanyServices', 'customersService', 'modalService',
+    .controller('CustomersController', ['$scope', '$location', '$filter',
+        'CompanyServices', 'customersService', 'modalService', 'CustomerPages',
 
-        function ($scope, $location, $filter, CompanyServices, customersService, modalService) {
+        function ($scope, $location, $filter, CompanyServices, customersService, modalService, CustomerPages) {
 
-            $scope.customers = [];
-            $scope.scroll = {};
-            $scope.scroll.stop = true;
-            $scope.scroll.next = '';
-            $scope.pageNo = 1;
-
+//            $scope.customers = [];
+            $scope.customerPages = new CustomerPages();
             init();
 
             $scope.deleteCustomer = function (idx, cust) {
@@ -34,7 +31,7 @@ angular.module('customersApp.customerControllers', [])
                 modalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
                         CompanyServices.deleteCompany(cust);
-                        $scope.customers.splice(idx, 1);
+                        $scope.customerPages.items.splice(idx, 1);
                     }
                 });
 
@@ -42,7 +39,6 @@ angular.module('customersApp.customerControllers', [])
 
             function init() {
                 createWatches();
-                getCustomersSummary();
             }
 
             $scope.navigate = function (url, customerObject) {
@@ -64,96 +60,15 @@ angular.module('customersApp.customerControllers', [])
                 });
             }
 
-            $scope.loadMore = function () {
-                //stop the scrolling while we are reloading - important!
-
-                if ($scope.scroll.next && !$scope.scroll.stop) {
-
-                    //stop the scrolling while we are reloading - important!
-                    $scope.scroll.stop = true;
-
-                    //make the call to getCompanies and handle the promise returned;
-                    CompanyServices.getCompanies($scope.pageNo, $scope.searchText).then(function (data) {
-                        //this will execute when the
-                        //AJAX call completes.
-                        if (data && data._embedded) {
-                            var items = data._embedded.companies;
-                            for (var i = 0; i < items.length; i++) {
-                                $scope.customers.push(items[i]);
-                            }
-
-                            if (data._links && data._links.next) {
-                                $scope.scroll.next = data._links.next.href;
-                                $scope.scroll.stop = false;
-                                $scope.pageNo++;
-                            } else {
-                                $scope.scroll.next = '';
-                                $scope.scroll.stop = true;
-
-                            }
-                        } else {
-                            $scope.scroll.next = '';
-                            $scope.scroll.stop = true;
-                            if ($scope.searchText) {
-                                $scope.customers = [];
-                            }
-
-                        }
-
-
-                        console.log(data);
-                        if ($scope.customers) {
-                            $scope.totalRecords = $scope.customers.length;
-                        }
-                    });
-
-                }
-
-
-            }
-
-
-            function getCustomersSummary() {
-                if (!$scope.scroll.stop) {
-
-                    //stop the scrolling while we are reloading - important!
-                    $scope.scroll.stop = true;
-                    $scope.pageNo = 1;
-
-                    //make the call to getCompanies and handle the promise returned;
-                    CompanyServices.getCompanies(0, $scope.searchText).then(function (data) {
-                        //this will execute when the
-                        //AJAX call completes.
-                        if (data && data._embedded) {
-                            $scope.customers = data._embedded.companies;
-                            if (data._links && data._links.next) {
-                                $scope.scroll.next = data._links.next.href;
-                                $scope.scroll.stop = false;
-                            } else {
-                                $scope.scroll.next = '';
-                                $scope.scroll.stop = true;
-                            }
-
-                        } else {
-                            $scope.scroll.next = '';
-                            $scope.scroll.stop = true;
-                            $scope.customers = [];
-                        }
-
-
-                        console.log(data);
-                        if ($scope.customers) {
-                            $scope.totalRecords = $scope.customers.length;
-                        }
-                    });
-                }
-
-            }
 
 
             function filterCustomers(filterText) {
-                $scope.scroll.stop = false;
-                getCustomersSummary()
+                $scope.customerPages.allPages = false;
+                $scope.customerPages.searchText = filterText;
+                $scope.customerPages.pageNo = 0;
+                $scope.customerPages.busy = false;
+                $scope.customerPages.items = [];
+                $scope.customerPages.nextPage();
             }
         }
     ])
@@ -223,5 +138,5 @@ angular.module('customersApp.customerControllers', [])
 
 
         }
-    ])
+    ]);
 

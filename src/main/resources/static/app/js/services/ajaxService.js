@@ -1,8 +1,66 @@
 angular.module('customersApp.ajaxService', [])
+//  constructor function to encapsulate HTTP and pagination logic
+    .factory('CustomerPages', function($http) {
+        var CustomerPages = function() {
+            this.items = [];
+            this.busy = false;
+            this.pageNo = 0;
+            this.allPages = false;
+            this.searchText = null;
 
+        };
+
+        CustomerPages.prototype.nextPage = function() {
+            if (this.busy) return;
+            this.busy = true;
+
+            if (this.searchText) {
+                 $http.get(dmApplicationEntryPoint + '/companies/search' +
+                        '/findByCompanyNameStartsWithOrCityStartsWithOrStateStartsWithOrContactNameStartsWith', {
+                        params: {
+                            sort: 'companyName', page: this.pageNo,
+                            companyName: this.searchText,
+                            city: this.searchText,
+                            state: this.searchText,
+                            contactName: this.searchText}}
+                ).success(function (data) {
+                         var items = data._embedded.companies;
+                         for (var i = 0; i < items.length; i++) {
+                             this.items.push(items[i]);
+                         }
+                         if (data._links && data._links.next) {
+                             this.pageNo++;
+                             this.busy = false;
+                             this.allPages = false;
+                         } else {
+                             this.allPages = true;
+                         }
+                     }.bind(this));
+
+            } else {
+                $http.get(dmApplicationEntryPoint + '/companies', {
+                    params: {sort: 'companyName', page: this.pageNo}}).success(function (data) {
+                    var items = data._embedded.companies;
+                    for (var i = 0; i < items.length; i++) {
+                        this.items.push(items[i]);
+                    }
+                    if (data._links && data._links.next) {
+                        this.pageNo++;
+                        this.busy = false;
+                        this.allPages = false;
+                    } else {
+                        this.allPages = true;
+                    }
+                }.bind(this));
+            }
+        };
+
+        return CustomerPages;
+    })
     .factory('CompanyServices', function ($http) {
 
         return {
+            // getCompanies not used
             getCompanies: function (pageNo, searchText) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
@@ -78,9 +136,71 @@ angular.module('customersApp.ajaxService', [])
             }
         }
     })
+//  constructor function to encapsulate HTTP and pagination logic
+    .factory('ContactPages', function($http) {
+        var ContactPages = function() {
+            this.items = [];
+            this.busy = false;
+            this.pageNo = 0;
+            this.allPages = false;
+            this.searchText = null;
+            this.company = 0;
+
+        };
+
+        ContactPages.prototype.nextPage = function() {
+            if (this.busy) return;
+            this.busy = true;
+
+            if (this.searchText) {
+                var filter = angular.copy(this.searchText) + '%';
+                $http.get(dmApplicationEntryPoint + '/contacts/search' +
+                        '/findBySearch', {
+                        params: {
+                            sort: 'lastName', page: this.pageNo,
+                            firstName: filter,
+                            city: filter,
+                            state: filter,
+                            lastName: filter,
+                            company: this.company}}
+                ).success(function (data) {
+                        var items = data._embedded.contacts;
+                        for (var i = 0; i < items.length; i++) {
+                            this.items.push(items[i]);
+                        }
+                        if (data._links && data._links.next) {
+                            this.pageNo++;
+                            this.busy = false;
+                            this.allPages = false;
+                        } else {
+                            this.allPages = true;
+                        }
+                    }.bind(this));
+
+            } else {
+                $http.get(dmApplicationEntryPoint + '/contacts/search' + '/findByCompany', {
+                    params: {sort: 'lastName', page: this.pageNo, company: this.company}}).success(function (data) {
+                    var items = data._embedded.contacts;
+                    for (var i = 0; i < items.length; i++) {
+                        this.items.push(items[i]);
+                    }
+                    if (data._links && data._links.next) {
+                        this.pageNo++;
+                        this.busy = false;
+                        this.allPages = false;
+                    } else {
+                        this.allPages = true;
+                    }
+                }.bind(this));
+            }
+        };
+
+        return ContactPages;
+    })
     .factory('ContactServices', function ($http) {
 
         return {
+            // getContacts not used
             getContacts: function (company, pageNo, searchText) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise
@@ -428,68 +548,67 @@ angular.module('customersApp.ajaxService', [])
     .factory('formUpdateService', function (formComponentService) {
         return {
             updateForm: function (oldForm, newForm, form) {
-                // delete everything, then post ?
+                // delete everything, then post
                 if (oldForm) {
                     angular.forEach(oldForm, function (field) {
                         if (field._links) {
                             // the delete command is self contained so any service can process it
-                            formComponentService.deleteFormComponentOptions(field);
+                            formComponentService.deleteFormComponents(field);
                         }
                     });
                 }
-                // seperate options from the component, then delete the option from the componenet
+
+                // reformat options
                 // then send them up to the host
+
                 if (newForm) {
-                    var formFields = [];
                     angular.forEach(newForm, function (field) {
 
-                        formFields.push(angular.copy(field));
+                     /*
+                     field_options: Object
+                        1: Object
+                        option_title: "won"
+                        option_value: "1"
+                        __proto__: Object
+                        2: Object
+                        3: Object
+
+                        transform into
+
+                      options: Array[3]
+                      0: Object
+                      option_id: "1"
+                      option_title: "won"
+                      option_value: "1"
+
+                        */
 
                         if (field._links) {
                             delete field._links;
                         }
+
                         if (field.field_options) {
+
+                            field.options = [];
+
+                            angular.forEach(field.field_options, function (fieldOption, fieldOptionId) {
+                                var field_option = {};
+                                field_option.option_title = fieldOption.option_title;
+                                field_option.option_value = fieldOption.option_value;
+                                field_option.option_id = fieldOptionId;
+                                field.options.push(field_option)
+                            });
+
+
                             delete field.field_options;
                         }
 
                         // send to host, then get back the location in order to send options
 
                         if (form === 'global') {
-                            formComponentService.postFormComponents(field).then(function (data) {
-
-                                // need to get the form component #
-                                var formArray = data.split('/');
-                                var formID = formArray[formArray.length - 1];
-                                //using the data header information; perform a get
-                                formComponentService.getFormComponent(formID).then(function (data) {
-                                    angular.forEach(formFields, function (formField) {
-                                        if(formField.field_id == data.field_id){
-                                            angular.forEach(formField.option_id, function (optionField, optionId) {
-                                                optionField.option_id = optionId;
-                                                formComponentService.postFormComponentOptions(optionField, formID);
-                                            });
-                                        }
-                                    });
-                                });
-                            });
+                            formComponentService.postFormComponents(field);
                         } else {
-                            formComponentService.postOpportunityFormComponents(field).then(function (data) {
-
-                                // need to get the form component #
-                                var formArray = data.split('/');
-                                var formID = formArray[formArray.length - 1];
-                                //using the data header information; perform a get
-                                formComponentService.getOpportunityFormComponent(formID).then(function (data) {
-                                    angular.forEach(formFields, function (formField) {
-                                        if(formField.field_id == data.field_id){
-                                            angular.forEach(formField.option_id, function (optionField, optionId) {
-                                                optionField.option_id = optionId;
-                                                formComponentService.postOpportunityFormComponentOptions(optionField, formID);
-                                            });
-                                        }
-                                    });
-                                });
-                            });
+                            formComponentService.postOpportunityFormComponents(field)
                         }
                     });
                 }
@@ -510,7 +629,8 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                return $http.get(dmApplicationEntryPoint + '/opportunityFormComponents').then(function (result) {
+                return $http.get(dmApplicationEntryPoint + '/opportunityFormComponents', {
+                    params: {sort: 'fieldSequence'}}).then(function (result) {
                     return result.data;
                 });
             },
@@ -551,52 +671,6 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 var body = angular.copy(opportunityComponent);
-                var url = body._links.self.href;
-                delete body._links;
-                return $http.delete(url).then(function (result) {
-                    return result.data;
-                });
-            },
-            getOpportunityFormComponentOptions: function () {
-                //since $http.get returns a promise,
-                //and promise.then() also returns a promise
-                //that resolves to whatever value is returned in it's
-                //callback argument, we can return that.
-                return $http.get(dmApplicationEntryPoint + '/opportunityFormComponentOptions').then(function (result) {
-                    return result.data;
-                });
-            },
-            postOpportunityFormComponentOptions: function (opportunityComponentOption, opportunityFormComponentId) {
-                //since $http.get returns a promise,
-                //and promise.then() also returns a promise
-                //that resolves to whatever value is returned in it's
-                //callback argument, we can return that.
-                opportunityComponentOption.component = dmApplicationEntryPoint + '/opportunityFormComponents/' + opportunityFormComponentId;
-                return $http.post(dmApplicationEntryPoint + '/opportunityFormComponentOptions',
-                    opportunityComponentOption).then(function (result) {
-                        return result.headers('location');
-                    });
-            },
-            patchOpportunityFormComponentOptions: function (opportunityComponentOption, opportunityFormComponentId) {
-                //since $http.get returns a promise,
-                //and promise.then() also returns a promise
-                //that resolves to whatever value is returned in it's
-                //callback argument, we can return that.
-                opportunityComponentOption.component = dmApplicationEntryPoint + '/opportunityFormComponents/' + opportunityFormComponentId;
-                var body = angular.copy(opportunityComponentOption);
-                var url = body._links.self.href;
-                delete body._links;
-                // angular does not support patch, use put for now
-                return $http.put(url, body).then(function (result) {
-                    return result.data;
-                });
-            },
-            deleteOpportunityFormComponentOptions: function (opportunityComponentOption) {
-                //since $http.get returns a promise,
-                //and promise.then() also returns a promise
-                //that resolves to whatever value is returned in it's
-                //callback argument, we can return that.
-                var body = angular.copy(opportunityComponentOption);
                 var url = body._links.self.href;
                 delete body._links;
                 return $http.delete(url).then(function (result) {
@@ -655,52 +729,6 @@ angular.module('customersApp.ajaxService', [])
                     return result.data;
                 });
             },
-            getFormComponentOptions: function () {
-                //since $http.get returns a promise,
-                //and promise.then() also returns a promise
-                //that resolves to whatever value is returned in it's
-                //callback argument, we can return that.
-                return $http.get(dmApplicationEntryPoint + '/formComponentOptions').then(function (result) {
-                    return result.data;
-                });
-            },
-            postFormComponentOptions: function (componentOption, formComponentId) {
-                //since $http.get returns a promise,
-                //and promise.then() also returns a promise
-                //that resolves to whatever value is returned in it's
-                //callback argument, we can return that.
-                componentOption.component = dmApplicationEntryPoint + '/formComponents/' + formComponentId;
-                return $http.post(dmApplicationEntryPoint + '/formComponentOptions',
-                    opportunityComponentOption).then(function (result) {
-                        return result.headers('location');
-                    });
-            },
-            patchFormComponentOptions: function (componentOption, formComponentId) {
-                //since $http.get returns a promise,
-                //and promise.then() also returns a promise
-                //that resolves to whatever value is returned in it's
-                //callback argument, we can return that.
-                componentOption.component = dmApplicationEntryPoint + '/formComponents/' + formComponentId;
-                var body = angular.copy(componentOption);
-                var url = body._links.self.href;
-                delete body._links;
-                // angular does not support patch, use put for now
-                return $http.put(url, body).then(function (result) {
-                    return result.data;
-                });
-            },
-            deleteFormComponentOptions: function (componentOption) {
-                //since $http.get returns a promise,
-                //and promise.then() also returns a promise
-                //that resolves to whatever value is returned in it's
-                //callback argument, we can return that.
-                var body = angular.copy(componentOption);
-                var url = body._links.self.href;
-                delete body._links;
-                return $http.delete(url).then(function (result) {
-                    return result.data;
-                });
-            },
             getCustomFormTypes: function () {
                 return customFormTypes;
             },
@@ -728,28 +756,25 @@ angular.module('customersApp.ajaxService', [])
             getDynamicForm: function () {
                 return dynamicForm;
             },
+            replaceDynamicForm: function (form) {
+                dynamicForm = form;
+                opportunityForm = FormService.setDynamicForm(angular.copy(dynamicForm));
+
+            },
 
             getOpportunityForm: function () {
                 return opportunityForm;
             },
-            setOpportunityForm: function (components, options, opportunityComponents, opportunityOptions) {
+            setOpportunityForm: function (components, opportunityComponents) {
 
                 var globalFromComponents = null;
-                var globalFormOptions = null;
                 var opportunityFormComponents = null;
-                var opportunityFormOptions = null;
                 //unpack
                 if (components._embedded) {
                     globalFromComponents = components._embedded.formComponents;
                 }
-                if (options._embedded) {
-                    globalFormOptions = options._embedded.formComponentOptions;
-                }
                 if (opportunityComponents._embedded) {
                     opportunityFormComponents = opportunityComponents._embedded.opportunityFormComponents;
-                }
-                if (opportunityOptions._embedded) {
-                    opportunityFormOptions = opportunityOptions._embedded.opportunityFormComponentOptions;
                 }
 
                 // build up the form by reading the components
@@ -763,10 +788,13 @@ angular.module('customersApp.ajaxService', [])
                     var newField = null;
 
                     // check to see if form type is in the custom field list
-                    var dynamicField = FormService.getDynamicFormField(field, globalFromComponents, globalFormOptions);
+                    var dynamicField = FormService.getDynamicFormField(field, globalFromComponents);
                     if (dynamicField) {
                         newField = dynamicField;
+
+                        // copy opportunity attributes into form component
                         newField._links = field._links;
+                        newField.field_sequence = field.field_sequence;
 
                         //create formTypes and formFields for form administration
                         customFormFields.push(newField);
@@ -777,7 +805,7 @@ angular.module('customersApp.ajaxService', [])
 
                     } else {
 
-                        dynamicField = FormService.getDynamicFormField(field, opportunityFormComponents, opportunityFormOptions);
+                        dynamicField = FormService.getDynamicFormField(field, opportunityFormComponents);
                         if (dynamicField) {
                             newField = dynamicField;
                         }
