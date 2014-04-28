@@ -59,7 +59,8 @@ angular.module('customersApp.formControllers', [])
                     "field_type": $scope.addField.new,
                     "field_value": "",
                     "field_placeholder": "",
-                    "field_required": true
+                    "field_required": true,
+                    "fieldSequence": $scope.addField.lastAddedID
                 };
                 var customField = false;
                 //if the new field is a custom type, get the config
@@ -102,10 +103,12 @@ angular.module('customersApp.formControllers', [])
             });
 
             if (!duplicateCustomField) {
-                //get the form field, and add to form
-                $scope.form.form_fields.push(formComponentService.customFormField($scope.addField.new));
                 // incr field_id counter
                 $scope.addField.lastAddedID++;
+                //get the form field, and add to form
+                var newCustomField = formComponentService.customFormField($scope.addField.new);
+                newCustomField.fieldSequence = $scope.addField.lastAddedID;
+                $scope.form.form_fields.push(newCustomField);
             }
         }
 
@@ -230,23 +233,66 @@ angular.module('customersApp.formControllers', [])
         $scope.moveFieldUp = function (idx, field) {
              // change the sequence number then sort the array
             /*
+            first re-sequence everything, just in case of bad data, then
             find the sequence number for the item above field, and swap
             if nothing is above, set sequence to 1
             then sort by sequence
              */
-            alert('here')
+            var sequenceNumber = 0;
+            var fields = $scope.form.form_fields;
+            angular.forEach(fields, function (field) {
+                sequenceNumber++;
+                field.fieldSequence = sequenceNumber;
+            });
+
+            if(idx > 0){
+                newSeq =  angular.copy(fields[idx-1].fieldSequence);
+                fields[idx-1].fieldSequence = fields[idx].fieldSequence;
+                fields[idx].fieldSequence = newSeq;
+                sortJSONint(fields, 'fieldSequence', '123');
+            }
 
         };
         $scope.moveFieldDown = function (idx, field) {
             // change the sequence number then sort the array
             /*
+             first re-sequence everything, just in case of bad data, then
              find the sequence number for the item below field, and swap
              if nothing is below, then set sequence to the size of the array
              then sort by sequence
              */
 
+            var sequenceNumber = 0;
+            var fields = $scope.form.form_fields;
+            angular.forEach(fields, function (field) {
+                sequenceNumber++ ;
+                field.fieldSequence = sequenceNumber;
+            });
+
+            if(idx < fields.length){
+                newSeq =  angular.copy(fields[idx+1].fieldSequence);
+                fields[idx+1].fieldSequence = fields[idx].fieldSequence;
+                fields[idx].fieldSequence = newSeq;
+                sortJSONint(fields, 'fieldSequence', '123');
+            }
 
         };
+
+
+        function sortJSONint(data, key, way) {
+            return data.sort(function(a, b) {
+                var x = parseInt(a[key]);
+                var y = parseInt(b[key]);
+                if (way === '123') {
+                    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+                }
+                if (way === '321') {
+                    return ((x > y) ? -1 : ((x < y) ? 1 : 0));
+                }
+            });
+        }
+
+
         // send all the fields to the store
         $scope.submit = function () {
             formUpdateService.updateForm($scope.old_form_fields, $scope.form.form_fields, 'opportunity');
