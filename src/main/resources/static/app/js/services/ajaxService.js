@@ -24,32 +24,40 @@ angular.module('customersApp.ajaxService', [])
                             state: this.searchText,
                             contactName: this.searchText}}
                 ).success(function (data) {
-                         var items = data._embedded.companies;
-                         for (var i = 0; i < items.length; i++) {
-                             this.items.push(items[i]);
-                         }
-                         if (data._links && data._links.next) {
-                             this.pageNo++;
-                             this.busy = false;
-                             this.allPages = false;
-                         } else {
-                             this.allPages = true;
+                         if(data._embedded){
+                             var items = data._embedded.companies;
+                             for (var i = 0; i < items.length; i++) {
+                                 this.items.push(items[i]);
+                             }
+                             if (data._links && data._links.next) {
+                                 this.pageNo++;
+                                 this.busy = false;
+                                 this.allPages = false;
+                             } else {
+                                 this.allPages = true;
+                             }
+                         }else{
+                             this.items = [];
                          }
                      }.bind(this));
 
             } else {
                 $http.get(dmApplicationEntryPoint + '/companies', {
                     params: {sort: 'companyName', page: this.pageNo}}).success(function (data) {
-                    var items = data._embedded.companies;
-                    for (var i = 0; i < items.length; i++) {
-                        this.items.push(items[i]);
-                    }
-                    if (data._links && data._links.next) {
-                        this.pageNo++;
-                        this.busy = false;
-                        this.allPages = false;
-                    } else {
-                        this.allPages = true;
+                    if(data._embedded){
+                        var items = data._embedded.companies;
+                        for (var i = 0; i < items.length; i++) {
+                            this.items.push(items[i]);
+                        }
+                        if (data._links && data._links.next) {
+                            this.pageNo++;
+                            this.busy = false;
+                            this.allPages = false;
+                        } else {
+                            this.allPages = true;
+                        }
+                        }else{
+                            this.items = [];
                     }
                 }.bind(this));
             }
@@ -164,6 +172,27 @@ angular.module('customersApp.ajaxService', [])
                             lastName: filter,
                             company: this.company}}
                 ).success(function (data) {
+                        if(data._embedded){
+                            var items = data._embedded.contacts;
+                            for (var i = 0; i < items.length; i++) {
+                                this.items.push(items[i]);
+                            }
+                            if (data._links && data._links.next) {
+                                this.pageNo++;
+                                this.busy = false;
+                                this.allPages = false;
+                            } else {
+                                this.allPages = true;
+                            }
+                        }else{
+                            this.items = [];
+                        }
+                    }.bind(this));
+
+            } else {
+                $http.get(dmApplicationEntryPoint + '/contacts/search' + '/findByCompany', {
+                    params: {sort: 'lastName', page: this.pageNo, company: this.company}}).success(function (data) {
+                    if(data._embedded){
                         var items = data._embedded.contacts;
                         for (var i = 0; i < items.length; i++) {
                             this.items.push(items[i]);
@@ -175,21 +204,8 @@ angular.module('customersApp.ajaxService', [])
                         } else {
                             this.allPages = true;
                         }
-                    }.bind(this));
-
-            } else {
-                $http.get(dmApplicationEntryPoint + '/contacts/search' + '/findByCompany', {
-                    params: {sort: 'lastName', page: this.pageNo, company: this.company}}).success(function (data) {
-                    var items = data._embedded.contacts;
-                    for (var i = 0; i < items.length; i++) {
-                        this.items.push(items[i]);
-                    }
-                    if (data._links && data._links.next) {
-                        this.pageNo++;
-                        this.busy = false;
-                        this.allPages = false;
-                    } else {
-                        this.allPages = true;
+                    }else{
+                        this.items = [];
                     }
                 }.bind(this));
             }
