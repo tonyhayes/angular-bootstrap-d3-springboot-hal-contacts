@@ -200,15 +200,15 @@ angular.module('customersApp.opportunityControllers', [])
                                 var type = formComponentService.getFormType(component);
                                 if(type == 'date'){
                                     $scope.opportunityFormObject[component.name] = component.value;
-
                                     var d = new Date($scope.opportunityFormObject[component.name]);
                                     $scope.opportunityFormObject[component.name] = d;
                                 }else if(type == 'checklist'){
                                     if($scope.opportunityFormObject[component.name]){
-                                        $scope.opportunityFormObject[component.name][component.value];
+                                        $scope.opportunityFormObject[component.name][component.value] = true;
                                     }else{
                                         $scope.opportunityFormObject[component.name]= {};
                                         $scope.opportunityFormObject[component.name][component.value];
+                                        $scope.opportunityFormObject[component.name][component.value] = true;
                                     }
                                  }else{
                                     $scope.opportunityFormObject[component.name] = component.value;
@@ -375,7 +375,6 @@ angular.module('customersApp.opportunityControllers', [])
                             }
                         } else {
                             if (row) {
-                                //                           row.entity = origRow;
                                 angular.forEach(origRow, function (obj, dataset) {
                                     row.entity[dataset] = obj;
                                 });
@@ -423,24 +422,54 @@ angular.module('customersApp.opportunityControllers', [])
                 // read through the opportunity form and send changes back to the mother ship
                 angular.forEach(formTemplate, function (component) {
                     if ($scope.opportunityFormObject[component.field_id]) {
-                        var formField = {};
-                        formField.name = component.field_id;
-                        formField.value = $scope.opportunityFormObject[component.field_id];
 
-                        // now find the link (if this is an edit of an existing value)
-                        var rec = null;
-                        angular.forEach($scope.opportunityForm, function (originalComponent) {
-                            if (originalComponent.name === formField.name) {
-                                rec = originalComponent;
-                                rec.name = formField.name;
-                                rec.value = formField.value;
+                        if(component.field_type == 'checklist'){
+                            /* check list contains an object to value pairs
+                            so I need to extract and send up
+                             */
+                            angular.forEach($scope.opportunityFormObject[component.field_id], function (value, id) {
+                                var formField = {};
+                                formField.name = component.field_id;
+                                formField.value = id;
+
+                                // now find the link (if this is an edit of an existing value)
+                                var rec = null;
+                                angular.forEach($scope.opportunityForm, function (originalComponent) {
+                                    if ((originalComponent.name === formField.name) && (originalComponent.value === formField.value)) {
+                                        rec = originalComponent;
+                                        rec.name = formField.name;
+                                        rec.value = formField.value;
+                                    }
+                                });
+
+                                if (rec) {
+                                    OpportunityFormServices.patchOpportunity(rec, $scope.opportunityID);
+                                } else {
+                                    OpportunityFormServices.postOpportunity(formField, $scope.opportunityID);
+                                }
+
+                            });
+
+                        }else{
+                            var formField = {};
+                            formField.name = component.field_id;
+                            formField.value = $scope.opportunityFormObject[component.field_id];
+
+                            // now find the link (if this is an edit of an existing value)
+                            var rec = null;
+                            angular.forEach($scope.opportunityForm, function (originalComponent) {
+                                if (originalComponent.name === formField.name) {
+                                    rec = originalComponent;
+                                    rec.name = formField.name;
+                                    rec.value = formField.value;
+                                }
+                            });
+
+                            if (rec) {
+                                OpportunityFormServices.patchOpportunity(rec, $scope.opportunityID);
+                            } else {
+                                OpportunityFormServices.postOpportunity(formField, $scope.opportunityID);
                             }
-                        });
-
-                        if (rec) {
-                            OpportunityFormServices.patchOpportunity(rec, $scope.opportunityID);
-                        } else {
-                            OpportunityFormServices.postOpportunity(formField, $scope.opportunityID);
                         }
                     } else {
                         // it could be a delete - read through opportunity form for the original value, if it exists, then it is a delete
