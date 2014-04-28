@@ -4,10 +4,15 @@
 angular.module('customersApp.applicationControllers', [])
 
     .controller("appController", [
-        "$scope", "$timeout", "$q",
+        "$scope", "$timeout", "$q", '$location',
         "customersService", "statesService", "salesPersonService", "probabilitiesService", "formComponentService",
-        function ($scope, $timeout, $q,
+        function ($scope, $timeout, $q, $location,
                   customersService, statesService, salesPersonService, probabilitiesService, formComponentService) {
+
+
+            $scope.isCurrentPath = function (path) {
+                return $location.path() == path;
+            };
 
             $scope.loadingDone = false;
 

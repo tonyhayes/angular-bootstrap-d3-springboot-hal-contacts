@@ -23,7 +23,7 @@
         <br/>
 
         <div class="row cardContainer">
-                <div infinite-scroll='customerPages.nextPage()' infinite-scroll-disabled='customerPages.busy' infinite-scroll-distance='1'>
+                <div infinite-scroll='customerPages.nextPage()' infinite-scroll-disabled='customerPages.busy' infinite-scroll-distance='0'>
                 <div class="span3 card"
                      data-ng-repeat="customer in customerPages.items | orderBy: customer.companyName track by $index">
                     <button class="btn close cardClose" title="click to delete customer"
