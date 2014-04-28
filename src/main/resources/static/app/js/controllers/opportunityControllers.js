@@ -143,7 +143,9 @@ angular.module('customersApp.opportunityControllers', [])
         'formComponentService', 'OpportunityDetailServices', 'CompanyServices', 'OpportunityServices',
         'OpportunityFormServices',
 
-        function ($scope, $routeParams, $location, $filter, customersService, salesPersonService, ContactServices, probabilitiesService, modalService, formComponentService, OpportunityDetailServices, CompanyServices, OpportunityServices, OpportunityFormServices) {
+        function ($scope, $routeParams, $location, $filter, customersService, salesPersonService,
+                  ContactServices, probabilitiesService, modalService, formComponentService,
+                  OpportunityDetailServices, CompanyServices, OpportunityServices, OpportunityFormServices) {
 
             $scope.master = {};
             $scope.opportunityFormObject = {};
@@ -160,6 +162,7 @@ angular.module('customersApp.opportunityControllers', [])
             $scope.customerID = $routeParams.customerID;
             $scope.opportunityID = ($routeParams.id);
             $scope.opportunityFormTemplate = formComponentService.getOpportunityForm();
+
 
 
             init();
@@ -190,7 +193,27 @@ angular.module('customersApp.opportunityControllers', [])
                             $scope.opportunityFormObject = {};
                             // read through the opportunity form and create 1 object
                             angular.forEach($scope.opportunityForm, function (component) {
-                                $scope.opportunityFormObject[component.name] = component.value;
+
+                                /* find the field type
+                                dates and checklists require special formatting
+                                 */
+                                var type = formComponentService.getFormType(component);
+                                if(type == 'date'){
+                                    $scope.opportunityFormObject[component.name] = component.value;
+
+                                    var d = new Date($scope.opportunityFormObject[component.name]);
+                                    $scope.opportunityFormObject[component.name] = d;
+                                }else if(type == 'checklist'){
+                                    if($scope.opportunityFormObject[component.name]){
+                                        $scope.opportunityFormObject[component.name][component.value];
+                                    }else{
+                                        $scope.opportunityFormObject[component.name]= {};
+                                        $scope.opportunityFormObject[component.name][component.value];
+                                    }
+                                 }else{
+                                    $scope.opportunityFormObject[component.name] = component.value;
+                                }
+
                             });
                         }
                     });

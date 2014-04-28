@@ -781,6 +781,24 @@ angular.module('customersApp.ajaxService', [])
             getOpportunityForm: function () {
                 return opportunityForm;
             },
+            getFormType: function (component) {
+                // first check to see if form is a standard type
+                var type = null;
+                var fields = FormService.fields;
+                angular.forEach(fields, function (field) {
+                    if (field.name == component.name){
+                        type = field.value;
+                    }
+                });
+                angular.forEach(customFormTypes, function (field) {
+                    if (field.name == component.name){
+                        type = field.type;
+                    }
+                });
+
+                return type;
+
+            },
             setOpportunityForm: function (components, opportunityComponents) {
 
                 var globalFromComponents = null;
@@ -817,6 +835,7 @@ angular.module('customersApp.ajaxService', [])
                         var formType = {};
                         formType.name = newField.field_id;
                         formType.value = newField.field_title;
+                        formType.type = newField.field_type;
                         customFormTypes.push(formType);
 
                     } else {
