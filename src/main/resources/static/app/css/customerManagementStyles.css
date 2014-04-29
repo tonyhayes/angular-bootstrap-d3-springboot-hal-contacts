@@ -58,9 +58,17 @@ footer {
 
 }
 
-.nav-collapse, .nav-collapse.collapse{
-    overflow: scroll;
+/* Bootstrap overrides */
+
+.navbar .nav li.toolbaritem a:hover, .navbar .nav li a:hover{
+    color: rgba(48, 139, 255, 0.99);
 }
+.cardHeader a:hover {
+    color: rgba(255, 255, 255, 0.99);
+}
+
+
+
 .close {
     font-size: 15pt;
     opacity: 1.0;
