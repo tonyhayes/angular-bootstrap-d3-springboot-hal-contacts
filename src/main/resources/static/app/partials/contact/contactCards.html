@@ -44,7 +44,7 @@
                            class="cardHeader btn-link">{{contact.firstName+' '+contact.lastName}}</a>
                     </div>
                     <div class="cardBody">{{contact.addressLine1 + ', ' + contact.city}}</div>
-                    <div class="cardBody">{{'Cell: ' + contact.cell}}</div>
+                    <div ng-if="contact.cell" class="cardBody">{{'Cell: ' + contact.cell}}</div>
                 </div>
             </div>
         </div>

@@ -117,7 +117,7 @@ angular.module('customersApp.contactControllers', [])
                             ContactServices.patchContact(contact);
                         } else {
                             ContactServices.postContact(contact, $scope.companyNumber);
-                            $scope.contacts.push(contact);
+                            $scope.contactPages.items.push(contact);
                         }
                     } else {
                         if (contact) {
