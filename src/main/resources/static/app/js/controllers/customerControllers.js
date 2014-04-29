@@ -10,7 +10,6 @@ angular.module('customersApp.customerControllers', [])
 
         function ($scope, $location, $filter, CompanyServices, customersService, modalService, CustomerPages) {
 
-//            $scope.customers = [];
             $scope.customerPages = new CustomerPages();
             init();
 
