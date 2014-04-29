@@ -9,7 +9,6 @@ angular.module('customersApp.applicationControllers', [])
         function ($scope, $timeout, $q, $location,
                   customersService, statesService, salesPersonService, probabilitiesService, formComponentService) {
 
-
             $scope.isCurrentPath = function (path) {
                 return $location.path() == path;
             };

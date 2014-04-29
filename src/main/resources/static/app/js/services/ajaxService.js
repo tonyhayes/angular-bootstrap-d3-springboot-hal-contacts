@@ -34,7 +34,8 @@ angular.module('customersApp.ajaxService', [])
                                  this.busy = false;
                                  this.allPages = false;
                              } else {
-                                 this.allPages = true;
+                                 // for filter search always set all pages to false
+                                 this.allPages = false;
                              }
                          }else{
                              this.items = [];
@@ -182,7 +183,8 @@ angular.module('customersApp.ajaxService', [])
                                 this.busy = false;
                                 this.allPages = false;
                             } else {
-                                this.allPages = true;
+                                // for filter search always set all pages to false
+                                this.allPages = false;
                             }
                         }else{
                             this.items = [];
