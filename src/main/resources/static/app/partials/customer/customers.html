@@ -31,13 +31,15 @@
                     <div class="cardHeader">
 
                         <a data-ng-click="navigate('/customeredit',customer )" title="click to edit"
-                           class="cardHeader btn-link">{{customer.companyName}}</a>
+                           class="ellipsis cardHeader btn-link">{{customer.companyName}}</a>
                     </div>
                     <div class="cardBody">{{customer.addressLine1 + ', ' + customer.city}}</div>
-                    <a data-ng-click="navigate('/contactcards',customer)" class="cardBody btn-link">View
-                        {{customer.contactsCount}} Contacts</a>
-                    <a data-ng-click="navigate('/opportunitydetails',customer)" class="cardBody btn-link">{{customer.opportunitiesCount}}
-                        Opportunity Cards</a>
+                    <div class="cardFooter">
+                        <a data-ng-click="navigate('/contactcards',customer)" class="cardBody btn-link">View
+                            {{customer.contactsCount}} Contacts</a>
+                        <a data-ng-click="navigate('/opportunitydetails',customer)" class="cardBody btn-link">{{customer.opportunitiesCount}}
+                            Opportunity Cards</a>
+                    </div>
                 </div>
             </div>
         </div>

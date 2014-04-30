@@ -14,7 +14,7 @@ exports.config = {
 //    chromeDriver: './node_modules/protractor/selenium/chromedriver',
 //    seleniumAddress: 'http://0.0.0.0:4444/wd/hub',
 
-    baseUrl: 'http://localhost:8888/app/',
+    baseUrl: 'http://localhost:9090/crm',
   //   baseUrl: 'http://localhost:8000/app/',
 
     framework: 'jasmine',
