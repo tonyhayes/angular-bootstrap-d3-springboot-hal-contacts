@@ -7,7 +7,8 @@ angular.module('customersApp.opportunityControllers', [])
     .controller('CustomerOpportunityController', ['$scope', '$routeParams', '$location',
         'customersService', 'modalService', 'OpportunityServices', 'CompanyServices',
 
-        function ($scope, $routeParams, $location, customersService, modalService, OpportunityServices, CompanyServices) {
+        function ($scope, $routeParams, $location,
+                  customersService, modalService, OpportunityServices, CompanyServices) {
 
             //Grab customerID off of the route
             $scope.customerID = parseInt($routeParams.customerID);
@@ -140,11 +141,12 @@ angular.module('customersApp.opportunityControllers', [])
     ])
     .controller('CustomerOpportunitiesEditController', ['$scope', '$routeParams', '$location', '$filter',
         'customersService', 'salesPersonService', 'ContactServices', 'probabilitiesService', 'modalService',
-        'formComponentService', 'OpportunityDetailServices', 'CompanyServices', 'OpportunityServices',
+        'formComponentService', 'formComponentFormatService', 'OpportunityDetailServices',
+        'CompanyServices', 'OpportunityServices',
         'OpportunityFormServices',
 
         function ($scope, $routeParams, $location, $filter, customersService, salesPersonService,
-                  ContactServices, probabilitiesService, modalService, formComponentService,
+                  ContactServices, probabilitiesService, modalService, formComponentService, formComponentFormatService,
                   OpportunityDetailServices, CompanyServices, OpportunityServices, OpportunityFormServices) {
 
             $scope.master = {};
@@ -161,7 +163,7 @@ angular.module('customersApp.opportunityControllers', [])
             };
             $scope.customerID = $routeParams.customerID;
             $scope.opportunityID = ($routeParams.id);
-            $scope.opportunityFormTemplate = formComponentService.getOpportunityForm();
+            $scope.opportunityFormTemplate = formComponentFormatService.getOpportunityForm();
 
 
 
@@ -197,7 +199,7 @@ angular.module('customersApp.opportunityControllers', [])
                                 /* find the field type
                                 dates and checklists require special formatting
                                  */
-                                var type = formComponentService.getFormType(component);
+                                var type = formComponentFormatService.getFormType(component);
                                 if(type == 'date'){
                                     $scope.opportunityFormObject[component.name] = component.value;
                                     var d = new Date($scope.opportunityFormObject[component.name]);
@@ -417,7 +419,7 @@ angular.module('customersApp.opportunityControllers', [])
 
             };
             function opportunityFormProcessor() {
-                var formTemplate = formComponentService.getDynamicForm();
+                var formTemplate = formComponentFormatService.getDynamicForm();
 
                 // read through the opportunity form and send changes back to the mother ship
                 angular.forEach(formTemplate, function (component) {

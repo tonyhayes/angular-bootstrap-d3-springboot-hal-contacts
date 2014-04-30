@@ -14,19 +14,25 @@
   <!-- angular itself -->
   <script src="../../app/lib/angular/angular.js"></script>
   <script src="../../app/lib/angular/angular-route.js"></script>
+   <script src="../../test/lib/angular/angular-mocks.js"></script>
 
   <!-- angular's testing helpers -->
-    <script src="../../test/lib/angular/angular-mocks.js"></script>
-    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
     <script src="../../app/lib/jquery.min.js"></script>
-    <script src="../../app/lib/ng-grid-2.0.7.debug.js"></script>
+    <script src="../../app/lib/bootstrap-ui.js"></script>
+    <script src="../../app/lib/ng-grid-2.0.8.debug.js"></script>
     <script src="../../app/lib/jquery-ui-1.10.4.custom.min.js"></script>
     <script src="../../app/lib/dynamic-forms.js"></script>
+    <script src="../../app/lib/ng-infinite-scroll.js"></script>
 
   <!-- your angular app code -->
     <!-- Classes to be tested / dependencies -->
     <script type="text/javascript" src="../../app/js/app.js"></script>
     <script type="text/javascript" src="../../app/js/services/customerServices.js"></script>
+    <script type="text/javascript" src="../../app/js/services/ajaxService.js"></script>
+    <script type="text/javascript" src="../../app/js/controllers/applicationController.js"></script>
+    <script type="text/javascript" src="../../app/js/controllers/customerControllers.js"></script>
+    <script type="text/javascript" src="../../app/js/controllers/contactControllers.js"></script>
+    <script type="text/javascript" src="../../app/js/controllers/opportunityControllers.js"></script>
     <script type="text/javascript" src="../../app/js/filters/customerFilters.js"></script>
     <script type="text/javascript" src="../../app/js/controllers/customerControllers.js"></script>
     <script type="text/javascript" src="../../app/js/directives/directives.js"></script>
@@ -43,8 +49,17 @@
     <!-- UNIT TEST CLASSES -->
     <script type="text/javascript" src="app/controllers/customerControllers.js"></script>
     <script type="text/javascript" src="app/controllers/formController.js"></script>
+    <script type="text/javascript" src="app/controllers/applicationController.js"></script>
+    <script type="text/javascript" src="app/controllers/contactControllers.js"></script>
+    <script type="text/javascript" src="app/controllers/opportunityControllers.js"></script>
+
+    <script type="text/javascript" src="app/controllers/appTest.js"></script>
 
 </head>
+<script>
+    var dmApplicationEntryPoint = '//localhost:9090';
+
+</script>
 
 <body>
 </body>

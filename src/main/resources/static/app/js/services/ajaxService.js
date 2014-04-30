@@ -515,6 +515,30 @@ angular.module('customersApp.ajaxService', [])
             setStates: function (data) {
                 states = data._embedded.states;
 
+            },
+            setTestStates: function () {
+                states = [ {
+                    "createdAt" : 1398782061506,
+                    "updatedAt" : 1398782061506,
+                    "stateAbbr" : "TX",
+                    "name" : "Texas",
+                    "_links" : {
+                        "self" : {
+                            "href" : "http://localhost:9090/states/1"
+                        }
+                    }
+                }, {
+                    "createdAt" : 1398782061507,
+                    "updatedAt" : 1398782061507,
+                    "stateAbbr" : "OK",
+                    "name" : "Oklahoma",
+                    "_links" : {
+                        "self" : {
+                            "href" : "http://localhost:9090/states/2"
+                        }
+                    }
+                }];
+
             }
 
         }
@@ -536,6 +560,56 @@ angular.module('customersApp.ajaxService', [])
             },
             setSalesPeople: function (data) {
                 salesPersons = data._embedded.salesPersons;
+
+            },
+            setTestSalesPeople: function () {
+                salesPersons = [ {
+                    "createdAt" : 1398782061502,
+                    "updatedAt" : 1398782061502,
+                    "firstName" : "Chad",
+                    "lastName" : "Gardner",
+                    "title" : null,
+                    "addressLine1" : "89  Frontier Blvd",
+                    "addressLine2" : "Ste 54",
+                    "city" : "Houston",
+                    "state" : "TX",
+                    "zip" : "77478",
+                    "email" : "roger@doggers.com",
+                    "phone" : "832-867.5840",
+                    "cell" : "713.244.3657",
+                    "webPage" : null,
+                    "notes" : "Emily",
+                    "salesPersonDescription" : "Chad Gardner",
+                    "salesPersonId" : 1,
+                    "_links" : {
+                        "self" : {
+                            "href" : "http://localhost:9090/salesPersons/1"
+                        }
+                    }
+                }, {
+                    "createdAt" : 1398782061502,
+                    "updatedAt" : 1398782061502,
+                    "firstName" : "Bob",
+                    "lastName" : "Richards",
+                    "title" : null,
+                    "addressLine1" : "89 James Cook  Blvd",
+                    "addressLine2" : "Ste 45",
+                    "city" : "Dallas",
+                    "state" : "TX",
+                    "zip" : "77478",
+                    "email" : "roger@doggers.com",
+                    "phone" : "832-867.5840",
+                    "cell" : "713.244.3657",
+                    "webPage" : null,
+                    "notes" : "Emily",
+                    "salesPersonDescription" : "Bob Richards",
+                    "salesPersonId" : 2,
+                    "_links" : {
+                        "self" : {
+                            "href" : "http://localhost:9090/salesPersons/2"
+                        }
+                    }
+                }];
 
             }
 
@@ -559,87 +633,50 @@ angular.module('customersApp.ajaxService', [])
             setProbabilities: function (data) {
                 probabilities = data._embedded.probabilities;
 
+            },
+            setTestProbabilities: function () {
+                probabilities = [ {
+                    "createdAt" : 1398782061505,
+                    "updatedAt" : 1398782061505,
+                    "name" : "10%",
+                    "percentage" : 10,
+                    "probabilityId" : 1,
+                    "_links" : {
+                        "self" : {
+                            "href" : "http://localhost:9090/probabilities/1"
+                        }
+                    }
+                }, {
+                    "createdAt" : 1398782061505,
+                    "updatedAt" : 1398782061505,
+                    "name" : "20%",
+                    "percentage" : 20,
+                    "probabilityId" : 2,
+                    "_links" : {
+                        "self" : {
+                            "href" : "http://localhost:9090/probabilities/2"
+                        }
+                    }
+                }, {
+                    "createdAt" : 1398782061505,
+                    "updatedAt" : 1398782061505,
+                    "name" : "30%",
+                    "percentage" : 30,
+                    "probabilityId" : 3,
+                    "_links" : {
+                        "self" : {
+                            "href" : "http://localhost:9090/probabilities/3"
+                        }
+                    }
+                }];
+
             }
 
         }
     })
-    .factory('formUpdateService', function (formComponentService) {
-        return {
-            updateForm: function (oldForm, newForm, form) {
-                // delete everything, then post
-                if (oldForm) {
-                    angular.forEach(oldForm, function (field) {
-                        if (field._links) {
-                            // the delete command is self contained so any service can process it
-                            formComponentService.deleteFormComponents(field);
-                        }
-                    });
-                }
 
-                // reformat options
-                // then send them up to the host
+    .factory('formComponentService', function ($http) {
 
-                if (newForm) {
-                    angular.forEach(newForm, function (field) {
-
-                     /*
-                     field_options: Object
-                        1: Object
-                        option_title: "won"
-                        option_value: "1"
-                        __proto__: Object
-                        2: Object
-                        3: Object
-
-                        transform into
-
-                      options: Array[3]
-                      0: Object
-                      option_id: "1"
-                      option_title: "won"
-                      option_value: "1"
-
-                        */
-
-                        if (field._links) {
-                            delete field._links;
-                        }
-
-                        if (field.field_options) {
-
-                            field.options = [];
-
-                            angular.forEach(field.field_options, function (fieldOption, fieldOptionId) {
-                                var field_option = {};
-                                field_option.option_title = fieldOption.option_title;
-                                field_option.option_value = fieldOption.option_value;
-                                field_option.option_id = fieldOptionId;
-                                field.options.push(field_option)
-                            });
-
-
-                            delete field.field_options;
-                        }
-
-                        // send to host, then get back the location in order to send options
-
-                        if (form === 'global') {
-                            formComponentService.postFormComponents(field);
-                        } else {
-                            formComponentService.postOpportunityFormComponents(field)
-                        }
-                    });
-                }
-            }
-        }
-    })
-
-    .factory('formComponentService', function ($http, FormService) {
-
-        var dynamicForm = [];
-        var opportunityForm = [];
-        var customFormTypes = [];
-        var customFormFields = [];
 
         return {
             getOpportunityFormComponents: function () {
@@ -746,118 +783,8 @@ angular.module('customersApp.ajaxService', [])
                 return $http.delete(url).then(function (result) {
                     return result.data;
                 });
-            },
-            getCustomFormTypes: function () {
-                return customFormTypes;
-            },
-            getCustomFormFields: function () {
-                return customFormFields;
-            },
-            getCustomFormField: function (type) {
-                var formField = {};
-                angular.forEach(customFormFields, function (field) {
-                    if (field.field_id == type) {
-                        formField = field;
-                    }
-                });
-                return formField;
-            },
-            getCustomFormType: function (type) {
-                var formField = null;
-                angular.forEach(customFormFields, function (field) {
-                    if (field.field_id == type) {
-                        formField = field;
-                    }
-                });
-                return formField;
-            },
-            getDynamicForm: function () {
-                return dynamicForm;
-            },
-            replaceDynamicForm: function (form) {
-                dynamicForm = form;
-                opportunityForm = FormService.setDynamicForm(angular.copy(dynamicForm));
-
-            },
-
-            getOpportunityForm: function () {
-                return opportunityForm;
-            },
-            getFormType: function (component) {
-                // first check to see if form is a standard type
-                var type = null;
-                var fields = FormService.fields;
-                angular.forEach(fields, function (field) {
-                    if (field.name == component.name){
-                        type = field.value;
-                    }
-                });
-                angular.forEach(customFormTypes, function (field) {
-                    if (field.name == component.name){
-                        type = field.type;
-                    }
-                });
-
-                return type;
-
-            },
-            setOpportunityForm: function (components, opportunityComponents) {
-
-                var globalFromComponents = null;
-                var opportunityFormComponents = null;
-                //unpack
-                if (components._embedded) {
-                    globalFromComponents = components._embedded.formComponents;
-                }
-                if (opportunityComponents._embedded) {
-                    opportunityFormComponents = opportunityComponents._embedded.opportunityFormComponents;
-                }
-
-                // build up the form by reading the components
-                opportunityForm = [];
-                dynamicForm = [];
-                customFormTypes = [];
-                customFormFields = [];
-
-                angular.forEach(opportunityFormComponents, function (field) {
-
-                    var newField = null;
-
-                    // check to see if form type is in the custom field list
-                    var dynamicField = FormService.getDynamicFormField(field, globalFromComponents);
-                    if (dynamicField) {
-                        newField = dynamicField;
-
-                        // copy opportunity attributes into form component
-                        newField._links = field._links;
-                        newField.field_sequence = field.field_sequence;
-
-                        //create formTypes and formFields for form administration
-                        customFormFields.push(newField);
-                        var formType = {};
-                        formType.name = newField.field_id;
-                        formType.value = newField.field_title;
-                        formType.type = newField.field_type;
-                        customFormTypes.push(formType);
-
-                    } else {
-
-                        dynamicField = FormService.getDynamicFormField(field, opportunityFormComponents);
-                        if (dynamicField) {
-                            newField = dynamicField;
-                        }
-
-                    }
-
-                    // put newField into fields array
-                    if (newField) {
-                        dynamicForm.push(newField);
-                    }
-                });
-
-                opportunityForm = FormService.setDynamicForm(angular.copy(dynamicForm));
-
             }
 
         }
-    });
+    })
+

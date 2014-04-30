@@ -1,5 +1,5 @@
 describe('Testing FormController', function() {
-    var $scope, ctrl;
+    var $scope, ctrl, fields;
 
 
 
@@ -13,9 +13,12 @@ describe('Testing FormController', function() {
         // $controller - injected to create an instance of our controller.
         // customersService - injected so we can use these functions.
 
-        inject(function($rootScope, $controller, $filter,  modalService, FormService, formFormatterService) {
+        inject(function($rootScope, $controller, $filter,
+                        formUpdateService, FormService, formComponentService,
+                        formTestComponentService, formComponentFormatService) {
             // create a scope object for us to use.
             $scope = $rootScope.$new();
+
 
 
 
@@ -28,8 +31,15 @@ describe('Testing FormController', function() {
                 $scope: $scope,
                 $filter: $filter,
                 FormService: FormService,
-                formFormatterService:formFormatterService
+                formComponentService:formComponentService,
+                formComponentFormatService: formComponentFormatService,
+                formUpdateService:formUpdateService,
+                formTestComponentService: formTestComponentService
             });
+            formTestComponentService.setOpportunityForm();
+            fields = formComponentFormatService.getDynamicForm();
+            $scope.form.form_fields = fields;
+
         });
     });
 
@@ -39,34 +49,22 @@ describe('Testing FormController', function() {
      * populated when the controller function whas evaluated. */
     it('should start with a known number of form fields', function() {
         //just assert. $scope was set up in beforeEach() (above)
-        expect($scope.form.form_fields.length).toEqual(7);
+            expect(fields.length).toEqual(6);
     });
 
 
-    /* Test 2: find form fields.
-     * find a known form format. */
-    it('should call convertFormToFields service method and return a known format', function() {
-        // Act
-        inject(function(formFormatterService) {
-            var fields = formFormatterService.convertFormToFields();
 
-            // Assert
-            expect(fields).toEqual($scope.form.form_fields);
-        });
-
-
-    });
     /* Test 3: find form types.
      * find a known form types. */
     it('should call FormService service method and return known types', function() {
         // Act
-        inject(function(FormService) {
+        inject(function(FormService, formComponentFormatService) {
             var fields = FormService.fields;
-            var customFields = FormService.getCustomFormTypes();
+            var customFields = formComponentFormatService.getCustomFormTypes();
             var allTypes = fields.concat(customFields);
 
             // Assert
-            expect(allTypes).toEqual($scope.addField.types);
+            expect(fields).toEqual($scope.addField.types);
         });
 
 
@@ -77,7 +75,7 @@ describe('Testing FormController', function() {
         // Act
             $scope.deleteField('dealDate');
             // Assert
-            expect($scope.form.form_fields.length).toEqual(6);
+            expect($scope.form.form_fields.length).toEqual(5);
 
 
     });
@@ -87,65 +85,27 @@ describe('Testing FormController', function() {
         // Act
         $scope.addNewField();
         // Assert
-        expect($scope.form.form_fields.length).toEqual(8);
+        expect($scope.form.form_fields.length).toEqual(7);
 
 
     });
 
-    /* Test 6: delete a field option from the form .
-     * delete a known option form field. */
-    it('should call $scope.deleteOption method and delete a field option from the form', function() {
-        // Act
-        $scope.deleteOption($scope.form.form_fields[1],$scope.form.form_fields[1].field_options['2']);
-        // Assert
-        expect($scope.form.form_fields[1].field_options.length).toEqual(2);
-
-
-    });
     /* Test 7: add a field option to the form .
      * add a known option to a form field. */
     it('should call $scope.addOption method and add a  new option to a field on the form', function() {
         // Act
-        $scope.addOption($scope.form.form_fields[0]);
+        $scope.addOption($scope.form.form_fields[3]);
         // Assert
-        expect($scope.form.form_fields[0].field_options.length).toEqual(1);
+        expect($scope.form.form_fields[3].field_options.length).toEqual(1);
 
 
     });
 
-    /* Test 8: test dynamic form service should return a form exactly like the setDynamicForm.
-     * . */
-    it('should call testDynamicForm and setDynamicForm and be the same', function() {
-        // Act
-        inject(function(formFormatterService) {
-            var testForm = formFormatterService.testDynamicForm($scope.form);
-            var realForm = formFormatterService.setDynamicForm($scope.form);
-            // Assert
-            expect(testForm).toEqual(realForm);
-        });
-
-
-    });
-    /* Test 9: setDynamicForm form service should return a form exactly like test1.
-     * . */
-    it('should call setDynamicForm and convertFormToFields and be the same as the first test', function() {
-        // Act
-        inject(function(formFormatterService) {
-            var realForm = formFormatterService.setDynamicForm($scope.form);
-            var fields = formFormatterService.convertFormToFields();
-
-            // Assert
-            expect(fields).toEqual($scope.form.form_fields);
-
-        });
-
-
-    });
 
 })
 
 describe('Testing FormFieldController', function() {
-    var $scope, ctrl;
+    var $scope, ctrl, fields;
 
 
 
@@ -159,7 +119,8 @@ describe('Testing FormFieldController', function() {
         // $controller - injected to create an instance of our controller.
         // customersService - injected so we can use these functions.
 
-        inject(function($rootScope, $controller, $filter,  modalService, FormService) {
+        inject(function($rootScope, $controller, $filter,  modalService,
+                        FormService, formComponentFormatService, formTestComponentService) {
             // create a scope object for us to use.
             $scope = $rootScope.$new();
 
@@ -173,8 +134,14 @@ describe('Testing FormFieldController', function() {
             ctrl = $controller('FormFieldController', {
                 $scope: $scope,
                 $filter: $filter,
-                FormService: FormService
+                FormService: FormService,
+                formComponentFormatService: formComponentFormatService,
+                formTestComponentService: formTestComponentService
             });
+            formTestComponentService.setOpportunityForm();
+            fields = formComponentFormatService.getDynamicForm();
+            $scope.form_fields = fields;
+
         });
     });
 
@@ -222,26 +189,17 @@ describe('Testing FormFieldController', function() {
 
     });
 
-    /* Test 5: delete a field option from the form .
-     * delete a known option form field. */
-    it('should call $scope.deleteOption method and delete a field option from the form', function() {
-        // Act
-        $scope.deleteOption($scope.form_fields[1],$scope.form_fields[1].field_options['2']);
-        // Assert
-        expect($scope.form_fields[1].field_options.length).toEqual(2);
-
-
-    });
     /* Test 6: add a field option to the form .
      * add a known option to a form field. */
     it('should call $scope.addOption method and add a  new option to a field on the form', function() {
         // Act
-        $scope.addOption($scope.form_fields[2]);
+        $scope.addOption($scope.form_fields[3]);
         // Assert
-        expect($scope.form_fields[2].field_options.length).toEqual(4);
+        expect($scope.form_fields[3].field_options.length).toEqual(1);
 
 
     });
 
 
 });
+

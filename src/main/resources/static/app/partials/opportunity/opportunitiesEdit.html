@@ -28,6 +28,8 @@
                         <label>Sales Person</label>
                         <select required ng-model="master.salesPersonId" class="form-control" name="salesPerson"
                                 ng-options="s.salesPersonId as s.salesPersonDescription for s in salesPerson_array"></select>
+                        <!--<select required ng-model="master._links['crm:sales'].href" class="form-control" name="salesPerson"-->
+                                <!--ng-options="s._links.self.href as s.salesPersonDescription for s in salesPerson_array"></select>-->
 
 
                         <p ng-show="customerOpportunitiesForm.salesPerson.$invalid && !customerOpportunitiesForm.salesPerson.$pristine"
