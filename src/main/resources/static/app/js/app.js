@@ -1,16 +1,23 @@
 // Declare app level module which depends on filters, and services
 angular.module('customersApp', [
     'ngRoute',
+
     'customersApp.applicationControllers',
-    'customersApp.customerServices',
-    'customersApp.filters',
-    'customersApp.directives',
     'customersApp.customerControllers',
     'customersApp.contactControllers',
     'customersApp.opportunityControllers',
     'customersApp.formControllers',
+    'customersApp.salesPersonController',
+    'customersApp.probabilityController',
+    'customersApp.stateController',
+
+    'customersApp.filters',
+    'customersApp.directives',
+
+    'customersApp.customerServices',
     'customersApp.formsService',
     'customersApp.ajaxService',
+
     'ui.bootstrap',
     'ngGrid',
     'dynform',
@@ -43,8 +50,20 @@ angular.module('customersApp', [
                 controller: 'FormController'
             });
             $routeProvider.when('/createcustomfields', {
-                templateUrl: 'app/partials/form/createCustomFields.html',
+                templateUrl: 'app/partials/admin/createCustomFields.html',
                 controller: 'FormFieldController'
+            });
+            $routeProvider.when('/admin/sales', {
+                templateUrl: 'app/partials/admin/sales/salesPeople.html',
+                controller: 'salesPersonController'
+            });
+            $routeProvider.when('/admin/probability', {
+                templateUrl: 'app/partials/admin/probabilities/probabilities.html',
+                controller: 'probabilityController'
+            });
+            $routeProvider.when('/admin/states', {
+                templateUrl: 'app/partials/admin/states/states.html',
+                controller: 'stateController'
             });
             $routeProvider.otherwise({
                 redirectTo: '/customers'

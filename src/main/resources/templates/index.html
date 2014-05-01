@@ -39,9 +39,9 @@
                     <ul class="dropdown-menu" >
                         <li><a href="#/forms/create">Dynamic Forms</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Sales Person</a></li>
-                        <li><a href="#">Probability</a></li>
-                        <li><a href="#">States</a></li>
+                        <li><a href="#/admin/sales">Sales Person</a></li>
+                        <li><a href="#/admin/probability">Probability</a></li>
+                        <li><a href="#/admin/states">States</a></li>
                     </ul>
                 </li>
             </ul>
@@ -107,10 +107,14 @@
 <script th:src="@{app/js/filters/customerFilters.js}"></script>
 <script th:src="@{app/js/directives/directives.js}"></script>
 
-<!-- form builder -->
+<!-- form builder/admin -->
 
 <script th:src="@{app/js/controllers/formController.js}"></script>
 <script th:src="@{app/js/services/formService.js}"></script>
+
+<script th:src="@{app/js/controllers/salesPersonController.js}"></script>
+<script th:src="@{app/js/controllers/stateController.js}"></script>
+<script th:src="@{app/js/controllers/probabilityController.js}"></script>
 
 
 </body>

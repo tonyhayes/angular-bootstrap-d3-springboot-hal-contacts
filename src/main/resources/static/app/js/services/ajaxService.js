@@ -509,6 +509,40 @@ angular.module('customersApp.ajaxService', [])
                     return result.data;
                 });
             },
+            postStates: function (state) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.post(dmApplicationEntryPoint + '/states', state).then(function (result) {
+                    return result.headers('location');
+                });
+            },
+            patchStates: function (state) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                var body = angular.copy(state);
+                var url = body._links.self.href;
+                delete body._links;
+                // angular does not support patch, use put for now
+                return $http.put(url, body).then(function (result) {
+                    return result.data;
+                });
+            },
+            deleteStates: function (state) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                var body = angular.copy(state);
+                var url = body._links.self.href;
+                delete body._links;
+                return $http.delete(url).then(function (result) {
+                    return result.data;
+                });
+            },
             getStates: function () {
                 return states;
             },
@@ -555,6 +589,40 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 return $http.get(dmApplicationEntryPoint + '/salesPersons').then(function (result) {
+                    return result.data;
+                });
+            },
+            postSalesPeople: function (sales) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.post(dmApplicationEntryPoint + '/salesPersons', sales).then(function (result) {
+                    return result.headers('location');
+                });
+            },
+            patchSalesPeople: function (sales) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                var body = angular.copy(sales);
+                var url = body._links.self.href;
+                delete body._links;
+                // angular does not support patch, use put for now
+                return $http.put(url, body).then(function (result) {
+                    return result.data;
+                });
+            },
+            deleteSalesPeople: function (sales) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                var body = angular.copy(sales);
+                var url = body._links.self.href;
+                delete body._links;
+                return $http.delete(url).then(function (result) {
                     return result.data;
                 });
             },
@@ -630,6 +698,40 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 return $http.get(dmApplicationEntryPoint + '/probabilities').then(function (result) {
+                    return result.data;
+                });
+            },
+            postProbabilities: function (probabilities) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.post(dmApplicationEntryPoint + '/probabilities', probabilities).then(function (result) {
+                    return result.headers('location');
+                });
+            },
+            patchProbabilities: function (probabilities) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                var body = angular.copy(probabilities);
+                var url = body._links.self.href;
+                delete body._links;
+                // angular does not support patch, use put for now
+                return $http.put(url, body).then(function (result) {
+                    return result.data;
+                });
+            },
+            deleteProbabilities: function (probabilities) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                var body = angular.copy(probabilities);
+                var url = body._links.self.href;
+                delete body._links;
+                return $http.delete(url).then(function (result) {
                     return result.data;
                 });
             },

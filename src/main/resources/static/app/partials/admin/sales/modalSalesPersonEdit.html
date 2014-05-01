@@ -4,25 +4,25 @@
 <div class="modal-body">
 
 
-    <form name="contactForm" ng-submit="submitForm()" novalidate>
+    <form name="salesPersonForm" ng-submit="submitForm()" novalidate>
 
 
         <div class="form-group"
-             ng-class="{ 'has-error' : contactForm.firstName.$invalid && !contactForm.firstName.$pristine }">
+             ng-class="{ 'has-error' : salesPersonForm.firstName.$invalid && !salesPersonForm.firstName.$pristine }">
             <label>First Name</label>
             <input type="text" name="firstName" class="form-control" ng-model="modalOptions.record.firstName" required>
 
-            <p ng-show="contactForm.firstName.$invalid && !contactForm.firstName.$pristine" class="help-block">The
-                contact must be named.</p>
+            <p ng-show="salesPersonForm.firstName.$invalid && !salesPersonForm.firstName.$pristine" class="help-block">The
+                customer must be named.</p>
         </div>
 
         <div class="form-group"
-             ng-class="{ 'has-error' : contactForm.lastName.$invalid && !contactForm.lastName.$pristine }">
+             ng-class="{ 'has-error' : salesPersonForm.lastName.$invalid && !salesPersonForm.lastName.$pristine }">
             <label>Last Name</label>
             <input type="text" name="lastName" class="form-control" ng-model="modalOptions.record.lastName" required>
 
-            <p ng-show="contactForm.lastName.$invalid && !contactForm.lastName.$pristine" class="help-block">The
-                contact must be named.</p>
+            <p ng-show="salesPersonForm.lastName.$invalid && !salesPersonForm.lastName.$pristine" class="help-block">The
+                person must be named.</p>
         </div>
 
         <div class="form-group">
@@ -32,13 +32,13 @@
         </div>
 
         <div class="form-group"
-             ng-class="{ 'has-error' : contactForm.addressLine1.$invalid && !contactForm.addressLine1.$pristine }">
+             ng-class="{ 'has-error' : salesPersonForm.addressLine1.$invalid && !salesPersonForm.addressLine1.$pristine }">
             <label>Address Line 1</label>
             <input type="text" name="addressLine1" class="form-control" ng-model="modalOptions.record.addressLine1"
                    required>
 
-            <p ng-show="contactForm.addressLine1.$invalid && !contactForm.addressLine1.$pristine" class="help-block">The
-                contact must have an address.</p>
+            <p ng-show="salesPersonForm.addressLine1.$invalid && !salesPersonForm.addressLine1.$pristine" class="help-block">The
+                person must have an address.</p>
         </div>
 
         <div class="form-group">
@@ -46,35 +46,35 @@
             <input type="text" name="addressLine2" class="form-control" ng-model="modalOptions.record.addressLine2">
         </div>
 
-        <div class="form-group" ng-class="{ 'has-error' : contactForm.city.$invalid && !contactForm.city.$pristine }">
+        <div class="form-group" ng-class="{ 'has-error' : salesPersonForm.city.$invalid && !salesPersonForm.city.$pristine }">
             <label>City</label>
             <input type="text" name="city" class="form-control" ng-model="modalOptions.record.city" required>
 
-            <p ng-show="contactForm.city.$invalid && !contactForm.city.$pristine" class="help-block">The contact City
+            <p ng-show="salesPersonForm.city.$invalid && !salesPersonForm.city.$pristine" class="help-block">The persons City
                 is required.</p>
         </div>
 
-        <div class="form-group" ng-class="{ 'has-error' : contactForm.state.$invalid && !contactForm.state.$pristine }">
+        <div class="form-group" ng-class="{ 'has-error' : salesPersonForm.state.$invalid && !salesPersonForm.state.$pristine }">
             <label>State</label>
             <select required ng-model="modalOptions.record.state" class="form-control" name="state"
                     ng-options="s.stateAbbr as s.name for s in modalOptions.model1"></select>
 
-            <p ng-show="contactForm.state.$invalid && !contactForm.state.$pristine" class="help-block">State is
+            <p ng-show="salesPersonForm.state.$invalid && !salesPersonForm.state.$pristine" class="help-block">State is
                 required.</p>
         </div>
 
-        <div class="form-group" ng-class="{ 'has-error' : contactForm.zip.$invalid && !contactForm.zip.$pristine }">
+        <div class="form-group" ng-class="{ 'has-error' : salesPersonForm.zip.$invalid && !salesPersonForm.zip.$pristine }">
             <label>Zip Code</label>
             <input type="text" name="zip" class="form-control" ng-model="modalOptions.record.zip" required>
 
-            <p ng-show="contactForm.zip.$invalid && !contactForm.zip.$pristine" class="help-block">Zip is required.</p>
+            <p ng-show="salesPersonForm.zip.$invalid && !salesPersonForm.zip.$pristine" class="help-block">Zip is required.</p>
         </div>
 
-        <div class="form-group" ng-class="{ 'has-error' : contactForm.email.$invalid && !contactForm.email.$pristine }">
+        <div class="form-group" ng-class="{ 'has-error' : salesPersonForm.email.$invalid && !salesPersonForm.email.$pristine }">
             <label>Email</label>
             <input type="email" name="email" class="form-control" ng-model="modalOptions.record.email">
 
-            <p ng-show="contactForm.email.$invalid && !customerForm.email.$pristine" class="help-block">email is
+            <p ng-show="salesPersonForm.email.$invalid && !salesPersonForm.email.$pristine" class="help-block">email is
                 wrong.</p>
         </div>
 
@@ -105,7 +105,7 @@
 </div>
 <div class="modal-footer">
     <button type="button" class="btn" data-ng-click="modalOptions.close()">{{modalOptions.closeButtonText}}</button>
-    <button type="submit" class="btn btn-primary" ng-disabled="contactForm.$invalid" data-ng-click="modalOptions.ok();">
+    <button type="submit" class="btn btn-primary" ng-disabled="salesPersonForm.$invalid" data-ng-click="modalOptions.ok();">
         {{modalOptions.actionButtonText}}
     </button>
 </div>
