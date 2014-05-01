@@ -186,6 +186,47 @@ insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, p
 insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 20, 1, 1, 1, 'big drilling deal', now(), now());
 insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 20, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
 
+-- opportunity 21-40
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 21, 1, 1, 1, 'big drilling deal', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 21, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 22, 1, 1, 1, 'big drilling deal', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 22, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 23, 1, 1, 1, 'big drilling deal', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 23, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 24, 1, 1, 1, 'big drilling deal', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 24, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 25, 1, 1, 1, 'big drilling deal', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 25, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 26, 1, 1, 1, 'big drilling deal', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 26, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 27, 1, 1, 1, 'big drilling deal', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 27, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 28, 1, 1, 1, 'big drilling deal', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 28, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 29, 1, 1, 1, 'big drilling deal', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 29, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 30, 1, 1, 1, 'big drilling deal', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 30, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 31, 1, 1, 1, 'big drilling deal', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 31, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 32, 1, 1, 1, 'big drilling deal', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 32, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 33, 1, 1, 1, 'big drilling deal', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 33, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 34, 1, 1, 1, 'big drilling deal', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 34, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 35, 1, 1, 1, 'big drilling deal', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 35, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 36, 1, 1, 1, 'big drilling deal', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 36, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 37, 1, 1, 1, 'big drilling deal', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 37, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 38, 1, 1, 1, 'big drilling deal', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 38, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 39, 1, 1, 1, 'big drilling deal', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 39, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 40, 1, 1, 1, 'big drilling deal', now(), now());
+insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, probability_id, discussion,created_at, updated_at) values (1, 40, 1, 1, 1, 'huge opportunity in permian basin', now(), now());
 
 -- opportunity form
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '3', 1, now(), now());
@@ -548,6 +589,94 @@ insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, oppo
 insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 39, 'call back in May', now(), now());
 insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 40, 'call back after christmas', now(), now());
 insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 40, 'call back in May', now(), now());
+
+-- opportunity details - more
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 41, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 41, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 42, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 42, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 43, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 43, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 44, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 44, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 45, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 45, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 46, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 46, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 47, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 47, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 48, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 48, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 49, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 49, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 50, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 50, 'call back in May', now(), now());
+
+-- opportunity details
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 51, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 51, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 52, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 52, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 53, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 53, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 54, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 54, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 55, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 55, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 56, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 56, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 57, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 57, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 58, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 58, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 59, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 59, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 60, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 60, 'call back in May', now(), now());
+
+-- opportunity details
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 61, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 61, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 62, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 62, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 63, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 63, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 64, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 64, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 65, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 65, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 66, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 66, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 67, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 67, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 68, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 68, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 69, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 69, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 70, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 70, 'call back in May', now(), now());
+
+-- opportunity details
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 71, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 71, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 72, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 72, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 73, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 73, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 74, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 74, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 75, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 75, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 76, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 76, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 77, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 77, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 78, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 78, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 79, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 79, 'call back in May', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 80, 'call back after christmas', now(), now());
+insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 80, 'call back in May', now(), now());
 
 -- opportunity form component
 insert into app_crm_opportunity_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required,created_at, updated_at) values (1, 'dealDate','Deal Date','date','','date',false, now(), now());

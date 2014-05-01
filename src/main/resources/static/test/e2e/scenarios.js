@@ -11,13 +11,20 @@
 describe('customersApp', function () {
 
     var ptor;
+    var appEntryPoint = 'http://localhost:9090/index.html';
+//http://stackoverflow.com/questions/20959748/e2e-protractor-test-requiring-oauth-authentication
+    browser.driver.get('http://localhost:9090/login.html');
+    ptor = protractor.getInstance();
+ // this nap is necessary to let spring load.
+ //   browser.driver.sleep(1000);
+
+            browser.driver.findElement(by.name('username')).sendKeys('tony');
+            browser.driver.findElement(by.css('.btn-primary')).click();
+
     // make sure all the pages can be accessed
 
-    browser.get('crm');
-    ptor = protractor.getInstance();
-
     it('should automatically redirect to main page when location hash/fragment is empty', function () {
-        expect(browser.getLocationAbsUrl()).toMatch("http://localhost:9090/crm#/customers");
+        expect(browser.getLocationAbsUrl()).toMatch(appEntryPoint + "#/customers");
     });
 
     it('should contain a view class in order to render correctly', function () {
@@ -39,7 +46,7 @@ describe('customersApp', function () {
 
         var ptor;
         beforeEach(function () {
-            browser.get('http://localhost:9090/crm#/customers');
+            browser.get(appEntryPoint + "#/customers");
             ptor = protractor.getInstance();
         });
 
@@ -71,7 +78,7 @@ describe('customersApp', function () {
 
         var ptor;
         beforeEach(function () {
-            browser.get('http://localhost:9090/crm#/contactcards/2');
+            browser.get(appEntryPoint + "#/contactcards/2");
             ptor = protractor.getInstance();
         });
 
@@ -104,7 +111,7 @@ describe('customersApp', function () {
 
         var ptor;
         beforeEach(function () {
-            browser.get('http://localhost:9090/crm#/opportunitydetails/10');
+            browser.get(appEntryPoint + '#/opportunitydetails/10');
             ptor = protractor.getInstance();
         });
 
@@ -136,7 +143,7 @@ describe('customersApp', function () {
 
         var ptor;
         beforeEach(function () {
-            browser.get('http://localhost:9090/crm#/opportunitiesedit/10/19');
+            browser.get(appEntryPoint + '#/opportunitiesedit/10/19');
             ptor = protractor.getInstance();
         });
 
@@ -168,7 +175,7 @@ describe('customersApp', function () {
 
         var ptor;
         beforeEach(function () {
-            browser.get('http://localhost:9090/crm#/customeredit/10');
+            browser.get(appEntryPoint + '#/customeredit/10');
             ptor = protractor.getInstance();
         });
 
@@ -202,7 +209,7 @@ describe('customersApp', function () {
 
         var ptor;
         beforeEach(function () {
-            browser.get('http://localhost:9090/crm#/forms/create');
+            browser.get(appEntryPoint + '#/forms/create');
             ptor = protractor.getInstance();
         });
 
@@ -235,7 +242,7 @@ describe('customersApp', function () {
 
         var ptor;
         beforeEach(function () {
-            browser.get('http://localhost:9090/crm#/createcustomfields');
+            browser.get(appEntryPoint + '#/createcustomfields');
             ptor = protractor.getInstance();
         });
 
@@ -271,7 +278,7 @@ describe('customersApp', function () {
 
         var ptor;
         beforeEach(function () {
-            browser.get('http://localhost:9090/crm#/customers');
+            browser.get(appEntryPoint + '#/customers');
             ptor = protractor.getInstance();
         });
 
@@ -314,7 +321,7 @@ describe('customersApp', function () {
 
         var ptor;
         beforeEach(function () {
-            browser.get('http://localhost:9090/crm#/customers');
+            browser.get(appEntryPoint + '#/customers');
             ptor = protractor.getInstance();
         });
 
@@ -450,7 +457,7 @@ describe('customersApp', function () {
         var ptor;
         var name;
         beforeEach(function () {
-            browser.get('http://localhost:9090/crm#/customers');
+            browser.get(appEntryPoint + '#/customers');
             ptor = protractor.getInstance();
 
             var elems = element.all(by.repeater('customer in customerPages.items'));
@@ -657,15 +664,15 @@ describe('customersApp', function () {
 //    });
 
 
-    describe('customer opportunity interactions', function () {
+    describe('opportunity interactions', function () {
 
         var ptor;
         beforeEach(function () {
-            browser.get('http://localhost:9090/crm#/customers');
+            browser.get(appEntryPoint + '#/customers');
             ptor = protractor.getInstance();
 
             var elems = element.all(by.repeater('customer in customerPages.items'));
-            elems.first().then(function (elm) {
+            elems.last().then(function (elm) {
                 elm.findElements(by.tagName('a')).then(function (anchor) {
 
 
@@ -679,6 +686,16 @@ describe('customersApp', function () {
 
                 });
             });
+
+        });
+        it('should display a page when clicking on add opportunity ', function () {
+            element(by.css('.icon-plus')).click();
+            ptor.sleep(1000);
+
+            expect(ptor.getCurrentUrl()).toMatch(/\/opportunitiesedit/);
+
+            expect(element.all(by.css('.btn-primary')).first().getText()).
+                toMatch(/Submit/);
 
         });
         // test filter
