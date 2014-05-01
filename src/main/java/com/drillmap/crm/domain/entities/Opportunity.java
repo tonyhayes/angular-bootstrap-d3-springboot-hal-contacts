@@ -1,6 +1,6 @@
 package com.drillmap.crm.domain.entities;
 
-import com.drillmap.crm.domain.AuditableEntity;
+import com.drillmap.crm.domain.AuditableTenantEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -16,7 +16,7 @@ import java.util.Set;
 @Data
 @EqualsAndHashCode(callSuper = true, exclude = {"opportunityDetails","opportunityForms"})
 @ToString(callSuper = true, exclude = {"opportunityDetails","opportunityForms"})
-public class Opportunity extends AuditableEntity {
+public class Opportunity extends AuditableTenantEntity {
     @ManyToOne
     Company company;
     @ManyToOne

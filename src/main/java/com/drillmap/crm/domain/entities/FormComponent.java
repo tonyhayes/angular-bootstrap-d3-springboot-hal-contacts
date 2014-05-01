@@ -1,13 +1,12 @@
 package com.drillmap.crm.domain.entities;
 
-import com.drillmap.crm.domain.AuditableEntity;
+import com.drillmap.crm.domain.AuditableTenantEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by tony on 4/2/14.
@@ -17,7 +16,7 @@ import java.util.Set;
 @Data
 @EqualsAndHashCode(callSuper = true, exclude = "options")
 @ToString(callSuper = true,exclude = "options")
-public class FormComponent extends AuditableEntity {
+public class FormComponent extends AuditableTenantEntity {
 
     String field_id;
     String field_title;

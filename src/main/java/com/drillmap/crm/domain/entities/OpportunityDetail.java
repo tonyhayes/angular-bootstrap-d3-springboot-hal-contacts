@@ -1,6 +1,6 @@
 package com.drillmap.crm.domain.entities;
 
-import com.drillmap.crm.domain.AuditableEntity;
+import com.drillmap.crm.domain.AuditableTenantEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -16,7 +16,7 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class OpportunityDetail extends AuditableEntity {
+public class OpportunityDetail extends AuditableTenantEntity {
     @ManyToOne
     SalesPerson sales;
     Date followUpdate;

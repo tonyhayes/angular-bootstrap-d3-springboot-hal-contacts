@@ -1,6 +1,6 @@
 package com.drillmap.crm.domain.entities;
 
-import com.drillmap.crm.domain.AuditableEntity;
+import com.drillmap.crm.domain.AuditableTenantEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -19,7 +19,7 @@ import javax.persistence.*;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class OpportunityForm extends AuditableEntity {
+public class OpportunityForm extends AuditableTenantEntity {
     String name;
     String value;
     @ManyToOne

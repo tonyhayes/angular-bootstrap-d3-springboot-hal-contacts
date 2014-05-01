@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 
-    @RequestMapping(value = {"/crm","/crm/index.html"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/index.html"}, method = RequestMethod.GET)
     public String index() {
         return "index";
     }

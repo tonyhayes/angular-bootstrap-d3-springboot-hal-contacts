@@ -1,6 +1,6 @@
 package com.drillmap.crm.domain.entities;
 
-import com.drillmap.crm.domain.AuditableEntity;
+import com.drillmap.crm.domain.AuditableTenantEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -16,7 +16,7 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = true, exclude = {"options"})
 @ToString(callSuper = true, exclude = {"options"})
-public class OpportunityFormComponent extends AuditableEntity {
+public class OpportunityFormComponent extends AuditableTenantEntity {
 
     String field_id;
     String field_title;
