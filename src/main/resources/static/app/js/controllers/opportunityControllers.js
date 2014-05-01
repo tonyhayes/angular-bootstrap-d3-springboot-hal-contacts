@@ -7,8 +7,7 @@ angular.module('customersApp.opportunityControllers', [])
     .controller('CustomerOpportunityController', ['$scope', '$routeParams', '$location',
         'customersService', 'modalService', 'OpportunityServices', 'CompanyServices',
 
-        function ($scope, $routeParams, $location,
-                  customersService, modalService, OpportunityServices, CompanyServices) {
+        function ($scope, $routeParams, $location, customersService, modalService, OpportunityServices, CompanyServices) {
 
             //Grab customerID off of the route
             $scope.customerID = parseInt($routeParams.customerID);
@@ -145,9 +144,7 @@ angular.module('customersApp.opportunityControllers', [])
         'CompanyServices', 'OpportunityServices',
         'OpportunityFormServices',
 
-        function ($scope, $routeParams, $location, $filter, customersService, salesPersonService,
-                  ContactServices, probabilitiesService, modalService, formComponentService, formComponentFormatService,
-                  OpportunityDetailServices, CompanyServices, OpportunityServices, OpportunityFormServices) {
+        function ($scope, $routeParams, $location, $filter, customersService, salesPersonService, ContactServices, probabilitiesService, modalService, formComponentService, formComponentFormatService, OpportunityDetailServices, CompanyServices, OpportunityServices, OpportunityFormServices) {
 
             $scope.master = {};
             $scope.opportunityFormObject = {};
@@ -164,7 +161,6 @@ angular.module('customersApp.opportunityControllers', [])
             $scope.customerID = $routeParams.customerID;
             $scope.opportunityID = ($routeParams.id);
             $scope.opportunityFormTemplate = formComponentFormatService.getOpportunityForm();
-
 
 
             init();
@@ -197,22 +193,22 @@ angular.module('customersApp.opportunityControllers', [])
                             angular.forEach($scope.opportunityForm, function (component) {
 
                                 /* find the field type
-                                dates and checklists require special formatting
+                                 dates and checklists require special formatting
                                  */
                                 var type = formComponentFormatService.getFormType(component);
-                                if(type == 'date'){
+                                if (type == 'date') {
                                     $scope.opportunityFormObject[component.name] = component.value;
                                     var d = new Date($scope.opportunityFormObject[component.name]);
                                     $scope.opportunityFormObject[component.name] = d;
-                                }else if(type == 'checklist'){
-                                    if($scope.opportunityFormObject[component.name]){
+                                } else if (type == 'checklist') {
+                                    if ($scope.opportunityFormObject[component.name]) {
                                         $scope.opportunityFormObject[component.name][component.value] = true;
-                                    }else{
-                                        $scope.opportunityFormObject[component.name]= {};
+                                    } else {
+                                        $scope.opportunityFormObject[component.name] = {};
                                         $scope.opportunityFormObject[component.name][component.value];
                                         $scope.opportunityFormObject[component.name][component.value] = true;
                                     }
-                                 }else{
+                                } else {
                                     $scope.opportunityFormObject[component.name] = component.value;
                                 }
 
@@ -425,9 +421,9 @@ angular.module('customersApp.opportunityControllers', [])
                 angular.forEach(formTemplate, function (component) {
                     if ($scope.opportunityFormObject[component.field_id]) {
 
-                        if(component.field_type == 'checklist'){
+                        if (component.field_type == 'checklist') {
                             /* check list contains an object to value pairs
-                            so I need to extract and send up
+                             so I need to extract and send up
                              */
                             angular.forEach($scope.opportunityFormObject[component.field_id], function (value, id) {
                                 var formField = {};
@@ -452,7 +448,7 @@ angular.module('customersApp.opportunityControllers', [])
 
                             });
 
-                        }else{
+                        } else {
                             var formField = {};
                             formField.name = component.field_id;
                             formField.value = $scope.opportunityFormObject[component.field_id];

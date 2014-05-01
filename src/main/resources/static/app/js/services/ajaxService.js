@@ -1,7 +1,7 @@
 angular.module('customersApp.ajaxService', [])
 //  constructor function to encapsulate HTTP and pagination logic
-    .factory('CustomerPages', function($http) {
-        var CustomerPages = function() {
+    .factory('CustomerPages', function ($http) {
+        var CustomerPages = function () {
             this.items = [];
             this.busy = false;
             this.pageNo = 0;
@@ -10,12 +10,12 @@ angular.module('customersApp.ajaxService', [])
 
         };
 
-        CustomerPages.prototype.nextPage = function() {
+        CustomerPages.prototype.nextPage = function () {
             if (this.busy) return;
             this.busy = true;
 
             if (this.searchText) {
-                 $http.get(dmApplicationEntryPoint + '/companies/search' +
+                $http.get(dmApplicationEntryPoint + '/companies/search' +
                         '/findByCompanyNameStartsWithOrCityStartsWithOrStateStartsWithOrContactNameStartsWith', {
                         params: {
                             sort: 'companyName', page: this.pageNo,
@@ -24,28 +24,28 @@ angular.module('customersApp.ajaxService', [])
                             state: this.searchText,
                             contactName: this.searchText}}
                 ).success(function (data) {
-                         if(data._embedded){
-                             var items = data._embedded.companies;
-                             for (var i = 0; i < items.length; i++) {
-                                 this.items.push(items[i]);
-                             }
-                             if (data._links && data._links.next) {
-                                 this.pageNo++;
-                                 this.busy = false;
-                                 this.allPages = false;
-                             } else {
-                                 // for filter search always set all pages to false
-                                 this.allPages = false;
-                             }
-                         }else{
-                             this.items = [];
-                         }
-                     }.bind(this));
+                        if (data._embedded) {
+                            var items = data._embedded.companies;
+                            for (var i = 0; i < items.length; i++) {
+                                this.items.push(items[i]);
+                            }
+                            if (data._links && data._links.next) {
+                                this.pageNo++;
+                                this.busy = false;
+                                this.allPages = false;
+                            } else {
+                                // for filter search always set all pages to false
+                                this.allPages = false;
+                            }
+                        } else {
+                            this.items = [];
+                        }
+                    }.bind(this));
 
             } else {
                 $http.get(dmApplicationEntryPoint + '/companies', {
                     params: {sort: 'companyName', page: this.pageNo}}).success(function (data) {
-                    if(data._embedded){
+                    if (data._embedded) {
                         var items = data._embedded.companies;
                         for (var i = 0; i < items.length; i++) {
                             this.items.push(items[i]);
@@ -57,8 +57,8 @@ angular.module('customersApp.ajaxService', [])
                         } else {
                             this.allPages = true;
                         }
-                        }else{
-                            this.items = [];
+                    } else {
+                        this.items = [];
                     }
                 }.bind(this));
             }
@@ -146,8 +146,8 @@ angular.module('customersApp.ajaxService', [])
         }
     })
 //  constructor function to encapsulate HTTP and pagination logic
-    .factory('ContactPages', function($http) {
-        var ContactPages = function() {
+    .factory('ContactPages', function ($http) {
+        var ContactPages = function () {
             this.items = [];
             this.busy = false;
             this.pageNo = 0;
@@ -157,7 +157,7 @@ angular.module('customersApp.ajaxService', [])
 
         };
 
-        ContactPages.prototype.nextPage = function() {
+        ContactPages.prototype.nextPage = function () {
             if (this.busy) return;
             this.busy = true;
 
@@ -173,7 +173,7 @@ angular.module('customersApp.ajaxService', [])
                             lastName: filter,
                             company: this.company}}
                 ).success(function (data) {
-                        if(data._embedded){
+                        if (data._embedded) {
                             var items = data._embedded.contacts;
                             for (var i = 0; i < items.length; i++) {
                                 this.items.push(items[i]);
@@ -186,7 +186,7 @@ angular.module('customersApp.ajaxService', [])
                                 // for filter search always set all pages to false
                                 this.allPages = false;
                             }
-                        }else{
+                        } else {
                             this.items = [];
                         }
                     }.bind(this));
@@ -194,7 +194,7 @@ angular.module('customersApp.ajaxService', [])
             } else {
                 $http.get(dmApplicationEntryPoint + '/contacts/search' + '/findByCompany', {
                     params: {sort: 'lastName', page: this.pageNo, company: this.company}}).success(function (data) {
-                    if(data._embedded){
+                    if (data._embedded) {
                         var items = data._embedded.contacts;
                         for (var i = 0; i < items.length; i++) {
                             this.items.push(items[i]);
@@ -206,7 +206,7 @@ angular.module('customersApp.ajaxService', [])
                         } else {
                             this.allPages = true;
                         }
-                    }else{
+                    } else {
                         this.items = [];
                     }
                 }.bind(this));
@@ -517,27 +517,30 @@ angular.module('customersApp.ajaxService', [])
 
             },
             setTestStates: function () {
-                states = [ {
-                    "createdAt" : 1398782061506,
-                    "updatedAt" : 1398782061506,
-                    "stateAbbr" : "TX",
-                    "name" : "Texas",
-                    "_links" : {
-                        "self" : {
-                            "href" : "http://localhost:9090/states/1"
+                states = [
+                    {
+                        "createdAt": 1398782061506,
+                        "updatedAt": 1398782061506,
+                        "stateAbbr": "TX",
+                        "name": "Texas",
+                        "_links": {
+                            "self": {
+                                "href": "http://localhost:9090/states/1"
+                            }
+                        }
+                    },
+                    {
+                        "createdAt": 1398782061507,
+                        "updatedAt": 1398782061507,
+                        "stateAbbr": "OK",
+                        "name": "Oklahoma",
+                        "_links": {
+                            "self": {
+                                "href": "http://localhost:9090/states/2"
+                            }
                         }
                     }
-                }, {
-                    "createdAt" : 1398782061507,
-                    "updatedAt" : 1398782061507,
-                    "stateAbbr" : "OK",
-                    "name" : "Oklahoma",
-                    "_links" : {
-                        "self" : {
-                            "href" : "http://localhost:9090/states/2"
-                        }
-                    }
-                }];
+                ];
 
             }
 
@@ -563,53 +566,56 @@ angular.module('customersApp.ajaxService', [])
 
             },
             setTestSalesPeople: function () {
-                salesPersons = [ {
-                    "createdAt" : 1398782061502,
-                    "updatedAt" : 1398782061502,
-                    "firstName" : "Chad",
-                    "lastName" : "Gardner",
-                    "title" : null,
-                    "addressLine1" : "89  Frontier Blvd",
-                    "addressLine2" : "Ste 54",
-                    "city" : "Houston",
-                    "state" : "TX",
-                    "zip" : "77478",
-                    "email" : "roger@doggers.com",
-                    "phone" : "832-867.5840",
-                    "cell" : "713.244.3657",
-                    "webPage" : null,
-                    "notes" : "Emily",
-                    "salesPersonDescription" : "Chad Gardner",
-                    "salesPersonId" : 1,
-                    "_links" : {
-                        "self" : {
-                            "href" : "http://localhost:9090/salesPersons/1"
+                salesPersons = [
+                    {
+                        "createdAt": 1398782061502,
+                        "updatedAt": 1398782061502,
+                        "firstName": "Chad",
+                        "lastName": "Gardner",
+                        "title": null,
+                        "addressLine1": "89  Frontier Blvd",
+                        "addressLine2": "Ste 54",
+                        "city": "Houston",
+                        "state": "TX",
+                        "zip": "77478",
+                        "email": "roger@doggers.com",
+                        "phone": "832-867.5840",
+                        "cell": "713.244.3657",
+                        "webPage": null,
+                        "notes": "Emily",
+                        "salesPersonDescription": "Chad Gardner",
+                        "salesPersonId": 1,
+                        "_links": {
+                            "self": {
+                                "href": "http://localhost:9090/salesPersons/1"
+                            }
+                        }
+                    },
+                    {
+                        "createdAt": 1398782061502,
+                        "updatedAt": 1398782061502,
+                        "firstName": "Bob",
+                        "lastName": "Richards",
+                        "title": null,
+                        "addressLine1": "89 James Cook  Blvd",
+                        "addressLine2": "Ste 45",
+                        "city": "Dallas",
+                        "state": "TX",
+                        "zip": "77478",
+                        "email": "roger@doggers.com",
+                        "phone": "832-867.5840",
+                        "cell": "713.244.3657",
+                        "webPage": null,
+                        "notes": "Emily",
+                        "salesPersonDescription": "Bob Richards",
+                        "salesPersonId": 2,
+                        "_links": {
+                            "self": {
+                                "href": "http://localhost:9090/salesPersons/2"
+                            }
                         }
                     }
-                }, {
-                    "createdAt" : 1398782061502,
-                    "updatedAt" : 1398782061502,
-                    "firstName" : "Bob",
-                    "lastName" : "Richards",
-                    "title" : null,
-                    "addressLine1" : "89 James Cook  Blvd",
-                    "addressLine2" : "Ste 45",
-                    "city" : "Dallas",
-                    "state" : "TX",
-                    "zip" : "77478",
-                    "email" : "roger@doggers.com",
-                    "phone" : "832-867.5840",
-                    "cell" : "713.244.3657",
-                    "webPage" : null,
-                    "notes" : "Emily",
-                    "salesPersonDescription" : "Bob Richards",
-                    "salesPersonId" : 2,
-                    "_links" : {
-                        "self" : {
-                            "href" : "http://localhost:9090/salesPersons/2"
-                        }
-                    }
-                }];
+                ];
 
             }
 
@@ -635,40 +641,44 @@ angular.module('customersApp.ajaxService', [])
 
             },
             setTestProbabilities: function () {
-                probabilities = [ {
-                    "createdAt" : 1398782061505,
-                    "updatedAt" : 1398782061505,
-                    "name" : "10%",
-                    "percentage" : 10,
-                    "probabilityId" : 1,
-                    "_links" : {
-                        "self" : {
-                            "href" : "http://localhost:9090/probabilities/1"
+                probabilities = [
+                    {
+                        "createdAt": 1398782061505,
+                        "updatedAt": 1398782061505,
+                        "name": "10%",
+                        "percentage": 10,
+                        "probabilityId": 1,
+                        "_links": {
+                            "self": {
+                                "href": "http://localhost:9090/probabilities/1"
+                            }
+                        }
+                    },
+                    {
+                        "createdAt": 1398782061505,
+                        "updatedAt": 1398782061505,
+                        "name": "20%",
+                        "percentage": 20,
+                        "probabilityId": 2,
+                        "_links": {
+                            "self": {
+                                "href": "http://localhost:9090/probabilities/2"
+                            }
+                        }
+                    },
+                    {
+                        "createdAt": 1398782061505,
+                        "updatedAt": 1398782061505,
+                        "name": "30%",
+                        "percentage": 30,
+                        "probabilityId": 3,
+                        "_links": {
+                            "self": {
+                                "href": "http://localhost:9090/probabilities/3"
+                            }
                         }
                     }
-                }, {
-                    "createdAt" : 1398782061505,
-                    "updatedAt" : 1398782061505,
-                    "name" : "20%",
-                    "percentage" : 20,
-                    "probabilityId" : 2,
-                    "_links" : {
-                        "self" : {
-                            "href" : "http://localhost:9090/probabilities/2"
-                        }
-                    }
-                }, {
-                    "createdAt" : 1398782061505,
-                    "updatedAt" : 1398782061505,
-                    "name" : "30%",
-                    "percentage" : 30,
-                    "probabilityId" : 3,
-                    "_links" : {
-                        "self" : {
-                            "href" : "http://localhost:9090/probabilities/3"
-                        }
-                    }
-                }];
+                ];
 
             }
 

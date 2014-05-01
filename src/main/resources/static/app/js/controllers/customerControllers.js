@@ -60,18 +60,17 @@ angular.module('customersApp.customerControllers', [])
             }
 
 
-
             function filterCustomers(filterText) {
                 // if all pages have been loaded, filter on the client
-                if ($scope.customerPages.allPages){
+                if ($scope.customerPages.allPages) {
                     //save pages
-                    if($scope.customerPages.savedPages){
+                    if ($scope.customerPages.savedPages) {
                         $scope.customerPages.items = angular.copy($scope.customerPages.savedPages);
-                    }else{
+                    } else {
                         $scope.customerPages.savedPages = angular.copy($scope.customerPages.items);
                     }
                     $scope.customerPages.items = $filter("nameCityStateFilter")($scope.customerPages.items, filterText);
-                }else {
+                } else {
                     $scope.customerPages.allPages = false;
                     $scope.customerPages.searchText = filterText;
                     $scope.customerPages.pageNo = 0;

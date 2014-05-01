@@ -8,8 +8,7 @@ angular.module('customersApp.contactControllers', [])
         'customersService', 'modalService',
         'statesService', 'ContactServices', 'CompanyServices', 'ContactPages',
 
-        function ($scope, $routeParams, $location, $filter,
-                  customersService, modalService, statesService, ContactServices, CompanyServices, ContactPages) {
+        function ($scope, $routeParams, $location, $filter, customersService, modalService, statesService, ContactServices, CompanyServices, ContactPages) {
             $scope.customer = customersService.getStoredCustomer();
             $scope.filterOptions = {
                 filterText: ''
@@ -44,18 +43,17 @@ angular.module('customersApp.contactControllers', [])
             }
 
 
-
             function filterContacts(filterText) {
                 // if all pages have been loaded, filter on the client
-                if ($scope.contactPages.allPages){
+                if ($scope.contactPages.allPages) {
                     //save pages
-                    if($scope.contactPages.savedPages){
+                    if ($scope.contactPages.savedPages) {
                         $scope.contactPages.items = angular.copy($scope.contactPages.savedPages);
-                    }else{
+                    } else {
                         $scope.contactPages.savedPages = angular.copy($scope.contactPages.items);
                     }
                     $scope.contactPages.items = $filter("contactNameCityStateFilter")($scope.contactPages.items, filterText);
-                }else {
+                } else {
                     $scope.contactPages.allPages = false;
                     $scope.contactPages.searchText = filterText;
                     $scope.contactPages.pageNo = 0;

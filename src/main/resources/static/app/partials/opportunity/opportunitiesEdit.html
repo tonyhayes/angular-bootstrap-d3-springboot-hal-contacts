@@ -17,10 +17,10 @@
         <div class="span12">
             <div class="span6">
 
-            <form name="customerOpportunitiesForm" ng-submit="submitForm()">
-                <button type="submit" class="btn btn-primary" ng-disabled="customerOpportunitiesForm.$invalid">Submit
-                </button>
-
+                <form name="customerOpportunitiesForm" ng-submit="submitForm()">
+                    <button type="submit" class="btn btn-primary" ng-disabled="customerOpportunitiesForm.$invalid">
+                        Submit
+                    </button>
 
 
                     <div class="form-group"
@@ -29,7 +29,7 @@
                         <select required ng-model="master.salesPersonId" class="form-control" name="salesPerson"
                                 ng-options="s.salesPersonId as s.salesPersonDescription for s in salesPerson_array"></select>
                         <!--<select required ng-model="master._links['crm:sales'].href" class="form-control" name="salesPerson"-->
-                                <!--ng-options="s._links.self.href as s.salesPersonDescription for s in salesPerson_array"></select>-->
+                        <!--ng-options="s._links.self.href as s.salesPersonDescription for s in salesPerson_array"></select>-->
 
 
                         <p ng-show="customerOpportunitiesForm.salesPerson.$invalid && !customerOpportunitiesForm.salesPerson.$pristine"
@@ -46,7 +46,6 @@
                         <p ng-show="customerOpportunitiesForm.contact.$invalid && !customerOpportunitiesForm.contact.$pristine"
                            class="help-block">Customer Contact is required.</p>
                     </div>
-
 
 
                     <dynamic-form class="span12 vertical" template="opportunityFormTemplate"
@@ -83,11 +82,12 @@
                                ng-model="master.discussion">
                     </div>
 
-                <div ng-include src='"app/partials/opportunity/opportunityActionGrid.html"'></div>
-                <button type="submit" class="btn btn-primary" ng-disabled="customerOpportunitiesForm.$invalid">Submit
-                </button>
+                    <div ng-include src='"app/partials/opportunity/opportunityActionGrid.html"'></div>
+                    <button type="submit" class="btn btn-primary" ng-disabled="customerOpportunitiesForm.$invalid">
+                        Submit
+                    </button>
 
-            </form>
+                </form>
             </div>
 
         </div>

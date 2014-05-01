@@ -6,10 +6,8 @@ angular.module('customersApp.applicationControllers', [])
     .controller("appController", [
         "$scope", "$timeout", "$q", '$location',
         "customersService", "statesService", "salesPersonService", "probabilitiesService",
-        "formComponentService","formComponentFormatService",
-        function ($scope, $timeout, $q, $location,
-                  customersService, statesService, salesPersonService, probabilitiesService,
-                  formComponentService, formComponentFormatService) {
+        "formComponentService", "formComponentFormatService",
+        function ($scope, $timeout, $q, $location, customersService, statesService, salesPersonService, probabilitiesService, formComponentService, formComponentFormatService) {
 
             $scope.isCurrentPath = function (path) {
                 return $location.path() == path;

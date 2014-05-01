@@ -40,10 +40,12 @@
                         <div class="span2">Field Type:</div>
                         <div class="span4">{{field.field_type}}</div>
                     </div>
-                    <button ng-if='$index>0' class="btn btn-primary " type="button" ng-click="moveFieldUp($index, field)">
+                    <button ng-if='$index>0' class="btn btn-primary " type="button"
+                            ng-click="moveFieldUp($index, field)">
                         <i class="icon-arrow-up icon-white"></i> Move Up
                     </button>
-                    <button ng-if='$index+1 < form.form_fields.length ' class="btn btn-primary " type="button" ng-click="moveFieldDown($index, field)">
+                    <button ng-if='$index+1 < form.form_fields.length ' class="btn btn-primary " type="button"
+                            ng-click="moveFieldDown($index, field)">
                         <i class="icon-arrow-down icon-white"></i> Move down
                     </button>
 

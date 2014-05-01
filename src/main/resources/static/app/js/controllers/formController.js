@@ -1,8 +1,6 @@
 angular.module('customersApp.formControllers', [])
 
-    .controller('FormController', function ($scope, $location, $anchorScroll, modalService,
-                                            FormService, formComponentService,
-                                            formUpdateService, formComponentFormatService) {
+    .controller('FormController', function ($scope, $location, $anchorScroll, modalService, FormService, formComponentService, formUpdateService, formComponentFormatService) {
 
         // preview form mode
         $scope.previewMode = false;
@@ -245,12 +243,12 @@ angular.module('customersApp.formControllers', [])
         };
 
         $scope.moveFieldUp = function (idx, field) {
-             // change the sequence number then sort the array
+            // change the sequence number then sort the array
             /*
-            first re-sequence everything, just in case of bad data, then
-            find the sequence number for the item above field, and swap
-            if nothing is above, set sequence to 1
-            then sort by sequence
+             first re-sequence everything, just in case of bad data, then
+             find the sequence number for the item above field, and swap
+             if nothing is above, set sequence to 1
+             then sort by sequence
              */
             var sequenceNumber = 0;
             var fields = $scope.form.form_fields;
@@ -259,9 +257,9 @@ angular.module('customersApp.formControllers', [])
                 field.fieldSequence = sequenceNumber;
             });
 
-            if(idx > 0){
-                newSeq =  angular.copy(fields[idx-1].fieldSequence);
-                fields[idx-1].fieldSequence = fields[idx].fieldSequence;
+            if (idx > 0) {
+                newSeq = angular.copy(fields[idx - 1].fieldSequence);
+                fields[idx - 1].fieldSequence = fields[idx].fieldSequence;
                 fields[idx].fieldSequence = newSeq;
                 sortJSONint(fields, 'fieldSequence', '123');
             }
@@ -279,13 +277,13 @@ angular.module('customersApp.formControllers', [])
             var sequenceNumber = 0;
             var fields = $scope.form.form_fields;
             angular.forEach(fields, function (field) {
-                sequenceNumber++ ;
+                sequenceNumber++;
                 field.fieldSequence = sequenceNumber;
             });
 
-            if(idx < fields.length){
-                newSeq =  angular.copy(fields[idx+1].fieldSequence);
-                fields[idx+1].fieldSequence = fields[idx].fieldSequence;
+            if (idx < fields.length) {
+                newSeq = angular.copy(fields[idx + 1].fieldSequence);
+                fields[idx + 1].fieldSequence = fields[idx].fieldSequence;
                 fields[idx].fieldSequence = newSeq;
                 sortJSONint(fields, 'fieldSequence', '123');
             }
@@ -294,7 +292,7 @@ angular.module('customersApp.formControllers', [])
 
 
         function sortJSONint(data, key, way) {
-            return data.sort(function(a, b) {
+            return data.sort(function (a, b) {
                 var x = parseInt(a[key]);
                 var y = parseInt(b[key]);
                 if (way === '123') {
@@ -320,9 +318,7 @@ angular.module('customersApp.formControllers', [])
             $location.path(url);
         };
     })
-    .controller('FormFieldController', function ($scope, $location, modalService,
-                                                 FormService, formComponentService,
-                                                 formUpdateService, formComponentFormatService) {
+    .controller('FormFieldController', function ($scope, $location, modalService, FormService, formComponentService, formUpdateService, formComponentFormatService) {
 
         // get the current custom fields
         $scope.old_form_fields = formComponentFormatService.getCustomFormFields();

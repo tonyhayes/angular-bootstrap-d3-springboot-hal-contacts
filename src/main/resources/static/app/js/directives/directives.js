@@ -152,31 +152,31 @@ angular.module('customersApp.directives', []).
             }
         };
     })
-    .directive('navTabs', ['$location', function(location) {
-    return {
-        restrict: 'A',
-        link: function(scope, element) {
-            var $ul = $(element);
-            $ul.addClass("nav nav-tabs");
+    .directive('navTabs', ['$location', function (location) {
+        return {
+            restrict: 'A',
+            link: function (scope, element) {
+                var $ul = $(element);
+                $ul.addClass("nav nav-tabs");
 
-            var $tabs = $ul.children();
-            var tabMap = {};
-            $tabs.each(function() {
-                var $li = $(this);
-                //Substring 1 to remove the # at the beginning (because location.path() below does not return the #)
-                tabMap[$li.find('a').attr('href').substring(1)] = $li;
-            });
+                var $tabs = $ul.children();
+                var tabMap = {};
+                $tabs.each(function () {
+                    var $li = $(this);
+                    //Substring 1 to remove the # at the beginning (because location.path() below does not return the #)
+                    tabMap[$li.find('a').attr('href').substring(1)] = $li;
+                });
 
-            scope.location = location;
-            scope.$watch('location.path()', function(newPath) {
-                $tabs.removeClass("active");
-                tabMap[newPath].addClass("active");
-            });
-        }
+                scope.location = location;
+                scope.$watch('location.path()', function (newPath) {
+                    $tabs.removeClass("active");
+                    tabMap[newPath].addClass("active");
+                });
+            }
 
-    };
+        };
 
-}])
+    }])
 
     .directive('modal', function () {
         return {
