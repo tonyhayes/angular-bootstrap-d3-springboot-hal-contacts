@@ -41,7 +41,7 @@
                     <div class="cardHeader">
 
                         <a data-ng-click="editContact(contact)" title="click to edit"
-                           class="cardHeader btn-link">{{contact.firstName+' '+contact.lastName}}</a>
+                           class="ellipsis cardHeader btn-link">{{contact.firstName+' '+contact.lastName}}</a>
                     </div>
                     <div class="cardBody">{{contact.addressLine1 + ', ' + contact.city}}</div>
                     <div ng-if="contact.cell" class="cardBody">{{'Cell: ' + contact.cell}}</div>

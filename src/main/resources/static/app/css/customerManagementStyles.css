@@ -11,8 +11,8 @@ body {
 .card {
     background-color: #efefef;
     border: 1px solid black;
-    height: 75px;
-    width: 275px;
+    height:100px;
+    width: 300px;
     margin-bottom: 20px;
     border-radius:7px;
     background:#fff;
@@ -43,6 +43,9 @@ body {
 .cardBody {
     padding-left: 5px;
 }
+.cardFooter{
+    margin-top: 18px;
+}
 
 .lastRow {
     background-color: #ccc;
@@ -57,7 +60,14 @@ footer {
     color: white;
 
 }
-
+.ellipsis {
+    text-overflow: ellipsis;
+    display: inline-block;
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: top;
+}
 /* Bootstrap overrides */
 
 .navbar .nav li.toolbaritem a:hover, .navbar .nav li a:hover{
