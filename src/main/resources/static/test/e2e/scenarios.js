@@ -23,21 +23,21 @@ describe('customersApp', function () {
 
     // make sure all the pages can be accessed
 
-    it('should automatically redirect to main page when location hash/fragment is empty', function () {
+    it('#1. should automatically redirect to main page when location hash/fragment is empty', function () {
         expect(browser.getLocationAbsUrl()).toMatch(appEntryPoint + "#/customers");
     });
 
-    it('should contain a view class in order to render correctly', function () {
+    it('#2. should contain a view class in order to render correctly', function () {
         var ele = by.css('.view');
         expect(ptor.isElementPresent(ele)).toBe(true);
     });
 
-    it('should contain a brand class with the app name', function () {
+    it('#3. should contain a brand class with the app name', function () {
         expect(element.all(by.css('.brand')).first().getText()).
             toMatch(/Customer Manager/);
     });
 
-    it('should load the footer page', function () {
+    it('#4. should load the footer page', function () {
         var ele = by.css('.footer');
         expect(ptor.isElementPresent(ele)).toBe(true);
     });
@@ -50,22 +50,22 @@ describe('customersApp', function () {
             ptor = protractor.getInstance();
         });
 
-        it('should contain a view class in order to render correctly', function () {
+        it('#5. should contain a view class in order to render correctly', function () {
             var ele = by.css('.view');
             expect(ptor.isElementPresent(ele)).toBe(true);
         });
 
-        it('should render customers when user navigates to /customers', function () {
+        it('#6. should render customers when user navigates to /customers', function () {
             expect(element.all(by.css('h3')).first().getText()).
                 toMatch(/Company Cards/);
         });
 
-        it('should contain a brand class with the app name', function () {
+        it('#7. should contain a brand class with the app name', function () {
             expect(element.all(by.css('.brand')).first().getText()).
                 toMatch(/Customer Manager/);
         });
 
-        it('should load the footer page', function () {
+        it('#8. should load the footer page', function () {
             var ele = by.css('.footer');
             expect(ptor.isElementPresent(ele)).toBe(true);
         });
@@ -83,22 +83,22 @@ describe('customersApp', function () {
         });
 
 
-        it('should render contact details when user navigates to contact details', function () {
+        it('#9. should render contact details when user navigates to contact details', function () {
             expect(element.all(by.css('h3')).first().getText()).
                 toMatch(/Contact Card Details/);
         });
 
-        it('should contain a view class in order to render correctly', function () {
+        it('#10. should contain a view class in order to render correctly', function () {
             var ele = by.css('.view');
             expect(ptor.isElementPresent(ele)).toBe(true);
         });
 
-        it('should contain a brand class with the app name', function () {
+        it('#11. should contain a brand class with the app name', function () {
             expect(element.all(by.css('.brand')).first().getText()).
                 toMatch(/Customer Manager/);
         });
 
-        it('should load the footer page', function () {
+        it('#12. should load the footer page', function () {
             var ele = by.css('.footer');
             expect(ptor.isElementPresent(ele)).toBe(true);
         });
@@ -116,22 +116,22 @@ describe('customersApp', function () {
         });
 
 
-        it('should render opportunity details when user navigates to opportunity details', function () {
+        it('#13. should render opportunity details when user navigates to opportunity details', function () {
             expect(element.all(by.css('h3')).first().getText()).
                 toMatch(/Customer Opportunity Details/);
         });
 
-        it('should contain a view class in order to render correctly', function () {
+        it('#14. should contain a view class in order to render correctly', function () {
             var ele = by.css('.view');
             expect(ptor.isElementPresent(ele)).toBe(true);
         });
 
-        it('should contain a brand class with the app name', function () {
+        it('#15. should contain a brand class with the app name', function () {
             expect(element.all(by.css('.brand')).first().getText()).
                 toMatch(/Customer Manager/);
         });
 
-        it('should load the footer page', function () {
+        it('#16. should load the footer page', function () {
             var ele = by.css('.footer');
             expect(ptor.isElementPresent(ele)).toBe(true);
         });
@@ -148,22 +148,22 @@ describe('customersApp', function () {
         });
 
 
-        it('should render opportunity maintenance when user navigates to edit page', function () {
+        it('#17. should render opportunity maintenance when user navigates to edit page', function () {
             expect(element.all(by.css('h3')).first().getText()).
                 toMatch(/Customer Opportunities Maintenance/);
         });
 
-        it('should contain a view class in order to render correctly', function () {
+        it('#18. should contain a view class in order to render correctly', function () {
             var ele = by.css('.view');
             expect(ptor.isElementPresent(ele)).toBe(true);
         });
 
-        it('should contain a brand class with the app name', function () {
+        it('#19. should contain a brand class with the app name', function () {
             expect(element.all(by.css('.brand')).first().getText()).
                 toMatch(/Customer Manager/);
         });
 
-        it('should load the footer page', function () {
+        it('#20. should load the footer page', function () {
             var ele = by.css('.footer');
             expect(ptor.isElementPresent(ele)).toBe(true);
         });
@@ -180,22 +180,22 @@ describe('customersApp', function () {
         });
 
 
-        it('should render customer maintenance when user navigates to edit page', function () {
+        it('#21. should render customer maintenance when user navigates to edit page', function () {
             expect(element.all(by.css('h3')).first().getText()).
                 toMatch(/Customer Maintenance/);
         });
 
-        it('should contain a view class in order to render correctly', function () {
+        it('#22. should contain a view class in order to render correctly', function () {
             var ele = by.css('.view');
             expect(ptor.isElementPresent(ele)).toBe(true);
         });
 
-        it('should contain a brand class with the app name', function () {
+        it('#23. should contain a brand class with the app name', function () {
             expect(element.all(by.css('.brand')).first().getText()).
                 toMatch(/Customer Manager/);
         });
 
-        it('should load the footer page', function () {
+        it('#24. should load the footer page', function () {
             var ele = by.css('.footer');
             expect(ptor.isElementPresent(ele)).toBe(true);
         });
@@ -214,22 +214,22 @@ describe('customersApp', function () {
         });
 
 
-        it('should render form administration when user navigates to the form admin page', function () {
+        it('#25. should render form administration when user navigates to the form admin page', function () {
             expect(element.all(by.css('h1')).first().getText()).
                 toMatch(/Create fields for your opportunities form/);
         });
 
-        it('should contain a view class in order to render correctly', function () {
+        it('#26. should contain a view class in order to render correctly', function () {
             var ele = by.css('.view');
             expect(ptor.isElementPresent(ele)).toBe(true);
         });
 
-        it('should contain a brand class with the app name', function () {
+        it('#27. should contain a brand class with the app name', function () {
             expect(element.all(by.css('.brand')).first().getText()).
                 toMatch(/Customer Manager/);
         });
 
-        it('should load the footer page', function () {
+        it('#28. should load the footer page', function () {
             var ele = by.css('.footer');
             expect(ptor.isElementPresent(ele)).toBe(true);
         });
@@ -247,22 +247,22 @@ describe('customersApp', function () {
         });
 
 
-        it('should render form administration when user navigates to the form admin page', function () {
+        it('#29. should render form administration when user navigates to the form admin page', function () {
             expect(element.all(by.css('h1')).first().getText()).
                 toMatch(/Create custom fields for your forms/);
         });
 
-        it('should contain a view class in order to render correctly', function () {
+        it('#30. should contain a view class in order to render correctly', function () {
             var ele = by.css('.view');
             expect(ptor.isElementPresent(ele)).toBe(true);
         });
 
-        it('should contain a brand class with the app name', function () {
+        it('#31. should contain a brand class with the app name', function () {
             expect(element.all(by.css('.brand')).first().getText()).
                 toMatch(/Customer Manager/);
         });
 
-        it('should load the footer page', function () {
+        it('#33. should load the footer page', function () {
             var ele = by.css('.footer');
             expect(ptor.isElementPresent(ele)).toBe(true);
         });
@@ -292,7 +292,7 @@ describe('customersApp', function () {
 //
 //        });
 
-        it('should navigate to the /customers page when clicking', function () {
+        it('#34. should navigate to the /customers page when clicking', function () {
             element(by.css('.navbar-inner ul li:nth-child(1)')).click();
             expect(ptor.getCurrentUrl()).toMatch(/\/customers/);
 
@@ -303,7 +303,7 @@ describe('customersApp', function () {
         });
 
 
-        it('should navigate to the /customers page when clicking the brand', function () {
+        it('#35. should navigate to the /customers page when clicking the brand', function () {
             element(by.css('.brand')).click();
             expect(ptor.getCurrentUrl()).toMatch(/\/customers/);
 
@@ -326,14 +326,14 @@ describe('customersApp', function () {
         });
 
 
-        it('should have 20 customers (for some reason you count twice?)', function () {
+        it('#36. should have 20 customers (for some reason you count twice?)', function () {
             var elems = element.all(by.repeater("customer in customerPages.items"));
             expect(elems.count()).not.toEqual(0);
         });
 
-        it('the first card includes a delete element', function () {
+        it('#37. the last card includes a delete element', function () {
             var elems = element.all(by.repeater('customer in customerPages.items'));
-            elems.first().then(function (elm) {
+            elems.last().then(function (elm) {
                 elm.findElement(by.tagName('button')).then(function (button) {
                     button.getAttribute('title').then(function (title) {
                         expect(title).toMatch(/delete/);
@@ -342,13 +342,13 @@ describe('customersApp', function () {
             });
         });
 
-        it('the first card includes a delete element - test delete', function () {
+        it('#38. the last card includes a delete element - test delete', function () {
             var elems = element.all(by.repeater('customer in customerPages.items'));
-            elems.first().then(function (elm) {
+            elems.last().then(function (elm) {
                 elm.findElement(by.tagName('button')).click().then(function (modal) {
                     ptor.sleep(1000);
                     element(by.css('.btn-primary')).click().then(function (ok) {
-                        ptor.sleep(1000);
+//                        ptor.sleep(1000);
 //                        var eles = element.all(by.repeater("customer in customerPages.items"));
 //                        var b4 = parseInt(elems.count());
 //                        var now = parseInt(eles.count());
@@ -360,23 +360,19 @@ describe('customersApp', function () {
         });
 
         // test filter
-        it('should filter down to reflect the filter input', function () {
-            var b4eles = element.all(by.repeater("customer in customerPages.items"));
+        it('#39. should filter down to reflect the filter input', function () {
 
-            element(by.input('searchText')).sendKeys('Cab');
+            element(by.input('searchText')).sendKeys('Hay');
             ptor.sleep(1000);
 
-//            var eles = element.all(by.repeater("customer in customerPages.items"));
-//            var b4 = parseInt(b4eles.count());
-//            var now = parseInt(eles.count());
-//            var total = b4 - now;
-//            expect(now).toBe(2);
+            var eles = element.all(by.repeater("customer in customerPages.items"));
+            expect(eles.count()).not.toBe(0);
 
 
         });
 
         // test add customer button
-        it('should navigate to the /customeredit page when clicking the plus icon', function () {
+        it('#40. should navigate to the /customeredit page when clicking the plus icon', function () {
             element(by.css('.icon-plus')).click();
             expect(ptor.getCurrentUrl()).toMatch(/\/customeredit/);
 
@@ -388,7 +384,7 @@ describe('customersApp', function () {
         });
 
         // test maintain customer button
-        it('should navigate to the customer card page when clicking', function () {
+        it('#41. should navigate to the customer card page when clicking', function () {
             var elems = element.all(by.repeater('customer in customerPages.items'));
             elems.first().then(function (elm) {
                 elm.findElements(by.tagName('a')).then(function (anchor) {
@@ -410,7 +406,7 @@ describe('customersApp', function () {
 
 
         // test view contacts button
-        it('should navigate to the contact cards page when clicking', function () {
+        it('#42. should navigate to the contact cards page when clicking', function () {
             var elems = element.all(by.repeater('customer in customerPages.items'));
             elems.first().then(function (elm) {
                 elm.findElements(by.tagName('a')).then(function (anchor) {
@@ -431,7 +427,7 @@ describe('customersApp', function () {
         });
 
         // test view opportunities button
-        it('should navigate to the opportunity cards page when clicking', function () {
+        it('#43. should navigate to the opportunity cards page when clicking', function () {
             var elems = element.all(by.repeater('customer in customerPages.items'));
             elems.first().then(function (elm) {
                 elm.findElements(by.tagName('a')).then(function (anchor) {
@@ -480,7 +476,7 @@ describe('customersApp', function () {
         });
 
 
-        it('should modify the customer name, navigate away with no changes to the customer', function () {
+        it('#44. should modify the customer name, navigate away with no changes to the customer', function () {
 
             element(by.input('master.companyName')).sendKeys('chernoble gases');
             // return to customers page
@@ -504,7 +500,7 @@ describe('customersApp', function () {
             });
         });
 
-        it('should modify the customer name on enter', function () {
+        it('#45. should modify the customer name on enter', function () {
 
             element(by.input('master.companyName')).sendKeys('chernoble gases\n');
 
@@ -519,7 +515,7 @@ describe('customersApp', function () {
             });
         });
 
-        it('should modify the customer name on submit', function () {
+        it('#46. should modify the customer name on submit', function () {
 
             element(by.input('master.companyName')).sendKeys('chernoble gases');
             element(by.css('.btn-primary')).click();
@@ -535,7 +531,7 @@ describe('customersApp', function () {
             });
         });
 
-        it('should reset this so test can run again', function () {
+        it('#47. should reset this so test can run again', function () {
             element(by.input('master.companyName')).clear();
             element(by.input('master.companyName')).sendKeys('tonys last ditch effort');
             element(by.css('.btn-primary')).click();
@@ -554,11 +550,11 @@ describe('customersApp', function () {
     // end of customer maintenance interactions
     });
 
-    describe('customer contact interactions', function () {
+    describe('contact interactions', function () {
 
         var ptor;
         beforeEach(function () {
-            browser.get('http://localhost:9090/crm#/customers');
+            browser.get(appEntryPoint + '#/customers');
             ptor = protractor.getInstance();
 
             var elems = element.all(by.repeater('customer in customerPages.items'));
@@ -568,34 +564,63 @@ describe('customersApp', function () {
 
                     anchor[1].click();
 
-                    expect(ptor.getCurrentUrl()).toMatch(/\/customercontactdetails/);
+                    expect(ptor.getCurrentUrl()).toMatch(/\/contactcards/);
 
                     // just to make sure
                     expect(element.all(by.css('h3')).first().getText()).
-                        toMatch(/Customer Contact Card Details/);
+                        toMatch(/Contact Card Details/);
 
                 });
             });
 
         });
+        it('#48. should have 20 customers (for some reason you count twice?)', function () {
+            var elems = element.all(by.repeater("contact in contactPages.items"));
+            expect(elems.count()).not.toEqual(0);
+        });
+
+        it('#49. the last card includes a delete element', function () {
+            var elems = element.all(by.repeater('contact in contactPages.items'));
+            elems.last().then(function (elm) {
+                elm.findElement(by.tagName('button')).then(function (button) {
+                    button.getAttribute('title').then(function (title) {
+                        expect(title).toMatch(/delete/);
+                    });
+                })
+            });
+        });
+
+        it('#50. the last card includes a delete element - test delete', function () {
+            var elems = element.all(by.repeater('contact in contactPages.items'));
+            elems.last().then(function (elm) {
+                elm.findElement(by.tagName('button')).click().then(function (modal) {
+                    ptor.sleep(1000);
+                    element(by.css('.btn-primary')).click().then(function (ok) {
+//                        ptor.sleep(1000);
+//                        var eles = element.all(by.repeater("customer in customerPages.items"));
+//                        var b4 = parseInt(elems.count());
+//                        var now = parseInt(eles.count());
+//                        var total = b4 - now;
+//                        expect(total).toBe(2);
+                    });
+                });
+            });
+        });
+
         // test filter
-        it('should filter down to reflect the filter input', function () {
+        it('#51. should filter down to reflect the filter input', function () {
 
-            element(by.input('filterOptions.filterText')).sendKeys('ear');
+            element(by.input('searchText')).sendKeys('Hay');
             ptor.sleep(1000);
 
-            var eles = element.all(by.repeater("row in renderedRows"));
-            expect(eles.count()).toBe(4);
+            var eles = element.all(by.repeater("contact in contactPages.items"));
+            expect(eles.count()).not.toBe(0);
 
-            element(by.input('filterOptions.filterText')).sendKeys('zzz');
-            ptor.sleep(1000);
-
-            var eles = element.all(by.repeater("row in renderedRows"));
-            expect(eles.count()).toBe(3);
 
         });
 
-        it('should display a modal when clicking on add contact card', function () {
+
+        it('#52. should display a modal when clicking on add contact card', function () {
             element(by.css('.icon-plus')).click();
             ptor.sleep(1000);
 
@@ -604,32 +629,73 @@ describe('customersApp', function () {
                 toMatch(/Submit/);
 
         });
-        it('should double click on a row and display a modal', function () {
 
-            var target = element.all(by.css('.ngCell')).first();
-
-            browser.actions().doubleClick(target).perform();
-            ptor.sleep(1000);
-
-
-            expect(element.all(by.css('.btn-primary')).first().getText()).
-                toMatch(/Submit/);
-
-            element.all(by.css('.btn-primary')).first().click();
-            ptor.sleep(1000);
+        // test maintain contact button
+        it('#53. should navigate to the contact card page when clicking', function () {
+            var elems = element.all(by.repeater('contact in contactPages.items'));
+            elems.first().then(function (elm) {
+                elm.findElements(by.tagName('a')).then(function (anchor) {
 
 
+                    anchor[0].click();
+
+                    ptor.sleep(1000);
+
+
+                    expect(element.all(by.css('.btn-primary')).first().getText()).
+                        toMatch(/Submit/);
+
+                    element.all(by.css('.btn-primary')).first().click();
+                    ptor.sleep(1000);
+
+
+                });
+            });
 
         });
 
-        it('should double click on a row, display a modal and update a contact name', function () {
+        it('#54. should click on a card, display a modal, update a contact name then cancel leaving the name as-is', function () {
 
-            var target = element.all(by.css('.ngCell')).first();
+            var elems = element.all(by.repeater('contact in contactPages.items'));
+            elems.first().then(function (elm) {
+                elm.findElements(by.tagName('a')).then(function (anchor) {
 
-            browser.actions().doubleClick(target).perform();
+
+                    anchor[0].click();
+
+                    ptor.sleep(1000);
+
+                    element(by.input('modalOptions.record.firstName')).sendKeys('yyy');
+
+
+                    element.all(by.css('.btn')).first().click();
+                    ptor.sleep(1000);
+
+                    var elems = element.all(by.repeater('contact in contactPages.items'));
+                    elems.first().then(function (elm) {
+                        elm.findElements(by.tagName('a')).then(function (anchor) {
+
+                            var firstName = anchor[0].getText();
+
+                            expect(firstName).not.toContain('yyy');
+                        });
+                    });
+
+                });
+            });
+
+        });
+
+        it('#55. should click on a card, display a modal and update a contact name', function () {
+            var elems = element.all(by.repeater('contact in contactPages.items'));
+            elems.first().then(function (elm) {
+                elm.findElements(by.tagName('a')).then(function (anchor) {
+
+
+                    anchor[0].click();
             ptor.sleep(1000);
 
-            element(by.input('modalOptions.record.firstname')).sendKeys('y');
+            element(by.input('modalOptions.record.firstName')).sendKeys('yyy');
 
             expect(element.all(by.css('.btn-primary')).first().getText()).
                toMatch(/Submit/);
@@ -637,28 +703,52 @@ describe('customersApp', function () {
             element.all(by.css('.btn-primary')).first().click();
             ptor.sleep(1000);
 
-            expect(element.all(by.css('.ngCellText')).first().getText()).
-                toMatch(/Early/);
+            var elems = element.all(by.repeater('contact in contactPages.items'));
+            elems.first().then(function (elm) {
+                elm.findElements(by.tagName('a')).then(function (anchor) {
+
+                    var companyName = anchor[0].getText();
+
+                    expect(companyName).toContain('yyy');
+                });
+            });
 
         });
-
-        it('should double click on a row, display a modal, update a contact name then cancel leaving the name as-is', function () {
-
-            var target = element.all(by.css('.ngCell')).first();
-
-            browser.actions().doubleClick(target).perform();
-            ptor.sleep(1000);
-
-            element(by.input('modalOptions.record.firstname')).sendKeys('y');
-
-
-            element.all(by.css('.btn')).first().click();
-            ptor.sleep(1000);
-
-            expect(element.all(by.css('.ngCellText')).first().getText()).
-                toMatch(/Earl/);
-
+            });
         });
+
+        it('#55-1. reset contact name', function () {
+            var elems = element.all(by.repeater('contact in contactPages.items'));
+            elems.first().then(function (elm) {
+                elm.findElements(by.tagName('a')).then(function (anchor) {
+
+
+                    anchor[0].click();
+                    ptor.sleep(1000);
+                    element(by.input('modalOptions.record.firstName')).clear();
+
+                    element(by.input('modalOptions.record.firstName')).sendKeys('Tony');
+
+                    expect(element.all(by.css('.btn-primary')).first().getText()).
+                        toMatch(/Submit/);
+
+                    element.all(by.css('.btn-primary')).first().click();
+                    ptor.sleep(1000);
+
+                    var elems = element.all(by.repeater('contact in contactPages.items'));
+                    elems.first().then(function (elm) {
+                        elm.findElements(by.tagName('a')).then(function (anchor) {
+
+                            var companyName = anchor[0].getText();
+
+                            expect(companyName).not.toContain('yyy');
+                        });
+                    });
+
+                });
+            });
+        });
+
 
         // end of customer contact interactions
     });
@@ -688,7 +778,7 @@ describe('customersApp', function () {
             });
 
         });
-        it('should display a page when clicking on add opportunity ', function () {
+        it('#56. should display a page when clicking on add opportunity ', function () {
             element(by.css('.icon-plus')).click();
             ptor.sleep(1000);
 
@@ -699,7 +789,7 @@ describe('customersApp', function () {
 
         });
         // test filter
-        it('should filter down to reflect the filter input', function () {
+        it('#57. should filter down to reflect the filter input', function () {
 
             element(by.input('filterOptions.filterText')).sendKeys('big');
             ptor.sleep(1000);
@@ -715,7 +805,7 @@ describe('customersApp', function () {
 
         });
 
-        it('should display a page when clicking on add opportunity ', function () {
+        it('#58. should display a page when clicking on add opportunity ', function () {
             element(by.css('.icon-plus')).click();
             ptor.sleep(1000);
 
@@ -726,7 +816,7 @@ describe('customersApp', function () {
 
         });
 
-        it('should double click on a row and display a page', function () {
+        it('#59. should double click on a row and display a page', function () {
 
             var target = element.all(by.css('.ngCell')).first();
 
@@ -749,7 +839,7 @@ describe('customersApp', function () {
 
         });
 
-        it('should double click on a row, display opportunity edit and update name', function () {
+        it('#60. should double click on a row, display opportunity edit and update name', function () {
 
             var target = element.all(by.css('.ngCell')).first();
 
@@ -769,11 +859,11 @@ describe('customersApp', function () {
             ptor.sleep(1000);
 
             expect(element.all(by.css('.ngCellText')).first().getText()).
-                toMatch(/Bob Richards/);
+                toMatch(/Chad Gardner/);
 
         });
 
-        it('should double click on a row, display opportunity edit, update name then cancel leaving the name as-is', function () {
+        it('#61. should double click on a row, display opportunity edit, update name then cancel leaving the name as-is', function () {
 
             var target = element.all(by.css('.ngCell')).first();
 
@@ -813,7 +903,7 @@ describe('customersApp', function () {
 
         });
 
-        it('should double click on a row, ' +
+        it('#62. should double click on a row, ' +
             'display opportunity edit and double click on an action row to display a modal and change the sales name',
             function () {
 
@@ -843,7 +933,7 @@ describe('customersApp', function () {
 
         });
 
-        it('should double click on a row, ' +
+        it('#63. should double click on a row, ' +
             'display opportunity edit and double click on an action row to display a modal, ' +
             'then back out', function () {
 
