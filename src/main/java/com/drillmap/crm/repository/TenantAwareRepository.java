@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 
@@ -40,6 +41,7 @@ public interface TenantAwareRepository<T,ID extends Serializable> extends JpaRep
     T findOne(@Param(value = "id") ID id, @Param(value = "tenantId") ID tenantId);
 
     @Modifying
+    @Transactional
     @Query("delete from #{#entityName} e where e.id = :id and e.tenantId = :tenantId")
     void delete(@Param(value = "id") ID id, @Param(value = "tenantId") ID tenantId);
 

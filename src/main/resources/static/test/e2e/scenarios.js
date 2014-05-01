@@ -554,114 +554,114 @@ describe('customersApp', function () {
     // end of customer maintenance interactions
     });
 
-//    describe('customer contact interactions', function () {
-//
-//        var ptor;
-//        beforeEach(function () {
-//            browser.get('http://localhost:9090/crm#/customers');
-//            ptor = protractor.getInstance();
-//
-//            var elems = element.all(by.repeater('customer in customerPages.items'));
-//            elems.first().then(function (elm) {
-//                elm.findElements(by.tagName('a')).then(function (anchor) {
-//
-//
-//                    anchor[1].click();
-//
-//                    expect(ptor.getCurrentUrl()).toMatch(/\/customercontactdetails/);
-//
-//                    // just to make sure
-//                    expect(element.all(by.css('h3')).first().getText()).
-//                        toMatch(/Customer Contact Card Details/);
-//
-//                });
-//            });
-//
-//        });
-//        // test filter
-//        it('should filter down to reflect the filter input', function () {
-//
-//            element(by.input('filterOptions.filterText')).sendKeys('ear');
-//            ptor.sleep(1000);
-//
-//            var eles = element.all(by.repeater("row in renderedRows"));
-//            expect(eles.count()).toBe(4);
-//
-//            element(by.input('filterOptions.filterText')).sendKeys('zzz');
-//            ptor.sleep(1000);
-//
-//            var eles = element.all(by.repeater("row in renderedRows"));
-//            expect(eles.count()).toBe(3);
-//
-//        });
-//
-//        it('should display a modal when clicking on add contact card', function () {
-//            element(by.css('.icon-plus')).click();
-//            ptor.sleep(1000);
-//
-//
-//            expect(element.all(by.css('.btn-primary')).first().getText()).
-//                toMatch(/Submit/);
-//
-//        });
-//        it('should double click on a row and display a modal', function () {
-//
-//            var target = element.all(by.css('.ngCell')).first();
-//
-//            browser.actions().doubleClick(target).perform();
-//            ptor.sleep(1000);
-//
-//
-//            expect(element.all(by.css('.btn-primary')).first().getText()).
-//                toMatch(/Submit/);
-//
-//            element.all(by.css('.btn-primary')).first().click();
-//            ptor.sleep(1000);
-//
-//
-//
-//        });
-//
-//        it('should double click on a row, display a modal and update a contact name', function () {
-//
-//            var target = element.all(by.css('.ngCell')).first();
-//
-//            browser.actions().doubleClick(target).perform();
-//            ptor.sleep(1000);
-//
-//            element(by.input('modalOptions.record.firstname')).sendKeys('y');
-//
-//            expect(element.all(by.css('.btn-primary')).first().getText()).
-//               toMatch(/Submit/);
-//
-//            element.all(by.css('.btn-primary')).first().click();
-//            ptor.sleep(1000);
-//
-//            expect(element.all(by.css('.ngCellText')).first().getText()).
-//                toMatch(/Early/);
-//
-//        });
-//
-//        it('should double click on a row, display a modal, update a contact name then cancel leaving the name as-is', function () {
-//
-//            var target = element.all(by.css('.ngCell')).first();
-//
-//            browser.actions().doubleClick(target).perform();
-//            ptor.sleep(1000);
-//
-//            element(by.input('modalOptions.record.firstname')).sendKeys('y');
-//
-//
-//            element.all(by.css('.btn')).first().click();
-//            ptor.sleep(1000);
-//
-//            expect(element.all(by.css('.ngCellText')).first().getText()).
-//                toMatch(/Earl/);
-//
-//        });
-//
-//        // end of customer contact interactions
-//    });
+    describe('customer contact interactions', function () {
+
+        var ptor;
+        beforeEach(function () {
+            browser.get('http://localhost:9090/crm#/customers');
+            ptor = protractor.getInstance();
+
+            var elems = element.all(by.repeater('customer in customerPages.items'));
+            elems.first().then(function (elm) {
+                elm.findElements(by.tagName('a')).then(function (anchor) {
+
+
+                    anchor[1].click();
+
+                    expect(ptor.getCurrentUrl()).toMatch(/\/customercontactdetails/);
+
+                    // just to make sure
+                    expect(element.all(by.css('h3')).first().getText()).
+                        toMatch(/Customer Contact Card Details/);
+
+                });
+            });
+
+        });
+        // test filter
+        it('should filter down to reflect the filter input', function () {
+
+            element(by.input('filterOptions.filterText')).sendKeys('ear');
+            ptor.sleep(1000);
+
+            var eles = element.all(by.repeater("row in renderedRows"));
+            expect(eles.count()).toBe(4);
+
+            element(by.input('filterOptions.filterText')).sendKeys('zzz');
+            ptor.sleep(1000);
+
+            var eles = element.all(by.repeater("row in renderedRows"));
+            expect(eles.count()).toBe(3);
+
+        });
+
+        it('should display a modal when clicking on add contact card', function () {
+            element(by.css('.icon-plus')).click();
+            ptor.sleep(1000);
+
+
+            expect(element.all(by.css('.btn-primary')).first().getText()).
+                toMatch(/Submit/);
+
+        });
+        it('should double click on a row and display a modal', function () {
+
+            var target = element.all(by.css('.ngCell')).first();
+
+            browser.actions().doubleClick(target).perform();
+            ptor.sleep(1000);
+
+
+            expect(element.all(by.css('.btn-primary')).first().getText()).
+                toMatch(/Submit/);
+
+            element.all(by.css('.btn-primary')).first().click();
+            ptor.sleep(1000);
+
+
+
+        });
+
+        it('should double click on a row, display a modal and update a contact name', function () {
+
+            var target = element.all(by.css('.ngCell')).first();
+
+            browser.actions().doubleClick(target).perform();
+            ptor.sleep(1000);
+
+            element(by.input('modalOptions.record.firstname')).sendKeys('y');
+
+            expect(element.all(by.css('.btn-primary')).first().getText()).
+               toMatch(/Submit/);
+
+            element.all(by.css('.btn-primary')).first().click();
+            ptor.sleep(1000);
+
+            expect(element.all(by.css('.ngCellText')).first().getText()).
+                toMatch(/Early/);
+
+        });
+
+        it('should double click on a row, display a modal, update a contact name then cancel leaving the name as-is', function () {
+
+            var target = element.all(by.css('.ngCell')).first();
+
+            browser.actions().doubleClick(target).perform();
+            ptor.sleep(1000);
+
+            element(by.input('modalOptions.record.firstname')).sendKeys('y');
+
+
+            element.all(by.css('.btn')).first().click();
+            ptor.sleep(1000);
+
+            expect(element.all(by.css('.ngCellText')).first().getText()).
+                toMatch(/Earl/);
+
+        });
+
+        // end of customer contact interactions
+    });
 
 
     describe('opportunity interactions', function () {

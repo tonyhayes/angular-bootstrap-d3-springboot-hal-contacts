@@ -65,7 +65,7 @@ public class Company extends AuditableTenantEntity {
     }
 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Contact primaryContact;
 
 
