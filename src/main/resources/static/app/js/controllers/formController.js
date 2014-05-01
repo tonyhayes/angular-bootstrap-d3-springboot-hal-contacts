@@ -180,6 +180,19 @@ angular.module('customersApp.formControllers', [])
 
             }
             else {
+                /*
+                 first re-sequence everything, just in case of bad data, then
+                 find the sequence number for the item above field, and swap
+                 if nothing is above, set sequence to 1
+                 then sort by sequence
+                 */
+                var sequenceNumber = 0;
+                var fields = $scope.form.form_fields;
+                angular.forEach(fields, function (field) {
+                    sequenceNumber++;
+                    field.fieldSequence = sequenceNumber;
+                });
+                sortJSONint(fields, 'fieldSequence', '123');
 
                 $scope.previewForm = FormService.setDynamicForm(angular.copy($scope.form.form_fields));
                 $scope.formData = {};
@@ -296,7 +309,7 @@ angular.module('customersApp.formControllers', [])
 
         // send all the fields to the store
         $scope.submit = function () {
-            formUpdateService.updateForm($scope.old_form_fields, $scope.form.form_fields, 'opportunity');
+            formUpdateService.updateForm($scope.old_form_fields, angular.copy($scope.form.form_fields), 'opportunity');
             formComponentFormatService.replaceDynamicForm($scope.form.form_fields);
 
             // return to applications default page
@@ -411,7 +424,7 @@ angular.module('customersApp.formControllers', [])
 
         // send all the fields to the store
         $scope.submit = function () {
-            formUpdateService.updateForm($scope.old_form_fields, $scope.form_fields, 'global');
+            formUpdateService.updateForm($scope.old_form_fields, angular.copy($scope.form_fields), 'global');
 
             // return to applications default page
             $location.path('/');

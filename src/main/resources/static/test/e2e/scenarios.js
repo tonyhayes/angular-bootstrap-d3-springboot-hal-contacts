@@ -528,6 +528,22 @@ describe('customersApp', function () {
             });
         });
 
+        it('should reset this so test can run again', function () {
+            element(by.input('master.companyName')).clear();
+            element(by.input('master.companyName')).sendKeys('tonys last ditch effort');
+            element(by.css('.btn-primary')).click();
+
+            var elems = element.all(by.repeater('customer in customerPages.items'));
+            elems.first().then(function (elm) {
+                elm.findElements(by.tagName('a')).then(function (anchor) {
+
+                    var companyName = anchor[0].getText();
+
+                    expect(companyName).not.toContain('chernoble gases');
+                });
+            });
+        });
+
     // end of customer maintenance interactions
     });
 

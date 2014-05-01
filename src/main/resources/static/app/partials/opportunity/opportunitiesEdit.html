@@ -1,4 +1,4 @@
-<div class="customerOpportunitiesEdit view">
+<div class="opportunitiesEdit view">
     <div class="row">
         <header>
             <h3>Customer Opportunities Maintenance</h3>
@@ -14,13 +14,13 @@
         </div>
         <br/><br/>
 
-        <div class="span6">
+        <div class="span12">
+            <div class="span6">
 
             <form name="customerOpportunitiesForm" ng-submit="submitForm()">
                 <button type="submit" class="btn btn-primary" ng-disabled="customerOpportunitiesForm.$invalid">Submit
                 </button>
 
-                <fieldset>
 
 
                     <div class="form-group"
@@ -48,15 +48,11 @@
                     </div>
 
 
-                </fieldset>
-                <fieldset>
 
                     <dynamic-form class="span12 vertical" template="opportunityFormTemplate"
                                   ng-model="opportunityFormObject">
                     </dynamic-form>
 
-                </fieldset>
-                <fieldset>
 
                     <h3>Statistics</h3>
 
@@ -81,20 +77,18 @@
                     </div>
 
 
-                </fieldset>
-                <fieldset>
                     <div class="form-group">
                         <label>Discussion</label>
                         <input type="textarea" rows="20" cols="500" name="discussion" class="form-control"
                                ng-model="master.discussion">
                     </div>
-                </fieldset>
 
                 <div ng-include src='"app/partials/opportunity/opportunityActionGrid.html"'></div>
                 <button type="submit" class="btn btn-primary" ng-disabled="customerOpportunitiesForm.$invalid">Submit
                 </button>
 
             </form>
+            </div>
 
         </div>
     </div>
