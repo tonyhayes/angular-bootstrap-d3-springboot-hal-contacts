@@ -140,11 +140,15 @@ angular.module('customersApp.opportunityControllers', [])
     ])
     .controller('CustomerOpportunitiesEditController', ['$scope', '$routeParams', '$location', '$filter',
         'customersService', 'salesPersonService', 'ContactServices', 'probabilitiesService', 'modalService',
-        'formComponentService', 'formComponentFormatService', 'OpportunityDetailServices',
+        'formComponentFormatService', 'OpportunityDetailServices',
         'CompanyServices', 'OpportunityServices',
         'OpportunityFormServices',
 
-        function ($scope, $routeParams, $location, $filter, customersService, salesPersonService, ContactServices, probabilitiesService, modalService, formComponentService, formComponentFormatService, OpportunityDetailServices, CompanyServices, OpportunityServices, OpportunityFormServices) {
+        function ($scope, $routeParams, $location, $filter,
+                  customersService, salesPersonService, ContactServices,
+                  probabilitiesService, modalService,
+                  formComponentFormatService, OpportunityDetailServices,
+                  CompanyServices, OpportunityServices, OpportunityFormServices) {
 
             $scope.master = {};
             $scope.opportunityFormObject = {};

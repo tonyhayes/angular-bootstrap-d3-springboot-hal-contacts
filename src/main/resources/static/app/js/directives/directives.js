@@ -4,7 +4,7 @@
 angular.module('customersApp.directives', []).
 //This directive adds custom animations to views as they enter or leave a screen
 //Note that AngularJS has an ng-animate directive but this one can be used when you 
-//want complete control or when you can't use that version of AngularJS yet
+//want complete control
     directive('animatedView', ['$route', '$anchorScroll', '$compile', '$controller',
         function ($route, $anchorScroll, $compile, $controller) {
             return {

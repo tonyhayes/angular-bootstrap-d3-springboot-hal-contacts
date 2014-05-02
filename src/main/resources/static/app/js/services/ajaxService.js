@@ -898,5 +898,5 @@ angular.module('customersApp.ajaxService', [])
             }
 
         }
-    })
+    });
 
