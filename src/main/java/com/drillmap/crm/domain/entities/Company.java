@@ -4,6 +4,8 @@ import com.drillmap.crm.domain.AuditableTenantEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -69,9 +71,14 @@ public class Company extends AuditableTenantEntity {
     Contact primaryContact;
 
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+    //unfortunately we have to tie ourselves to hibernate for this as jpa cascades with foreign keys do not appear to work
+    @OnDelete(action = OnDeleteAction.CASCADE)
     Set<Contact> contacts;
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+    //unfortunately we have to tie ourselves to hibernate for this as jpa cascades with foreign keys do not appear to work
+    @OnDelete(action = OnDeleteAction.CASCADE)
     Set<Opportunity> opportunities;
 
 }
