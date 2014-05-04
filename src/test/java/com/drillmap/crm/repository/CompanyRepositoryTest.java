@@ -37,11 +37,16 @@ public class CompanyRepositoryTest {
         SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(user,"",user.getAuthorities()));
     }
 
+    public void deleteCascade() {
+
+    }
+
 
     @Test
     public void testFindCompany() {
         Company myCompany = new Company();
         myCompany.setCompanyName("myCompany");
+        myCompany.setTenantId(1L);
         Company mySavedCompany = companyRepository.save(myCompany);
         //create a contact
         System.out.println(mySavedCompany);
