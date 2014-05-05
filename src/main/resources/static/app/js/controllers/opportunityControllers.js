@@ -41,13 +41,13 @@ angular.module('customersApp.opportunityControllers', [])
             }
 
             $scope.navigate = function (url, opportunityObject) {
-                var companyArray = [0];
+                var company = 0;
                 if (opportunityObject) {
                     customersService.storeCustomer(null);
-                    companyArray = opportunityObject._links.self.href.split('/')
+                    company = opportunityObject.companyId
                 }
 
-                $location.path(url + '/' + companyArray[companyArray.length - 1]);
+                $location.path(url + '/' + company);
             };
 
             function createWatches() {
