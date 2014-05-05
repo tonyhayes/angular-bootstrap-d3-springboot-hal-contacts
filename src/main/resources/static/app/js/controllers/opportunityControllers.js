@@ -5,9 +5,10 @@ angular.module('customersApp.opportunityControllers', [])
 //This controller retrieves data from the customersService and associates it with the $scope
 //The $scope is ultimately bound to the customers view
     .controller('OpportunitiesController', ['$scope', '$location', '$filter',
-        'CompanyServices', 'OpportunityServices', 'modalService', 'OpportunityPages',
+        'CompanyServices', 'customersService', 'OpportunityServices', 'modalService', 'OpportunityPages',
 
-        function ($scope, $location, $filter, CompanyServices, OpportunityServices, modalService, OpportunityPages) {
+        function ($scope, $location, $filter,
+                  CompanyServices, customersService, OpportunityServices, modalService, OpportunityPages) {
 
             $scope.opportunityPages = new OpportunityPages();
             init();
@@ -28,7 +29,7 @@ angular.module('customersApp.opportunityControllers', [])
 
                 modalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
-                        OpportunityServices.deleteOpportunity(cust);
+                        OpportunityServices.deleteOpportunity(opportunity);
                         $scope.opportunityPages.items.splice(idx, 1);
                     }
                 });
