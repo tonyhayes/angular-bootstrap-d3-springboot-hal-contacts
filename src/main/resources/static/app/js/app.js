@@ -35,11 +35,11 @@ angular.module('customersApp', [
             });
             $routeProvider.when('/opportunitydetails/:customerID', {
                 templateUrl: 'app/partials/opportunity/opportunityDetails.html',
-                controller: 'CustomerOpportunityController'
+                controller: 'OpportunityController'
             });
             $routeProvider.when('/opportunitiesedit/:customerID/:id', {
                 templateUrl: 'app/partials/opportunity/opportunitiesEdit.html',
-                controller: 'CustomerOpportunitiesEditController'
+                controller: 'OpportunitiesEditController'
             });
             $routeProvider.when('/customeredit/:customerID', {
                 templateUrl: 'app/partials/customer/customerEdit.html',

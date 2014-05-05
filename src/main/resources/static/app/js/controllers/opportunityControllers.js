@@ -4,7 +4,7 @@
 angular.module('customersApp.opportunityControllers', [])
 //This controller retrieves data from the customersService and associates it with the $scope
 //The $scope is bound to the details view
-    .controller('CustomerOpportunityController', ['$scope', '$routeParams', '$location',
+    .controller('OpportunityController', ['$scope', '$routeParams', '$location',
         'customersService', 'modalService', 'OpportunityServices', 'CompanyServices',
 
         function ($scope, $routeParams, $location, customersService, modalService, OpportunityServices, CompanyServices) {
@@ -138,7 +138,7 @@ angular.module('customersApp.opportunityControllers', [])
             };
         }
     ])
-    .controller('CustomerOpportunitiesEditController', ['$scope', '$routeParams', '$location', '$filter',
+    .controller('OpportunitiesEditController', ['$scope', '$routeParams', '$location', '$filter',
         'customersService', 'salesPersonService', 'ContactServices', 'probabilitiesService', 'modalService',
         'formComponentFormatService', 'OpportunityDetailServices',
         'CompanyServices', 'OpportunityServices',

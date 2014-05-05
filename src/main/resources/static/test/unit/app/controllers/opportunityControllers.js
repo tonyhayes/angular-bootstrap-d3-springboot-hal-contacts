@@ -28,7 +28,7 @@ describe('Testing opportunityControllers', function () {
             // **NOTE**: this is the only time the controller function
             // will be run, so anything that occurs inside of that
             // will already be done before the first spec.
-            ctrl = $controller('CustomerOpportunityController', {
+            ctrl = $controller('OpportunityController', {
                 $scope: $scope,
                 $routeParams: routeParams,
                 customersService: customersService,
@@ -48,7 +48,7 @@ describe('Testing opportunityControllers', function () {
 
 
 });
-describe('Testing CustomerOpportunitiesEditController', function () {
+describe('Testing OpportunitiesEditController', function () {
     var $scope, ctrl, routeParams;
 
 
@@ -77,7 +77,7 @@ describe('Testing CustomerOpportunitiesEditController', function () {
             // **NOTE**: this is the only time the controller function
             // will be run, so anything that occurs inside of that
             // will already be done before the first spec.
-            ctrl = $controller('CustomerOpportunitiesEditController', {
+            ctrl = $controller('OpportunitiesEditController', {
                 $scope: $scope,
                 $routeParams: routeParams,
                 $location: $location,

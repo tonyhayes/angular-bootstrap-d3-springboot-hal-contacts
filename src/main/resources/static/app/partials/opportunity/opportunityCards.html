@@ -1,0 +1,53 @@
+<div class="opportunity view">
+    <header>
+        <h3>Opportunity Cards</h3>
+    </header>
+    <div>
+        <div class="row">
+            <div class="span10">
+                <div class="navbar">
+                    <div class="navbar-inner toolbar">
+                        <ul class="nav">
+                            <li class="toolbaritem"><a data-ng-click="navigate('/opportunitiesedit')"><i
+                                    class="icon-plus"></i> Add Opportunity</a></li>
+                        </ul>
+                        <form class="navbar-form pull-right">
+                            <span class="navbarText">Filter:</span>&nbsp;&nbsp;<input type="text"
+                                                                                      data-ng-model="searchText"
+                                                                                      class="novalidate"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+
+        <div class="row cardContainer">
+            <div infinite-scroll='opportunityPages.nextPage()' infinite-scroll-disabled='opportunityPages.busy'
+                 infinite-scroll-distance='0'>
+                <div class="span3 card"
+                     data-ng-repeat="opportunity in opportunityPages.items | orderBy: opportunity.companyName track by $index">
+                    <button class="btn close cardClose" title="click to delete opportunity"
+                            data-ng-click="deleteOpportunity($index, opportunity)">&times;</button>
+                    <div class="cardHeader">
+
+                        <a data-ng-click="navigate('/opportunitiesedit',opportunity )" title="click to edit"
+                           class="ellipsis cardHeader btn-link">{{opportunity.discussion}}</a>
+                    </div>
+                    <div class="cardBody">
+
+                        <a data-ng-click="navigate('/customeredit',opportunity )" title="click to edit"
+                           class="ellipsis cardHeader btn-link">{{opportunity.companyName}}</a>
+
+                        {{opportunity.addressLine1 + ', ' + opportunity.city}}</div>
+                    <div class="cardFooter">
+                        <a data-ng-click="navigate('/contactcards',opportunity)" class="cardBody btn-link">View
+                            {{opportunity.contactsCount}} Contacts</a>
+                        <a data-ng-click="navigate('/opportunitydetails',opportunity)" class="cardBody btn-link">{{opportunity.opportunitiesCount}}
+                            Opportunity Cards</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
