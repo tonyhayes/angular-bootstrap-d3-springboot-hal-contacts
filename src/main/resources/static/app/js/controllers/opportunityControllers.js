@@ -44,10 +44,22 @@ angular.module('customersApp.opportunityControllers', [])
                 var company = 0;
                 if (opportunityObject) {
                     customersService.storeCustomer(null);
-                    company = opportunityObject.companyId
+                    company = opportunityObject.companyId;
                 }
 
                 $location.path(url + '/' + company);
+            };
+            $scope.navigateToOpportunity = function (url, opportunityObject) {
+                var company = 0;
+                var opportunityArray = [0];
+                if (opportunityObject) {
+                    customersService.storeCustomer(null);
+                    company = opportunityObject.companyId;
+                    var opportunityId = opportunityObject.companyId
+                    opportunityArray = opportunityObject._links.self.href.split('/')
+                }
+
+                $location.path(url + '/' + company +'/'+ opportunityArray[opportunityArray.length - 1]);
             };
 
             function createWatches() {
