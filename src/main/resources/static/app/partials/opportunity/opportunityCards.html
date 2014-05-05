@@ -37,10 +37,10 @@
                     <div class="cardBody">
 
                         <a data-ng-click="navigate('/customeredit',opportunity )" title="click to edit"
-                           class="ellipsis cardHeader btn-link">{{opportunity.companyName}}</a>
+                           class="ellipsis  btn-link">{{opportunity.companyName}}</a>
 
-                        {{opportunity.addressLine1 + ', ' + opportunity.city}}</div>
-                    <div class="cardFooter">
+                        {{opportunity.city + ', ' + opportunity.state}}</div>
+                    <div >
                         <a data-ng-click="navigate('/contactcards',opportunity)" class="cardBody btn-link">View
                             {{opportunity.contactsCount}} Contacts</a>
                         <a data-ng-click="navigate('/opportunitydetails',opportunity)" class="cardBody btn-link">{{opportunity.opportunitiesCount}}

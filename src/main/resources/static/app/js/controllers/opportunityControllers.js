@@ -3,6 +3,86 @@
  */
 angular.module('customersApp.opportunityControllers', [])
 //This controller retrieves data from the customersService and associates it with the $scope
+//The $scope is ultimately bound to the customers view
+    .controller('OpportunitiesController', ['$scope', '$location', '$filter',
+        'CompanyServices', 'OpportunityServices', 'modalService', 'OpportunityPages',
+
+        function ($scope, $location, $filter, CompanyServices, OpportunityServices, modalService, OpportunityPages) {
+
+            $scope.opportunityPages = new OpportunityPages();
+            init();
+
+            $scope.deleteCustomer = function (idx, opportunity) {
+
+                var opportunityDesc = opportunity.discussion;
+
+                var modalDefaults = {
+                    templateUrl: 'app/partials/modal.html'
+                };
+                var modalOptions = {
+                    closeButtonText: 'Cancel',
+                    actionButtonText: 'Delete Opportunity',
+                    headerText: 'Delete ' + opportunityDesc + '?',
+                    bodyText: 'Are you sure you want to delete this opportunity?'
+                };
+
+                modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                    if (result === 'ok') {
+                        OpportunityServices.deleteOpportunity(cust);
+                        $scope.opportunityPages.items.splice(idx, 1);
+                    }
+                });
+
+            };
+
+            function init() {
+                createWatches();
+            }
+
+            $scope.navigate = function (url, opportunityObject) {
+                var companyArray = [0];
+                if (opportunityObject) {
+                    customersService.storeCustomer(null);
+                    companyArray = opportunityObject._links.self.href.split('/')
+                }
+
+                $location.path(url + '/' + companyArray[companyArray.length - 1]);
+            };
+
+            function createWatches() {
+                //Watch searchText value and pass it and the customers to nameCityStateFilter
+                //Doing this instead of adding the filter to ng-repeat allows it to only be run once (rather than twice)
+                //while also accessing the filtered count via $scope.filteredCount above
+                $scope.$watch("searchText", function (filterText) {
+                    filterOpportunities(filterText);
+                });
+            }
+
+
+            function filterOpportunities(filterText) {
+                // if all pages have been loaded, filter on the client
+                if ($scope.opportunityPages.allPages) {
+                    //save pages
+                    if ($scope.opportunityPages.savedPages) {
+                        $scope.opportunityPages.items = angular.copy($scope.opportunityPages.savedPages);
+                    } else {
+                        $scope.opportunityPages.savedPages = angular.copy($scope.opportunityPages.items);
+                    }
+                    $scope.opportunityPages.items = $filter("opportunityNameCityStateFilter")($scope.opportunityPages.items, filterText);
+                } else {
+                    $scope.opportunityPages.allPages = false;
+                    $scope.opportunityPages.searchText = filterText;
+                    $scope.opportunityPages.pageNo = 0;
+                    $scope.opportunityPages.busy = false;
+                    $scope.opportunityPages.items = [];
+                    $scope.opportunityPages.nextPage();
+                }
+            }
+        }
+    ])
+
+
+//This controller retrieves data from the customersService and associates it with the $scope
 //The $scope is bound to the details view
     .controller('OpportunityController', ['$scope', '$routeParams', '$location',
         'customersService', 'modalService', 'OpportunityServices', 'CompanyServices',

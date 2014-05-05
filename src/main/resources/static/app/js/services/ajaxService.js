@@ -293,6 +293,75 @@ angular.module('customersApp.ajaxService', [])
             }
         }
     })
+//  constructor function to encapsulate HTTP and pagination logic
+    .factory('OpportunityPages', function ($http) {
+        var OpportunityPages = function () {
+            this.items = [];
+            this.busy = false;
+            this.pageNo = 0;
+            this.allPages = false;
+            this.searchText = null;
+            this.company = 0;
+
+        };
+
+        OpportunityPages.prototype.nextPage = function () {
+            if (this.busy) return;
+            this.busy = true;
+
+            if (this.searchText) {
+                var filter = angular.copy(this.searchText) + '%';
+                $http.get(dmApplicationEntryPoint + '/opportunities/search' +
+                        '/findBySearch', {
+                        params: {
+                             page: this.pageNo,
+                            discussion: filter,
+                            city: filter,
+                            state: filter,
+                            companyName: filter}}
+                ).success(function (data) {
+                        if (data._embedded) {
+                            var items = data._embedded.opportunities;
+                            for (var i = 0; i < items.length; i++) {
+                                this.items.push(items[i]);
+                            }
+                            if (data._links && data._links.next) {
+                                this.pageNo++;
+                                this.busy = false;
+                                this.allPages = false;
+                            } else {
+                                // for filter search always set all pages to false
+                                this.allPages = false;
+                            }
+                        } else {
+                            this.items = [];
+                        }
+                    }.bind(this));
+
+            } else {
+                $http.get(dmApplicationEntryPoint + '/opportunities/search' + '/findByOpportunity', {
+                    params: { page: this.pageNo}}).success(function (data) {
+                    if (data._embedded) {
+                        var items = data._embedded.opportunities;
+                        for (var i = 0; i < items.length; i++) {
+                            this.items.push(items[i]);
+                        }
+                        if (data._links && data._links.next) {
+                            this.pageNo++;
+                            this.busy = false;
+                            this.allPages = false;
+                        } else {
+                            this.allPages = true;
+                        }
+                    } else {
+                        this.items = [];
+                    }
+                }.bind(this));
+            }
+        };
+
+        return OpportunityPages;
+    })
     .factory('OpportunityServices', function ($http) {
 
         return {

@@ -44,5 +44,26 @@ angular.module('customersApp.filters', [])
             }
             return matches;
         };
+    })
+        .filter('opportunityNameCityStateFilter', function () {
+
+            return function (opportunities, filterValue) {
+                if (!filterValue) return opportunities;
+
+                var matches = [];
+                filterValue = filterValue.toLowerCase();
+                for (var i = 0; i < opportunities.length; i++) {
+                    var opportunity = opportunities[i];
+                    if ((opportunity.discussion && opportunity.discussion.toLowerCase().indexOf(filterValue) > -1) ||
+                        (opportunity.state && opportunity.state.toLowerCase().indexOf(filterValue) > -1) ||
+                        (opportunity.city && opportunity.city.toLowerCase().indexOf(filterValue) > -1) ||
+                        (opportunity.companyName && opportunity.companyName.toLowerCase().indexOf(filterValue) > -1)) {
+
+                        matches.push(opportunity);
+
+                    }
+                }
+                return matches;
+            };
 
     });

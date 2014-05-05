@@ -80,6 +80,53 @@ public class Opportunity extends AuditableTenantEntity {
         return o.size();
     }
 
+    // the following is temporary until I learn to do a join
+
+    public Long getCompanyId() {
+        Company c = getCompany();
+        if (c != null) {
+            return c.getId();
+        }
+        return null;
+    }
+    public String getCompanyName() {
+        Company c = getCompany();
+        if (c != null) {
+            return c.getCompanyName();
+        }
+        return null;
+    }
+    public String getCity() {
+        Company c = getCompany();
+        if (c != null) {
+            return c.getCity();
+        }
+        return null;
+    }
+    public String getState() {
+        Company c = getCompany();
+        if (c != null) {
+            return c.getState();
+        }
+        return null;
+    }
+    public Integer getOpportunitiesCount() {
+        Company c = getCompany();
+        if (c != null) {
+            return c.getOpportunitiesCount();
+        }
+        return null;
+    }
+    public Integer getContactsCount() {
+        Company c = getCompany();
+        if (c != null) {
+            return c.getContactsCount();
+        }
+        return null;
+    }
+
+    // end temporary
+
 
     @OneToMany(mappedBy = "opportunity", cascade = CascadeType.ALL)
     Set<OpportunityDetail> opportunityDetails;
