@@ -18,10 +18,15 @@ angular.module('customersApp', [
     'customersApp.formsService',
     'customersApp.ajaxService',
 
+    /*
+    plug-ins!
+     */
+
     'ui.bootstrap',
     'ngGrid',
     'dynform',
-    'infinite-scroll'
+    'infinite-scroll',
+    'ui.select2'
 ]).
     config(['$routeProvider',
         function ($routeProvider, $locationProvider) {

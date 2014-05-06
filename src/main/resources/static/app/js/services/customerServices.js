@@ -47,7 +47,7 @@ angular.module('customersApp.customerServices', []).
                 backdrop: true,
                 keyboard: true,
                 modalFade: true,
-                templateUrl: 'app/partials/modal.html'
+                templateUrl: 'app/partials/util/modal.html'
             };
 
             var modalOptions = {
@@ -105,7 +105,7 @@ angular.module('customersApp.customerServices', []).
                 keyboard: true,
                 backdropClick: true,
                 dialogFade: true,
-                templateUrl: 'app/partials/dialog.html'
+                templateUrl: 'app/partials/util/dialog.html'
             };
 
             var dialogOptions = {

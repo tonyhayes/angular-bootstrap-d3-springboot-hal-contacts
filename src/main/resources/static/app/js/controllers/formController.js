@@ -39,7 +39,7 @@ angular.module('customersApp.formControllers', [])
 
             if ($scope.form.form_fields.length === 10) {
                 var modalDefaults = {
-                    templateUrl: 'app/partials/modal.html'
+                    templateUrl: 'app/partials/util/modal.html'
                 };
                 var modalOptions = {
                     headerText: 'Error ',
@@ -89,7 +89,7 @@ angular.module('customersApp.formControllers', [])
                 if (field.field_id === $scope.addField.new) {
                     duplicateCustomField = true;
                     var modalDefaults = {
-                        templateUrl: 'app/partials/modal.html'
+                        templateUrl: 'app/partials/util/modal.html'
                     };
                     var modalOptions = {
                         headerText: 'Error ',
@@ -165,7 +165,7 @@ angular.module('customersApp.formControllers', [])
             if ($scope.form.form_fields === null || $scope.form.form_fields.length === 0) {
 
                 modalDefaults = {
-                    templateUrl: 'app/partials/modal.html'
+                    templateUrl: 'app/partials/util/modal.html'
                 };
                 modalOptions = {
                     headerText: 'Error ',

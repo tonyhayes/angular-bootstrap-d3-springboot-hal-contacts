@@ -56,7 +56,7 @@ angular.module('customersApp.applicationControllers', [])
 
         }
     ])
-    //this contoller is in charhe of the loadfing bar,
+    //this controller is in charge of the loading bar,
     // it's quick and dirty, and does nothing fancy.
     .controller("loadingController", [
         "$scope", "$timeout",
@@ -77,5 +77,32 @@ angular.module('customersApp.applicationControllers', [])
 
             animateBar();
         }
-    ]);
+    ])
+// autocomplete controller for companies
+    .controller("loadingCompaniesController", [
+        "$scope",
+        function ($scope) {
 
+            $scope.companySelectOptions = {
+                minimumInputLength: 3,
+                ajax: {
+                    data: function (term, page) {
+                        return {
+                            query: term
+                        };
+                    },
+                    quietMillis: 500,
+                    transport: fetchCompanies,
+                    results: function (data, page) {
+                    // parse the results into the format expected by Select2
+                        return { results: data };
+                    }
+                }
+            };
+
+            var fetchCompanies = function (queryParams) {
+                return $http.get(dmApplicationEntryPoint+"/companies/search/findByCompanyName",
+                    queryParams.data).then(queryParams.success);
+            };
+        }
+    ]);

@@ -60,13 +60,13 @@ angular.module('customersApp.stateController', [])
 
                     {
                         field: 'stateAbbr',
-                        headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
+                        headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
                         width: '*',
                         displayName: 'State Abbreviation'
                     },
                     {
                         field: 'name',
-                        headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
+                        headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
                         width: '***',
                         displayName: 'State Name'
 
@@ -83,7 +83,7 @@ angular.module('customersApp.stateController', [])
                 var name = row.entity.name;
 
                 var modalDefaults = {
-                    templateUrl: 'app/partials/modal.html'
+                    templateUrl: 'app/partials/util/modal.html'
                 };
                 var modalOptions = {
                     closeButtonText: 'Cancel',

@@ -60,27 +60,27 @@ angular.module('customersApp.salesPersonController', [])
 
                     {
                         field: 'firstName',
-                        headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
+                        headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
                         width: '*',
                         displayName: 'First Name'
                     },
                     {
                         field: 'lastName',
-                        headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
+                        headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
                         width: '***',
                         displayName: 'Last Name'
 
                     },
                     {
                         field: 'addressLine1',
-                        headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
+                        headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
                         width: '***',
                         displayName: 'Address Line 1'
 
                     },
                     {
                         field: 'city',
-                        headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
+                        headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
                         width: '***',
                         displayName: 'City'
 
@@ -94,22 +94,22 @@ angular.module('customersApp.salesPersonController', [])
 
             $scope.delete = function (row) {
 
-                var name = row.entity.name;
+                var name = row.entity.firstName + ' ' + row.entity.lastName;
 
                 var modalDefaults = {
-                    templateUrl: 'app/partials/modal.html'
+                    templateUrl: 'app/partials/util/modal.html'
                 };
                 var modalOptions = {
                     closeButtonText: 'Cancel',
-                    actionButtonText: 'Delete State',
+                    actionButtonText: 'Delete Sales Person',
                     headerText: 'Delete ' + name + '?',
-                    bodyText: 'Are you sure you want to delete this state?'
+                    bodyText: 'Are you sure you want to delete this sales person?'
                 };
 
                 modalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
                         salesPersonService.deleteSalesPeople(row.entity);
-                        remove($scope.salesPeople_array, 'name', row.entity.name);
+                        remove($scope.salesPeople_array, 'salesPersonId', row.entity.salesPersonId);
                     }
                 });
 
@@ -135,7 +135,7 @@ angular.module('customersApp.salesPersonController', [])
 
 
                 var modalDefaults = {
-                    templateUrl: 'app/partials/admin/probabilities/modalSalesPersonEdit.html'
+                    templateUrl: 'app/partials/admin/sales/modalSalesPersonEdit.html'
                 };
                 var modalOptions = {
                     closeButtonText: 'Cancel',

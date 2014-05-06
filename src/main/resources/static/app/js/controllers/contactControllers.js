@@ -68,7 +68,7 @@ angular.module('customersApp.contactControllers', [])
                 var contactName = contact.firstName + ' ' + contact.lastName;
 
                 var modalDefaults = {
-                    templateUrl: 'app/partials/modal.html'
+                    templateUrl: 'app/partials/util/modal.html'
                 };
                 var modalOptions = {
                     closeButtonText: 'Cancel',

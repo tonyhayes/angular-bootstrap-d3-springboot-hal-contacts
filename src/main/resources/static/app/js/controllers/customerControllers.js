@@ -18,7 +18,7 @@ angular.module('customersApp.customerControllers', [])
                 var custName = cust.companyName + ' ' + cust.city;
 
                 var modalDefaults = {
-                    templateUrl: 'app/partials/modal.html'
+                    templateUrl: 'app/partials/util/modal.html'
                 };
                 var modalOptions = {
                     closeButtonText: 'Cancel',

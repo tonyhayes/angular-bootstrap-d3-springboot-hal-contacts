@@ -60,13 +60,13 @@ angular.module('customersApp.probabilityController', [])
 
                     {
                         field: 'name',
-                        headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
+                        headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
                         width: '*',
                         displayName: 'Probability Description'
                     },
                     {
                         field: 'percentage',
-                        headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
+                        headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
                         width: '***',
                         displayName: 'Percentage'
 
@@ -83,7 +83,7 @@ angular.module('customersApp.probabilityController', [])
                 var name = row.entity.name;
 
                 var modalDefaults = {
-                    templateUrl: 'app/partials/modal.html'
+                    templateUrl: 'app/partials/util/modal.html'
                 };
                 var modalOptions = {
                     closeButtonText: 'Cancel',

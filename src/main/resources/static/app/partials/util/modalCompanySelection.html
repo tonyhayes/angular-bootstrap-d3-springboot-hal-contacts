@@ -1,0 +1,33 @@
+<div class="modal-header">
+    <h3>{{modalOptions.headerText}}</h3>
+</div>
+<div class="modal-body">
+
+
+    <form name="companySelectForm" ng-submit="submitForm()" novalidate>
+
+
+        <div class="form-group" ng-controller='loadingCompaniesController'
+             ng-class="{ 'has-error' : companySelectForm.name.$invalid && !companySelectForm.name.$pristine }">
+            <label>Company Name</label>
+
+            <input ui-select2="companySelectOptions" name="name" ng-model="selectedCompany" data-placeholder="Choose Company.."/>
+
+            <p ng-show="companySelectForm.name.$invalid && !companySelectForm.name.$pristine"
+               class="help-block">
+                Company Name is
+                required.</p>
+        </div>
+
+
+    </form>
+
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn" data-ng-click="modalOptions.close()">{{modalOptions.closeButtonText}}</button>
+    <button type="submit" class="btn btn-primary" ng-disabled="companySelectForm.$invalid"
+            data-ng-click="modalOptions.ok();">
+        {{modalOptions.actionButtonText}}
+    </button>
+</div>

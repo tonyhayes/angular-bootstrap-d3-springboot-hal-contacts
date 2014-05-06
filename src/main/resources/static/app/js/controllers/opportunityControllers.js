@@ -18,7 +18,7 @@ angular.module('customersApp.opportunityControllers', [])
                 var opportunityDesc = opportunity.discussion;
 
                 var modalDefaults = {
-                    templateUrl: 'app/partials/modal.html'
+                    templateUrl: 'app/partials/util/modal.html'
                 };
                 var modalOptions = {
                     closeButtonText: 'Cancel',
@@ -164,31 +164,31 @@ angular.module('customersApp.opportunityControllers', [])
                     columnDefs: [
                         {
                             field: 'salesPersonDescription',
-                            headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
+                            headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
                             width: '*',
                             displayName: 'Sales Person'
                         },
                         {
                             field: 'contactDescription',
-                            headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
+                            headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
                             width: '*',
                             displayName: 'Contact Name'
                         },
                         {
                             field: 'discussion',
-                            headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
+                            headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
                             width: '***',
                             displayName: 'Discussion'
                         },
                         {
                             field: 'probabilityDescription',
-                            headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
+                            headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
                             width: '*',
                             displayName: 'Probability'
                         },
                         {
                             field: 'potentialRevenue',
-                            headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
+                            headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
                             width: '*',
                             displayName: 'Potential Revenue'
                         }
@@ -371,20 +371,20 @@ angular.module('customersApp.opportunityControllers', [])
                 columnDefs: [
                     {
                         field: 'salesPersonDescription',
-                        headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
+                        headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
                         width: '*',
                         displayName: 'Sales'
                     },
                     {
                         field: 'followUpdate',
-                        headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
+                        headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
                         width: '*',
                         cellFilter: 'date',
                         displayName: 'Date'
                     },
                     {
                         field: 'action',
-                        headerCellTemplate: 'app/partials/filterHeaderTemplate.html',
+                        headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
                         width: '***',
                         displayName: 'Action'
 
@@ -412,7 +412,7 @@ angular.module('customersApp.opportunityControllers', [])
                 if (!parseInt($scope.opportunityID)) {
 
                     var modalDefaults = {
-                        templateUrl: 'app/partials/modal.html'
+                        templateUrl: 'app/partials/util/modal.html'
                     };
                     var modalOptions = {
                         closeButtonText: 'Cancel',
