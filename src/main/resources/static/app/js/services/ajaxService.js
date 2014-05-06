@@ -149,8 +149,8 @@ angular.module('customersApp.ajaxService', [])
                 return $http.get(dmApplicationEntryPoint + '/companies/search/findByCompanyNameLike', {
                     params: {companyName: term+'%',  page: 0}}).then(function (response) {
                     // have to loop through result because it's key => value
-                    var _list = [];
-                    var _locator = [];
+                    _list = [];
+                    _locator = [];
                     if(response.data._embedded){
                         for(var key in response.data._embedded.companies) {
                             _list.push(response.data._embedded.companies[key].companyName);

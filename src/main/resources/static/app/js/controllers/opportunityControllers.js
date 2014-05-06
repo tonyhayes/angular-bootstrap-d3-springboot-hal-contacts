@@ -25,8 +25,7 @@ angular.module('customersApp.opportunityControllers', [])
                     closeButtonText: 'Cancel',
                     actionButtonText: 'Delete Opportunity',
                     headerText: 'Delete ' + opportunityDesc + '?',
-                    bodyText: 'Are you sure you want to delete this opportunity?',
-                    record: $scope.selectedCompany
+                    bodyText: 'Are you sure you want to delete this opportunity?'
                 };
 
                 modalService.showModal(modalDefaults, modalOptions).then(function (result) {
@@ -75,14 +74,18 @@ angular.module('customersApp.opportunityControllers', [])
                         closeButtonText: 'Cancel',
                         actionButtonText: 'Next',
                         headerText: 'Select Company For This Opportunity',
-                        bodyText: 'Type at least 3 characters to locate the company'
+                        bodyText: 'Type to locate a company',
+                        record: $scope.selectedCompany
                     };
 
                     modalService.showModal(modalDefaults, modalOptions).then(function (result) {
                         if (result === 'ok') {
-                            //then go - right now pretend to pull out stuff
+                            var companyName = $scope.selectedCompany.selectedCompany;
+                            var companyId = CompanyServices.matchCompanyList(companyName)
 
-                            $location.path(url + '/' + 2 +'/'+ 0);
+                            if(companyId){
+                                $location.path(url + '/' + companyId +'/'+ 0);
+                            }
 
 
                         }
