@@ -7,16 +7,11 @@
     <form name="companySelectForm" ng-submit="submitForm()" novalidate>
 
 
-        <div class="form-group" ng-controller='loadingCompaniesController'
-             ng-class="{ 'has-error' : companySelectForm.name.$invalid && !companySelectForm.name.$pristine }">
+        <div class="form-group" ng-controller='loadingCompaniesController'>
             <label>Company Name</label>
 
-            <input ui-select2="companySelectOptions" name="name" ng-model="selectedCompany" data-placeholder="Choose Company.."/>
+            <input type="text" data-ng-model="modalOptions.record.selectedCompany" typeahead-wait-ms="300" typeahead="k for k in getList($viewValue)">
 
-            <p ng-show="companySelectForm.name.$invalid && !companySelectForm.name.$pristine"
-               class="help-block">
-                Company Name is
-                required.</p>
         </div>
 
 

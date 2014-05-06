@@ -11,6 +11,7 @@ angular.module('customersApp.opportunityControllers', [])
                   CompanyServices, customersService, OpportunityServices, modalService, OpportunityPages) {
 
             $scope.opportunityPages = new OpportunityPages();
+            $scope.selectedCompany = {};
             init();
 
             $scope.deleteCustomer = function (idx, opportunity) {
@@ -24,7 +25,8 @@ angular.module('customersApp.opportunityControllers', [])
                     closeButtonText: 'Cancel',
                     actionButtonText: 'Delete Opportunity',
                     headerText: 'Delete ' + opportunityDesc + '?',
-                    bodyText: 'Are you sure you want to delete this opportunity?'
+                    bodyText: 'Are you sure you want to delete this opportunity?',
+                    record: $scope.selectedCompany
                 };
 
                 modalService.showModal(modalDefaults, modalOptions).then(function (result) {
@@ -40,6 +42,7 @@ angular.module('customersApp.opportunityControllers', [])
                 createWatches();
             }
 
+            // company, contact or opportunities
             $scope.navigate = function (url, opportunityObject) {
                 var company = 0;
                 if (opportunityObject) {
@@ -49,6 +52,8 @@ angular.module('customersApp.opportunityControllers', [])
 
                 $location.path(url + '/' + company);
             };
+
+            // opportuity add or change
             $scope.navigateToOpportunity = function (url, opportunityObject) {
                 var company = 0;
                 var opportunityArray = [0];
@@ -57,10 +62,38 @@ angular.module('customersApp.opportunityControllers', [])
                     company = opportunityObject.companyId;
                     var opportunityId = opportunityObject.companyId
                     opportunityArray = opportunityObject._links.self.href.split('/')
+                    $location.path(url + '/' + company +'/'+ opportunityArray[opportunityArray.length - 1]);
+                }else{
+
+
+                    // first get company that opportunity is to be created for
+
+                    var modalDefaults = {
+                        templateUrl: 'app/partials/util/modalCompanySelection.html'
+                    };
+                    var modalOptions = {
+                        closeButtonText: 'Cancel',
+                        actionButtonText: 'Next',
+                        headerText: 'Select Company For This Opportunity',
+                        bodyText: 'Type at least 3 characters to locate the company'
+                    };
+
+                    modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                        if (result === 'ok') {
+                            //then go
+
+
+
+                        }
+                    });
+
+
+
+
                 }
 
-                $location.path(url + '/' + company +'/'+ opportunityArray[opportunityArray.length - 1]);
             };
+
 
             function createWatches() {
                 //Watch searchText value and pass it and the customers to nameCityStateFilter

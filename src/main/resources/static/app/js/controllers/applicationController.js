@@ -80,29 +80,12 @@ angular.module('customersApp.applicationControllers', [])
     ])
 // autocomplete controller for companies
     .controller("loadingCompaniesController", [
-        "$scope",
-        function ($scope) {
+        "$scope","$filter", "CompanyServices","CustomerPages",
+        function ($scope, CompanyServices) {
 
-            $scope.companySelectOptions = {
-                minimumInputLength: 3,
-                ajax: {
-                    data: function (term, page) {
-                        return {
-                            query: term
-                        };
-                    },
-                    quietMillis: 500,
-                    transport: fetchCompanies,
-                    results: function (data, page) {
-                    // parse the results into the format expected by Select2
-                        return { results: data };
-                    }
-                }
-            };
+            $scope.getList = function(term) {
+                return CompanyServices.getCompanyList(term);
+            }
 
-            var fetchCompanies = function (queryParams) {
-                return $http.get(dmApplicationEntryPoint+"/companies/search/findByCompanyName",
-                    queryParams.data).then(queryParams.success);
-            };
-        }
+         }
     ]);

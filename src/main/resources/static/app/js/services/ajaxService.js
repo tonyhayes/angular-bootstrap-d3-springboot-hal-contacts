@@ -142,6 +142,17 @@ angular.module('customersApp.ajaxService', [])
                 return $http.delete(url).then(function (result) {
                     return result.data;
                 });
+            },
+            getCompanyList: function(term) {
+                return $http.get(dmApplicationEntryPoint + '/companies/search/findByCompanyNameLike', {
+                    params: {companyName: term, page: 0}}).then(function (response) {
+                    // have to loop through result because it's key => value
+                    var _list = [];
+                    for(var key in response.data.d) {
+                        _list.push(response.data.d[key]);
+                    }
+                    return _list;
+                });
             }
         }
     })

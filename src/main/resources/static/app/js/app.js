@@ -25,8 +25,7 @@ angular.module('customersApp', [
     'ui.bootstrap',
     'ngGrid',
     'dynform',
-    'infinite-scroll',
-    'ui.select2'
+    'infinite-scroll'
 ]).
     config(['$routeProvider',
         function ($routeProvider, $locationProvider) {
