@@ -80,8 +80,9 @@ angular.module('customersApp.opportunityControllers', [])
 
                     modalService.showModal(modalDefaults, modalOptions).then(function (result) {
                         if (result === 'ok') {
-                            //then go
+                            //then go - right now pretend to pull out stuff
 
+                            $location.path(url + '/' + 2 +'/'+ 0);
 
 
                         }

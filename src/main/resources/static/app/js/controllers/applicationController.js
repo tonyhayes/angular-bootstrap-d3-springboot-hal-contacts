@@ -80,7 +80,7 @@ angular.module('customersApp.applicationControllers', [])
     ])
 // autocomplete controller for companies
     .controller("loadingCompaniesController", [
-        "$scope","$filter", "CompanyServices","CustomerPages",
+        "$scope", "CompanyServices",
         function ($scope, CompanyServices) {
 
             $scope.getList = function(term) {
