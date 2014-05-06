@@ -67,6 +67,8 @@ angular.module('customersApp.ajaxService', [])
         return CustomerPages;
     })
     .factory('CompanyServices', function ($http) {
+        var _list = [];
+        var _locator = [];
 
         return {
             // getCompanies not used
@@ -148,12 +150,17 @@ angular.module('customersApp.ajaxService', [])
                     params: {companyName: term+'%',  page: 0}}).then(function (response) {
                     // have to loop through result because it's key => value
                     var _list = [];
-                    for(var key in response.data.d) {
-                        _list.push(response.data.d[key]);
+                    var _locator = [];
+                    for(var key in response.data._embedded.companies) {
+                        _list.push(response.data._embedded.companies[key].companyName);
+                        _locator.push(response.data._embedded.companies[key].companyId);
                     }
                     return _list;
                 });
-            }
+            },
+            matchCompanyList: function(name) {
+                    return _locator[ _list.indexOf(name) ];
+             }
         }
     })
 //  constructor function to encapsulate HTTP and pagination logic

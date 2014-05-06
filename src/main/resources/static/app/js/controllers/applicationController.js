@@ -84,7 +84,8 @@ angular.module('customersApp.applicationControllers', [])
         function ($scope, CompanyServices) {
 
             $scope.getList = function(term) {
-                return CompanyServices.getCompanyList(term);
+                var items = CompanyServices.getCompanyList(term);
+                return items;
             }
 
          }
