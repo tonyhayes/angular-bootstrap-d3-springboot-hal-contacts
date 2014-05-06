@@ -151,9 +151,11 @@ angular.module('customersApp.ajaxService', [])
                     // have to loop through result because it's key => value
                     var _list = [];
                     var _locator = [];
-                    for(var key in response.data._embedded.companies) {
-                        _list.push(response.data._embedded.companies[key].companyName);
-                        _locator.push(response.data._embedded.companies[key].companyId);
+                    if(response.data._embedded){
+                        for(var key in response.data._embedded.companies) {
+                            _list.push(response.data._embedded.companies[key].companyName);
+                            _locator.push(response.data._embedded.companies[key].companyId);
+                        }
                     }
                     return _list;
                 });
