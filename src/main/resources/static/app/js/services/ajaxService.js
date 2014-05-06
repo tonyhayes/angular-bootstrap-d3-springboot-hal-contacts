@@ -145,7 +145,7 @@ angular.module('customersApp.ajaxService', [])
             },
             getCompanyList: function(term) {
                 return $http.get(dmApplicationEntryPoint + '/companies/search/findByCompanyNameLike', {
-                    params: {companyName: term, page: 0}}).then(function (response) {
+                    params: {companyName: term+'%',  page: 0}}).then(function (response) {
                     // have to loop through result because it's key => value
                     var _list = [];
                     for(var key in response.data.d) {
@@ -325,11 +325,13 @@ angular.module('customersApp.ajaxService', [])
                 $http.get(dmApplicationEntryPoint + '/opportunities/search' +
                         '/findBySearch', {
                         params: {
-                             page: this.pageNo,
+                            sort: 'company.companyName',
+                            page: this.pageNo,
                             discussion: filter,
+                            name: filter,
                             city: filter,
-                            state: filter,
-                            companyName: filter}}
+                            state: filter
+                           }}
                 ).success(function (data) {
                         if (data._embedded) {
                             var items = data._embedded.opportunities;
@@ -351,7 +353,7 @@ angular.module('customersApp.ajaxService', [])
 
             } else {
                 $http.get(dmApplicationEntryPoint + '/opportunities/search' + '/findByOpportunity', {
-                    params: { page: this.pageNo}}).success(function (data) {
+                    params: { sort: 'company.companyName', page: this.pageNo}}).success(function (data) {
                     if (data._embedded) {
                         var items = data._embedded.opportunities;
                         for (var i = 0; i < items.length; i++) {

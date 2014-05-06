@@ -25,25 +25,19 @@ public interface OpportunityRepository extends TenantAwareRepository<Opportunity
     public List<Opportunity> findAllByCompany(@Param(value = "company") Company company, @Param(value="tenantId") Long tenantId);
 
     @Query("select o from #{#entityName} o where " +
-            "o.discussion like :discussion and " +
- //           "(o.discussion like :discussion or " +
-//            "o.companyName like : companyName or " +
-//            "o.city like :city or " +
-//            "o.state like :state) and " +
+            "(o.discussion like :discussion or " +
+            "o.company.companyName like :name or " +
+            "o.company.city like :city or " +
+            "o.company.state like :state) and " +
             "o.tenantId = :tenantId")
     public Page<Opportunity> findBySearch(@Param(value = "discussion") String discussion,
-//                                      @Param(value = "companyName") String companyName,
-//                                      @Param(value = "city") String city,
-//                                      @Param(value = "state") String state,
+                                      @Param(value = "name") String name,
+                                      @Param(value = "city") String city,
+                                      @Param(value = "state") String state,
                                       @Param(value="tenantId") Long tenantId,
                                       Pageable page
     );
 
-    // this needs join logic with Company table
-    //
-    // select o, c from Opportunity o, Company C
-    // where o.company = c.companyId
-    //
     @Query("select o from #{#entityName} o where " +
             "o.tenantId = :tenantId")
     public Page<Opportunity> findByOpportunity( @Param(value="tenantId") Long tenantId, Pageable page);
