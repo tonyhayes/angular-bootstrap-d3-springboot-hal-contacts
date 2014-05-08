@@ -62,6 +62,14 @@ angular.module('customersApp.formsService', [])
             setDynamicForm: function (form) {
                 var dynamicForm = {};
                 var fields = form;
+
+                fields.sort(function (a, b) {
+                    var x = parseInt(a['field_sequence']);
+                    var y = parseInt(b['field_sequence']);
+                    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+                });
+
+
                 for (var i = 0; i < fields.length; i++) {
                     var field = fields[i];
                     var type = '';
