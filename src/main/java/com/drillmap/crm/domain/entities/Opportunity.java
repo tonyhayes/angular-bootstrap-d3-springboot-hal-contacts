@@ -4,6 +4,8 @@ import com.drillmap.crm.domain.AuditableTenantEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -128,10 +130,14 @@ public class Opportunity extends AuditableTenantEntity {
     // end temporary
 
 
-    @OneToMany(mappedBy = "opportunity", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "opportunity", cascade = CascadeType.ALL, orphanRemoval = true)
+    //unfortunately we have to tie ourselves to hibernate for this as jpa cascades with foreign keys do not appear to work
+    @OnDelete(action = OnDeleteAction.CASCADE)
     Set<OpportunityDetail> opportunityDetails;
 
-    @OneToMany(mappedBy = "opportunity", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "opportunity", cascade = CascadeType.ALL, orphanRemoval = true)
+    //unfortunately we have to tie ourselves to hibernate for this as jpa cascades with foreign keys do not appear to work
+    @OnDelete(action = OnDeleteAction.CASCADE)
     Set<OpportunityForm> opportunityForms;
 
 }
