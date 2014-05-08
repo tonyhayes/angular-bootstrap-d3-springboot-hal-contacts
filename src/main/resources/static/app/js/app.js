@@ -58,7 +58,7 @@ angular.module('customersApp', [
                 controller: 'FormController'
             });
             $routeProvider.when('/createcustomfields', {
-                templateUrl: 'app/partials/admin/createCustomFields.html',
+                templateUrl: 'app/partials/form/createCustomFields.html',
                 controller: 'FormFieldController'
             });
             $routeProvider.when('/admin/sales', {

@@ -113,12 +113,27 @@ angular.module('customersApp.formControllers', [])
 
         // deletes particular field on button click
         $scope.deleteField = function (field_id) {
-            for (var i = 0; i < $scope.form.form_fields.length; i++) {
-                if ($scope.form.form_fields[i].field_id == field_id) {
-                    $scope.form.form_fields.splice(i, 1);
-                    break;
+
+            var modalDefaults = {
+                templateUrl: 'app/partials/util/modal.html'
+            };
+            var modalOptions = {
+                closeButtonText: 'Cancel',
+                actionButtonText: 'Delete Field',
+                headerText: 'Delete Opportunity Form Field',
+                bodyText: 'Are you sure you want to delete this field?'
+            };
+
+            modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                if (result === 'ok') {
+                    for (var i = 0; i < $scope.form.form_fields.length; i++) {
+                        if ($scope.form.form_fields[i].field_id == field_id) {
+                            $scope.form.form_fields.splice(i, 1);
+                            break;
+                        }
+                    }
                 }
-            }
+            });
         };
 
         // add new option to the field
@@ -148,12 +163,25 @@ angular.module('customersApp.formControllers', [])
 
         // delete particular option
         $scope.deleteOption = function (field, option) {
-            for (var i = 0; i < field.field_options.length; i++) {
-                if (field.field_options[i].option_id == option.option_id) {
-                    field.field_options.splice(i, 1);
-                    break;
+            var modalDefaults = {
+                templateUrl: 'app/partials/util/modal.html'
+            };
+            var modalOptions = {
+                closeButtonText: 'Cancel',
+                actionButtonText: 'Delete Field Option',
+                headerText: 'Delete Opportunity Form Field Option',
+                bodyText: 'Are you sure you want to delete this field option?'
+            };
+
+            modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                if (result === 'ok') {
+                    angular.forEach(field.field_options, function (fieldOption, i) {
+                        if (fieldOption.option_title == option.option_title) {
+                            delete field.field_options[i];
+                        }
+                    });
                 }
-            }
+            });
         };
 
 
@@ -357,12 +385,26 @@ angular.module('customersApp.formControllers', [])
 
         // deletes particular field on button click
         $scope.deleteField = function (field_id) {
-            for (var i = 0; i < $scope.form_fields.length; i++) {
-                if ($scope.form_fields[i].field_id == field_id) {
-                    $scope.form_fields.splice(i, 1);
-                    break;
+            var modalDefaults = {
+                templateUrl: 'app/partials/util/modal.html'
+            };
+            var modalOptions = {
+                closeButtonText: 'Cancel',
+                actionButtonText: 'Delete Field',
+                headerText: 'Delete Form Field',
+                bodyText: 'Are you sure you want to delete this field?'
+            };
+
+            modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                if (result === 'ok') {
+                    for (var i = 0; i < $scope.form_fields.length; i++) {
+                        if ($scope.form_fields[i].field_id == field_id) {
+                            $scope.form_fields.splice(i, 1);
+                            break;
+                        }
+                    }
                 }
-            }
+            });
         };
 
         // add new option to the field
@@ -392,12 +434,25 @@ angular.module('customersApp.formControllers', [])
 
         // delete particular option
         $scope.deleteOption = function (field, option) {
-            for (var i = 0; i < field.field_options.length; i++) {
-                if (field.field_options[i].option_id == option.option_id) {
-                    field.field_options.splice(i, 1);
-                    break;
+            var modalDefaults = {
+                templateUrl: 'app/partials/util/modal.html'
+            };
+            var modalOptions = {
+                closeButtonText: 'Cancel',
+                actionButtonText: 'Delete Field Option',
+                headerText: 'Delete Opportunity Form Field Option',
+                bodyText: 'Are you sure you want to delete this field option?'
+            };
+
+            modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                if (result === 'ok') {
+                    angular.forEach(field.field_options, function (fieldOption, i) {
+                        if (fieldOption.option_title == option.option_title) {
+                            delete field.field_options[i];
+                        }
+                    });
                 }
-            }
+            });
         };
 
 
