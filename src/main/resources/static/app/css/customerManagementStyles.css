@@ -70,7 +70,7 @@ footer {
 }
 /* Bootstrap overrides */
 
-.navbar .nav li.toolbaritem a:hover, .navbar .nav li a:hover{
+.navbar .nav li.toolbaritem a:hover, .navbar .nav li a:hover, .navbar .navbar-inner a:hover{
     color: rgba(48, 139, 255, 0.99);
 }
 .cardHeader a:hover {
