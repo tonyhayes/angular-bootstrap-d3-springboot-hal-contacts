@@ -271,6 +271,137 @@ describe('customersApp', function () {
 
     });
 
+    describe('sales person administration', function () {
+
+        var ptor;
+        beforeEach(function () {
+            browser.get(appEntryPoint + '#/admin/sales');
+            ptor = protractor.getInstance();
+        });
+
+
+        it('#29-1. should render sales page when user navigates to the sales admin page', function () {
+            expect(element.all(by.css('h3')).first().getText()).
+                toMatch(/Sales People Details/);
+        });
+
+        it('#30-1. should contain a view class in order to render correctly', function () {
+            var ele = by.css('.view');
+            expect(ptor.isElementPresent(ele)).toBe(true);
+        });
+
+        it('#31-1. should contain a brand class with the app name', function () {
+            expect(element.all(by.css('.brand')).first().getText()).
+                toMatch(/Customer Manager/);
+        });
+
+        it('#33-1. should load the footer page', function () {
+            var ele = by.css('.footer');
+            expect(ptor.isElementPresent(ele)).toBe(true);
+        });
+
+        // end of sales administration
+
+    });
+
+    describe('probability administration', function () {
+
+        var ptor;
+        beforeEach(function () {
+            browser.get(appEntryPoint + '#/admin/probability');
+            ptor = protractor.getInstance();
+        });
+
+
+        it('#29-2. should render probability page when user navigates to the probability admin page', function () {
+            expect(element.all(by.css('h3')).first().getText()).
+                toMatch(/Probabilities Details/);
+        });
+
+        it('#30-2. should contain a view class in order to render correctly', function () {
+            var ele = by.css('.view');
+            expect(ptor.isElementPresent(ele)).toBe(true);
+        });
+
+        it('#31-2. should contain a brand class with the app name', function () {
+            expect(element.all(by.css('.brand')).first().getText()).
+                toMatch(/Customer Manager/);
+        });
+
+        it('#33-2. should load the footer page', function () {
+            var ele = by.css('.footer');
+            expect(ptor.isElementPresent(ele)).toBe(true);
+        });
+
+        // end of probability administration
+
+    });
+    describe('state administration', function () {
+
+        var ptor;
+        beforeEach(function () {
+            browser.get(appEntryPoint + '#/admin/states');
+            ptor = protractor.getInstance();
+        });
+
+
+        it('#29-3. should render state page when user navigates to the state admin page', function () {
+            expect(element.all(by.css('h3')).first().getText()).
+                toMatch(/States Details/);
+        });
+
+        it('#30-3. should contain a view class in order to render correctly', function () {
+            var ele = by.css('.view');
+            expect(ptor.isElementPresent(ele)).toBe(true);
+        });
+
+        it('#31-3. should contain a brand class with the app name', function () {
+            expect(element.all(by.css('.brand')).first().getText()).
+                toMatch(/Customer Manager/);
+        });
+
+        it('#33-3. should load the footer page', function () {
+            var ele = by.css('.footer');
+            expect(ptor.isElementPresent(ele)).toBe(true);
+        });
+
+        // end of state administration
+
+    });
+
+    describe('opportunity cards', function () {
+
+        var ptor;
+        beforeEach(function () {
+            browser.get(appEntryPoint + '#/opportunities');
+            ptor = protractor.getInstance();
+        });
+
+
+        it('#29-4. should render opportunity cards page when user navigates to the opportunity cards page', function () {
+            expect(element.all(by.css('h3')).first().getText()).
+                toMatch(/Opportunity Cards/);
+        });
+
+        it('#30-4. should contain a view class in order to render correctly', function () {
+            var ele = by.css('.view');
+            expect(ptor.isElementPresent(ele)).toBe(true);
+        });
+
+        it('#31-4. should contain a brand class with the app name', function () {
+            expect(element.all(by.css('.brand')).first().getText()).
+                toMatch(/Customer Manager/);
+        });
+
+        it('#33-4. should load the footer page', function () {
+            var ele = by.css('.footer');
+            expect(ptor.isElementPresent(ele)).toBe(true);
+        });
+
+        // end of opportunity cards
+
+    });
+
     // now go through each page in detail
 
 
