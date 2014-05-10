@@ -72,13 +72,9 @@ public class Company extends AuditableTenantEntity {
 
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
-    //unfortunately we have to tie ourselves to hibernate for this as jpa cascades with foreign keys do not appear to work
-    @OnDelete(action = OnDeleteAction.CASCADE)
     Set<Contact> contacts;
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
-    //unfortunately we have to tie ourselves to hibernate for this as jpa cascades with foreign keys do not appear to work
-    @OnDelete(action = OnDeleteAction.CASCADE)
     Set<Opportunity> opportunities;
 
 }

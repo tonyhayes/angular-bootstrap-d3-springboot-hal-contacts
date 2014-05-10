@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.drillmap.crm.repository.support;
+package com.drillmap.crm.repository.extensions.invoker;
 
 import java.io.Serializable;
 

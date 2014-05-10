@@ -1,6 +1,6 @@
 package com.drillmap.crm;
 
-import com.drillmap.crm.repository.support.CustomRepositoryInvokerFactory;
+import com.drillmap.crm.repository.extensions.invoker.CustomRepositoryInvokerFactory;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

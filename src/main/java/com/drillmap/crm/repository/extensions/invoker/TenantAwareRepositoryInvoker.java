@@ -1,4 +1,4 @@
-package com.drillmap.crm.repository.support;
+package com.drillmap.crm.repository.extensions.invoker;
 
 import com.drillmap.crm.domain.TenantEntity;
 import com.drillmap.crm.repository.TenantAwareRepository;
@@ -40,7 +40,7 @@ public class TenantAwareRepositoryInvoker implements RepositoryInvoker {
     private final ConversionService conversionService;
 
     /**
-     * Creates a new {@link com.drillmap.crm.repository.support.PagingAndSortingRepositoryInvoker} using the given repository, {@link org.springframework.data.repository.core.RepositoryInformation}
+     * Creates a new {@link PagingAndSortingRepositoryInvoker} using the given repository, {@link org.springframework.data.repository.core.RepositoryInformation}
      * and {@link org.springframework.core.convert.ConversionService}.
      *
      * @param repository        must not be {@literal null}.
@@ -195,15 +195,7 @@ public class TenantAwareRepositoryInvoker implements RepositoryInvoker {
 	 */
     @Override
     public void invokeDelete(Serializable id) {
-
-        Method method = methods.getDeleteMethod();
-
-        if (method.getParameterTypes()[0].equals(Serializable.class)) {
-            repository.delete(convertId(id), getTenantId());
-        } else {
-            //invokeFindOne will guard against the wrong tenant being accessed
-            repository.delete(repository.findOne(convertId(id)));
-        }
+        repository.delete(repository.findOne(convertId(id), getTenantId()));
     }
 
     private boolean exposes(Method method) {

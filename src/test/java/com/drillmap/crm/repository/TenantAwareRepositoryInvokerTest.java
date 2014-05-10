@@ -4,7 +4,7 @@ import com.drillmap.crm.Application;
 import com.drillmap.crm.TestConfig;
 import com.drillmap.crm.domain.entities.TenantAwareTestEntity;
 
-import com.drillmap.crm.repository.support.TenantAwareRepositoryInvoker;
+import com.drillmap.crm.repository.extensions.invoker.TenantAwareRepositoryInvoker;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

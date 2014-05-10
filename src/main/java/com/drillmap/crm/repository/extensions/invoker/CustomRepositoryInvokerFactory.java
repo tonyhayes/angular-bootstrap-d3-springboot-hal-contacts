@@ -1,4 +1,4 @@
-package com.drillmap.crm.repository.support;
+package com.drillmap.crm.repository.extensions.invoker;
 
 import com.drillmap.crm.repository.TenantAwareRepository;
 import org.springframework.core.convert.ConversionService;
@@ -61,7 +61,7 @@ public class CustomRepositoryInvokerFactory extends DefaultRepositoryInvokerFact
             return new PagingAndSortingRepositoryInvoker((PagingAndSortingRepository<Object, Serializable>) repository,
                     information, conversionService);
         } else if (repository instanceof CrudRepository) {
-            return new CrudRepositoryInvoker((CrudRepository<Object, Serializable>) repository, information,
+            return new com.drillmap.crm.repository.extensions.invoker.CrudRepositoryInvoker((CrudRepository<Object, Serializable>) repository, information,
                     conversionService);
         } else {
             return new ReflectionRepositoryInvoker(repository, information, conversionService);

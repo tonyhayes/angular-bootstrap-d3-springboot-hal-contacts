@@ -40,10 +40,4 @@ public interface TenantAwareRepository<T,ID extends Serializable> extends JpaRep
     @Query("select e from #{#entityName} e where e.id = :id and e.tenantId = :tenantId")
     T findOne(@Param(value = "id") ID id, @Param(value = "tenantId") ID tenantId);
 
-    @Modifying
-    @Transactional
-    @Query("delete from #{#entityName} e where e.id = :id and e.tenantId = :tenantId")
-    void delete(@Param(value = "id") ID id, @Param(value = "tenantId") ID tenantId);
-
-
 }
