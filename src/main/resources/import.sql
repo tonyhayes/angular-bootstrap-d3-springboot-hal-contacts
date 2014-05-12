@@ -817,12 +817,12 @@ insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, oppo
 insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 80, 'call back in May', now(), now());
 
 -- opportunity form component
-insert into app_crm_opportunity_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required,created_at, updated_at) values (1, 'dealDate','Deal Date','date','','date',false, now(), now());
-insert into app_crm_opportunity_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required,created_at, updated_at) values (1, 'status','Status','dropdown','nothing selected','',false, now(), now());
-insert into app_crm_opportunity_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required,created_at, updated_at) values (1, 'location','Location','dropdown','nothing selected','',false, now(), now());
-insert into app_crm_opportunity_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required,created_at, updated_at) values (1, 'typeConversation','Type of Conversation','dropdown','nothing selected','',false, now(), now());
-insert into app_crm_opportunity_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required,created_at, updated_at) values (1, 'revenueSchedule','Revenue Schedule','dropdown','nothing selected','',false, now(), now());
-insert into app_crm_opportunity_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required,created_at, updated_at) values (1, 'region','Region','checklist','','',false, now(), now());
+insert into app_crm_opportunity_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required, field_sequence, created_at, updated_at) values (1, 'dealDate','Deal Date','date','','date',false, 1, now(), now());
+insert into app_crm_opportunity_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required, field_sequence, created_at, updated_at) values (1, 'status','Status','dropdown','nothing selected','',false, 2, now(), now());
+insert into app_crm_opportunity_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required, field_sequence, created_at, updated_at) values (1, 'location','Location','dropdown','nothing selected','',false, 3, now(), now());
+insert into app_crm_opportunity_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required, field_sequence, created_at, updated_at) values (1, 'typeConversation','Type of Conversation','dropdown','nothing selected','',false, 4, now(), now());
+insert into app_crm_opportunity_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required, field_sequence, created_at, updated_at) values (1, 'revenueSchedule','Revenue Schedule','dropdown','nothing selected','',false, 5, now(), now());
+insert into app_crm_opportunity_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required, field_sequence, created_at, updated_at) values (1, 'region','Region','checklist','','',false, 6, now(), now());
 
 -- opportunity form component option
 --status

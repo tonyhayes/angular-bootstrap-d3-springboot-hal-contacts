@@ -64,8 +64,8 @@ angular.module('customersApp.formsService', [])
                 var fields = form;
 
                 fields.sort(function (a, b) {
-                    var x = parseInt(a['field_sequence']);
-                    var y = parseInt(b['field_sequence']);
+                    var x = parseInt(a['fieldSequence']);
+                    var y = parseInt(b['fieldSequence']);
                     return ((x < y) ? -1 : ((x > y) ? 1 : 0));
                 });
 
@@ -281,7 +281,7 @@ angular.module('customersApp.formsService', [])
 
                         // copy opportunity attributes into form component
                         newField._links = field._links;
-                        newField.field_sequence = field.field_sequence;
+                        newField.fieldSequence = field.fieldSequence;
 
                         //create formTypes and formFields for form administration
                         customFormFields.push(newField);
@@ -373,7 +373,7 @@ angular.module('customersApp.formsService', [])
                         "field_value": "",
                         "field_placeholder": "",
                         "field_required": "FALSE",
-                        "fieldSequence": null,
+                        "fieldSequence": 1,
                         "options": [
                             {
                                 "option_id": "1",
@@ -417,7 +417,7 @@ angular.module('customersApp.formsService', [])
                         "field_value": "nothing selected",
                         "field_placeholder": "",
                         "field_required": "FALSE",
-                        "fieldSequence": null,
+                        "fieldSequence": 2,
                         "options": [
                             {
                                 "option_id": "1",
@@ -456,7 +456,7 @@ angular.module('customersApp.formsService', [])
                         "field_value": "",
                         "field_placeholder": "date",
                         "field_required": "FALSE",
-                        "fieldSequence": null,
+                        "fieldSequence": 3,
                         "options": [ ],
                         "optionsCount": 0,
                         "_links": {
@@ -474,7 +474,7 @@ angular.module('customersApp.formsService', [])
                         "field_value": "nothing selected",
                         "field_placeholder": "",
                         "field_required": "FALSE",
-                        "fieldSequence": null,
+                        "fieldSequence": 4,
                         "options": [
                             {
                                 "option_id": "1",
@@ -518,7 +518,7 @@ angular.module('customersApp.formsService', [])
                         "field_value": "nothing selected",
                         "field_placeholder": "",
                         "field_required": "FALSE",
-                        "fieldSequence": null,
+                        "fieldSequence": 5,
                         "options": [
                             {
                                 "option_id": "1",

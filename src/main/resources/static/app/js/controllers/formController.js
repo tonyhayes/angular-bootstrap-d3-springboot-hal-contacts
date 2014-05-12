@@ -1,6 +1,6 @@
 angular.module('customersApp.formControllers', [])
 
-    .controller('FormController', function ($scope, $location, $anchorScroll, modalService, FormService, formComponentService, formUpdateService, formComponentFormatService) {
+    .controller('FormController', function ($scope, $q, $location, $anchorScroll, modalService, FormService, formComponentService, formUpdateService, formComponentFormatService) {
 
         // preview form mode
         $scope.previewMode = false;
@@ -11,8 +11,34 @@ angular.module('customersApp.formControllers', [])
         $scope.form.form_name = 'My Form';
 
         // get the current form
-        $scope.old_form_fields = formComponentFormatService.getDynamicForm();
-        $scope.form.form_fields = angular.copy($scope.old_form_fields);
+        // use $q.all to wait until all promises are resolved
+        $q.all([
+            formComponentService.getFormComponents(),
+            formComponentService.getOpportunityFormComponents()
+        ]).then(
+            function (data) {
+                if (data[0] && data[1]) {
+                    formComponentFormatService.setOpportunityForm(data[0], data[1]);
+                    $scope.old_form_fields = formComponentFormatService.getDynamicForm();
+                    $scope.form.form_fields = angular.copy($scope.old_form_fields);
+                    // add new field drop-down:
+                    $scope.addField = {};
+
+                    var types = FormService.fields;
+                    var customFields = formComponentFormatService.getCustomFormTypes();
+                    $scope.addField.types = types.concat(customFields);
+
+
+                    $scope.addField.new = $scope.addField.types[0].name;
+                    $scope.addField.lastAddedID = $scope.form.form_fields.length;
+                }
+             },
+            function (reason) {
+                // if any of the promises fails, handle it
+                // here, I'm just throwing an error message to
+                // the user.
+            });
+
 
         // previewForm - for preview purposes, form will be copied into this
         // otherwise, actual form might get manipulated in preview mode
@@ -22,16 +48,6 @@ angular.module('customersApp.formControllers', [])
         $scope.dynamicFormTemplate = {};
         $scope.dynamicForm = {};
 
-        // add new field drop-down:
-        $scope.addField = {};
-
-        var types = FormService.fields;
-        var customFields = formComponentFormatService.getCustomFormTypes();
-        $scope.addField.types = types.concat(customFields);
-
-
-        $scope.addField.new = $scope.addField.types[0].name;
-        $scope.addField.lastAddedID = $scope.form.form_fields.length;
 
 
         // create new field button click
