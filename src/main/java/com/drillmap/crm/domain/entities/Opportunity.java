@@ -131,13 +131,9 @@ public class Opportunity extends AuditableTenantEntity {
 
 
     @OneToMany(mappedBy = "opportunity", cascade = CascadeType.ALL, orphanRemoval = true)
-    //unfortunately we have to tie ourselves to hibernate for this as jpa cascades with foreign keys do not appear to work
-    @OnDelete(action = OnDeleteAction.CASCADE)
     Set<OpportunityDetail> opportunityDetails;
 
     @OneToMany(mappedBy = "opportunity", cascade = CascadeType.ALL, orphanRemoval = true)
-    //unfortunately we have to tie ourselves to hibernate for this as jpa cascades with foreign keys do not appear to work
-    @OnDelete(action = OnDeleteAction.CASCADE)
     Set<OpportunityForm> opportunityForms;
 
 }
