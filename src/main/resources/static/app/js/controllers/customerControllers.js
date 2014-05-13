@@ -44,7 +44,7 @@ angular.module('customersApp.customerControllers', [])
                 var companyArray = [0];
                 if (customerObject) {
                     customersService.storeCustomer(customerObject);
-                    companyArray = customerObject._links.self.href.split('/')
+                    companyArray = customerObject._links.self.href.split('/');
                 }
 
                 $location.path(url + '/' + companyArray[companyArray.length - 1]);

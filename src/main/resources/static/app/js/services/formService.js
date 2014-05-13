@@ -64,14 +64,13 @@ angular.module('customersApp.formsService', [])
                 var fields = form;
 
                 fields.sort(function (a, b) {
-                    var x = parseInt(a['fieldSequence']);
-                    var y = parseInt(b['fieldSequence']);
+                    var x = parseInt(a.fieldSequence);
+                    var y = parseInt(b.fieldSequence);
                     return ((x < y) ? -1 : ((x > y) ? 1 : 0));
                 });
 
 
-                for (var i = 0; i < fields.length; i++) {
-                    var field = fields[i];
+                angular.forEach(fields, function (field) {
                     var type = '';
                     switch (field.field_type) {
                         case 'textfield':
@@ -113,10 +112,10 @@ angular.module('customersApp.formsService', [])
                             dynamicForm[name].options = options;
                         }
                     }
-                }
+                });
                 return dynamicForm;
             }
-        }
+        };
 
     })
     .factory('formUpdateService', function (formComponentService) {
@@ -170,7 +169,7 @@ angular.module('customersApp.formsService', [])
                                 field_option.option_title = fieldOption.option_title;
                                 field_option.option_value = fieldOption.option_value;
                                 field_option.option_id = fieldOptionId;
-                                field.options.push(field_option)
+                                field.options.push(field_option);
                             });
 
 
@@ -182,12 +181,12 @@ angular.module('customersApp.formsService', [])
                         if (form === 'global') {
                             formComponentService.postFormComponents(field);
                         } else {
-                            formComponentService.postOpportunityFormComponents(field)
+                            formComponentService.postOpportunityFormComponents(field);
                         }
                     });
                 }
             }
-        }
+        };
     })
 
     .factory('formComponentFormatService', function (FormService) {
@@ -310,7 +309,7 @@ angular.module('customersApp.formsService', [])
 
             }
 
-        }
+        };
     })
 
     .service('formTestComponentService', function (formComponentFormatService) {

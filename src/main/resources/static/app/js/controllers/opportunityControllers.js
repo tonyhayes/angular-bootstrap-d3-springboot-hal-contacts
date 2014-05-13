@@ -59,8 +59,8 @@ angular.module('customersApp.opportunityControllers', [])
                 if (opportunityObject) {
                     customersService.storeCustomer(null);
                     company = opportunityObject.companyId;
-                    var opportunityId = opportunityObject.companyId
-                    opportunityArray = opportunityObject._links.self.href.split('/')
+                    var opportunityId = opportunityObject.companyId;
+                    opportunityArray = opportunityObject._links.self.href.split('/');
                     $location.path(url + '/' + company +'/'+ opportunityArray[opportunityArray.length - 1]);
                 }else{
 
@@ -81,7 +81,7 @@ angular.module('customersApp.opportunityControllers', [])
                     modalService.showModal(modalDefaults, modalOptions).then(function (result) {
                         if (result === 'ok') {
                             var companyName = $scope.selectedCompany.selectedCompany;
-                            var companyId = CompanyServices.matchCompanyList(companyName)
+                            var companyId = CompanyServices.matchCompanyList(companyName);
 
                             if(companyId){
                                 $location.path(url + '/' + companyId +'/'+ 0);
@@ -259,7 +259,7 @@ angular.module('customersApp.opportunityControllers', [])
                 if (row) {
                     customersService.storeOpportunity(row.entity);
                     id = row.entity.id;
-                    opportunityArray = row.entity._links.self.href.split('/')
+                    opportunityArray = row.entity._links.self.href.split('/');
                 }
 
                 $location.path('opportunitiesedit/' + $scope.customerID + '/' + opportunityArray[opportunityArray.length - 1]);
@@ -339,7 +339,6 @@ angular.module('customersApp.opportunityControllers', [])
                                         $scope.opportunityFormObject[component.name][component.value] = true;
                                     } else {
                                         $scope.opportunityFormObject[component.name] = {};
-                                        $scope.opportunityFormObject[component.name][component.value];
                                         $scope.opportunityFormObject[component.name][component.value] = true;
                                     }
                                 } else {
@@ -444,14 +443,15 @@ angular.module('customersApp.opportunityControllers', [])
             }
 
             $scope.onDblClickRow = function (row) {
-
+                var modalDefaults = {};
+                var modalOptions = {};
                 // opportunity must exist before creating rows
                 if (!parseInt($scope.opportunityID)) {
 
-                    var modalDefaults = {
+                     modalDefaults = {
                         templateUrl: 'app/partials/util/modal.html'
                     };
-                    var modalOptions = {
+                     modalOptions = {
                         closeButtonText: 'Cancel',
                         actionButtonText: 'OK',
                         headerText: 'Submit This Opportunity',
@@ -474,10 +474,10 @@ angular.module('customersApp.opportunityControllers', [])
                     }
 
 
-                    var modalDefaults = {
+                     modalDefaults = {
                         templateUrl: 'app/partials/opportunity/modalOpportunityActionsEdit.html'
                     };
-                    var modalOptions = {
+                     modalOptions = {
                         closeButtonText: 'Cancel',
                         actionButtonText: 'Submit',
                         headerText: 'Opportunity at ' + custName,
@@ -535,11 +535,11 @@ angular.module('customersApp.opportunityControllers', [])
                     OpportunityServices.postOpportunity($scope.master, $scope.customerID).then(function (data) {
 
                         // need to get the opportunity #
-                        var opportunityArray = data.split('/')
+                        var opportunityArray = data.split('/');
                         $scope.opportunityID = opportunityArray[opportunityArray.length - 1];
 
                         // read through the opportunity form and send changes back to the mother ship
-                        opportunityFormProcessor()
+                        opportunityFormProcessor();
 
                     });
 

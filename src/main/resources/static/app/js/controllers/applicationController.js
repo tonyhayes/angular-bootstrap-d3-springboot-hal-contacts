@@ -85,7 +85,7 @@ angular.module('customersApp.applicationControllers', [])
             $scope.getList = function(term) {
                 var items = CompanyServices.getCompanyList(term);
                 return items;
-            }
+            };
 
          }
     ]);

@@ -163,7 +163,7 @@ angular.module('customersApp.ajaxService', [])
             matchCompanyList: function(name) {
                     return _locator[ _list.indexOf(name) ];
              }
-        }
+        };
     })
 //  constructor function to encapsulate HTTP and pagination logic
     .factory('ContactPages', function ($http) {
@@ -311,7 +311,7 @@ angular.module('customersApp.ajaxService', [])
                     return result.data;
                 });
             }
-        }
+        };
     })
 //  constructor function to encapsulate HTTP and pagination logic
     .factory('OpportunityPages', function ($http) {
@@ -460,7 +460,7 @@ angular.module('customersApp.ajaxService', [])
                     return result.data;
                 });
             }
-        }
+        };
     })
     .factory('OpportunityDetailServices', function ($http) {
 
@@ -526,7 +526,7 @@ angular.module('customersApp.ajaxService', [])
                     return result.data;
                 });
             }
-        }
+        };
     })
     .factory('OpportunityFormServices', function ($http) {
 
@@ -586,7 +586,7 @@ angular.module('customersApp.ajaxService', [])
                     return result.data;
                 });
             }
-        }
+        };
     })
     .factory('statesService', function ($http) {
         var states = [];
@@ -669,7 +669,7 @@ angular.module('customersApp.ajaxService', [])
 
             }
 
-        }
+        };
     })
     .factory('salesPersonService', function ($http) {
         var salesPersons = [];
@@ -778,7 +778,7 @@ angular.module('customersApp.ajaxService', [])
 
             }
 
-        }
+        };
     })
     .factory('probabilitiesService', function ($http) {
         var probabilities = [];
@@ -875,7 +875,7 @@ angular.module('customersApp.ajaxService', [])
 
             }
 
-        }
+        };
     })
 
     .factory('formComponentService', function ($http) {
@@ -988,6 +988,6 @@ angular.module('customersApp.ajaxService', [])
                 });
             }
 
-        }
+        };
     });
 
