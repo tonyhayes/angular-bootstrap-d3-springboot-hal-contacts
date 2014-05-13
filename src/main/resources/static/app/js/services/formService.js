@@ -316,7 +316,7 @@ angular.module('customersApp.formsService', [])
 
 
         this.setOpportunityForm = function () {
-            formComponentFormatService.setOpportunityForm(components, opportunityComponents);
+            FormComponentFormatService.setOpportunityForm(components, opportunityComponents);
         };
 
 

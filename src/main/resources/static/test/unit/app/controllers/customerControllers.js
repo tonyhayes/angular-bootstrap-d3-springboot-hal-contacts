@@ -12,8 +12,8 @@ describe('Service: MyService', function () {
     // note done as argument - this is jasmine aysnc stuff
     beforeEach(function (done) {
         module('customersApp');
-        inject(function (customersService) {
-            MyService = customersService;
+        inject(function (CustomersService) {
+            MyService = CustomersService;
         });
         inject(function ($httpBackend, $http, $rootScope) {
             httpBackend = $httpBackend;
@@ -119,7 +119,7 @@ describe('Testing CustomersController', function () {
         // customersService - injected so we can use these functions.
 
         inject(function ($rootScope, $controller, $location, $filter,
-                         CompanyServices, customersService, modalService, CustomerPages) {
+                         CompanyServices, CustomersService, ModalService, CustomerPages) {
             // create a scope object for us to use.
             $scope = $rootScope.$new();
 
@@ -134,8 +134,8 @@ describe('Testing CustomersController', function () {
                 $scope: $scope,
                 $filter: $filter,
                 CompanyServices: CompanyServices,
-                customersService: customersService,
-                modalService: modalService,
+                CustomersService: CustomersService,
+                ModalService: ModalService,
                 CustomerPages: CustomerPages
             });
             $scope.customerPages.items = companies;
@@ -182,7 +182,7 @@ describe('Testing CustomerEditController', function () {
         // $controller - injected to create an instance of our controller.
         // plansService - injected so we can use these functions.
 
-        inject(function ($rootScope, $controller, $routeParams, customersService, statesService) {
+        inject(function ($rootScope, $controller, $routeParams, CustomersService, StatesService) {
             // create a scope object for us to use.
             $scope = $rootScope.$new();
             routeParams = {};
@@ -197,8 +197,8 @@ describe('Testing CustomerEditController', function () {
             ctrl = $controller('CustomerEditController', {
                 $scope: $scope,
                 $routeParams: routeParams,
-                customersService: customersService,
-                statesService: statesService
+                CustomersService: CustomersService,
+                StatesService: StatesService
             });
         });
     });
@@ -213,9 +213,9 @@ describe('Testing CustomerEditController', function () {
      * find a known state. */
     it('should call getStates service method and return states', function () {
         // Act
-        inject(function (statesService) {
-            var states = statesService.setTestStates();
-            var states = statesService.getStates();
+        inject(function (StatesService) {
+            var states = StatesService.setTestStates();
+            var states = StatesService.getStates();
 
             // Assert
             expect(states.length).toEqual(2);

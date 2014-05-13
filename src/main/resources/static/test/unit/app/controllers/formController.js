@@ -14,8 +14,8 @@ describe('Testing FormController', function() {
         // customersService - injected so we can use these functions.
 
         inject(function($rootScope, $controller, $filter,
-                        formUpdateService, FormService, formComponentService,
-                        formTestComponentService, formComponentFormatService) {
+                        FormUpdateService, FormService, FormComponentService,
+                        FormTestComponentService, FormComponentFormatService) {
             // create a scope object for us to use.
             $scope = $rootScope.$new();
 
@@ -31,13 +31,13 @@ describe('Testing FormController', function() {
                 $scope: $scope,
                 $filter: $filter,
                 FormService: FormService,
-                formComponentService:formComponentService,
-                formComponentFormatService: formComponentFormatService,
-                formUpdateService:formUpdateService,
-                formTestComponentService: formTestComponentService
+                FormComponentService:FormComponentService,
+                FormComponentFormatService: FormComponentFormatService,
+                FormUpdateService:FormUpdateService,
+                FormTestComponentService: FormTestComponentService
             });
-            formTestComponentService.setOpportunityForm();
-            fields = formComponentFormatService.getDynamicForm();
+            FormTestComponentService.setOpportunityForm();
+            fields = FormComponentFormatService.getDynamicForm();
             $scope.form.form_fields = fields;
 
         });
@@ -58,9 +58,9 @@ describe('Testing FormController', function() {
      * find a known form types. */
     it('should call FormService service method and return known types', function() {
         // Act
-        inject(function(FormService, formComponentFormatService) {
+        inject(function(FormService, FormComponentFormatService) {
             var fields = FormService.fields;
-            var customFields = formComponentFormatService.getCustomFormTypes();
+            var customFields = FormComponentFormatService.getCustomFormTypes();
             var allTypes = fields.concat(customFields);
 
             // Assert
@@ -119,8 +119,8 @@ describe('Testing FormFieldController', function() {
         // $controller - injected to create an instance of our controller.
         // customersService - injected so we can use these functions.
 
-        inject(function($rootScope, $controller, $filter,  modalService,
-                        FormService, formComponentFormatService, formTestComponentService) {
+        inject(function($rootScope, $controller, $filter,  ModalService,
+                        FormService, FormComponentFormatService, FormTestComponentService) {
             // create a scope object for us to use.
             $scope = $rootScope.$new();
 
@@ -135,11 +135,11 @@ describe('Testing FormFieldController', function() {
                 $scope: $scope,
                 $filter: $filter,
                 FormService: FormService,
-                formComponentFormatService: formComponentFormatService,
-                formTestComponentService: formTestComponentService
+                FormComponentFormatService: FormComponentFormatService,
+                FormTestComponentService: FormTestComponentService
             });
-            formTestComponentService.setOpportunityForm();
-            fields = formComponentFormatService.getDynamicForm();
+            FormTestComponentService.setOpportunityForm();
+            fields = FormComponentFormatService.getDynamicForm();
             $scope.form_fields = fields;
 
         });

@@ -16,7 +16,7 @@ describe('Testing ContactsController', function () {
         // plansService - injected so we can use these functions.
 
         inject(function ($rootScope, $controller, $routeParams, $location, $filter,
-                         customersService, statesService, ContactServices, CompanyServices, ContactPages ) {
+                         CustomersService, StatesService, ContactServices, CompanyServices, ContactPages ) {
             // create a scope object for us to use.
             $scope = $rootScope.$new();
             routeParams = {};
@@ -32,8 +32,8 @@ describe('Testing ContactsController', function () {
                 $scope: $scope,
                 $routeParams: routeParams,
                 $filter: $filter,
-                customersService: customersService,
-                statesService: statesService,
+                CustomersService: CustomersService,
+                StatesService: StatesService,
                 ContactServices: ContactServices,
                 CompanyServices: CompanyServices,
                 ContactPages: ContactPages
@@ -56,9 +56,9 @@ describe('Testing ContactsController', function () {
      * find a known state. */
     it('should call getStates service method and return states', function () {
         // Act
-        inject(function (statesService) {
-            var states = statesService.setTestStates();
-            var states = statesService.getStates();
+        inject(function (StatesService) {
+            var states = StatesService.setTestStates();
+            var states = StatesService.getStates();
 
             // Assert
             expect(states).toBeDefined();

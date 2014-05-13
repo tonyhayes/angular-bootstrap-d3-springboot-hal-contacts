@@ -16,7 +16,7 @@ describe('Testing opportunityControllers', function () {
         // plansService - injected so we can use these functions.
 
         inject(function ($rootScope, $controller, $routeParams, $location,
-                         customersService, OpportunityServices, CompanyServices) {
+                         CustomersService, OpportunityServices, CompanyServices) {
             // create a scope object for us to use.
             $scope = $rootScope.$new();
             routeParams = {};
@@ -31,7 +31,7 @@ describe('Testing opportunityControllers', function () {
             ctrl = $controller('OpportunityController', {
                 $scope: $scope,
                 $routeParams: routeParams,
-                customersService: customersService,
+                CustomersService: CustomersService,
                 OpportunityServices: OpportunityServices,
                 CompanyServices: CompanyServices
             });
@@ -63,8 +63,8 @@ describe('Testing OpportunitiesEditController', function () {
         // plansService - injected so we can use these functions.
 
         inject(function ($rootScope, $controller, $routeParams, $location, $filter,
-                         customersService, salesPersonService,
-                         ContactServices, probabilitiesService, OpportunityServices) {
+                         CustomersService, SalesPersonService,
+                         ContactServices, ProbabilitiesService, OpportunityServices) {
             // create a scope object for us to use.
             $scope = $rootScope.$new();
             routeParams = {};
@@ -82,10 +82,10 @@ describe('Testing OpportunitiesEditController', function () {
                 $routeParams: routeParams,
                 $location: $location,
                 $filter: $filter,
-                customersService: customersService,
-                salesPersonService: salesPersonService,
+                CustomersService: CustomersService,
+                SalesPersonService: SalesPersonService,
                 ContactServices: ContactServices,
-                probabilitiesService: probabilitiesService,
+                ProbabilitiesService: ProbabilitiesService,
                 OpportunityServices: OpportunityServices
 
 
