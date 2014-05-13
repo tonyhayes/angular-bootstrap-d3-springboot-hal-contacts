@@ -25,7 +25,8 @@ angular.module('customersApp', [
     'ui.bootstrap',
     'ngGrid',
     'dynform',
-    'infinite-scroll'
+    'infinite-scroll',
+    "ngQuickDate"
 ]).
     config(['$routeProvider',
         function ($routeProvider, $locationProvider) {

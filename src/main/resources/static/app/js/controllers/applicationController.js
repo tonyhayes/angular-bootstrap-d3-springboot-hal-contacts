@@ -20,7 +20,6 @@ angular.module('customersApp.applicationControllers', [])
                 console.log('User handling promise rejected');
             };
 
-
             // use $q.all to wait until all promises are resolved
             $q.all([
                 statesService.getConfiguredStates(),
