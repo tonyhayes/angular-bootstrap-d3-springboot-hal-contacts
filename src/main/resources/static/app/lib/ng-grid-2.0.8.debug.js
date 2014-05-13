@@ -4,10 +4,8 @@
 * License: MIT (http://www.opensource.org/licenses/mit-license.php)
 * Compiled At: 04/07/2014 16:55
  *
- * tony tony tony
- * note -- do not overlay -- I have a fix at line 2589
- * my issue - https://github.com/angular-ui/ng-grid/issues/1115
- * tony tony tony
+ * tony tony tony tony - do not overlay!
+ * line 2589 - tony fix
  *
 ***********************************************/
 (function(window, $) {
@@ -2592,7 +2590,7 @@ var ngSearchProvider = function ($scope, grid, $filter) {
                     if (pVal !== null && pVal !== undefined) {
                         if (typeof f === "function") {
                             // Have to slice off the quotes the parser would have removed
-                            // bug on date function - tony fix
+                            //  bug on date function - tony fix here!
                             var filterRes = f(pVal, s[s.length-1].slice(1,-1)).toString();
                             result = condition.regex.test(filterRes);
                         } else {
