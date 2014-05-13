@@ -72,8 +72,8 @@ angular.module('customersApp.probabilityController', [])
 
                     },
                     { field: '',
-                        width: '65',
-                        cellTemplate: '<button ng-click="delete(row)">Delete</button>'
+                        width: '90',
+                        cellTemplate:'<button class="btn btn-danger pull-right" type="button" ng-click="delete(row)"><i class="icon-trash icon-white"></i> Delete</button>'
                     }
                 ]
             };
