@@ -64,15 +64,15 @@ angular.module('customersApp', [
             });
             $routeProvider.when('/admin/sales', {
                 templateUrl: 'app/partials/admin/sales/salesPeople.html',
-                controller: 'salesPersonController'
+                controller: 'SalesPersonController'
             });
             $routeProvider.when('/admin/probability', {
                 templateUrl: 'app/partials/admin/probabilities/probabilities.html',
-                controller: 'probabilityController'
+                controller: 'ProbabilityController'
             });
             $routeProvider.when('/admin/states', {
                 templateUrl: 'app/partials/admin/states/states.html',
-                controller: 'stateController'
+                controller: 'StateController'
             });
             $routeProvider.otherwise({
                 redirectTo: '/customers'

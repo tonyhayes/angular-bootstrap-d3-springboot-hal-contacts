@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "http://www.thymeleaf.org/dtd/xhtml11-thymeleaf-spring4-4.dtd">
-<html data-ng-app="customersApp" data-ng-controller="appController" xmlns="http://www.w3.org/1999/xhtml"
+<html data-ng-app="customersApp" data-ng-controller="ApplicationController" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thttp://www.thymeleaf.org/dtd/xhtml11-thymeleaf-spring4-4.dtd">
 
 <head>
@@ -53,7 +53,7 @@
     <div ng-if='!loadingDone' class="span10">
         <!-- this is my loading div, it is taken out of the dom once everything is loaded! -->
         <h2><small>Loading:</small></h2>
-        <div class="progress progress-striped active" ng-controller='loadingController'>
+        <div class="progress progress-striped active" ng-controller='LoadingController'>
             <div class="bar" style="width:{{percentDone}}%">
             </div>
         </div>

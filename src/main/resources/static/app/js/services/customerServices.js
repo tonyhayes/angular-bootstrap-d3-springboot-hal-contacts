@@ -9,7 +9,7 @@ angular.module('customersApp.customerServices', []).
 
 //This handles retrieving data and is used by controllers. 3 options (server, factory, provider) with 
 //each doing the same thing just structuring the functions/data differently.
-    .service('customersService', function () {
+    .service('CustomersService', function () {
 
 
         this.storeCustomer = function (customerObj) {
@@ -40,7 +40,7 @@ angular.module('customersApp.customerServices', []).
 
 
     })
-    .service('modalService', ['$modal',
+    .service('ModalService', ['$modal',
         function ($modal) {
 
             var modalDefaults = {
@@ -98,7 +98,7 @@ angular.module('customersApp.customerServices', []).
 
         }
     ])
-    .service('dialogService', ['$dialog',
+    .service('DialogService', ['$dialog',
         function ($dialog) {
             var dialogDefaults = {
                 backdrop: true,

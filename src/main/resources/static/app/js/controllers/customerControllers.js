@@ -6,9 +6,10 @@ angular.module('customersApp.customerControllers', [])
 //This controller retrieves data from the customersService and associates it with the $scope
 //The $scope is ultimately bound to the customers view
     .controller('CustomersController', ['$scope', '$location', '$filter',
-        'CompanyServices', 'customersService', 'modalService', 'CustomerPages',
+        'CompanyServices', 'CustomersService', 'ModalService', 'CustomerPages',
 
-        function ($scope, $location, $filter, CompanyServices, customersService, modalService, CustomerPages) {
+        function ($scope, $location, $filter,
+                  CompanyServices, CustomersService, ModalService, CustomerPages) {
 
             $scope.customerPages = new CustomerPages();
             init();
@@ -27,7 +28,7 @@ angular.module('customersApp.customerControllers', [])
                     bodyText: 'Are you sure you want to delete this customer?'
                 };
 
-                modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
                         CompanyServices.deleteCompany(cust);
                         $scope.customerPages.items.splice(idx, 1);
@@ -43,7 +44,7 @@ angular.module('customersApp.customerControllers', [])
             $scope.navigate = function (url, customerObject) {
                 var companyArray = [0];
                 if (customerObject) {
-                    customersService.storeCustomer(customerObject);
+                    CustomersService.storeCustomer(customerObject);
                     companyArray = customerObject._links.self.href.split('/');
                 }
 
@@ -83,13 +84,15 @@ angular.module('customersApp.customerControllers', [])
     ])
 
 
-    .controller('CustomerEditController', ['$scope', '$routeParams', '$location', 'customersService', 'statesService',
+    .controller('CustomerEditController', ['$scope', '$routeParams', '$location',
+        'CustomersService', 'StatesService',
         'CompanyServices', 'ContactServices',
 
-        function ($scope, $routeParams, $location, customersService, statesService, CompanyServices, ContactServices) {
+        function ($scope, $routeParams, $location,
+                  CustomersService, StatesService, CompanyServices, ContactServices) {
             $scope.master = {};
             $scope.customer = {};
-            $scope.state_array = statesService.getStates();
+            $scope.state_array = StatesService.getStates();
             $scope.customerId = 0;
             $scope.contact_array = [];
 
@@ -108,7 +111,7 @@ angular.module('customersApp.customerControllers', [])
                         }
                     });
 
-                    $scope.customer = customersService.getStoredCustomer();
+                    $scope.customer = CustomersService.getStoredCustomer();
 
                     // if the user reloads the page, I need to get the data from the server then reset the form
                     // as the promise is resolved after the page has been rendered
@@ -117,7 +120,7 @@ angular.module('customersApp.customerControllers', [])
                             $scope.customer = data;
                             $scope.master = angular.copy($scope.customer);
                             $scope.customerForm.$setPristine();
-                            customersService.storeCustomer(data);
+                            CustomersService.storeCustomer(data);
                         });
                     }
                     $scope.master = angular.copy($scope.customer);

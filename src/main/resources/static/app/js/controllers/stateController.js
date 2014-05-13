@@ -2,14 +2,14 @@
  * Created by anthonyhayes on 5/1/14.
  */
 angular.module('customersApp.stateController', [])
-    .controller('stateController', ['$scope', '$routeParams', '$location', '$filter',
-        'statesService', 'modalService',
+    .controller('StateController', ['$scope', '$routeParams', '$location', '$filter',
+        'StatesService', 'ModalService',
 
         function ($scope, $routeParams, $location, $filter,
-                  statesService, modalService) {
+                  StatesService, ModalService) {
 
             $scope.master = {};
-            $scope.states_array = statesService.getStates();
+            $scope.states_array = StatesService.getStates();
             $scope.filterOptions = {
                 filterText: ''
             };
@@ -92,9 +92,9 @@ angular.module('customersApp.stateController', [])
                     bodyText: 'Are you sure you want to delete this state?'
                 };
 
-                modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
-                        statesService.deleteStates(row.entity);
+                        StatesService.deleteStates(row.entity);
                         remove($scope.states_array, 'name', row.entity.name);
                     }
                 });
@@ -130,15 +130,15 @@ angular.module('customersApp.stateController', [])
                     record: $scope.master
                 };
 
-                modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
 
 
                         if (row) {
-                            probabilitiesService.patchProbabilities($scope.master);
+                            StatesService.patchStates($scope.master);
                         } else {
-                            probabilitiesService.patchStates($scope.master);
-                            $scope.probability_array.push($scope.master);
+                            StatesService.postStates($scope.master);
+                            $scope.states_array.push($scope.master);
                         }
                     } else {
                         if (row) {

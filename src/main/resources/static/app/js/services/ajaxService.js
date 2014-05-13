@@ -588,7 +588,7 @@ angular.module('customersApp.ajaxService', [])
             }
         };
     })
-    .factory('statesService', function ($http) {
+    .factory('StatesService', function ($http) {
         var states = [];
         return {
             getConfiguredStates: function () {
@@ -671,7 +671,7 @@ angular.module('customersApp.ajaxService', [])
 
         };
     })
-    .factory('salesPersonService', function ($http) {
+    .factory('SalesPersonService', function ($http) {
         var salesPersons = [];
         return {
             getConfiguredSalesPeople: function () {
@@ -780,7 +780,7 @@ angular.module('customersApp.ajaxService', [])
 
         };
     })
-    .factory('probabilitiesService', function ($http) {
+    .factory('ProbabilitiesService', function ($http) {
         var probabilities = [];
         return {
             getConfiguredProbabilities: function () {
@@ -878,7 +878,7 @@ angular.module('customersApp.ajaxService', [])
         };
     })
 
-    .factory('formComponentService', function ($http) {
+    .factory('FormComponentService', function ($http) {
 
 
         return {

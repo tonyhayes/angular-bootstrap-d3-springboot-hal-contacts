@@ -5,11 +5,12 @@ angular.module('customersApp.contactControllers', [])
 //This controller retrieves data from the customersService and associates it with the $scope
 //The $scope is bound to the details view
     .controller('ContactsController', ['$scope', '$routeParams', '$location', '$filter',
-        'customersService', 'modalService',
-        'statesService', 'ContactServices', 'CompanyServices', 'ContactPages',
+        'CustomersService', 'ModalService',
+        'StatesService', 'ContactServices', 'CompanyServices', 'ContactPages',
 
-        function ($scope, $routeParams, $location, $filter, customersService, modalService, statesService, ContactServices, CompanyServices, ContactPages) {
-            $scope.customer = customersService.getStoredCustomer();
+        function ($scope, $routeParams, $location, $filter,
+                  CustomersService, ModalService, StatesService, ContactServices, CompanyServices, ContactPages) {
+            $scope.customer = CustomersService.getStoredCustomer();
             $scope.filterOptions = {
                 filterText: ''
             };
@@ -25,7 +26,7 @@ angular.module('customersApp.contactControllers', [])
                 if (!$scope.customer) {
                     CompanyServices.getCompany($scope.companyNumber).then(function (data) {
                         $scope.customer = data;
-                        customersService.storeCustomer(data);
+                        CustomersService.storeCustomer(data);
                     });
                 }
 
@@ -77,7 +78,7 @@ angular.module('customersApp.contactControllers', [])
                     bodyText: 'Are you sure you want to delete this contact?'
                 };
 
-                modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
                         ContactServices.deleteContact(contact);
                         $scope.contactPages.items.splice(idx, 1);
@@ -87,7 +88,7 @@ angular.module('customersApp.contactControllers', [])
             };
             $scope.editContact = function (contact) {
 
-                $scope.state_array = statesService.getStates();
+                $scope.state_array = StatesService.getStates();
                 var custName = $scope.customer.companyName + ', ' + $scope.customer.city;
                 var origCard = {};
                 var editContact = true;
@@ -109,7 +110,7 @@ angular.module('customersApp.contactControllers', [])
                     model1: $scope.state_array
                 };
 
-                modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
                         if (editContact) {
                             ContactServices.patchContact(contact);

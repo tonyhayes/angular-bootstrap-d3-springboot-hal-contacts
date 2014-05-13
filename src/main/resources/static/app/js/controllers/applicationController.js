@@ -3,11 +3,13 @@
  */
 angular.module('customersApp.applicationControllers', [])
 
-    .controller("appController", [
+    .controller("ApplicationController", [
         "$scope", "$timeout", "$q", '$location',
-        "customersService", "statesService", "salesPersonService", "probabilitiesService",
-        "formComponentService", "formComponentFormatService",
-        function ($scope, $timeout, $q, $location, customersService, statesService, salesPersonService, probabilitiesService, formComponentService, formComponentFormatService) {
+        "StatesService", "SalesPersonService", "ProbabilitiesService",
+        "FormComponentService", "FormComponentFormatService",
+        function ($scope, $timeout, $q, $location,
+                  StatesService, SalesPersonService, ProbabilitiesService,
+                  FormComponentService, FormComponentFormatService) {
 
             $scope.isCurrentPath = function (path) {
                 return $location.path() == path;
@@ -22,24 +24,24 @@ angular.module('customersApp.applicationControllers', [])
 
             // use $q.all to wait until all promises are resolved
             $q.all([
-                statesService.getConfiguredStates(),
-                salesPersonService.getConfiguredSalesPeople(),
-                probabilitiesService.getConfiguredProbabilities(),
-                formComponentService.getFormComponents(),
-                formComponentService.getOpportunityFormComponents()
+                StatesService.getConfiguredStates(),
+                SalesPersonService.getConfiguredSalesPeople(),
+                ProbabilitiesService.getConfiguredProbabilities(),
+                FormComponentService.getFormComponents(),
+                FormComponentService.getOpportunityFormComponents()
             ]).then(
                 function (data) {
                     if (data[0]._embedded) {
-                        statesService.setStates(data[0]);
+                        StatesService.setStates(data[0]);
                     }
                     if (data[1]) {
-                        salesPersonService.setSalesPeople(data[1]);
+                        SalesPersonService.setSalesPeople(data[1]);
                     }
                     if (data[2]) {
-                        probabilitiesService.setProbabilities(data[2]);
+                        ProbabilitiesService.setProbabilities(data[2]);
                     }
                     if (data[3] && data[4]) {
-                        formComponentFormatService.setOpportunityForm(data[3], data[4]);
+                        FormComponentFormatService.setOpportunityForm(data[3], data[4]);
                     }
                     console.log('All services are resolved!');
                     // when evdrything has loaded, flip the switch, and let the
@@ -57,7 +59,7 @@ angular.module('customersApp.applicationControllers', [])
     ])
     //this controller is in charge of the loading bar,
     // it's quick and dirty, and does nothing fancy.
-    .controller("loadingController", [
+    .controller("LoadingController", [
         "$scope", "$timeout",
         function ($scope, $timeout) {
             $scope.percentDone = 0;
@@ -78,7 +80,7 @@ angular.module('customersApp.applicationControllers', [])
         }
     ])
 // autocomplete controller for companies
-    .controller("loadingCompaniesController", [
+    .controller("LoadingCompaniesController", [
         "$scope", "CompanyServices",
         function ($scope, CompanyServices) {
 

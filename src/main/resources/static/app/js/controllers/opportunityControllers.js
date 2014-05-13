@@ -5,16 +5,16 @@ angular.module('customersApp.opportunityControllers', [])
 //This controller retrieves data from the customersService and associates it with the $scope
 //The $scope is ultimately bound to the customers view
     .controller('OpportunitiesController', ['$scope', '$location', '$filter',
-        'CompanyServices', 'customersService', 'OpportunityServices', 'modalService', 'OpportunityPages',
+        'CompanyServices', 'CustomersService', 'OpportunityServices', 'ModalService', 'OpportunityPages',
 
         function ($scope, $location, $filter,
-                  CompanyServices, customersService, OpportunityServices, modalService, OpportunityPages) {
+                  CompanyServices, CustomersService, OpportunityServices, ModalService, OpportunityPages) {
 
             $scope.opportunityPages = new OpportunityPages();
             $scope.selectedCompany = {};
             init();
 
-            $scope.deleteCustomer = function (idx, opportunity) {
+            $scope.deleteOpportunity = function (idx, opportunity) {
 
                 var opportunityDesc = opportunity.discussion;
 
@@ -28,7 +28,7 @@ angular.module('customersApp.opportunityControllers', [])
                     bodyText: 'Are you sure you want to delete this opportunity?'
                 };
 
-                modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
                         OpportunityServices.deleteOpportunity(opportunity);
                         $scope.opportunityPages.items.splice(idx, 1);
@@ -45,7 +45,7 @@ angular.module('customersApp.opportunityControllers', [])
             $scope.navigate = function (url, opportunityObject) {
                 var company = 0;
                 if (opportunityObject) {
-                    customersService.storeCustomer(null);
+                    CustomersService.storeCustomer(null);
                     company = opportunityObject.companyId;
                 }
 
@@ -57,7 +57,7 @@ angular.module('customersApp.opportunityControllers', [])
                 var company = 0;
                 var opportunityArray = [0];
                 if (opportunityObject) {
-                    customersService.storeCustomer(null);
+                    CustomersService.storeCustomer(null);
                     company = opportunityObject.companyId;
                     var opportunityId = opportunityObject.companyId;
                     opportunityArray = opportunityObject._links.self.href.split('/');
@@ -78,7 +78,7 @@ angular.module('customersApp.opportunityControllers', [])
                         record: $scope.selectedCompany
                     };
 
-                    modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                    ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                         if (result === 'ok') {
                             var companyName = $scope.selectedCompany.selectedCompany;
                             var companyId = CompanyServices.matchCompanyList(companyName);
@@ -135,18 +135,19 @@ angular.module('customersApp.opportunityControllers', [])
 //This controller retrieves data from the customersService and associates it with the $scope
 //The $scope is bound to the details view
     .controller('OpportunityController', ['$scope', '$routeParams', '$location',
-        'customersService', 'modalService', 'OpportunityServices', 'CompanyServices',
+        'CustomersService', 'ModalService', 'OpportunityServices', 'CompanyServices',
 
-        function ($scope, $routeParams, $location, customersService, modalService, OpportunityServices, CompanyServices) {
+        function ($scope, $routeParams, $location,
+                  CustomersService, ModalService, OpportunityServices, CompanyServices) {
 
             //Grab customerID off of the route
             $scope.customerID = parseInt($routeParams.customerID);
 
-            $scope.customer = customersService.getStoredCustomer();
+            $scope.customer = CustomersService.getStoredCustomer();
             if (!$scope.customer) {
                 CompanyServices.getCompany($scope.customerID).then(function (data) {
                     $scope.customer = data;
-                    customersService.storeCustomer(data);
+                    CustomersService.storeCustomer(data);
                 });
             }
             $scope.filterOptions = {
@@ -257,7 +258,7 @@ angular.module('customersApp.opportunityControllers', [])
 
 
                 if (row) {
-                    customersService.storeOpportunity(row.entity);
+                    CustomersService.storeOpportunity(row.entity);
                     id = row.entity.id;
                     opportunityArray = row.entity._links.self.href.split('/');
                 }
@@ -269,15 +270,15 @@ angular.module('customersApp.opportunityControllers', [])
         }
     ])
     .controller('OpportunitiesEditController', ['$scope', '$routeParams', '$location', '$filter',
-        'customersService', 'salesPersonService', 'ContactServices', 'probabilitiesService', 'modalService',
-        'formComponentFormatService', 'OpportunityDetailServices',
+        'CustomersService', 'SalesPersonService', 'ContactServices', 'ProbabilitiesService', 'ModalService',
+        'FormComponentFormatService', 'OpportunityDetailServices',
         'CompanyServices', 'OpportunityServices',
         'OpportunityFormServices',
 
         function ($scope, $routeParams, $location, $filter,
-                  customersService, salesPersonService, ContactServices,
-                  probabilitiesService, modalService,
-                  formComponentFormatService, OpportunityDetailServices,
+                  CustomersService, SalesPersonService, ContactServices,
+                  ProbabilitiesService, ModalService,
+                  FormComponentFormatService, OpportunityDetailServices,
                   CompanyServices, OpportunityServices, OpportunityFormServices) {
 
             $scope.master = {};
@@ -286,15 +287,15 @@ angular.module('customersApp.opportunityControllers', [])
             $scope.opportunities = {};
             $scope.opportunity = {};
             $scope.opportunityForm = {};
-            $scope.salesPerson_array = salesPersonService.getSalesPeople();
-            $scope.probability_array = probabilitiesService.getProbabilities();
+            $scope.salesPerson_array = SalesPersonService.getSalesPeople();
+            $scope.probability_array = ProbabilitiesService.getProbabilities();
             $scope.contact_array = [];
             $scope.filterOptions = {
                 filterText: ''
             };
             $scope.customerID = $routeParams.customerID;
             $scope.opportunityID = ($routeParams.id);
-            $scope.opportunityFormTemplate = formComponentFormatService.getOpportunityForm();
+            $scope.opportunityFormTemplate = FormComponentFormatService.getOpportunityForm();
 
 
             init();
@@ -308,11 +309,11 @@ angular.module('customersApp.opportunityControllers', [])
                 });
 
                 if ($scope.customerID) {
-                    $scope.customer = customersService.getStoredCustomer();
+                    $scope.customer = CustomersService.getStoredCustomer();
                     if (!$scope.customer) {
                         CompanyServices.getCompany($scope.customerID).then(function (data) {
                             $scope.customer = data;
-                            customersService.storeCustomer(data);
+                            CustomersService.storeCustomer(data);
                         });
                     }
 
@@ -329,7 +330,7 @@ angular.module('customersApp.opportunityControllers', [])
                                 /* find the field type
                                  dates and checklists require special formatting
                                  */
-                                var type = formComponentFormatService.getFormType(component);
+                                var type = FormComponentFormatService.getFormType(component);
                                 if (type == 'date') {
                                     $scope.opportunityFormObject[component.name] = component.value;
                                     var d = new Date($scope.opportunityFormObject[component.name]);
@@ -349,12 +350,12 @@ angular.module('customersApp.opportunityControllers', [])
                         }
                     });
 
-                    $scope.opportunity = customersService.getStoredOpportunity();
+                    $scope.opportunity = CustomersService.getStoredOpportunity();
                     $scope.master = angular.copy($scope.opportunity);
                     if (!$scope.opportunity) {
                         OpportunityServices.getOpportunity($scope.opportunityID).then(function (data) {
                             $scope.opportunity = data;
-                            customersService.storeOpportunity(data);
+                            CustomersService.storeOpportunity(data);
                             $scope.master = angular.copy($scope.opportunity);
                             $scope.customerOpportunitiesForm.$setPristine();
                         });
@@ -458,7 +459,7 @@ angular.module('customersApp.opportunityControllers', [])
                         bodyText: 'Before adding action items, you must submit this opportunity'
                     };
 
-                    modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                    ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                         if (result === 'ok') {
                         }
                     });
@@ -485,7 +486,7 @@ angular.module('customersApp.opportunityControllers', [])
                         model1: $scope.salesPerson_array
                     };
 
-                    modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                    ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                         if (result === 'ok') {
 
                             if ($scope.opportunityDetail.followUpdate) {
@@ -549,7 +550,7 @@ angular.module('customersApp.opportunityControllers', [])
 
             };
             function opportunityFormProcessor() {
-                var formTemplate = formComponentFormatService.getDynamicForm();
+                var formTemplate = FormComponentFormatService.getDynamicForm();
 
                 // read through the opportunity form and send changes back to the mother ship
                 angular.forEach(formTemplate, function (component) {

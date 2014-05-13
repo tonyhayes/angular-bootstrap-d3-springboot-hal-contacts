@@ -1,6 +1,8 @@
 angular.module('customersApp.formControllers', [])
 
-    .controller('FormController', function ($scope, $q, $location, $anchorScroll, modalService, FormService, formComponentService, formUpdateService, formComponentFormatService) {
+    .controller('FormController', function ($scope, $q, $location, $anchorScroll,
+                                            ModalService, FormService, FormComponentService,
+                                            FormUpdateService, FormComponentFormatService) {
 
         // preview form mode
         $scope.previewMode = false;
@@ -13,19 +15,19 @@ angular.module('customersApp.formControllers', [])
         // get the current form
         // use $q.all to wait until all promises are resolved
         $q.all([
-            formComponentService.getFormComponents(),
-            formComponentService.getOpportunityFormComponents()
+            FormComponentService.getFormComponents(),
+            FormComponentService.getOpportunityFormComponents()
         ]).then(
             function (data) {
                 if (data[0] && data[1]) {
-                    formComponentFormatService.setOpportunityForm(data[0], data[1]);
-                    $scope.old_form_fields = formComponentFormatService.getDynamicForm();
+                    FormComponentFormatService.setOpportunityForm(data[0], data[1]);
+                    $scope.old_form_fields = FormComponentFormatService.getDynamicForm();
                     $scope.form.form_fields = angular.copy($scope.old_form_fields);
                     // add new field drop-down:
                     $scope.addField = {};
 
                     var types = FormService.fields;
-                    var customFields = formComponentFormatService.getCustomFormTypes();
+                    var customFields = FormComponentFormatService.getCustomFormTypes();
                     $scope.addField.types = types.concat(customFields);
 
 
@@ -62,7 +64,7 @@ angular.module('customersApp.formControllers', [])
                     bodyText: 'There is a limit of 10 fields that can be added to a form.'
                 };
 
-                modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                 });
 
             } else {
@@ -112,7 +114,7 @@ angular.module('customersApp.formControllers', [])
                         bodyText: 'This type of field can only be added once to a form.'
                     };
 
-                    modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                    ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     });
                 }
             });
@@ -121,7 +123,7 @@ angular.module('customersApp.formControllers', [])
                 // incr field_id counter
                 $scope.addField.lastAddedID++;
                 //get the form field, and add to form
-                var newCustomField = formComponentFormatService.customFormField($scope.addField.new);
+                var newCustomField = FormComponentFormatService.customFormField($scope.addField.new);
                 newCustomField.fieldSequence = $scope.addField.lastAddedID;
                 $scope.form.form_fields.push(newCustomField);
             }
@@ -140,7 +142,7 @@ angular.module('customersApp.formControllers', [])
                 bodyText: 'Are you sure you want to delete this field?'
             };
 
-            modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+            ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                 if (result === 'ok') {
                     for (var i = 0; i < $scope.form.form_fields.length; i++) {
                         if ($scope.form.form_fields[i].field_id == field_id) {
@@ -189,7 +191,7 @@ angular.module('customersApp.formControllers', [])
                 bodyText: 'Are you sure you want to delete this field option?'
             };
 
-            modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+            ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                 if (result === 'ok') {
                     angular.forEach(field.field_options, function (fieldOption, i) {
                         if (fieldOption.option_title == option.option_title) {
@@ -216,7 +218,7 @@ angular.module('customersApp.formControllers', [])
                     bodyText: 'No fields added yet, please add fields to the form before preview.'
                 };
 
-                modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                 });
 
 
@@ -248,7 +250,7 @@ angular.module('customersApp.formControllers', [])
                     model1: $scope.formData
                 };
 
-                modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
 
                 });
 
@@ -274,8 +276,7 @@ angular.module('customersApp.formControllers', [])
         // deletes all the fields and retrieves the current form
         $scope.reset = function () {
             // get the current form
-            $scope.form.form_fields = formComponentFormatService.getDynamicForm();
-//            $scope.form.form_fields = formFormatterService.convertFormToFields();
+            $scope.form.form_fields = FormComponentFormatService.getDynamicForm();
             $scope.addField.lastAddedID = $scope.form.form_fields.length;
         };
 
@@ -351,8 +352,8 @@ angular.module('customersApp.formControllers', [])
 
         // send all the fields to the store
         $scope.submit = function () {
-            formUpdateService.updateForm($scope.old_form_fields, angular.copy($scope.form.form_fields), 'opportunity');
-            formComponentFormatService.replaceDynamicForm($scope.form.form_fields);
+            FormUpdateService.updateForm($scope.old_form_fields, angular.copy($scope.form.form_fields), 'opportunity');
+            FormComponentFormatService.replaceDynamicForm($scope.form.form_fields);
 
             // return to applications default page
             $location.path('/');
@@ -362,10 +363,11 @@ angular.module('customersApp.formControllers', [])
             $location.path(url);
         };
     })
-    .controller('FormFieldController', function ($scope, $location, modalService, FormService, formComponentService, formUpdateService, formComponentFormatService) {
+    .controller('FormFieldController', function ($scope, $location,
+               ModalService, FormService, FormComponentService, FormUpdateService, FormComponentFormatService) {
 
         // get the current custom fields
-        $scope.old_form_fields = formComponentFormatService.getCustomFormFields();
+        $scope.old_form_fields = FormComponentFormatService.getCustomFormFields();
         $scope.form_fields = angular.copy($scope.old_form_fields);
 
 
@@ -411,7 +413,7 @@ angular.module('customersApp.formControllers', [])
                 bodyText: 'Are you sure you want to delete this field?'
             };
 
-            modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+            ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                 if (result === 'ok') {
                     for (var i = 0; i < $scope.form_fields.length; i++) {
                         if ($scope.form_fields[i].field_id == field_id) {
@@ -460,7 +462,7 @@ angular.module('customersApp.formControllers', [])
                 bodyText: 'Are you sure you want to delete this field option?'
             };
 
-            modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+            ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                 if (result === 'ok') {
                     angular.forEach(field.field_options, function (fieldOption, i) {
                         if (fieldOption.option_title == option.option_title) {
@@ -485,13 +487,13 @@ angular.module('customersApp.formControllers', [])
         // deletes all the fields and retrieves the current form
         $scope.reset = function () {
             // get the current form
-            $scope.form_fields = formComponentFormatService.getCustomFormFields();
+            $scope.form_fields = FormComponentFormatService.getCustomFormFields();
             $scope.addField.lastAddedID = $scope.form_fields.length;
         };
 
         // send all the fields to the store
         $scope.submit = function () {
-            formUpdateService.updateForm($scope.old_form_fields, angular.copy($scope.form_fields), 'global');
+            FormUpdateService.updateForm($scope.old_form_fields, angular.copy($scope.form_fields), 'global');
 
             // return to applications default page
             $location.path('/');

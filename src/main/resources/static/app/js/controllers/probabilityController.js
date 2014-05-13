@@ -2,14 +2,14 @@
  * Created by anthonyhayes on 5/1/14.
  */
 angular.module('customersApp.probabilityController', [])
-    .controller('probabilityController', ['$scope', '$routeParams', '$location', '$filter',
-        'probabilitiesService', 'modalService',
+    .controller('ProbabilityController', ['$scope', '$routeParams', '$location', '$filter',
+        'ProbabilitiesService', 'ModalService',
 
         function ($scope, $routeParams, $location, $filter,
-                   probabilitiesService, modalService) {
+                   ProbabilitiesService, ModalService) {
 
             $scope.master = {};
-            $scope.probability_array = probabilitiesService.getProbabilities();
+            $scope.probability_array = ProbabilitiesService.getProbabilities();
             $scope.filterOptions = {
                 filterText: ''
             };
@@ -92,9 +92,9 @@ angular.module('customersApp.probabilityController', [])
                     bodyText: 'Are you sure you want to delete this probability?'
                 };
 
-                modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
-                        probabilitiesService.deleteProbabilities(row.entity);
+                        ProbabilitiesService.deleteProbabilities(row.entity);
                         remove($scope.probability_array, 'name', row.entity.name);
                     }
                 });
@@ -130,14 +130,14 @@ angular.module('customersApp.probabilityController', [])
                         record: $scope.master
                     };
 
-                    modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                    ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                         if (result === 'ok') {
 
 
                             if (row) {
-                                probabilitiesService.patchProbabilities($scope.master);
+                                ProbabilitiesService.patchProbabilities($scope.master);
                             } else {
-                                probabilitiesService.postProbabilities($scope.master);
+                                ProbabilitiesService.postProbabilities($scope.master);
                                 $scope.probability_array.push($scope.master);
                             }
                         } else {

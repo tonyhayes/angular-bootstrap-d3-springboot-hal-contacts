@@ -118,7 +118,7 @@ angular.module('customersApp.formsService', [])
         };
 
     })
-    .factory('formUpdateService', function (formComponentService) {
+    .factory('FormUpdateService', function (FormComponentService) {
         return {
             updateForm: function (oldForm, newForm, form) {
                 // delete everything, then post
@@ -189,7 +189,7 @@ angular.module('customersApp.formsService', [])
         };
     })
 
-    .factory('formComponentFormatService', function (FormService) {
+    .factory('FormComponentFormatService', function (FormService) {
 
         var dynamicForm = [];
         var opportunityForm = [];
@@ -312,7 +312,7 @@ angular.module('customersApp.formsService', [])
         };
     })
 
-    .service('formTestComponentService', function (formComponentFormatService) {
+    .service('FormTestComponentService', function (FormComponentFormatService) {
 
 
         this.setOpportunityForm = function () {
