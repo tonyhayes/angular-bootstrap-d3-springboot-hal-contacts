@@ -15,6 +15,7 @@
             <p ng-show="opportunitiesActionForm.followUpdate.$invalid && !opportunitiesActionForm.followUpdate.$pristine"
                class="help-block">Follow Up Date is required.</p>
         </div>
+        <br/><br/>
 
         <div class="form-group"
              ng-class="{ 'has-error' : opportunitiesActionForm.salesPerson.$invalid && !opportunitiesActionForm.salesPerson.$pristine }">
@@ -33,7 +34,7 @@
         <div class="form-group"
              ng-class="{ 'has-error' : opportunitiesActionForm.action.$invalid && !opportunitiesActionForm.action.$pristine }">
             <label>Action</label>
-            <input type="text" name="action" class="form-control" ng-model="modalOptions.record.action">
+            <textarea  name="action" class="form-control" ng-model="modalOptions.record.action"></textarea>
 
             <p ng-show="opportunitiesActionForm.action.$invalid && !opportunitiesActionForm.action.$pristine"
                class="help-block">
