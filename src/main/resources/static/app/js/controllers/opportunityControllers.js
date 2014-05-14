@@ -519,6 +519,26 @@ angular.module('customersApp.opportunityControllers', [])
 
             };
 
+            $scope.$watchCollection('[master.potentialRevenue, master.probabilityId]', function(newValues){
+                if($scope.master){
+                    if(newValues[0] && newValues[1]){
+
+                        var divisor = 1;
+                        var money = parseFloat(newValues[0].replace(/[^\d\.]/g,''));
+
+                        angular.forEach($scope.probability_array, function (probability) {
+                            if(probability.probabilityId === newValues[1])
+                                divisor = probability.percentage;
+                        });
+
+                        $scope.master.potentialRevenueCalc = money / divisor;
+
+                    }else{
+                        $scope.master.potentialRevenueCalc = 0;
+                    }
+
+                }
+            });
 
             // function to submit the form after all validation has occurred
             $scope.submitForm = function () {
