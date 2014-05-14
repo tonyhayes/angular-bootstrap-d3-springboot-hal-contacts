@@ -531,7 +531,7 @@ angular.module('customersApp.opportunityControllers', [])
                                 divisor = probability.percentage;
                         });
 
-                        $scope.master.potentialRevenueCalc = money / divisor;
+                        $scope.master.potentialRevenueCalc = $filter("currency")(money / divisor);
 
                     }else{
                         $scope.master.potentialRevenueCalc = 0;
