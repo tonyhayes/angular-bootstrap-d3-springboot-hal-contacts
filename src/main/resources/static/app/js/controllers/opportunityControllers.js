@@ -351,11 +351,19 @@ angular.module('customersApp.opportunityControllers', [])
                     });
 
                     $scope.opportunity = CustomersService.getStoredOpportunity();
+                    if($scope.opportunity){
+                        $scope.opportunity.potentialRevenue = $filter("currency")($scope.opportunity.potentialRevenue);
+                    }
                     $scope.master = angular.copy($scope.opportunity);
                     if (!$scope.opportunity) {
                         OpportunityServices.getOpportunity($scope.opportunityID).then(function (data) {
                             $scope.opportunity = data;
                             CustomersService.storeOpportunity(data);
+
+                            if($scope.opportunity){
+                                $scope.opportunity.potentialRevenue = $filter("currency")($scope.opportunity.potentialRevenue);
+                            }
+
                             $scope.master = angular.copy($scope.opportunity);
                             $scope.customerOpportunitiesForm.$setPristine();
                         });
