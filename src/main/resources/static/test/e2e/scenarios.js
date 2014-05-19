@@ -765,7 +765,7 @@ describe('customersApp', function () {
 
                         var firstName = anchor[0].getText();
 
-                        expect(firstName).toContain('AA-AAA-AAA2 The Testing Contact2');
+                        expect(firstName).toContain('The Testing Contact');
 
 
                     });
