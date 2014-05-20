@@ -7,11 +7,32 @@
 
         <div class="row">
             <div class="span2">
-                <ul class="nav nav-pills nav-stacked admin-menu">
-                    <li class="active"><a href=""><i class="icon-picture"></i> Attributes</a>
+                <ul class="nav nav-pills nav-stacked ">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-picture"></i> Attributes <b class="caret"></b></a>
+                        <ul class="dropdown-menu" >
+                            <li><a href="javascript:void(0)" data-ng-click="chartAttribute('company')">Company</a></li>
+                            <li><a href="javascript:void(0)" data-ng-click="chartAttribute('sales')">Sales People</a></li>
+                        </ul>
                     </li>
-                    <li><a href="" ><i class="icon-filter"></i> Filters</a></li>
-                    <li><a href="" ><i class="icon-signal"></i> Style</a></li>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-filter"></i> Filters <b class="caret"></b></a>
+                        <ul class="dropdown-menu" >
+                            <li><a href="javascript:void(0)" data-ng-click="chartFilter('lineChart')">Companies</a></li>
+                            <li><a href="javascript:void(0)" data-ng-click="chartFilter('discreteBarChart')">Sales People</a></li>
+                            <li><a href="javascript:void(0)" data-ng-click="chartFilter('pieChart')">Probabilities</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-signal"></i> Style <b class="caret"></b></a>
+                        <ul class="dropdown-menu" >
+                            <li><a href="javascript:void(0)" data-ng-click="chartType('lineChart')">Line Chart</a></li>
+                            <li><a href="javascript:void(0)" data-ng-click="chartType('discreteBarChart')">Bar Chart</a></li>
+                            <li><a href="javascript:void(0)" data-ng-click="chartType('pieChart')">Pie Chart</a></li>
+                            <li><a href="javascript:void(0)" data-ng-click="chartType('donutChart')">Donut chart</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
 
