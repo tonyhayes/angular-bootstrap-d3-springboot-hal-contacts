@@ -10,6 +10,7 @@ angular.module('customersApp', [
     'customersApp.salesPersonController',
     'customersApp.probabilityController',
     'customersApp.stateController',
+    'customersApp.chartsController',
 
     'customersApp.filters',
     'customersApp.directives',
@@ -17,6 +18,7 @@ angular.module('customersApp', [
     'customersApp.customerServices',
     'customersApp.formsService',
     'customersApp.ajaxService',
+    'customersApp.chartService',
 
     /*
     plug-ins!
@@ -26,8 +28,9 @@ angular.module('customersApp', [
     'ngGrid',
     'dynform',
     'infinite-scroll',
-    "ngQuickDate"
-]).
+    "ngQuickDate",
+    'nvd3'
+ ]).
     config(['$routeProvider',
         function ($routeProvider, $locationProvider) {
             $routeProvider.when('/customers', {
@@ -37,6 +40,10 @@ angular.module('customersApp', [
             $routeProvider.when('/opportunities', {
                 templateUrl: 'app/partials/opportunity/opportunityCards.html',
                 controller: 'OpportunitiesController'
+            });
+            $routeProvider.when('/charts', {
+                templateUrl: 'app/partials/charts/chart.html',
+                controller: 'ChartsController'
             });
             $routeProvider.when('/contactcards/:customerID', {
                 templateUrl: 'app/partials/contact/contactCards.html',

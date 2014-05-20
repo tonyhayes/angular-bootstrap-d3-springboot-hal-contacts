@@ -12,6 +12,7 @@
     <link th:href="@{app/css/bootstrap-responsive.min.css}" rel="stylesheet"/>
     <link th:href="@{app/css/ng-grid.min.css}" rel="stylesheet"/>
     <link th:href="@{app/css/ng-quick-date.css}" rel="stylesheet"/>
+    <link th:href="@{app/css/nv.d3.min.css}" rel="stylesheet"/>
     <link th:href="@{app/css/customerManagementStyles.css}" rel="stylesheet"/>
 
     <script>
@@ -30,6 +31,7 @@
             <ul class="nav nav-pills">
                 <li ng-class="{ active: isCurrentPath('/customers') }"><a href="#/customers">Customers</a></li>
                 <li ng-class="{ active: isCurrentPath('/opportunities') }"><a href="#/opportunities">Opportunities</a></li>
+                <li ng-class="{ active: isCurrentPath('/charts') }"><a href="#/charts">Reports</a></li>
 
             </ul>
             <ul class="nav pull-right">
@@ -94,16 +96,20 @@
 <script th:src="@{app/lib/dynamic-forms.js}"></script>
 <script th:src="@{app/lib/ng-infinite-scroll.js}"></script>
 <script th:src="@{app/lib/ng-quick-date.js}"></script>
-
+<script th:src="@{app/lib/d3.min.js}"></script>
+<script th:src="@{app/lib/nv.d3.min.js}"></script>
+<script th:src="@{app/lib/angular-nvd3.min.js}"></script>
 <!-- application -->
 
 <script th:src="@{app/js/app.js}"></script>
 <script th:src="@{app/js/services/customerServices.js}"></script>
 <script th:src="@{app/js/services/ajaxService.js}"></script>
+<script th:src="@{app/js/services/chartService.js}"></script>
 <script th:src="@{app/js/controllers/applicationController.js}"></script>
 <script th:src="@{app/js/controllers/customerControllers.js}"></script>
 <script th:src="@{app/js/controllers/contactControllers.js}"></script>
 <script th:src="@{app/js/controllers/opportunityControllers.js}"></script>
+<script th:src="@{app/js/controllers/chartsController.js}"></script>
 <script th:src="@{app/js/filters/customerFilters.js}"></script>
 <script th:src="@{app/js/directives/directives.js}"></script>
 
