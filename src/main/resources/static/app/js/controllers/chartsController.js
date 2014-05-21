@@ -3,13 +3,21 @@
  */
 angular.module('customersApp.chartsController', [])
     .controller('ChartsController', ['$scope', '$routeParams', '$location', '$filter',
-        'ModalService', 'ChartService',
+        'ModalService', 'ChartService', 'CompanyServices',
 
-        function ($scope, $routeParams, $location, $filter, ModalService, ChartService) {
+        function ($scope, $routeParams, $location, $filter, ModalService, ChartService, CompanyServices) {
 
             $scope.companySelect = true;
             $scope.salesSelect = true;
+            $scope.selectedSalesTags = {};
+            $scope.selectedProbabilityTags = {};
 
+            $scope.selectedCompanyTags = [
+                { text: 'just' },
+                { text: 'some' },
+                { text: 'cool' },
+                { text: 'tags' }
+            ];
             //           $scope.options = ChartService.chart.discreteBarChart;
             $scope.options = ChartService.chart.lineChart;
 
@@ -30,22 +38,41 @@ angular.module('customersApp.chartsController', [])
                 var modalDefaults = {
                     templateUrl: 'app/partials/charts/modalFilterSelection.html'
                 };
+
                 var modalOptions = {
                     closeButtonText: 'Cancel',
-                    actionButtonText: 'Next',
-                    headerText: 'Select Company For This Opportunity',
-                    bodyText: 'Type to locate a company',
-                    record: $scope.selectedCompany
+                    actionButtonText: 'OK',
+                    headerText: 'Select a '+filter+' For This Chart',
+                    bodyText: 'Type to locate',
+                    record: $scope.selectedCompanyTags
                 };
 
                 ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
+                        var companyName = $scope.selectedCompanyTags;
 
 
                     }
                 });
 
             };
+
+
+
+
+
+
+            $scope.getList = function(term) {
+                if (term){
+                    var items = CompanyServices.getCompanyList(term);
+                    return items;
+
+                }
+            };
+
+
+
+
 
             var data = {};
             data.discreteBarChart =  [

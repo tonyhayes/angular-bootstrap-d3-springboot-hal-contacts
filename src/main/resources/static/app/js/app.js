@@ -29,7 +29,8 @@ angular.module('customersApp', [
     'dynform',
     'infinite-scroll',
     "ngQuickDate",
-    'nvd3'
+    'nvd3',
+    'ngTagsInput'
  ]).
     config(['$routeProvider',
         function ($routeProvider, $locationProvider) {

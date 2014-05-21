@@ -1,18 +1,17 @@
 <div class="charts modal-header">
     <h3>{{modalOptions.headerText}}</h3>
 </div>
-<div class="charts modal-body">
+<div class="companySelect modal-body">
 
 
-    <form name="companySelectForm" ng-submit="submitForm()" novalidate>
+    <form name="filterSelectForm" ng-submit="submitForm()" novalidate>
 
 
-        <div class="form-group" ng-controller='LoadingCompaniesController'>
-            <label>Company Name</label>
-
-            <input type="text" name="name" data-ng-model="modalOptions.record.selectedCompany"
-                   typeahead-wait-ms="300" typeahead="k for k in getList($viewValue)">
-
+        <div class="form-group" ng-controller='ChartsController'>
+            <label>Name</label>
+            <tags-input ng-model="modalOptions.record" add-from-autocomplete-only="true">
+                <auto-complete source="getList($query)"></auto-complete>
+            </tags-input>
         </div>
 
 
@@ -22,7 +21,7 @@
 </div>
 <div class="modal-footer">
     <button type="button" class="btn" data-ng-click="modalOptions.close()">{{modalOptions.closeButtonText}}</button>
-    <button type="submit" class="btn btn-primary" ng-disabled="companySelectForm.$invalid"
+    <button type="submit" class="btn btn-primary" ng-disabled="filterSelectForm.$invalid"
             data-ng-click="modalOptions.ok();">
         {{modalOptions.actionButtonText}}
     </button>

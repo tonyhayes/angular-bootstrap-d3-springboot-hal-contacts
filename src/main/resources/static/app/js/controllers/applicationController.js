@@ -90,4 +90,25 @@ angular.module('customersApp.applicationControllers', [])
             };
 
          }
-    ]);
+    ])
+// autocomplete controller for companies
+    .controller("LoadingFiltersController", [
+        "$scope", "CompanyServices",
+        function ($scope, CompanyServices) {
+
+
+
+
+
+            $scope.getList = function(term) {
+                if (term){
+                    var items = CompanyServices.getCompanyList(term);
+                    return items;
+
+                }
+            };
+
+        }
+    ])
+
+;
