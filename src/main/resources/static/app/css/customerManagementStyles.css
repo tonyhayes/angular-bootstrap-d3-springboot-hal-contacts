@@ -180,3 +180,7 @@ a {
     height: 350px;
 }
 
+.charts .icon-ok-disabled {
+    display: none;
+}
+

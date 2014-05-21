@@ -11,17 +11,19 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-picture"></i> Attributes <b class="caret"></b></a>
                         <ul class="dropdown-menu" >
-                            <li><a href="javascript:void(0)" data-ng-click="chartAttribute('company')">Company</a></li>
-                            <li><a href="javascript:void(0)" data-ng-click="chartAttribute('sales')">Sales People</a></li>
+                            <li><a href="javascript:void(0)" data-ng-click="chartAttribute('companySelect')"><i ng-class="companySelect ? 'icon-ok' : 'icon-ok-disabled'"></i>
+                                Company</a></li>
+                            <li><a href="javascript:void(0)" data-ng-click="chartAttribute('salesSelect')"><i ng-class="salesSelect ? 'icon-ok' : 'icon-ok-disabled'"></i>
+                                Sales People</a></li>
                         </ul>
                     </li>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-filter"></i> Filters <b class="caret"></b></a>
                         <ul class="dropdown-menu" >
-                            <li><a href="javascript:void(0)" data-ng-click="chartFilter('lineChart')">Companies</a></li>
-                            <li><a href="javascript:void(0)" data-ng-click="chartFilter('discreteBarChart')">Sales People</a></li>
-                            <li><a href="javascript:void(0)" data-ng-click="chartFilter('pieChart')">Probabilities</a></li>
+                            <li><a href="javascript:void(0)" data-ng-click="chartFilter('companies')">Companies</a></li>
+                            <li><a href="javascript:void(0)" data-ng-click="chartFilter('sales')">Sales People</a></li>
+                            <li><a href="javascript:void(0)" data-ng-click="chartFilter('probabilities')">Probabilities</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

@@ -7,13 +7,43 @@ angular.module('customersApp.chartsController', [])
 
         function ($scope, $routeParams, $location, $filter, ModalService, ChartService) {
 
- //           $scope.options = ChartService.chart.discreteBarChart;
+            $scope.companySelect = true;
+            $scope.salesSelect = true;
+
+            //           $scope.options = ChartService.chart.discreteBarChart;
             $scope.options = ChartService.chart.lineChart;
 
             $scope.chartType = function (type) {
 
                 $scope.options = ChartService.chart[type];
                 $scope.data = data[type];
+
+            };
+
+            $scope.chartAttribute = function(attribute){
+
+              $scope[attribute]  = !$scope[attribute];
+
+            };
+
+            $scope.chartFilter = function (filter){
+                var modalDefaults = {
+                    templateUrl: 'app/partials/charts/modalFilterSelection.html'
+                };
+                var modalOptions = {
+                    closeButtonText: 'Cancel',
+                    actionButtonText: 'Next',
+                    headerText: 'Select Company For This Opportunity',
+                    bodyText: 'Type to locate a company',
+                    record: $scope.selectedCompany
+                };
+
+                ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                    if (result === 'ok') {
+
+
+                    }
+                });
 
             };
 
