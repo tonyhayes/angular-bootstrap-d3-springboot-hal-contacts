@@ -52,45 +52,45 @@ angular.module('customersApp.chartsController', [])
                 {
                     key: "Cumulative Return",
                     values: [
-                        { "label": "A", "value": -29.765957771107 },
-                        { "label": "B", "value": 0 },
-                        { "label": "C", "value": 32.807804682612 },
-                        { "label": "D", "value": 196.45946739256 },
-                        { "label": "E", "value": 0.19434030906893 },
-                        { "label": "F", "value": -98.079782601442 },
-                        { "label": "G", "value": -13.925743130903 },
-                        { "label": "H", "value": -5.1387322875705 }
+                        { "label": "Andy", "value": -29.765957771107 },
+                        { "label": "Betty", "value": 0 },
+                        { "label": "Cindy", "value": 32.807804682612 },
+                        { "label": "Dave", "value": 196.45946739256 },
+                        { "label": "Eloise", "value": 0.19434030906893 },
+                        { "label": "Fin", "value": -98.079782601442 },
+                        { "label": "Ginny", "value": -13.925743130903 },
+                        { "label": "Harry", "value": -5.1387322875705 }
                     ]
                 }
             ];
             data.lineChart = sinAndCos();
             data.pieChart = [
                 {
-                    key: "One",
+                    key: "Andy",
                     y: 5
                 },
                 {
-                    key: "Two",
+                    key: "Jenny",
                     y: 2
                 },
                 {
-                    key: "Three",
+                    key: "Mike",
                     y: 9
                 },
                 {
-                    key: "Four",
+                    key: "Barry",
                     y: 7
                 },
                 {
-                    key: "Five",
+                    key: "Phillip",
                     y: 4
                 },
                 {
-                    key: "Six",
+                    key: "Sarah",
                     y: 3
                 },
                 {
-                    key: "Seven",
+                    key: "Steve",
                     y: .5
                 }
             ];
@@ -115,17 +115,17 @@ angular.module('customersApp.chartsController', [])
                 return [
                     {
                         values: sin,      //values - represents the array of {x,y} data points
-                        key: 'Sine Wave', //key  - the name of the series.
+                        key: 'Jennys Opportunties', //key  - the name of the series.
                         color: '#ff7f0e'  //color - optional: choose your own line color.
                     },
                     {
                         values: cos,
-                        key: 'Cosine Wave',
+                        key: 'Peters Opportunties',
                         color: '#2ca02c'
                     },
                     {
                         values: sin2,
-                        key: 'Another sine wave',
+                        key: 'Ronalds Opportunties',
                         color: '#7777ff',
                         area: true      //area - set to true if you want this line to turn into a filled area chart.
                     }
