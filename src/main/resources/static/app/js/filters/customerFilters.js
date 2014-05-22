@@ -85,4 +85,45 @@ angular.module('customersApp.filters', [])
                 return matches;
             };
 
-    });
+    })
+    .filter('salesPersonFilter', function () {
+
+        return function (salesPeople, filterValue) {
+            if (!filterValue) return salesPeople;
+
+            var matches = [];
+            filterValue = filterValue.toLowerCase();
+            for (var i = 0; i < salesPeople.length; i++) {
+                var salesPerson = salesPeople[i];
+                if ((salesPerson.firstName && salesPerson.firstName.toLowerCase().indexOf(filterValue) > -1) ||
+                    (salesPerson.lastName && salesPerson.lastName.toLowerCase().indexOf(filterValue) > -1)) {
+
+                    matches.push(salesPerson);
+
+                }
+            }
+            return matches;
+        };
+
+    })
+    .filter('probabilityFilter', function () {
+
+        return function (probability, filterValue) {
+            if (!filterValue) return probability;
+
+            var matches = [];
+            filterValue = filterValue.toLowerCase();
+            for (var i = 0; i < probability.length; i++) {
+                var prob = probability[i];
+                if ((prob.name && prob.name.toLowerCase().indexOf(filterValue) > -1)) {
+
+                    matches.push(prob);
+
+                }
+            }
+            return matches;
+        };
+
+    })
+
+;

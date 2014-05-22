@@ -3,21 +3,16 @@
  */
 angular.module('customersApp.chartsController', [])
     .controller('ChartsController', ['$scope', '$routeParams', '$location', '$filter',
-        'ModalService', 'ChartService', 'CompanyServices',
+        'ModalService', 'ChartService', 'CompanyServices','SalesPersonService','ProbabilitiesService',
 
-        function ($scope, $routeParams, $location, $filter, ModalService, ChartService, CompanyServices) {
+        function ($scope, $routeParams, $location, $filter,
+                  ModalService, ChartService, CompanyServices,SalesPersonService,ProbabilitiesService) {
 
             $scope.companySelect = true;
             $scope.salesSelect = true;
-            $scope.selectedSalesTags = {};
-            $scope.selectedProbabilityTags = {};
-
-            $scope.selectedCompanyTags = [
-                { text: 'just' },
-                { text: 'some' },
-                { text: 'cool' },
-                { text: 'tags' }
-            ];
+            $scope.selectedSalesTags = [];
+            $scope.selectedProbabilityTags = [];
+            $scope.selectedCompanyTags = [];
             //           $scope.options = ChartService.chart.discreteBarChart;
             $scope.options = ChartService.chart.lineChart;
 
@@ -35,6 +30,22 @@ angular.module('customersApp.chartsController', [])
             };
 
             $scope.chartFilter = function (filter){
+
+                var filterGroup = [];
+
+                switch(filter) {
+                    case 'Company':
+                        filterGroup = angular.copy($scope.selectedCompanyTags);
+                        break;
+                    case 'Sales Person':
+                        filterGroup = angular.copy($scope.selectedSalesTags);
+                        break;
+                    case 'Probability':
+                        filterGroup = angular.copy($scope.selectedProbabilityTags);
+                        break;
+                }
+
+
                 var modalDefaults = {
                     templateUrl: 'app/partials/charts/modalFilterSelection.html'
                 };
@@ -44,13 +55,25 @@ angular.module('customersApp.chartsController', [])
                     actionButtonText: 'OK',
                     headerText: 'Select a '+filter+' For This Chart',
                     bodyText: 'Type to locate',
-                    record: $scope.selectedCompanyTags
+                    record: filterGroup,
+                    model1: filter
                 };
 
                 ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
-                        var companyName = $scope.selectedCompanyTags;
+                        switch(filter) {
+                            case 'Company':
+                                $scope.selectedCompanyTags = angular.copy(filterGroup);
+                                break;
+                            case 'Sales Person':
+                                $scope.selectedSalesTags = angular.copy(filterGroup);
+                                break;
+                            case 'Probability':
+                                $scope.selectedProbabilityTags = angular.copy(filterGroup);
+                                break;
+                        }
 
+                        // now run function to load/filter the data
 
                     }
                 });
@@ -64,8 +87,20 @@ angular.module('customersApp.chartsController', [])
 
             $scope.getList = function(term) {
                 if (term){
-                    var items = CompanyServices.getCompanyList(term);
-                    return items;
+                    switch($scope.modalOptions.model1) {
+                        case 'Company':
+                            var items = CompanyServices.getCompanyList(term);
+                            return items;
+                            break;
+                        case 'Sales Person':
+                            var items = SalesPersonService.getSalesList(term);
+                            return items;
+                            break;
+                        case 'Probability':
+                            var items = ProbabilitiesService.getProbabilitiesList(term);
+                            return items;
+                            break;
+                    }
 
                 }
             };

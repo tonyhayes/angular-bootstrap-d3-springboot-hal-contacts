@@ -8,7 +8,7 @@
 
 
         <div class="form-group" ng-controller='ChartsController'>
-            <label>Name</label>
+            <label>{{modalOptions.model1}}</label>
             <tags-input ng-model="modalOptions.record" add-from-autocomplete-only="true">
                 <auto-complete source="getList($query)"></auto-complete>
             </tags-input>

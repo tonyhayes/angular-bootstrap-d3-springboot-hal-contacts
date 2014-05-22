@@ -673,6 +673,8 @@ angular.module('customersApp.ajaxService', [])
     })
     .factory('SalesPersonService', function ($http) {
         var salesPersons = [];
+        var _list = [];
+        var _locator = [];
         return {
             getConfiguredSalesPeople: function () {
                 //since $http.get returns a promise,
@@ -716,6 +718,24 @@ angular.module('customersApp.ajaxService', [])
                 return $http.delete(url).then(function (result) {
                     return result.data;
                 });
+            },
+            getSalesList: function(term) {
+                return $http.get(dmApplicationEntryPoint + '/salesPersons/search/findByName', {
+                    params: {name: term+'%',  page: 0}}).then(function (response) {
+                    // have to loop through result because it's key => value
+                    _list = [];
+                    _locator = [];
+                    if(response.data._embedded){
+                        for(var key in response.data._embedded.salesPersons) {
+                            _list.push(response.data._embedded.salesPersons[key].salesPersonDescription);
+                            _locator.push(response.data._embedded.salesPersons[key].salesPersonId);
+                        }
+                    }
+                    return _list;
+                });
+            },
+            matchSalesList: function(name) {
+                return _locator[ _list.indexOf(name) ];
             },
             getSalesPeople: function () {
                 return salesPersons;
@@ -782,6 +802,8 @@ angular.module('customersApp.ajaxService', [])
     })
     .factory('ProbabilitiesService', function ($http) {
         var probabilities = [];
+        var _list = [];
+        var _locator = [];
         return {
             getConfiguredProbabilities: function () {
                 //since $http.get returns a promise,
@@ -825,6 +847,24 @@ angular.module('customersApp.ajaxService', [])
                 return $http.delete(url).then(function (result) {
                     return result.data;
                 });
+            },
+            getProbabilitiesList: function(term) {
+                return $http.get(dmApplicationEntryPoint + '/probabilities/search/findByName', {
+                    params: {name: term+'%',  page: 0}}).then(function (response) {
+                    // have to loop through result because it's key => value
+                    _list = [];
+                    _locator = [];
+                    if(response.data._embedded){
+                        for(var key in response.data._embedded.probabilities) {
+                            _list.push(response.data._embedded.probabilities[key].name);
+                            _locator.push(response.data._embedded.probabilities[key].probabilityId);
+                        }
+                    }
+                    return _list;
+                });
+            },
+            matchProbabilitiesList: function(name) {
+                return _locator[ _list.indexOf(name) ];
             },
             getProbabilities: function () {
                 return probabilities;
