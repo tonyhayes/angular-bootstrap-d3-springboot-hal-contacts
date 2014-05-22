@@ -10,7 +10,7 @@
         <div class="form-group" ng-controller='ChartsController'>
             <label>{{modalOptions.model1}}</label>
             <tags-input ng-model="modalOptions.record" add-from-autocomplete-only="true">
-                <auto-complete source="getList($query)"></auto-complete>
+                <auto-complete source="getList($query)" min-length="2"></auto-complete>
             </tags-input>
         </div>
 
