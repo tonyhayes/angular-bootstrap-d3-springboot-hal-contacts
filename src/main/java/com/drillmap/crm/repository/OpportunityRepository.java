@@ -42,4 +42,9 @@ public interface OpportunityRepository extends TenantAwareRepository<Opportunity
             "o.tenantId = :tenantId")
     public Page<Opportunity> findByOpportunity( @Param(value="tenantId") Long tenantId, Pageable page);
 
+    @Query("select o from #{#entityName} o where " +
+            "o.tenantId = :tenantId")
+    public List<Opportunity> findAllOpportunities( @Param(value="tenantId") Long tenantId);
+
+
 }

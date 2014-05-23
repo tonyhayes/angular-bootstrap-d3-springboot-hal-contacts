@@ -3,10 +3,12 @@
  */
 angular.module('customersApp.chartsController', [])
     .controller('ChartsController', ['$scope', '$routeParams', '$location', '$filter',
-        'ModalService', 'ChartService', 'CompanyServices','SalesPersonService','ProbabilitiesService',
+        'ModalService', 'ChartService', 'CustomersService',
+        'CompanyServices','SalesPersonService','ProbabilitiesService', 'OpportunityServices',
 
         function ($scope, $routeParams, $location, $filter,
-                  ModalService, ChartService, CompanyServices,SalesPersonService,ProbabilitiesService) {
+                  ModalService, ChartService, CustomersService,
+                  CompanyServices,SalesPersonService,ProbabilitiesService, OpportunityServices) {
 
             $scope.companySelect = true;
             $scope.salesSelect = false;
@@ -17,6 +19,22 @@ angular.module('customersApp.chartsController', [])
             $scope.selectedProbabilityTags = [];
             $scope.selectedCompanyTags = [];
             $scope.options = ChartService.chart.lineChart;
+            $scope.opportunityData = CustomersService.getStoredOpportunityData();
+
+
+            if (!$scope.opportunityData) {
+
+                OpportunityServices.getAllOpportunities().then(function (data) {
+                    $scope.opportunity = data;
+                    CustomersService.storeOpportunityData(data);
+
+                    // send to chart draw function
+                });
+            }else{
+                //send to chart draw function
+            }
+
+
 
             $scope.chartType = function (type) {
 

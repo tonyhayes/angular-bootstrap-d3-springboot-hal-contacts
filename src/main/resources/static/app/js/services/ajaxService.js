@@ -397,6 +397,15 @@ angular.module('customersApp.ajaxService', [])
                     return result.data;
                 });
             },
+            getAllOpportunities: function (company) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.get(dmApplicationEntryPoint + '/opportunities/search' + '/findAllOpportunities').then(function (result) {
+                    return result.data._embedded.opportunities;
+                });
+            },
             getOpportunity: function (opportunityId) {
                 //since $http.get returns a promise,
                 //and promise.then() also returns a promise

@@ -34,9 +34,21 @@ angular.module('customersApp.customerServices', []).
                 return null;
             }
         };
+        this.storeOpportunityData = function (opportunityDataObj) {
+            opportunityDataObject = opportunityDataObj;
+        };
+
+        this.getStoredOpportunityData = function () {
+            if (opportunityDataObject) {
+                return opportunityDataObject;
+            } else {
+                return null;
+            }
+        };
 
         var customerObject;
         var opportunityObject;
+        var opportunityDataObject;
 
 
     })
