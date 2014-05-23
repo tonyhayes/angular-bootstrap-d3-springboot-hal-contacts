@@ -9,11 +9,13 @@ angular.module('customersApp.chartsController', [])
                   ModalService, ChartService, CompanyServices,SalesPersonService,ProbabilitiesService) {
 
             $scope.companySelect = true;
-            $scope.salesSelect = true;
+            $scope.salesSelect = false;
+            $scope.countSelect = true;
+            $scope.potentialRevenueSelect = false;
+            $scope.calculatedRevenueSelect = false;
             $scope.selectedSalesTags = [];
             $scope.selectedProbabilityTags = [];
             $scope.selectedCompanyTags = [];
-            //           $scope.options = ChartService.chart.discreteBarChart;
             $scope.options = ChartService.chart.lineChart;
 
             $scope.chartType = function (type) {
@@ -23,9 +25,36 @@ angular.module('customersApp.chartsController', [])
 
             };
 
-            $scope.chartAttribute = function(attribute){
+            $scope.chartGroupBy = function(attribute){
 
-              $scope[attribute]  = !$scope[attribute];
+                $scope[attribute]  = !$scope[attribute];
+                switch(attribute) {
+                    case 'companySelect':
+                        $scope.salesSelect  = !$scope[attribute];
+                        break;
+                    case 'salesSelect':
+                        $scope.companySelect  = !$scope[attribute];
+                        break;
+                }
+
+            };
+            $scope.chartSelectBy = function(attribute){
+
+                $scope[attribute]  = !$scope[attribute];
+                switch(attribute) {
+                    case 'countSelect':
+                        $scope.potentialRevenueSelect  = !$scope[attribute];
+                        $scope.calculatedRevenueSelect  = false;
+                        break;
+                    case 'potentialRevenueSelect':
+                        $scope.countSelect  = !$scope[attribute];
+                        $scope.calculatedRevenueSelect  = false;
+                        break;
+                    case 'calculatedRevenueSelect':
+                        $scope.countSelect  = !$scope[attribute];
+                        $scope.potentialRevenueSelect  = false;
+                        break;
+                }
 
             };
 
@@ -80,11 +109,6 @@ angular.module('customersApp.chartsController', [])
 
             };
 
-
-
-
-
-
             $scope.getList = function(term) {
                 if (term){
                     switch($scope.modalOptions.model1) {
@@ -104,10 +128,6 @@ angular.module('customersApp.chartsController', [])
 
                 }
             };
-
-
-
-
 
             var data = {};
             data.discreteBarChart =  [

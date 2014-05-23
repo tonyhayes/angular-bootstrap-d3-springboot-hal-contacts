@@ -11,10 +11,26 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-picture"></i> Attributes <b class="caret"></b></a>
                         <ul class="dropdown-menu" >
-                            <li><a href="javascript:void(0)" data-ng-click="chartAttribute('companySelect')"><i ng-class="companySelect ? 'icon-ok' : 'icon-ok-disabled'"></i>
-                                Company</a></li>
-                            <li><a href="javascript:void(0)" data-ng-click="chartAttribute('salesSelect')"><i ng-class="salesSelect ? 'icon-ok' : 'icon-ok-disabled'"></i>
-                                Sales People</a></li>
+                            <li class="dropdown dropdown-submenu"><a href="#">Group By</a>
+
+                                <ul class="dropdown-menu">
+                                    <li><a href="javascript:void(0)" data-ng-click="chartGroupBy('companySelect')"><i ng-class="companySelect ? 'icon-ok' : 'icon-ok-disabled'"></i>
+                                        Company</a></li>
+                                    <li><a href="javascript:void(0)" data-ng-click="chartGroupBy('salesSelect')"><i ng-class="salesSelect ? 'icon-ok' : 'icon-ok-disabled'"></i>
+                                        Sales People</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown dropdown-submenu"><a href="#">Select By</a>
+
+                                <ul class="dropdown-menu">
+                                    <li><a href="javascript:void(0)" data-ng-click="chartSelectBy('countSelect')"><i ng-class="countSelect ? 'icon-ok' : 'icon-ok-disabled'"></i>
+                                        Opportunity Count</a></li>
+                                    <li><a href="javascript:void(0)" data-ng-click="chartSelectBy('potentialRevenueSelect')"><i ng-class="potentialRevenueSelect ? 'icon-ok' : 'icon-ok-disabled'"></i>
+                                        Potential Revenue</a></li>
+                                    <li><a href="javascript:void(0)" data-ng-click="chartSelectBy('calculatedRevenueSelect')"><i ng-class="calculatedRevenueSelect ? 'icon-ok' : 'icon-ok-disabled'"></i>
+                                        Calculated Revenue</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     </li>
