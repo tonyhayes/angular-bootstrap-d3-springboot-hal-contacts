@@ -7,9 +7,7 @@ angular.module('customersApp.applicationControllers', [])
         "$scope", "$timeout", "$q", '$location',
         "StatesService", "SalesPersonService", "ProbabilitiesService",
         "FormComponentService", "FormComponentFormatService",
-        function ($scope, $timeout, $q, $location,
-                  StatesService, SalesPersonService, ProbabilitiesService,
-                  FormComponentService, FormComponentFormatService) {
+        function ($scope, $timeout, $q, $location, StatesService, SalesPersonService, ProbabilitiesService, FormComponentService, FormComponentFormatService) {
 
             $scope.isCurrentPath = function (path) {
                 return $location.path() == path;
@@ -84,12 +82,12 @@ angular.module('customersApp.applicationControllers', [])
         "$scope", "CompanyServices",
         function ($scope, CompanyServices) {
 
-            $scope.getList = function(term) {
+            $scope.getList = function (term) {
                 var items = CompanyServices.getCompanyList(term);
                 return items;
             };
 
-         }
+        }
     ])
 
 ;

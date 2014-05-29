@@ -12,7 +12,8 @@
             <label>First Name</label>
             <input type="text" name="firstName" class="form-control" ng-model="modalOptions.record.firstName" required>
 
-            <p ng-show="salesPersonForm.firstName.$invalid && !salesPersonForm.firstName.$pristine" class="help-block">The
+            <p ng-show="salesPersonForm.firstName.$invalid && !salesPersonForm.firstName.$pristine" class="help-block">
+                The
                 customer must be named.</p>
         </div>
 
@@ -37,7 +38,8 @@
             <input type="text" name="addressLine1" class="form-control" ng-model="modalOptions.record.addressLine1"
                    required>
 
-            <p ng-show="salesPersonForm.addressLine1.$invalid && !salesPersonForm.addressLine1.$pristine" class="help-block">The
+            <p ng-show="salesPersonForm.addressLine1.$invalid && !salesPersonForm.addressLine1.$pristine"
+               class="help-block">The
                 person must have an address.</p>
         </div>
 
@@ -46,15 +48,18 @@
             <input type="text" name="addressLine2" class="form-control" ng-model="modalOptions.record.addressLine2">
         </div>
 
-        <div class="form-group" ng-class="{ 'has-error' : salesPersonForm.city.$invalid && !salesPersonForm.city.$pristine }">
+        <div class="form-group"
+             ng-class="{ 'has-error' : salesPersonForm.city.$invalid && !salesPersonForm.city.$pristine }">
             <label>City</label>
             <input type="text" name="city" class="form-control" ng-model="modalOptions.record.city" required>
 
-            <p ng-show="salesPersonForm.city.$invalid && !salesPersonForm.city.$pristine" class="help-block">The persons City
+            <p ng-show="salesPersonForm.city.$invalid && !salesPersonForm.city.$pristine" class="help-block">The persons
+                City
                 is required.</p>
         </div>
 
-        <div class="form-group" ng-class="{ 'has-error' : salesPersonForm.state.$invalid && !salesPersonForm.state.$pristine }">
+        <div class="form-group"
+             ng-class="{ 'has-error' : salesPersonForm.state.$invalid && !salesPersonForm.state.$pristine }">
             <label>State</label>
             <select required ng-model="modalOptions.record.state" class="form-control" name="state"
                     ng-options="s.stateAbbr as s.name for s in modalOptions.model1"></select>
@@ -63,14 +68,17 @@
                 required.</p>
         </div>
 
-        <div class="form-group" ng-class="{ 'has-error' : salesPersonForm.zip.$invalid && !salesPersonForm.zip.$pristine }">
+        <div class="form-group"
+             ng-class="{ 'has-error' : salesPersonForm.zip.$invalid && !salesPersonForm.zip.$pristine }">
             <label>Zip Code</label>
             <input type="text" name="zip" class="form-control" ng-model="modalOptions.record.zip" required>
 
-            <p ng-show="salesPersonForm.zip.$invalid && !salesPersonForm.zip.$pristine" class="help-block">Zip is required.</p>
+            <p ng-show="salesPersonForm.zip.$invalid && !salesPersonForm.zip.$pristine" class="help-block">Zip is
+                required.</p>
         </div>
 
-        <div class="form-group" ng-class="{ 'has-error' : salesPersonForm.email.$invalid && !salesPersonForm.email.$pristine }">
+        <div class="form-group"
+             ng-class="{ 'has-error' : salesPersonForm.email.$invalid && !salesPersonForm.email.$pristine }">
             <label>Email</label>
             <input type="email" name="email" class="form-control" ng-model="modalOptions.record.email">
 
@@ -105,7 +113,8 @@
 </div>
 <div class="modal-footer">
     <button type="button" class="btn" data-ng-click="modalOptions.close()">{{modalOptions.closeButtonText}}</button>
-    <button type="submit" class="btn btn-primary" ng-disabled="salesPersonForm.$invalid" data-ng-click="modalOptions.ok();">
+    <button type="submit" class="btn btn-primary" ng-disabled="salesPersonForm.$invalid"
+            data-ng-click="modalOptions.ok();">
         {{modalOptions.actionButtonText}}
     </button>
 </div>

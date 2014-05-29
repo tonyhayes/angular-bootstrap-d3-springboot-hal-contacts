@@ -2,18 +2,16 @@
  * Created by anthonyhayes on 5/1/14.
  */
 angular.module('customersApp.salesPersonController', [])
-    .controller('salesPersonController', ['$scope', '$routeParams', '$location', '$filter',
-        'salesPersonService', 'modalService',
+    .controller('SalesPersonController', ['$scope', '$routeParams', '$location', '$filter',
+        'SalesPersonService', 'ModalService',
 
-        function ($scope, $routeParams, $location, $filter,
-                  salesPersonService, modalService) {
+        function ($scope, $routeParams, $location, $filter, SalesPersonService, ModalService) {
 
             $scope.master = {};
-            $scope.salesPeople_array = salesPersonService.getSalesPeople();
+            $scope.salesPeople_array = SalesPersonService.getSalesPeople();
             $scope.filterOptions = {
                 filterText: ''
             };
-
 
 
             var templateCache =
@@ -86,8 +84,8 @@ angular.module('customersApp.salesPersonController', [])
 
                     },
                     { field: '',
-                        width: '65',
-                        cellTemplate: '<button ng-click="delete(row)">Delete</button>'
+                        width: '90',
+                        cellTemplate: '<button class="btn btn-danger pull-right" type="button" ng-click="delete(row)"><i class="icon-trash icon-white"></i> Delete</button>'
                     }
                 ]
             };
@@ -106,9 +104,9 @@ angular.module('customersApp.salesPersonController', [])
                     bodyText: 'Are you sure you want to delete this sales person?'
                 };
 
-                modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
-                        salesPersonService.deleteSalesPeople(row.entity);
+                        SalesPersonService.deleteSalesPeople(row.entity);
                         remove($scope.salesPeople_array, 'salesPersonId', row.entity.salesPersonId);
                     }
                 });
@@ -117,7 +115,7 @@ angular.module('customersApp.salesPersonController', [])
 
             // parse the  array to find the object
             function remove(array, property, value) {
-                $.each(array, function(index, result) {
+                $.each(array, function (index, result) {
                     if (result && result[property] == value) {
                         array.splice(index, 1);
                     }
@@ -144,14 +142,14 @@ angular.module('customersApp.salesPersonController', [])
                     record: $scope.master
                 };
 
-                modalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
                     if (result === 'ok') {
 
 
                         if (row) {
-                            salesPersonService.postSalesPeople($scope.master);
+                            SalesPersonService.patchSalesPeople($scope.master);
                         } else {
-                            salesPersonService.patchSalesPeople($scope.master);
+                            SalesPersonService.postSalesPeople($scope.master);
                             $scope.probability_array.push($scope.master);
                         }
                     } else {

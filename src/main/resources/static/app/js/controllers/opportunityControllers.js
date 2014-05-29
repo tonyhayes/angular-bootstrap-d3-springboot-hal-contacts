@@ -7,12 +7,11 @@ angular.module('customersApp.opportunityControllers', [])
     .controller('OpportunitiesController', ['$scope', '$location', '$filter',
         'CompanyServices', 'CustomersService', 'OpportunityServices', 'ModalService', 'OpportunityPages',
 
-        function ($scope, $location, $filter,
-                  CompanyServices, CustomersService, OpportunityServices, ModalService, OpportunityPages) {
+        function ($scope, $location, $filter, CompanyServices, CustomersService, OpportunityServices, ModalService, OpportunityPages) {
 
             $scope.opportunityPages = new OpportunityPages();
             $scope.selectedCompany = {};
-            init();
+            createWatches();
 
             $scope.deleteOpportunity = function (idx, opportunity) {
 
@@ -37,9 +36,6 @@ angular.module('customersApp.opportunityControllers', [])
 
             };
 
-            function init() {
-                createWatches();
-            }
 
             // company, contact or opportunities
             $scope.navigate = function (url, opportunityObject) {
@@ -61,8 +57,8 @@ angular.module('customersApp.opportunityControllers', [])
                     company = opportunityObject.companyId;
                     var opportunityId = opportunityObject.companyId;
                     opportunityArray = opportunityObject._links.self.href.split('/');
-                    $location.path(url + '/' + company +'/'+ opportunityArray[opportunityArray.length - 1]);
-                }else{
+                    $location.path(url + '/' + company + '/' + opportunityArray[opportunityArray.length - 1]);
+                } else {
 
 
                     // first get company that opportunity is to be created for
@@ -83,15 +79,13 @@ angular.module('customersApp.opportunityControllers', [])
                             var companyName = $scope.selectedCompany.selectedCompany;
                             var companyId = CompanyServices.matchCompanyList(companyName);
 
-                            if(companyId){
-                                $location.path(url + '/' + companyId +'/'+ 0);
+                            if (companyId) {
+                                $location.path(url + '/' + companyId + '/' + 0);
                             }
 
 
                         }
                     });
-
-
 
 
                 }
@@ -137,8 +131,7 @@ angular.module('customersApp.opportunityControllers', [])
     .controller('OpportunityController', ['$scope', '$routeParams', '$location',
         'CustomersService', 'ModalService', 'OpportunityServices', 'CompanyServices',
 
-        function ($scope, $routeParams, $location,
-                  CustomersService, ModalService, OpportunityServices, CompanyServices) {
+        function ($scope, $routeParams, $location, CustomersService, ModalService, OpportunityServices, CompanyServices) {
 
             //Grab customerID off of the route
             $scope.customerID = parseInt($routeParams.customerID);
@@ -275,11 +268,7 @@ angular.module('customersApp.opportunityControllers', [])
         'CompanyServices', 'OpportunityServices',
         'OpportunityFormServices',
 
-        function ($scope, $routeParams, $location, $filter,
-                  CustomersService, SalesPersonService, ContactServices,
-                  ProbabilitiesService, ModalService,
-                  FormComponentFormatService, OpportunityDetailServices,
-                  CompanyServices, OpportunityServices, OpportunityFormServices) {
+        function ($scope, $routeParams, $location, $filter, CustomersService, SalesPersonService, ContactServices, ProbabilitiesService, ModalService, FormComponentFormatService, OpportunityDetailServices, CompanyServices, OpportunityServices, OpportunityFormServices) {
 
             $scope.master = {};
             $scope.opportunityFormObject = {};
@@ -351,7 +340,7 @@ angular.module('customersApp.opportunityControllers', [])
                     });
 
                     $scope.opportunity = CustomersService.getStoredOpportunity();
-                    if($scope.opportunity){
+                    if ($scope.opportunity) {
                         $scope.opportunity.potentialRevenue = $filter("currency")($scope.opportunity.potentialRevenue);
                     }
                     $scope.master = angular.copy($scope.opportunity);
@@ -360,7 +349,7 @@ angular.module('customersApp.opportunityControllers', [])
                             $scope.opportunity = data;
                             CustomersService.storeOpportunity(data);
 
-                            if($scope.opportunity){
+                            if ($scope.opportunity) {
                                 $scope.opportunity.potentialRevenue = $filter("currency")($scope.opportunity.potentialRevenue);
                             }
 
@@ -457,10 +446,10 @@ angular.module('customersApp.opportunityControllers', [])
                 // opportunity must exist before creating rows
                 if (!parseInt($scope.opportunityID)) {
 
-                     modalDefaults = {
+                    modalDefaults = {
                         templateUrl: 'app/partials/util/modal.html'
                     };
-                     modalOptions = {
+                    modalOptions = {
                         closeButtonText: 'Cancel',
                         actionButtonText: 'OK',
                         headerText: 'Submit This Opportunity',
@@ -483,10 +472,10 @@ angular.module('customersApp.opportunityControllers', [])
                     }
 
 
-                     modalDefaults = {
+                    modalDefaults = {
                         templateUrl: 'app/partials/opportunity/modalOpportunityActionsEdit.html'
                     };
-                     modalOptions = {
+                    modalOptions = {
                         closeButtonText: 'Cancel',
                         actionButtonText: 'Submit',
                         headerText: 'Opportunity at ' + custName,
@@ -527,21 +516,21 @@ angular.module('customersApp.opportunityControllers', [])
 
             };
 
-            $scope.$watchCollection('[master.potentialRevenue, master.probabilityId]', function(newValues){
-                if($scope.master){
-                    if(newValues[0] && newValues[1]){
+            $scope.$watchCollection('[master.potentialRevenue, master.probabilityId]', function (newValues) {
+                if ($scope.master) {
+                    if (newValues[0] && newValues[1]) {
 
                         var divisor = 1;
-                        var money = parseFloat(newValues[0].replace(/[^\d\.]/g,''));
+                        var money = parseFloat(newValues[0].replace(/[^\d\.]/g, ''));
 
                         angular.forEach($scope.probability_array, function (probability) {
-                            if(probability.probabilityId === newValues[1])
+                            if (probability.probabilityId === newValues[1])
                                 divisor = probability.percentage;
                         });
 
                         $scope.master.potentialRevenueCalc = $filter("currency")(money / divisor);
 
-                    }else{
+                    } else {
                         $scope.master.potentialRevenueCalc = 0;
                     }
 

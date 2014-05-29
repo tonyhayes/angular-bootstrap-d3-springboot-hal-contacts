@@ -66,6 +66,15 @@ public class Opportunity extends AuditableTenantEntity {
         }
         return "No probability for this opportunity";
     }
+
+    public Integer getProbabilityPercentage() {
+        Probability p = getProbability();
+        if (p != null) {
+            return p.getPercentage();
+        }
+        return 0;
+    }
+
     public Long getProbabilityId() {
         Probability p = getProbability();
         if (p != null) {

@@ -21,7 +21,7 @@ angular.module('customersApp', [
     'customersApp.chartService',
 
     /*
-    plug-ins!
+     plug-ins!
      */
 
     'ui.bootstrap',
@@ -31,9 +31,9 @@ angular.module('customersApp', [
     "ngQuickDate",
     'nvd3',
     'ngTagsInput'
- ]).
+]).
     config(['$routeProvider',
-        function ($routeProvider, $locationProvider) {
+        function ($routeProvider) {
             $routeProvider.when('/customers', {
                 templateUrl: 'app/partials/customer/customers.html',
                 controller: 'CustomersController'

@@ -1,8 +1,6 @@
 angular.module('customersApp.formControllers', [])
 
-    .controller('FormController', function ($scope, $q, $location, $anchorScroll,
-                                            ModalService, FormService, FormComponentService,
-                                            FormUpdateService, FormComponentFormatService) {
+    .controller('FormController', function ($scope, $q, $location, $anchorScroll, ModalService, FormService, FormComponentService, FormUpdateService, FormComponentFormatService) {
 
         // preview form mode
         $scope.previewMode = false;
@@ -34,7 +32,7 @@ angular.module('customersApp.formControllers', [])
                     $scope.addField.new = $scope.addField.types[0].name;
                     $scope.addField.lastAddedID = $scope.form.form_fields.length;
                 }
-             },
+            },
             function (reason) {
                 // if any of the promises fails, handle it
                 // here, I'm just throwing an error message to
@@ -49,7 +47,6 @@ angular.module('customersApp.formControllers', [])
 
         $scope.dynamicFormTemplate = {};
         $scope.dynamicForm = {};
-
 
 
         // create new field button click
@@ -363,8 +360,7 @@ angular.module('customersApp.formControllers', [])
             $location.path(url);
         };
     })
-    .controller('FormFieldController', function ($scope, $location,
-               ModalService, FormService, FormComponentService, FormUpdateService, FormComponentFormatService) {
+    .controller('FormFieldController', function ($scope, $location, ModalService, FormService, FormComponentService, FormUpdateService, FormComponentFormatService) {
 
         // get the current custom fields
         $scope.old_form_fields = FormComponentFormatService.getCustomFormFields();

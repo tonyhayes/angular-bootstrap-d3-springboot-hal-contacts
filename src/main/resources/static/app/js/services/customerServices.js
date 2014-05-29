@@ -45,10 +45,58 @@ angular.module('customersApp.customerServices', []).
                 return null;
             }
         };
+        this.storeOpportunityDataByCompany = function (opportunityDataCompanyObj) {
+            opportunityDataCompanyObject = opportunityDataCompanyObj;
+        };
+
+        this.getStoredOpportunityDataByCompany = function () {
+            if (opportunityDataCompanyObject) {
+                return opportunityDataCompanyObject;
+            } else {
+                return {};
+            }
+        };
+        this.storeOpportunityDataBySalesPerson = function (opportunityDataSalesPersonObj) {
+            opportunityDataSalesPersonObject = opportunityDataSalesPersonObj;
+        };
+
+        this.getStoredOpportunityDataBySalesPerson = function () {
+            if (opportunityDataSalesPersonObject) {
+                return opportunityDataSalesPersonObject;
+            } else {
+                return {};
+            }
+        };
+        this.storeOpportunityDataByCompanyDate = function (opportunityDataCompanyDateObj) {
+            opportunityDataCompanyDateObject = opportunityDataCompanyDateObj;
+        };
+
+        this.getStoredOpportunityDataByCompanyDate = function () {
+            if (opportunityDataCompanyDateObject) {
+                return opportunityDataCompanyDateObject;
+            } else {
+                return {};
+            }
+        };
+        this.storeOpportunityDataBySalesPersonDate = function (opportunityDataSalesPersonDateObj) {
+            opportunityDataSalesPersonDateObject = opportunityDataSalesPersonDateObj;
+        };
+
+        this.getStoredOpportunityDataBySalesPersonDate = function () {
+            if (opportunityDataSalesPersonDateObject) {
+                return opportunityDataSalesPersonDateObject;
+            } else {
+                return {};
+            }
+        };
 
         var customerObject;
         var opportunityObject;
         var opportunityDataObject;
+        var opportunityDataCompanyObject;
+        var opportunityDataSalesPersonObject;
+        var opportunityDataCompanyDateObject;
+        var opportunityDataSalesPersonDateObject;
 
 
     })

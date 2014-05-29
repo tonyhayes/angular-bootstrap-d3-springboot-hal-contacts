@@ -8,8 +8,7 @@ angular.module('customersApp.contactControllers', [])
         'CustomersService', 'ModalService',
         'StatesService', 'ContactServices', 'CompanyServices', 'ContactPages',
 
-        function ($scope, $routeParams, $location, $filter,
-                  CustomersService, ModalService, StatesService, ContactServices, CompanyServices, ContactPages) {
+        function ($scope, $routeParams, $location, $filter, CustomersService, ModalService, StatesService, ContactServices, CompanyServices, ContactPages) {
             $scope.customer = CustomersService.getStoredCustomer();
             $scope.filterOptions = {
                 filterText: ''
@@ -19,20 +18,16 @@ angular.module('customersApp.contactControllers', [])
             $scope.contactPages = new ContactPages();
             $scope.contactPages.company = $scope.companyNumber;
 
-            init();
 
-            function init() {
-                //Grab contacts for company
-                if (!$scope.customer) {
-                    CompanyServices.getCompany($scope.companyNumber).then(function (data) {
-                        $scope.customer = data;
-                        CustomersService.storeCustomer(data);
-                    });
-                }
-
-                // get contacts
-                createWatches();
+            //Grab contacts for company
+            if (!$scope.customer) {
+                CompanyServices.getCompany($scope.companyNumber).then(function (data) {
+                    $scope.customer = data;
+                    CustomersService.storeCustomer(data);
+                });
             }
+
+            createWatches();
 
             function createWatches() {
                 //Watch searchText value and pass it and the customers to nameCityStateFilter

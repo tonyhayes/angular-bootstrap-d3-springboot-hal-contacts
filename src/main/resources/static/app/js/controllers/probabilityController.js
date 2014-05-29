@@ -5,15 +5,13 @@ angular.module('customersApp.probabilityController', [])
     .controller('ProbabilityController', ['$scope', '$routeParams', '$location', '$filter',
         'ProbabilitiesService', 'ModalService',
 
-        function ($scope, $routeParams, $location, $filter,
-                   ProbabilitiesService, ModalService) {
+        function ($scope, $routeParams, $location, $filter, ProbabilitiesService, ModalService) {
 
             $scope.master = {};
             $scope.probability_array = ProbabilitiesService.getProbabilities();
             $scope.filterOptions = {
                 filterText: ''
             };
-
 
 
             var templateCache =
@@ -73,7 +71,7 @@ angular.module('customersApp.probabilityController', [])
                     },
                     { field: '',
                         width: '90',
-                        cellTemplate:'<button class="btn btn-danger pull-right" type="button" ng-click="delete(row)"><i class="icon-trash icon-white"></i> Delete</button>'
+                        cellTemplate: '<button class="btn btn-danger pull-right" type="button" ng-click="delete(row)"><i class="icon-trash icon-white"></i> Delete</button>'
                     }
                 ]
             };
@@ -103,7 +101,7 @@ angular.module('customersApp.probabilityController', [])
 
             // parse the  array to find the object
             function remove(array, property, value) {
-                $.each(array, function(index, result) {
+                $.each(array, function (index, result) {
                     if (result && result[property] == value) {
                         array.splice(index, 1);
                     }
@@ -112,42 +110,42 @@ angular.module('customersApp.probabilityController', [])
 
             $scope.onDblClickRow = function (row) {
 
-                    var origRow = {};
-                    $scope.master = {};
-                    if (row) {
-                        origRow = angular.copy(row.entity);
-                        $scope.master = row.entity;
-                    }
+                var origRow = {};
+                $scope.master = {};
+                if (row) {
+                    origRow = angular.copy(row.entity);
+                    $scope.master = row.entity;
+                }
 
 
-                    var modalDefaults = {
-                        templateUrl: 'app/partials/admin/probabilities/modalProbabilityEdit.html'
-                    };
-                    var modalOptions = {
-                        closeButtonText: 'Cancel',
-                        actionButtonText: 'Submit',
-                        headerText: 'Probability Description',
-                        record: $scope.master
-                    };
+                var modalDefaults = {
+                    templateUrl: 'app/partials/admin/probabilities/modalProbabilityEdit.html'
+                };
+                var modalOptions = {
+                    closeButtonText: 'Cancel',
+                    actionButtonText: 'Submit',
+                    headerText: 'Probability Description',
+                    record: $scope.master
+                };
 
-                    ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
-                        if (result === 'ok') {
+                ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                    if (result === 'ok') {
 
 
-                            if (row) {
-                                ProbabilitiesService.patchProbabilities($scope.master);
-                            } else {
-                                ProbabilitiesService.postProbabilities($scope.master);
-                                $scope.probability_array.push($scope.master);
-                            }
+                        if (row) {
+                            ProbabilitiesService.patchProbabilities($scope.master);
                         } else {
-                            if (row) {
-                                angular.forEach(origRow, function (obj, dataset) {
-                                    row.entity[dataset] = obj;
-                                });
-                            }
+                            ProbabilitiesService.postProbabilities($scope.master);
+                            $scope.probability_array.push($scope.master);
                         }
-                    });
+                    } else {
+                        if (row) {
+                            angular.forEach(origRow, function (obj, dataset) {
+                                row.entity[dataset] = obj;
+                            });
+                        }
+                    }
+                });
             };
         }
     ]);

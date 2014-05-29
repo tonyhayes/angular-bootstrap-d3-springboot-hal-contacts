@@ -5,15 +5,13 @@ angular.module('customersApp.stateController', [])
     .controller('StateController', ['$scope', '$routeParams', '$location', '$filter',
         'StatesService', 'ModalService',
 
-        function ($scope, $routeParams, $location, $filter,
-                  StatesService, ModalService) {
+        function ($scope, $routeParams, $location, $filter, StatesService, ModalService) {
 
             $scope.master = {};
             $scope.states_array = StatesService.getStates();
             $scope.filterOptions = {
                 filterText: ''
             };
-
 
 
             var templateCache =
@@ -73,7 +71,7 @@ angular.module('customersApp.stateController', [])
                     },
                     { field: '',
                         width: '90',
-                        cellTemplate:'<button class="btn btn-danger pull-right" type="button" ng-click="delete(row)"><i class="icon-trash icon-white"></i> Delete</button>'
+                        cellTemplate: '<button class="btn btn-danger pull-right" type="button" ng-click="delete(row)"><i class="icon-trash icon-white"></i> Delete</button>'
                     }
                 ]
             };
@@ -103,7 +101,7 @@ angular.module('customersApp.stateController', [])
 
             // parse the  array to find the object
             function remove(array, property, value) {
-                $.each(array, function(index, result) {
+                $.each(array, function (index, result) {
                     if (result && result[property] == value) {
                         array.splice(index, 1);
                     }

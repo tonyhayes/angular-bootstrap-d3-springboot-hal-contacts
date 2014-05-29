@@ -8,11 +8,10 @@ angular.module('customersApp.customerControllers', [])
     .controller('CustomersController', ['$scope', '$location', '$filter',
         'CompanyServices', 'CustomersService', 'ModalService', 'CustomerPages',
 
-        function ($scope, $location, $filter,
-                  CompanyServices, CustomersService, ModalService, CustomerPages) {
+        function ($scope, $location, $filter, CompanyServices, CustomersService, ModalService, CustomerPages) {
 
             $scope.customerPages = new CustomerPages();
-            init();
+            createWatches();
 
             $scope.deleteCustomer = function (idx, cust) {
 
@@ -37,9 +36,6 @@ angular.module('customersApp.customerControllers', [])
 
             };
 
-            function init() {
-                createWatches();
-            }
 
             $scope.navigate = function (url, customerObject) {
                 var companyArray = [0];
@@ -88,8 +84,7 @@ angular.module('customersApp.customerControllers', [])
         'CustomersService', 'StatesService',
         'CompanyServices', 'ContactServices',
 
-        function ($scope, $routeParams, $location,
-                  CustomersService, StatesService, CompanyServices, ContactServices) {
+        function ($scope, $routeParams, $location, CustomersService, StatesService, CompanyServices, ContactServices) {
             $scope.master = {};
             $scope.customer = {};
             $scope.state_array = StatesService.getStates();
@@ -97,34 +92,30 @@ angular.module('customersApp.customerControllers', [])
             $scope.contact_array = [];
 
 
-            init();
+            //Grab ID off of the route
+            $scope.customerId = parseInt($routeParams.customerID);
+            if ($scope.customerId) {
 
-            function init() {
-                //Grab ID off of the route
-                $scope.customerId = parseInt($routeParams.customerID);
-                if ($scope.customerId) {
-
-                    // get all contacts for contact drop down
-                    ContactServices.getAllContacts($scope.customerId).then(function (data) {
-                        if (data._embedded) {
-                            $scope.contact_array = data._embedded.contacts;
-                        }
-                    });
-
-                    $scope.customer = CustomersService.getStoredCustomer();
-
-                    // if the user reloads the page, I need to get the data from the server then reset the form
-                    // as the promise is resolved after the page has been rendered
-                    if (!$scope.customer) {
-                        CompanyServices.getCompany($scope.customerId).then(function (data) {
-                            $scope.customer = data;
-                            $scope.master = angular.copy($scope.customer);
-                            $scope.customerForm.$setPristine();
-                            CustomersService.storeCustomer(data);
-                        });
+                // get all contacts for contact drop down
+                ContactServices.getAllContacts($scope.customerId).then(function (data) {
+                    if (data._embedded) {
+                        $scope.contact_array = data._embedded.contacts;
                     }
-                    $scope.master = angular.copy($scope.customer);
+                });
+
+                $scope.customer = CustomersService.getStoredCustomer();
+
+                // if the user reloads the page, I need to get the data from the server then reset the form
+                // as the promise is resolved after the page has been rendered
+                if (!$scope.customer) {
+                    CompanyServices.getCompany($scope.customerId).then(function (data) {
+                        $scope.customer = data;
+                        $scope.master = angular.copy($scope.customer);
+                        $scope.customerForm.$setPristine();
+                        CustomersService.storeCustomer(data);
+                    });
                 }
+                $scope.master = angular.copy($scope.customer);
             }
 
             // function to submit the form after all validation has occurred

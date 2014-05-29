@@ -10,7 +10,8 @@
              ng-class="{ 'has-error' : opportunitiesActionForm.followUpdate.$invalid && !opportunitiesActionForm.followUpdate.$pristine }">
             <label>Follow Up Date</label>
             <quick-datepicker icon-class='icon-calendar' label-format='EEEE, MMMM d, yyyy' required="true"
-                              ng-model='modalOptions.record.followUpdate' placeholder='Pick a Date' disable-timepicker='true'></quick-datepicker>
+                              ng-model='modalOptions.record.followUpdate' placeholder='Pick a Date'
+                              disable-timepicker='true'></quick-datepicker>
 
             <p ng-show="opportunitiesActionForm.followUpdate.$invalid && !opportunitiesActionForm.followUpdate.$pristine"
                class="help-block">Follow Up Date is required.</p>
@@ -30,11 +31,10 @@
         </div>
 
 
-
         <div class="form-group"
              ng-class="{ 'has-error' : opportunitiesActionForm.action.$invalid && !opportunitiesActionForm.action.$pristine }">
             <label>Action</label>
-            <textarea  name="action" class="form-control" ng-model="modalOptions.record.action"></textarea>
+            <textarea name="action" class="form-control" ng-model="modalOptions.record.action"></textarea>
 
             <p ng-show="opportunitiesActionForm.action.$invalid && !opportunitiesActionForm.action.$pristine"
                class="help-block">

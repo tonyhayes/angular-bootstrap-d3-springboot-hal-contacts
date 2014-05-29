@@ -145,14 +145,14 @@ angular.module('customersApp.ajaxService', [])
                     return result.data;
                 });
             },
-            getCompanyList: function(term) {
+            getCompanyList: function (term) {
                 return $http.get(dmApplicationEntryPoint + '/companies/search/findByCompanyNameLike', {
-                    params: {companyName: term+'%',  page: 0}}).then(function (response) {
+                    params: {companyName: term + '%', page: 0}}).then(function (response) {
                     // have to loop through result because it's key => value
                     _list = [];
                     _locator = [];
-                    if(response.data._embedded){
-                        for(var key in response.data._embedded.companies) {
+                    if (response.data._embedded) {
+                        for (var key in response.data._embedded.companies) {
                             _list.push(response.data._embedded.companies[key].companyName);
                             _locator.push(response.data._embedded.companies[key].companyId);
                         }
@@ -160,9 +160,9 @@ angular.module('customersApp.ajaxService', [])
                     return _list;
                 });
             },
-            matchCompanyList: function(name) {
-                    return _locator[ _list.indexOf(name) ];
-             }
+            matchCompanyList: function (name) {
+                return _locator[ _list.indexOf(name) ];
+            }
         };
     })
 //  constructor function to encapsulate HTTP and pagination logic
@@ -340,7 +340,7 @@ angular.module('customersApp.ajaxService', [])
                             name: filter,
                             city: filter,
                             state: filter
-                           }}
+                        }}
                 ).success(function (data) {
                         if (data._embedded) {
                             var items = data._embedded.opportunities;
@@ -728,14 +728,14 @@ angular.module('customersApp.ajaxService', [])
                     return result.data;
                 });
             },
-            getSalesList: function(term) {
+            getSalesList: function (term) {
                 return $http.get(dmApplicationEntryPoint + '/salesPersons/search/findByName', {
-                    params: {name: term+'%',  page: 0}}).then(function (response) {
+                    params: {name: term + '%', page: 0}}).then(function (response) {
                     // have to loop through result because it's key => value
                     _list = [];
                     _locator = [];
-                    if(response.data._embedded){
-                        for(var key in response.data._embedded.salesPersons) {
+                    if (response.data._embedded) {
+                        for (var key in response.data._embedded.salesPersons) {
                             _list.push(response.data._embedded.salesPersons[key].salesPersonDescription);
                             _locator.push(response.data._embedded.salesPersons[key].salesPersonId);
                         }
@@ -743,7 +743,7 @@ angular.module('customersApp.ajaxService', [])
                     return _list;
                 });
             },
-            matchSalesList: function(name) {
+            matchSalesList: function (name) {
                 return _locator[ _list.indexOf(name) ];
             },
             getSalesPeople: function () {
@@ -857,14 +857,14 @@ angular.module('customersApp.ajaxService', [])
                     return result.data;
                 });
             },
-            getProbabilitiesList: function(term) {
+            getProbabilitiesList: function (term) {
                 return $http.get(dmApplicationEntryPoint + '/probabilities/search/findByName', {
-                    params: {name: term+'%',  page: 0}}).then(function (response) {
+                    params: {name: term + '%', page: 0}}).then(function (response) {
                     // have to loop through result because it's key => value
                     _list = [];
                     _locator = [];
-                    if(response.data._embedded){
-                        for(var key in response.data._embedded.probabilities) {
+                    if (response.data._embedded) {
+                        for (var key in response.data._embedded.probabilities) {
                             _list.push(response.data._embedded.probabilities[key].name);
                             _locator.push(response.data._embedded.probabilities[key].probabilityId);
                         }
@@ -872,7 +872,7 @@ angular.module('customersApp.ajaxService', [])
                     return _list;
                 });
             },
-            matchProbabilitiesList: function(name) {
+            matchProbabilitiesList: function (name) {
                 return _locator[ _list.indexOf(name) ];
             },
             getProbabilities: function () {
