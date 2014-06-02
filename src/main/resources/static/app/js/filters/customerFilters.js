@@ -125,5 +125,80 @@ angular.module('customersApp.filters', [])
         };
 
     })
+    .filter('companyChartObjectFilter', function () {
+
+        return function (chartObj, filterValues) {
+            if (!filterValues) return chartObj;
+
+            var filter = [];
+
+            //I have a problem with the type ahead adding a dash between words (!!)
+            for (var k in filterValues) {
+                filter.push(filterValues[k].text.replace(/-/g, ' '));
+            }
+
+            var matches = [];
+            for (var i in chartObj) {
+                var name = angular.copy(chartObj[i].companyName.replace(/-/g, ' '));
+                    if (filter.indexOf(name) != -1) {
+
+                        matches.push(chartObj[i]);
+
+                    }
+             }
+            return matches;
+        };
+
+    })
+    .filter('salesPersonChartObjectFilter', function () {
+
+        return function (chartObj, filterValues) {
+            if (!filterValues) return chartObj;
+
+            var filter = [];
+
+            //I have a problem with the type ahead adding a dash between words (!!)
+            for (var k in filterValues) {
+                filter.push(filterValues[k].text.replace(/-/g, ' '));
+            }
+
+            var matches = [];
+            for (var i in chartObj) {
+                var name = angular.copy(chartObj[i].salesPersonDescription.replace(/-/g, ' '));
+                if (filter.indexOf(name) != -1) {
+
+                    matches.push(chartObj[i]);
+
+                }
+            }
+            return matches;
+        };
+
+    })
+    .filter('probabilityChartObjectFilter', function () {
+
+        return function (chartObj, filterValues) {
+            if (!filterValues) return chartObj;
+
+            var filter = [];
+
+            //I have a problem with the type ahead adding a dash between words (!!)
+            for (var k in filterValues) {
+                filter.push(filterValues[k].text.replace(/-/g, ' '));
+            }
+
+            var matches = [];
+            for (var i in chartObj) {
+                var name = angular.copy(chartObj[i].companyName.replace(/-/g, ' '));
+                if (filter.indexOf(name) != -1) {
+
+                    matches.push(chartObj[i]);
+
+                }
+            }
+            return matches;
+        };
+
+    })
 
 ;
