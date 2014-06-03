@@ -140,12 +140,12 @@ angular.module('customersApp.filters', [])
             var matches = [];
             for (var i in chartObj) {
                 var name = angular.copy(chartObj[i].companyName.replace(/-/g, ' '));
-                    if (filter.indexOf(name) != -1) {
+                if (filter.indexOf(name) != -1) {
 
-                        matches.push(chartObj[i]);
+                    matches.push(chartObj[i]);
 
-                    }
-             }
+                }
+            }
             return matches;
         };
 

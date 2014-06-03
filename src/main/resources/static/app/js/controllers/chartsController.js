@@ -30,8 +30,7 @@ angular.module('customersApp.chartsController', [])
             var savedData;
 
 
-
-if (!$scope.opportunityData) {
+            if (!$scope.opportunityData) {
 //                var modalDefaults = {
 //                    templateUrl: 'app/partials/charts/modalDancingElephants.html'
 //                };
@@ -59,66 +58,65 @@ if (!$scope.opportunityData) {
                 });
             } else {
 //                if (!$scope.opportunityDataByCompany) {
-                    //send to chart draw function
-                    sliceAndDice();
+                //send to chart draw function
+                sliceAndDice();
 //                }
             }
 
 
             /*organize opportunity data into chart data categories */
             function sliceAndDice() {
-                if($scope.opportunityData.length){
+                if ($scope.opportunityData.length) {
 
                     $scope.opportunityDataByCompany = {};
                     $scope.opportunityDataBySalesPerson = {};
 
 
-
-                angular.forEach($scope.opportunityData, function (opportunity) {
-                    var potentialRevenue = parseInt(opportunity.potentialRevenue);
-                    if (!potentialRevenue) {
-                        opportunity.potentialRevenue = 0;
-                    }
+                    angular.forEach($scope.opportunityData, function (opportunity) {
+                        var potentialRevenue = parseInt(opportunity.potentialRevenue);
+                        if (!potentialRevenue) {
+                            opportunity.potentialRevenue = 0;
+                        }
 //company
-                    if ($scope.opportunityDataByCompany[opportunity.companyId]) {
-                        $scope.opportunityDataByCompany[opportunity.companyId].count += 1;
+                        if ($scope.opportunityDataByCompany[opportunity.companyId]) {
+                            $scope.opportunityDataByCompany[opportunity.companyId].count += 1;
 
-                        // I'm not sure how to calculate the relative probability over multiple deals, for now  - just a simple average
-                        $scope.opportunityDataByCompany[opportunity.companyId].potentialRevenue += parseInt(opportunity.potentialRevenue);
+                            // I'm not sure how to calculate the relative probability over multiple deals, for now  - just a simple average
+                            $scope.opportunityDataByCompany[opportunity.companyId].potentialRevenue += parseInt(opportunity.potentialRevenue);
 
-                        $scope.opportunityDataByCompany[opportunity.companyId].probability = (opportunity.probabilityPercentage + $scope.opportunityDataByCompany[opportunity.companyId].probability) / 2;
-                        $scope.opportunityDataByCompany[opportunity.companyId].calulatedRevenue += parseInt(opportunity.potentialRevenue) / opportunity.probabilityPercentage;
+                            $scope.opportunityDataByCompany[opportunity.companyId].probability = (opportunity.probabilityPercentage + $scope.opportunityDataByCompany[opportunity.companyId].probability) / 2;
+                            $scope.opportunityDataByCompany[opportunity.companyId].calulatedRevenue += parseInt(opportunity.potentialRevenue) / opportunity.probabilityPercentage;
 
 
-                    } else {
-                        $scope.opportunityDataByCompany[opportunity.companyId] = {};
-                        $scope.opportunityDataByCompany[opportunity.companyId].name = opportunity.companyName;
-                        $scope.opportunityDataByCompany[opportunity.companyId].count = 1;
-                        $scope.opportunityDataByCompany[opportunity.companyId].potentialRevenue = opportunity.potentialRevenue;
-                        $scope.opportunityDataByCompany[opportunity.companyId].probability = opportunity.probabilityPercentage;
-                        $scope.opportunityDataByCompany[opportunity.companyId].calulatedRevenue = opportunity.potentialRevenue / opportunity.probabilityPercentage;
+                        } else {
+                            $scope.opportunityDataByCompany[opportunity.companyId] = {};
+                            $scope.opportunityDataByCompany[opportunity.companyId].name = opportunity.companyName;
+                            $scope.opportunityDataByCompany[opportunity.companyId].count = 1;
+                            $scope.opportunityDataByCompany[opportunity.companyId].potentialRevenue = opportunity.potentialRevenue;
+                            $scope.opportunityDataByCompany[opportunity.companyId].probability = opportunity.probabilityPercentage;
+                            $scope.opportunityDataByCompany[opportunity.companyId].calulatedRevenue = opportunity.potentialRevenue / opportunity.probabilityPercentage;
 
-                    }
+                        }
 //sales person
-                    if ($scope.opportunityDataBySalesPerson[opportunity.salesId]) {
-                        $scope.opportunityDataBySalesPerson[opportunity.salesId].count += 1;
+                        if ($scope.opportunityDataBySalesPerson[opportunity.salesId]) {
+                            $scope.opportunityDataBySalesPerson[opportunity.salesId].count += 1;
 
-                        // I'm not sure how to calculate the relative probability over multiple deals, for now  - just a simple average
-                        $scope.opportunityDataBySalesPerson[opportunity.salesId].potentialRevenue += parseInt(opportunity.potentialRevenue);
+                            // I'm not sure how to calculate the relative probability over multiple deals, for now  - just a simple average
+                            $scope.opportunityDataBySalesPerson[opportunity.salesId].potentialRevenue += parseInt(opportunity.potentialRevenue);
 
-                        $scope.opportunityDataBySalesPerson[opportunity.salesId].probability = (opportunity.probabilityPercentage + $scope.opportunityDataByCompany[opportunity.companyId].probability) / 2;
-                        $scope.opportunityDataBySalesPerson[opportunity.salesId].calulatedRevenue += parseInt(opportunity.potentialRevenue) / opportunity.probabilityPercentage;
+                            $scope.opportunityDataBySalesPerson[opportunity.salesId].probability = (opportunity.probabilityPercentage + $scope.opportunityDataByCompany[opportunity.companyId].probability) / 2;
+                            $scope.opportunityDataBySalesPerson[opportunity.salesId].calulatedRevenue += parseInt(opportunity.potentialRevenue) / opportunity.probabilityPercentage;
 
 
-                    } else {
-                        $scope.opportunityDataBySalesPerson[opportunity.salesId] = {};
-                        $scope.opportunityDataBySalesPerson[opportunity.salesId].name = opportunity.salesPersonDescription;
-                        $scope.opportunityDataBySalesPerson[opportunity.salesId].count = 1;
-                        $scope.opportunityDataBySalesPerson[opportunity.salesId].potentialRevenue = parseInt(opportunity.potentialRevenue);
-                        $scope.opportunityDataBySalesPerson[opportunity.salesId].probability = opportunity.probabilityPercentage;
-                        $scope.opportunityDataBySalesPerson[opportunity.salesId].calulatedRevenue = parseInt(opportunity.potentialRevenue) / opportunity.probabilityPercentage;
+                        } else {
+                            $scope.opportunityDataBySalesPerson[opportunity.salesId] = {};
+                            $scope.opportunityDataBySalesPerson[opportunity.salesId].name = opportunity.salesPersonDescription;
+                            $scope.opportunityDataBySalesPerson[opportunity.salesId].count = 1;
+                            $scope.opportunityDataBySalesPerson[opportunity.salesId].potentialRevenue = parseInt(opportunity.potentialRevenue);
+                            $scope.opportunityDataBySalesPerson[opportunity.salesId].probability = opportunity.probabilityPercentage;
+                            $scope.opportunityDataBySalesPerson[opportunity.salesId].calulatedRevenue = parseInt(opportunity.potentialRevenue) / opportunity.probabilityPercentage;
 
-                    }
+                        }
 ////company and date
 //                    if ($scope.opportunityDataByCompanyDate[opportunity.companyId]) {
 //                        if ($scope.opportunityDataByCompanyDate[opportunity.companyId][opportunity.createdAt]) {
@@ -188,13 +186,13 @@ if (!$scope.opportunityData) {
 //                    }
 
 
-                });
+                    });
 //                CustomersService.storeOpportunityDataByCompany(angular.copy($scope.opportunityDataByCompany));
 //                CustomersService.storeOpportunityDataBySalesPerson(angular.copy($scope.opportunityDataBySalesPerson));
 //                CustomersService.storeOpportunityDataByCompanyDate(angular.copy($scope.opportunityDataByCompanyDate));
 //                CustomersService.storeOpportunityDataBySalesPersonDate(angular.copy($scope.opportunityDataBySalesPersonDate));
 
-                }else{
+                } else {
                     //no data!
                     $scope.opportunityDataByCompany = {};
                     $scope.opportunityDataBySalesPerson = {};
@@ -533,23 +531,23 @@ if (!$scope.opportunityData) {
                                 $scope.selectedProbabilityTags = angular.copy(filterGroup);
                                 break;
                         }
-                        if($scope.selectedCompanyTags.length || $scope.selectedSalesTags || $scope.selectedProbabilityTags ){
+                        if ($scope.selectedCompanyTags.length || $scope.selectedSalesTags || $scope.selectedProbabilityTags) {
                             if (savedData) {
                                 $scope.opportunityData = angular.copy(savedData);
                             } else {
                                 savedData = angular.copy($scope.opportunityData);
                             }
-                            if($scope.selectedCompanyTags.length){
+                            if ($scope.selectedCompanyTags.length) {
                                 $scope.opportunityData = $filter("companyChartObjectFilter")($scope.opportunityData, $scope.selectedCompanyTags);
                             }
-                            if($scope.selectedSalesTags.length){
+                            if ($scope.selectedSalesTags.length) {
                                 $scope.opportunityData = $filter("salesPersonChartObjectFilter")($scope.opportunityData, $scope.selectedSalesTags);
                             }
-                            if($scope.selectedProbabilityTags.length){
+                            if ($scope.selectedProbabilityTags.length) {
                                 $scope.opportunityData = $filter("probabilityChartObjectFilter")($scope.opportunityData, $scope.selectedProbabilityTags);
                             }
 
-                        }else if(savedData){
+                        } else if (savedData) {
                             $scope.opportunityData = angular.copy(savedData);
                         }
 

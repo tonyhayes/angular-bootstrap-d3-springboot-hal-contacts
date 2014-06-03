@@ -148,98 +148,91 @@ angular.module('customersApp.opportunityControllers', [])
             };
 
 
-            init();
-
-
-            function init() {
-
-
-                var templateCache =
-                    "<div ng-dblclick=\"onDblClickRow(row)\" <div ng-style=\"{ 'cursor': row.cursor }\" ng-repeat=\"col in renderedColumns\" ng-class=\"col.colIndex()\" class=\"ngCell {{col.cellClass}}\">\r" +
-                    "\n" +
-                    "\t<div class=\"ngVerticalBar\" ng-style=\"{height: rowHeight}\" ng-class=\"{ ngVerticalBarVisible: !$last }\">&nbsp;</div>\r" +
-                    "\n" +
-                    "\t<div ng-cell></div>\r" +
-                    "\n" +
-                    "</div>";
-                var filterBarPlugin = {
-                    init: function (scope, grid) {
-                        filterBarPlugin.scope = scope;
-                        filterBarPlugin.grid = grid;
-                        $scope.$watch(function () {
-                            var searchQuery = "";
-                            angular.forEach(filterBarPlugin.scope.columns, function (col) {
-                                if (col.visible && col.filterText) {
-                                    var filterText = (col.filterText.indexOf('*') === 0 ? col.filterText.replace('*', '') : col.filterText) + ";";
-                                    searchQuery += col.displayName + ": " + filterText;
-                                }
-                            });
-                            return searchQuery;
-                        }, function (searchQuery) {
-                            filterBarPlugin.scope.$parent.filterText = searchQuery;
-                            filterBarPlugin.grid.searchProvider.evalFilter();
+            var templateCache =
+                "<div ng-dblclick=\"onDblClickRow(row)\" <div ng-style=\"{ 'cursor': row.cursor }\" ng-repeat=\"col in renderedColumns\" ng-class=\"col.colIndex()\" class=\"ngCell {{col.cellClass}}\">\r" +
+                "\n" +
+                "\t<div class=\"ngVerticalBar\" ng-style=\"{height: rowHeight}\" ng-class=\"{ ngVerticalBarVisible: !$last }\">&nbsp;</div>\r" +
+                "\n" +
+                "\t<div ng-cell></div>\r" +
+                "\n" +
+                "</div>";
+            var filterBarPlugin = {
+                init: function (scope, grid) {
+                    filterBarPlugin.scope = scope;
+                    filterBarPlugin.grid = grid;
+                    $scope.$watch(function () {
+                        var searchQuery = "";
+                        angular.forEach(filterBarPlugin.scope.columns, function (col) {
+                            if (col.visible && col.filterText) {
+                                var filterText = (col.filterText.indexOf('*') === 0 ? col.filterText.replace('*', '') : col.filterText) + ";";
+                                searchQuery += col.displayName + ": " + filterText;
+                            }
                         });
-                    },
-                    scope: undefined,
-                    grid: undefined
-                };
-                $scope.myOpportunities = {
-                    data: 'opportunities',
-                    showGroupPanel: true,
-                    groups: [],
-                    showColumnMenu: true,
-                    plugins: [filterBarPlugin],
-                    headerRowHeight: 60, // give room for filter bar
-                    rowTemplate: templateCache,
-                    filterOptions: $scope.filterOptions,
-                    columnDefs: [
-                        {
-                            field: 'salesPersonDescription',
-                            headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
-                            width: '*',
-                            displayName: 'Sales Person'
-                        },
-                        {
-                            field: 'contactDescription',
-                            headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
-                            width: '*',
-                            displayName: 'Contact Name'
-                        },
-                        {
-                            field: 'discussion',
-                            headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
-                            width: '***',
-                            displayName: 'Discussion'
-                        },
-                        {
-                            field: 'probabilityDescription',
-                            headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
-                            width: '*',
-                            displayName: 'Probability'
-                        },
-                        {
-                            field: 'potentialRevenue',
-                            headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
-                            width: '*',
-                            displayName: 'Potential Revenue'
-                        }
-                    ]
-                };
-
-
-                if ($scope.customerID) {
-
-                    //make the call to getCompanies and handle the promise returned;
-                    OpportunityServices.getOpportunities($scope.customerID).then(function (data) {
-                        //this will execute when the
-                        //AJAX call completes.
-                        if (data._embedded) {
-                            $scope.opportunities = data._embedded.opportunities;
-                        }
-
+                        return searchQuery;
+                    }, function (searchQuery) {
+                        filterBarPlugin.scope.$parent.filterText = searchQuery;
+                        filterBarPlugin.grid.searchProvider.evalFilter();
                     });
+                },
+                scope: undefined,
+                grid: undefined
+            };
+            $scope.myOpportunities = {
+                data: 'opportunities',
+                showGroupPanel: true,
+                groups: [],
+                showColumnMenu: true,
+                plugins: [filterBarPlugin],
+                headerRowHeight: 60, // give room for filter bar
+                rowTemplate: templateCache,
+                filterOptions: $scope.filterOptions,
+                columnDefs: [
+                    {
+                        field: 'salesPersonDescription',
+                        headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
+                        width: '*',
+                        displayName: 'Sales Person'
+                    },
+                    {
+                        field: 'contactDescription',
+                        headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
+                        width: '*',
+                        displayName: 'Contact Name'
+                    },
+                    {
+                        field: 'discussion',
+                        headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
+                        width: '***',
+                        displayName: 'Discussion'
+                    },
+                    {
+                        field: 'probabilityDescription',
+                        headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
+                        width: '*',
+                        displayName: 'Probability'
+                    },
+                    {
+                        field: 'potentialRevenue',
+                        headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
+                        width: '*',
+                        displayName: 'Potential Revenue'
+                    }
+                ]
+            };
 
-                }
+
+            if ($scope.customerID) {
+
+                //make the call to getCompanies and handle the promise returned;
+                OpportunityServices.getOpportunities($scope.customerID).then(function (data) {
+                    //this will execute when the
+                    //AJAX call completes.
+                    if (data._embedded) {
+                        $scope.opportunities = data._embedded.opportunities;
+                    }
+
+                });
+
             }
 
             $scope.onDblClickRow = function (row) {
@@ -287,78 +280,74 @@ angular.module('customersApp.opportunityControllers', [])
             $scope.opportunityFormTemplate = FormComponentFormatService.getOpportunityForm();
 
 
-            init();
+            // get all contacts for contact drop down
+            ContactServices.getAllContacts($scope.customerID).then(function (data) {
+                if (data._embedded) {
+                    $scope.contact_array = data._embedded.contacts;
+                }
+            });
 
-            function init() {
-                // get all contacts for contact drop down
-                ContactServices.getAllContacts($scope.customerID).then(function (data) {
+            if ($scope.customerID) {
+                $scope.customer = CustomersService.getStoredCustomer();
+                if (!$scope.customer) {
+                    CompanyServices.getCompany($scope.customerID).then(function (data) {
+                        $scope.customer = data;
+                        CustomersService.storeCustomer(data);
+                    });
+                }
+
+            }
+            if (parseInt($scope.opportunityID)) {
+                OpportunityFormServices.getOpportunities($scope.opportunityID).then(function (data) {
                     if (data._embedded) {
-                        $scope.contact_array = data._embedded.contacts;
+                        $scope.opportunityForm = data._embedded.opportunityForms;
+
+                        $scope.opportunityFormObject = {};
+                        // read through the opportunity form and create 1 object
+                        angular.forEach($scope.opportunityForm, function (component) {
+
+                            /* find the field type
+                             dates and checklists require special formatting
+                             */
+                            var type = FormComponentFormatService.getFormType(component);
+                            if (type == 'date') {
+                                $scope.opportunityFormObject[component.name] = component.value;
+                                var d = new Date($scope.opportunityFormObject[component.name]);
+                                $scope.opportunityFormObject[component.name] = d;
+                            } else if (type == 'checklist') {
+                                if ($scope.opportunityFormObject[component.name]) {
+                                    $scope.opportunityFormObject[component.name][component.value] = true;
+                                } else {
+                                    $scope.opportunityFormObject[component.name] = {};
+                                    $scope.opportunityFormObject[component.name][component.value] = true;
+                                }
+                            } else {
+                                $scope.opportunityFormObject[component.name] = component.value;
+                            }
+
+                        });
                     }
                 });
 
-                if ($scope.customerID) {
-                    $scope.customer = CustomersService.getStoredCustomer();
-                    if (!$scope.customer) {
-                        CompanyServices.getCompany($scope.customerID).then(function (data) {
-                            $scope.customer = data;
-                            CustomersService.storeCustomer(data);
-                        });
-                    }
-
+                $scope.opportunity = CustomersService.getStoredOpportunity();
+                if ($scope.opportunity) {
+                    $scope.opportunity.potentialRevenue = $filter("currency")($scope.opportunity.potentialRevenue);
                 }
-                if (parseInt($scope.opportunityID)) {
-                    OpportunityFormServices.getOpportunities($scope.opportunityID).then(function (data) {
-                        if (data._embedded) {
-                            $scope.opportunityForm = data._embedded.opportunityForms;
+                $scope.master = angular.copy($scope.opportunity);
+                if (!$scope.opportunity) {
+                    OpportunityServices.getOpportunity($scope.opportunityID).then(function (data) {
+                        $scope.opportunity = data;
+                        CustomersService.storeOpportunity(data);
 
-                            $scope.opportunityFormObject = {};
-                            // read through the opportunity form and create 1 object
-                            angular.forEach($scope.opportunityForm, function (component) {
-
-                                /* find the field type
-                                 dates and checklists require special formatting
-                                 */
-                                var type = FormComponentFormatService.getFormType(component);
-                                if (type == 'date') {
-                                    $scope.opportunityFormObject[component.name] = component.value;
-                                    var d = new Date($scope.opportunityFormObject[component.name]);
-                                    $scope.opportunityFormObject[component.name] = d;
-                                } else if (type == 'checklist') {
-                                    if ($scope.opportunityFormObject[component.name]) {
-                                        $scope.opportunityFormObject[component.name][component.value] = true;
-                                    } else {
-                                        $scope.opportunityFormObject[component.name] = {};
-                                        $scope.opportunityFormObject[component.name][component.value] = true;
-                                    }
-                                } else {
-                                    $scope.opportunityFormObject[component.name] = component.value;
-                                }
-
-                            });
+                        if ($scope.opportunity) {
+                            $scope.opportunity.potentialRevenue = $filter("currency")($scope.opportunity.potentialRevenue);
                         }
+
+                        $scope.master = angular.copy($scope.opportunity);
+                        $scope.customerOpportunitiesForm.$setPristine();
                     });
-
-                    $scope.opportunity = CustomersService.getStoredOpportunity();
-                    if ($scope.opportunity) {
-                        $scope.opportunity.potentialRevenue = $filter("currency")($scope.opportunity.potentialRevenue);
-                    }
-                    $scope.master = angular.copy($scope.opportunity);
-                    if (!$scope.opportunity) {
-                        OpportunityServices.getOpportunity($scope.opportunityID).then(function (data) {
-                            $scope.opportunity = data;
-                            CustomersService.storeOpportunity(data);
-
-                            if ($scope.opportunity) {
-                                $scope.opportunity.potentialRevenue = $filter("currency")($scope.opportunity.potentialRevenue);
-                            }
-
-                            $scope.master = angular.copy($scope.opportunity);
-                            $scope.customerOpportunitiesForm.$setPristine();
-                        });
-                    }
-
                 }
+
             }
 
 
