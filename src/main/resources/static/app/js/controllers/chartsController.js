@@ -18,8 +18,11 @@ angular.module('customersApp.chartsController', [])
             $scope.selectedCompanyTags = [];
             $scope.options = ChartService.chart.lineChart;
             $scope.opportunityData = CustomersService.getStoredOpportunityData();
-            $scope.opportunityDataByCompany = CustomersService.getStoredOpportunityDataByCompany();
-            $scope.opportunityDataBySalesPerson = CustomersService.getStoredOpportunityDataBySalesPerson();
+            $scope.opportunityDataByCompany = {};
+            $scope.opportunityDataBySalesPerson = {};
+
+//            $scope.opportunityDataByCompany = CustomersService.getStoredOpportunityDataByCompany();
+//            $scope.opportunityDataBySalesPerson = CustomersService.getStoredOpportunityDataBySalesPerson();
 //            $scope.opportunityDataByCompanyDate = CustomersService.getStoredOpportunityDataByCompanyDate();
 //            $scope.opportunityDataBySalesPersonDate = CustomersService.getStoredOpportunityDataBySalesPersonDate();
             var chartData = {};
@@ -27,7 +30,8 @@ angular.module('customersApp.chartsController', [])
             var savedData;
 
 
-            if (!$scope.opportunityData) {
+
+if (!$scope.opportunityData) {
 //                var modalDefaults = {
 //                    templateUrl: 'app/partials/charts/modalDancingElephants.html'
 //                };
@@ -54,10 +58,10 @@ angular.module('customersApp.chartsController', [])
 
                 });
             } else {
-                if (!$scope.opportunityDataByCompany) {
+//                if (!$scope.opportunityDataByCompany) {
                     //send to chart draw function
                     sliceAndDice();
-                }
+//                }
             }
 
 
@@ -185,8 +189,8 @@ angular.module('customersApp.chartsController', [])
 
 
                 });
-                CustomersService.storeOpportunityDataByCompany(angular.copy($scope.opportunityDataByCompany));
-                CustomersService.storeOpportunityDataBySalesPerson(angular.copy($scope.opportunityDataBySalesPerson));
+//                CustomersService.storeOpportunityDataByCompany(angular.copy($scope.opportunityDataByCompany));
+//                CustomersService.storeOpportunityDataBySalesPerson(angular.copy($scope.opportunityDataBySalesPerson));
 //                CustomersService.storeOpportunityDataByCompanyDate(angular.copy($scope.opportunityDataByCompanyDate));
 //                CustomersService.storeOpportunityDataBySalesPersonDate(angular.copy($scope.opportunityDataBySalesPersonDate));
 
