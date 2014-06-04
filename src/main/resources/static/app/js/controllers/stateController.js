@@ -14,14 +14,6 @@ angular.module('customersApp.stateController', [])
             };
 
 
-            var templateCache =
-                "<div ng-dblclick=\"onDblClickRow(row)\" <div ng-style=\"{ 'cursor': row.cursor }\" ng-repeat=\"col in renderedColumns\" ng-class=\"col.colIndex()\" class=\"ngCell {{col.cellClass}}\">\r" +
-                "\n" +
-                "\t<div class=\"ngVerticalBar\" ng-style=\"{height: rowHeight}\" ng-class=\"{ ngVerticalBarVisible: !$last }\">&nbsp;</div>\r" +
-                "\n" +
-                "\t<div ng-cell></div>\r" +
-                "\n" +
-                "</div>";
 
             var filterBarPlugin = {
                 init: function (scope, grid) {
@@ -52,7 +44,7 @@ angular.module('customersApp.stateController', [])
                 showColumnMenu: true,
                 plugins: [filterBarPlugin],
                 headerRowHeight: 60, // give room for filter bar
-                rowTemplate: templateCache,
+                rowTemplate: 'app/partials/util/rowTemplate.html',
                 filterOptions: $scope.filterOptions,
                 columnDefs: [
 
@@ -71,7 +63,7 @@ angular.module('customersApp.stateController', [])
                     },
                     { field: '',
                         width: '90',
-                        cellTemplate: '<button class="btn btn-danger pull-right" type="button" ng-click="delete(row)"><i class="icon-trash icon-white"></i> Delete</button>'
+                        cellTemplate: 'app/partials/util/cellTemplateButtonDelete.html'
                     }
                 ]
             };
