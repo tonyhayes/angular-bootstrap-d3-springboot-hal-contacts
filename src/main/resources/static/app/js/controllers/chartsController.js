@@ -307,6 +307,7 @@ angular.module('customersApp.chartsController', [])
                         }
                     });
                     $scope.data = chartData.pieChart.company;
+                    $scope.options.chart.height = chartData.pieChart.company.length * 10 + 400;
                 }
                 else {
                     chartData.pieChart.sales = [];
@@ -320,6 +321,7 @@ angular.module('customersApp.chartsController', [])
                         }
                     });
                     $scope.data = chartData.pieChart.sales;
+                    $scope.options.chart.height = chartData.pieChart.sales.length * 10 + 400;
                 }
 //                var width = 500,
 //                    height = 500,
@@ -386,11 +388,12 @@ angular.module('customersApp.chartsController', [])
             function stackedAreaChartFormatter(type) {
                 // data can either be selected by count, potential revenue or calculated revenue
                 chartData.stackedAreaChart = [];
+                var name;
+                var dataArr = [];
                 if ($scope.companySelect) {
 
                     chartData.stackedAreaChart.company = [];
                     // opportunityData is in company order
-                    var name;
 
                     angular.forEach($scope.opportunityDataByCompanyDate, function (createdAt) {
                         angular.forEach(createdAt, function (opportunity) {
@@ -400,16 +403,16 @@ angular.module('customersApp.chartsController', [])
                             }
                             if ($scope.countSelect) {
                                 ele = chartData.stackedAreaChart.company.length - 1;
-                                var dataArr = [opportunity.createdAt, opportunity.count];
+                                dataArr = [opportunity.createdAt, opportunity.count];
                                 chartData.stackedAreaChart.company[ele].values.push(dataArr);
 
                             } else if ($scope.potentialRevenueSelect) {
                                 ele = chartData.stackedAreaChart.company.length - 1;
-                                var dataArr = [opportunity.createdAt, opportunity.potentialRevenue];
+                                dataArr = [opportunity.createdAt, opportunity.potentialRevenue];
                                 chartData.stackedAreaChart.company[ele].values.push(dataArr);
                             } else {
                                 ele = chartData.stackedAreaChart.company.length - 1;
-                                var dataArr = [opportunity.createdAt, opportunity.calulatedRevenue];
+                                dataArr = [opportunity.createdAt, opportunity.calulatedRevenue];
                                 chartData.stackedAreaChart.company[ele].values.push(dataArr);
                             }
                         });
@@ -420,8 +423,6 @@ angular.module('customersApp.chartsController', [])
                 else {
                     chartData.stackedAreaChart.sales = [];
                     // opportunityData is in company order
-                    var name;
-
                     angular.forEach($scope.opportunityDataBySalesPersonDate, function (createdAt) {
                         angular.forEach(createdAt, function (opportunity) {
                             if (name != opportunity.name) {
@@ -430,16 +431,16 @@ angular.module('customersApp.chartsController', [])
                             }
                             if ($scope.countSelect) {
                                 ele = chartData.stackedAreaChart.sales.length - 1;
-                                var dataArr = [opportunity.createdAt, opportunity.count];
+                                dataArr = [opportunity.createdAt, opportunity.count];
                                 chartData.stackedAreaChart.sales[ele].values.push(dataArr);
 
                             } else if ($scope.potentialRevenueSelect) {
                                 ele = chartData.stackedAreaChart.sales.length - 1;
-                                var dataArr = [opportunity.createdAt, opportunity.potentialRevenue];
+                                dataArr = [opportunity.createdAt, opportunity.potentialRevenue];
                                 chartData.stackedAreaChart.sales[ele].values.push(dataArr);
                             } else {
                                 ele = chartData.stackedAreaChart.sales.length - 1;
-                                var dataArr = [opportunity.createdAt, opportunity.calulatedRevenue];
+                                dataArr = [opportunity.createdAt, opportunity.calulatedRevenue];
                                 chartData.stackedAreaChart.sales[ele].values.push(dataArr);
                             }
                         });
@@ -562,20 +563,19 @@ angular.module('customersApp.chartsController', [])
             };
 
             $scope.getList = function (term) {
+                var items;
                 if (term) {
+                    // because of return, break is omitted
                     switch ($scope.modalOptions.model1) {
                         case 'Company':
-                            var items = CompanyServices.getCompanyList(term);
+                            items = CompanyServices.getCompanyList(term);
                             return items;
-                            break;
                         case 'Sales Person':
-                            var items = SalesPersonService.getSalesList(term);
+                            items = SalesPersonService.getSalesList(term);
                             return items;
-                            break;
                         case 'Probability':
-                            var items = ProbabilitiesService.getProbabilitiesList(term);
+                            items = ProbabilitiesService.getProbabilitiesList(term);
                             return items;
-                            break;
                     }
 
                 }
@@ -593,7 +593,7 @@ angular.module('customersApp.chartsController', [])
                 for (var i = 0; i < 100; i++) {
                     sin.push({x: i, y: Math.sin(i / 10)});
                     sin2.push({x: i, y: i % 10 == 5 ? null : Math.sin(i / 10) * 0.25 + 0.5});
-                    cos.push({x: i, y: .5 * Math.cos(i / 10 + 2) + Math.random() / 10});
+                    cos.push({x: i, y: 0.5 * Math.cos(i / 10 + 2) + Math.random() / 10});
                 }
 
                 //Line chart data should be sent as an array of series objects.
@@ -615,7 +615,7 @@ angular.module('customersApp.chartsController', [])
                         area: true      //area - set to true if you want this line to turn into a filled area chart.
                     }
                 ];
-            };
+            }
 
 
         }

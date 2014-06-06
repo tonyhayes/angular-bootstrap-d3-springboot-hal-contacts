@@ -109,7 +109,7 @@ angular.module('customersApp.chartService', [])
                         xAxis: {
                             axisLabel: 'X Axis',
                             tickFormat: function (d) {
-                                return d3.time.format('%m/%d/%y')(new Date(d))
+                                return d3.time.format('%m/%d/%y')(new Date(d));
                             },
                             showMaxMin: false,
                             staggerLabels: true
@@ -147,7 +147,7 @@ angular.module('customersApp.chartService', [])
                         xAxis: {
                             showMaxMin: false,
                             tickFormat: function (d) {
-                                return d3.time.format('%x')(new Date(d))
+                                return d3.time.format('%x')(new Date(d));
                             }
                         },
                         yAxis: {
@@ -211,7 +211,7 @@ angular.module('customersApp.chartService', [])
                         xAxis: {
                             axisLabel: 'X Axis',
                             tickFormat: function (d) {
-                                return d
+                                return d;
                             },
                             rotateLabels: 50,
                             showMaxMin: false
@@ -259,7 +259,7 @@ angular.module('customersApp.chartService', [])
                 pieChart: {
                     chart: {
                         type: 'pieChart',
-                        height: 700,
+                        height: 900,
                         x: function (d) {
                             return d.key;
                         },
@@ -377,7 +377,7 @@ angular.module('customersApp.chartService', [])
                         y1Axis: {
                             axisLabel: 'Y1 Axis',
                             tickFormat: function (d) {
-                                return d3.format(',f')(d)
+                                return d3.format(',f')(d);
                             }
                         },
                         y2Axis: {
@@ -436,14 +436,14 @@ angular.module('customersApp.chartService', [])
                         },
                         color: ['#2ca02c', 'darkred'],
                         x: function (d, i) {
-                            return i
+                            return i;
                         },
                         xAxis: {
                             axisLabel: 'X Axis',
                             tickFormat: function (d) {
                                 var dx = $scope.data[0].values[d] && $scope.data[0].values[d].x || 0;
                                 if (dx > 0) {
-                                    return d3.time.format('%x')(new Date(dx))
+                                    return d3.time.format('%x')(new Date(dx));
                                 }
                                 return null;
                             }
@@ -451,7 +451,7 @@ angular.module('customersApp.chartService', [])
                         x2Axis: {
                             tickFormat: function (d) {
                                 var dx = $scope.data[0].values[d] && $scope.data[0].values[d].x || 0;
-                                return d3.time.format('%b-%Y')(new Date(dx))
+                                return d3.time.format('%b-%Y')(new Date(dx));
                             },
                             showMaxMin: false
                         },
@@ -464,7 +464,7 @@ angular.module('customersApp.chartService', [])
                         y2Axis: {
                             axisLabel: 'Y2 Axis',
                             tickFormat: function (d) {
-                                return '$' + d3.format(',.2f')(d)
+                                return '$' + d3.format(',.2f')(d);
                             }
                         },
                         y3Axis: {
@@ -474,7 +474,7 @@ angular.module('customersApp.chartService', [])
                         },
                         y4Axis: {
                             tickFormat: function (d) {
-                                return '$' + d3.format(',.2f')(d)
+                                return '$' + d3.format(',.2f')(d);
                             }
                         }
                     }
@@ -495,10 +495,10 @@ angular.module('customersApp.chartService', [])
 
                         pie: {
                             startAngle: function (d) {
-                                return d.startAngle / 2 - Math.PI / 2
+                                return d.startAngle / 2 - Math.PI / 2;
                             },
                             endAngle: function (d) {
-                                return d.endAngle / 2 - Math.PI / 2
+                                return d.endAngle / 2 - Math.PI / 2;
                             }
                         },
                         transitionDuration: 500,
@@ -527,7 +527,7 @@ angular.module('customersApp.chartService', [])
                             return i;
                         },
                         xTickFormat: function (d) {
-                            return d3.time.format('%x')(new Date($scope.data[d].x))
+                            return d3.time.format('%x')(new Date($scope.data[d].x));
                         },
                         transitionDuration: 250
                     }
