@@ -207,6 +207,7 @@ angular.module('customersApp.opportunityControllers', [])
                         field: 'potentialRevenue',
                         headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
                         width: '*',
+                        cellFilter: 'currency',
                         displayName: 'Potential Revenue'
                     }
                 ]
@@ -501,7 +502,7 @@ angular.module('customersApp.opportunityControllers', [])
                                 divisor = probability.percentage;
                         });
 
-                        $scope.master.potentialRevenueCalc = $filter("currency")(money / divisor);
+                        $scope.master.potentialRevenueCalc = $filter("currency")((money * divisor)/100);
 
                     } else {
                         $scope.master.potentialRevenueCalc = 0;
@@ -509,6 +510,11 @@ angular.module('customersApp.opportunityControllers', [])
 
                 }
             });
+
+            $scope.formatOpportunityRevenue = function (value) {
+                var money = parseFloat(value.replace(/[^\d\.]/g, ''));
+                $scope.master.potentialRevenue = $filter("currency")(money);
+            };
 
             // function to submit the form after all validation has occurred
             $scope.submitForm = function () {

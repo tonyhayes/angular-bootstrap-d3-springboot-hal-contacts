@@ -65,9 +65,9 @@
                     <div class="form-group">
                         <label>Potential Revenue</label>
                         <input type="text" name="potentialRevenue" class="form-control"
-                               ng-model="master.potentialRevenue">
+                               ng-model="master.potentialRevenue" ng-blur="formatOpportunityRevenue(master.potentialRevenue)">
                     </div>
-                    <div class="form-group">
+                     <div class="form-group">
                         <label>Calculation Sales with Probability</label>
                         <input type="text" name="potentialRevenueCalc" readonly class="form-control"
                                ng-model="master.potentialRevenueCalc">
