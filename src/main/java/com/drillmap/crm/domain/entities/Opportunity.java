@@ -8,6 +8,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Set;
 
 /**
@@ -29,6 +30,9 @@ public class Opportunity extends AuditableTenantEntity {
     Probability probability;
     String discussion;
     String potentialRevenue;
+    Timestamp opportunityDate;
+    @ManyToOne
+    Status status;
 
     public String getContactDescription() {
         Contact c = getContact();
@@ -83,6 +87,21 @@ public class Opportunity extends AuditableTenantEntity {
         return null;
     }
 
+    public String getStatusDescription() {
+        Status s = getStatus();
+        if (s != null) {
+            return s.getDescription();
+        }
+        return null;
+    }
+
+    public Long getStatusId() {
+        Status s = getStatus();
+        if (s != null) {
+            return s.getId();
+        }
+        return null;
+    }
     public Integer getOpportunityFormItemsCount() {
         Set<OpportunityForm> o = getOpportunityForms();
         if (o == null) {
@@ -91,7 +110,6 @@ public class Opportunity extends AuditableTenantEntity {
         return o.size();
     }
 
-    // the following is temporary until I learn to do a join
 
     public Long getCompanyId() {
         Company c = getCompany();

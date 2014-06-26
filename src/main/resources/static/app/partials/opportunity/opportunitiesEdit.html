@@ -45,6 +45,26 @@
                            class="help-block">Customer Contact is required.</p>
                     </div>
 
+                    <div class="form-group">
+                        <label>Opportunity Date</label>
+                        <quick-datepicker icon-class='icon-calendar' label-format='EEEE, MMMM d, yyyy'
+                                          ng-model='master.opportunityDate' placeholder='Pick a Date'
+                                          disable-timepicker='true'></quick-datepicker>
+
+                    </div>
+                    <br/><br/>
+
+                    <div class="form-group"
+                         ng-class="{ 'has-error' : customerOpportunitiesForm.status.$invalid && !customerOpportunitiesForm.status.$pristine }">
+                        <label>Status</label>
+                        <select required ng-model="master.statusId" class="form-control" name="status"
+                                ng-options="s.statusId as s.description for s in status_array"></select>
+
+                        <p ng-show="customerOpportunitiesForm.status.$invalid && !customerOpportunitiesForm.status.$pristine"
+                           class="help-block">
+                            Status is
+                            required.</p>
+                    </div>
 
                     <dynamic-form class="vertical" template="opportunityFormTemplate"
                                   ng-model="opportunityFormObject">

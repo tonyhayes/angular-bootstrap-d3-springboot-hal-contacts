@@ -926,6 +926,82 @@ angular.module('customersApp.ajaxService', [])
 
         };
     })
+    .factory('StatusService', function ($http) {
+        var status = [];
+        var _list = [];
+        var _locator = [];
+        return {
+            getConfiguredStatus: function () {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.get(dmApplicationEntryPoint + '/statuses').then(function (result) {
+                    return result.data;
+                });
+            },
+            postStatus: function (status) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                return $http.post(dmApplicationEntryPoint + '/statuses', status).then(function (result) {
+                    return result.headers('location');
+                });
+            },
+            patchStatus: function (status) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                var body = angular.copy(status);
+                var url = body._links.self.href;
+                delete body._links;
+                // angular does not support patch, use put for now
+                return $http.put(url, body).then(function (result) {
+                    return result.data;
+                });
+            },
+            deleteStatus: function (status) {
+                //since $http.get returns a promise,
+                //and promise.then() also returns a promise
+                //that resolves to whatever value is returned in it's
+                //callback argument, we can return that.
+                var body = angular.copy(status);
+                var url = body._links.self.href;
+                delete body._links;
+                return $http.delete(url).then(function (result) {
+                    return result.data;
+                });
+            },
+            getStatusList: function (term) {
+                return $http.get(dmApplicationEntryPoint + '/statuses/search/findByName', {
+                    params: {name: term + '%', page: 0}}).then(function (response) {
+                    // have to loop through result because it's key => value
+                    _list = [];
+                    _locator = [];
+                    if (response.data._embedded) {
+                        for (var key in response.data._embedded.statuses) {
+                            _list.push(response.data._embedded.statuses[key].name);
+                            _locator.push(response.data._embedded.statuses[key].probabilityId);
+                        }
+                    }
+                    return _list;
+                });
+            },
+            matchStatusList: function (name) {
+                return _locator[ _list.indexOf(name) ];
+            },
+            getStatus: function () {
+                return status;
+            },
+            setStatus: function (data) {
+                status = data._embedded.statuses;
+
+            }
+
+        };
+    })
 
     .factory('FormComponentService', function ($http) {
 

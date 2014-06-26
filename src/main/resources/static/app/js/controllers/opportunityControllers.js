@@ -81,6 +81,23 @@ angular.module('customersApp.opportunityControllers', [])
 
                             if (companyId) {
                                 $location.path(url + '/' + companyId + '/' + 0);
+                            }else{
+                                var modalDefaults = {
+                                };
+                                var modalOptions = {
+                                    closeButtonText: 'Cancel',
+                                    actionButtonText: 'New Company',
+                                    headerText: 'No Company Found!',
+                                    bodyText: 'Would you like to create a new company?',
+                                    record: companyName
+                                };
+
+                                ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
+                                    if (result === 'ok') {
+                                            $location.path('/customeredit/0');
+
+                                    }
+                                });
                             }
 
 
@@ -252,9 +269,11 @@ angular.module('customersApp.opportunityControllers', [])
         'CustomersService', 'SalesPersonService', 'ContactServices', 'ProbabilitiesService', 'ModalService',
         'FormComponentFormatService', 'OpportunityDetailServices',
         'CompanyServices', 'OpportunityServices',
-        'OpportunityFormServices',
+        'OpportunityFormServices','StatusService',
 
-        function ($scope, $routeParams, $location, $filter, CustomersService, SalesPersonService, ContactServices, ProbabilitiesService, ModalService, FormComponentFormatService, OpportunityDetailServices, CompanyServices, OpportunityServices, OpportunityFormServices) {
+        function ($scope, $routeParams, $location, $filter, CustomersService, SalesPersonService,
+                  ContactServices, ProbabilitiesService, ModalService, FormComponentFormatService,
+                  OpportunityDetailServices, CompanyServices, OpportunityServices, OpportunityFormServices, StatusService) {
 
             $scope.master = {};
             $scope.opportunityFormObject = {};
@@ -264,6 +283,7 @@ angular.module('customersApp.opportunityControllers', [])
             $scope.opportunityForm = {};
             $scope.salesPerson_array = SalesPersonService.getSalesPeople();
             $scope.probability_array = ProbabilitiesService.getProbabilities();
+            $scope.status_array = StatusService.getStatus();
             $scope.contact_array = [];
             $scope.filterOptions = {
                 filterText: ''

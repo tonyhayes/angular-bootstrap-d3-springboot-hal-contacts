@@ -6,8 +6,9 @@ angular.module('customersApp.applicationControllers', [])
     .controller("ApplicationController", [
         "$scope", "$timeout", "$q", '$location',
         "StatesService", "SalesPersonService", "ProbabilitiesService",
-        "FormComponentService", "FormComponentFormatService",
-        function ($scope, $timeout, $q, $location, StatesService, SalesPersonService, ProbabilitiesService, FormComponentService, FormComponentFormatService) {
+        "FormComponentService", "FormComponentFormatService", "StatusService",
+        function ($scope, $timeout, $q, $location, StatesService, SalesPersonService, ProbabilitiesService,
+                  FormComponentService, FormComponentFormatService,StatusService ) {
 
             $scope.isCurrentPath = function (path) {
                 return $location.path() == path;
@@ -26,7 +27,8 @@ angular.module('customersApp.applicationControllers', [])
                 SalesPersonService.getConfiguredSalesPeople(),
                 ProbabilitiesService.getConfiguredProbabilities(),
                 FormComponentService.getFormComponents(),
-                FormComponentService.getOpportunityFormComponents()
+                FormComponentService.getOpportunityFormComponents(),
+                StatusService.getConfiguredStatus()
             ]).then(
                 function (data) {
                     if (data[0]._embedded) {
@@ -40,6 +42,9 @@ angular.module('customersApp.applicationControllers', [])
                     }
                     if (data[3] && data[4]) {
                         FormComponentFormatService.setOpportunityForm(data[3], data[4]);
+                    }
+                    if (data[5]) {
+                        StatusService.setStatus(data[5]);
                     }
                     console.log('All services are resolved!');
                     // when evdrything has loaded, flip the switch, and let the

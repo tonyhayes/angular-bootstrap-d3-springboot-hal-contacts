@@ -10,6 +10,7 @@ angular.module('customersApp', [
     'customersApp.salesPersonController',
     'customersApp.probabilityController',
     'customersApp.stateController',
+    'customersApp.statusController',
     'customersApp.chartsController',
 
     'customersApp.filters',
@@ -81,6 +82,10 @@ angular.module('customersApp', [
             $routeProvider.when('/admin/states', {
                 templateUrl: 'app/partials/admin/states/states.html',
                 controller: 'StateController'
+            });
+            $routeProvider.when('/admin/status', {
+                templateUrl: 'app/partials/admin/status/status.html',
+                controller: 'StatusController'
             });
             $routeProvider.otherwise({
                 redirectTo: '/customers'

@@ -1,0 +1,42 @@
+<div class="modal-header">
+    <h3>{{modalOptions.headerText}}</h3>
+</div>
+<div class="modal-body">
+
+
+    <form name="statusForm" ng-submit="submitForm()" novalidate>
+
+
+        <div class="form-group"
+             ng-class="{ 'has-error' : statusForm.name.$invalid && !statusForm.name.$pristine }">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" ng-model="modalOptions.record.name">
+
+            <p ng-show="statusForm.name.$invalid && !statusForm.name.$pristine"
+               class="help-block">
+                Status Name is
+                required.</p>
+        </div>
+        <div class="form-group"
+             ng-class="{ 'has-error' : statusForm.description.$invalid && !statusForm.description.$pristine }">
+            <label>Description</label>
+            <input type="text" name="description" class="form-control" ng-model="modalOptions.record.description">
+
+            <p ng-show="statusForm.description.$invalid && !statusForm.description.$pristine"
+               class="help-block">
+                Status Description is
+                required.</p>
+        </div>
+
+
+    </form>
+
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn" data-ng-click="modalOptions.close()">{{modalOptions.closeButtonText}}</button>
+    <button type="submit" class="btn btn-primary" ng-disabled="statusForm.$invalid"
+            data-ng-click="modalOptions.ok();">
+        {{modalOptions.actionButtonText}}
+    </button>
+</div>
