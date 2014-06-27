@@ -239,6 +239,11 @@ angular.module('customersApp.opportunityControllers', [])
                     //AJAX call completes.
                     if (data._embedded) {
                         $scope.opportunities = data._embedded.opportunities;
+                        angular.forEach($scope.opportunities, function (opportunity) {
+                            if (opportunity.potentialRevenue){
+                                opportunity.potentialRevenue = parseFloat(opportunity.potentialRevenue.replace(/[^\d\.]/g, ''));
+                            }
+                        });
                     }
 
                 });
@@ -344,7 +349,10 @@ angular.module('customersApp.opportunityControllers', [])
 
                 $scope.opportunity = CustomersService.getStoredOpportunity();
                 if ($scope.opportunity) {
-                    $scope.opportunity.potentialRevenue = $filter("currency")($scope.opportunity.potentialRevenue);
+                    if ($scope.opportunity.potentialRevenue){
+                        var money = parseFloat($scope.opportunity.potentialRevenue.replace(/[^\d\.]/g, ''));
+                        $scope.opportunity.potentialRevenue = $filter("currency")(money);
+                    }
                 }
                 $scope.master = angular.copy($scope.opportunity);
                 if (!$scope.opportunity) {
@@ -352,8 +360,9 @@ angular.module('customersApp.opportunityControllers', [])
                         $scope.opportunity = data;
                         CustomersService.storeOpportunity(data);
 
-                        if ($scope.opportunity) {
-                            $scope.opportunity.potentialRevenue = $filter("currency")($scope.opportunity.potentialRevenue);
+                        if ($scope.opportunity.potentialRevenue){
+                            var money = parseFloat($scope.opportunity.potentialRevenue.replace(/[^\d\.]/g, ''));
+                            $scope.opportunity.potentialRevenue = $filter("currency")(money);
                         }
 
                         $scope.master = angular.copy($scope.opportunity);

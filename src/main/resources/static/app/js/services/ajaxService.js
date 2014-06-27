@@ -314,7 +314,7 @@ angular.module('customersApp.ajaxService', [])
         };
     })
 //  constructor function to encapsulate HTTP and pagination logic
-    .factory('OpportunityPages', function ($http) {
+    .factory('OpportunityPages', function ($http, $filter) {
         var OpportunityPages = function () {
             this.items = [];
             this.busy = false;
@@ -345,6 +345,10 @@ angular.module('customersApp.ajaxService', [])
                         if (data._embedded) {
                             var items = data._embedded.opportunities;
                             for (var i = 0; i < items.length; i++) {
+                                if (items[i].potentialRevenue){
+                                    items[i].potentialRevenue = parseFloat(items[i].potentialRevenue.replace(/[^\d\.]/g, ''));
+                                }
+
                                 this.items.push(items[i]);
                             }
                             if (data._links && data._links.next) {
@@ -366,6 +370,9 @@ angular.module('customersApp.ajaxService', [])
                     if (data._embedded) {
                         var items = data._embedded.opportunities;
                         for (var i = 0; i < items.length; i++) {
+                            if (items[i].potentialRevenue){
+                                items[i].potentialRevenue = parseFloat(items[i].potentialRevenue.replace(/[^\d\.]/g, ''));
+                            }
                             this.items.push(items[i]);
                         }
                         if (data._links && data._links.next) {
