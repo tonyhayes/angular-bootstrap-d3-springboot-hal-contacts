@@ -40,7 +40,7 @@
                         <a data-ng-click="navigate('/customeredit',opportunity )" title="click to edit"
                            class="ellipsis  btn-link">{{opportunity.companyName}}</a>
 
-                        {{opportunity.city + ', ' + opportunity.state}} &nbsp&nbsp {{opportunity.potentialRevenue | currency}}
+                        {{opportunity.potentialRevenue | currency}}&nbsp&nbsp {{opportunity.opportunityDate | date}}
                     </div>
                     <div>
                         <a data-ng-click="navigate('/contactcards',opportunity)" class="cardBody btn-link">View
