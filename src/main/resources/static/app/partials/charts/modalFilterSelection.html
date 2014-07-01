@@ -7,13 +7,20 @@
     <form name="filterSelectForm" ng-submit="submitForm()" novalidate>
 
 
-        <div class="form-group" ng-controller='ChartsController'>
+        <div ng-if='modalOptions.model1 != "Date"' class="form-group" ng-controller='ChartsController'>
             <label>{{modalOptions.model1}}</label>
             <tags-input ng-model="modalOptions.record" add-from-autocomplete-only="true">
                 <auto-complete source="getList($query)" min-length="2"></auto-complete>
             </tags-input>
         </div>
 
+        <div ng-if='modalOptions.model1 == "Date"' class="form-group">
+            <label>Opportunity Date</label>
+            <quick-datepicker icon-class='icon-calendar' label-format='EEEE, MMMM d, yyyy'
+                              ng-model='modalOptions.record' placeholder='Pick a Date'
+                              disable-timepicker='true'></quick-datepicker>
+
+        </div>
 
     </form>
 

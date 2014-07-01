@@ -1,68 +1,16 @@
 <div class="charts view">
     <header>
-        <h3>Opportunity Charts</h3>
+        <h3>Opportunity Status</h3>
     </header>
     <div>
         <br/>
 
         <div class="row">
             <div class="span2">
-                <ul class="nav nav-pills nav-stacked ">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-picture"></i>
-                            Attributes <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown dropdown-submenu"><a href="#">Group By</a>
-
-                                <ul class="dropdown-menu">
-                                    <li><a href="javascript:void(0)" data-ng-click="chartGroupBy('companySelect')"><i
-                                            ng-class="companySelect ? 'icon-ok' : 'icon-ok-disabled'"></i>
-                                        Company</a></li>
-                                    <li><a href="javascript:void(0)" data-ng-click="chartGroupBy('salesSelect')"><i
-                                            ng-class="salesSelect ? 'icon-ok' : 'icon-ok-disabled'"></i>
-                                        Sales People</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown dropdown-submenu"><a href="#">Select By</a>
-
-                                <ul class="dropdown-menu">
-                                    <li><a href="javascript:void(0)" data-ng-click="chartSelectBy('countSelect')"><i
-                                            ng-class="countSelect ? 'icon-ok' : 'icon-ok-disabled'"></i>
-                                        Opportunity Count</a></li>
-                                    <li><a href="javascript:void(0)"
-                                           data-ng-click="chartSelectBy('potentialRevenueSelect')"><i
-                                            ng-class="potentialRevenueSelect ? 'icon-ok' : 'icon-ok-disabled'"></i>
-                                        Potential Revenue</a></li>
-                                    <li><a href="javascript:void(0)"
-                                           data-ng-click="chartSelectBy('calculatedRevenueSelect')"><i
-                                            ng-class="calculatedRevenueSelect ? 'icon-ok' : 'icon-ok-disabled'"></i>
-                                        Calculated Revenue</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-filter"></i> Filters
-                            <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="javascript:void(0)" data-ng-click="chartFilter('Company')">Companies</a></li>
-                            <li><a href="javascript:void(0)" data-ng-click="chartFilter('Sales Person')">Sales
-                                People</a></li>
-                            <!--<li><a href="javascript:void(0)"-->
-                                   <!--data-ng-click="chartFilter('Probability')">Probabilities</a></li>-->
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-signal"></i> Style <b
-                                class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="javascript:void(0)" data-ng-click="chartType('multiBarHorizontalChart')">Horizontal
-                                Bar Chart</a></li>
-                            <li><a href="javascript:void(0)" data-ng-click="chartType('pieChart')">Pie Chart</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                <label>Select From Date</label>
+                <quick-datepicker icon-class='icon-calendar' label-format='EEEE, MMMM d, yyyy'
+                                  ng-model='selectedDate' placeholder='Pick a Date'
+                                  disable-timepicker='true'></quick-datepicker>
             </div>
 
 

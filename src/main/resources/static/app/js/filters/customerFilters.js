@@ -198,7 +198,24 @@ angular.module('customersApp.filters', [])
             }
             return matches;
         };
-
     })
+        .filter('dateChartObjectFilter', function () {
+
+            return function (chartObj, filterDate) {
+                if (!filterDate) return chartObj;
+
+                var d = new Date(filterDate).getTime();
+
+                var matches = [];
+
+                angular.forEach(chartObj, function (type) {
+                    if (type.opportunityDate >= d) {
+                        matches.push(type);
+                    }
+                });
+                return matches;
+            };
+
+        })
 
 ;
