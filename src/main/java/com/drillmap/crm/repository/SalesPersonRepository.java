@@ -12,8 +12,8 @@ import org.springframework.data.repository.query.Param;
 public interface SalesPersonRepository extends TenantAwareRepository<SalesPerson, Long> {
 
     @Query(value = "select e from #{#entityName} e where " +
-            "(e.firstName like :name or " +
-            "e.lastName like :name) and " +
+            "(lower(e.firstName) like :name or " +
+            "lower(e.lastName) like :name) and " +
             "e.tenantId = :tenantId")
     public Page<SalesPerson> findByName(
             @Param(value = "name") String name,

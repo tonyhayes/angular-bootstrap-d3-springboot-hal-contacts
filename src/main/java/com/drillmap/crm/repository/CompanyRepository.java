@@ -13,10 +13,10 @@ public interface CompanyRepository extends TenantAwareRepository<Company,Long>{
 
 
     @Query(value = "select e from #{#entityName} e where " +
-            "(e.companyName like :companyName or " +
-            "e.city like :city or " +
-            "e.state like :state or " +
-            "e.contactName like :contactName) and " +
+            "(lower(e.companyName) like :companyName or " +
+            "lower(e.city) like :city or " +
+            "lower(e.state) like :state or " +
+            "lower(e.contactName) like :contactName) and " +
             "e.tenantId = :tenantId")
     public Page<Company> findByCompanyNameStartsWithOrCityStartsWithOrStateStartsWithOrContactNameStartsWith(
             @Param(value = "companyName") String companyName,
@@ -26,7 +26,7 @@ public interface CompanyRepository extends TenantAwareRepository<Company,Long>{
             @Param(value = "tenantId") Long tenantId, Pageable page);
 
     @Query(value = "select e from #{#entityName} e where " +
-            "e.companyName like :companyName and " +
+            "(lower(e.companyName) like :companyName) and " +
             "e.tenantId = :tenantId")
     public Page<Company> findByCompanyNameLike(
             @Param(value = "companyName") String companyName, @Param(value = "tenantId") Long tenantId, Pageable page);

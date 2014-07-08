@@ -12,7 +12,7 @@ import org.springframework.data.repository.query.Param;
 public interface ProbabilityRepository extends TenantAwareRepository<Probability, Long> {
 
     @Query(value = "select e from #{#entityName} e where " +
-            "e.name like :name and " +
+            "lower(e.name) like :name and " +
             "e.tenantId = :tenantId")
     public Page<Probability> findByName(
             @Param(value = "name") String name,

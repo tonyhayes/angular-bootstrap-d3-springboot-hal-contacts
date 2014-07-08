@@ -12,7 +12,7 @@ import org.springframework.data.repository.query.Param;
 public interface StatusRepository extends TenantAwareRepository<Status,Long>{
 
     @Query(value = "select e from #{#entityName} e where " +
-            "e.name like :name and " +
+            "lower(e.name) like :name and " +
             "e.tenantId = :tenantId")
     public Page<Status> findByName(
             @Param(value = "name") String name,

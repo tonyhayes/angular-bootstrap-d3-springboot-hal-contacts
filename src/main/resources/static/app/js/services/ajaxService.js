@@ -19,10 +19,10 @@ angular.module('customersApp.ajaxService', [])
                         '/findByCompanyNameStartsWithOrCityStartsWithOrStateStartsWithOrContactNameStartsWith', {
                         params: {
                             sort: 'companyName', page: this.pageNo,
-                            companyName: this.searchText,
-                            city: this.searchText,
-                            state: this.searchText,
-                            contactName: this.searchText}}
+                            companyName: this.searchText.toLowerCase(),
+                            city: this.searchText.toLowerCase(),
+                            state: this.searchText.toLowerCase(),
+                            contactName: this.searchText.toLowerCase()}}
                 ).success(function (data) {
                         if (data._embedded) {
                             var items = data._embedded.companies;
@@ -82,10 +82,10 @@ angular.module('customersApp.ajaxService', [])
                             '/findByCompanyNameStartsWithOrCityStartsWithOrStateStartsWithOrContactNameStartsWith', {
                             params: {
                                 sort: 'companyName', page: pageNo,
-                                companyName: searchText,
-                                city: searchText,
-                                state: searchText,
-                                contactName: searchText}}
+                                companyName: searchText.toLowerCase(),
+                                city: searchText.toLowerCase(),
+                                state: searchText.toLowerCase(),
+                                contactName: searchText.toLowerCase()}}
                     ).then(function (result) {
                             //this sends back the search URL
                             return result.data;
@@ -147,7 +147,7 @@ angular.module('customersApp.ajaxService', [])
             },
             getCompanyList: function (term) {
                 return $http.get(dmApplicationEntryPoint + '/companies/search/findByCompanyNameLike', {
-                    params: {companyName: term + '%', page: 0}}).then(function (response) {
+                    params: {companyName: term.toLowerCase() + '%', page: 0}}).then(function (response) {
                     // have to loop through result because it's key => value
                     _list = [];
                     _locator = [];
@@ -182,7 +182,7 @@ angular.module('customersApp.ajaxService', [])
             this.busy = true;
 
             if (this.searchText) {
-                var filter = angular.copy(this.searchText) + '%';
+                var filter = angular.copy(this.searchText.toLowerCase()) + '%';
                 $http.get(dmApplicationEntryPoint + '/contacts/search' +
                         '/findBySearch', {
                         params: {
@@ -245,7 +245,7 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 if (searchText) {
-                    var filter = angular.copy(searchText) + '%';
+                    var filter = angular.copy(searchText.toLowerCase()) + '%';
                     return $http.get(dmApplicationEntryPoint + '/contacts/search' +
                             '/findBySearch', {
                             params: {
@@ -330,7 +330,7 @@ angular.module('customersApp.ajaxService', [])
             this.busy = true;
 
             if (this.searchText) {
-                var filter = angular.copy(this.searchText) + '%';
+                var filter = angular.copy(this.searchText.toLowerCase()) + '%';
                 $http.get(dmApplicationEntryPoint + '/opportunities/search' +
                         '/findBySearch', {
                         params: {
@@ -737,7 +737,7 @@ angular.module('customersApp.ajaxService', [])
             },
             getSalesList: function (term) {
                 return $http.get(dmApplicationEntryPoint + '/salesPersons/search/findByName', {
-                    params: {name: term + '%', page: 0}}).then(function (response) {
+                    params: {name: term.toLowerCase() + '%', page: 0}}).then(function (response) {
                     // have to loop through result because it's key => value
                     _list = [];
                     _locator = [];
@@ -866,7 +866,7 @@ angular.module('customersApp.ajaxService', [])
             },
             getProbabilitiesList: function (term) {
                 return $http.get(dmApplicationEntryPoint + '/probabilities/search/findByName', {
-                    params: {name: term + '%', page: 0}}).then(function (response) {
+                    params: {name: term.toLowerCase() + '%', page: 0}}).then(function (response) {
                     // have to loop through result because it's key => value
                     _list = [];
                     _locator = [];
@@ -983,7 +983,7 @@ angular.module('customersApp.ajaxService', [])
             },
             getStatusList: function (term) {
                 return $http.get(dmApplicationEntryPoint + '/statuses/search/findByName', {
-                    params: {name: term + '%', page: 0}}).then(function (response) {
+                    params: {name: term.toLowerCase() + '%', page: 0}}).then(function (response) {
                     // have to loop through result because it's key => value
                     _list = [];
                     _locator = [];
