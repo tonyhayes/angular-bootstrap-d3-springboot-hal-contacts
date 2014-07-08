@@ -3,7 +3,7 @@
 		<div class="container no-pad">
 			<div class="hidden-xs">
 				<div class="dm-head-14pct">
-			    	<h4 class="breadcrumb-title">Company Cards</h4>
+			    	<h4 class="breadcrumb-title">Customers</h4>
 			    </div>			    
 				<div class="dm-head-14pct toolbar-padding">
 					<div class="btn-toolbar" role="toolbar">
@@ -46,8 +46,12 @@
                     	</div>
                     	<div class="col-xs-12 col-sm-6 pull-right">
 	                    	<address>
-								<span class="glyphicon glyphicon-earphone"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp; {{customer.phone}}<br>
+	                    		<span class="glyphicon glyphicon-envelope"></span></abbr>&nbsp;&nbsp;&nbsp;<a href="mailto:{{customer.email}}">{{customer.email}}</a><br>
+								<br />
 								<span class="glyphicon glyphicon-globe"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{customer.webPage}}">{{customer.webPage}}</a><br>
+								<br />	
+								<span class="glyphicon glyphicon-earphone"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp;<a href="tel:{{customer.phone}}">{{customer.phone}}</a><br>
+								<span class="glyphicon glyphicon-phone"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp; <a href="tel:{{customer.mobile}}">{{customer.mobile}}</a><br>
 							</address>
 						</div>
                     </div>

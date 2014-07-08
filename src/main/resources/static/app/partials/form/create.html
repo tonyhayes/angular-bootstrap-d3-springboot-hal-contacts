@@ -1,27 +1,53 @@
-<div class="dynamicFormDetails view">
-    <h1>Create fields for your opportunities form
-        <button class="btn btn-warning pull-right " type="button" ng-click="navigate('/createcustomfields')"><i
-                class="icon-th-list icon-white"></i> Custom Fields
-        </button>
-    </h1>
-    <br>
-    <blockquote>
-        <p>Select field type you want to add to the form below and click on 'Add Field' button. Don't forget to set
-            field properties. After you finish creating the form, you can preview the form by clicking Preview Form
-            button.</p>
-    </blockquote>
-
-    <div class="well">
-        <div class="form-fields" ng-hide="previewMode">
-
-
-            <h3>Fields</h3>
-
-            <div class="add-field">
-                <select ng-model="addField.new"
-                        ng-options="type.name as type.value for type in addField.types"></select>
-                <button type="submit" class="btn" ng-click="addNewField()"><i class="icon-plus"></i> Add Field</button>
-            </div>
+<link th:href="@{app/css/card-view.css}" rel="stylesheet"/>
+	<div class="top-header scroller hidden-sm hidden-xs">
+		<div class="container no-pad">
+			<div class="hidden-xs">
+				<div id="dm-app-header" class="toolbar-padding">
+					<div class="dm-head-70pct">
+						<h3 class="panel-title">									
+								<ol class="breadcrumb hidden-xs">			
+									<li>Administration</li>
+									<!-- this should be a link back to the customer page, which is what happens on the customers.html page. but it's not working right now. instead, it redirects to the full page of customer cards. -->
+									<li class="active">Dynamic Forms</li>
+								</ol>
+					</div>			    
+				</div>
+			</div>					
+	    </div>
+	</div><div class="dynamicFormDetails view">
+    <div class="container">
+    	<div class="col-xs-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Create new fields</h3>
+				</div>
+				<div class="panel-body">			
+					Create new fields for your opportunities form
+					 
+					<button class="btn btn-default btn-skinny pull-right " type="button" ng-click="navigate('/createcustomfields')"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Custom Field</button>
+				</div>
+			</div>
+		</div>
+    	<div class="col-xs-12">
+    		<div class="panel panel-default">
+    			<div class="panel-heading">
+    				<h3 class="panel-title">Add a new field</h4>
+    			</div>
+    			<div class="panel-body">
+				
+        		<p>Select field type you want to add to the form below and click on 'Add Field' button. Don't forget to set field properties. After you finish creating the form, you can preview the form by clicking Preview Form button.</p>
+  					<div class="form-fields" ng-hide="previewMode">
+						<div class="add-field">
+							<div class="col-xs-10">
+							<select class="form-control" ng-model="addField.new" ng-options="type.name as type.value for type in addField.types"></select>
+							</div>
+							<div class="col-xs-2">
+								<button type="submit" class="btn btn-default btn-skinny pull-left" ng-click="addNewField()"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp; Add Field</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
             <hr>
             <p ng-show="form.form_fields.length == 0">No fields added yet.</p>
 

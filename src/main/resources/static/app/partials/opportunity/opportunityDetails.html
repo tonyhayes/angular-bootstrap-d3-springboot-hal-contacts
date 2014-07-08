@@ -3,7 +3,14 @@
 		<div class="container no-pad">
 			<div class="hidden-xs">
 					<div class="dm-head-70pct">
-						<h4 class="breadcrumb-title">Customer Opportunity Details / {{ customer.companyName }}</h4>				
+						<h3 class="panel-title">									
+							<ol class="breadcrumb hidden-xs">			
+								<li><a href="#" data-ng-click="navigate('/contactcards',customer)">Customers</a></li>
+								<!-- this should be a link back to the customer page, which is what happens on the customers.html page. but it's not working right now. instead, it redirects to the full page of customer cards. -->
+								<li><a href="#" data-ng-click="navigate('/contactcards',customer)" title="View Customer Page" class="ellipsis btn-link">{{customer.companyName}}</a>
+								<li class="active">Opportunity Details</li>
+							</ol>
+						</h3>	
 					</div>
 					
 					<div class="dm-head-14pct toolbar-padding pull-right">	
