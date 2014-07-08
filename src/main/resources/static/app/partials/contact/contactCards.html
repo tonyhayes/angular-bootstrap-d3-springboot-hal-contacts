@@ -1,53 +1,124 @@
-<div class="contacts view">
-    <header>
-        <h3>Contact Card Details</h3>
-    </header>
-    <div>
-        <div class="row">
-            <div class="span12">
-                <div class="indent">
-                    <h4>For {{ customer.companyName }}</h4>
-                    {{customer.addressLine1}}
-                    <br/>
-                    {{customer.city + ' '+ customer.state}}
-                    <br/><br/>
-                </div>
-            </div>
-            <br/><br/>
+<link th:href="@{app/css/card-view.css}" rel="stylesheet"/>
+	<div class="top-header scroller hidden-sm hidden-xs">
+		<div class="container no-pad">
+			<div class="hidden-xs">
+				<div class="dm-head-70pct">
+			    	<h4 class="breadcrumb-title">Customers / Contact Cards</h4>
+			    </div>			    
+				<div class="toolbar-padding pull-right">
+					<button type="button" class="btn btn-default btn-skinny top-button on-top" data-ng-click="editContact()"><span class="glyphicon glyphicon-plus"></span> Add Contact</a>
+				</div>
+			</div>					
+	    </div>
+	</div>
 
-            <div class="span10">
-                <div class="navbar">
-                    <div class="navbar-inner toolbar">
-                        <ul class="nav">
-                            <li class="toolbaritem"><a data-ng-click="editContact()"><i
-                                    class="icon-plus"></i> Add Contact Card</a></li>
-                        </ul>
-                        <form class="navbar-form pull-right">
-                            <span class="navbarText">Filter:</span>&nbsp;&nbsp;<input type="text"
-                                                                                      data-ng-model="searchText"
-                                                                                      class="novalidate"/>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br/>
+<br/>
+<!-- this is the customer's (company's) detail card. -->
+<div id="cards-display">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-lg-4">
+				<div class="panel panel-default panel-cards">
+					<div id="card-header" class="panel-heading">
+						<div class="pull-left">
+							<h3 class="panel-title">{{customer.companyName}}</h3>
+						</div>
+						<!-- here's where our edit and delete icons would be if we had them. it's a good place for others (like a lock for locking the company's details on an editing screen?) as well.  -->
+						<div class="panel-action-icons pull-right">
+								<div id="edit-button" class="pull-right">
+									<a data-ng-click="navigate('/customeredit',customer )" title="click to edit" class="ellipsis btn-link"><span class="glyphicon glyphicon-pencil"></span></a>
+								</div>
 
-        <div class="row cardContainer">
-            <div infinite-scroll='contactPages.nextPage()' infinite-scroll-disabled='customerPages.busy'
-                 infinite-scroll-distance='1'>
-                <div class="span3 card" data-ng-repeat="contact in contactPages.items track by $index">
-                    <button class="btn close cardClose" title="click to delete contact"
-                            data-ng-click="deleteContact($index, contact)">&times;</button>
-                    <div class="cardHeader">
+						</div>
+					</div>
+					<div class="panel-body">
+						<div class="card-address">
+							{{customer.addressLine1}}
+							<br />
+							{{customer.addressLine2}}
+							<br />
+							{{customer.city + ', ' + customer.state}}
+							<br />
+						</div>
+						<div class="card-icons">
+							<div data-ng-click="navigate('/contactcards',customer)" id="card-icon">
+								<a ><span class="glyphicon glyphicon-user"></span>&nbsp;{{customer.contactsCount}}</a>
+							</div>
+							<div data-ng-click="navigate('/opportunitydetails',customer)" id="card-icon">
+								<a><span class="glyphicon glyphicon-list-alt"></span>&nbsp;{{customer.opportunitiesCount}}</a>
+							</div>
+						</div>
+					</div><!-- .panel-body -->					
+				</div>
+			</div>
+			<div class="col-xs-12 col-lg-8">
+						<h3>Company Contacts</h3>
+						<div class="table-overflow" infinite-scroll='contactPages.nextPage()' infinite-scroll-disabled='customerPages.busy' infinite-scroll-distance='1'>
+								<table class="table table-striped" >
+										<tr>
+											<th>
+											Name
+											</th>
+											<th>
+											Phone
+											</th>
+											<th>
+											Mobile
+											</th>
+											<th>
+											Email
+											</th>
+											<th>
+											Address
+											</th>
+											<th>
+											City
+											</th>				
+											<th>
+											State
+											</th>						
+										</tr>
+						
+							
+									<tr data-ng-repeat="contact in contactPages.items track by $index">
+										<td class="col-xs-2">
+										{{contact.firstName+' '+contact.lastName}}</a>
+										</td>
+										<td class="col-xs-2">
+										<a href="tel:{{contact.phone}}">{{contact.phone}}</a>
+										</td>
+										<td class="col-xs-2">
+										<a  ng-if="contact.cell" href="tel:{{contact.cell}}">{{contact.cell}}</a>
+										</td>
+										<td class="col-xs-3">
+										{{contact.email}}
+										</td>
+										<td class="col-xs-3">	
+										{{contact.addressLine1 + ', ' + contact.addressLine2}}
+										</td>
+										<td class="col-xs-1">
+										{{contact.city}}
+										</td>
+										<td class="col-xs-1">
+										{{contact.state}}
+										</td>
+										
+									</tr>
+								</table>
+								</div>
+								</div>
+					<div class="col-xs-12">
+					
 
-                        <a data-ng-click="editContact(contact)" title="click to edit"
-                           class="ellipsis cardHeader btn-link">{{contact.firstName+' '+contact.lastName}}</a>
-                    </div>
-                    <div class="cardBody">{{contact.addressLine1 + ', ' + contact.city}}</div>
-                    <div ng-if="contact.cell" class="cardBody">{{'Cell: ' + contact.cell}}</div>
-                </div>
-            </div>
-        </div>
-    </div>
+					<div class="customerDetails view">
+
+						<h3>Company Opportunities</h3>
+							
+						<div class="gridStyle" ng-grid="myOpportunities"></div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

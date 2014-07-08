@@ -1,113 +1,212 @@
-<div class="opportunitiesEdit view">
-    <div class="row">
-        <header>
-            <h3>Customer Opportunities Maintenance</h3>
-        </header>
-        <div class="span12">
-            <div class="indent">
-                <h4>For {{ customer.companyName }}</h4>
-                {{customer.addressLine1}}
-                <br/>
-                {{customer.city + ' '+ customer.state}}
-                <br/><br/>
-            </div>
-        </div>
-        <br/><br/>
+<style>
+.jumbo-number {font-size:100px;}
+.jumbo-number-long {font-size:50px;}
+input .checklist {float:left;}
+.spacer {width:104%;border-bottom:20px solid #f5f5f5;padding-top:25px;margin-bottom:24px;margin:auto;box-shadow:0px 1px 0px #e4e4e4;margin-left:-2%;}
+.revenue-input {direction:rtl;}
+.panel-heading.breadcrumb {margin-bottom:0;}
+.panel-heading ol {margin:0px;}
+</style>
 
-        <div class="span12">
-            <div class="span6">
+<link th:href="@{app/css/card-view.css}" rel="stylesheet"/>
+	<div class="top-header scroller">
+		<div class="container no-pad">
+			<div id="dm-app-header">
+				<div class="dm-head-70pct">
+					<div class="panel-heading">
+						<h3 class="panel-title">									
+							<ol class="breadcrumb hidden-xs">			
+								<li><a href="#" data-ng-click="navigate('/contactcards',customer)">Customers</a></li>
+								<!-- this should be a link back to the customer page, which is what happens on the customers.html page. but it's not working right now. instead, it redirects to the full page of customer cards. -->
+								<li><a href="#" data-ng-click="navigate('/contactcards',customer)" title="View Customer Page" class="ellipsis btn-link">{{customer.companyName}}</a>
+								<li class="active">Opportunity Details</li>
+							</ol>
+						</h3>	
+					</div>
+				</div>
+				<div class="dm-head-14pct pull-right">														
+					<button type="button" class="btn btn-default pull-right toolbar-padding" ng-click="button=!button"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Edit this page</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
-                <form name="customerOpportunitiesForm" ng-submit="submitForm()">
-                    <button type="submit" class="btn btn-primary" ng-disabled="customerOpportunitiesForm.$invalid">
-                        Submit
-                    </button>
+<br />
 
+<div class="container">
+	<div class="col-xs-12">
+		<div class="panel panel-default panel-cards feature-panel">
+			<div class="panel panel-default panel-cards">
+				<div class="panel-heading breadcrumb">
+					<h3 class="panel-title">Summary</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div id="probability" class="col-xs-12 col-lg-6">
+				<h1 ng-class="{ 1: master.probabilityID = 1 }" class="text-center jumbo-number-long">
+				<!-- did this the cheap way. need to find out how the probability array is used. -->
+				{{master.probabilityId + '0%'}}
+				</h1>
+				<h3 class="text-center">Probability</h3>	
+			</div>
+				<div class="col-xs-12 col-lg-6">
+				
+					<h1 class="text-center jumbo-number-long" >
+					{{master.potentialRevenue}}
+					</h1>
+					<h3 class="text-center ">Potential Revenue</h3>
+					
+				</div>
+				<div class="col-xs-12 col-sm-4">
+				<div class="form-group" ng-class="{ 'has-error' : customerOpportunitiesForm.salesPerson.$invalid && !customerOpportunitiesForm.salesPerson.$pristine }">
+					
 
-                    <div class="form-group"
-                         ng-class="{ 'has-error' : customerOpportunitiesForm.salesPerson.$invalid && !customerOpportunitiesForm.salesPerson.$pristine }">
-                        <label>Sales Person</label>
-                        <select required ng-model="master.salesPersonId" class="form-control" name="salesPerson"
-                                ng-options="s.salesPersonId as s.salesPersonDescription for s in salesPerson_array"></select>
-
-
-                        <p ng-show="customerOpportunitiesForm.salesPerson.$invalid && !customerOpportunitiesForm.salesPerson.$pristine"
-                           class="help-block">Sales Person is required.</p>
-                    </div>
-
-
-                    <div class="form-group"
-                         ng-class="{ 'has-error' : customerOpportunitiesForm.contact.$invalid && !customerOpportunitiesForm.contact.$pristine }">
-                        <label>Contact</label>
-                        <select required ng-model="master.contactId" class="form-control" name="contact"
-                                ng-options="c.contactId as c.contactDescription for c in contact_array"></select>
-
-                        <p ng-show="customerOpportunitiesForm.contact.$invalid && !customerOpportunitiesForm.contact.$pristine"
-                           class="help-block">Customer Contact is required.</p>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Opportunity Date</label>
-                        <quick-datepicker icon-class='icon-calendar' label-format='EEEE, MMMM d, yyyy'
-                                          ng-model='master.opportunityDate' placeholder='Pick a Date'
-                                          disable-timepicker='true'></quick-datepicker>
-
-                    </div>
-                    <br/><br/>
-
-                    <div class="form-group"
-                         ng-class="{ 'has-error' : customerOpportunitiesForm.status.$invalid && !customerOpportunitiesForm.status.$pristine }">
-                        <label>Status</label>
-                        <select required ng-model="master.statusId" class="form-control" name="status"
-                                ng-options="s.statusId as s.description for s in status_array"></select>
-
-                        <p ng-show="customerOpportunitiesForm.status.$invalid && !customerOpportunitiesForm.status.$pristine"
-                           class="help-block">
-                            Status is
-                            required.</p>
-                    </div>
-
-                    <dynamic-form class="vertical" template="opportunityFormTemplate"
-                                  ng-model="opportunityFormObject">
-                    </dynamic-form>
-
-
-                    <h3>Statistics</h3>
-
-                    <div class="form-group"
-                         ng-class="{ 'has-error' : customerOpportunitiesForm.probability.$invalid && !customerOpportunitiesForm.probability.$pristine }">
-                        <label>Probability</label>
-                        <select required ng-model="master.probabilityId" class="form-control" name="probability"
-                                ng-options="p.probabilityId as p.name for p in probability_array"></select>
-
-                        <p ng-show="customerOpportunitiesForm.probability.$invalid && !customerOpportunitiesForm.probability.$pristine"
-                           class="help-block">Probability is required.</p>
-                    </div>
-                    <div class="form-group">
-                        <label>Potential Revenue</label>
-                        <input type="text" name="potentialRevenue" class="form-control"
-                               ng-model="master.potentialRevenue" ng-blur="formatOpportunityRevenue(master.potentialRevenue)">
-                    </div>
-                     <div class="form-group">
-                        <label>Calculation Sales with Probability</label>
-                        <input type="text" name="potentialRevenueCalc" readonly class="form-control"
-                               ng-model="master.potentialRevenueCalc">
-                    </div>
-
-
-                    <div class="form-group">
-                        <label>Discussion</label>
-                        <textarea name="discussion" class="form-control"
-                                  ng-model="master.discussion"></textarea>
-                    </div>
-
-                    <div ng-include src='"app/partials/opportunity/opportunityActionGrid.html"'></div>
-                    <button type="submit" class="btn btn-primary" ng-disabled="customerOpportunitiesForm.$invalid">
-                        Submit
-                    </button>
-
-                </form>
-            </div>
-
-        </div>
-    </div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+
+
+
+<!-- this is the customer's (company's) detail card. -->
+<div id="cards-display">
+	<div class="container">
+			<div class="row">
+				<div id="action-pack" class="col-xs-12 col-lg-4">
+
+
+
+
+				<div class="panel panel-default panel-cards panel-action">
+					<div class="panel-heading">
+						<h3 class="panel-title">Quick Description</h3>
+					</div>
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="discussion" class="col-sm-2 control-label sr-only" >Description</label>
+							<textarea name="discussion" class="form-control dm-form" ng-model="master.discussion" ng-disabled="button">
+								</textarea>
+							</div>
+						</div>
+					</div>
+				
+					<div class="panel panel-default panel-cards panel-statistics">
+						<div class="panel-heading">
+							<h3 class="panel-title">Statistics</h3>
+						</div>									
+						<div class="panel-body">					
+							<form class="form-horizontal" role="form" name="customerOpportunitiesForm" ng-submit="submitForm()">					
+								<div class="form-group" ng-class="{ 'has-error' : customerOpportunitiesForm.probability.$invalid && !customerOpportunitiesForm.probability.$pristine }">
+									<label for="probability" class="col-sm-5 control-label">Probability</label>
+									<div class="col-sm-7">
+										<select required ng-model="master.probabilityId" class="form-control dm-form" name="probability" ng-options="p.probabilityId as p.name for p in probability_array" ng-disabled="button"></select>
+										<p ng-show="customerOpportunitiesForm.probability.$invalid && !customerOpportunitiesForm.probability.$pristine" class="help-block">Probability is required.</p>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="potentialrevenue" class="col-sm-5 control-label" placeholder="Not calculated">Potential Revenue</label>
+									<div class="col-sm-7">
+										<input type="text" name="potentialrevenue" class="form-control dm-form revenue-input" ng-model="master.potentialRevenue" ng-disabled="button" placeholder="$0.00">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="calculation" class="col-sm-5 control-label">Calculation Sales with Probability</label>
+									<div class="col-sm-7">
+										<input type="text" name="potentialRevenueCalc" readonly class="form-control dm-form" ng-model="master.potentialRevenueCalc" ng-disabled="button">
+									</div>
+								</div>
+							<button type="submit" class="btn btn-default pull-right" ng-disabled="button || customerOpportunitiesForm.$invalid">
+							Save Changes
+							</button>
+						</form>
+						
+
+					
+					</div>
+				</div>
+					<div class="panel panel-default panel-cards panel-statistics">	
+						<div class="panel-heading">
+							<h3 class="panel-title">Metadata</h3>
+						</div>
+						<div class="panel-body">
+							<dynamic-form class="vertical" template="opportunityFormTemplate" ng-model="opportunityFormObject">
+
+							</dynamic-form>
+							<button type="submit" class="btn btn-primary" ng-disabled="button || customerOpportunitiesForm.$invalid">
+							Submit
+							</button>
+						</div>						
+					</div>
+				</div>
+
+
+
+			<div class="col-xs-12 col-lg-8 pull-right">
+				<div class="row">
+					<div class="col-xs-12" ng-app>
+						<div id="opportunity-edit" class="panel panel-default panel-cards">
+							<div class="panel-heading">
+								<h3 class="panel-title pull-left">Opportunity Detail</h3>
+							</div>
+
+							<div id="edit-lock" class="panel-body">
+					
+							
+							
+							<form class="form-horizontal" role="form" name="customerOpportunitiesForm" ng-submit="submitForm()">								
+							<!-- here's where our edit and delete icons would be if we had them. it's a good place for others (like a lock for locking the company's details on an editing screen?) as well.  -->
+								<div class="panel-action-icons pull-right">
+								</div>
+									<div id="card-details" class="col-xs-12">
+											
+												<h3 class="company-title">{{customer.companyName}}</h3>
+						
+											<address>
+											  	{{customer.addressLine1}}
+												<br />
+  											  	{{customer.addressLine2}}
+  												<br />
+												{{customer.city + ', ' + customer.state}}
+  												<br />
+  												<br />
+  											</address>
+  											<br />
+  											<hr />
+  											<h3 class="panel-title">Opportunity Contact</h3>
+  											<br />
+  											
+  											<address>
+												<select required ng-model="master.contactId" class="form-control dm-form" name="contact" ng-options="c.contactId as c.contactDescription for c in contact_array" ng-disabled="button"></select>
+  												<br />
+  												<abbr title="Phone">P:</abbr>{{customer.phone}}
+  											</address>
+											<br />
+											<address>
+											  <strong ng-options="c.contactId as c.contactDescription for c in contact_array"></strong><br>
+											  <a href="mailto:#">first.last@example.com</a>											  
+											</address>
+											<button type="submit" class="btn btn-default pull-right" ng-disabled="button || customerOpportunitiesForm.$invalid">Save Changes</button>								
+
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- salesperson form group -->
+								<div class="col-xs-12 col-sm-6 pull-right">
+					
+								
+							</form>	
+
+
+
+
+					</div>
+
+			<div ng-include src='"app/partials/opportunity/opportunityActionGrid.html"'></div>
+
+
+			</div>
+		</div>
+	</div>
+	</div>

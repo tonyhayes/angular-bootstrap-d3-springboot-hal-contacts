@@ -1,55 +1,80 @@
-<div class="opportunity view">
-    <header>
-        <h3>Opportunity Cards</h3>
-    </header>
-    <div>
-        <div class="row">
-            <div class="span10">
-                <div class="navbar">
-                    <div class="navbar-inner toolbar">
-                        <ul class="nav">
-                            <li class="toolbaritem"><a data-ng-click="navigateToOpportunity('/opportunitiesedit')"><i
-                                    class="icon-plus"></i> Add Opportunity</a></li>
-                        </ul>
-                        <form class="navbar-form pull-right">
-                            <span class="navbarText">Filter:</span>&nbsp;&nbsp;<input type="text"
-                                                                                      data-ng-model="searchText"
-                                                                                      class="novalidate"/>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br/>
+<link th:href="@{app/css/card-view.css}" rel="stylesheet"/>
+	<div class="top-header scroller hidden-sm hidden-xs">
+		<div class="container no-pad">
+			<div class="hidden-xs">
+				<div class="dm-head-14pct pull-left">
+			    	<h4 class="breadcrumb-title">Opportunities</h4>
+			    </div>			    
+				
+				<div class="dm-head-70pct toolbar-padding pull-right">	
+					<input id="filter" type="text" class="form-control" data-ng-model="searchText" class="novalidate form-control" placeholder="Filter Opportunities"/>
+					<button type="button" class="btn btn-default btn-skinny top-button on-top" data-ng-click="navigateToOpportunity('/opportunitiesedit')"><span class="glyphicon glyphicon-plus"></span> Add Opportunity</a>
+				</div>				
+			</div>					
+	    </div>
+	</div>
 
-        <div class="row cardContainer">
-            <div infinite-scroll='opportunityPages.nextPage()' infinite-scroll-disabled='opportunityPages.busy'
-                 infinite-scroll-distance='0'>
-                <div class="span3 card"
-                     data-ng-repeat="opportunity in opportunityPages.items | orderBy: opportunity.companyName track by $index">
-                    <button class="btn close cardClose" title="click to delete opportunity"
-                            data-ng-click="deleteOpportunity($index, opportunity)">&times;</button>
-                    <div class="cardHeader">
+<br/>
+<div class="container opportunity view">
+	<div class="panel panel-default">
 
-                        <a data-ng-click="navigateToOpportunity('/opportunitiesedit',opportunity )"
-                           title="click to edit"
-                           class="ellipsis cardHeader btn-link">{{opportunity.discussion}}</a>
-                    </div>
-                    <div class="cardBody">
-
-                        <a data-ng-click="navigate('/customeredit',opportunity )" title="click to edit"
-                           class="ellipsis  btn-link">{{opportunity.companyName}}</a>
-
-                        {{opportunity.potentialRevenue | currency}}&nbsp&nbsp {{opportunity.opportunityDate | date}}
-                    </div>
-                    <div>
-                        <a data-ng-click="navigate('/contactcards',opportunity)" class="cardBody btn-link">View
-                            {{opportunity.contactsCount}} Contacts</a>
-                        <a data-ng-click="navigate('/opportunitydetails',opportunity)" class="cardBody btn-link">{{opportunity.opportunitiesCount}}
-                            Opportunity Cards</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<table class="table table-striped" infinite-scroll='opportunityPages.nextPage()' infinite-scroll-disabled='opportunityPages.busy' infinite-scroll-distance='0'>
+	<thead>
+		<td>
+		Description
+		</td>
+		<td>
+		Company
+		</td>
+		<td>
+		Potential Revenue
+		</td>
+		<td>
+		Close Date
+		</td>
+		<td>
+		Probability
+		</td>
+		<td>
+		Contacts
+		</td>
+		<td>
+		Opportunities
+		</td>
+		<td>
+		Delete
+		</td>
+		
+	</thead>
+	<tr data-ng-repeat="opportunity in opportunityPages.items | orderBy: opportunity.companyName track by $index">
+		<td>
+			<a data-ng-click="navigateToOpportunity('/opportunitiesedit',opportunity )" title="click to edit" class="ellipsis btn-link">{{opportunity.discussion}}</a>
+        </td>
+        <td>
+        	<a data-ng-click="navigate('/customeredit',opportunity )" title="click to edit" class="ellipsis  btn-link">{{opportunity.companyName}}</a>
+        </td>
+        <td>
+        	{{opportunity.potentialRevenue | currency}}
+        </td>
+        <td>
+        	{{opportunity.opportunityDate | date}}
+    	</td>
+    	<td class="col-xs-3">
+    		<div class="progress">
+  				<div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: {{opportunity.probabilityId + '0'}}%;">
+    				{{opportunity.probabilityId + '0'}}%
+  				</div>
+			</div>
+    	</td>
+    	<td>
+    		<a data-ng-click="navigate('/contactcards',opportunity)" class="badge">{{opportunity.contactsCount}}&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span></a>
+		</td>
+		<td>
+			<a data-ng-click="navigate('/opportunitydetails',opportunity)" class="badge">{{opportunity.opportunitiesCount}}&nbsp;&nbsp;<span class="glyphicon glyphicon-folder-open"</span></a>
+        </td>
+        <td>
+	        <a href="#/" data-ng-click="deleteOpportunity($index, opportunity)"><span class="glyphicon glyphicon-trash"></span></a>
+		</td>
+	</tr>
+	</table>
 </div>

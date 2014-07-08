@@ -1,31 +1,23 @@
-<div class="statesDetails view">
-    <header>
-        <h3>States Details</h3>
-    </header>
-    <div>
-        <div class="row">
+<link th:href="@{app/css/card-view.css}" rel="stylesheet"/>
+	<div class="top-header scroller hidden-sm hidden-xs">
+		<div class="container no-pad">
+			<div class="hidden-xs">
+				<div class="dm-head-70pct">
+			    	<h4 class="breadcrumb-title">States Details</h4>
+			    </div>			
+			    <div class="pull-right">
+			    <button class="btn btn-default btn-skinny toolbar-padding" data-ng-click="onDblClickRow()"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add Status</button>
+			    </div>
+			
+			</div>					
+	    </div>
+	</div>
 
-            <div class="span12">
-                <div class="row">
-                    <div class="span10">
-                        <div class="navbar">
-                            <div class="navbar-inner toolbar">
-                                <ul class="nav">
-                                    <li class="toolbaritem"><a data-ng-click="onDblClickRow()"><i
-                                            class="icon-plus"></i> Add State</a></li>
-                                </ul>
-                                <form class="navbar-form pull-right">
-                                    <span class="navbarText">Filter:</span>&nbsp;&nbsp;<input type="text"
-                                                                                              data-ng-model="filterOptions.filterText"
-                                                                                              class="novalidate"/>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br/>
-
-                <div class="gridStyle" ng-grid="myStates"></div>
+<br/>
+<div class="container">
+	<div class="col-xs-12">
+		<div class="panel panel-default">
+			<div class="gridStyle" ng-grid="myStates"></div>
             </div>
         </div>
     </div>

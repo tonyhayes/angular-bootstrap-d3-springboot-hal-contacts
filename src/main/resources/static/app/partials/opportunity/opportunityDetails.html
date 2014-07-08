@@ -1,41 +1,51 @@
+<link th:href="@{app/css/card-view.css}" rel="stylesheet"/>
+	<div class="top-header scroller hidden-sm hidden-xs">
+		<div class="container no-pad">
+			<div class="hidden-xs">
+					<div class="dm-head-70pct">
+						<h4 class="breadcrumb-title">Customer Opportunity Details / {{ customer.companyName }}</h4>				
+					</div>
+					
+					<div class="dm-head-14pct toolbar-padding pull-right">	
+						<button type="button" class="btn btn-default btn-skinny top-button on-top" data-ng-click="onDblClickRow()"><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;&nbsp;&nbsp;Add Opportunity</span>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<br />
+
 <div class="customerDetails view">
-    <header>
-        <h3>Customer Opportunity Details</h3>
-    </header>
-    <div>
-        <div class="row">
-            <div class="span12">
-                <div class="indent">
-                    <h4>For {{ customer.companyName }}</h4>
-                    {{customer.addressLine1}}
-                    <br/>
-                    {{customer.city}}
-                    <br/><br/>
-                </div>
-            </div>
-            <br/><br/>
+	<div class="container">
+	<div class="col-xs-12">
+	   <div class="panel panel-default panel-cards">
+			<div id="card-header" class="panel-heading">
+				<h3 class="panel-title"><a data-ng-click="navigate('/contactcards',customer)" title="click to edit" class="ellipsis btn-link">{{customer.companyName}}</a>
+				<a href="#" class="heading-icon trash pull-right" title="click to delete customer" data-ng-click="deleteCustomer($index, customer)"><span class="glyphicon glyphicon-trash"></span></a>
+				<a data-ng-click="navigate('/customeredit',customer )" title="click to edit" class="heading-icon pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
 
-            <div class="span12">
-                <div class="row">
-                    <div class="span10">
-                        <div class="navbar">
-                            <div class="navbar-inner toolbar">
-                                <ul class="nav">
-                                    <li class="toolbaritem"><a data-ng-click="onDblClickRow()"><i
-                                            class="icon-plus"></i> Add Opportunity</a></li>
-                                </ul>
-                                <form class="navbar-form pull-right">
-                                    <span class="navbarText">Filter:</span>&nbsp;&nbsp;<input type="text"
-                                                                                              data-ng-model="filterOptions.filterText"
-                                                                                              class="novalidate"/>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br/>
+			</div>
+			<div class="panel-body">
 
-                <div class="gridStyle" ng-grid="myOpportunities"></div>
+				<div class="cardBody">
+					<address>
+					<strong>{{customer.companyName}}</strong><br>
+					{{customer.addressLine1}}<br>
+					{{customer.addressLine2}}<br>
+					{{customer.city}}, {{customer.state}}&nbsp;&nbsp;{{customer.zip}}<br>
+					<br>
+					<span class="glyphicon glyphicon-earphone"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp; {{customer.phone}}<br>
+					<span class="glyphicon glyphicon-globe"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{customer.webPage}}">{{customer.webPage}}</a><br>
+					</address>
+		
+				</div>
+			</div>
+		</div>
+	    
+	    <div class="panel panel-default">
+			
+		    <div class="gridStyle" ng-grid="myOpportunities"></div>
             </div>
         </div>
     </div>

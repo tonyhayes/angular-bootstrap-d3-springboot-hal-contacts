@@ -1,20 +1,32 @@
+<link th:href="@{app/css/card-view.css}" rel="stylesheet"/>
+	<div class="top-header scroller hidden-sm hidden-xs">
+		<div class="container no-pad">
+			<div class="hidden-xs">
+				<div class="dm-head-70pct">
+			    	<h4 class="breadcrumb-title">Reports</h4>
+			    </div>			    
+			
+			</div>					
+	    </div>
+	</div>
+
+<br/>
+
+<div class="container">
 <div class="charts view">
-    <header>
-        <h3>Opportunity Status</h3>
-    </header>
-    <div>
-        <br/>
-
-        <div class="row">
-            <div class="span2">
-                <label>Select From Date</label>
-                <quick-datepicker icon-class='icon-calendar' label-format='EEEE, MMMM d, yyyy'
-                                  ng-model='selectedDate' placeholder='Pick a Date'
-                                  disable-timepicker='true'></quick-datepicker>
-            </div>
+	<div class="col-xs-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Opportunity Status</h3>
+			</div>
+			<div class="panel-body">
+				<div class="col-xs-2">
+               		<label>Select From Date</label>
+                	<quick-datepicker icon-class='icon-calendar' label-format='EEEE, MMMM d, yyyy' ng-model='selectedDate' placeholder='Pick a Date' disable-timepicker='true'></quick-datepicker>
+            	</div>
+            	<nvd3 class="col-xs-10" options='options' data='data'></nvd3>
 
 
-            <nvd3 class="span10" options='options' data='data'></nvd3>
         </div>
 
     </div>
