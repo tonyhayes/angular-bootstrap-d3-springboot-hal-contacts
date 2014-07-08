@@ -1,36 +1,45 @@
-body {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: #f5f5f5;
-}
+html, body {
+    height:100%;
+    width:100%;
+	}
 
-.alert {
-    max-width: 300px;
-    padding: 19px 29px 29px;
-    margin: 0 auto 20px;
-}
+ .photo-wrap {
+ 	background-image:url('../app/img/dashboard-background.jpg');
+ 	background-position:50% 100%;
+ 	background-size:cover;
+ 	position:absolute;
+ 	top:0;
+ 	left:0;
+ 	right:0;
+ 	bottom:0;
+ 	overflow:hidden;
+ 	z-index:9;
+ 	}
+ 	
+
+ .login-elements {
+
+ margin-top:10%;
+ }
+ 
+ .navbar-transparent {opacity:.2;transition:.2s all;-webkit-transition:.2s all;}
+ .navbar-transparent:hover {opacity:1;}
 
 .form-signin {
-    max-width: 300px;
-    padding: 19px 29px 29px;
-    margin: 0 auto 20px;
-    background-color: #fff;
-    border: 1px solid #e5e5e5;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
-    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+
+    background-color: #f5f5f5;
+    box-sizing:border-box
+    font-size:13px;
+    line-height:1.4;
+    margin:10px 0 20px 0;
+    padding:25px;
+    outline:none;
+    word-wrap:break-word;
+    border:1px solid #d8d8d8;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
 }
 
-.form-signin .form-signin-heading,.form-signin .checkbox {
-    margin-bottom: 10px;
-}
 
-.form-signin input[type="text"],.form-signin input[type="password"] {
-    font-size: 16px;
-    height: auto;
-    margin-bottom: 15px;
-    padding: 7px 9px;
-}
+.footer-login {position:absolute;height:20%;min-height:100px;max-height:200px;background:#222222;z-index:1000;right:0;left:0;bottom:0;}

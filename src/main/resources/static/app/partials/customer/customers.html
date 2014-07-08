@@ -35,24 +35,30 @@
                 		<div class="panel-body">
                    
                     <div class="cardBody">
-                    	<address>
-                    	<strong>{{customer.companyName}}</strong><br>
-                    	{{customer.addressLine1}}<br>
-                    	{{customer.addressLine2}}<br>
-                    	{{customer.city}}, {{customer.state}}&nbsp;&nbsp;{{customer.zip}}<br>
-                    	<br>
-                    	<span class="glyphicon glyphicon-earphone"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp; {{customer.phone}}<br>
-                    	<span class="glyphicon glyphicon-globe"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{customer.webPage}}">{{customer.webPage}}</a><br>
-                    	</address>
+                    	<div class="col-xs-12 col-sm-6 pull-left">
+							<address>
+							<strong>{{customer.companyName}}</strong><br>
+							{{customer.addressLine1}}<br>
+							{{customer.addressLine2}}<br>
+							{{customer.city}}, {{customer.state}}&nbsp;&nbsp;{{customer.zip}}<br>
+							<br>
+							</address>
+                    	</div>
+                    	<div class="col-xs-12 col-sm-6 pull-right">
+	                    	<address>
+								<span class="glyphicon glyphicon-earphone"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp; {{customer.phone}}<br>
+								<span class="glyphicon glyphicon-globe"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{customer.webPage}}">{{customer.webPage}}</a><br>
+							</address>
+						</div>
                     </div>
                     <div class="cardFooter">
                     	<div class="col-xs-6 pull-left">
                         <a data-ng-click="navigate('/contactcards',customer)" class="card-number">
-                            {{customer.contactsCount}} <span class="glyphicon glyphicon-user"></span></a>
+                            {{customer.contactsCount}} Customer contacts</span></a>
+
                         </div>
                         <div class="col-xs-6 pull-right">
-                        <a data-ng-click="navigate('/opportunitydetails',customer)" class="card-number">{{customer.opportunitiesCount}} <span class="glyphicon glyphicon-folder-open"></span></a>
-                    </div>
+                        <a data-ng-click="navigate('/opportunitydetails',customer)" class="card-number">{{customer.opportunitiesCount}} Opportunities</a>                    
                 </div>
             </div>
         </div>
