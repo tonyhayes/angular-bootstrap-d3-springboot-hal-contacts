@@ -113,7 +113,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf11', end
 .cardBody {
 	padding:10px 20px 40px 20px ;
 	font-size:14px;
-	min-height:200px;
+	min-height:150px;
 	}
 
 

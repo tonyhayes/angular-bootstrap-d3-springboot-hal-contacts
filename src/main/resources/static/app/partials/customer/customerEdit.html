@@ -2,7 +2,7 @@
 	<div class="top-header scroller hidden-md hidden-sm hidden-xs">
 		<div class="container no-pad">
 			<div class="dm-head-70pct">
-				<h4 class="breadcrumb-title">Customer Edit</h3>				
+				<h4 class="breadcrumb-title">Customers / Edit Customer / {{customer.companyName}}</h3>				
 			</div>
 		</div>
 	</div>
@@ -19,82 +19,72 @@
 			</div>
 			<div class="panel-body">	
 					<div class="col-xs-12">
-	
             	        <form name="customerForm" ng-submit="submitForm()">
             	        <div class="row">
-                    	<div class="col-xs-12 col-sm-6 pull-left">
-							<address class="edit-address">
-								<div class="input-group">
-									<label class="sr-only" for="companyName">Company Name</label>
-	                    			<span class="input-group-addon">	
-	                    				Name</span>
-	                    			</span>									
-									<strong>							
-										<input type="text" name="companyName" class="form-control" ng-model="master.companyName" required>
-									</strong>
-								</div>
-								<br />
-								<div class="input-group">
-									<label class="sr-only" for="addressLine1">Address</label>
-									<span class="input-group-addon">
-										Address</span>
-									<input type="text" name="addressLine1" class="form-control" ng-model="master.addressLine1" required>
-								</div>
-								<br />
-								<div class="input-group">
-									<label class="sr-only" for="addressLine2">Address line 2</label>
-									<span class="input-group-addon">
-										Address 2</span>										
-									<input type="text" name="addressLine2" class="form-control" ng-model="master.addressLine2">
-								</div>
+							<div class="col-xs-12 col-sm-6 pull-left">
+								<address class="edit-address">
+									<div class="col-sm-12 input-group">
+										<label for="companyName">Company Name</label>	    							
+										<strong>							
+											<input type="text" name="companyName" class="form-control" ng-model="master.companyName" required>
+										</strong>
+									</div>
+									<br />
+									<div class="col-sm-12 input-group">
+										<label for="addressLine1">Address</label>
+										<input type="text" name="addressLine1" class="form-control" ng-model="master.addressLine1" required>
+									</div>
+									<br />
+									<div class="col-sm-12 input-group">
+										<label for="addressLine2">Address line 2</label>																		
+										<input type="text" name="addressLine2" class="form-control" ng-model="master.addressLine2">
+									</div>
 	
-								<br />
-								<div class="col-xs-6 pull-left input-group">
-									<label class="sr-only" for="=city">City</label>
-									<span class="input-group-addon">City</span>
-									<input type="text" name="city" class="form-control" ng-model="master.city" required>
-								</div>
-								<div class="col-xs-3 pull-right input-group">
-									<label class="sr-only" for="state">State</label>
-									<span class="input-group-addon">State</span>
-									<select required ng-model="master.state" class="form-control" name="state" ng-options="s.stateAbbr as s.name for s in state_array"></select>
-								</div>
-								<div class="col-xs-3 pull-right input-group">								
-									<label class="sr-only" for="zip">Zip code</label>
-									<span class="input-group-addon">Zip</span>
-									<input type="text" name="zip" class="form-control" ng-model="master.zip" required>
-								</div>
-							</address>
-                    	</div>
-                    	<div class="col-xs-12 col-sm-6 pull-right">
-	                    	<address>
-	                    		<div class="input-group">
-	                    			<span class="input-group-addon">
-										<span class="glyphicon glyphicon-earphone"></span>
-									</span>
-									<input type="text" name="phone" class="form-control" ng-model="master.phone">
-								</div>
-								<br />
-								<div class="input-group">
-									<span class="input-group-addon">
-										<span class="glyphicon glyphicon-phone"></span>
-									</span>
-				                    <input type="text" name="cell" class="form-control" ng-model="master.cell">
-								</div>
-								
-								<br />
-								<br />
-								
-								<div class="input-group">
-	                    			<span class="input-group-addon">
-										<span class="glyphicon glyphicon-globe"></span>
-									</span>
+									<br />
+									<div class="col-xs-6 pull-left input-group">
+										<label for="=city">City</label>
+										<input type="text" name="city" class="form-control" ng-model="master.city" required>
+									</div>
+									<div class="col-xs-3 pull-right input-group">
+										<label for="state">State</label>
+										<select required ng-model="master.state" class="form-control" name="state" ng-options="s.stateAbbr as s.name for s in state_array"></select>
+									</div>
+									<div class="col-xs-3 pull-right input-group">								
+										<label for="zip">Zip code</label>								
+										<input type="text" name="zip" class="form-control" ng-model="master.zip" required>
+									</div>
+								</address>
+							</div>                    
+                    		<div class="col-xs-12 col-sm-6 pull-right">
+	                    		<address>
+	                    			<div class="input-group">
+	                    				<label for="phone">Phone</label>
+		                    			<span class="input-group-addon">
+											<span class="glyphicon glyphicon-earphone"></span>
+										</span>
+										<input type="text" name="phone" class="form-control" ng-model="master.phone">
+									</div>
+									<br />
+									<div class="input-group">
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-phone"></span>
+										</span>
+					                    <input type="text" name="cell" class="form-control" ng-model="master.cell">
+									</div>
 									
-                   					 <input type="text" name="webPage" class="form-control" ng-model="master.webPage">
-								</div>	
-
-							</address>
-						</div>
+									<br />
+									<br />
+									
+									<div class="input-group">
+		                    			<span class="input-group-addon">
+											<span class="glyphicon glyphicon-globe"></span>
+										</span>
+										
+                   						 <input type="text" name="webPage" class="form-control" ng-model="master.webPage">
+									</div>	
+	
+								</address>
+							</div>
                     </div>
                     	<div class="cardFooter">
                     		
