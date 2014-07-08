@@ -23,38 +23,49 @@
 
     </head>
 <body>
+<!-- here's the drillMap navbar. -->
+    <div class="navbar navbar-dm navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="hidden-xs">
+				<div class="dm-head-3">
+					<a href="#/" class="navbar-brand" style="padding:10px 0px 0px 15px;"><img th:src="@{app/img/dm-logo-alt.svg}" alt="logo" class="logo-image"></a>
+				</div>
+			</div>
+			<div class="hidden-sm">
+				<div class="dm-head-1">
+					<a href="#/" class="navbar-brand hidden-xl hidden-lg hidden-md hidden-sm" style="padding:0;"><img th:src="@{app/img/dm-circle.svg}" alt="logo" class="logo-image-2"></a>
+				</div>
+			</div>
+			<div class="dm-head-7 pull-right">
+				<!-- regular navigation menu, hidden at 768px via .collapse tag -->
+				<div class="collapse navbar-collapse pull-right">
+					<ul class="nav navbar-nav">
+						<li ng-class="{ active: isCurrentPath('/customers') }"><a href="#/customers">Customers</a></li>
+						<li ng-class="{ active: isCurrentPath('/opportunities') }"><a href="#/opportunities">Opportunities</a></li>
+						<li ng-class="{ active: isCurrentPath('/charts') }"><a href="#/charts">Reports</a></li>
+		                <li class="dropdown" ng-class="{ active: isCurrentPath('/forms/create') }" >
+            			        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration <b class="caret"></b></a>
+		                    <ul class="dropdown-menu" >
+								<li><a href="#/forms/create">Dynamic Forms</a></li>
+								<li class="divider"></li>
+								<li><a href="#/admin/sales">Sales Person</a></li>
+								<li><a href="#/admin/probability">Probability</a></li>
+								<li><a href="#/admin/states">States</a></li>
+								<li><a href="#/admin/status">Status</a></li>
+		                    </ul>
+		                </li>
+		            </ul>
+		        </div>
+		    </div>
+	    </div>
+	</div>
+	
 
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <a class="brand " href="#/">
-                <img th:src= "@{app/css/images/people.png}" alt="logo"> Customer Manager
-            </a>
-            <ul class="nav nav-pills">
-                <li ng-class="{ active: isCurrentPath('/customers') }"><a href="#/customers">Customers</a></li>
-                <li ng-class="{ active: isCurrentPath('/opportunities') }"><a href="#/opportunities">Opportunities</a></li>
-                <li ng-class="{ active: isCurrentPath('/charts') }"><a href="#/charts">Reports</a></li>
-
-            </ul>
-            <ul class="nav pull-right">
-                <li class="divider-vertical"></li>
-                <li class="dropdown" ng-class="{ active: isCurrentPath('/forms/create') }" >
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration <b class="caret"></b></a>
-                    <ul class="dropdown-menu" >
-                        <li><a href="#/forms/create">Dynamic Forms</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#/admin/sales">Sales Person</a></li>
-                        <li><a href="#/admin/probability">Probability</a></li>
-                        <li><a href="#/admin/states">States</a></li>
-                        <li><a href="#/admin/status">Status</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
+	<!-- pushes all content down by 55px of padding so it isn't covered up by the navbar. -->	
+	<div class="content-push">
 
 
-
-    <div ng-if='!loadingDone' class="span10">
+    <div ng-if='!loadingDone' class="container">
         <!-- this is my loading div, it is taken out of the dom once everything is loaded! -->
         <h2><small>Loading:</small></h2>
         <div class="progress progress-striped active" ng-controller='LoadingController'>
@@ -71,19 +82,14 @@
         -->
         <!-- Note that AngularJS has a built-in ng-animation direction. Left in animated-view to show a
               custom directive -->
-        <div animated-view></div>
         <ng-view></ng-view>
     </div>
 
 
     <div class="footer">
         <hr>
-        <div class="row">
-            <div class="span12">
-                <div class="span4">
-                    <p class="muted pull-right">© 2014 drillMap. All rights reserved</p>
-                </div>
-            </div>
+        <div class="col-xs-12">
+        	<p class="muted pull-right">© 2014 drillMap. All rights reserved</p>
         </div>
     </div>
 

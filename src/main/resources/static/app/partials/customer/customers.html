@@ -1,45 +1,64 @@
-<div class="customer view">
-    <header>
-        <h3>Company Cards</h3>
-    </header>
-    <div>
-        <div class="row">
-            <div class="span10">
-                <div class="navbar">
-                    <div class="navbar-inner toolbar">
-                        <ul class="nav">
-                            <li class="toolbaritem"><a data-ng-click="navigate('/customeredit')"><i
-                                    class="icon-plus"></i> Add Customer</a></li>
-                        </ul>
-                        <form class="navbar-form pull-right">
-                            <span class="navbarText">Filter:</span>&nbsp;&nbsp;<input type="text"
-                                                                                      data-ng-model="searchText"
-                                                                                      class="novalidate"/>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br/>
-        <div class="row cardContainer">
-            <div infinite-scroll='customerPages.nextPage()' infinite-scroll-disabled='customerPages.busy'
-                 infinite-scroll-distance='0'>
-                <div class="span3 card"
-                     data-ng-repeat="customer in customerPages.items | orderBy: customer.companyName track by $index">
-                    <button class="btn close cardClose" title="click to delete customer"
-                            data-ng-click="deleteCustomer($index, customer)">&times;</button>
-                    <div class="cardHeader">
+<link th:href="@{app/css/card-view.css}" rel="stylesheet"/>
+	<div class="top-header scroller hidden-sm hidden-xs">
+		<div class="container no-pad">
+			<div class="hidden-xs">
+				<div class="dm-head-14pct">
+			    	<h4 class="breadcrumb-title">Company Cards</h4>
+			    </div>			    
+				<div class="dm-head-14pct toolbar-padding">
+					<div class="btn-toolbar" role="toolbar">
+						<div class="btn-group on-top">
+						</div>
+					</div>
+				</div>
+				<div class="dm-head-70pct toolbar-padding pull-right">	
+					<input id="filter" type="text" class="form-control" data-ng-model="searchText" class="novalidate form-control" placeholder="Filter Opportunities"/>
+					<button type="button" class="btn btn-default btn-skinny top-button on-top" data-ng-click="navigate('/customeredit')"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add Company</a>
+				</div>				
+			</div>					
+	    </div>
+	</div>
+	
+	<br />
+<!-- this is our display of customers as contact cards, which is set as the default view.  it is hidden when a user selects a table view. -->
+	<div id="cards-display" class="view">
+		<div class="container">
+            <div infinite-scroll='customerPages.nextPage()' infinite-scroll-disabled='customerPages.busy' infinite-scroll-distance='0'>
+                <div class="col-xs-12 col-sm-6" data-ng-repeat="customer in customerPages.items | orderBy: customer.companyName track by $index">
+                	<div class="panel panel-default panel-cards">
+						<div id="card-header" class="panel-heading">
+							<h3 class="panel-title"><a data-ng-click="navigate('/contactcards',customer)" title="click to edit" class="ellipsis btn-link">{{customer.companyName}}</a>
+                			<a href="#" class="heading-icon trash pull-right" title="click to delete customer" data-ng-click="deleteCustomer($index, customer)"><span class="glyphicon glyphicon-trash"></span></a>
+                			<a data-ng-click="navigate('/customeredit',customer )" title="click to edit" class="heading-icon pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
 
-                        <a data-ng-click="navigate('/customeredit',customer )" title="click to edit"
-                           class="ellipsis cardHeader btn-link">{{customer.companyName}}</a>
+                		</div>
+                		<div class="panel-body">
+                   
+                    <div class="cardBody">
+                    	<div class="col-xs-12 col-sm-6 pull-left">
+							<address>
+							<strong>{{customer.companyName}}</strong><br>
+							{{customer.addressLine1}}<br>
+							{{customer.addressLine2}}<br>
+							{{customer.city}}, {{customer.state}}&nbsp;&nbsp;{{customer.zip}}<br>
+							<br>
+							</address>
+                    	</div>
+                    	<div class="col-xs-12 col-sm-6 pull-right">
+	                    	<address>
+								<span class="glyphicon glyphicon-earphone"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp; {{customer.phone}}<br>
+								<span class="glyphicon glyphicon-globe"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{customer.webPage}}">{{customer.webPage}}</a><br>
+							</address>
+						</div>
                     </div>
-                    <div class="cardBody">{{customer.addressLine1 + ', ' + customer.city}}</div>
                     <div class="cardFooter">
-                        <a data-ng-click="navigate('/contactcards',customer)" class="cardBody btn-link">View
-                            {{customer.contactsCount}} Contacts</a>
-                        <a data-ng-click="navigate('/opportunitydetails',customer)" class="cardBody btn-link">{{customer.opportunitiesCount}}
-                            Opportunity Cards</a>
-                    </div>
+                    	<div class="col-xs-6 pull-left">
+                        <a data-ng-click="navigate('/contactcards',customer)" class="card-number">
+                            {{customer.contactsCount}} Customer contacts</span></a>
+
+                        </div>
+                        <div class="col-xs-6 pull-right">
+                        <a data-ng-click="navigate('/opportunitydetails',customer)" class="card-number">{{customer.opportunitiesCount}} Opportunities</a>                    
                 </div>
             </div>
         </div>

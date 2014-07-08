@@ -1,21 +1,72 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Sign in &middot; CRM Sign in</title>
-    <link th:href="@{/webjars/bootstrap/3.1.1/css/bootstrap.css}" rel="stylesheet">
+    <title>drillMap | CRM</title>
+    <link th:href="@{app/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{app/css/customerManagementStyles.css}" rel="stylesheet"/>
     <link th:href="@{/css/login.css}" rel="stylesheet">
 </head>
 <body>
 
-<div class="container">
-    <form class="form-signin" method="post" action="login.html">
-        <h3 class="muted form-signin-heading">Please sign in</h3>
-        <input type="text" class="input-block-level" placeholder="User name" name="username">
-        <!--<input style="display: none" type="password" class="input-block-level" placeholder="Password" name="password">-->
-        <button class="btn btn-primary" type="submit">Sign in</button>
-    </form>
-</div><!-- /container -->
+<!-- if you don't need a div temporarily, or need to hide it, use class .hidden -->
 
+
+<!--  this is a semi-transparent background color overlay that sits above the next class, .photo-wrap, to darken it. since we-->
+<div class="fade-wrap">
+</div>
+
+<!-- an element that sits under .fade-wrap that houses our full-screen background image. i've hidden it for now, but left it included for later. -->
+<div class="photo-wrap hidden">
+</div>
+
+<!-- the full-screen div that sits on top of .fade-wrap and .photo-wrap. this div contains all our stuff. -->
+
+<div class="wrap">
+
+<!-- drillMap navigation bar. class .navbar-dm sets the navbar background to #222, .navbar-transparent sets it to transparent. -->
+
+    <div class="navbar navbar-fixed-top navbar-dm" role="navigation">
+			<div class="hidden-xs">
+				<div class="dm-head-3">
+					<a href="#/" class="navbar-brand" style="padding:10px 0px 0px 15px;"><img th:src="@{app/img/dm-logo.svg}" alt="logo" class="logo-image"></a>
+				</div>
+			</div>
+			<div class="hidden-sm">
+				<div class="dm-head-1">
+					<a href="#/" class="navbar-brand hidden-xl hidden-lg hidden-md hidden-sm" style="padding:0;"><img th:src="@{app/img/dm-circle.svg}" alt="logo" class="logo-image-2"></a>
+				</div>
+			</div>
+
+			<div class="dm-head-7 pull-right">
+			</div>
+		</div>	
+
+<!-- .content-push moves everything on the page down by 55px using top padding to compensate for the fixed navbar at the top. -->
+<div class="content-push">
+<div class="container">
+	<div class="col-xs-12 login-elements">
+		<div class="col-xs-12 col-lg-8 col-lg-offset-2">
+		    <form class="form-signin" method="post" action="login.html">
+        	<h3>Please sign in</h3>
+        	
+        	<div class="input-group">
+				<span class="input-group-addon"><span class="glyphicon glyphicon-user"</span></span>
+				<input type="text" class="form-control" placeholder="User name" name="username" />
+			</div>
+			<br />
+			<div class="input-group">
+				<span class="input-group-addon"><span class="glyphicon glyphicon-lock"</span></span>
+				<input type="password" class="form-control" placeholder="Password" name="password" disabled/>
+			</div>
+			<br />
+	        <button class="btn btn-default" type="submit">Sign in</button>
+    		</form>
+    	</div>
+	</div>
+</div>
+</div>
+<div class="footer-login">
+</div>
 </body>
 </html>
