@@ -72,7 +72,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf11', end
 }
 
 
-
+#update-buttons button {margin-left:15px;}
 .card {
     background-color: #efefef;
     border: 1px solid black;
