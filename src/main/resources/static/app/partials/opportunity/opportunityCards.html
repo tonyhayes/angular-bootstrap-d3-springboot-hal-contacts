@@ -2,23 +2,31 @@
 	<div class="top-header scroller hidden-sm hidden-xs">
 		<div class="container no-pad">
 			<div class="hidden-xs">
-				<div class="dm-head-14pct pull-left">
-			    	<h4 class="breadcrumb-title">Opportunities</h4>
-			    </div>			    
-				
-				<div class="dm-head-70pct toolbar-padding pull-right">	
-					<input id="filter" type="text" class="form-control" data-ng-model="searchText" class="novalidate form-control" placeholder="Filter Opportunities"/>
-					<button type="button" class="btn btn-default btn-skinny top-button on-top" data-ng-click="navigateToOpportunity('/opportunitiesedit')"><span class="glyphicon glyphicon-plus"></span> Add Opportunity</a>
-				</div>				
-			</div>					
-	    </div>
-	</div>
-
+				<div id="dm-app-header">
+					<div class="dm-head-20 pull-left">
+						<div class="panel-heading">
+							<h3 class="panel-title">									
+								<ol class="breadcrumb hidden-xs">			
+									<li><a href="#" data-ng-click="navigate('/contactcards',customer)">Customers</a></li>
+									<li class="active">Opportunities</li>
+								</ol>
+							</h3>	
+						</div>
+					</div>		    
+					<div class="dm-head-70pct toolbar-padding pull-right">	
+						<input id="filter" type="text" class="form-control" data-ng-model="searchText" class="novalidate form-control" placeholder="Filter Opportunities" />
+						<button type="button" class="btn btn-default btn-skinny top-button on-top" data-ng-click="navigateToOpportunity('/opportunitiesedit')"><span class="glyphicon glyphicon-plus"></span> Add Opportunity</button>
+					</div>		
+				</div><!-- #dm-app-header -->				
+	    	</div>
+		</div><!-- .container .no-pad -->
+	</div><!-- .top-header -->
 <br/>
+
 <div class="container opportunity view">
 	<div class="panel panel-default">
 
-	<table class="table table-striped" infinite-scroll='opportunityPages.nextPage()' infinite-scroll-disabled='opportunityPages.busy' infinite-scroll-distance='0'>
+	<table class="table table-striped table-bordered" infinite-scroll='opportunityPages.nextPage()' infinite-scroll-disabled='opportunityPages.busy' infinite-scroll-distance='0'>
 	<thead>
 		<td>
 		Description
@@ -36,13 +44,7 @@
 		Probability
 		</td>
 		<td>
-		Contacts
-		</td>
-		<td>
-		Opportunities
-		</td>
-		<td>
-		Delete
+
 		</td>
 		
 	</thead>
@@ -65,16 +67,16 @@
     				{{opportunity.probabilityId + '0'}}%
   				</div>
 			</div>
-    	</td>
-    	<td>
-    		<a data-ng-click="navigate('/contactcards',opportunity)" class="badge">{{opportunity.contactsCount}}&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span></a>
-		</td>
+		</div>
 		<td>
+    		<a data-ng-click="navigate('/contactcards',opportunity)" class="badge">{{opportunity.contactsCount}}&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span></a>
+
 			<a data-ng-click="navigate('/opportunitydetails',opportunity)" class="badge">{{opportunity.opportunitiesCount}}&nbsp;&nbsp;<span class="glyphicon glyphicon-folder-open"</span></a>
-        </td>
-        <td>
-	        <a href="#/" data-ng-click="deleteOpportunity($index, opportunity)"><span class="glyphicon glyphicon-trash"></span></a>
+
+	        <a href="#/" data-ng-click="deleteOpportunity($index, opportunity)" class="pull-right"><span class="glyphicon glyphicon-trash"></span></a>
 		</td>
 	</tr>
 	</table>
+</div>
+</div>
 </div>
