@@ -46,7 +46,7 @@
 		</td>
 		
 	</thead>
-	<tr data-ng-repeat="opportunity in opportunityPages.items | orderBy: opportunity.companyName track by $index">
+	<tr data-ng-repeat="opportunity in opportunityPages.items | orderBy: opportunity.opportunityDate track by $index">
 		<td>
 			<a data-ng-click="navigateToOpportunity('/opportunitiesedit',opportunity )" title="click to edit" class="ellipsis btn-link">{{opportunity.discussion}}</a>
         </td>
