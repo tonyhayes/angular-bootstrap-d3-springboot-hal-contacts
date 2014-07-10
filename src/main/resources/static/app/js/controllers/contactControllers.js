@@ -38,6 +38,15 @@ angular.module('customersApp.contactControllers', [])
                 });
             }
 
+            $scope.navigate = function (url, customerObject) {
+                var companyArray = [0];
+                if (customerObject) {
+                    CustomersService.storeCustomer(customerObject);
+                    companyArray = customerObject._links.self.href.split('/');
+                }
+
+                $location.path(url + '/' + companyArray[companyArray.length - 1]);
+            };
 
             function filterContacts(filterText) {
                 // if all pages have been loaded, filter on the client
