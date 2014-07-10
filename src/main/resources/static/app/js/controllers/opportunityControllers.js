@@ -350,7 +350,11 @@ angular.module('customersApp.opportunityControllers', [])
                 $scope.opportunity = CustomersService.getStoredOpportunity();
                 if ($scope.opportunity) {
                     if ($scope.opportunity.potentialRevenue){
-                        var money = parseFloat($scope.opportunity.potentialRevenue.replace(/[^\d\.]/g, ''));
+                        if (typeof $scope.opportunity.potentialRevenue === 'string') {
+                            var money = parseFloat($scope.opportunity.potentialRevenue.replace(/[^\d\.]/g, ''));
+                        }else{
+                            money = $scope.opportunity.potentialRevenue;
+                        }
                         $scope.opportunity.potentialRevenue = $filter("currency")(money);
                     }
                 }
@@ -361,7 +365,11 @@ angular.module('customersApp.opportunityControllers', [])
                         CustomersService.storeOpportunity(data);
 
                         if ($scope.opportunity.potentialRevenue){
-                            var money = parseFloat($scope.opportunity.potentialRevenue.replace(/[^\d\.]/g, ''));
+                            if (typeof $scope.opportunity.potentialRevenue === 'string') {
+                                var money = parseFloat($scope.opportunity.potentialRevenue.replace(/[^\d\.]/g, ''));
+                            }else{
+                                money = $scope.opportunity.potentialRevenue;
+                            }
                             $scope.opportunity.potentialRevenue = $filter("currency")(money);
                         }
 
