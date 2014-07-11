@@ -519,7 +519,7 @@ a span.badge:hover {
 
 
 
-.dm-head-1, .dm-head-2, .dm-head-3, .dm-head-4, .dm-head-5, .dm-head-6, .dm-head-7, .dm-head-8, .dm-head-9, .dm-head-14pct, .dm-head-20pct, .dm-head-25pct, .dm-head-70pct {float:left;position:relative;min-height:1px;padding:0px;}
+.dm-head-1, .dm-head-2, .dm-head-3, .dm-head-4, .dm-head-5, .dm-head-6, .dm-head-7, .dm-head-8, .dm-head-9, .dm-head-14pct, .dm-head-20pct, .dm-head-25pct, .dm-head-70pct, .dm-head-10pct {float:left;position:relative;min-height:1px;padding:0px;}
 .dm-head-1 {width:10%;}
 .dm-head-2 {width:20%;}
 .dm-head-3 {width:30%;}
@@ -532,6 +532,7 @@ a span.badge:hover {
 .dm-head-70pct {width:69%;}
 .dm-head-14pct {width:14%;}
 .dm-head-20pct {width:20%;}
+.dm-head-10pct {width:10%;}
 
 .btn-dm-menu {background-color:transparent;font-size:10px;font-family:'Montserrat', 'Helvetica Neue', Helvetica, sans-serif;text-transform:uppercase;padding:13px 3px;}
 .btn-dm-menu:hover, .btn-dm-menu:active, .btn-dm-menu:focus {color:#dedede;}
@@ -557,5 +558,15 @@ tbody {background:#fff;}
 a.badge {transition:.2s all;-webkit-transition:.2s all;}
 a.badge:hover {background:rgba(75,124,254,1);}
 
+<<<<<<< HEAD
 .input-group-addon {min-width:100px;}
 .input-group-addon > span, .input-group-addon > small {float:left;}
+=======
+h3.panel-title.contacts-heading {font-size:16px;padding-bottom:15px;}
+
+.table-width {width:1000px;margin-bottom:0px;}
+.phone-width {width:200px;float:left;}
+.contact-stack {padding:20px;border-left:1px solid #dedede;border-right:1px solid #dedede;}
+
+.contacts-header button {margin:-10px 0 10px 0;}
+>>>>>>> jason/testing

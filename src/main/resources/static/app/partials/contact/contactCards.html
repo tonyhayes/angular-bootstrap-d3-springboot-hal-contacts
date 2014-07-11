@@ -5,9 +5,7 @@
 				<div class="dm-head-70pct">
 			    	<h4 class="breadcrumb-title">Customers / Contact Cards</h4>
 			    </div>			    
-				<div class="toolbar-padding pull-right">
-					<button type="button" class="btn btn-default btn-skinny top-button on-top" data-ng-click="editContact()"><span class="glyphicon glyphicon-plus"></span> Add Contact</a>
-				</div>
+
 			</div>					
 	    </div>
 	</div>
@@ -16,83 +14,92 @@
 <!-- this is the customer's (company's) detail card. -->
 <div id="cards-display">
 	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 col-lg-4">
-				<div class="panel panel-default panel-cards">
-					<div id="card-header" class="panel-heading">
-						<div class="pull-left">
-							<h3 class="panel-title">{{customer.companyName}}</h3>
-						</div>
-						<!-- here's where our edit and delete icons would be if we had them. it's a good place for others (like a lock for locking the company's details on an editing screen?) as well.  -->
-						<div class="panel-action-icons pull-right">
-								<div id="edit-button" class="pull-right">
-									<a data-ng-click="navigate('/customeredit',customer )" title="click to edit" class="ellipsis btn-link"><span class="glyphicon glyphicon-pencil"></span></a>
-								</div>
+		<div class="col-xs-12 col-md-6 pull-left">
+		<h3 class="panel-title contacts-heading">Company Details</h3>
 
+		<div class="panel panel-default panel-cards">
+						<div id="card-header" class="panel-heading">
+							<h3 class="panel-title"><a data-ng-click="navigate('/contactcards',customer)" title="click to edit" class="ellipsis btn-link">{{customer.companyName}}</a>
+                			<a href="#" class="heading-icon trash pull-right" title="click to delete customer" data-ng-click="deleteCustomer($index, customer)"><span class="glyphicon glyphicon-trash"></span></a>
+                			<a data-ng-click="navigate('/customeredit',customer )" title="click to edit" class="heading-icon pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
+
+                		</div>
+                		<div class="panel-body">
+                   
+                    <div class="cardBody">
+                    	<div class="col-xs-12 col-sm-6 pull-left">
+							<address>
+							<strong>{{customer.companyName}}</strong><br>
+							{{customer.addressLine1}}<br>
+							{{customer.addressLine2}}<br>
+							{{customer.city}}, {{customer.state}}&nbsp;&nbsp;{{customer.zip}}<br>
+							<br>
+							</address>
+                    	</div>
+                    	<div class="col-xs-12 col-sm-6 pull-right">
+	                    	<address>
+	                    		<span class="glyphicon glyphicon-envelope"></span></abbr>&nbsp;&nbsp;&nbsp;<a href="mailto:{{customer.email}}">{{customer.email}}</a><br>
+								<br />
+								<span class="glyphicon glyphicon-globe"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{customer.webPage}}">{{customer.webPage}}</a><br>
+								<br />	
+								<span class="glyphicon glyphicon-earphone"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp;<a href="tel:{{customer.phone}}">{{customer.phone}}</a><br>
+								<span class="glyphicon glyphicon-phone"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp; <a href="tel:{{customer.mobile}}">{{customer.mobile}}</a><br>
+							</address>
 						</div>
-					</div>
-					<div class="panel-body">
-						<div class="card-address">
-							{{customer.addressLine1}}
-							<br />
-							{{customer.addressLine2}}
-							<br />
-							{{customer.city + ', ' + customer.state}}
-							<br />
+                    </div>
+                    <div class="cardFooter">
+                    	<div class="col-xs-6 pull-left">
+                        <a data-ng-click="navigate('/contactcards',customer)" class="card-number">
+                            {{customer.contactsCount}} Customer contacts</span></a>
+
+                        </div>
+                        <div class="col-xs-6 pull-right">
+                        <a data-ng-click="navigate('/opportunitydetails',customer)" class="card-number">{{customer.opportunitiesCount}} Opportunities</a>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+			<div class="col-xs-12 col-md-6 pull-right">
+						<div class="col-xs-12 no-pad contacts-header">
+							<h3 class="panel-title contacts-heading pull-left">Company Contacts</h3>
+							<button type="button" class="btn btn-default btn-skinny top-button pull-right" data-ng-click="editContact()"><span class="glyphicon glyphicon-plus"></span> Add Contact</a>
 						</div>
-						<div class="card-icons">
-							<div data-ng-click="navigate('/contactcards',customer)" id="card-icon">
-								<a ><span class="glyphicon glyphicon-user"></span>&nbsp;{{customer.contactsCount}}</a>
-							</div>
-							<div data-ng-click="navigate('/opportunitydetails',customer)" id="card-icon">
-								<a><span class="glyphicon glyphicon-list-alt"></span>&nbsp;{{customer.opportunitiesCount}}</a>
-							</div>
-						</div>
-					</div><!-- .panel-body -->					
-				</div>
-			</div>
-			<div class="col-xs-12 col-lg-8">
-						<h3>Company Contacts</h3>
 						<div class="table-overflow" infinite-scroll='contactPages.nextPage()' infinite-scroll-disabled='customerPages.busy' infinite-scroll-distance='1'>
-								<table class="table table-striped" >
+								<table class="table table-striped table-bordered table-width" >
 										<tr>
 											<th>
 											Name
 											</th>
 											<th>
-											Phone
-											</th>
-											<th>
-											Mobile
-											</th>
-											<th>
-											Email
+											Contact
 											</th>
 											<th>
 											Address
 											</th>
 											<th>
 											City
-											</th>				
+											</th>
 											<th>
 											State
-											</th>						
+											</th>
 										</tr>
 						
 							
 									<tr data-ng-repeat="contact in contactPages.items track by $index">
-										<td class="col-xs-2">
+										<td class="col-xs-3">
 										{{contact.firstName+' '+contact.lastName}}</a>
 										</td>
-										<td class="col-xs-2">
-										<a href="tel:{{contact.phone}}">{{contact.phone}}</a>
-										</td>
-										<td class="col-xs-2">
-										<a  ng-if="contact.cell" href="tel:{{contact.cell}}">{{contact.cell}}</a>
-										</td>
-										<td class="col-xs-3">
-										{{contact.email}}
-										</td>
+										<td class="col-xs-2 contact-stack">
+										<div class="phone-width">
+										<a href="tel:{{contact.phone}}"><span class="glyphicon glyphicon-earphone"></span>&nbsp;&nbsp;&nbsp;{{contact.phone}}</a>
+										</div>
+										<div class="phone-width">
+										<a  ng-if="contact.cell" href="tel:{{contact.cell}}"><span class="glyphicon glyphicon-phone"></span>&nbsp;&nbsp;&nbsp;{{contact.cell}}</a>
+										</div>
+										<div class="phone-width">
+										<a href="mailto:{{contact.email}}"><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;&nbsp;{{contact.email}}</a>
+										</div>
 										<td class="col-xs-3">	
 										{{contact.addressLine1 + ', ' + contact.addressLine2}}
 										</td>
@@ -112,7 +119,7 @@
 
 					<div ng-controller="OpportunityController" class="customerDetails view">
 
-						<h3>Company Opportunities</h3>
+						<h3 class="panel-title contacts-heading">Company Opportunities</h3>
 							
 						<div class="gridStyle" ng-grid="myOpportunities"></div>
 
