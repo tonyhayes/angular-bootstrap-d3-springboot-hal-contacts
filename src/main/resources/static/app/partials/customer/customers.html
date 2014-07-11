@@ -1,24 +1,23 @@
 <link th:href="@{app/css/card-view.css}" rel="stylesheet"/>
 	<div class="top-header scroller hidden-sm hidden-xs">
-		<div class="container no-pad">
-			<div class="hidden-xs">
-				<div class="dm-head-14pct">
-			    	<h4 class="breadcrumb-title">Customers</h4>
-			    </div>			    
-				<div class="dm-head-14pct toolbar-padding">
-					<div class="btn-toolbar" role="toolbar">
-						<div class="btn-group on-top">
-						</div>
-					</div>
+		<div id="dm-app-header" class="container">
+			<div class="dm-head-20 pull-left">
+				<div class="panel-heading">
+					<h3 class="panel-title">									
+						<ol class="breadcrumb hidden-xs">			
+							<li><a href="#" data-ng-click="navigate('/contactcards',customer)">Customers</a></li>
+							<li class="active">Opportunities</li>
+						</ol>
+					</h3>	
 				</div>
-				<div class="dm-head-70pct toolbar-padding pull-right">	
-					<input id="filter" type="text" class="form-control" data-ng-model="searchText" class="novalidate form-control" placeholder="Filter Opportunities"/>
-					<button type="button" class="btn btn-default btn-skinny top-button on-top" data-ng-click="navigate('/customeredit')"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add Company</a>
-				</div>				
-			</div>					
-	    </div>
+			</div>		    
+			<div class="dm-head-70pct toolbar-padding pull-right">	
+				<input id="filter" type="text" class="form-control" data-ng-model="searchText" class="novalidate form-control" placeholder="Filter Opportunities"></input>
+				<button type="button" class="btn btn-default btn-skinny top-button" data-ng-click="navigate('/customeredit')"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add Company</button>
+			</div>
+		</div><!-- #dm-app-header -->			
 	</div>
-	
+
 	<br />
 <!-- this is our display of customers as contact cards, which is set as the default view.  it is hidden when a user selects a table view. -->
 	<div id="cards-display" class="view">
