@@ -1,8 +1,16 @@
 <link th:href="@{app/css/card-view.css}" rel="stylesheet"/>
 	<div class="top-header scroller hidden-md hidden-sm hidden-xs">
-		<div class="container no-pad">
+		<div id="dm-app-header" class="container">
 			<div class="dm-head-70pct">
-				<h4 class="breadcrumb-title">Customers / Edit Customer / {{customer.companyName}}</h3>				
+				<div class="panel-heading">			
+				<h3 class="panel-title">
+					<ol class="breadcrumb hidden-xs">
+						<li>Customers</li>
+						<li class="active">Edit Customer</li>
+						<li class="active">{{customer.companyName}}</li>
+					</ol>
+				</h3>				
+			</div>
 			</div>
 		</div>
 	</div>
@@ -15,7 +23,14 @@
 		<div class="panel panel-default">
 		
 			<div class="panel-heading">
-				<h4 class="panel-title">{{customer.companyName}}</h4>
+				<div class="col-sm-12 input-group">
+					<label for="companyName" class="sr-only">Company Name</label>	    							
+
+						<input type="text" name="companyName" class="form-control panel-title" ng-model="master.companyName" required>
+			
+				</div>
+
+
 			</div>
 			<div class="panel-body">	
 					<div class="col-xs-12">
@@ -24,66 +39,85 @@
 							<div class="col-xs-12 col-sm-6 pull-left">
 								<address class="edit-address">
 									<div class="col-sm-12 input-group">
-										<label for="companyName">Company Name</label>	    							
-										<strong>							
-											<input type="text" name="companyName" class="form-control" ng-model="master.companyName" required>
-										</strong>
-									</div>
-									<br />
-									<div class="col-sm-12 input-group">
-										<label for="addressLine1">Address</label>
+										<label for="addressLine1" class="sr-only">Address</label>
+										<span class="input-group-addon">
+											<small>&nbsp;&nbsp;&nbsp;Address<small>
+										</span>
 										<input type="text" name="addressLine1" class="form-control" ng-model="master.addressLine1" required>
 									</div>
 									<br />
 									<div class="col-sm-12 input-group">
-										<label for="addressLine2">Address line 2</label>																		
-										<input type="text" name="addressLine2" class="form-control" ng-model="master.addressLine2">
+										<label for="addressLine2" class="sr-only">Address line 2</label>	
+											<span class="input-group-addon">	
+												<small>&nbsp;&nbsp;&nbsp;Address 2<small>																
+											</span>
+											<input type="text" name="addressLine2" class="form-control" ng-model="master.addressLine2">
 									</div>
 	
 									<br />
-									<div class="col-xs-6 pull-left input-group">
-										<label for="=city">City</label>
+									<div class="col-xs-8 pull-left input-group">
+										<label for="city" class="sr-only">City</label>
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-map-marker"></span><small>&nbsp;&nbsp;City</small>
+										</span>
 										<input type="text" name="city" class="form-control" ng-model="master.city" required>
 									</div>
-									<div class="col-xs-3 pull-right input-group">
-										<label for="state">State</label>
+									<div class="col-xs-4 pull-right input-group">
+										<label for="state" class="sr-only">State</label>
 										<select required ng-model="master.state" class="form-control" name="state" ng-options="s.stateAbbr as s.name for s in state_array"></select>
 									</div>
-									<div class="col-xs-3 pull-right input-group">								
-										<label for="zip">Zip code</label>								
+									
+									<br />
+									<br />
+									<br />
+									<div class="col-xs-6 input-group">								
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-home"></span><small>&nbsp;&nbsp;Zip</small>
+										</span>
+										<label for="zip" class="sr-only">Zip code</label>								
 										<input type="text" name="zip" class="form-control" ng-model="master.zip" required>
 									</div>
+								
 								</address>
 							</div>                    
                     		<div class="col-xs-12 col-sm-6 pull-right">
 	                    		<address>
 	                    			<div class="input-group">
-	                    				<label for="phone">Phone</label>
+	                    				<label for="phone" class="sr-only">Phone</label>
 		                    			<span class="input-group-addon">
-											<span class="glyphicon glyphicon-earphone"></span>
+											<span class="glyphicon glyphicon-earphone"></span><small>&nbsp;&nbsp;&nbsp;Phone<small>
 										</span>
 										<input type="text" name="phone" class="form-control" ng-model="master.phone">
 									</div>
 									<br />
 									<div class="input-group">
 										<span class="input-group-addon">
-											<span class="glyphicon glyphicon-phone"></span>
+											<span class="glyphicon glyphicon-phone"></span><small>&nbsp;&nbsp;&nbsp;Mobile<small>
 										</span>
 					                    <input type="text" name="cell" class="form-control" ng-model="master.cell">
 									</div>
 									
 									<br />
 									<br />
+									<br />
 									
 									<div class="input-group">
 		                    			<span class="input-group-addon">
-											<span class="glyphicon glyphicon-globe"></span>
-										</span>
-										
+											<span class="glyphicon glyphicon-globe"></span><small>&nbsp;&nbsp;Website<small>
+										</span>										
                    						 <input type="text" name="webPage" class="form-control" ng-model="master.webPage">
 									</div>	
-	
-								</address>
+
+									<br />
+									
+									<div class="input-group">
+		                    			<span class="input-group-addon">
+											<span class="glyphicon glyphicon-envelope"></span><small>&nbsp;&nbsp;Email</small>
+										</span>
+										<label for="email" class="sr-only">Email</label>
+					                    <input type="email" name="email" class="form-control" ng-model="master.email">
+									</div>
+
 							</div>
                     </div>
                     	<div class="cardFooter">
@@ -101,26 +135,10 @@
 
                 <div class="form-group"
                      ng-class="{ 'has-error' : customerForm.email.$invalid && !customerForm.email.$pristine }">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" class="form-control" ng-model="master.email">
-
                     <p ng-show="customerForm.email.$invalid && !customerForm.email.$pristine" class="help-block">email
                         is wrong.</p>
                 </div>
 
-
-                <div class="form-group">
-                    <label>Phone</label>
-                    <input type="text" name="phone" class="form-control" ng-model="master.phone">
-                </div>
-
-                <div class="form-group">
-                    <label>Cell Phone</label>
-                </div>
-
-                <div class="form-group">
-                    <label>Web Page</label>
-                </div>
 
                 <div class="form-group">
                     <label>Notes</label>

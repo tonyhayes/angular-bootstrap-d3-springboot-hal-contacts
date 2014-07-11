@@ -553,6 +553,9 @@ a span.badge:hover {
 
 tbody {background:#fff;}
 
+
 a.badge {transition:.2s all;-webkit-transition:.2s all;}
 a.badge:hover {background:rgba(75,124,254,1);}
 
+.input-group-addon {min-width:100px;}
+.input-group-addon > span, .input-group-addon > small {float:left;}
