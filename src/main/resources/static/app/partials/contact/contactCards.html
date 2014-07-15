@@ -1,10 +1,15 @@
 <link th:href="@{app/css/card-view.css}" rel="stylesheet"/>
 	<div class="top-header scroller hidden-sm hidden-xs">
-		<div class="container no-pad">
+		<div id="dm-app-header" class="container no-pad">
 			<div class="hidden-xs">
-				<div class="dm-head-70pct">
-			    	<h4 class="breadcrumb-title">Customers / Contact Cards</h4>
-			    </div>			    
+				<div class="panel-heading">
+					<h3 class="panel-title">									
+						<ol class="breadcrumb pull-left hidden-xs">			
+							<li><a href="#" data-ng-click="navigate('/contactcards',customer)">Customers</a></li>
+							<li class="active">{{customer.companyName}}</li>
+						</ol>
+					</h3>	
+				</div>	    
 
 			</div>					
 	    </div>
