@@ -4,7 +4,7 @@
 			<div class="dm-head-20 pull-left">
 				<div class="panel-heading">
 					<h3 class="panel-title">									
-						<ol class="breadcrumb hidden-xs">			
+						<ol class="breadcrumb pull-left hidden-xs">			
 							<li class="active"><a href="#" data-ng-click="navigate('/contactcards',customer)">Customers</a></li>
 						</ol>
 					</h3>	
@@ -21,7 +21,7 @@
 <!-- this is our display of customers as contact cards, which is set as the default view.  it is hidden when a user selects a table view. -->
 	<div id="cards-display" class="view">
 		<div class="container">
-            <div infinite-scroll='customerPages.nextPage()' infinite-scroll-disabled='customerPages.busy' infinite-scroll-distance='0'>
+            <div id="infinite-scroll" infinite-scroll='customerPages.nextPage()' infinite-scroll-disabled='customerPages.busy' infinite-scroll-distance='0'>
                 <div class="col-xs-12 col-sm-6" data-ng-repeat="customer in customerPages.items | orderBy: customer.companyName track by $index">
                 	<div class="panel panel-default panel-cards">
 						<div id="card-header" class="panel-heading">
@@ -30,39 +30,38 @@
                 			<a data-ng-click="navigate('/customeredit',customer )" title="click to edit" class="heading-icon pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
 
                 		</div>
-                		<div class="panel-body">
-                   
-                    <div class="cardBody">
-                    	<div class="col-xs-12 col-sm-6 pull-left">
-							<address>
-							<strong>{{customer.companyName}}</strong><br>
-							{{customer.addressLine1}}<br>
-							{{customer.addressLine2}}<br>
-							{{customer.city}}, {{customer.state}}&nbsp;&nbsp;{{customer.zip}}<br>
-							<br>
-							</address>
-                    	</div>
-                    	<div class="col-xs-12 col-sm-6 pull-right">
-	                    	<address>
-	                    		<span class="glyphicon glyphicon-envelope"></span></abbr>&nbsp;&nbsp;&nbsp;<a href="mailto:{{customer.email}}">{{customer.email}}</a><br>
-								<br />
-								<span class="glyphicon glyphicon-globe"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{customer.webPage}}">{{customer.webPage}}</a><br>
-								<br />	
-								<span class="glyphicon glyphicon-earphone"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp;<a href="tel:{{customer.phone}}">{{customer.phone}}</a><br>
-								<span class="glyphicon glyphicon-phone"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp; <a href="tel:{{customer.mobile}}">{{customer.mobile}}</a><br>
-							</address>
-						</div>
-                    </div>
-                    <div class="cardFooter">
-                    	<div class="col-xs-6 pull-left">
-                        <a data-ng-click="navigate('/contactcards',customer)" class="card-number">
-                            {{customer.contactsCount}} Customer contacts</span></a>
+						<div class="panel-body cardBody">
+							<div class="col-xs-12 col-sm-6 pull-left">
+								<address>
+								<strong>{{customer.companyName}}</strong><br>
+								{{customer.addressLine1}}<br>
+								{{customer.addressLine2}}<br>
+								{{customer.city}}, {{customer.state}}&nbsp;&nbsp;{{customer.zip}}<br>
+								</address>
 
-                        </div>
-                        <div class="col-xs-6 pull-right">
-                        <a data-ng-click="navigate('/opportunitydetails',customer)" class="card-number">{{customer.opportunitiesCount}} Opportunities</a>                    
-                </div>
-            </div>
+								<strong>
+								<a data-ng-click="navigate('/contactcards',customer)" class="card-number">
+								{{customer.contactsCount}} Customer contacts</span></a>
+								<br />
+    		                    <a data-ng-click="navigate('/opportunitydetails',customer)" class="card-number">{{customer.opportunitiesCount}} Opportunities</a>                    
+								</strong>
+							</div>
+							<div class="col-xs-12 col-sm-6 pull-right">
+								<address>
+									<span class="glyphicon glyphicon-envelope"></span></abbr>&nbsp;&nbsp;&nbsp;<a href="mailto:{{customer.email}}">{{customer.email}}</a><br>
+									<br />
+									<span class="glyphicon glyphicon-globe"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{customer.webPage}}">{{customer.webPage}}</a><br>
+									<br />	
+									<span class="glyphicon glyphicon-earphone"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp;<a href="tel:{{customer.phone}}">{{customer.phone}}</a><br>
+									<br />
+									<span class="glyphicon glyphicon-phone"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp; <a href="tel:{{customer.mobile}}">{{customer.mobile}}</a><br>
+								</address>
+							</div>
+						</div>
+						<div class="cardFooter">
+							<div class="col-xs-6 pull-left">
+							
+			            </div>	
         </div>
     </div>
 </div>
