@@ -18,6 +18,10 @@ p.padded-p {padding:25px 0;}
   margin-top:-5px;
 }
 
+#dm-app-header {	
+	height:60px;
+	}
+	
 #dm-app-header  .breadcrumb, #dm-app-header .panel-heading .breadcrumb .active {	
 	background:transparent;
 	color:#222;
@@ -541,7 +545,7 @@ a span.badge:hover {
 .btn-dm-menu, .btn-dm-menu:visited {color:#fff;}
 .dm-top-menu-button {margin-top:5px;}
 
-.top-header	{background:#cdcdcd;padding:0 0 25px 0;height:55px;}
+.top-header	{background:#cdcdcd;}
 .toolbar-padding {margin-top:10px;}
 .toolbar-padding > input {width:75%;float:left;}
 
