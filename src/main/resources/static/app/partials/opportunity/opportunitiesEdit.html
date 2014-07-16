@@ -19,7 +19,9 @@ input .checklist {float:left;}
 								<li><a href="#" data-ng-click="navigate('/contactcards',customer)">Customers</a></li>
 								<!-- this should be a link back to the customer page, which is what happens on the customers.html page. but it's not working right now. instead, it redirects to the full page of customer cards. -->
 								<li><a href="#" data-ng-click="navigate('/contactcards',customer)" title="View Customer Page" class="ellipsis btn-link">{{customer.companyName}}</a>
-								<li class="active">Opportunity Details</li>
+								<li ng-show="master.discussion" id="discussion-breadcrumb" class="active ellipsis ">{{master.discussion}}</li>
+								<li ng-hide="master.discussion" id="discussion-breadcrumb" class="active ellipsis ">New Opportunity</li>
+
 							</ol>
 						</h3>	
 					</div>

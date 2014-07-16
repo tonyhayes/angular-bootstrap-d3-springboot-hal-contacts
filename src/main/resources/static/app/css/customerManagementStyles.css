@@ -388,6 +388,8 @@ thead {font-weight:100;color: #333;background-color: #f5f5f5;border-color: #ddd;
 
 .panel {border-radius:2px;-webkit-border-radius:2px;}
 .panel-heading {min-height:40px;}
+.panel-heading {white-space:nowrap !important;overflow:hidden;}
+
 .panel-action-icons {margin-top:-9px;}
 .panel-action-icons a {padding:10px;color:#cdcdcd;}
 .panel-action-icons a span {transition:.2s all;-webkit-transition:.2s all;}
