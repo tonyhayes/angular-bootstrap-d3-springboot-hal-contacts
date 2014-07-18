@@ -546,7 +546,7 @@ a span.badge:hover {
 .dm-top-menu-button {margin-top:5px;}
 
 .top-header	{background:#cdcdcd;}
-.toolbar-padding {margin-top:10px;}
+.toolbar-padding {margin-top:13px;}
 .toolbar-padding > input {width:75%;float:left;}
 
 .anchored {position: fixed;top: 0;}
@@ -575,3 +575,4 @@ h3.panel-title.contacts-heading {font-size:16px;padding-bottom:15px;}
 
 .contacts-header button {margin:-10px 0 10px 0;}
 
+.no-margin {margin:0;}

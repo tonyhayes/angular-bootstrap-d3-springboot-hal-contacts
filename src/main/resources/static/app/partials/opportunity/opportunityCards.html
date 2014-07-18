@@ -4,9 +4,9 @@
 			<div class="hidden-xs">
 				<div id="dm-app-header">
 					<div class="dm-head-20 pull-left">
-						<div class="panel-heading">
-							<h3 class="panel-title">									
-								<ol class="breadcrumb hidden-xs">			
+						<div class="panel-heading no-pad">
+							<h3 class="panel-title toolbar-padding">									
+								<ol class="breadcrumb hidden-xs no-margin">			
 									<li><a href="#" data-ng-click="navigate('/contactcards',customer)">Customers</a></li>
 									<li class="active">Opportunities</li>
 								</ol>
@@ -44,6 +44,9 @@
 		Probability
 		</td>
 		<td>
+		Status
+		</td>
+		<td>
 
 		</td>
 		
@@ -61,13 +64,16 @@
         <td>
         	{{opportunity.opportunityDate | date}}
     	</td>
-    	<td class="col-xs-3">
+    	<td class="col-xs-2">
     		<div class="progress">
   				<div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: {{opportunity.probabilityId + '0'}}%;">
     				{{opportunity.probabilityId + '0'}}%
   				</div>
 			</div>
 		</div>
+		<td class="col-xs-1">
+			{{opportunity.statusDescription}}
+		</td>
 		<td>
     		<a data-ng-click="navigate('/contactcards',opportunity)" class="badge">{{opportunity.contactsCount}}&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span></a>
 
