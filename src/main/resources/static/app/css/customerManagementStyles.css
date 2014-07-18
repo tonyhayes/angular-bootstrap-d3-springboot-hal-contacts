@@ -552,11 +552,15 @@ a span.badge:hover {
 .anchored {position: fixed;top: 0;}
 .responsive-filter {width:45%;}
 
+a span.glyphicon:hover {color:#2a6496;}
+a span.glyphicon:active {color:#428bca;}
+a span.glyphicon.glyphicon-trash:hover {color:#FF7171;}
+a span.glyphicon.glyphicon-trash:active {color:#FE0000;}
+a span {transition:.2s all;-webkit-transition:.2s all;}
+
 .edit-pencil {padding-top:7px;}
 
-.heading-icon {font-size:12px !important;padding:5px;color:#dedede !important;transition:.2s all;-webkit-transition:.2s all}	
-.heading-icon:hover {color:#666 !important;}
-.heading-icon.trash:hover {color:#fe0000 !important;}
+.heading-icon {font-size:12px !important;padding:5px;transition:.2s all;-webkit-transition:.2s all}	
 
 tbody {background:#fff;}
 
