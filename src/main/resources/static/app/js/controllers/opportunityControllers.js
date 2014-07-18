@@ -226,6 +226,12 @@ angular.module('customersApp.opportunityControllers', [])
                         width: '*',
                         cellFilter: 'currency',
                         displayName: 'Potential Revenue'
+                    },
+                    {
+                        field: 'statusDescription',
+                        headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
+                        width: '*',
+                        displayName: 'Status'
                     }
                 ]
             };
