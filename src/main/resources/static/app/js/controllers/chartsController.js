@@ -43,10 +43,26 @@ angular.module('customersApp.chartsController', [])
                         if ($scope.opportunityDataBySalesPerson[opportunity.statusDescription]) {
                             if ($scope.opportunityDataBySalesPerson[opportunity.statusDescription][opportunity.salesPersonId]) {
                                 $scope.opportunityDataBySalesPerson[opportunity.statusDescription][opportunity.salesPersonId].count += 1;
+                                if (opportunity.potentialRevenue){
+                                    if (typeof opportunity.potentialRevenue === 'string') {
+                                        var money = parseFloat(opportunity.potentialRevenue.replace(/[^\d\.]/g, ''));
+                                    }else{
+                                        money = opportunity.potentialRevenue;
+                                    }
+                                    $scope.opportunityDataBySalesPerson[opportunity.statusDescription][opportunity.salesPersonId].money += money;
+                                }
                             } else {
                                 $scope.opportunityDataBySalesPerson[opportunity.statusDescription][opportunity.salesPersonId] = {};
                                 $scope.opportunityDataBySalesPerson[opportunity.statusDescription][opportunity.salesPersonId].name = opportunity.salesPersonDescription;
                                 $scope.opportunityDataBySalesPerson[opportunity.statusDescription][opportunity.salesPersonId].count = 1;
+                                if (opportunity.potentialRevenue){
+                                    if (typeof opportunity.potentialRevenue === 'string') {
+                                        var money = parseFloat(opportunity.potentialRevenue.replace(/[^\d\.]/g, ''));
+                                    }else{
+                                        money = opportunity.potentialRevenue;
+                                    }
+                                    $scope.opportunityDataBySalesPerson[opportunity.statusDescription][opportunity.salesPersonId].money = money;
+                                }
                             }
                         } else {
                             $scope.opportunityDataBySalesPerson[opportunity.statusDescription] = {};
@@ -54,6 +70,14 @@ angular.module('customersApp.chartsController', [])
                             $scope.opportunityDataBySalesPerson[opportunity.statusDescription][opportunity.salesPersonId] = {};
                             $scope.opportunityDataBySalesPerson[opportunity.statusDescription][opportunity.salesPersonId].name = opportunity.salesPersonDescription;
                             $scope.opportunityDataBySalesPerson[opportunity.statusDescription][opportunity.salesPersonId].count = 1;
+                            if (opportunity.potentialRevenue){
+                                if (typeof opportunity.potentialRevenue === 'string') {
+                                    var money = parseFloat(opportunity.potentialRevenue.replace(/[^\d\.]/g, ''));
+                                }else{
+                                    money = opportunity.potentialRevenue;
+                                }
+                                $scope.opportunityDataBySalesPerson[opportunity.statusDescription][opportunity.salesPersonId].money = money;
+                            }
                         }
                     });
 
@@ -66,28 +90,42 @@ angular.module('customersApp.chartsController', [])
 
             function barChartDataFormatter() {
 
-                chartData.discreteBarChart = [];
-                chartData.discreteBarChart.sales = [];
+                chartData.multiBarHorizontalChart = [];
+                chartData.multiBarHorizontalChart.sales = [];
                 var items = 0;
                 angular.forEach($scope.opportunityDataBySalesPerson, function (opportunity) {
                     var values = [];
                     angular.forEach(opportunity, function (type) {
                         if (typeof type === 'object') {
-                            values.push({"label": type.name, "value": type.count});
+                            if($scope.countValue){
+                                values.push({"label": type.name, "value": type.count});
+                            }else{
+                                values.push({"label": type.name, "value": type.money});
+                            }
                             items++;
                         }
                     });
                     if(values.length){
-                        chartData.discreteBarChart.sales.push({"key": opportunity.name, "values": values});
+                        chartData.multiBarHorizontalChart.sales.push({"key": opportunity.name, "values": values});
                     }
                 });
-                $scope.data = chartData.discreteBarChart.sales;
+                $scope.data = chartData.multiBarHorizontalChart.sales;
                 $scope.options.chart.height = items * 30 + 100;
-                $scope.options.chart.yAxis.axisLabel = 'Opportunities by Status'
+                if($scope.countValue){
+                    $scope.options.chart.yAxis.axisLabel = 'Opportunities by Deals'
+                }else{
+                    $scope.options.chart.yAxis.axisLabel = 'Opportunities by Revenue'
+                }
             }
 
 
             // when the date changes, we want to filter and redraw the chart
+            $scope.$watch("countValue", function (value) {
+
+                barChartDataFormatter();
+            });
+
+            // when the revenue/deal button changes , we want to redraw the chart
             $scope.$watch("selectedDate", function (newDate) {
 
                 if (savedData) {
@@ -100,6 +138,7 @@ angular.module('customersApp.chartsController', [])
                 sliceAndDice();
 
             });
+
 
         }
     ]);

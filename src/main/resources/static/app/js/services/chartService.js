@@ -231,7 +231,7 @@ angular.module('customersApp.chartService', [])
                         height: 450,
                         margin: {
                             top: 20,
-                            right: 20,
+                            right: 50,
                             bottom: 60,
                             left: 150
                         },
@@ -243,6 +243,9 @@ angular.module('customersApp.chartService', [])
                         },
                         showControls: true,
                         showValues: true,
+                        valueFormat: function (d) {
+                            return d3.format('s,.4f')(d);
+                        },
                         transitionDuration: 500,
                         xAxis: {
                             showMaxMin: false
@@ -250,7 +253,7 @@ angular.module('customersApp.chartService', [])
                         yAxis: {
                             axisLabel: 'Opportunities',
                             tickFormat: function (d) {
-                                return d3.format(',.2f')(d);
+                                return d3.format('s,.2f')(d);
                             }
                         }
                     }
