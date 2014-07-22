@@ -62,9 +62,15 @@ input .checklist {float:left;}
 		</div>
 	</div>
 </div>
+<div class="container">
+	<div class="col-xs-12">
+		<div ng-include src='"app/partials/opportunity/opportunityActionGrid.html"'></div>
+	</div>
+</div>
 
-
-
+			<br />
+			<br />
+			
 <!-- this is the customer's (company's) detail card. -->
 <div id="cards-display">
 	<div class="container">
@@ -89,7 +95,7 @@ input .checklist {float:left;}
 				
 					<div class="panel panel-default panel-cards panel-statistics">
 						<div class="panel-heading">
-							<h3 class="panel-title">Statistics</h3>
+							<h3 class="panel-title">Probability and Status</h3>
 						</div>									
 						<div class="panel-body">					
 							<form class="form-horizontal" role="form" name="customerOpportunitiesForm" ng-submit="submitForm()">					
@@ -100,6 +106,13 @@ input .checklist {float:left;}
 										<p ng-show="customerOpportunitiesForm.probability.$invalid && !customerOpportunitiesForm.probability.$pristine" class="help-block">Probability is required.</p>
 									</div>
 								</div>
+								<div class="form-group" ng-class="{ 'has-error' : customerOpportunitiesForm.probability.$invalid && !customerOpportunitiesForm.probability.$pristine }">
+									<label for="status" class="col-sm-5 control-label">Status</label>
+									<div class="col-sm-7">
+										<select required ng-model="master.statusDescription" class="form-control dm-form" name="status" ng-options="p.description as p.name for p in status_array" ng-disabled="button"></select>
+										<p ng-show="customerOpportunitiesForm.probability.$invalid && !customerOpportunitiesForm.probability.$pristine" class="help-block">Probability is required.</p>
+									</div>
+								</div>								
 								<div class="form-group">
 									<label for="potentialrevenue" class="col-sm-5 control-label" placeholder="Not calculated">Potential Revenue</label>
 									<div class="col-sm-7">
@@ -173,13 +186,15 @@ input .checklist {float:left;}
   											<br />
   											
   											<address>
-												<select required ng-model="master.contactId" class="form-control dm-form" name="contact" ng-options="c.contactId as c.contactDescription for c in contact_array" ng-disabled="button"></select>
+												<select required ng-model="master.contactId" class="form-control dm-form" name="contact" ng-options="c.contactName as c.contactDescription for c in contact_array" ng-disabled="button"></select>
   												<br />
-  												<abbr title="Phone">P:</abbr>{{customer.phone}}
+  												<span class="glyphicon glyphicon-earphone"></span>&nbsp;&nbsp;{{customer.phone}}
   											</address>
 											<br />
-											<address>
-											  <strong ng-options="c.contactId as c.contactDescription for c in contact_array"></strong><br>
+											<address>										
+											<strong>{{master.salesPersonDescription}}</strong>
+											{{opportunity.firstName+' '+contact.lastName}}</a>
+
 											  <a href="mailto:#">first.last@example.com</a>											  
 											</address>
 											<button type="submit" class="btn btn-default pull-right" ng-disabled="button || customerOpportunitiesForm.$invalid">Save Changes</button>								
@@ -199,7 +214,6 @@ input .checklist {float:left;}
 
 					</div>
 
-			<div ng-include src='"app/partials/opportunity/opportunityActionGrid.html"'></div>
 
 
 			</div>
