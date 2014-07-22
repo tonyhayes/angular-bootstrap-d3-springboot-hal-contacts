@@ -8,7 +8,6 @@ input .checklist {float:left;}
 .panel-heading ol {margin:0px;}
 </style>
 
-<link th:href="@{app/css/card-view.css}" rel="stylesheet"/>
 	<div class="top-header scroller">
 		<div class="container no-pad">
 			<div id="dm-app-header">
@@ -37,34 +36,29 @@ input .checklist {float:left;}
 
 <div class="container">
 	<div class="col-xs-12">
-		<div class="panel panel-default panel-cards feature-panel">
-			<div class="panel panel-default panel-cards">
-				<div class="panel-heading breadcrumb">
-					<h3 class="panel-title">Summary</h3>
-				</div>
-			</div>
 			<div class="row">
-				<div id="probability" class="col-xs-12 col-lg-6">
-				<h1 ng-class="{ 1: master.probabilityID = 1 }" class="text-center jumbo-number-long">
-				<!-- did this the cheap way. need to find out how the probability array is used. -->
-				{{master.probabilityId + '0%'}}
-				</h1>
-				<h3 class="text-center">Probability</h3>	
-			</div>
-				<div class="col-xs-12 col-lg-6">
-				
+				<div id="probability" class="col-xs-12 col-lg-4">
+					<h1 ng-class="{ 1: master.probabilityID = 1 }" class="text-center jumbo-number-long">
+					<!-- did this the cheap way. need to find out how the probability array is used. -->
+					{{master.probabilityId + '0%'}}
+					</h1>
+					<h3 class="text-center">Probability</h3>	
+				</div>
+				<div class="col-xs-12 col-lg-4">				
 					<h1 class="text-center jumbo-number-long" >
 					{{master.potentialRevenue}}
 					</h1>
-					<h3 class="text-center ">Potential Revenue</h3>
-					
+					<h3 class="text-center ">Potential Revenue</h3>					
 				</div>
-				<div class="col-xs-12 col-sm-4">
-				<div class="form-group" ng-class="{ 'has-error' : customerOpportunitiesForm.salesPerson.$invalid && !customerOpportunitiesForm.salesPerson.$pristine }">
-					
-
+				<div class="col-xs-12 col-lg-4">
+					<h1 class="text-center jumbo-number-long">
+					{{master.statusDescription}}										
+					</h1>
+					<h3 class="text-center">Status</h3>
 				</div>
 			</div>
+			<br />
+			<br />
 		</div>
 	</div>
 </div>
