@@ -2,19 +2,11 @@
 	<div class="col-xs-12">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-		   <h3 class="panel-title">Action Plan</h3>
+		   <h3 class="panel-title pull-left toolbar-padding">Action Plan</h3>				
+		   <button class="btn btn-default pull-right" data-ng-click="onDblClickRow()"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add Action Item</button>
 		</div>
 		<div class="panel-body">
-		<button class="btn btn-default btn-skinny" data-ng-click="onDblClickRow()">Add Action Item</button>
-                            </ul>
-                                <span class="navbar-form pull-right">
-                                    <span class="navbarText">Filter:</span>&nbsp;&nbsp;<input type="text"
-                                                                                              data-ng-model="filterOptions.filterText"
-                                                                                              class="novalidate"/>
-                                </span>
-                        </div>
-                    </div>
-                    <div class="gridStyle" ng-grid="myOpportunityDetails"></div>
+        	<div class="gridStyle" ng-grid="myOpportunityDetails"></div>
                 </div>
             </div>
         </div>
