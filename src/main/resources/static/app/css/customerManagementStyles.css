@@ -8,7 +8,7 @@ body {
 body {
     font-family:'Roboto';
     font-weight:100;
-    background-color:#e5e5e5;
+    background-color:#f9f9f9;
 }
 
 p.padded-p {padding:25px 0;}
@@ -41,7 +41,7 @@ p.padded-p {padding:25px 0;}
 	color: rgba(76,124,254,1);
 	}
 	
-	
+.panel-default {border-color:#f0f0f0;}
 	
 .breadcrumb {
 	background-color:transparent;
@@ -74,7 +74,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf11', end
     position: relative;
     opacity: 0.0;
 }
-
+h3 {font-weight:100;}
 
 #update-buttons button {margin-left:15px;}
 .card {
@@ -307,7 +307,10 @@ button													{font-family:'Montserrat';text-transform:uppercase;border-rad
 .btn-default:hover										{background-color:rgba(52, 100, 211, 1);color:#fff;}
 .btn-default:focus										{background-color:rgba(52, 100, 211, 1);color:#fff;box-shadow: 2px 2px 2px 2px rgba(0,0,0,.25) inset;}
 .btn-default:active										{background-color:rgba(52, 100, 211, 1);color:#fff;}
-.btn-skinny												{padding:7px 10px 4px 9px;font-family:'Montserrat', sans-serif;font-size:10px;color:#fff;text-transform:uppercase;height:35px;}
+.btn-skinny												{padding:7px 10px 4px 9px;font-family:'Montserrat', sans-serif;font-size:10px;color:#fff;text-transform:uppercase;height:35px;border-radius:2px;-webkit-border-radius:2px;}
+#form-panel .btn-skinny {margin-left:5px;margin-top:5px;}
+#form-panel .row {margin-top:5px;}
+.label-inverse {color:#cccccc;}
 .btn-transparent										{background:transparent;padding:0;}
 .card-button											{margin:10px;transition:.2s all;-webkit-transition:.2s all;}
 .card-button:hover										{background-color:rgba(76,124,254,1);color:#fff;}
@@ -573,7 +576,7 @@ tbody {background:#fff;}
 a.badge {transition:.2s all;-webkit-transition:.2s all;}
 a.badge:hover {background:rgba(75,124,254,1);}
 
-.input-group-addon {min-width:100px;}
+#dynamic-form .input-group-addon {width:auto;float:left;border-right:1px solid #dedede;}
 .input-group-addon > span, .input-group-addon > small {float:left;}
 
 h3.panel-title.contacts-heading {font-size:16px;padding-bottom:15px;}
@@ -585,3 +588,34 @@ h3.panel-title.contacts-heading {font-size:16px;padding-bottom:15px;}
 .contacts-header button {margin:-10px 0 10px 0;}
 
 .no-margin {margin:0;}
+
+.panel-buttons button {margin-left:5px;}
+#panel-top a {font-size:10px;padding-top:10px;padding-left:10px;}
+
+accordion .panel-group {margin-bottom:0px;}
+accordion .panel-default > .panel-heading {background-color:#dedede;color:#222;border-top:1px solid #cdcdcd;border-left:1px solid #cdcdcd;border-right:1px solid #cdcdcd;transition:.1s ease-out;}
+accordion .panel-default > .panel-heading:hover {background-color:#cdcdcd;border-top:1px solid #ababab;border-left:1px solid #ababab;border-right:1px solid #bababa;}
+accordion .panel-default > .panel-heading:active {background-color:#bcbcbc;border-top:1px solid #aaaaaa;border-left:1px solid #aaaaaa;border-right:1px solid #bababa;}
+
+accordion .panel-default > .panel-heading+.panel-collapse .panel-body, accordion .panel-default > .panel-heading+.panel-collapse .panel-body .panel-well {margin-left:0px;padding-left:0px;}
+accordion .panel-default > .panel-heading+.panel-collapse .panel-body {padding:0px;}
+.accordion-well > .btn-mini {margin-left:10px;}
+.highlight {
+padding: 9px 14px;
+margin-bottom: 14px;
+background-color: #f7f7f9;
+border: 1px solid #e1e1e8;
+border-radius: 4px;
+}
+
+.accordion-spacer {height:30px;width:1000%;}
+.btn-mini {color:#222;background-color:#c9c9c9;transition:.1s ease-in;}
+.btn-mini:hover {background-color:#a5a5a5;color:#222;}
+.btn-mini:active {background-color:#a9a9a9;color:#222;}
+
+.margins-row {margin-top:160px;}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+.accordion-well {margin-bottom:0px;}
+.form-group .options {margin-bottom:5px;}
+.panel-button {margin-top:-10px;margin-left:10px;}

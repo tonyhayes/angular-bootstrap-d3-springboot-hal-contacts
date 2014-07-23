@@ -1,27 +1,27 @@
-<link th:href="@{app/css/card-view.css}" rel="stylesheet"/>
-	<div class="top-header scroller hidden-sm hidden-xs">
-		<div class="container no-pad">
-			<div class="hidden-xs">
-				<div id="dm-app-header">
-					<div class="dm-head-20 pull-left">
-						<div class="panel-heading no-pad">
-							<h3 class="panel-title toolbar-padding">									
-								<ol class="breadcrumb hidden-xs no-margin">			
-									<li><a href="#" data-ng-click="navigate('/contactcards',customer)">Customers</a></li>
-									<li class="active">Opportunities</li>
-								</ol>
-							</h3>	
-						</div>
-					</div>		    
-					<div class="dm-head-70pct toolbar-padding pull-right">	
-						<input id="filter" type="text" class="form-control" data-ng-model="searchText" class="novalidate form-control" placeholder="Filter Opportunities" />
-						<button type="button" class="btn btn-default btn-skinny top-button on-top" data-ng-click="navigateToOpportunity('/opportunitiesedit')"><span class="glyphicon glyphicon-plus"></span> Add Opportunity</button>
-					</div>		
-				</div><!-- #dm-app-header -->				
-	    	</div>
-		</div><!-- .container .no-pad -->
-	</div><!-- .top-header -->
+<div class="top-header scroller hidden-sm hidden-xs">
+	<div class="container no-pad">
+		<div class="hidden-xs">
+			<div id="dm-app-header">
+				<div class="dm-head-20 pull-left">
+					<div class="panel-heading no-pad">
+						<h3 class="panel-title toolbar-padding">									
+							<ol class="breadcrumb hidden-xs no-margin">			
+								<li><a href="#" data-ng-click="navigate('/contactcards',customer)">Customers</a></li>
+								<li class="active">Opportunities</li>
+							</ol>
+						</h3>	
+					</div>
+				</div>		    
+				<div class="dm-head-70pct toolbar-padding pull-right">	
+					<input id="filter" type="text" class="form-control" data-ng-model="searchText" class="novalidate form-control" placeholder="Filter Opportunities" />
+					<button type="button" class="btn btn-default btn-skinny top-button on-top" data-ng-click="navigateToOpportunity('/opportunitiesedit')"><span class="glyphicon glyphicon-plus"></span> Add Opportunity</button>
+				</div>		
+			</div><!-- #dm-app-header -->				
+		</div>
+	</div><!-- .container .no-pad -->
+</div><!-- .top-header -->
 <br/>
+
 
 <div class="container opportunity view">
 	<div class="panel panel-default">
@@ -67,7 +67,7 @@
     	<td class="col-xs-2">
     		<div class="progress">
   				<div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: {{opportunity.probabilityId + '0'}}%;">
-    				{{opportunity.probabilityId + '0'}}%
+    				{{opportunity.probabilityPercentage + '%'}}
   				</div>
 			</div>
 		</div>

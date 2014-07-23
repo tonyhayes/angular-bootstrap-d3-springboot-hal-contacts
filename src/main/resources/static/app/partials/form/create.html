@@ -1,134 +1,162 @@
-<link th:href="@{app/css/card-view.css}" rel="stylesheet"/>
-	<div class="top-header scroller hidden-sm hidden-xs">
-		<div class="container no-pad">
-			<div class="hidden-xs">
-				<div id="dm-app-header" class="toolbar-padding">
-					<div class="dm-head-70pct">
-						<h3 class="panel-title">									
-								<ol class="breadcrumb hidden-xs">			
-									<li>Administration</li>
-									<!-- this should be a link back to the customer page, which is what happens on the customers.html page. but it's not working right now. instead, it redirects to the full page of customer cards. -->
-									<li class="active">Dynamic Forms</li>
-								</ol>
-					</div>			    
-				</div>
-			</div>					
-	    </div>
-	</div><div class="dynamicFormDetails view">
-    <div class="container">
-    	<div class="col-xs-12">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Create new fields</h3>
-				</div>
-				<div class="panel-body">			
-					Create new fields for your opportunities form
-					 
-					<button class="btn btn-default btn-skinny pull-right " type="button" ng-click="navigate('/createcustomfields')"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Custom Field</button>
-				</div>
-			</div>
+<div class="top-header scroller hidden-sm hidden-xs">
+	<div class="container no-pad">
+		<div class="hidden-xs">
+			<div id="dm-app-header">
+				<div class="dm-head-20 pull-left">
+					<div class="panel-heading no-pad">
+						<h3 class="panel-title toolbar-padding">									
+							<ol class="breadcrumb hidden-xs no-margin">			
+								<li class="active">Dynamic Forms</li>
+							</ol>
+						</h3>	
+					</div>
+				</div>		    
+				<div class="dm-head-70pct toolbar-padding pull-right">	
+			        <button class="btn btn-default btn-skinny pull-right " type="button" ng-click="navigate('/createcustomfields')"><span class="glyphicon glyphicon-list"></span> Create a new custom field</button>
+				</div>		
+			</div><!-- #dm-app-header -->				
 		</div>
-    	<div class="col-xs-12">
-    		<div class="panel panel-default">
-    			<div class="panel-heading">
-    				<h3 class="panel-title">Add a new field</h4>
-    			</div>
-    			<div class="panel-body">
-				
-        		<p>Select field type you want to add to the form below and click on 'Add Field' button. Don't forget to set field properties. After you finish creating the form, you can preview the form by clicking Preview Form button.</p>
-  					<div class="form-fields" ng-hide="previewMode">
-						<div class="add-field">
-							<div class="col-xs-10">
-							<select class="form-control" ng-model="addField.new" ng-options="type.name as type.value for type in addField.types"></select>
-							</div>
-							<div class="col-xs-2">
-								<button type="submit" class="btn btn-default btn-skinny pull-left" ng-click="addNewField()"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp; Add Field</button>
-							</div>
+	</div><!-- .container .no-pad -->
+</div><!-- .top-header -->
+
+<br/>
+
+<div class="container dynamicFormDetails view">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<h3 class="box-title">Edit your dynamic form</h3>
+			<br />
+			<div class="row col-sm-8">
+				<p>Select field type you want to add to the form below and click on 'Add Field' button. Don't forget to set field properties. After you finish creating the form, you can preview the form by clicking Preview Form button.</p>
+			</div>
+			<br />
+			<div ng-hide="previewMode">
+				<div class="row">
+					<div class="col-xs-7 pull-left">
+					<select class="form-control pull-right" ng-model="addField.new" ng-options="type.name as type.value for type in addField.types"></select>
+					</div>
+					<div class="col-xs-5 pull-right">
+						<button type="submit" class="btn btn-skinny btn-mini pull-left" ng-click="addNewField()"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add Field</button>
+					</div>
+				</div>			
+
+			<br />
+
+			<p ng-show="form.form_fields.length == 0">No fields added yet.</p>
+			
+			
+<div ng-controller="AccordionDemoCtrl">
+	<div ng-repeat="field in form.form_fields">
+	  <accordion close-others="oneAtATime">
+    	<accordion-group>
+			<accordion-heading is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+				{{field.field_title}}
+				<div id="panel-top" class="panel-buttons pull-right">      
+					<a ng-click="deleteField(field.field_id)" class="heading-icon trash pull-right" title="click to delete" >
+						<span class="glyphicon glyphicon-trash"></span>
+					</a>
+					<a ng-if='$index>0' class="pull-right" ng-click="moveFieldUp($index, field)">
+						<span class="glyphicon glyphicon-arrow-up"></span>
+						
+					</a>					
+					<a ng-if='$index+1 < form.form_fields.length ' class="pull-right" ng-click="moveFieldDown($index, field)">
+						<span class="glyphicon glyphicon-arrow-down"></span> 					
+					</a>     
+				</div>
+			</accordion-heading>
+				<div class="col-sm-6 col-md-8 pull-right">
+					<div class="col-xs-12 accordion-spacer"></div>
+					<div ng-class="row">
+						<div class="col-xs-3 form-group">
+							<label for="fieldTitle">Field Title:</label>
+						</div>	
+						<div class="col-xs-9 form-group">
+							<input type="text" name="fieldTitle" class="form-control" ng-model="field.field_title" value="{{field.field_title}}" />
 						</div>
 					</div>
+					<div ng-class="row">						
+						<div class="col-xs-3 form-group">
+							<label for="default">Default Value:</label>
+						</div>
+						<div class="col-xs-9 form-group">
+							<input type="text" class="form-control" name="default" ng-model="field.field_value" value="{{field.field_value}}" />
+						</div>
+					</div>
+					<div ng-class="row">							
+						<div class="col-xs-3 form-group">
+							<label for="placeholdervalue">Placeholder:</label>
+						</div>
+						<div class="col-xs-9 form-group">
+							<input type="text" class="form-control" ng-model="field.field_placeholder" value="{{field.field_placeholder}}" />
+						</div>
+					</div>
+					<div class="col-xs-12 accordion-spacer"></div>
+					<div ng-class="row">							
+						<div class="col-xs-3 form-group">
+							<label for="options">Options:</label>
+						</div>
+						<div class="col-xs-9 form-group" ng-show="showAddOptions(field)">
+							<div ng-repeat="option in field.field_options">
+								<div class="row">
+									<div class="col-xs-9">
+										<input type="text" class="form-control options" ng-model="option.option_title" value="{{option.option_title}}" />
+									</div>
+							
+									<div class="col-xs-3">
+										<a class="btn-mini right" type="button" ng-click="deleteOption(field, option)"><span class="glyphicon glyphicon-trash"></span></a>
+										<span class="label label-inverse">Value: {{ option.option_value }}</span>
+									</div>
+								</div>
+							</div>
+						<br />
+						</div>
+						<button class="btn btn-mini btn-skinny panel-button" type="button" ng-click="addOption(field)"><span class="glyphicon glyphicon-plus"></span> Add Option</button>
+				</div>		
+			</div>
+		<div class="col-sm-6 col-md-4 pull-left panel-well">	
+			<div class="well accordion-well">
+				Field ID:&nbsp;&nbsp;<strong>{{field.field_id}}</strong>
+				<br />
+				Field Type:&nbsp;&nbsp;<strong>{{field.field_type}}</strong>
+				<br />
+				<br />
+				Is this field required?
+				<label>
+					<input type="radio" ng-value="true" ng-selected ng-model="field.field_required"/>
+					&nbsp; Yes
+				</label>
+				<label>
+					<input type="radio" ng-value="false" ng-model="field.field_required"/>
+					&nbsp; No
+				</label>
+				<br />
+				<button class="btn btn-mini btn-skinny pull-left" type="button" ng-click="previewModalOn()"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;Preview Changes</button>
+				<button class="btn btn-mini btn-skinny pull-left" type="button" ng-click="reset()"><span class="glyphicon glyphicon-refresh"></span>&nbsp;&nbsp;Reset</button>				
+			
+				<div class="clearfix"></div><!-- clearing out the height of the box so we're not chopped off -->
+			</div>
+		</div> 
+
+		</accordion-group>
+  </accordion>
 				</div>
 			</div>
-            <hr>
+		<div class="panel-body">
+			
+			<button class="btn btn-success btn-skinny pull-right" type="button" ng-click="submit()"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Submit your changes
+			</button>
+		</div>
 
-            <p ng-show="form.form_fields.length == 0">No fields added yet.</p>
+		<div class="form-fields-preview" ng-show="previewMode">
+			<form-directive form="previewForm" formData="previewData"></form-directive>
 
-            <div ng-repeat="field in form.form_fields">
-            	<div class="panel panel-default">
-            	<div class="panel-body">
+			<p class="text-center">
+				<button class="btn btn-primary btn-large right" type="button" ng-click="previewOff()"><i
+						class="icon-arrow-left icon-white"></i> Back to Create Mode
+				</button>
+			</p>
+		</div>
+	</div>
+	</div>
 
-	
-				<div class="col-xs-12">
-					<h4 style="padding-left:0px;">{{field.field_title}}</h4>
-					<hr>
-					<div class="col-xs-3">
-						<p><strong>Field ID:</strong>&nbsp;&nbsp;{{field.field_id}}</p>
-						<p><strong>Field Type:</strong>&nbsp;&nbsp;{{field.field_type}}</p>
-						<br />
-						<p><strong>Required:</p>
-                    
-                            <label>
-                                <input type="radio" ng-value="true" ng-selected ng-model="field.field_required"/>
-                                &nbsp; Yes
-                            </label>
-                            <label>
-                                <input type="radio" ng-value="false" ng-model="field.field_required"/>
-                                &nbsp; No
-                            </label>
-                    
-						<br />
-					</div>
-					
-					<div class="col-xs-3">
-						<p><strong>Field Title:</strong></p>
-						<input type="text" ng-model="field.field_title" value="{{field.field_title}}" />
-					</div>
-					<div class="col-xs-3">
-						<p><strong>Field Default Value:</strong></p>
-						<input type="text" ng-model="field.field_value" value="{{field.field_value}}" />
-					</div>
-                    <div class="col-xs-3">
-						<p><strong>Placeholder Value:</strong></p>
-                        <input type="text" ng-model="field.field_placeholder" value="{{field.field_placeholder}}" />
-                    </div>
-                    
-                    <div class="row" ng-show="showAddOptions(field)">
-                        <div class="col-xs-2">Field Options:</div>
-                        <div class="col-xs-6">
-                            <div ng-repeat="option in field.field_options">
-                                <input type="text" ng-model="option.option_title" value="{{option.option_title}}">
-                                <a class="btn btn-danger btn-mini right" type="button"
-                                   ng-click="deleteOption(field, option)"><i class="icon-minus icon-white"></i></a>
-                                <span class="label label-inverse">Value: {{ option.option_value }}</span>
-                            </div>
-                            <button class="btn btn-primary btn-small" type="button" ng-click="addOption(field)"><i
-                                    class="icon-plus icon-white"></i> Add Option
-                            </button>
-                        </div>
-                    </div>
-                        
-                    </div>
-                    <hr>
-                </div>
-				
-				<div id="update-buttons" class="col-xs-12">
-	                <button class="btn btn-danger btn-skinny pull-left" type="button" ng-click="reset()"><span class="glyphicon glyphicon-refresh"></span>&nbsp;&nbsp; Reset</button>
-	                <button class="btn btn-default btn-skinny pull-right" type="button" ng-click="submit()"><span class="glyphicon glyphicon-ok-sign"></span>&nbsp;Save and update</button>
-	                <button class="btn btn-success btn-skinny pull-right" type="button" ng-click="previewModalOn()"><span class="glyphicon glyphicon-play"></span>&nbsp;&nbsp;Preview Form</button>
-    	        </div>
-
-            <br>
-            <hr>
-        </div>
-
-        <div class="form-fields-preview" ng-show="previewMode">
-            <form-directive form="previewForm" formData="previewData"></form-directive>
-
-            <p class="text-center">
-                <button class="btn btn-primary btn-large right" type="button" ng-click="previewOff()"><i
-                        class="icon-arrow-left icon-white"></i> Back to Create Mode
-                </button>
-            </p>
-        </div>
-    </div>
 </div>
-
