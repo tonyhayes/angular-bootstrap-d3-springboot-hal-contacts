@@ -1,23 +1,23 @@
-<div class="top-header scroller hidden-sm hidden-xs">
-	<div class="container no-pad">
-		<div class="hidden-xs">
-			<div id="dm-app-header">
-				<div class="dm-head-20 pull-left">
-					<div class="panel-heading no-pad">
-						<h3 class="panel-title toolbar-padding">									
-							<ol class="breadcrumb hidden-xs no-margin">			
+<!-- our page-specific header. this contains our filter button and our breadcrumb. -->
+<div class="dm-app-header">
+	<div class="container">
+		<div class="row nav-row">
+			<div class="form-horizontal">
+				<div class="form-group form-group-sm">
+					<label class="col-sm-12 control-label" for="filter">
+						<h3 class="panel-title hidden-xs pull-left">									
+							<ol class="breadcrumb pull-left">			
+								<li>Administration</li>
 								<li class="active">Dynamic Forms</li>
 							</ol>
 						</h3>	
-					</div>
-				</div>		    
-				<div class="dm-head-70pct toolbar-padding pull-right">	
-			        <button class="btn btn-default btn-skinny pull-right " type="button" ng-click="navigate('/createcustomfields')"><span class="glyphicon glyphicon-list"></span> Create a new custom field</button>
-				</div>		
-			</div><!-- #dm-app-header -->				
+					</label>
+					
+				</div>
+			</div>
 		</div>
-	</div><!-- .container .no-pad -->
-</div><!-- .top-header -->
+	</div>	
+</div><!-- #dm-app-header -->
 
 <br/>
 
@@ -45,10 +45,10 @@
 			<p ng-show="form.form_fields.length == 0">No fields added yet.</p>
 			
 			
-<div ng-controller="AccordionDemoCtrl">
+<div ng-controller="AccordionCtrl">
 	<div ng-repeat="field in form.form_fields">
-	  <accordion close-others="oneAtATime">
-    	<accordion-group>
+	  <accordion>
+    	<accordion-group class="accordion-group-parent">
 			<accordion-heading is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
 				{{field.field_title}}
 				<div id="panel-top" class="panel-buttons pull-right">      
@@ -64,7 +64,26 @@
 					</a>     
 				</div>
 			</accordion-heading>
-				<div class="col-sm-6 col-md-8 pull-right">
+			<div id="accordion-left" class="col-xs-12 col-sm-4 pull-left panel-well">	
+					<div class="accordion-well">
+						Field ID:&nbsp;&nbsp;<strong>{{field.field_id}}</strong>
+						<br />
+						Field Type:&nbsp;&nbsp;<strong>{{field.field_type}}</strong>
+						<br />
+						<br />
+<div class="btn-group">
+	<label class="btn btn-default" ng-model="radioModel" btn-radio="'Yes'">Required</label>
+	<label class="btn btn-default" ng-model="radioModel" btn-radio="'No'">Not Required</label>	
+</div>						
+						
+						<br />
+						<button class="btn btn-mini btn-skinny pull-left" type="button" ng-click="previewModalOn()"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;Preview Changes</button>
+						<button class="btn btn-mini btn-skinny pull-left" type="button" ng-click="reset()"><span class="glyphicon glyphicon-refresh"></span>&nbsp;&nbsp;Reset</button>				
+			
+						<div class="clearfix"></div><!-- clearing out the height of the box so we're not chopped off -->
+					</div>
+				</div> 
+				<div id="accordion-body" class="col-xs-12 col-sm-8 pull-right">
 					<div class="col-xs-12 accordion-spacer"></div>
 					<div ng-class="row">
 						<div class="col-xs-3 form-group">
@@ -95,6 +114,8 @@
 						<div class="col-xs-3 form-group">
 							<label for="options">Options:</label>
 						</div>
+						<button class="btn btn-mini btn-skinny panel-button" type="button" ng-click="addOption(field)"><span class="glyphicon glyphicon-plus"></span> Add Option</button>
+
 						<div class="col-xs-9 form-group" ng-show="showAddOptions(field)">
 							<div ng-repeat="option in field.field_options">
 								<div class="row">
@@ -106,57 +127,29 @@
 										<a class="btn-mini right" type="button" ng-click="deleteOption(field, option)"><span class="glyphicon glyphicon-trash"></span></a>
 										<span class="label label-inverse">Value: {{ option.option_value }}</span>
 									</div>
+									
 								</div>
 							</div>
 						<br />
 						</div>
-						<button class="btn btn-mini btn-skinny panel-button" type="button" ng-click="addOption(field)"><span class="glyphicon glyphicon-plus"></span> Add Option</button>
-				</div>		
-			</div>
-		<div class="col-sm-6 col-md-4 pull-left panel-well">	
-			<div class="well accordion-well">
-				Field ID:&nbsp;&nbsp;<strong>{{field.field_id}}</strong>
-				<br />
-				Field Type:&nbsp;&nbsp;<strong>{{field.field_type}}</strong>
-				<br />
-				<br />
-				Is this field required?
-				<label>
-					<input type="radio" ng-value="true" ng-selected ng-model="field.field_required"/>
-					&nbsp; Yes
-				</label>
-				<label>
-					<input type="radio" ng-value="false" ng-model="field.field_required"/>
-					&nbsp; No
-				</label>
-				<br />
-				<button class="btn btn-mini btn-skinny pull-left" type="button" ng-click="previewModalOn()"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;Preview Changes</button>
-				<button class="btn btn-mini btn-skinny pull-left" type="button" ng-click="reset()"><span class="glyphicon glyphicon-refresh"></span>&nbsp;&nbsp;Reset</button>				
-			
-				<div class="clearfix"></div><!-- clearing out the height of the box so we're not chopped off -->
-			</div>
-		</div> 
-
-		</accordion-group>
-  </accordion>
 				</div>
-			</div>
-		<div class="panel-body">
-			
-			<button class="btn btn-success btn-skinny pull-right" type="button" ng-click="submit()"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Submit your changes
-			</button>
-		</div>
-
-		<div class="form-fields-preview" ng-show="previewMode">
-			<form-directive form="previewForm" formData="previewData"></form-directive>
-
-			<p class="text-center">
-				<button class="btn btn-primary btn-large right" type="button" ng-click="previewOff()"><i
-						class="icon-arrow-left icon-white"></i> Back to Create Mode
-				</button>
-			</p>
-		</div>
+					<div class="col-xs-12 accordion-spacer"></div>
+					<button class="btn btn-default btn-skinny pull-right" type="button" ng-click="submit()"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Submit your changes
+					</button>							
+				</div>		
+		</accordion-group>
+		<div class="clearfix"></div>
+  </accordion>
 	</div>
-	</div>
+</div>
+		
+<div class="panel-body">			
+</div>
 
+<div class="form-fields-preview" ng-show="previewMode">
+	<form-directive form="previewForm" formData="previewData"></form-directive>
+		<p class="text-center">
+		<button class="btn btn-primary btn-large right" type="button" ng-click="previewOff()"><span class="glyphicon glyphicon-arrow-left"></span> Back to Create Mode
+		</button>
+		</p>
 </div>

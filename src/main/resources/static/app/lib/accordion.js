@@ -1,26 +1,43 @@
-function AccordionDemoCtrl($scope) {
-  $scope.oneAtATime = true;
-
-  $scope.groups = [
-    {
-      title: 'Dynamic Group Header - 1',
-      content: 'Dynamic Group Body - 1'
-    },
-    {
-      title: 'Dynamic Group Header - 2',
-      content: 'Dynamic Group Body - 2'
-    }
-  ];
-
-  $scope.items = ['Item 1', 'Item 2', 'Item 3'];
-
-  $scope.addItem = function() {
-    var newItemNo = $scope.items.length + 1;
-    $scope.items.push('Item ' + newItemNo);
-  };
+function AccordionCtrl($scope) {
 
   $scope.status = {
     isFirstOpen: true,
     isFirstDisabled: false
   };
 }
+
+var ButtonsCtrl = function ($scope) {
+
+  $scope.checkModel = {
+    yes: false,
+	no: true
+  };
+};
+
+var DatepickerCtrl = function ($scope) {
+  $scope.today = function() {
+    $scope.selectedDate = new Date();
+  };
+  $scope.today();
+
+  $scope.clear = function () {
+    $scope.selectedDate = null;
+  };
+
+
+  $scope.open = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+
+    $scope.opened = true;
+  };
+
+  $scope.dateOptions = {
+    formatYear: 'yy',
+    startingDay: 1
+  };
+
+  $scope.initDate = new Date('2016-15-20');
+  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+  $scope.format = $scope.formats[0];
+};

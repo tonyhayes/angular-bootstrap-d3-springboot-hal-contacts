@@ -14,27 +14,34 @@
     <link th:href="@{app/css/nv.d3.min.css}" rel="stylesheet"/>
     <link th:href="@{app/css/ng-tags-input.min.css}" rel="stylesheet"/>
     <link th:href="@{app/css/customerManagementStyles.css}" rel="stylesheet"/>
-
+    
     <script>
         var dmApplicationEntryPoint = '//localhost:9090';
 
     </script>
 
     </head>
+
 <body>
-<!-- here's the drillMap navbar. -->
-    <div class="navbar navbar-dm navbar-fixed-top" role="navigation">
+
+	<!-- here's the drillMap navbar. -->
+    <div class="navbar navbar-fixed-top navbar-dm" role="navigation">
 		<div class="container">
-			<div class="hidden-xs">
-				<div class="dm-head-3">
-					<a href="#/" class="navbar-brand" style="padding:10px 0px 0px 15px;"><img th:src="@{app/img/dm-logo-alt.svg}" alt="logo" class="logo-image"></a>
+
+			<!-- this is the regularly-sized logo. it appears in all configurations except xs. -->
+			<div id="full-logo" class="hidden-xs">
+				<div class="dm-head-3 pull-left">
+					<a href="#/" class="navbar-brand"><img th:src="@{app/img/dm-logo-alt.svg}" alt="logo" class="logo-image"></a>
 				</div>
 			</div>
-			<div class="hidden-sm">
-				<div class="dm-head-1">
-					<a href="#/" class="navbar-brand hidden-xl hidden-lg hidden-md hidden-sm" style="padding:0;"><img th:src="@{app/img/dm-circle.svg}" alt="logo" class="logo-image-2"></a>
+
+			<!-- this is the logo without the wordmark. it only appears when the screen is at breakpoint xs. -->
+			<div id="#small-logo" class="hidden-sm hidden-md hidden-lg hidden-xl">
+				<div class="dm-head-1 pull-left">
+					<a href="#/" class="navbar-brand"><img th:src="@{app/img/dm-circle.svg}" alt="logo" class="logo-image"></a>
 				</div>
 			</div>
+			
 			<div class="dm-head-7 pull-right">
 				<!-- regular navigation menu, hidden at 768px via .collapse tag -->
 				<div class="collapse navbar-collapse pull-right">
@@ -55,16 +62,14 @@
 		            </ul>
 		        </div>
 		    </div>
-	    </div>
+	    </div><!-- container -->
 	</div>
 	
+	<!-- pushes all content down of padding so it isn't covered up by the navbar. -->	
+	<div class="col-xs-12 content-push"></div>
 
-	<!-- pushes all content down by 55px of padding so it isn't covered up by the navbar. -->	
-	<div class="content-push">
-
-
+    <!-- this is my loading div, it is taken out of the dom once everything is loaded! -->
     <div ng-if='!loadingDone' class="container">
-        <!-- this is my loading div, it is taken out of the dom once everything is loaded! -->
         <h2><small>Loading:</small></h2>
         <div class="progress progress-striped active" ng-controller='LoadingController'>
             <div class="bar" style="width:{{percentDone}}%">
@@ -72,6 +77,7 @@
         </div>
     </div>
 
+	<!-- inserting the completed page -->
     <div ng-if='loadingDone'>
         <!--
            this is my working div, it is inserted to  the dom once everything is loaded!
@@ -84,21 +90,21 @@
     </div>
 
 
-    <div class="footer">
-        <hr>
-        <div class="col-xs-12">
-        	<p class="muted pull-right">© 2014 drillMap. All rights reserved</p>
-        </div>
+    <div class="footer navbar-dm">
+    	<div class="container">
+			<div class="col-xs-12">       
+				<br /> 
+				<p class="pull-right">© 2014 drillMap. All rights reserved</p>
+			</div>
+		</div>
     </div>
 
 <!-- Vendor Libs: jQuery only used for Bootstrap functionality -->
 <script th:src="@{app/lib/jquery.min.js}"></script>
 <script th:src="@{app/lib/angular/angular.js}"></script>
 <script th:src="@{app/lib/angular/angular-route.js}"></script>
-
 <script th:src="@{app/lib/bootstrap-ui.js}"></script>
 <script th:src="@{app/lib/accordion.js}"></script>
-
 <script th:src="@{app/lib/ng-grid-2.0.8.debug.js}"></script>
 <script th:src="@{app/lib/dynamic-forms.js}"></script>
 <script th:src="@{app/lib/ng-infinite-scroll.js}"></script>
@@ -107,8 +113,8 @@
 <script th:src="@{app/lib/nv.d3.min.js}"></script>
 <script th:src="@{app/lib/angular-nvd3.min.js}"></script>
 <script th:src="@{app/lib/ng-tags-input.min.js}"></script>
-<!-- application -->
 
+<!-- application -->
 <script th:src="@{app/js/app.js}"></script>
 <script th:src="@{app/js/services/customerServices.js}"></script>
 <script th:src="@{app/js/services/ajaxService.js}"></script>
@@ -122,16 +128,11 @@
 <script th:src="@{app/js/directives/directives.js}"></script>
 
 <!-- form builder/admin -->
-
 <script th:src="@{app/js/controllers/formController.js}"></script>
 <script th:src="@{app/js/services/formService.js}"></script>
-
 <script th:src="@{app/js/controllers/salesPersonController.js}"></script>
 <script th:src="@{app/js/controllers/stateController.js}"></script>
 <script th:src="@{app/js/controllers/probabilityController.js}"></script>
 <script th:src="@{app/js/controllers/statusController.js}"></script>
-
-
 </body>
-
 </html>

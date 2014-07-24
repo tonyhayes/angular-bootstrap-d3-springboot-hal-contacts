@@ -1,59 +1,92 @@
-<link th:href="@{app/css/card-view.css}" rel="stylesheet"/>
-	<div class="top-header scroller hidden-sm hidden-xs">
-		<div class="container no-pad">
-			<div class="hidden-xs">
-					<div class="dm-head-70pct">
-						<h3 class="panel-title">									
-							<ol class="breadcrumb hidden-xs">			
-								<li><a href="#" data-ng-click="navigate('/contactcards',customer)">Customers</a></li>
-								<!-- this should be a link back to the customer page, which is what happens on the customers.html page. but it's not working right now. instead, it redirects to the full page of customer cards. -->
-								<li><a href="#" data-ng-click="navigate('/contactcards',customer)" title="View Customer Page" class="ellipsis btn-link">{{customer.companyName}}</a>
-								<li class="active">Opportunity Details</li>
+<!-- our page-specific header. this contains our filter button and our breadcrumb. -->
+<div class="dm-app-header">
+	<div class="container">
+		<div class="row nav-row">
+			<div class="form-horizontal">
+				<div class="form-group form-group-sm">
+					<label class="col-sm-12 control-label" for="filter">
+						<h3 class="panel-title hidden-xs pull-left">									
+							<ol class="breadcrumb pull-left">			
+								<li>Customers</li>
+								<li class="active">Company Details</li>
 							</ol>
 						</h3>	
-					</div>
-					
-					<div class="dm-head-14pct toolbar-padding pull-right">	
-						<button type="button" class="btn btn-default btn-skinny top-button on-top" data-ng-click="onDblClickRow()"><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;&nbsp;&nbsp;Add Opportunity</span>	
-					</div>
+					</label>					
 				</div>
 			</div>
+		</div>
+	</div>	
+</div><!-- #dm-app-header -->
+
+<div class="container">
+<br />
+		
+	<div id="company-address" class="col-xs-12 col-sm-8">
+		<h3 class="panel-title">{{customer.companyName}}</h3>
+		<br />
+		<address>
+		{{customer.addressLine1}}<br>
+		{{customer.addressLine2}}<br>
+		{{customer.city}}, {{customer.state}}&nbsp;&nbsp;{{customer.zip}}<br>
+		</address>
+		<br />
+	</div>
+	<div id="company-right" class="col-xs-12 col-sm-4">
+		<a data-ng-click="navigate('/contactcards',customer)">
+		<div class="contacts-circle">
+			<div class="circle-inner">
+				<span class="number-text">{{customer.contactsCount}}</span>
+				<br /> 
+				Contacts
+			</div>
+		</a>
+		</div>
+		<a data-ng-click="navigate('/opportunitydetails',customer)">		
+		<div class="contacts-circle">
+			<div class="circle-inner">
+				<span class="number-text">{{customer.opportunitiesCount}}</span>
+				<br />
+				Opportunities			
+			</div>
+		</div>
+		</a>
+	</div>
+</div>	
+
+<hr />
+
+<div  id="white-section" class="container">
+	<div class="col-xs-12">
+		<div class="infocard pull-left">
+			<span class="glyphicon glyphicon-globe"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{customer.webPage}}">{{customer.webPage}}</a>
+		</div>
+		<div class="infocard pull-left">
+			<span class="glyphicon glyphicon-envelope"></span></abbr>&nbsp;&nbsp;&nbsp;<a href="mailto:{{customer.email}}">{{customer.email}}</a>
+		</div>	
+		<div class="infocard pull-left">		
+			<span class="glyphicon glyphicon-earphone"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp;<a href="tel:{{customer.phone}}">{{customer.phone}}</a>
 		</div>
 	</div>
-
-<br />
-
-<div class="customerDetails view">
-	<div class="container">
-	<div class="col-xs-12">
-	   <div class="panel panel-default panel-cards">
-			<div id="card-header" class="panel-heading">
-				<h3 class="panel-title"><a data-ng-click="navigate('/contactcards',customer)" title="click to edit" class="ellipsis btn-link">{{customer.companyName}}</a>
-				<a href="#" class="heading-icon trash pull-right" title="click to delete customer" data-ng-click="deleteCustomer($index, customer)"><span class="glyphicon glyphicon-trash"></span></a>
-				<a data-ng-click="navigate('/customeredit',customer )" title="click to edit" class="heading-icon pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
-
-			</div>
-			<div class="panel-body">
-
-				<div class="cardBody">
-					<address>
-					<strong>{{customer.companyName}}</strong><br>
-					{{customer.addressLine1}}<br>
-					{{customer.addressLine2}}<br>
-					{{customer.city}}, {{customer.state}}&nbsp;&nbsp;{{customer.zip}}<br>
-					<br>
-					<span class="glyphicon glyphicon-earphone"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp; {{customer.phone}}<br>
-					<span class="glyphicon glyphicon-globe"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{customer.webPage}}">{{customer.webPage}}</a><br>
-					</address>
-		
-				</div>
-			</div>
-		</div>
-	    
-	    <div class="panel panel-default">
-			
-		    <div class="gridStyle" ng-grid="myOpportunities"></div>
-            </div>
-        </div>
-    </div>
 </div>
+
+<hr />
+
+<div  id="white-section" class="container">
+	<div class="col-xs-12 contactcardspanel">
+		<br />
+		<div class="dm-head-7">
+			<h3 class="panel-title">Company Opportunities</h3>
+		</div>
+		<div class="dm-head-3 pull-right">
+			<button type="button" class="btn btn-default pull-right" data-ng-click="editContact()"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Opportunity</button>
+		</div>
+	</div>
+	<br />
+	<br />
+	<br />
+	<br />
+	<div class="customerDetails">
+		<div class="gridStyle" ng-grid="myOpportunities"></div>
+	</div>
+</div>
+<br />
