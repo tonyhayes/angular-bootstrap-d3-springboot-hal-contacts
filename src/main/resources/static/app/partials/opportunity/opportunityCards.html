@@ -22,7 +22,6 @@
 </div><!-- #dm-app-header -->
 
 <div class="container opportunity view">
-	<br />
 	<div class="panel panel-default">
 		<div class="panel-body">
 
@@ -51,42 +50,35 @@
 		</td>
 		
 	</thead>
-	<accordion>
-	<accordion-group class="accordion-group-parent">
-			<accordion-heading>
-				<div data-ng-repeat="opportunity in opportunityPages.items | orderBy: opportunity.opportunityDate track by $index">
-				<tr >
-					<td>
-						<a data-ng-click="navigateToOpportunity('/opportunitiesedit',opportunity )" title="click to edit" class="ellipsis btn-link">{{opportunity.discussion}}</a>
-					</td>
-					<td>
-						<a data-ng-click="navigate('/contactcards',opportunity )" title="click to edit" class="ellipsis  btn-link">{{opportunity.companyName}}</a>
-					</td>
-					<td>
-						{{opportunity.potentialRevenue | currency}}
-					</td>
-					<td>
-						{{opportunity.opportunityDate | date}}
-					</td>
-					<td class="col-xs-2">
-						<div class="progress">
-							<div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: {{opportunity.probabilityId + '0'}}%;">
-								{{opportunity.probabilityPercentage + '%'}}
-							</div>
-						</div>
-					</div>
-					<td class="col-xs-1">
-						{{opportunity.statusDescription}}
-					</td>
-					<td>
-						<a data-ng-click="navigate('/contactcards',opportunity)" class="badge">{{opportunity.contactsCount}}&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span></a>
-						<a data-ng-click="navigate('/opportunitydetails',opportunity)" class="badge">{{opportunity.opportunitiesCount}}&nbsp;&nbsp;<span class="glyphicon glyphicon-folder-open"</span></a>
-						<a data-ng-click="deleteOpportunity($index, opportunity)" class="pull-right"><span class="glyphicon glyphicon-trash"></span></a>
-					</td>
-				</tr>
-			</accordion-heading>
-	<div id="accordion-body">
-	o hai
+	<tr data-ng-repeat="opportunity in opportunityPages.items | orderBy: opportunity.opportunityDate track by $index">
+		<td>
+			<a data-ng-click="navigateToOpportunity('/opportunitiesedit',opportunity )" title="click to edit" class="ellipsis btn-link">{{opportunity.discussion}}</a>
+        </td>
+        <td>
+        	<a data-ng-click="navigate('/contactcards',opportunity )" title="click to edit" class="ellipsis  btn-link">{{opportunity.companyName}}</a>
+        </td>
+        <td>
+        	{{opportunity.potentialRevenue | currency}}
+        </td>
+        <td>
+        	{{opportunity.opportunityDate | date}}
+    	</td>
+    	<td class="col-xs-2">
+    		<div class="progress">
+  				<div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: {{opportunity.probabilityId + '0'}}%;">
+    				{{opportunity.probabilityPercentage + '%'}}
+  				</div>
+			</div>
+		</div>
+		<td class="col-xs-1">
+			{{opportunity.statusDescription}}
+		</td>
+		<td>
+    		<a data-ng-click="navigate('/contactcards',opportunity)" class="badge">{{opportunity.contactsCount}}&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span></a>
+			<a data-ng-click="navigate('/opportunitydetails',opportunity)" class="badge">{{opportunity.opportunitiesCount}}&nbsp;&nbsp;<span class="glyphicon glyphicon-folder-open"</span></a>
+	        <a data-ng-click="deleteOpportunity($index, opportunity)" class="pull-right"><span class="glyphicon glyphicon-trash"></span></a>
+		</td>
+	</tr>
 	</table>
 </div>
 </div>
