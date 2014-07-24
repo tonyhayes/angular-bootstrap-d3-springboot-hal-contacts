@@ -8,29 +8,27 @@ input .checklist {float:left;}
 .panel-heading ol {margin:0px;}
 </style>
 
-	<div class="top-header scroller">
-		<div class="container no-pad">
-			<div id="dm-app-header">
-				<div class="dm-head-70pct">
-					<div class="panel-heading">
-						<h3 class="panel-title">									
-							<ol class="breadcrumb hidden-xs">			
-								<li><a href="#" data-ng-click="navigate('/contactcards',customer)">Customers</a></li>
-								<!-- this should be a link back to the customer page, which is what happens on the customers.html page. but it's not working right now. instead, it redirects to the full page of customer cards. -->
-								<li><a href="#" data-ng-click="navigate('/contactcards',customer)" title="View Customer Page" class="ellipsis btn-link">{{customer.companyName}}</a>
-								<li ng-show="master.discussion" id="discussion-breadcrumb" class="active ellipsis ">{{master.discussion}}</li>
-								<li ng-hide="master.discussion" id="discussion-breadcrumb" class="active ellipsis ">New Opportunity</li>
-
+<!-- our page-specific header. this contains our filter button and our breadcrumb. -->
+<div class="dm-app-header">
+	<div class="container">
+		<div class="row nav-row">
+			<div class="form-horizontal">
+				<div class="form-group form-group-sm">
+					<label class="col-sm-12 control-label" for="filter">
+						<h3 class="panel-title hidden-xs pull-left">									
+							<ol class="breadcrumb pull-left">			
+									<li><a href="#" data-ng-click="navigate('/customers)">Customers</a></li>
+									<li><a href="#" data-ng-click="navigate('/contactcards',customer)" title="View Customer Page" class="ellipsis btn-link">{{customer.companyName}}</a>
+									<li ng-show="master.discussion" id="discussion-breadcrumb" class="active ellipsis ">{{master.discussion}}</li>
+									<li ng-hide="master.discussion" id="discussion-breadcrumb" class="active ellipsis ">New Opportunity</li>
 							</ol>
 						</h3>	
-					</div>
-				</div>
-				<div class="dm-head-14pct pull-right">														
-					<button type="button" class="btn btn-default pull-right toolbar-padding" ng-click="button=!button"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Edit this page</button>
+					</label>					
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>	
+</div><!-- #dm-app-header -->
 
 <br />
 
@@ -69,15 +67,9 @@ input .checklist {float:left;}
 			<br />
 			<br />
 			
-<!-- this is the customer's (company's) detail card. -->
-<div id="cards-display">
 	<div class="container">
 			<div class="row">
 				<div id="action-pack" class="col-xs-12 col-lg-4">
-
-
-
-
 				<div class="panel panel-default panel-cards panel-action">
 					<div class="panel-heading">
 						<h3 class="panel-title">Quick Description</h3>
@@ -154,7 +146,7 @@ input .checklist {float:left;}
 					<div class="col-xs-12" ng-app>
 						<div id="opportunity-edit" class="panel panel-default panel-cards">
 							<div class="panel-heading">
-								<h3 class="panel-title pull-left">Opportunity Detail</h3>
+								<h3 class="panel-title">Opportunity Detail</h3>
 							</div>
 
 							<div id="edit-lock" class="panel-body">
