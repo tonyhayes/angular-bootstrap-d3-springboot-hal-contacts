@@ -25,13 +25,14 @@
 <div class="container">
 	<div class="charts view">
 		<div class="col-xs-12">
+		<br />
+		<h1 class="panel-title">Opportunity Status</h1>
+		<br />
 			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Opportunity Status</h3>
-				</div>
 				<div class="panel-body">
 					<div class="col-sm-4">
-						<a class="btn" ng-class="{true: 'btn-info', false: 'btn-info'}[!countValue]" ng-click="countValue = !countValue">{{!countValue && 'Revenue' || 'Deals'}} </a>               		                   
+						<a class="btn" ng-class="{true: 'btn-default', false: 'btn-default'}[!countValue]" ng-click="countValue = !countValue">{{!countValue && 'Revenue' || 'Deals'}} </a>               		                   
+						<br />
 						<br />
 						<div ng-controller="DatepickerCtrl">
 							<div style="display:inline-block; min-height:290px;">

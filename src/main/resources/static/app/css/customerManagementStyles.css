@@ -6,7 +6,12 @@ html, body {height: 100%;}
 
 body {font-family:'Roboto';font-weight:100;background-color:#f9f9f9;}
 
-a {cursor:pointer;}
+.panel, table, .panel-heading, .panel-group .panel  {border-radius:2px;-webkit-border-radius:2px;-moz-border-radius:2px;}
+
+a, .btn-link {cursor:pointer;color:#4b7dfe;}
+a:hover {color:#0033cc;}
+
+h1 {font-weight:100;font-size:30px;}
 
 #white-section {background:#fff;padding:15px;}
 .ngViewport {height:auto !important}
@@ -63,10 +68,13 @@ a {cursor:pointer;}
 .dm-app-header .form-group input {margin-right:7px;}
 
 /** styling our cards *************************************************************************************************************************/
-#card-header.panel-heading {background-color:#ababab;color:#f9f9f9;}
-#card-header.panel-heading a {color:#ffffff;}
+#card-header.panel-heading {background-color:#f5f5f5;}
 #card-header .heading-icon {padding-left:7px;}
-#card-header .heading-icon a {color:#dedede;}
+
+/** opportunity table *************************************************************************************************************************/
+#opportunity-table>thead>tr>th, #opportunity-table>tbody>tr>th, #opportunity-table>tfoot>tr>th, #opportunity-table>thead>tr>td, #opportunity-table>tbody>tr>td, #opportunity-table>tfoot>tr>td {padding:3px 10px;vertical-align:middle;}
+#opportunity-table .progress {margin:7px 10px;}
+#opportunity-panel.panel-body {padding-top:0px;}
 
 /** modifying how company address is displayed on detail page ********************************************************************/
 #company-address h3 {font-size:26px;}
@@ -75,6 +83,11 @@ a {cursor:pointer;}
 
 /** the footer *************************************************************************************************************************/
 .footer {width:100vw;}
+
+
+
+
+
 
 #contacts-grid {margin-top:30px;}
 
@@ -92,3 +105,5 @@ a .circle-inner:hover {color:#f9f9f9;}
 a .circle-inner:active {color:#ffffff;}
 
 .panel-heading button {margin-top:-6px;font-size:11px;}
+
+.progress-bar {background-color:#4b7dfe;font-size:6px;}
