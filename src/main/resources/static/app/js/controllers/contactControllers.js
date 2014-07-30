@@ -90,6 +90,8 @@ angular.module('customersApp.contactControllers', [])
                 });
 
             };
+
+
             $scope.editContact = function (contact) {
 
                 $scope.state_array = StatesService.getStates();

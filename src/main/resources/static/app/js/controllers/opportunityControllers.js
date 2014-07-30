@@ -164,6 +164,15 @@ angular.module('customersApp.opportunityControllers', [])
                 filterText: ''
             };
 
+            $scope.navigate = function (url, customerObject) {
+                var companyArray = [0];
+                if (customerObject) {
+                    CustomersService.storeCustomer(customerObject);
+                    companyArray = customerObject._links.self.href.split('/');
+                }
+
+                $location.path(url + '/' + companyArray[companyArray.length - 1]);
+            };
 
             var filterBarPlugin = {
                 init: function (scope, grid) {
