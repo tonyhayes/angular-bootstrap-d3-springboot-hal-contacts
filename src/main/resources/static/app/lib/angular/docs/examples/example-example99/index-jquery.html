@@ -12,12 +12,15 @@
 
   
 </head>
-<body ng-app="myReverseModule">
-    <div ng-controller="Controller">
-    <input ng-model="greeting" type="text"><br>
-    No filter: {{greeting}}<br>
-    Reverse: {{greeting|reverse}}<br>
-    Reverse + uppercase: {{greeting|reverse:true}}<br>
-  </div>
+<body ng-app="form-example2">
+    <div contentEditable="true" ng-model="content" title="Click to edit">Some</div>
+  <pre>model = {{content}}</pre>
+
+  <style type="text/css">
+    div[contentEditable] {
+      cursor: pointer;
+      background-color: #D0D0D0;
+    }
+  </style>
 </body>
 </html>

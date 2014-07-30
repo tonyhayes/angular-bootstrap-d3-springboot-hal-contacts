@@ -1,11 +1,11 @@
-describe("module:ng.directive:ngSelected", function() {
+describe("module:ng.directive:ngOpen", function() {
   beforeEach(function() {
     browser.get("./examples/example-example10/index-jquery.html");
   });
 
-  it('should select Greetings!', function() {
-    expect(element(by.id('greet')).getAttribute('selected')).toBeFalsy();
-    element(by.model('selected')).click();
-    expect(element(by.id('greet')).getAttribute('selected')).toBeTruthy();
+  it('should toggle open', function() {
+    expect(element(by.id('details')).getAttribute('open')).toBeFalsy();
+    element(by.model('open')).click();
+    expect(element(by.id('details')).getAttribute('open')).toBeTruthy();
   });
 });

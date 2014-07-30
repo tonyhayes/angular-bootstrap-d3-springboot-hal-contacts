@@ -1,20 +1,12 @@
-  angular.module('docsIsoFnBindExample', [])
-    .controller('Controller', ['$scope', '$timeout', function($scope, $timeout) {
-      $scope.name = 'Tobias';
-      $scope.hideDialog = function () {
-        $scope.dialogIsHidden = true;
-        $timeout(function () {
-          $scope.dialogIsHidden = false;
-        }, 2000);
+  angular.module('expressionExample', [])
+    .controller('ExampleController', ['$scope', function($scope) {
+      var exprs = $scope.exprs = [];
+      $scope.expr = '3*10|currency';
+      $scope.addExp = function(expr) {
+        exprs.push(expr);
       };
-    }])
-    .directive('myDialog', function() {
-      return {
-        restrict: 'E',
-        transclude: true,
-        scope: {
-          'close': '&onClose'
-        },
-        templateUrl: 'my-dialog-close.html'
+
+      $scope.removeExp = function(index) {
+        exprs.splice(index, 1);
       };
-    });
+    }]);

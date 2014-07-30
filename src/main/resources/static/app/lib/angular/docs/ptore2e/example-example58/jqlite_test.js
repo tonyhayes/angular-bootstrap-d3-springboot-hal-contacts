@@ -1,35 +1,34 @@
-describe("module:ng.filter:limitTo", function() {
+describe("module:ng.service:$http", function() {
   beforeEach(function() {
     browser.get("./examples/example-example58/index.html");
   });
 
-  var numLimitInput = element(by.model('numLimit'));
-  var letterLimitInput = element(by.model('letterLimit'));
-  var limitedNumbers = element(by.binding('numbers | limitTo:numLimit'));
-  var limitedLetters = element(by.binding('letters | limitTo:letterLimit'));
+var status = element(by.binding('status'));
+var data = element(by.binding('data'));
+var fetchBtn = element(by.id('fetchbtn'));
+var sampleGetBtn = element(by.id('samplegetbtn'));
+var sampleJsonpBtn = element(by.id('samplejsonpbtn'));
+var invalidJsonpBtn = element(by.id('invalidjsonpbtn'));
 
-  it('should limit the number array to first three items', function() {
-    expect(numLimitInput.getAttribute('value')).toBe('3');
-    expect(letterLimitInput.getAttribute('value')).toBe('3');
-    expect(limitedNumbers.getText()).toEqual('Output numbers: [1,2,3]');
-    expect(limitedLetters.getText()).toEqual('Output letters: abc');
-  });
+it('should make an xhr GET request', function() {
+  sampleGetBtn.click();
+  fetchBtn.click();
+  expect(status.getText()).toMatch('200');
+  expect(data.getText()).toMatch(/Hello, \$http!/);
+});
 
-  it('should update the output when -3 is entered', function() {
-    numLimitInput.clear();
-    numLimitInput.sendKeys('-3');
-    letterLimitInput.clear();
-    letterLimitInput.sendKeys('-3');
-    expect(limitedNumbers.getText()).toEqual('Output numbers: [7,8,9]');
-    expect(limitedLetters.getText()).toEqual('Output letters: ghi');
-  });
+it('should make a JSONP request to angularjs.org', function() {
+  sampleJsonpBtn.click();
+  fetchBtn.click();
+  expect(status.getText()).toMatch('200');
+  expect(data.getText()).toMatch(/Super Hero!/);
+});
 
-  it('should not exceed the maximum size of input array', function() {
-    numLimitInput.clear();
-    numLimitInput.sendKeys('100');
-    letterLimitInput.clear();
-    letterLimitInput.sendKeys('100');
-    expect(limitedNumbers.getText()).toEqual('Output numbers: [1,2,3,4,5,6,7,8,9]');
-    expect(limitedLetters.getText()).toEqual('Output letters: abcdefghi');
-  });
+it('should make JSONP request to invalid URL and invoke the error handler',
+    function() {
+  invalidJsonpBtn.click();
+  fetchBtn.click();
+  expect(status.getText()).toMatch('0');
+  expect(data.getText()).toMatch('Request failed');
+});
 });

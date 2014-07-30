@@ -1,33 +1,51 @@
-describe("module:ng.directive:ngInclude", function() {
+describe("module:ng.directive:ngPluralize", function() {
   beforeEach(function() {
     browser.get("./examples/example-example40/index.html");
   });
 
-  var templateSelect = element(by.model('template'));
-  var includeElem = element(by.css('[ng-include]'));
+  it('should show correct pluralized string', function() {
+    var withoutOffset = element.all(by.css('ng-pluralize')).get(0);
+    var withOffset = element.all(by.css('ng-pluralize')).get(1);
+    var countInput = element(by.model('personCount'));
 
-  it('should load template1.html', function() {
-    expect(includeElem.getText()).toMatch(/Content of template1.html/);
+    expect(withoutOffset.getText()).toEqual('1 person is viewing.');
+    expect(withOffset.getText()).toEqual('Igor is viewing.');
+
+    countInput.clear();
+    countInput.sendKeys('0');
+
+    expect(withoutOffset.getText()).toEqual('Nobody is viewing.');
+    expect(withOffset.getText()).toEqual('Nobody is viewing.');
+
+    countInput.clear();
+    countInput.sendKeys('2');
+
+    expect(withoutOffset.getText()).toEqual('2 people are viewing.');
+    expect(withOffset.getText()).toEqual('Igor and Misko are viewing.');
+
+    countInput.clear();
+    countInput.sendKeys('3');
+
+    expect(withoutOffset.getText()).toEqual('3 people are viewing.');
+    expect(withOffset.getText()).toEqual('Igor, Misko and one other person are viewing.');
+
+    countInput.clear();
+    countInput.sendKeys('4');
+
+    expect(withoutOffset.getText()).toEqual('4 people are viewing.');
+    expect(withOffset.getText()).toEqual('Igor, Misko and 2 other people are viewing.');
   });
-
-  it('should load template2.html', function() {
-    if (browser.params.browser == 'firefox') {
-      // Firefox can't handle using selects
-      // See https://github.com/angular/protractor/issues/480
-      return;
-    }
-    templateSelect.click();
-    templateSelect.element.all(by.css('option')).get(2).click();
-    expect(includeElem.getText()).toMatch(/Content of template2.html/);
-  });
-
-  it('should change to blank', function() {
-    if (browser.params.browser == 'firefox') {
-      // Firefox can't handle using selects
-      return;
-    }
-    templateSelect.click();
-    templateSelect.element.all(by.css('option')).get(0).click();
-    expect(includeElem.isPresent()).toBe(false);
+  it('should show data-bound names', function() {
+    var withOffset = element.all(by.css('ng-pluralize')).get(1);
+    var personCount = element(by.model('personCount'));
+    var person1 = element(by.model('person1'));
+    var person2 = element(by.model('person2'));
+    personCount.clear();
+    personCount.sendKeys('4');
+    person1.clear();
+    person1.sendKeys('Di');
+    person2.clear();
+    person2.sendKeys('Vojta');
+    expect(withOffset.getText()).toEqual('Di, Vojta and 2 other people are viewing.');
   });
 });

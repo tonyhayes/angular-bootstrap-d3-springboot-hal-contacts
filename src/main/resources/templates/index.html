@@ -79,13 +79,6 @@
 
 	<!-- inserting the completed page -->
     <div ng-if='loadingDone'>
-        <!--
-           this is my working div, it is inserted to  the dom once everything is loaded!
-           By putting the ng-view in here, the routes only get fired AFTER I have
-           done al off my initializations, and requests.
-        -->
-        <!-- Note that AngularJS has a built-in ng-animation direction. Left in animated-view to show a
-              custom directive -->
         <ng-view></ng-view>
     </div>
 

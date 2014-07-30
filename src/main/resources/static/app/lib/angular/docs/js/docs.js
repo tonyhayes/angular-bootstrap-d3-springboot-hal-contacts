@@ -21,6 +21,7 @@ angular.module('docsApp', [
 .config(function($locationProvider) {
   $locationProvider.html5Mode(true).hashPrefix('!');
 });
+
 angular.module('directives', [])
 
 /**
@@ -45,7 +46,7 @@ angular.module('directives', [])
     terminal: true,
     compile: function(element) {
       var linenums = element.hasClass('linenum');// || element.parent()[0].nodeName === 'PRE';
-      var match = /lang-(\S+)/.exec(element[0].className);
+      var match = /lang-(\S)+/.exec(element.className);
       var lang = match && match[1];
       var html = element.html();
       element.html(window.prettyPrintOne(html, lang, linenums));
@@ -247,11 +248,17 @@ angular.module('errors', ['ngSanitize'])
     }
   };
 }]);
+
 angular.module('examples', [])
 
 .factory('formPostData', ['$document', function($document) {
   return function(url, fields) {
-    var form = angular.element('<form style="display: none;" method="post" action="' + url + '" target="_blank"></form>');
+    /**
+     * Form previously posted to target="_blank", but pop-up blockers were causing this to not work.
+     * If a user chose to bypass pop-up blocker one time and click the link, they would arrive at
+     * a new default plnkr, not a plnkr with the desired template.
+     */
+    var form = angular.element('<form style="display: none;" method="post" action="' + url + '"></form>');
     angular.forEach(fields, function(value, name) {
       var input = angular.element('<input type="hidden" name="' +  name + '">');
       input.attr('value', value);
@@ -319,6 +326,7 @@ angular.module('examples', [])
       });
   };
 }]);
+
 angular.module('docsApp.navigationService', [])
 
 .factory('navigationService', function($window) {
@@ -343,6 +351,7 @@ angular.module('docsApp.navigationService', [])
     }
   };
 });
+
 angular.module('search', [])
 
 .controller('DocsSearchCtrl', ['$scope', '$location', 'docsSearch', function($scope, $location, docsSearch) {
@@ -476,7 +485,7 @@ angular.module('search', [])
   return function(scope, element, attrs) {
     var ESCAPE_KEY_KEYCODE = 27,
         FORWARD_SLASH_KEYCODE = 191;
-    angular.element($document[0].body).on('keydown', function(event) {
+    angular.element($document[0].body).bind('keydown', function(event) {
       var input = element[0];
       if(event.keyCode == FORWARD_SLASH_KEYCODE && document.activeElement != input) {
         event.stopPropagation();
@@ -485,7 +494,7 @@ angular.module('search', [])
       }
     });
 
-    element.on('keydown', function(event) {
+    element.bind('keydown', function(event) {
       if(event.keyCode == ESCAPE_KEY_KEYCODE) {
         event.stopPropagation();
         event.preventDefault();
@@ -548,17 +557,33 @@ angular.module('tutorials', [])
   };
 });
 
+"use strict";
+
 angular.module('versions', [])
 
 .controller('DocsVersionsCtrl', ['$scope', '$location', '$window', 'NG_VERSIONS', function($scope, $location, $window, NG_VERSIONS) {
-  $scope.docs_versions = NG_VERSIONS;
   $scope.docs_version  = NG_VERSIONS[0];
+
+  for(var i=0, minor = NaN; i < NG_VERSIONS.length; i++) {
+    var version = NG_VERSIONS[i];
+    // NaN will give false here
+    if (minor <= version.minor) {
+      continue;
+    }
+    version.isLatest = true;
+    minor = version.minor;
+  }
+
+  $scope.docs_versions = NG_VERSIONS;
+  $scope.getGroupName = function(v) {
+    return v.isLatest ? 'Latest' : (v.isStable ? 'Stable' : 'Unstable');
+  };
 
   $scope.jumpToDocsVersion = function(version) {
     var currentPagePath = $location.path();
 
     // TODO: We need to do some munging of the path for different versions of the API...
-    
+
 
     $window.location = version.docsUrl + currentPagePath;
   };

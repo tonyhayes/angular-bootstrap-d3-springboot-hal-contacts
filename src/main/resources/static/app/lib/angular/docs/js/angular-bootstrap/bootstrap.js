@@ -11,7 +11,7 @@ directive.runnableExample = ['$templateCache', '$document', function($templateCa
          'ng-repeat="tab in tabs track by $index" ' +
          'href="" ' +
          'class="btn"' +
-         'ng-click="setTab($index)">' + 
+         'ng-click="setTab($index)">' +
     '    {{ tab }}' +
     '  </a>' +
     '</nav>';
@@ -103,7 +103,7 @@ directive.syntax = function() {
     restrict: 'A',
     link: function(scope, element, attrs) {
       function makeLink(type, text, link, icon) {
-        return '<a href="' + link + '" class="btn syntax-' + type + '" target="_blank" rel="nofollow">' + 
+        return '<a href="' + link + '" class="btn syntax-' + type + '" target="_blank" rel="nofollow">' +
                 '<span class="' + icon + '"></span> ' + text +
                '</a>';
       };
@@ -274,13 +274,13 @@ var popoverElement = function() {
       this.contentElement = angular.element(inner.childNodes[1]);
 
       //stop the click on the tooltip
-      this.element.on('click', function(event) {
+      this.element.bind('click', function(event) {
         event.preventDefault();
         event.stopPropagation();
       });
 
       var self = this;
-      angular.element(document.body).on('click',function(event) {
+      angular.element(document.body).bind('click',function(event) {
         if(self.visible()) self.hide();
       });
     },
@@ -307,7 +307,7 @@ var popoverElement = function() {
       return this.titleElement.html(value);
     },
 
-    content : function(value) { 
+    content : function(value) {
       if(value && value.length > 0) {
         value = marked(value);
       }
@@ -359,7 +359,7 @@ directive.popover = ['popoverElement', function(popover) {
     restrict: 'A',
     priority : 500,
     link: function(scope, element, attrs) {
-      element.on('click',function(event) {
+      element.bind('click',function(event) {
         event.preventDefault();
         event.stopPropagation();
         if(popover.isSituatedAt(element) && popover.visible()) {
@@ -396,7 +396,7 @@ directive.foldout = ['$http', '$animate','$window', function($http, $animate, $w
       if(/\/build\//.test($window.location.href)) {
         url = '/build/docs' + url;
       }
-      element.on('click',function() {
+      element.bind('click',function() {
         scope.$apply(function() {
           if(!container) {
             if(loading) return;

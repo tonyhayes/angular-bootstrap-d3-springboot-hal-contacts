@@ -57,12 +57,17 @@ utilize the browser&#39;s history (back and forward navigation) and bookmarks.</
 <h3 id="a-note-about-di-injector-and-providers">A Note About DI, Injector and Providers</h3>
 <p>As you <a href="tutorial/step_05">noticed</a>, <a href="guide/di">dependency injection</a> (DI) is at the core of
 AngularJS, so it&#39;s important for you to understand a thing or two about how it works.</p>
-<p>When the application bootstraps, Angular creates an injector that will be used for all DI stuff in
-this app. The injector itself doesn&#39;t know anything about what <code>$http</code> or <code>$route</code> services do, in
-fact it doesn&#39;t even know about the existence of these services unless it is configured with proper
-module definitions. The sole responsibilities of the injector are to load specified module
-definition(s), register all service providers defined in these modules, and when asked, inject
-a specified function with dependencies (services) that it lazily instantiates via their providers.</p>
+<p>When the application bootstraps, Angular creates an injector that will be used to find and inject all
+of the services that are required by your app. The injector itself doesn&#39;t know anything about what
+<code>$http</code> or <code>$route</code> services do, in fact it doesn&#39;t even know about the existence of these services
+unless it is configured with proper module definitions.</p>
+<p>The injector only carries out the following steps :</p>
+<ul>
+<li>load the module definition(s) that you specify in your app</li>
+<li>register all Providers defined in these module definitions</li>
+<li>when asked to do so, inject a specified function and any necessary dependencies (services) that
+it lazily instantiates via their Providers.</li>
+</ul>
 <p>Providers are objects that provide (create) instances of services and expose configuration APIs
 that can be used to control the creation and runtime behavior of a service. In case of the <code>$route</code>
 service, the <code>$routeProvider</code> exposes APIs that allow you to define routes for your application.</p>
@@ -74,7 +79,7 @@ service, the <code>$routeProvider</code> exposes APIs that allow you to define r
 <p>Angular modules solve the problem of removing global state from the application and provide a way
 of configuring the injector. As opposed to AMD or require.js modules, Angular modules don&#39;t try to
 solve the problem of script load ordering or lazy script fetching. These goals are totally independent and
-both module systems can live side by side and fulfil their goals.</p>
+both module systems can live side by side and fulfill their goals.</p>
 <p>To deepen your understanding of DI on Angular, see
 <a href="https://github.com/angular/angular.js/wiki/Understanding-Dependency-Injection">Understanding Dependency Injection</a>.</p>
 <h2 id="template">Template</h2>
@@ -190,7 +195,7 @@ construct this view, Angular will use the <code>phone-list.html</code> template 
 controller.</p>
 </li>
 <li><p><code>when(&#39;/phones/:phoneId&#39;)</code>: The phone details view will be shown when the URL hash fragment
-matches &#39;/phones/:phoneId&#39;, where <code>:phoneId</code> is a variable part of the URL. To construct the phone
+matches &#39;/phone/:phoneId&#39;, where <code>:phoneId</code> is a variable part of the URL. To construct the phone
 details view, Angular will use the <code>phone-detail.html</code> template and the <code>PhoneDetailCtrl</code>
 controller.</p>
 </li>
@@ -232,10 +237,17 @@ your app.</p>
 <p>To automatically verify that everything is wired properly, we wrote end-to-end tests that navigate
 to various URLs and verify that the correct view was rendered.</p>
 <pre><code class="lang-js">...
-  it(&#39;should redirect index.html to index.html#/phones&#39;, function() {
-    browser().navigateTo(&#39;app/index.html&#39;);
-    expect(browser().location().url()).toBe(&#39;/phones&#39;);
+   it(&#39;should redirect index.html to index.html#/phones&#39;, function() {
+    browser.get(&#39;app/index.html&#39;);
+    browser.getLocationAbsUrl().then(function(url) {
+        expect(url.split(&#39;#&#39;)[1]).toBe(&#39;/phones&#39;);
+      });
   });
+
+  describe(&#39;Phone list view&#39;, function() {
+    beforeEach(function() {
+      browser.get(&#39;app/index.html#/phones&#39;);
+    });
 ...
 
   describe(&#39;Phone detail view&#39;, function() {
@@ -269,6 +281,7 @@ inheritance and model property shadowing do some wonders.
 <h1 id="summary">Summary</h1>
 <p>With the routing set up and the phone list view implemented, we&#39;re ready to go to <a href="tutorial/step_08">step 8</a> to implement the phone details view.</p>
 <ul doc-tutorial-nav="7"></ul>
+
 
 
 

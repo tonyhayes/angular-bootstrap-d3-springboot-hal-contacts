@@ -34,11 +34,11 @@ the method from your view. If you want to <code>eval()</code> an Angular express
 <p>
 
 <div>
-  <a ng-click="openPlunkr('examples/example-example93')" class="btn pull-right">
+  <a ng-click="openPlunkr('examples/example-example89')" class="btn pull-right">
     <i class="glyphicon glyphicon-edit">&nbsp;</i>
     Edit in Plunker</a>
   <div class="runnable-example"
-      path="examples/example-example93">
+      path="examples/example-example89">
 
    
     <div class="runnable-example-file" 
@@ -56,78 +56,82 @@ the method from your view. If you want to <code>eval()</code> an Angular express
     </div>
   
 
-    <iframe class="runnable-example-frame" src="examples/example-example93/index.html" name="example-example93"></iframe>
+    <iframe class="runnable-example-frame" src="examples/example-example89/index.html" name="example-example89"></iframe>
   </div>
 </div>
+
 
 </p>
 <p>You can try evaluating different expressions here:</p>
 <p>
 
 <div>
-  <a ng-click="openPlunkr('examples/example-example94')" class="btn pull-right">
+  <a ng-click="openPlunkr('examples/example-example90')" class="btn pull-right">
     <i class="glyphicon glyphicon-edit">&nbsp;</i>
     Edit in Plunker</a>
   <div class="runnable-example"
-      path="examples/example-example94">
+      path="examples/example-example90"
+      module="expressionExample">
 
    
     <div class="runnable-example-file" 
       name="index.html"
       language="html"
       type="html">
-      <pre><code>&lt;div ng-controller=&quot;Cntl2&quot; class=&quot;expressions&quot;&gt;&#10;  Expression:&#10;  &lt;input type=&#39;text&#39; ng-model=&quot;expr&quot; size=&quot;80&quot;/&gt;&#10;  &lt;button ng-click=&quot;addExp(expr)&quot;&gt;Evaluate&lt;/button&gt;&#10;  &lt;ul&gt;&#10;   &lt;li ng-repeat=&quot;expr in exprs track by $index&quot;&gt;&#10;     [ &lt;a href=&quot;&quot; ng-click=&quot;removeExp($index)&quot;&gt;X&lt;/a&gt; ]&#10;     &lt;tt&gt;{{expr}}&lt;/tt&gt; =&gt; &lt;span ng-bind=&quot;$parent.$eval(expr)&quot;&gt;&lt;/span&gt;&#10;    &lt;/li&gt;&#10;  &lt;/ul&gt;&#10;&lt;/div&gt;</code></pre>
+      <pre><code>&lt;div ng-controller=&quot;ExampleController&quot; class=&quot;expressions&quot;&gt;&#10;  Expression:&#10;  &lt;input type=&#39;text&#39; ng-model=&quot;expr&quot; size=&quot;80&quot;/&gt;&#10;  &lt;button ng-click=&quot;addExp(expr)&quot;&gt;Evaluate&lt;/button&gt;&#10;  &lt;ul&gt;&#10;   &lt;li ng-repeat=&quot;expr in exprs track by $index&quot;&gt;&#10;     [ &lt;a href=&quot;&quot; ng-click=&quot;removeExp($index)&quot;&gt;X&lt;/a&gt; ]&#10;     &lt;tt&gt;{{expr}}&lt;/tt&gt; =&gt; &lt;span ng-bind=&quot;$parent.$eval(expr)&quot;&gt;&lt;/span&gt;&#10;    &lt;/li&gt;&#10;  &lt;/ul&gt;&#10;&lt;/div&gt;</code></pre>
     </div>
   
     <div class="runnable-example-file" 
       name="script.js"
       language="js"
       type="js">
-      <pre><code>function Cntl2($scope) {&#10;  var exprs = $scope.exprs = [];&#10;  $scope.expr = &#39;3*10|currency&#39;;&#10;  $scope.addExp = function(expr) {&#10;    exprs.push(expr);&#10;  };&#10;&#10;  $scope.removeExp = function(index) {&#10;    exprs.splice(index, 1);&#10;  };&#10;}</code></pre>
+      <pre><code>angular.module(&#39;expressionExample&#39;, [])&#10;  .controller(&#39;ExampleController&#39;, [&#39;$scope&#39;, function($scope) {&#10;    var exprs = $scope.exprs = [];&#10;    $scope.expr = &#39;3*10|currency&#39;;&#10;    $scope.addExp = function(expr) {&#10;      exprs.push(expr);&#10;    };&#10;&#10;    $scope.removeExp = function(index) {&#10;      exprs.splice(index, 1);&#10;    };&#10;  }]);</code></pre>
     </div>
   
     <div class="runnable-example-file" 
       name="protractor.js"
       type="protractor"
       language="js">
-      <pre><code>it(&#39;should allow user expression testing&#39;, function() {&#10;  element(by.css(&#39;.expressions button&#39;)).click();&#10;  var lis = element(by.css(&#39;.expressions ul&#39;)).element.all(by.repeater(&#39;expr in exprs&#39;));&#10;  expect(lis.count()).toBe(1);&#10;  expect(lis.get(0).getText()).toEqual(&#39;[ X ] 3*10|currency =&gt; $30.00&#39;);&#10;});</code></pre>
+      <pre><code>it(&#39;should allow user expression testing&#39;, function() {&#10;  element(by.css(&#39;.expressions button&#39;)).click();&#10;  var lis = element(by.css(&#39;.expressions ul&#39;)).all(by.repeater(&#39;expr in exprs&#39;));&#10;  expect(lis.count()).toBe(1);&#10;  expect(lis.get(0).getText()).toEqual(&#39;[ X ] 3*10|currency =&gt; $30.00&#39;);&#10;});</code></pre>
     </div>
   
 
-    <iframe class="runnable-example-frame" src="examples/example-example94/index.html" name="example-example94"></iframe>
+    <iframe class="runnable-example-frame" src="examples/example-example90/index.html" name="example-example90"></iframe>
   </div>
 </div>
+
 
 </p>
 <h2 id="context">Context</h2>
 <p>Angular does not use JavaScript&#39;s <code>eval()</code> to evaluate expressions. Instead Angular&#39;s
 <a href="api/ng/service/$parse">$parse</a> service processes these expressions.</p>
-<p>Unlike JavaScript, where names default to global <code>window</code> properties, Angular expressions must use
-<a href="api/ng/service/$window"><code>$window</code></a> explicitly to refer to the global <code>window</code> object. For example, if you
-want to call <code>alert()</code> in an expression you must use <code>$window.alert()</code>. This restriction is
-intentional. It prevents accidental access to the global state – a common source of subtle bugs.</p>
+<p>Angular expressions do not have access to global variables like <code>window</code>, <code>document</code> or <code>location</code>.
+This restriction is intentional. It prevents accidental access to the global state – a common source of subtle bugs.</p>
+<p>Instead use services like <code>$window</code> and <code>$location</code> in functions called from expressions. Such services
+provide mockable access to globals.</p>
 <p>
 
 <div>
-  <a ng-click="openPlunkr('examples/example-example95')" class="btn pull-right">
+  <a ng-click="openPlunkr('examples/example-example91')" class="btn pull-right">
     <i class="glyphicon glyphicon-edit">&nbsp;</i>
     Edit in Plunker</a>
   <div class="runnable-example"
-      path="examples/example-example95">
+      path="examples/example-example91"
+      module="expressionExample">
 
    
     <div class="runnable-example-file" 
       name="index.html"
       language="html"
       type="html">
-      <pre><code>&lt;div class=&quot;example2&quot; ng-controller=&quot;Cntl1&quot;&gt;&#10;  Name: &lt;input ng-model=&quot;name&quot; type=&quot;text&quot;/&gt;&#10;  &lt;button ng-click=&quot;greet()&quot;&gt;Greet&lt;/button&gt;&#10;&lt;/div&gt;</code></pre>
+      <pre><code>&lt;div class=&quot;example2&quot; ng-controller=&quot;ExampleController&quot;&gt;&#10;  Name: &lt;input ng-model=&quot;name&quot; type=&quot;text&quot;/&gt;&#10;  &lt;button ng-click=&quot;greet()&quot;&gt;Greet&lt;/button&gt;&#10;  &lt;button ng-click=&quot;window.alert(&#39;Should not see me&#39;)&quot;&gt;Won&#39;t greet&lt;/button&gt;&#10;&lt;/div&gt;</code></pre>
     </div>
   
     <div class="runnable-example-file" 
       name="script.js"
       language="js"
       type="js">
-      <pre><code>function Cntl1($window, $scope){&#10;  $scope.name = &#39;World&#39;;&#10;&#10;  $scope.greet = function() {&#10;    $window.alert(&#39;Hello &#39; + $scope.name);&#10;  };&#10;}</code></pre>
+      <pre><code>angular.module(&#39;expressionExample&#39;, [])&#10;  .controller(&#39;ExampleController&#39;, [&#39;$window&#39;, &#39;$scope&#39;, function($window, $scope) {&#10;    $scope.name = &#39;World&#39;;&#10;&#10;    $scope.greet = function() {&#10;      $window.alert(&#39;Hello &#39; + $scope.name);&#10;    };&#10;  }]);</code></pre>
     </div>
   
     <div class="runnable-example-file" 
@@ -138,9 +142,10 @@ intentional. It prevents accidental access to the global state – a common sour
     </div>
   
 
-    <iframe class="runnable-example-frame" src="examples/example-example95/index.html" name="example-example95"></iframe>
+    <iframe class="runnable-example-frame" src="examples/example-example91/index.html" name="example-example91"></iframe>
   </div>
 </div>
+
 
 </p>
 <h2 id="forgiving">Forgiving</h2>
@@ -163,11 +168,11 @@ expose a <code>$event</code> object within the scope of that expression.</p>
 <p>
 
 <div>
-  <a ng-click="openPlunkr('examples/example-example96')" class="btn pull-right">
+  <a ng-click="openPlunkr('examples/example-example92')" class="btn pull-right">
     <i class="glyphicon glyphicon-edit">&nbsp;</i>
     Edit in Plunker</a>
   <div class="runnable-example"
-      path="examples/example-example96"
+      path="examples/example-example92"
       module="eventExampleApp">
 
    
@@ -186,95 +191,13 @@ expose a <code>$event</code> object within the scope of that expression.</p>
     </div>
   
 
-    <iframe class="runnable-example-frame" src="examples/example-example96/index.html" name="example-example96"></iframe>
+    <iframe class="runnable-example-frame" src="examples/example-example92/index.html" name="example-example92"></iframe>
   </div>
 </div>
+
 
 </p>
 <p>Note in the example above how we can pass in <code>$event</code> to <code>clickMe</code>, but how it does not show up
 in <code>{{$event}}</code>. This is because <code>$event</code> is outside the scope of that binding.</p>
-<h2 id="one-time-binding">One-time binding</h2>
-<p>An expression that starts with <code>::</code> is considered a one-time expression. One-time expressions
-will stop recalculating once they are stable, which happens after the first digest if the expression
-result is a non-undefined value (see value stabilization algorithm below).</p>
-<p>
-
-<div>
-  <a ng-click="openPlunkr('examples/example-example97')" class="btn pull-right">
-    <i class="glyphicon glyphicon-edit">&nbsp;</i>
-    Edit in Plunker</a>
-  <div class="runnable-example"
-      path="examples/example-example97"
-      module="oneTimeBidingExampleApp">
-
-   
-    <div class="runnable-example-file" 
-      name="index.html"
-      language="html"
-      type="html">
-      <pre><code>&lt;div ng-controller=&quot;EventController&quot;&gt;&#10;  &lt;button ng-click=&quot;clickMe($event)&quot;&gt;Click Me&lt;/button&gt;&#10;  &lt;p id=&quot;one-time-binding-example&quot;&gt;One time binding: {{::name}}&lt;/p&gt;&#10;  &lt;p id=&quot;normal-binding-example&quot;&gt;Normal binding: {{name}}&lt;/p&gt;&#10;&lt;/div&gt;</code></pre>
-    </div>
-  
-    <div class="runnable-example-file" 
-      name="script.js"
-      language="js"
-      type="js">
-      <pre><code>angular.module(&#39;oneTimeBidingExampleApp&#39;, []).&#10;  controller(&#39;EventController&#39;, [&#39;$scope&#39;, function($scope) {&#10;    var counter = 0;&#10;    var names = [&#39;Igor&#39;, &#39;Misko&#39;, &#39;Chirayu&#39;, &#39;Lucas&#39;];&#10;    /*&#10;     * expose the event object to the scope&#10;     */&#10;    $scope.clickMe = function(clickEvent) {&#10;      $scope.name = names[counter % names.length];&#10;      counter++;&#10;    };&#10;  }]);</code></pre>
-    </div>
-  
-    <div class="runnable-example-file" 
-      name="protractor.js"
-      type="protractor"
-      language="js">
-      <pre><code>it(&#39;should freeze binding after its value has stabilized&#39;, function() {&#10;  var oneTimeBiding = element(by.id(&#39;one-time-binding-example&#39;));&#10;  var normalBinding = element(by.id(&#39;normal-binding-example&#39;));&#10;&#10;  expect(oneTimeBiding.getText()).toEqual(&#39;One time binding:&#39;);&#10;  expect(normalBinding.getText()).toEqual(&#39;Normal binding:&#39;);&#10;  element(by.buttonText(&#39;Click Me&#39;)).click();&#10;&#10;  expect(oneTimeBiding.getText()).toEqual(&#39;One time binding: Igor&#39;);&#10;  expect(normalBinding.getText()).toEqual(&#39;Normal binding: Igor&#39;);&#10;  element(by.buttonText(&#39;Click Me&#39;)).click();&#10;&#10;  expect(oneTimeBiding.getText()).toEqual(&#39;One time binding: Igor&#39;);&#10;  expect(normalBinding.getText()).toEqual(&#39;Normal binding: Misko&#39;);&#10;&#10;  element(by.buttonText(&#39;Click Me&#39;)).click();&#10;  element(by.buttonText(&#39;Click Me&#39;)).click();&#10;&#10;  expect(oneTimeBiding.getText()).toEqual(&#39;One time binding: Igor&#39;);&#10;  expect(normalBinding.getText()).toEqual(&#39;Normal binding: Lucas&#39;);&#10;});</code></pre>
-    </div>
-  
-
-    <iframe class="runnable-example-frame" src="examples/example-example97/index.html" name="example-example97"></iframe>
-  </div>
-</div>
-
-</p>
-<h3 id="why-this-feature">Why this feature</h3>
-<p>The main purpose of one-time binding expression is to provide a way to create a binding
-that gets deregistered and frees up resources once the binding is stabilized.
-Reducing the number of expressions being watched makes the digest loop faster and allows more
-information to be displayed at the same time.</p>
-<h3 id="value-stabilization-algorithm">Value stabilization algorithm</h3>
-<p>One-time binding expressions will retain the value of the expression at the end of the
-digest cycle as long as that value is not undefined. If the value of the expression is set
-within the digest loop and later, within the same digest loop, it is set to undefined,
-then the expression is not fulfilled and will remain watched.</p>
-<ol>
-<li>Given an expression that starts with <code>::</code> when a digest loop is entered and expression
-is dirty-checked store the value as V</li>
-<li>If V is not undefined mark the result of the expression as stable and schedule a task
-to deregister the watch for this expression when we exit the digest loop</li>
-<li>Process the digest loop as normal</li>
-<li>When digest loop is done and all the values have settled process the queue of watch
-deregistration tasks. For each watch to be deregistered check if it still evaluates
-to value that is not <code>undefined</code>. If that&#39;s the case, deregister the watch. Otherwise
-keep dirty-checking the watch in the future digest loops by following the same
-algorithm starting from step 1</li>
-</ol>
-<h3 id="how-to-benefit-from-one-time-binding">How to benefit from one-time binding</h3>
-<p>When interpolating text or attributes. If the expression, once set, will not change
-then it is a candidate for one-time expression.</p>
-<pre><code class="lang-html">  &lt;div name=&quot;attr: {{::color}}&quot;&gt;text: {{::name}}&lt;/div&gt;</code></pre>
-<p>When using a directive with bidirectional binding and the parameters will not change</p>
-<pre><code class="lang-js">someModule.directive(&#39;someDirective&#39;, function() {
-  return {
-    scope: {
-      name: &#39;=&#39;,
-      color: &#39;@&#39;
-    },
-    template: &#39;{{name}}: {{color}}&#39;
-  };
-});</code></pre>
-<pre><code class="lang-html">  &lt;div some-directive name=“::myName” color=“My color is {{::myColor}}”&gt;&lt;/div&gt;</code></pre>
-<p>When using a directive that takes an expression</p>
-<pre><code class="lang-html">&lt;ul&gt;
-  &lt;li ng-repeat=&quot;item in ::items&quot;&gt;{{item.name}};&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
 
 

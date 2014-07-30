@@ -1,5 +1,5 @@
 /**************************************************************************
-* AngularJS-nvD3, v0.0.9; MIT License; 07/17/2014 19:23
+* AngularJS-nvD3, v0.0.9; MIT License; 07/24/2014 12:59
 * http://krispo.github.io/angular-nvd3
 **************************************************************************/
 (function(){
@@ -118,12 +118,13 @@
                             scope.api.updateWithData(scope.data);
 
                             // Configure wrappers
-                            configureWrapper('title');
-                            configureWrapper('subtitle');
-                            configureWrapper('caption');
+                            if (options['title'] || scope._config.extended) configureWrapper('title');
+                            if (options['subtitle'] || scope._config.extended) configureWrapper('subtitle');
+                            if (options['caption'] || scope._config.extended) configureWrapper('caption');
+
 
                             // Configure styles
-                            configureStyles();
+                            if (options['styles'] || scope._config.extended) configureStyles();
 
                             nv.addGraph(function() {
                                 // Update the chart when window resizes
@@ -147,12 +148,10 @@
                                     .transition().duration(scope.options.chart['transitionDuration'])
                                     .call(scope.chart);
 
-                                // Set up svg height and width for IE
-                                if (navigator.appName === 'Microsoft Internet Explorer') {
-                                    d3.select(element[0]).select('svg')[0][0].style.height = scope.options.chart.height + 'px';
-                                    d3.select(element[0]).select('svg')[0][0].style.width = scope.options.chart.width + 'px';
-                                    if (scope.options.chart.type === 'multiChart') scope.chart.update(); // multiChart is not automatically updated
-                                }
+                                // Set up svg height and width. It is important for all browsers...
+                                d3.select(element[0]).select('svg')[0][0].style.height = scope.options.chart.height + 'px';
+                                d3.select(element[0]).select('svg')[0][0].style.width = scope.options.chart.width + 'px';
+                                if (scope.options.chart.type === 'multiChart') scope.chart.update(); // multiChart is not automatically updated
                             }
                         },
 
@@ -213,7 +212,7 @@
                     // Configure 'title', 'subtitle', 'caption'.
                     // nvd3 has no sufficient models for it yet.
                     function configureWrapper(name){
-                        var _ = angular.extend(defaultWrapper(name), scope.options[name] || {});
+                        var _ = extendDeep(defaultWrapper(name), scope.options[name] || {});
 
                         if (scope._config.extended) scope.options[name] = _;
 
@@ -233,7 +232,7 @@
 
                     // Add some styles to the whole directive element
                     function configureStyles(){
-                        var _ = angular.extend(defaultStyles(), scope.options['styles'] || {});
+                        var _ = extendDeep(defaultStyles(), scope.options['styles'] || {});
 
                         if (scope._config.extended) scope.options['styles'] = _;
 
@@ -285,6 +284,22 @@
                             },
                             css: {}
                         };
+                    }
+
+                    // Deep Extend json object
+                    function extendDeep(dst) {
+                        angular.forEach(arguments, function(obj) {
+                            if (obj !== dst) {
+                                angular.forEach(obj, function(value, key) {
+                                    if (dst[key] && dst[key].constructor && dst[key].constructor === Object) {
+                                        extendDeep(dst[key], value);
+                                    } else {
+                                        dst[key] = value;
+                                    }
+                                });
+                            }
+                        });
+                        return dst;
                     }
 
                     // Watching on options, data, config changing

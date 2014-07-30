@@ -5,13 +5,17 @@
   <title>Example - example-example91-production</title>
   
 
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.9/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
   <script src="script.js"></script>
   
 
   
 </head>
-<body ng-app="dragModule">
-    <span my-draggable>Drag ME</span>
+<body ng-app="expressionExample">
+    <div class="example2" ng-controller="ExampleController">
+    Name: <input ng-model="name" type="text"/>
+    <button ng-click="greet()">Greet</button>
+    <button ng-click="window.alert('Should not see me')">Won't greet</button>
+  </div>
 </body>
 </html>

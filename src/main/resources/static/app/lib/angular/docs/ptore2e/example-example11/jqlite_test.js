@@ -1,11 +1,25 @@
-describe("module:ng.directive:ngOpen", function() {
+describe("module:ng.directive:form", function() {
   beforeEach(function() {
     browser.get("./examples/example-example11/index.html");
   });
 
-  it('should toggle open', function() {
-    expect(element(by.id('details')).getAttribute('open')).toBeFalsy();
-    element(by.model('open')).click();
-    expect(element(by.id('details')).getAttribute('open')).toBeTruthy();
+  it('should initialize to model', function() {
+    var userType = element(by.binding('userType'));
+    var valid = element(by.binding('myForm.input.$valid'));
+
+    expect(userType.getText()).toContain('guest');
+    expect(valid.getText()).toContain('true');
+  });
+
+  it('should be invalid if empty', function() {
+    var userType = element(by.binding('userType'));
+    var valid = element(by.binding('myForm.input.$valid'));
+    var userInput = element(by.model('userType'));
+
+    userInput.clear();
+    userInput.sendKeys('');
+
+    expect(userType.getText()).toEqual('userType =');
+    expect(valid.getText()).toContain('false');
   });
 });

@@ -1,19 +1,11 @@
-  angular.module('docsScopeProblemExample', [])
-    .controller('NaomiController', ['$scope', function($scope) {
-      $scope.customer = {
-        name: 'Naomi',
-        address: '1600 Amphitheatre'
-      };
+  angular.module('docsTransclusionDirective', [])
+    .controller('Controller', ['$scope', function($scope) {
+      $scope.name = 'Tobias';
     }])
-    .controller('IgorController', ['$scope', function($scope) {
-      $scope.customer = {
-        name: 'Igor',
-        address: '123 Somewhere'
-      };
-    }])
-    .directive('myCustomer', function() {
+    .directive('myDialog', function() {
       return {
         restrict: 'E',
-        templateUrl: 'my-customer.html'
+        transclude: true,
+        templateUrl: 'my-dialog.html'
       };
     });

@@ -5,6 +5,7 @@
   <code>ngAnimate</code>
 </h1>
 
+<h1 id="nganimate">ngAnimate</h1>
 <p>The <code>ngAnimate</code> module provides support for JavaScript, CSS3 transition and CSS3 keyframe animation hooks within existing core and custom directives.</p>
 <div doc-module-components="ngAnimate"></div>
 
@@ -44,23 +45,19 @@ by using the <code>$animate</code> service.</p>
 </tr>
 <tr>
 <td><a href="api/ng/directive/ngClass#usage_animations">ngClass</a></td>
-<td>add and remove (the CSS class(es) present)</td>
+<td>add and remove</td>
 </tr>
 <tr>
-<td><a href="api/ng/directive/ngShow#usage_animations">ngShow</a> &amp; <a href="api/ng/directive/ngHide#usage_animations">ngHide</a></td>
+<td><a href="api/ng/directive/ngShow#usage_animations">ngShow &amp; ngHide</a></td>
 <td>add and remove (the ng-hide class value)</td>
 </tr>
 <tr>
-<td><a href="api/ng/directive/form#usage_animations">form</a> &amp; <a href="api/ng/directive/ngModel#usage_animations">ngModel</a></td>
+<td><a href="api/ng/directive/form#usage_animations">form</a></td>
 <td>add and remove (dirty, pristine, valid, invalid &amp; all other validations)</td>
 </tr>
 <tr>
-<td><a href="api/ngMessages/directive/ngMessage#usage_animations">ngMessages</a></td>
-<td>add and remove (ng-active &amp; ng-inactive)</td>
-</tr>
-<tr>
-<td><a href="api/ngMessages/directive/ngMessage#usage_animations">ngMessage</a></td>
-<td>enter and leave</td>
+<td><a href="api/ng/directive/ngModel#usage_animations">ngModel</a></td>
+<td>add and remove (dirty, pristine, valid, invalid &amp; all other validations)</td>
 </tr>
 </tbody>
 </table>
@@ -73,9 +70,9 @@ by using the <code>$animate</code> service.</p>
 }
 
 .slide.ng-enter { }        /* starting animations for enter */
-.slide.ng-enter-active { } /* terminal animations for enter */
+.slide.ng-enter.ng-enter-active { } /* terminal animations for enter */
 .slide.ng-leave { }        /* starting animations for leave */
-.slide.ng-leave-active { } /* terminal animations for leave */
+.slide.ng-leave.ng-leave-active { } /* terminal animations for leave */
 &lt;/style&gt;
 
 &lt;!--
@@ -83,8 +80,18 @@ the animate service will automatically add .ng-enter and .ng-leave to the elemen
 to trigger the CSS transition/animations
 --&gt;
 &lt;ANY class=&quot;slide&quot; ng-include=&quot;...&quot;&gt;&lt;/ANY&gt;</code></pre>
-<p>Keep in mind that if an animation is running, any child elements cannot be animated until the parent element&#39;s
-animation has completed.</p>
+<p>Keep in mind that, by default, if an animation is running, any child elements cannot be animated
+until the parent element&#39;s animation has completed. This blocking feature can be overridden by
+placing the <code>ng-animate-children</code> attribute on a parent container tag.</p>
+<pre><code class="lang-html">&lt;div class=&quot;slide-animation&quot; ng-if=&quot;on&quot; ng-animate-children&gt;
+  &lt;div class=&quot;fade-animation&quot; ng-if=&quot;on&quot;&gt;
+    &lt;div class=&quot;explode-animation&quot; ng-if=&quot;on&quot;&gt;
+       ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<p>When the <code>on</code> expression value changes and an animation is triggered then each of the elements within
+will all animate without the block being applied to child elements.</p>
 <p><h2>CSS-defined Animations</h2>
 The animate service will automatically apply two CSS classes to the animated element and these two CSS classes
 are designed to contain the start and end CSS styling. Both CSS transitions and keyframe animations are supported
@@ -143,60 +150,8 @@ detect the CSS code to determine when the animation ends. Once the animation is 
 removed from the DOM. If a browser does not support CSS transitions or CSS animations then the animation will start and end
 immediately resulting in a DOM element that is at its final state. This final state is when the DOM element
 has no CSS transition/animation classes applied to it.</p>
-<h3 id="structural-transition-animations">Structural transition animations</h3>
-<p>Structural transitions (such as enter, leave and move) will always apply a <code>0s none</code> transition
-value to force the browser into rendering the styles defined in the setup (.ng-enter, .ng-leave
-or .ng-move) class. This means that any active transition animations operating on the element
-will be cut off to make way for the enter, leave or move animation.</p>
-<h3 id="class-based-transition-animations">Class-based transition animations</h3>
-<p>Class-based transitions refer to transition animations that are triggered when a CSS class is
-added to or removed from the element (via <code>$animate.addClass</code>, <code>$animate.removeClass</code>,
-<code>$animate.setClass</code>, or by directives such as <code>ngClass</code>, <code>ngModel</code> and <code>form</code>).
-They are different when compared to structural animations since they <strong>do not cancel existing
-animations</strong> nor do they <strong>block successive transitions</strong> from rendering on the same element.
-This distinction allows for <strong>multiple class-based transitions</strong> to be performed on the same element.</p>
-<p>In addition to ngAnimate supporting the default (natural) functionality of class-based transition
-animations, ngAnimate also decorates the element with starting and ending CSS classes to aid the
-developer in further styling the element throughout the transition animation. Earlier versions
-of ngAnimate may have caused natural CSS transitions to break and not render properly due to
-$animate temporarily blocking transitions using <code>0s none</code> in order to allow the setup CSS class
-(the <code>-add</code> or <code>-remove</code> class) to be applied without triggering an animation. However, as of
-<strong>version 1.3</strong>, this workaround has been removed with ngAnimate and all non-ngAnimate CSS
-class transitions are compatible with ngAnimate.</p>
-<p>There is, however, one special case when dealing with class-based transitions in ngAnimate.
-When rendering class-based transitions that make use of the setup and active CSS classes
-(e.g. <code>.fade-add</code> and <code>.fade-add-active</code> for when <code>.fade</code> is added) be sure to define
-the transition value <strong>on the active CSS class</strong> and not the setup class.</p>
-<pre><code class="lang-css">.fade-add {
-  /* remember to place a 0s transition here
-     to ensure that the styles are applied instantly
-     even if the element already has a transition style */
-  transition:0s linear all;
-
-  /* starting CSS styles */
-  opacity:1;
-}
-.fade-add.fade-add-active {
-  /* this will be the length of the animation */
-  transition:1s linear all;
-  opacity:0;
-}</code></pre>
-<p>The setup CSS class (in this case <code>.fade-add</code>) also has a transition style property, however, it
-has a duration of zero. This may not be required, however, incase the browser is unable to render
-the styling present in this CSS class instantly then it could be that the browser is attempting
-to perform an unnecessary transition.</p>
-<p>This workaround, however, does not apply to  standard class-based transitions that are rendered
-when a CSS class containing a transition is applied to an element:</p>
-<pre><code class="lang-css">.fade {
-  /* this works as expected */
-  transition:1s linear all;
-  opacity:0;
-}</code></pre>
-<p>Please keep this in mind when coding the CSS markup that will be used within class-based transitions.
-Also, try not to mix the two class-based animation flavors together since the CSS code may become
-overly complex.</p>
-<h3 id="css-staggering-animations">CSS Staggering Animations</h3>
-<p>A Staggering animation is a collection of animations that are issued with a slight delay in between each successive operation resulting in a
+<p><h3>CSS Staggering Animations</h3>
+A Staggering animation is a collection of animations that are issued with a slight delay in between each successive operation resulting in a
 curtain-like effect. The ngAnimate module, as of 1.2.0, supports staggering animations and the stagger effect can be
 performed by creating a <strong>ng-EVENT-stagger</strong> CSS class and attaching that class to the base CSS class used for
 the animation. The style property expected within the stagger class can either be a <strong>transition-delay</strong> or an

@@ -61,7 +61,7 @@ are dependencies on other services). The return value of this function is the se
 created by this recipe.</p>
 <p>Note: All services in Angular are singletons. That means that the injector uses each recipe at most
 once to create the object. The injector then caches the reference for all future needs.</p>
-<p>Since Factory is more powerful version of the Value recipe, you can construct the same service with it.
+<p>Since Factory is more a powerful version of the Value recipe, you can construct the same service with it.
 Using our previous <code>clientId</code> Value recipe example, we can rewrite it as a Factory recipe like
 this:</p>
 <pre><code class="lang-javascript">myApp.factory(&#39;clientId&#39;, function clientIdFactory() {
@@ -84,11 +84,14 @@ based on the <code>clientId</code> value and a secret stored in the browser&#39;
   return apiToken;
 }]);</code></pre>
 <p>In the code above, we see how the <code>apiToken</code> service is defined via the Factory recipe that depends
-on <code>clientId</code> service. The factory service then uses NSA-proof encryption to produce an authentication
+on the <code>clientId</code> service. The factory service then uses NSA-proof encryption to produce an authentication
 token.</p>
-<p>Note: It is best practice to name the factory functions as <code>&lt;serviceId&gt;Factory</code>
+<div class="alert alert-success">
+<strong>Best Practice:</strong> name the factory functions as <code>&lt;serviceId&gt;Factory</code>
 (e.g. apiTokenFactory). While this naming convention is not required, it helps when navigating the code base
-or looking at stack traces in the debugger.</p>
+or looking at stack traces in the debugger.
+</div>
+
 <p>Just like with Value recipe, Factory recipe can create a service of any type, whether it be a
 primitive, object literal, function, or even an instance of a custom type.</p>
 <h2 id="service-recipe">Service Recipe</h2>
@@ -123,8 +126,7 @@ above with a Service recipe like this:</p>
 be somehow punished for our mis-deed. It&#39;s like we named one of our offspring &#39;Child&#39;. Boy,
 that would mess with the teachers.</p>
 <h2 id="provider-recipe">Provider Recipe</h2>
-<p>There are two more recipe types left to cover. They are both fairly specialized and are used
-infrequently. As already mentioned in the intro, the Provider recipe is the core recipe type and
+<p>As already mentioned in the intro, the Provider recipe is the core recipe type and
 all the other recipe types are just syntactic sugar on top of it. It is the most verbose recipe
 with the most abilities, but for most services it&#39;s overkill.</p>
 <p>Provider recipe is syntactically defined as a custom type that implements a <code>$get</code> method. This

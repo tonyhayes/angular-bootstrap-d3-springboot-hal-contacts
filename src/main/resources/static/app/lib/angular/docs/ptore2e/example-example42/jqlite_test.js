@@ -1,10 +1,18 @@
-describe("module:ng.directive:ngNonBindable", function() {
+describe("module:ng.directive:ngShow", function() {
   beforeEach(function() {
     browser.get("./examples/example-example42/index.html");
   });
 
- it('should check ng-non-bindable', function() {
-   expect(element(by.binding('1 + 2')).getText()).toContain('3');
-   expect(element.all(by.css('div')).last().getText()).toMatch(/1 \+ 2/);
- });
+  var thumbsUp = element(by.css('span.glyphicon-thumbs-up'));
+  var thumbsDown = element(by.css('span.glyphicon-thumbs-down'));
+
+  it('should check ng-show / ng-hide', function() {
+    expect(thumbsUp.isDisplayed()).toBeFalsy();
+    expect(thumbsDown.isDisplayed()).toBeTruthy();
+
+    element(by.model('checked')).click();
+
+    expect(thumbsUp.isDisplayed()).toBeTruthy();
+    expect(thumbsDown.isDisplayed()).toBeFalsy();
+  });
 });

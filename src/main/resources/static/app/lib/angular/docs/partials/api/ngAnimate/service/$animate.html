@@ -2,7 +2,7 @@
 
 
 
-<a href='http://github.com/angular/angular.js/tree/master/src/ngAnimate/animate.js#L562' class='view-source pull-right btn btn-primary'>
+<a href='http://github.com/angular/angular.js/tree/master/src/ngAnimate/animate.js#L535' class='view-source pull-right btn btn-primary'>
   <i class="glyphicon glyphicon-zoom-in">&nbsp;</i>View Source
 </a>
 
@@ -43,7 +43,16 @@ will work out of the box without any extra configuration.</p>
 
     
 
-  
+  <h2 id="usage">Usage</h2>
+    
+      <p><code>$animate();</code></p>
+
+
+    
+
+    
+    
+    
 
   
 <h2>Methods</h2>
@@ -72,47 +81,35 @@ the animation is started, the following CSS classes will be present on the eleme
 <td>class=&quot;my-animation&quot;</td>
 </tr>
 <tr>
-<td>3. $animate waits for the next digest to start the animation</td>
+<td>3. $animate runs any JavaScript-defined animations on the element</td>
 <td>class=&quot;my-animation ng-animate&quot;</td>
 </tr>
 <tr>
-<td>4. $animate runs the JavaScript-defined animations detected on the element</td>
-<td>class=&quot;my-animation ng-animate&quot;</td>
-</tr>
-<tr>
-<td>5. the .ng-enter class is added to the element</td>
+<td>4. the .ng-enter class is added to the element</td>
 <td>class=&quot;my-animation ng-animate ng-enter&quot;</td>
 </tr>
 <tr>
-<td>6. $animate scans the element styles to get the CSS transition/animation duration and delay</td>
+<td>5. $animate scans the element styles to get the CSS transition/animation duration and delay</td>
 <td>class=&quot;my-animation ng-animate ng-enter&quot;</td>
 </tr>
 <tr>
-<td>7. $animate blocks all CSS transitions on the element to ensure the .ng-enter class styling is applied right away</td>
+<td>6. $animate waits for 10ms (this performs a reflow)</td>
 <td>class=&quot;my-animation ng-animate ng-enter&quot;</td>
 </tr>
 <tr>
-<td>8. $animate waits for a single animation frame (this performs a reflow)</td>
-<td>class=&quot;my-animation ng-animate ng-enter&quot;</td>
+<td>7. the .ng-enter-active and .ng-animate-active classes are added (this triggers the CSS transition/animation)</td>
+<td>class=&quot;my-animation ng-animate ng-animate-active ng-enter ng-enter-active&quot;</td>
 </tr>
 <tr>
-<td>9. $animate removes the CSS transition block placed on the element</td>
-<td>class=&quot;my-animation ng-animate ng-enter&quot;</td>
+<td>8. $animate waits for X milliseconds for the animation to complete</td>
+<td>class=&quot;my-animation ng-animate ng-animate-active ng-enter ng-enter-active&quot;</td>
 </tr>
 <tr>
-<td>10. the .ng-enter-active class is added (this triggers the CSS transition/animation)</td>
-<td>class=&quot;my-animation ng-animate ng-enter ng-enter-active&quot;</td>
-</tr>
-<tr>
-<td>11. $animate waits for the animation to complete (via events and timeout)</td>
-<td>class=&quot;my-animation ng-animate ng-enter ng-enter-active&quot;</td>
-</tr>
-<tr>
-<td>12. The animation ends and all generated CSS classes are removed from the element</td>
+<td>9. The animation ends and all generated CSS classes are removed from the element</td>
 <td>class=&quot;my-animation&quot;</td>
 </tr>
 <tr>
-<td>13. The doneCallback() callback is fired (if provided)</td>
+<td>10. The doneCallback() callback is fired (if provided)</td>
 <td>class=&quot;my-animation&quot;</td>
 </tr>
 </tbody>
@@ -227,51 +224,39 @@ the animation is started, the following CSS classes will be added for the durati
 <td>class=&quot;my-animation&quot;</td>
 </tr>
 <tr>
-<td>2. $animate runs the JavaScript-defined animations detected on the element</td>
+<td>2. $animate runs any JavaScript-defined animations on the element</td>
 <td>class=&quot;my-animation ng-animate&quot;</td>
 </tr>
 <tr>
-<td>3. $animate waits for the next digest to start the animation</td>
-<td>class=&quot;my-animation ng-animate&quot;</td>
-</tr>
-<tr>
-<td>4. the .ng-leave class is added to the element</td>
+<td>3. the .ng-leave class is added to the element</td>
 <td>class=&quot;my-animation ng-animate ng-leave&quot;</td>
 </tr>
 <tr>
-<td>5. $animate scans the element styles to get the CSS transition/animation duration and delay</td>
+<td>4. $animate scans the element styles to get the CSS transition/animation duration and delay</td>
 <td>class=&quot;my-animation ng-animate ng-leave&quot;</td>
 </tr>
 <tr>
-<td>6. $animate blocks all CSS transitions on the element to ensure the .ng-leave class styling is applied right away</td>
-<td>class=&quot;my-animation ng-animate ng-leave”</td>
-</tr>
-<tr>
-<td>7. $animate waits for a single animation frame (this performs a reflow)</td>
+<td>5. $animate waits for 10ms (this performs a reflow)</td>
 <td>class=&quot;my-animation ng-animate ng-leave&quot;</td>
 </tr>
 <tr>
-<td>8. $animate removes the CSS transition block placed on the element</td>
-<td>class=&quot;my-animation ng-animate ng-leave”</td>
+<td>6. the .ng-leave-active and .ng-animate-active classes is added (this triggers the CSS transition/animation)</td>
+<td>class=&quot;my-animation ng-animate ng-animate-active ng-leave ng-leave-active&quot;</td>
 </tr>
 <tr>
-<td>9. the .ng-leave-active class is added (this triggers the CSS transition/animation)</td>
-<td>class=&quot;my-animation ng-animate ng-leave ng-leave-active&quot;</td>
+<td>7. $animate waits for X milliseconds for the animation to complete</td>
+<td>class=&quot;my-animation ng-animate ng-animate-active ng-leave ng-leave-active&quot;</td>
 </tr>
 <tr>
-<td>10. $animate waits for the animation to complete (via events and timeout)</td>
-<td>class=&quot;my-animation ng-animate ng-leave ng-leave-active&quot;</td>
-</tr>
-<tr>
-<td>11. The animation ends and all generated CSS classes are removed from the element</td>
+<td>8. The animation ends and all generated CSS classes are removed from the element</td>
 <td>class=&quot;my-animation&quot;</td>
 </tr>
 <tr>
-<td>12. The element is removed from the DOM</td>
+<td>9. The element is removed from the DOM</td>
 <td>...</td>
 </tr>
 <tr>
-<td>13. The doneCallback() callback is fired (if provided)</td>
+<td>10. The doneCallback() callback is fired (if provided)</td>
 <td>...</td>
 </tr>
 </tbody>
@@ -359,47 +344,35 @@ the animation is started, the following CSS classes will be added for the durati
 <td>class=&quot;my-animation&quot;</td>
 </tr>
 <tr>
-<td>3. $animate waits for the next digest to start the animation</td>
+<td>3. $animate runs any JavaScript-defined animations on the element</td>
 <td>class=&quot;my-animation ng-animate&quot;</td>
 </tr>
 <tr>
-<td>4. $animate runs the JavaScript-defined animations detected on the element</td>
-<td>class=&quot;my-animation ng-animate&quot;</td>
-</tr>
-<tr>
-<td>5. the .ng-move class is added to the element</td>
+<td>4. the .ng-move class is added to the element</td>
 <td>class=&quot;my-animation ng-animate ng-move&quot;</td>
 </tr>
 <tr>
-<td>6. $animate scans the element styles to get the CSS transition/animation duration and delay</td>
+<td>5. $animate scans the element styles to get the CSS transition/animation duration and delay</td>
 <td>class=&quot;my-animation ng-animate ng-move&quot;</td>
 </tr>
 <tr>
-<td>7. $animate blocks all CSS transitions on the element to ensure the .ng-move class styling is applied right away</td>
-<td>class=&quot;my-animation ng-animate ng-move”</td>
-</tr>
-<tr>
-<td>8. $animate waits for a single animation frame (this performs a reflow)</td>
+<td>6. $animate waits for 10ms (this performs a reflow)</td>
 <td>class=&quot;my-animation ng-animate ng-move&quot;</td>
 </tr>
 <tr>
-<td>9. $animate removes the CSS transition block placed on the element</td>
-<td>class=&quot;my-animation ng-animate ng-move”</td>
+<td>7. the .ng-move-active and .ng-animate-active classes is added (this triggers the CSS transition/animation)</td>
+<td>class=&quot;my-animation ng-animate ng-animate-active ng-move ng-move-active&quot;</td>
 </tr>
 <tr>
-<td>10. the .ng-move-active class is added (this triggers the CSS transition/animation)</td>
-<td>class=&quot;my-animation ng-animate ng-move ng-move-active&quot;</td>
+<td>8. $animate waits for X milliseconds for the animation to complete</td>
+<td>class=&quot;my-animation ng-animate ng-animate-active ng-move ng-move-active&quot;</td>
 </tr>
 <tr>
-<td>11. $animate waits for the animation to complete (via events and timeout)</td>
-<td>class=&quot;my-animation ng-animate ng-move ng-move-active&quot;</td>
-</tr>
-<tr>
-<td>12. The animation ends and all generated CSS classes are removed from the element</td>
+<td>9. The animation ends and all generated CSS classes are removed from the element</td>
 <td>class=&quot;my-animation&quot;</td>
 </tr>
 <tr>
-<td>13. The doneCallback() callback is fired (if provided)</td>
+<td>10. The doneCallback() callback is fired (if provided)</td>
 <td>class=&quot;my-animation&quot;</td>
 </tr>
 </tbody>
@@ -501,7 +474,7 @@ the animation is started, the following CSS classes will be added for the durati
     <div><p>Triggers a custom animation event based off the className variable and then attaches the className value to the element as a CSS class.
 Unlike the other animation methods, the animate service will suffix the className value with <a href="" class="label type-hint type-hint--add">-add</a> in order to provide
 the animate service the setup and active CSS classes in order to trigger the animation (this will be skipped if no CSS transitions
-or keyframes are defined on the -add-active or base CSS class).</p>
+or keyframes are defined on the -add or base CSS class).</p>
 <p>Below is a breakdown of each step that occurs during addClass animation:</p>
 <table>
 <thead>
@@ -516,27 +489,27 @@ or keyframes are defined on the -add-active or base CSS class).</p>
 <td>class=&quot;my-animation&quot;</td>
 </tr>
 <tr>
-<td>2. $animate runs the JavaScript-defined animations detected on the element</td>
+<td>2. $animate runs any JavaScript-defined animations on the element</td>
 <td>class=&quot;my-animation ng-animate&quot;</td>
 </tr>
 <tr>
-<td>3. the .super-add class is added to the element</td>
+<td>3. the .super-add class are added to the element</td>
 <td>class=&quot;my-animation ng-animate super-add&quot;</td>
 </tr>
 <tr>
-<td>4. $animate waits for a single animation frame (this performs a reflow)</td>
+<td>4. $animate scans the element styles to get the CSS transition/animation duration and delay</td>
 <td>class=&quot;my-animation ng-animate super-add&quot;</td>
 </tr>
 <tr>
-<td>5. the .super and .super-add-active classes are added (this triggers the CSS transition/animation)</td>
-<td>class=&quot;my-animation ng-animate super super-add super-add-active&quot;</td>
-</tr>
-<tr>
-<td>6. $animate scans the element styles to get the CSS transition/animation duration and delay</td>
+<td>5. $animate waits for 10ms (this performs a reflow)</td>
 <td>class=&quot;my-animation ng-animate super-add&quot;</td>
 </tr>
 <tr>
-<td>7. $animate waits for the animation to complete (via events and timeout)</td>
+<td>6. the .super, .super-add-active and .ng-animate-active classes are added (this triggers the CSS transition/animation)</td>
+<td>class=&quot;my-animation ng-animate ng-animate-active super super-add super-add-active&quot;</td>
+</tr>
+<tr>
+<td>7. $animate waits for X milliseconds for the animation to complete</td>
 <td>class=&quot;my-animation super super-add super-add-active&quot;</td>
 </tr>
 <tr>
@@ -649,28 +622,28 @@ no CSS transitions or keyframes are defined on the -remove or base CSS classes).
 <td>class=&quot;my-animation super&quot;</td>
 </tr>
 <tr>
-<td>2. $animate runs the JavaScript-defined animations detected on the element</td>
+<td>2. $animate runs any JavaScript-defined animations on the element</td>
 <td>class=&quot;my-animation super ng-animate&quot;</td>
 </tr>
 <tr>
-<td>3. the .super-remove class is added to the element</td>
+<td>3. the .super-remove class are added to the element</td>
 <td>class=&quot;my-animation super ng-animate super-remove&quot;</td>
 </tr>
 <tr>
-<td>4. $animate waits for a single animation frame (this performs a reflow)</td>
+<td>4. $animate scans the element styles to get the CSS transition/animation duration and delay</td>
 <td>class=&quot;my-animation super ng-animate super-remove&quot;</td>
 </tr>
 <tr>
-<td>5. the .super-remove-active classes are added and .super is removed (this triggers the CSS transition/animation)</td>
-<td>class=&quot;my-animation ng-animate super-remove super-remove-active&quot;</td>
-</tr>
-<tr>
-<td>6. $animate scans the element styles to get the CSS transition/animation duration and delay</td>
+<td>5. $animate waits for 10ms (this performs a reflow)</td>
 <td>class=&quot;my-animation super ng-animate super-remove&quot;</td>
 </tr>
 <tr>
-<td>7. $animate waits for the animation to complete (via events and timeout)</td>
-<td>class=&quot;my-animation ng-animate super-remove super-remove-active&quot;</td>
+<td>6. the .super-remove-active and .ng-animate-active classes are added and .super is removed (this triggers the CSS transition/animation)</td>
+<td>class=&quot;my-animation ng-animate ng-animate-active super-remove super-remove-active&quot;</td>
+</tr>
+<tr>
+<td>7. $animate waits for X milliseconds for the animation to complete</td>
+<td>class=&quot;my-animation ng-animate ng-animate-active super-remove super-remove-active&quot;</td>
 </tr>
 <tr>
 <td>8. The animation ends and all generated CSS classes are removed from the element</td>
@@ -740,150 +713,6 @@ no CSS transitions or keyframes are defined on the -remove or base CSS classes).
       </td>
       <td>
         <p>the callback function that will be called once the animation is complete</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-    
-
-    
-    
-    
-
-  </li>
-  
-  <li id="setClass">
-    <h3><p><code>setClass(element, add, remove, [done]);</code></p>
-
-</h3>
-    <div><p>Adds and/or removes the given CSS classes to and from the element.
-Once complete, the done() callback will be fired (if provided).</p>
-<table>
-<thead>
-<tr>
-<th>Animation Step</th>
-<th>What the element class attribute looks like</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1. $animate.removeClass(element, ‘on’, ‘off’) is called</td>
-<td>class=&quot;my-animation super off”</td>
-</tr>
-<tr>
-<td>2. $animate runs the JavaScript-defined animations detected on the element</td>
-<td>class=&quot;my-animation super ng-animate off”</td>
-</tr>
-<tr>
-<td>3. the .on-add and .off-remove classes are added to the element</td>
-<td>class=&quot;my-animation ng-animate on-add off-remove off”</td>
-</tr>
-<tr>
-<td>4. $animate waits for a single animation frame (this performs a reflow)</td>
-<td>class=&quot;my-animation ng-animate on-add off-remove off”</td>
-</tr>
-<tr>
-<td>5. the .on, .on-add-active and .off-remove-active classes are added and .off is removed (this triggers the CSS transition/animation)</td>
-<td>class=&quot;my-animation ng-animate on on-add on-add-active off-remove off-remove-active”</td>
-</tr>
-<tr>
-<td>6. $animate scans the element styles to get the CSS transition/animation duration and delay</td>
-<td>class=&quot;my-animation ng-animate on on-add on-add-active off-remove off-remove-active&quot;</td>
-</tr>
-<tr>
-<td>7. $animate waits for the animation to complete (via events and timeout)</td>
-<td>class=&quot;my-animation ng-animate on on-add on-add-active off-remove off-remove-active&quot;</td>
-</tr>
-<tr>
-<td>8. The animation ends and all generated CSS classes are removed from the element</td>
-<td>class=&quot;my-animation&quot;</td>
-</tr>
-<tr>
-<td>9. The doneCallback() callback is fired (if provided)</td>
-<td>class=&quot;my-animation&quot;</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-    
-    <h4>Parameters</h4>
-    
-<table class="variables-matrix input-arguments">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        element
-        
-        
-      </td>
-      <td>
-        <a href="" class="label type-hint type-hint-domelement">DOMElement</a>
-      </td>
-      <td>
-        <p>the element which will its CSS classes changed
-  removed from it</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        add
-        
-        
-      </td>
-      <td>
-        <a href="" class="label type-hint type-hint-string">string</a>
-      </td>
-      <td>
-        <p>the CSS classes which will be added to the element</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        remove
-        
-        
-      </td>
-      <td>
-        <a href="" class="label type-hint type-hint-string">string</a>
-      </td>
-      <td>
-        <p>the CSS class which will be removed from the element</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        done
-        
-        <div><em>(optional)</em></div>
-      </td>
-      <td>
-        <a href="" class="label type-hint type-hint-function">Function=</a>
-      </td>
-      <td>
-        <p>the callback function (if provided) that will be fired after the
-  CSS classes have been set on the element</p>
 
         
       </td>

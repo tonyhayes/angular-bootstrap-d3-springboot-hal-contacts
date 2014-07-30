@@ -1,18 +1,21 @@
-  angular.module('myReverseModule', [])
-    .filter('reverse', function() {
-      return function(input, uppercase) {
-        input = input || '';
-        var out = "";
-        for (var i = 0; i < input.length; i++) {
-          out = input.charAt(i) + out;
-        }
-        // conditional based on optional argument
-        if (uppercase) {
-          out = out.toUpperCase();
-        }
-        return out;
-      };
-    })
-    .controller('Controller', ['$scope', function($scope) {
-      $scope.greeting = 'hello';
-    }]);
+  angular.module('form-example2', []).directive('contenteditable', function() {
+    return {
+      require: 'ngModel',
+      link: function(scope, elm, attrs, ctrl) {
+        // view -> model
+        elm.on('blur', function() {
+          scope.$apply(function() {
+            ctrl.$setViewValue(elm.html());
+          });
+        });
+
+        // model -> view
+        ctrl.$render = function() {
+          elm.html(ctrl.$viewValue);
+        };
+
+        // load init value from DOM
+        ctrl.$setViewValue(elm.html());
+      }
+    };
+  });

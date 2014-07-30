@@ -215,7 +215,7 @@ directive.ngEmbedApp = ['$templateCache', '$browser', '$rootScope', '$location',
         }
       });
 
-      element.on('$destroy', function() {
+      element.bind('$destroy', function() {
         deregisterEmbedRootScope();
         embedRootScope.$destroy();
       });

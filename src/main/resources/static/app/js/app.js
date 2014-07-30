@@ -2,6 +2,8 @@
 angular.module('customersApp', [
     'ngRoute',
 
+    'customersApp.filters',
+    'customersApp.directives',
     'customersApp.applicationControllers',
     'customersApp.customerControllers',
     'customersApp.contactControllers',
@@ -13,8 +15,6 @@ angular.module('customersApp', [
     'customersApp.statusController',
     'customersApp.chartsController',
 
-    'customersApp.filters',
-    'customersApp.directives',
 
     'customersApp.customerServices',
     'customersApp.formsService',

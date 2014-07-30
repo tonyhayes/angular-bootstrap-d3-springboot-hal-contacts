@@ -1,14 +1,15 @@
-  angular.module('docsIsolateScopeDirective', [])
+  angular.module('docsTransclusionExample', [])
     .controller('Controller', ['$scope', function($scope) {
-      $scope.naomi = { name: 'Naomi', address: '1600 Amphitheatre' };
-      $scope.igor = { name: 'Igor', address: '123 Somewhere' };
+      $scope.name = 'Tobias';
     }])
-    .directive('myCustomer', function() {
+    .directive('myDialog', function() {
       return {
         restrict: 'E',
-        scope: {
-          customerInfo: '=info'
-        },
-        templateUrl: 'my-customer-iso.html'
+        transclude: true,
+        scope: {},
+        templateUrl: 'my-dialog.html',
+        link: function (scope, element) {
+          scope.name = 'Jeff';
+        }
       };
     });

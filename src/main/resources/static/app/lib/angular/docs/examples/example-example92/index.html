@@ -11,17 +11,11 @@
 
   
 </head>
-<body ng-app="docsTabsExample">
-    <my-tabs>
-    <my-pane title="Hello">
-      <h4>Hello</h4>
-      <p>Lorem ipsum dolor sit amet</p>
-    </my-pane>
-    <my-pane title="World">
-      <h4>World</h4>
-      <em>Mauris elementum elementum enim at suscipit.</em>
-      <p><a href ng-click="i = i + 1">counter: {{i || 0}}</a></p>
-    </my-pane>
-  </my-tabs>
+<body ng-app="eventExampleApp">
+    <div ng-controller="EventController">
+    <button ng-click="clickMe($event)">Event</button>
+    <p><code>$event</code>: <pre> {{$event | json}}</pre></p>
+    <p><code>clickEvent</code>: <pre>{{clickEvent | json}}</pre></p>
+  </div>
 </body>
 </html>

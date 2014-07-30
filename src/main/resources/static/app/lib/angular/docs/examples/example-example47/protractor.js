@@ -1,9 +1,4 @@
-  var colorSpan = element(by.css('span'));
-
-  it('should check ng-style', function() {
-    expect(colorSpan.getCssValue('color')).toBe('rgba(0, 0, 0, 1)');
-    element(by.css('input[value=\'set color\']')).click();
-    expect(colorSpan.getCssValue('color')).toBe('rgba(255, 0, 0, 1)');
-    element(by.css('input[value=clear]')).click();
-    expect(colorSpan.getCssValue('color')).toBe('rgba(0, 0, 0, 1)');
+  it('should load template defined inside script tag', function() {
+    element(by.css('#tpl-link')).click();
+    expect(element(by.css('#tpl-content')).getText()).toMatch(/Content of the template/);
   });

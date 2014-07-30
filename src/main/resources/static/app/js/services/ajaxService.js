@@ -330,7 +330,7 @@ angular.module('customersApp.ajaxService', [])
             this.busy = true;
 
             if (this.searchText) {
-                var filter = angular.copy(this.searchText.toLowerCase()) + '%';
+                var filter = '%'+ angular.copy(this.searchText.toLowerCase()) + '%';
                 $http.get(dmApplicationEntryPoint + '/opportunities/search' +
                         '/findBySearch', {
                         params: {

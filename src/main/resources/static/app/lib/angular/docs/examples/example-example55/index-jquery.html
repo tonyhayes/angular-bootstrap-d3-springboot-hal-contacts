@@ -11,17 +11,21 @@
 
   
 </head>
-<body ng-app="">
+<body ng-app="limitToExample">
     <script>
-    function Ctrl($scope) {
-      $scope.val = 1234.56789;
-    }
+    angular.module('limitToExample', [])
+      .controller('ExampleController', ['$scope', function($scope) {
+        $scope.numbers = [1,2,3,4,5,6,7,8,9];
+        $scope.letters = "abcdefghi";
+        $scope.numLimit = 3;
+        $scope.letterLimit = 3;
+      }]);
   </script>
-  <div ng-controller="Ctrl">
-    Enter number: <input ng-model='val'><br>
-    Default formatting: <span id='number-default'>{{val | number}}</span><br>
-    No fractions: <span>{{val | number:0}}</span><br>
-    Negative number: <span>{{-val | number:4}}</span>
+  <div ng-controller="ExampleController">
+    Limit {{numbers}} to: <input type="integer" ng-model="numLimit">
+    <p>Output numbers: {{ numbers | limitTo:numLimit }}</p>
+    Limit {{letters}} to: <input type="integer" ng-model="letterLimit">
+    <p>Output letters: {{ letters | limitTo:letterLimit }}</p>
   </div>
 </body>
 </html>

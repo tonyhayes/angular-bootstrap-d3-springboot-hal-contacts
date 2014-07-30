@@ -12,9 +12,11 @@
 
   
 </head>
-<body ng-app="docsIsolationExample">
+<body ng-app="docsIsoFnBindExample">
     <div ng-controller="Controller">
-    <my-customer info="naomi"></my-customer>
+    <my-dialog ng-hide="dialogIsHidden" on-close="hideDialog()">
+      Check out the contents, {{name}}!
+    </my-dialog>
   </div>
 </body>
 </html>

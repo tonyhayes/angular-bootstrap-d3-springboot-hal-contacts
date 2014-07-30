@@ -128,7 +128,7 @@ methods on a service called $httpBackend:</p>
 
     // The injector ignores leading and trailing underscores here (i.e. _$httpBackend_).
     // This allows us to inject a service but then attach it to a variable
-    // with the same name as the service.
+    // with the same name as the service in order to avoid a name conflict.
     beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
       $httpBackend = _$httpBackend_;
       $httpBackend.expectGET(&#39;phones/phones.json&#39;).
@@ -197,7 +197,7 @@ promise returned by the <code>$http</code> service to be resolved with the train
 
 <h1 id="experiments">Experiments</h1>
 <ul>
-<li><p>At the bottom of <code>index.html</code>, add a <code>{{phones | json}}</code> binding to see the list of phones
+<li><p>At the bottom of <code>index.html</code>, add a <code>&lt;pre&gt;{{phones | json}}&lt;/pre&gt;</code> binding to see the list of phones
 displayed in json format.</p>
 </li>
 <li><p>In the <code>PhoneListCtrl</code> controller, pre-process the http response by limiting the number of phones
@@ -210,4 +210,5 @@ to the first 5 in the list. Use the following code in the <code>$http</code> cal
 injection), go to <a href="tutorial/step_06">step 6</a>, where you will add some
 thumbnail images of phones and some links.</p>
 <ul doc-tutorial-nav="5"></ul>
+
 

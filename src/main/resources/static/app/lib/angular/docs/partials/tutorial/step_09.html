@@ -27,7 +27,7 @@ return one of the two unicode characters we have chosen to represent true (<code
 our main <code>phonecatApp</code> module.</p>
 <p><strong><code>app/js/app.js</code>:</strong></p>
 <pre><code class="lang-js">...
-angular.module(&#39;phonecatApp&#39;, [&#39;ngRoute&#39;,&#39;phonecatControllers&#39;,&#39;phonecatFilters&#39;]);
+angular.module(&#39;phonecatApp&#39;, [&#39;ngRoute&#39;,&#39;phonecatControllers&#39;,&#39;phonecatFilters&#39;]).
 ...</code></pre>
 <h2 id="template">Template</h2>
 <p>Since the filter code lives in the <code>app/js/filters.js</code> file, we need to include this file in our
@@ -70,13 +70,16 @@ our filter tests execute. This call loads our <code>phonecatFilters</code> modul
 for this test run.</p>
 <p>Note that we call the helper function, <code>inject(function(checkmarkFilter) { ... })</code>, to get
 access to the filter that we want to test.  See <a href="api/ngMock/function/angular.mock.inject">angular.mock.inject()</a>.</p>
+<p>Notice that the suffix &#39;Filter&#39; is appended to your filter name when injected.
+See the <a href="guide/filter#using-filters-in-controllers-services-and-directives">Filter Guide</a>
+section where this is outlined.</p>
 <p>You should now see the following output in the Karma tab:</p>
 <pre>Chrome 22.0: Executed 4 of 4 SUCCESS (0.034 secs / 0.012 secs)</pre>
 
 
 <h1 id="experiments">Experiments</h1>
 <ul>
-<li><p>Let&#39;s experiment with some of the <a href="api/ng/provider/$filterProvider">built-in Angular filters</a> and add the
+<li><p>Let&#39;s experiment with some of the <a href="api/ng/filter">built-in Angular filters</a> and add the
 following bindings to <code>index.html</code>:</p>
 <ul>
 <li><code>{{ &quot;lower cap string&quot; | uppercase }}</code></li>
@@ -94,4 +97,5 @@ the following to index.html:</p>
 <p>Now that you have learned how to write and test a custom filter, go to <a href="tutorial/step_10">step 10</a> to
 learn how we can use Angular to enhance the phone details page further.</p>
 <ul doc-tutorial-nav="9"></ul>
+
 

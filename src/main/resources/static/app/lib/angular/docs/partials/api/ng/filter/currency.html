@@ -106,18 +106,19 @@ symbol for current locale is used.</p>
   <h2 id="example">Example</h2><p>
 
 <div>
-  <a ng-click="openPlunkr('examples/example-example54')" class="btn pull-right">
+  <a ng-click="openPlunkr('examples/example-example51')" class="btn pull-right">
     <i class="glyphicon glyphicon-edit">&nbsp;</i>
     Edit in Plunker</a>
   <div class="runnable-example"
-      path="examples/example-example54">
+      path="examples/example-example51"
+      module="currencyExample">
 
    
     <div class="runnable-example-file" 
       name="index.html"
       language="html"
       type="html">
-      <pre><code>&lt;script&gt;&#10;  function Ctrl($scope) {&#10;    $scope.amount = 1234.56;&#10;  }&#10;&lt;/script&gt;&#10;&lt;div ng-controller=&quot;Ctrl&quot;&gt;&#10;  &lt;input type=&quot;number&quot; ng-model=&quot;amount&quot;&gt; &lt;br&gt;&#10;  default currency symbol ($): &lt;span id=&quot;currency-default&quot;&gt;{{amount | currency}}&lt;/span&gt;&lt;br&gt;&#10;  custom currency identifier (USD$): &lt;span&gt;{{amount | currency:&quot;USD$&quot;}}&lt;/span&gt;&#10;&lt;/div&gt;</code></pre>
+      <pre><code>&lt;script&gt;&#10;  angular.module(&#39;currencyExample&#39;, [])&#10;    .controller(&#39;ExampleController&#39;, [&#39;$scope&#39;, function($scope) {&#10;      $scope.amount = 1234.56;&#10;    }]);&#10;&lt;/script&gt;&#10;&lt;div ng-controller=&quot;ExampleController&quot;&gt;&#10;  &lt;input type=&quot;number&quot; ng-model=&quot;amount&quot;&gt; &lt;br&gt;&#10;  default currency symbol ($): &lt;span id=&quot;currency-default&quot;&gt;{{amount | currency}}&lt;/span&gt;&lt;br&gt;&#10;  custom currency identifier (USD$): &lt;span&gt;{{amount | currency:&quot;USD$&quot;}}&lt;/span&gt;&#10;&lt;/div&gt;</code></pre>
     </div>
   
     <div class="runnable-example-file" 
@@ -128,9 +129,10 @@ symbol for current locale is used.</p>
     </div>
   
 
-    <iframe class="runnable-example-frame" src="examples/example-example54/index.html" name="example-example54"></iframe>
+    <iframe class="runnable-example-frame" src="examples/example-example51/index.html" name="example-example51"></iframe>
   </div>
 </div>
+
 
 </p>
 

@@ -1,15 +1,20 @@
-  angular.module('docsIsolationExample', [])
-    .controller('Controller', ['$scope', function($scope) {
-      $scope.naomi = { name: 'Naomi', address: '1600 Amphitheatre' };
-
-      $scope.vojta = { name: 'Vojta', address: '3456 Somewhere Else' };
+  angular.module('docsIsoFnBindExample', [])
+    .controller('Controller', ['$scope', '$timeout', function($scope, $timeout) {
+      $scope.name = 'Tobias';
+      $scope.hideDialog = function () {
+        $scope.dialogIsHidden = true;
+        $timeout(function () {
+          $scope.dialogIsHidden = false;
+        }, 2000);
+      };
     }])
-    .directive('myCustomer', function() {
+    .directive('myDialog', function() {
       return {
         restrict: 'E',
+        transclude: true,
         scope: {
-          customerInfo: '=info'
+          'close': '&onClose'
         },
-        templateUrl: 'my-customer-plus-vojta.html'
+        templateUrl: 'my-dialog-close.html'
       };
     });

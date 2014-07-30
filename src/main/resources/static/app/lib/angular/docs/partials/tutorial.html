@@ -13,7 +13,7 @@ extensions or plug-ins:</p>
 <ul>
 <li>See examples of how to use client-side data binding to build dynamic views of data that change
 immediately in response to user actions.</li>
-<li>See how Angular keeps your views in synch with your data without the need for DOM manipulation.</li>
+<li>See how Angular keeps your views in sync with your data without the need for DOM manipulation.</li>
 <li>Learn a better, easier way to test your web apps, with Karma and Protractor.</li>
 <li>Learn how to use dependency injection and services to make common web tasks, such as getting data
 into your app, easier.</li>
@@ -68,12 +68,15 @@ download much smaller and faster.
 <code>angular-phonecat</code> directory.</p>
 <h3 id="install-node-js">Install Node.js</h3>
 <p>If you want to run the preconfigured local web-server and the test tools then you will also need
-<a href="http://nodejs.org/">Node.js v0.10+</a>.</p>
+<a href="http://nodejs.org/">Node.js v0.10.27+</a>.</p>
 <p>You can download a Node.js installer for your operating system from <a href="http://nodejs.org/download/">http://nodejs.org/download/</a>.</p>
 <p>Check the version of Node.js that you have installed by running the following command:</p>
 <pre><code>node --version</code></pre>
-<p>Or in Debian based distributions:</p>
-<pre><code>nodejs --version</code></pre>
+<p>In Debian based distributions, there is a name clash with another utility called <code>node</code>. The
+suggested solution is to also install the <code>nodejs-legacy</code> apt package, which renames <code>node</code> to
+<code>nodejs</code>.</p>
+<pre><code>apt-get install nodejs-legacy
+nodejs --version</code></pre>
 <div class="alert alert-info">If you need to run a different versions of node.js
   in your local environment, consider installing
   <a href="https://github.com/creationix/nvm" title="Node Version Manager Github Repo link">
@@ -171,5 +174,6 @@ Protractor to:</p>
 <p>It is good to run the end to end tests whenever you make changes to the HTML views or want to check
 that the application as a whole is executing correctly.  It is very common to run End to End tests
 before pushing a new commit of changes to a remote repository.</p>
+
 
 

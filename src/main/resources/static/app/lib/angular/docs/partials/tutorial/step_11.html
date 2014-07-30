@@ -116,6 +116,17 @@ view will automatically update.</p>
 we require, so in these cases, we can add a callback to process the server response. The
 <code>PhoneDetailCtrl</code> controller illustrates this by setting the <code>mainImageUrl</code> in a callback.</p>
 <h2 id="test">Test</h2>
+<p>Because we&#39;re now using the <a href="api/ngResource">ngResource</a> module, it&#39;s necessary to also need to
+update the Karma config file with angular-resource so the new tests will pass.</p>
+<p><strong><code>test/karma.conf.js</code>:</strong></p>
+<pre><code class="lang-js">    files : [
+      &#39;app/bower_components/angular/angular.js&#39;,
+      &#39;app/bower_components/angular-route/angular-route.js&#39;,
+      &#39;app/bower_components/angular-resource/angular-resource.js&#39;,
+      &#39;app/bower_components/angular-mocks/angular-mocks.js&#39;,
+      &#39;app/js/**/*.js&#39;,
+      &#39;test/unit/**/*.js&#39;
+    ],</code></pre>
 <p>We have modified our unit tests to verify that our new service is issuing HTTP requests and
 processing them as expected. The tests also check that our controllers are interacting with the
 service correctly.</p>
@@ -204,6 +215,7 @@ ignores methods.</p>
 <p>With the phone image swapper in place, we&#39;re ready for <a href="tutorial/step_12">step 12</a> (the last step!) to
 learn how to improve this application with animations.</p>
 <ul doc-tutorial-nav="11"></ul>
+
 
 
 

@@ -1,18 +1,16 @@
-describe("module:ng.directive:ngHide", function() {
+describe("module:ng.directive:ngTransclude", function() {
   beforeEach(function() {
     browser.get("./examples/example-example46/index-jquery.html");
   });
 
-  var thumbsUp = element(by.css('span.glyphicon-thumbs-up'));
-  var thumbsDown = element(by.css('span.glyphicon-thumbs-down'));
-
-  it('should check ng-show / ng-hide', function() {
-    expect(thumbsUp.isDisplayed()).toBeFalsy();
-    expect(thumbsDown.isDisplayed()).toBeTruthy();
-
-    element(by.model('checked')).click();
-
-    expect(thumbsUp.isDisplayed()).toBeTruthy();
-    expect(thumbsDown.isDisplayed()).toBeFalsy();
-  });
+   it('should have transcluded', function() {
+     var titleElement = element(by.model('title'));
+     titleElement.clear();
+     titleElement.sendKeys('TITLE');
+     var textElement = element(by.model('text'));
+     textElement.clear();
+     textElement.sendKeys('TEXT');
+     expect(element(by.binding('title')).getText()).toEqual('TITLE');
+     expect(element(by.binding('text')).getText()).toEqual('TEXT');
+   });
 });

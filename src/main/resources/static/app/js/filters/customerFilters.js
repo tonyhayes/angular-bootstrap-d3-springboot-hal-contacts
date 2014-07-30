@@ -2,6 +2,21 @@
 
 angular.module('customersApp.filters', [])
 
+    .filter('webHrefFilter', function () {
+
+        return function (webPage) {
+            if (!webPage){
+                return webPage;
+            }
+
+            var ref = angular.lowercase(webPage.substring(0, 4));
+            if (ref == 'http'){
+                return webPage;
+            }
+            return 'http://'+webPage;
+        };
+
+    })
     .filter('nameCityStateFilter', function () {
 
         return function (customers, filterValue) {

@@ -12,11 +12,11 @@ or with JavaScript code when it&#39;s defined as a factory.</p>
 <p>
 
 <div>
-  <a ng-click="openPlunkr('examples/example-example74')" class="btn pull-right">
+  <a ng-click="openPlunkr('examples/example-example70')" class="btn pull-right">
     <i class="glyphicon glyphicon-edit">&nbsp;</i>
     Edit in Plunker</a>
   <div class="runnable-example"
-      path="examples/example-example74"
+      path="examples/example-example70"
       module="ngAnimate"
       deps="angular-animate.js"
       animations="true">
@@ -37,9 +37,10 @@ or with JavaScript code when it&#39;s defined as a factory.</p>
     </div>
   
 
-    <iframe class="runnable-example-frame" src="examples/example-example74/index.html" name="example-example74"></iframe>
+    <iframe class="runnable-example-frame" src="examples/example-example70/index.html" name="example-example70"></iframe>
   </div>
 </div>
+
 
 </p>
 <h2 id="installation">Installation</h2>
@@ -184,11 +185,11 @@ able to capture class changes if an <strong>expression</strong> or the <strong>n
 <p>
 
 <div>
-  <a ng-click="openPlunkr('examples/example-example75')" class="btn pull-right">
+  <a ng-click="openPlunkr('examples/example-example71')" class="btn pull-right">
     <i class="glyphicon glyphicon-edit">&nbsp;</i>
     Edit in Plunker</a>
   <div class="runnable-example"
-      path="examples/example-example75"
+      path="examples/example-example71"
       module="ngAnimate"
       deps="angular-animate.js"
       animations="true">
@@ -209,9 +210,10 @@ able to capture class changes if an <strong>expression</strong> or the <strong>n
     </div>
   
 
-    <iframe class="runnable-example-frame" src="examples/example-example75/index.html" name="example-example75"></iframe>
+    <iframe class="runnable-example-frame" src="examples/example-example71/index.html" name="example-example71"></iframe>
   </div>
 </div>
+
 
 </p>
 <p>Although the CSS is a little different then what we saw before, the idea is the same.</p>
@@ -221,38 +223,65 @@ The table below explains in detail which animation events are triggered</p>
 <table>
 <thead>
 <tr>
+<th>-</th>
 <th>Directive</th>
 <th>Supported Animations</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td> -</td>
 <td><a href="api/ng/directive/ngRepeat#usage_animations">ngRepeat</a></td>
-<td>enter, leave, and move</td>
+<td>enter, leave and move</td>
+<td></td>
 </tr>
 <tr>
+<td> -</td>
 <td><a href="api/ngRoute/directive/ngView#usage_animations">ngView</a></td>
 <td>enter and leave</td>
+<td></td>
 </tr>
 <tr>
+<td> -</td>
 <td><a href="api/ng/directive/ngInclude#usage_animations">ngInclude</a></td>
 <td>enter and leave</td>
+<td></td>
 </tr>
 <tr>
+<td> -</td>
 <td><a href="api/ng/directive/ngSwitch#usage_animations">ngSwitch</a></td>
 <td>enter and leave</td>
+<td></td>
 </tr>
 <tr>
+<td> -</td>
 <td><a href="api/ng/directive/ngIf#usage_animations">ngIf</a></td>
 <td>enter and leave</td>
+<td></td>
 </tr>
 <tr>
-<td><a href="api/ng/directive/ngClass#usage_animations">ngClass or &#123;&#123;class&#125;&#125;</a></td>
+<td> -</td>
+<td><a href="api/ng/directive/ngClass#usage_animations">ngClass</a></td>
 <td>add and remove</td>
+<td></td>
 </tr>
 <tr>
+<td> -</td>
 <td><a href="api/ng/directive/ngShow#usage_animations">ngShow &amp; ngHide</a></td>
 <td>add and remove (the ng-hide class value)</td>
+<td></td>
+</tr>
+<tr>
+<td> -</td>
+<td><a href="api/ng/directive/form#usage_animations">form</a></td>
+<td>add and remove (dirty, pristine, valid, invalid &amp; all other validations)</td>
+<td></td>
+</tr>
+<tr>
+<td> -</td>
+<td><a href="api/ng/directive/ngModel#usage_animations">ngModel</a></td>
+<td>add and remove (dirty, pristine, valid, invalid &amp; all other validations)</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -261,8 +290,8 @@ The table below explains in detail which animation events are triggered</p>
 <p>Animations within custom directives can also be established by injecting <code>$animate</code> directly into your directive and
 making calls to it when needed.</p>
 <pre><code class="lang-js">myModule.directive(&#39;my-directive&#39;, [&#39;$animate&#39;, function($animate) {
-  return function(scope, element, attrs) {
-    element.on(&#39;click&#39;, function() {
+  return function(element, scope, attrs) {
+    element.bind(&#39;click&#39;, function() {
       if(element.hasClass(&#39;clicked&#39;)) {
         $animate.removeClass(element, &#39;clicked&#39;);
       } else {

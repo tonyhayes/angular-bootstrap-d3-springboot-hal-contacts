@@ -84,6 +84,8 @@ aware.</p>
 ...</code></pre>
 <div class="alert alert-error">
   <strong>Important:</strong> Be sure to use jQuery version <code>1.10.x</code>. AngularJS does not yet support jQuery <code>2.x</code>.
+  Be sure to load jQuery before all AngularJS scripts, otherwise AngularJS won&#39;t detect jQuery and
+  animations will not work as expected.
 </div>
 
 <p>Animations can now be created within the CSS code (<code>animations.css</code>) as well as the JavaScript code (<code>animations.js</code>).
@@ -401,7 +403,7 @@ phonecatAnimations.animation(&#39;.phone&#39;, function() {
 isn&#39;t required to do JavaScript animations with AngularJS, but we&#39;re going to use it because writing
 your own JavaScript animation library is beyond the scope of this tutorial. For more on
 <code>jQuery.animate</code>, see the <a href="http://api.jquery.com/animate/">jQuery documentation</a>.</p>
-<p>The <code>addClass</code> and <code>removeClass</code> callback functions are called whenever an a class is added or removed
+<p>The <code>addClass</code> and <code>removeClass</code> callback functions are called whenever a class is added or removed
 on the element that contains the class we registered, which is in this case <code>.phone</code>. When the <code>.active</code>
 class is added to the element (via the <code>ng-class</code> directive) the <code>addClass</code> JavaScript callback will
 be fired with <code>element</code> passed in as a parameter to that callback. The last parameter passed in is the
@@ -422,6 +424,7 @@ do any cleanup necessary for when the animation finishes.</p>
 <h1 id="summary">Summary</h1>
 <p>There you have it!  We have created a web app in a relatively short amount of time. In the <a href="tutorial/the_end">closing notes</a> we&#39;ll cover where to go from here.</p>
 <ul doc-tutorial-nav="12"></ul>
+
 
 
 

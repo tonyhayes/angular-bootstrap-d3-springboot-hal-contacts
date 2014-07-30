@@ -1,21 +1,16 @@
-  angular.module('form-example2', []).directive('contenteditable', function() {
-    return {
-      require: 'ngModel',
-      link: function(scope, elm, attrs, ctrl) {
-        // view -> model
-        elm.on('blur', function() {
-          scope.$apply(function() {
-            ctrl.$setViewValue(elm.html());
-          });
-        });
-
-        // model -> view
-        ctrl.$render = function() {
-          elm.html(ctrl.$viewValue);
-        };
-
-        // load init value from DOM
-        ctrl.$setViewValue(elm.html());
-      }
-    };
-  });
+  angular.module('myServiceModuleDI', []).
+    factory('notify', function($window) {
+      var msgs = [];
+      return function(msg) {
+        msgs.push(msg);
+        if (msgs.length == 3) {
+          $window.alert(msgs.join("\n"));
+          msgs = [];
+        }
+      };
+    }).
+    controller('MyController', function($scope, notify) {
+      $scope.callNotify = function(msg) {
+        notify(msg);
+      };
+    });

@@ -1,37 +1,44 @@
 
 
 <div>
-  <a ng-click="openPlunkr('examples/example-example2')" class="btn pull-right">
+  <a ng-click="openPlunkr('examples/example-multi-bootstrap')" class="btn pull-right">
     <i class="glyphicon glyphicon-edit">&nbsp;</i>
     Edit in Plunker</a>
   <div class="runnable-example"
-      path="examples/example-example2"
-      ng-app-included="true">
+      path="examples/example-multi-bootstrap"
+      name="multi-bootstrap"
+      module="multi-bootstrap">
 
    
     <div class="runnable-example-file" 
       name="index.html"
       language="html"
       type="html">
-      <pre><code>&lt;div ng-app=&quot;ngAppStrictDemo&quot; ng-strict-di&gt;&#10;&lt;div ng-controller=&quot;GoodController1&quot;&gt;&#10;    I can add: {{a}} + {{b}} =  {{ a+b }}&#10;&#10;    &lt;p&gt;This renders because the controller does not fail to&#10;       instantiate, by using explicit annotation style (see&#10;       script.js for details)&#10;    &lt;/p&gt;&#10;&lt;/div&gt;&#10;&#10;&lt;div ng-controller=&quot;GoodController2&quot;&gt;&#10;    Name: &lt;input ng-model=&quot;name&quot;&gt;&lt;br /&gt;&#10;    Hello, {{name}}!&#10;&#10;    &lt;p&gt;This renders because the controller does not fail to&#10;       instantiate, by using explicit annotation style&#10;       (see script.js for details)&#10;    &lt;/p&gt;&#10;&lt;/div&gt;&#10;&#10;&lt;div ng-controller=&quot;BadController&quot;&gt;&#10;    I can add: {{a}} + {{b}} =  {{ a+b }}&#10;&#10;    &lt;p&gt;The controller could not be instantiated, due to relying&#10;       on automatic function annotations (which are disabled in&#10;       strict mode). As such, the content of this section is not&#10;       interpolated, and there should be an error in your web console.&#10;    &lt;/p&gt;&#10;&lt;/div&gt;&#10;&lt;/div&gt;</code></pre>
+      <pre><code>&lt;script src=&quot;../../../angular.js&quot;&gt;&lt;/script&gt;&#10;&lt;div ng-controller=&quot;BrokenTable&quot;&gt;&#10;  &lt;table&gt;&#10;  &lt;tr&gt;&#10;    &lt;th ng-repeat=&quot;heading in headings&quot;&gt;{{heading}}&lt;/th&gt;&#10;  &lt;/tr&gt;&#10;  &lt;tr ng-repeat=&quot;filling in fillings&quot;&gt;&#10;    &lt;td ng-repeat=&quot;fill in filling&quot;&gt;{{fill}}&lt;/td&gt;&#10;  &lt;/tr&gt;&#10;&lt;/table&gt;&#10;&lt;/div&gt;</code></pre>
     </div>
   
     <div class="runnable-example-file" 
-      name="script.js"
+      name="controller.js"
       language="js"
       type="js">
-      <pre><code>angular.module(&#39;ngAppStrictDemo&#39;, [])&#10;// BadController will fail to instantiate, due to relying on automatic function annotation,&#10;// rather than an explicit annotation&#10;.controller(&#39;BadController&#39;, function($scope) {&#10;  $scope.a = 1;&#10;  $scope.b = 2;&#10;})&#10;// Unlike BadController, GoodController1 and GoodController2 will not fail to be instantiated,&#10;// due to using explicit annotations using the array style and $inject property, respectively.&#10;.controller(&#39;GoodController1&#39;, [&#39;$scope&#39;, function($scope) {&#10;  $scope.a = 1;&#10;  $scope.b = 2;&#10;}])&#10;.controller(&#39;GoodController2&#39;, GoodController2);&#10;function GoodController2($scope) {&#10;  $scope.name = &quot;World&quot;;&#10;}&#10;GoodController2.$inject = [&#39;$scope&#39;];</code></pre>
+      <pre><code>var app = angular.module(&#39;multi-bootstrap&#39;, [])&#10;&#10;.controller(&#39;BrokenTable&#39;, function($scope) {&#10;    $scope.headings = [&#39;One&#39;, &#39;Two&#39;, &#39;Three&#39;];&#10;    $scope.fillings = [[1, 2, 3], [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;], [7, 8, 9]];&#10;});</code></pre>
     </div>
   
     <div class="runnable-example-file" 
-      name="style.css"
-      language="css"
-      type="css">
-      <pre><code>div[ng-controller] {&#10;margin-bottom: 1em;&#10;-webkit-border-radius: 4px;&#10;border-radius: 4px;&#10;border: 1px solid;&#10;padding: .5em;&#10;}&#10;div[ng-controller^=Good] {&#10;border-color: #d6e9c6;&#10;background-color: #dff0d8;&#10;color: #3c763d;&#10;}&#10;div[ng-controller^=Bad] {&#10;border-color: #ebccd1;&#10;background-color: #f2dede;&#10;color: #a94442;&#10;margin-bottom: 0;&#10;}</code></pre>
+      name="protractor.js"
+      type="protractor"
+      language="js">
+      <pre><code>it(&#39;should only insert one table cell for each item in $scope.fillings&#39;, function() {&#10;expect(element.all(by.css(&#39;td&#39;)).count())&#10;    .toBe(9);&#10;});</code></pre>
     </div>
   
 
-    <iframe class="runnable-example-frame" src="examples/example-example2/index.html" name="example-example2"></iframe>
+    <iframe class="runnable-example-frame" src="examples/example-multi-bootstrap/index.html" name="example-multi-bootstrap"></iframe>
   </div>
 </div>
+
+
+ndex.html" name="example-example"></iframe>
+  </div>
+</div>
+
 

@@ -1,33 +1,36 @@
-  angular.module('docsTimeDirective', [])
-    .controller('Controller', ['$scope', function($scope) {
-      $scope.format = 'M/d/yy h:mm:ss a';
-    }])
-    .directive('myCurrentTime', ['$interval', 'dateFilter', function($interval, dateFilter) {
+  angular.module('dragModule', [])
+    .directive('myDraggable', ['$document', function($document) {
+      return function(scope, element, attr) {
+        var startX = 0, startY = 0, x = 0, y = 0;
 
-      function link(scope, element, attrs) {
-        var format,
-            timeoutId;
+        element.css({
+         position: 'relative',
+         border: '1px solid red',
+         backgroundColor: 'lightgrey',
+         cursor: 'pointer'
+        });
 
-        function updateTime() {
-          element.text(dateFilter(new Date(), format));
+        element.on('mousedown', function(event) {
+          // Prevent default dragging of selected content
+          event.preventDefault();
+          startX = event.pageX - x;
+          startY = event.pageY - y;
+          $document.on('mousemove', mousemove);
+          $document.on('mouseup', mouseup);
+        });
+
+        function mousemove(event) {
+          y = event.pageY - startY;
+          x = event.pageX - startX;
+          element.css({
+            top: y + 'px',
+            left:  x + 'px'
+          });
         }
 
-        scope.$watch(attrs.myCurrentTime, function(value) {
-          format = value;
-          updateTime();
-        });
-
-        element.on('$destroy', function() {
-          $interval.cancel(timeoutId);
-        });
-
-        // start the UI update process; save the timeoutId for canceling
-        timeoutId = $interval(function() {
-          updateTime(); // update DOM
-        }, 1000);
-      }
-
-      return {
-        link: link
+        function mouseup() {
+          $document.unbind('mousemove', mousemove);
+          $document.unbind('mouseup', mouseup);
+        }
       };
     }]);

@@ -1,4 +1,4 @@
-describe("module:ng.directive:ngClassOdd", function() {
+describe("module:ng.directive:ngClassEven", function() {
   beforeEach(function() {
     browser.get("./examples/example-example19/index-jquery.html");
   });

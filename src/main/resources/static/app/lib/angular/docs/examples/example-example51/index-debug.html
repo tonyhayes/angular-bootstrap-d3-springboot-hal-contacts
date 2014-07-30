@@ -10,51 +10,17 @@
 
   
 </head>
-<body ng-app="">
+<body ng-app="currencyExample">
     <script>
-  function MyCntrl($scope) {
-    $scope.colors = [
-      {name:'black', shade:'dark'},
-      {name:'white', shade:'light'},
-      {name:'red', shade:'dark'},
-      {name:'blue', shade:'dark'},
-      {name:'yellow', shade:'light'}
-    ];
-    $scope.myColor = $scope.colors[2]; // red
-  }
+    angular.module('currencyExample', [])
+      .controller('ExampleController', ['$scope', function($scope) {
+        $scope.amount = 1234.56;
+      }]);
   </script>
-  <div ng-controller="MyCntrl">
-    <ul>
-      <li ng-repeat="color in colors">
-        Name: <input ng-model="color.name">
-        [<a href ng-click="colors.splice($index, 1)">X</a>]
-      </li>
-      <li>
-        [<a href ng-click="colors.push({})">add</a>]
-      </li>
-    </ul>
-    <hr/>
-    Color (null not allowed):
-    <select ng-model="myColor" ng-options="color.name for color in colors"></select><br>
-
-    Color (null allowed):
-    <span  class="nullable">
-      <select ng-model="myColor" ng-options="color.name for color in colors">
-        <option value="">-- choose color --</option>
-      </select>
-    </span><br/>
-
-    Color grouped by shade:
-    <select ng-model="myColor" ng-options="color.name group by color.shade for color in colors">
-    </select><br/>
-
-
-    Select <a href ng-click="myColor = { name:'not in list', shade: 'other' }">bogus</a>.<br>
-    <hr/>
-    Currently selected: {{ {selected_color:myColor}  }}
-    <div style="border:solid 1px black; height:20px"
-         ng-style="{'background-color':myColor.name}">
-    </div>
+  <div ng-controller="ExampleController">
+    <input type="number" ng-model="amount"> <br>
+    default currency symbol ($): <span id="currency-default">{{amount | currency}}</span><br>
+    custom currency identifier (USD$): <span>{{amount | currency:"USD$"}}</span>
   </div>
 </body>
 </html>

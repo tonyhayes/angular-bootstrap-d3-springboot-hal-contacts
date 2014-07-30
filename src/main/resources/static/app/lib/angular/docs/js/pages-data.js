@@ -10,7 +10,7 @@ angular.module('pagesData', [])
     "path": "api/ng",
     "searchTerms": {
       "titleWords": "ng",
-      "keywords": "angular angularjs api application breakdown components core default directives doc-module-components essential filters function high js js-angular-release level lists loaded lowercase module ng services src started table testing"
+      "keywords": "angular angularjs api application breakdown components core default directives doc-module-components essential filters function high js js-angular-release level lists loaded module ng services src started table testing validity_state_property"
     }
   },
   "api/ng/function/angular.lowercase": {
@@ -262,7 +262,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngApp",
     "searchTerms": {
       "titleWords": "ngApp app",
-      "keywords": "$injector angular angularinit angularjs annotation api app appcontroller application applications assist attribute auto auto-bootstrap auto-bootstrapped bootstrap bootstrapped bugs code common compiled created debugging define dependencies dependency described designates directive document easiest element example example-example1 example-example2 explicit fail function functions guide html info injection injector instantiated invoke js js-angular-release load loaded manually minification mode module modules multiple needed nested ng ngapp ngstrictdi optional resolved root src strict-di tags tracking typically unsuitable"
+      "keywords": "$injector angular angularinit angularjs api appcontroller application applications auto auto-bootstrap auto-bootstrapped bootstrap bootstrapped code common compiled define dependencies designates directive document easiest element example example-example1 html instantiated js js-angular-release load loaded manually module modules multiple needed nested ng ngapp optional resolved root src tags typically"
     }
   },
   "api/ng/function/angular.bootstrap": {
@@ -274,7 +274,7 @@ angular.module('pagesData', [])
     "path": "api/ng/function/angular.bootstrap",
     "searchTerms": {
       "titleWords": "angular.bootstrap",
-      "keywords": "$injector $scope allow angular annotated annotation api app application applications array assist automatic based block bootstrap bootstrapped break browser bugs code config configuration console controller created defining demo detect directive disable dom element end-to-end finding function greeting guide html injector instances invoked item js js-angular-release load loaded manually meant minified module modules multiple newly ng ng-controller ngapp note object options predefined prevents protractor report returns root script scripts src start strange strictdi subsequent supported tests var warning welcomecontroller work"
+      "keywords": "$injector allow angular annotated api app application applications array block bootstrap bootstrapped browser console created detect directive dom element end-to-end example-multi-bootstrap function guide injector instances invoked item js js-angular-release load loaded manually module modules multiple newly ng ngapp ngscenario-based note predefined prevents report returns root script scripts src start strange subsequent tests warning work"
     }
   },
   "api/ng/object/angular.version": {
@@ -325,13 +325,13 @@ angular.module('pagesData', [])
       "keywords": "$inject $injector $provide adding angular annotated annotating annotation annotations api argument arguments array auto call calling change code createinjector defined definition dependency equivalent expect explicit extracted function holds inference inferred injection injector inline instances instantiate invoke item javascript js js-angular-release load methods minification minified modules names needed obfuscation object parameters parsed property provider retrieve return returns service servicea src tobe tools tostring true types valid var ways work works"
     }
   },
-  "api/auto/object/$provide": {
-    "docType": "object",
-    "id": "module:auto.object:$provide",
+  "api/auto/service/$provide": {
+    "docType": "service",
+    "id": "module:auto.service:$provide",
     "name": "$provide",
     "area": "api",
-    "outputPath": "partials/api/auto/object/$provide.html",
-    "path": "api/auto/object/$provide",
+    "outputPath": "partials/api/auto/service/$provide.html",
+    "path": "api/auto/service/$provide",
     "searchTerms": {
       "titleWords": "$provide",
       "keywords": "$get $injector $provide accessed add additional angular api auto called calling cases class components configuration constant correct created createinjector examples exposed factories factory finding fn function functions helper holds individual injector instance instantiate instantiated instantiating js js-angular-release methods module number object options property provider providers register registering registers request responsible service services singleton src turn wrapped"
@@ -346,7 +346,7 @@ angular.module('pagesData', [])
     "path": "api/ng/function/angular.element",
     "searchTerms": {
       "titleWords": "angular.element",
-      "keywords": "$destroy $rootscope addclass additional alert alert-success alias allows angular angularjs api api-compatible apis append associated attached attr bind bindings built-in called calling camelcase children class clean clone commonly compatible contents controller cross-browser css current data default delegates destruction directive directly dom domcontentloaded domelement dummy element elements empty eq event eventdata events extras find fired fires footprint function functionality getter goal handlers hasclass html implements inheriteddata injector intercepts isolate isolatescope jqcache jqlite jquery js js-angular-release limited lite load lookups manipulate methods namespaces needed ng ngcontroller ngmodel nodes non-isolate object original parent party passes prepend prop provided raw reached ready references remove removeattr removeclass removed removedata replacewith retrieved retrieves returns scope selectors simply small src starts string subset support tag text tiny toggleclass top triggerhandler unbind val walks wrap wrapped wraps"
+      "keywords": "$destroy $rootscope addclass additional alert alert-success alias allows angular angularjs api api-compatible apis append associated attached attr bind bindings built-in called calling camelcase children class clean clone commonly compatible contents controller cross-browser css current data default delegates destruction directive directly dom domcontentloaded domelement dummy element elements empty eq event eventdata events extras find fired fires footprint function functionality getter goal handlers hasclass html implements inheriteddata injector intercepts isolate isolatescope jqlite jquery js js-angular-release limited lite load lookups manipulate methods namespaces needed ng ng339 ngcontroller ngmodel nodes non-isolate object original parent party passes prepend prop provided raw reached ready references remove removeattr removeclass removed removedata replacewith retrieved retrieves returns scope selectors simply small src starts string subset support tag text tiny toggleclass top triggerhandler unbind val walks wrap wrapped wraps"
     }
   },
   "api/ng/type/angular.Module": {
@@ -370,7 +370,7 @@ angular.module('pagesData', [])
     "path": "api/ng/function/angular.module",
     "searchTerms": {
       "titleWords": "angular.module",
-      "keywords": "$injector $locationprovider angular api application appname argument arguments auto blocks bootstrap collection config configfn configuration configure core create created creating directive directives existing filters function global hashprefix initialization injector inside js js-angular-release ll load loader mechanism module modules mycoolapp mymodule ng ngapp optional party passed place process providers register registered registering requires retrieve retrieved retrieving service services simplify src unspecified var"
+      "keywords": "$injector $locationprovider angular api application appname argument arguments auto blocks bootstrap collection config configfn configuration configure controllers core create created creating directive directives existing filters function global hashprefix initialization injector inside js js-angular-release ll load loader mechanism module modules mycoolapp mymodule ng ngapp optional party passed place process providers register registered registering requires retrieve retrieved retrieving service services simplify src unspecified var"
     }
   },
   "api/ng/service/$anchorScroll": {
@@ -382,7 +382,7 @@ angular.module('pagesData', [])
     "path": "api/ng/service/$anchorScroll",
     "searchTerms": {
       "titleWords": "$anchorScroll",
-      "keywords": "$anchorscroll $anchorscrollprovider $location $rootscope $window anchor anchorscroll api called calling changes checks current disableautoscrolling disabled element example-example3 function hash html js js-angular-release match ng org rules scrolls service spec src the-indicated-part-of-the-document w3 watches"
+      "keywords": "$anchorscroll $anchorscrollprovider $location $rootscope $window anchor anchorscroll api called calling changes checks current disableautoscrolling disabled element example-example2 function hash html js js-angular-release match ng org rules scrolls service spec src the-indicated-part-of-the-document w3 watches"
     }
   },
   "api/ng/provider/$animateProvider": {
@@ -418,7 +418,7 @@ angular.module('pagesData', [])
     "path": "api/ng/service/$cacheFactory",
     "searchTerms": {
       "titleWords": "$cacheFactory",
-      "keywords": "$cachefactory $cachefactoryprovider access api behavior cache cached cachefactory cacheid capacity constructs created creation destroy example-example4 expect factory info js js-angular-release key key-value lru methods newly ng nosuchcacheid object objects options pair properties puts references remove removeall removes returns service set size specifies src tobe tobedefined toequal turns undefined values var ve"
+      "keywords": "$cachefactory $cachefactoryprovider access api behavior cache cached cachefactory cacheid capacity constructs created creation destroy example-example3 expect factory info js js-angular-release key key-value lru methods newly ng nosuchcacheid object objects options pair properties puts references remove removeall removes returns service set size specifies src tobe tobedefined toequal turns undefined values var ve"
     }
   },
   "api/ng/type/$cacheFactory.Cache": {
@@ -454,7 +454,7 @@ angular.module('pagesData', [])
     "path": "api/ng/service/$compile",
     "searchTerms": {
       "titleWords": "$compile",
-      "keywords": "$attrs $compile $compileminerr $compileprovider $digest $element $observe $rootscope $sce $scope $set $transclude $watch access accessing accidentally actual advantage alert alert-error alert-success alert-warning alias aliasing allowing allows amount angular api applied apply appropriate argument arguments array assigned associated assumed asynchronous attach attempt attr attribute attributes attrs augment automatic automatically avoid avoided behavior bi-directional bind binding bound bracket call called caller calling case cases change changed changes channel child children class classes clone cloneattachfn cloned clonedelement clonelinkingfn comment common communicate communication compilation compile compiled compiler compiles compiling component components comprehensive config configuration considered console content contents context control controller controlleras controllers correct corresponding count create created creates creating creating-custom-directives_creating-directives_template-expanding-directive ctrl current data data-ng-bind deals declaration declared default defaults define defined defines definition deprecated derived desirable developer difference differs directive directivedefinitionobject directivename directives document doesn dom don eacm easily effects efficient element elements elm empty equivalent error errors evaluated example example-example5 examples exception execute executed execution exist exp expressed expression factory fail false flag fn form fourth function functions gentle gettrustedresourceurl greater guide hand handle hash hasn hello html iattrs ielement illustrate imperatively in-depth including increment infinite info inherit inject injectable injected inserted inside instance instantiated instructions inter inter-communication interpolated interpolation introduction isolate isolated js js-angular-release link linked linking linkingfn list listener listeners loaded loading local localfn localmodel localname locals locate log logic loop lower major manipulate manual manually map markup matching math mathml maxpriority migrates modify module multiple my-attr my-directive mymodule names ng ng:bind ngbind ngmodel ngtransclude node nodes non-html non_assignable_model_expression normal normalized notation null number numerical object objects observe optional options order original otherinjectables outer overflow overridden parameter parent parentmodel parents pass passed passing phase place point post post-link post-linking postlink practice pre pre-bound pre-link pre-linking prefix prefixed prelink prior priority private process processing produces properties property prototypically provided raised read reason receives recommended recursively reference referenced reflect reflected registered registering registration release relying removed replace replacement representing request require required resides responsible restrict restricts result return returning returns reusable reverse root rule safe scope searching send service set setup share shared sibling siblingdirectivename simplified single sort source specific src stack string stringalias strings style subset supports suspended svg takes tattrs telement template templateelement templates templateurl terminal throw time top-level transclude transcludefn transclusion transformation transformations transforming tree true type typical typically undefined unspecified updated updating url values var variable variety view walking watches ways widget working works wrapped wrapper x-ng-bind"
+      "keywords": "$attrs $compile $compileminerr $compileprovider $digest $element $observe $rootscope $sce $scope $set $transclude $watch access accessing accidentally actual advantage alert alert-error alert-success alert-warning alias aliasing allowing allows amount angular api applied apply appropriate argument arguments array assigned associated assumed asynchronous attach attempt attr attribute attributes attrs augment automatic automatically avoid avoided behavior bi-directional bind binding bound bracket call called caller calling case cases change changed changes channel child children class classes clone cloneattachfn cloned clonedelement clonelinkingfn comment common communicate communication compilation compile compiled compiler compiles compiling component components comprehensive config configuration console content contents context control controller controlleras controllers correct corresponding count create created creates creating creating-custom-directives_creating-directives_template-expanding-directive ctrl current data data-ng-bind deals declaration declared default defaults define defined defines definition deprecated derived desirable developer difference differs directive directivedefinitionobject directivename directives document doesn dom eacm easily effects efficient element elements elm empty equivalent error errors evaluated example example-example4 examples exception execute executed execution exist exp expressed expression factory fail false flag fn form fourth fragment function functions gentle gettrustedresourceurl greater guide hand handle hash hasn hello html iattrs ielement illustrate imperatively in-depth including increment infinite info inherit inject injectable injected inside instance instantiated instructions inter inter-communication interpolated interpolation introduction isolate isolated js js-angular-release link linked linking linkingfn list listener listeners loaded loading local localfn localmodel localname locals locate log logic loop lower major manipulate manual manually map markup matching maxpriority migrates modify module multiple my-attr my-directive mymodule names ng ng:bind ngbind ngmodel ngtransclude nodes non_assignable_model_expression normal normalized notation null number numerical object objects observe optional options order original otherinjectables outer overflow overridden parameter parent parentmodel parents pass passed passing phase place point post post-link post-linking postlink practice pre pre-bound pre-link pre-linking prefix prefixed prelink priority private process produces properties property prototypically provided raised read reason receives recommended recursively red-on-hover reference referenced reflect reflected registered registering registration release relying removed replace replacement representing request require required resides responsible restrict restricts result return returning returns reusable reverse root rule safe scope searching send service set setup share shared sibling siblingdirectivename simplified single sort source specific src stack string stringalias strings style subset supports suspended takes tattrs telement template templateelement templates templateurl terminal testing testing-transclusion-directives throw time transclude transcludefn transclusion transformation transformations transforming tree true typical typically undefined unspecified updated updating url values var variable variety view walking watches ways widget working works wrap wrapper x-ng-bind"
     }
   },
   "api/ng/provider/$compileProvider": {
@@ -466,7 +466,7 @@ angular.module('pagesData', [])
     "path": "api/ng/provider/$compileProvider",
     "searchTerms": {
       "titleWords": "$compileProvider",
-      "keywords": "$compileprovider $inject api compile js js-angular-release ng provider src"
+      "keywords": "$compileprovider $inject api compile function js js-angular-release ng provider src"
     }
   },
   "api/ng/type/$compile.directive.Attributes": {
@@ -526,7 +526,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngHref",
     "searchTerms": {
       "titleWords": "ngHref href",
-      "keywords": "angular api attribute attributes behaviors booleanattrs broken chance clicks combinations correct directive error example example-example6 gravatar href html http js js-angular-release link links markup ng ng-click ng-href ngattributealiasdirectives nghref problem replace replaces return solves src string url user write wrong"
+      "keywords": "angular api attribute attributes behaviors booleanattrs broken chance clicks combinations correct directive error example example-example5 gravatar href html http js js-angular-release link links markup ng ng-click ng-href ngattributealiasdirectives nghref problem replace replaces return solves src string url user write wrong"
     }
   },
   "api/ng/directive/ngSrc": {
@@ -562,7 +562,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngDisabled",
     "searchTerms": {
       "titleWords": "ngDisabled disabled",
-      "keywords": "absence angular api attribute attributes binding boolean booleanattrs browser browsers button chrome complementary directive disabled element enabled example-example7 expression false guide html ie8 ies input interpolation isdisabled js js-angular-release lost markup ng ng-init ngattributealiasdirectives ngdisabled older permanent place presence preserve problem reliable removed removes require scope set solves special specification src store true truthy values"
+      "keywords": "absence angular api attribute attributes binding boolean booleanattrs browser browsers button chrome complementary directive disabled element enabled example-example6 expression false guide html ie8 ies input interpolation isdisabled js js-angular-release lost markup ng ng-init ngattributealiasdirectives ngdisabled older permanent place presence preserve problem reliable removed removes require scope set solves special specification src store true truthy values"
     }
   },
   "api/ng/directive/ngChecked": {
@@ -574,7 +574,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngChecked",
     "searchTerms": {
       "titleWords": "ngChecked checked",
-      "keywords": "absence angular api attribute attributes binding boolean booleanattrs browser browsers checked complementary directive element example-example8 expression false guide html input interpolation js js-angular-release lost ng ngattributealiasdirectives ngchecked permanent place presence preserve problem reliable removed removes require set solves special specification src store true truthy values"
+      "keywords": "absence angular api attribute attributes binding boolean booleanattrs browser browsers checked complementary directive element example-example7 expression false guide html input interpolation js js-angular-release lost ng ngattributealiasdirectives ngchecked permanent place presence preserve problem reliable removed removes require set solves special specification src store true truthy values"
     }
   },
   "api/ng/directive/ngReadonly": {
@@ -586,7 +586,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngReadonly",
     "searchTerms": {
       "titleWords": "ngReadonly readonly",
-      "keywords": "absence angular api attribute attributes binding boolean booleanattrs browser browsers complementary directive element example-example9 expression false guide html input interpolation js js-angular-release lost ng ngattributealiasdirectives ngreadonly permanent place presence preserve problem readonly reliable removed removes require set solves special specification src store true truthy values"
+      "keywords": "absence angular api attribute attributes binding boolean booleanattrs browser browsers complementary directive element example-example8 expression false guide html input interpolation js js-angular-release lost ng ngattributealiasdirectives ngreadonly permanent place presence preserve problem readonly reliable removed removes require set solves special specification src store true truthy values"
     }
   },
   "api/ng/directive/ngSelected": {
@@ -598,7 +598,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngSelected",
     "searchTerms": {
       "titleWords": "ngSelected selected",
-      "keywords": "absence angular api attribute attributes binding boolean booleanattrs browser browsers complementary directive element example-example10 expression false guide html interpolation js js-angular-release lost ng ngattributealiasdirectives ngselected option permanent place presence preserve problem reliable removed removes require selected set solves special specification src store true truthy values"
+      "keywords": "absence angular api attribute attributes binding boolean booleanattrs browser browsers complementary directive element example-example9 expression false guide html interpolation js js-angular-release lost ng ngattributealiasdirectives ngselected option permanent place presence preserve problem reliable removed removes require selected set solves special specification src store true truthy values"
     }
   },
   "api/ng/directive/ngOpen": {
@@ -610,7 +610,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngOpen",
     "searchTerms": {
       "titleWords": "ngOpen open",
-      "keywords": "absence angular api attribute attributes binding boolean booleanattrs browser browsers complementary details directive element example-example11 expression false guide html interpolation js js-angular-release lost ng ngattributealiasdirectives ngopen open permanent place presence preserve problem reliable removed removes require set solves special specification src store true truthy values"
+      "keywords": "absence angular api attribute attributes binding boolean booleanattrs browser browsers complementary details directive element example-example10 expression false guide html interpolation js js-angular-release lost ng ngattributealiasdirectives ngopen open permanent place presence preserve problem reliable removed removes require set solves special specification src store true truthy values"
     }
   },
   "api/ng/type/form.FormController": {
@@ -646,7 +646,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/form",
     "searchTerms": {
       "titleWords": "form",
-      "keywords": "access action alias allow allows angular animation animations api application-specific applications apps associated attribute background behaves browser browsers button buttons called changes child classes classical click client-side color controller css current data default desirable detect directive directives dirty doesn double dynamically element elements enclosing enter events example example-example12 execution field fields form formcontroller formdirectivefactory forms full generate generated handle handler hitting hook hooked hooks html identically include input inputs instantiates interpolation invalid javascript js js-angular-release keyframes linear logic method mind model module my-form nest nested nesting ng ng-dirty ng-invalid ng-pristine ng-valid nganimate ngclass ngclick ngform ngmodeloptions ngrepeat ngsubmit note occur outer pending performed place prevent preventing prevents pristine published reason red reload removed rendered repeated role roundtrip rules scope sends server set simple specification src style submission submit submitted submitting transition transitions translate trigger triggered triggers type updated utilize valid validated validation validations ways white work wrap"
+      "keywords": "action alias allow allows angular animation animations api application-specific applications apps associated attribute background behaves browser browsers button buttons called child classes classical click client-side color controller css current data default desirable detect directive directives dirty doesn double dynamically element elements enclosing enter example example-example11 execution field fields form formcontroller formdirectivefactory forms full generate generated handle handler hitting hook hooked hooks html identically include input inputs instantiates interpolation invalid javascript js js-angular-release keyframes linear logic method mind module my-form nest nested nesting ng ng-dirty ng-invalid ng-pristine ng-valid nganimate ngclass ngclick ngform ngrepeat ngsubmit outer performed prevent preventing prevents pristine published reason red reload removed rendered repeated role roundtrip rules scope sends server set simple specification src style submission submit submitted submitting transition transitions translate trigger triggered triggers type utilize valid validated validation validations ways white work wrap"
     }
   },
   "api/ng/input/input[text]": {
@@ -659,66 +659,6 @@ angular.module('pagesData', [])
     "searchTerms": {
       "titleWords": "input[text]",
       "keywords": "adds angular api assignable attribute automatically binding changes constraint control data data-bind defined element entered error evaluates example-text-input-directive executed expected expression expressions false form html inline input interaction js js-angular-release key longer match maxlength minlength ng ngchange ngmaxlength ngminlength ngmodel ngpattern ngrequired pattern patterns property published regexp required scope set sets shorter src standard text textinputtype trim true user validation"
-    }
-  },
-  "api/ng/input/input[date]": {
-    "docType": "input",
-    "id": "module:ng.input:input[date]",
-    "name": "input[date]",
-    "area": "api",
-    "outputPath": "partials/api/ng/input/input[date].html",
-    "path": "api/ng/input/input[date]",
-    "searchTerms": {
-      "titleWords": "input[date]",
-      "keywords": "adds angular api assignable attribute browsers case changes constraint control createdateinputtype data-bind element entered error evaluates example example-date-input-directive executed expression form format greater html5 input interaction iso iso-8601 js js-angular-release key max min model ng ngchange ngmodel ngrequired object property published required sets src string support text transformation true user valid validation"
-    }
-  },
-  "api/ng/input/input[dateTimeLocal]": {
-    "docType": "input",
-    "id": "module:ng.input:input[dateTimeLocal]",
-    "name": "input[dateTimeLocal]",
-    "area": "api",
-    "outputPath": "partials/api/ng/input/input[dateTimeLocal].html",
-    "path": "api/ng/input/input[dateTimeLocal]",
-    "searchTerms": {
-      "titleWords": "input[dateTimeLocal]",
-      "keywords": "adds angular api assignable attribute browsers case changes constraint control createdateinputtype data-bind datetime datetimelocal element entered error evaluates example example-datetimelocal-input-directive executed expression form format greater html5 input interaction iso iso-8601 js js-angular-release key local max min model ng ngchange ngmodel ngrequired object property published required sets src support text transformation true user valid validation"
-    }
-  },
-  "api/ng/input/input[time]": {
-    "docType": "input",
-    "id": "module:ng.input:input[time]",
-    "name": "input[time]",
-    "area": "api",
-    "outputPath": "partials/api/ng/input/input[time].html",
-    "path": "api/ng/input/input[time]",
-    "searchTerms": {
-      "titleWords": "input[time]",
-      "keywords": "adds angular api assignable attribute binding browsers case changes constraint control createdateinputtype data-bind element entered error evaluates example example-time-input-directive executed expression form format greater hh html5 input interaction iso iso-8601 january js js-angular-release key local max min mm model ng ngchange ngmodel ngrequired object output property published required sets src support text time transformation true user valid validation"
-    }
-  },
-  "api/ng/input/input[week]": {
-    "docType": "input",
-    "id": "module:ng.input:input[week]",
-    "name": "input[week]",
-    "area": "api",
-    "outputPath": "partials/api/ng/input/input[week].html",
-    "path": "api/ng/input/input[week]",
-    "searchTerms": {
-      "titleWords": "input[week]",
-      "keywords": "adds angular api assignable attribute browsers case changes constraint control createdateinputtype data-bind element entered error evaluates example example-week-input-directive executed expression form format greater html5 input interaction iso iso-8601 js js-angular-release key max min model ng ngchange ngmodel ngrequired object property published required sets src support text transformation true user valid validation week week-of-the-year"
-    }
-  },
-  "api/ng/input/input[month]": {
-    "docType": "input",
-    "id": "module:ng.input:input[month]",
-    "name": "input[month]",
-    "area": "api",
-    "outputPath": "partials/api/ng/input/input[month].html",
-    "path": "api/ng/input/input[month]",
-    "searchTerms": {
-      "titleWords": "input[month]",
-      "keywords": "adds angular api assignable assumed attribute browsers case changes constraint control createdateinputtype data-bind element entered error evaluates event example example-month-input-directive executed expression form format greater html5 input interaction iso iso-8601 js js-angular-release key max min model month ng ngchange ngmodel ngrequired object property published required set sets src support text transformation true user valid validation"
     }
   },
   "api/ng/input/input[number]": {
@@ -790,7 +730,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/textarea",
     "searchTerms": {
       "titleWords": "textarea",
-      "keywords": "adds angular api assignable attribute changes constraint control data-bind data-binding defined directive element entered error evaluates exactly executed expected expression expressions form html inline input inputdirective interaction js js-angular-release key longer match maxlength minlength ng ngchange ngmaxlength ngminlength ngmodel ngpattern ngrequired pattern patterns properties property published regexp required scope sets shorter src textarea true user validation"
+      "keywords": "adds angular api assignable attribute automatically changes constraint control data-bind data-binding defined directive element entered error evaluates exactly executed expected expression expressions false form html inline input inputdirective interaction js js-angular-release key longer match maxlength minlength ng ngchange ngmaxlength ngminlength ngmodel ngpattern ngrequired pattern patterns properties property published regexp required scope set sets shorter src textarea trim true user validation"
     }
   },
   "api/ng/directive/input": {
@@ -826,7 +766,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngModel",
     "searchTerms": {
       "titleWords": "ngModel model",
-      "keywords": "animation animations api associated attached background basic behavior best bind binding binds checkbox classes color control created css current custom datetimelocal depending detect directive directives dirty doesn element email errors evaluating example example-example13 examples exist exposed expression form hook hooked hooks implicitly include including input invalid js js-angular-release keeping keyframes linear mind model models module month my-input ng ng-dirty ng-invalid ng-pristine ng-valid nganimate ngclass ngmodel ngmodelcontroller ngmodeldirective note number parent performed practices pristine property providing radio red registering removed rendered require required responsible scope select set setting simple src style text textarea time transition transitions triggered url utilize valid validated validation validations validity view week white work"
+      "keywords": "animation animations api associated attached background basic behavior best bind binding binds checkbox classes color control created css current custom depending detect directive directives dirty doesn element email errors evaluating example example-example12 examples exist exposed expression form hook hooked hooks implicitly include including input invalid js js-angular-release keeping keyframes linear mind model models module my-input ng ng-dirty ng-invalid ng-pristine ng-valid nganimate ngclass ngmodel ngmodelcontroller ngmodeldirective note number parent performed practices pristine property providing radio red registering removed rendered require required responsible scope select set setting simple src style text textarea transition transitions triggered url utilize valid validated validation validations validity view white work"
     }
   },
   "api/ng/directive/ngChange": {
@@ -865,18 +805,6 @@ angular.module('pagesData', [])
       "keywords": "angular api attribute binds bound buttons directive dynamically element example-ngvalue-directive expression generating input js js-angular-release lists ng ng-repeat ngmodel ngvalue ngvaluedirective radio selected set src"
     }
   },
-  "api/ng/directive/ngModelOptions": {
-    "docType": "directive",
-    "id": "module:ng.directive:ngModelOptions",
-    "name": "ngModelOptions",
-    "area": "api",
-    "outputPath": "partials/api/ng/directive/ngModelOptions.html",
-    "path": "api/ng/directive/ngModelOptions",
-    "searchTerms": {
-      "titleWords": "ngModelOptions modeloptions",
-      "keywords": "$rollbackviewvalue access action actual allows api apply attribute belonging blur bound button called canceled change changes clear control controllers current custom debounce debounced debouncing default delay delimited directive displayed easiest empty enclosing escape event events example example-ngmodeloptions-directive-blur example-ngmodeloptions-directive-debounce expires field fields focus focused form input inputs inside integer invoke js js-angular-release key list loses making matches method milliseconds model nature ng ngclick ngmodel ngmodelcontroller ngmodeloptions ngmodeloptionsdirective ngsubmit note object occur options order override pending place pressed published reference relevant reset scope set space special src string submit submitted supplied synchronized takes timer trigger triggers tuning update updated updateon updates valid view"
-    }
-  },
   "api/ng/directive/ngBind": {
     "docType": "directive",
     "id": "module:ng.directive:ngBind",
@@ -886,7 +814,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngBind",
     "searchTerms": {
       "titleWords": "ngBind bind",
-      "keywords": "ac alternative angular api attribute bindings box browser changes compiles content curly directive directly displayed don double element enter evaluate example-example14 expression greeting guide html instantly invisible js js-angular-release live loading markup momentarily ng ngbind ngbinddirective ngcloak preferable preview problem raw replace solution src tells template text typically update user verbose"
+      "keywords": "ac alternative angular api attribute bindings box browser changes compiles content curly directive directly displayed don double element enter evaluate example-example13 expression greeting guide html instantly invisible js js-angular-release live loading markup momentarily ng ngbind ngbinddirective ngcloak preferable preview problem raw replace solution src tells template text typically update user verbose"
     }
   },
   "api/ng/directive/ngBindTemplate": {
@@ -898,7 +826,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngBindTemplate",
     "searchTerms": {
       "titleWords": "ngBindTemplate bindtemplate",
-      "keywords": "api attribute box change content directive element elements enter eval example-example15 expressions form greeting html interpolation js js-angular-release multiple needed ng ngbind ngbindtemplate ngbindtemplatedirective option replaced span specifies src template text title watch"
+      "keywords": "api attribute box change content directive element elements enter eval example-example14 expressions form greeting html interpolation js js-angular-release multiple needed ng ngbind ngbindtemplate ngbindtemplatedirective option replaced span specifies src template text title watch"
     }
   },
   "api/ng/directive/ngBindHtml": {
@@ -910,7 +838,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngBindHtml",
     "searchTerms": {
       "titleWords": "ngBindHtml bindhtml",
-      "keywords": "$sanitize $sce angular api bind binding bound box bypass change content contextual core creates current default dependencies directive element ensure enter escaping evaluate evaluating example example-example16 exception explicitly exploit expression functionality greeting guide including innerhtml innerhtml-ed isn js js-angular-release module ng ngbind ngbindhtml ngbindhtmldirective ngsanitize note result safe sanitization sanitized secure service src strict text trustashtml trusted unavailable utilize values watch"
+      "keywords": "$sanitize $sce angular api bind binding bound box bypass change content contextual core creates current default dependencies directive element ensure enter escaping evaluate evaluating example example-example15 exception explicitly exploit expression functionality greeting guide including innerhtml innerhtml-ed isn js js-angular-release module ng ngbind ngbindhtml ngbindhtmldirective ngsanitize note result safe sanitization sanitized secure service src strict text trustashtml trusted unavailable utilize values watch"
     }
   },
   "api/ng/directive/ngClass": {
@@ -922,7 +850,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngClass",
     "searchTerms": {
       "titleWords": "ngClass class",
-      "keywords": "$animate ac add addclass allows animation animations api applied apply array basic bindings boolean case changes class class-based classes corresponding css css3 databinding delimited demonstrates depending details directive duplicate dynamically element eval evaluates evaluation example example-example17 example-example18 expression follow guide hinder html idea js js-angular-release key key-value map names naming ng nganimate ngclass ngclassdirective object operates pair perform pre-existing properties remove removeclass removed representing represents result set space space-delimited src start step string structure supplementary supports three track transitions truthy types values view ways won"
+      "keywords": "$animate ac add addclass allows animation animations api applied apply array basic bindings boolean case changes class class-based classes corresponding css css3 databinding delimited demonstrates depending details directive duplicate dynamically element eval evaluates evaluation example example-example16 example-example17 expression follow guide hinder html idea js js-angular-release key key-value map names naming ng nganimate ngclass ngclassdirective object operates pair perform pre-existing properties remove removeclass removed representing represents result set space space-delimited src start step string structure supplementary supports three track transitions truthy types values view ways won"
     }
   },
   "api/ng/directive/ngClassOdd": {
@@ -934,7 +862,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngClassOdd",
     "searchTerms": {
       "titleWords": "ngClassOdd classodd",
-      "keywords": "ac api applied array class conjunction delimited directive directives eval evaluation exactly example-example19 expression guide js js-angular-release names ng ngclass ngclasseven ngclassodd ngclassodddirective ngrepeat odd representing result rows scope space src string work"
+      "keywords": "ac api applied array class conjunction delimited directive directives eval evaluation exactly example-example18 expression guide js js-angular-release names ng ngclass ngclasseven ngclassodd ngclassodddirective ngrepeat odd representing result rows scope space src string work"
     }
   },
   "api/ng/directive/ngClassEven": {
@@ -946,7 +874,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngClassEven",
     "searchTerms": {
       "titleWords": "ngClassEven classeven",
-      "keywords": "ac api applied array class conjunction delimited directive directives eval evaluation exactly example-example20 expression guide js js-angular-release names ng ngclass ngclasseven ngclassevendirective ngclassodd ngrepeat odd representing result rows scope space src string work"
+      "keywords": "ac api applied array class conjunction delimited directive directives eval evaluation exactly example-example19 expression guide js js-angular-release names ng ngclass ngclasseven ngclassevendirective ngclassodd ngrepeat odd representing result rows scope space src string work"
     }
   },
   "api/ng/directive/ngCloak": {
@@ -958,7 +886,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngCloak",
     "searchTerms": {
       "titleWords": "ngCloak cloak",
-      "keywords": "ac add addition alternatively angular angular-csp api application applied apply attribute avoid best browser browsers caused children class compilation compiled cooperation csp css deletes directive directives display displayed document element elements embedded encounters example example-example21 external file flicker form head hidden html ie7 included js js-angular-release legacy limitation loaded loading making match min mode multiple ng ng-cloak ngcloak ngcloakdirective ngcsp permit portions preferred prevent progressive provide raw rendering result rule script selector small src stylesheet support tagged template undesirable usage view visible work works x-ng-cloak"
+      "keywords": "ac add addition alternatively angular angular-csp api application applied apply attribute avoid best browser browsers caused children class compilation compiled cooperation csp css deletes directive directives display displayed document element elements embedded encounters example example-example20 external file flicker form head hidden html ie7 included js js-angular-release legacy limitation loaded loading making match min mode multiple ng ng-cloak ngcloak ngcloakdirective ngcsp permit portions preferred prevent progressive provide raw rendering result rule script selector small src stylesheet support tagged template undesirable usage view visible work works x-ng-cloak"
     }
   },
   "api/ng/directive/ngController": {
@@ -970,7 +898,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngController",
     "searchTerms": {
       "titleWords": "ngController controller",
-      "keywords": "$route access accessed accessible adding allows angular api application aspect attach attached attaches automatically bindings business called changes class clearing common components contact controller controllers current data declaration declare declared declaring decorate definition design directive dom easily easy editing evaluates example example-example22 example-example23 executed expression form function functions globally greeting guide instance js js-angular-release key logic manual markup methods mistake model model-view-controller mvc ng ng-controller ngcontroller ngcontrollerdirective ngroute note notice pattern preference principles properties property propertyname published reflected removing rendered route scope scopes service simple source specifies src styles supports tab template update user values view"
+      "keywords": "$route $scope access accessed accessible accessing adding advantages angular api appear application apply aspect attach attached attaches automatically avoiding binding bindings binds boilerplates business called changes class classes clearing code common community components contact controller controllers current data declaration declare declared declaring decorate definition demonstrates design directive directly dom don easier easily editing element evaluates example example-ngcontroller example-ngcontrolleras executed expression form function functions generally globally greeting guide included inheritance injects inside instance js js-angular-release key logic manual markup masking methods mistake model model-view-controller models multiple mvc ng ng-controller ngcontroller ngcontrollerdirective ngroute note obvious option pattern primitives principles properties property propertyname prototypal published reflected removing rendered route scope scopes second service settings settingscontroller1 settingscontroller2 simple source specifies src style styles supports syntax tab template update user values view worry writing"
     }
   },
   "api/ng/directive/ngCsp": {
@@ -982,7 +910,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngCsp",
     "searchTerms": {
       "titleWords": "ngCsp csp",
-      "keywords": "$parse angular angular-csp angularjs api application apply applying apps attribute automatically chrome compatibility compatible csp css data-ng-csp developing directive directives element enables eval evaluate example expressions extensions feature forbids form function functions generated getterfn google html implement include includes inline javascript js js-angular-release manually mode mozilla ng ng-app ng-csp ngcloak ngcsp non-csp optimization order org policy raised restrictions root rules security slower speed src stylesheet support tag things violating violations work"
+      "keywords": "active allowed angular angular-csp angularjs annoying api appears application apply applying apps attribute autodetect autodetection automatically chrome compatibility compatible console content csp csp-safe css custom data-ng-csp default-src developing differently directive directives document don element enables error eval evaluate example explicitly expressions extensions fallback forbids form function functions generate generated getters google harmless html include includes inject inline javascript js js-angular-release logged manually mode mozilla ng ng-app ng-csp ngcloak ngcsp non-csp note optimization optimized org policy prevent raised refused root rules script script-src security set showing slower source speed src string stylesheet support tag things triggers turn unsafe-eval violations whichever work"
     }
   },
   "api/ng/directive/ngClick": {
@@ -994,7 +922,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngClick",
     "searchTerms": {
       "titleWords": "ngClick click",
-      "keywords": "$event allows api behavior click clicked custom directive element evaluate event example-example24 expression guide js js-angular-release ng ngclick ngeventdirectives ngeventdirs object src"
+      "keywords": "$event allows api behavior click clicked custom directive element evaluate event example-example21 expression guide js js-angular-release ng ngclick ngeventdirectives ngeventdirs object src"
     }
   },
   "api/ng/directive/ngDblclick": {
@@ -1006,7 +934,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngDblclick",
     "searchTerms": {
       "titleWords": "ngDblclick dblclick",
-      "keywords": "$event allows api behavior custom dblclick directive evaluate event example-example25 expression guide js js-angular-release ng ngdblclick ngeventdirs object src"
+      "keywords": "$event allows api behavior custom dblclick directive evaluate event example-example22 expression guide js js-angular-release ng ngdblclick ngeventdirs object src"
     }
   },
   "api/ng/directive/ngMousedown": {
@@ -1018,7 +946,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngMousedown",
     "searchTerms": {
       "titleWords": "ngMousedown mousedown",
-      "keywords": "$event allows api behavior custom directive evaluate event example-example26 expression guide js js-angular-release mousedown ng ngeventdirs ngmousedown object src"
+      "keywords": "$event allows api behavior custom directive evaluate event example-example23 expression guide js js-angular-release mousedown ng ngeventdirs ngmousedown object src"
     }
   },
   "api/ng/directive/ngMouseup": {
@@ -1030,7 +958,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngMouseup",
     "searchTerms": {
       "titleWords": "ngMouseup mouseup",
-      "keywords": "$event api behavior custom directive evaluate event example-example27 expression guide js js-angular-release mouseup ng ngeventdirs ngmouseup object src"
+      "keywords": "$event api behavior custom directive evaluate event example-example24 expression guide js js-angular-release mouseup ng ngeventdirs ngmouseup object src"
     }
   },
   "api/ng/directive/ngMouseover": {
@@ -1042,7 +970,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngMouseover",
     "searchTerms": {
       "titleWords": "ngMouseover mouseover",
-      "keywords": "$event api behavior custom directive evaluate event example-example28 expression guide js js-angular-release mouseover ng ngeventdirs ngmouseover object src"
+      "keywords": "$event api behavior custom directive evaluate event example-example25 expression guide js js-angular-release mouseover ng ngeventdirs ngmouseover object src"
     }
   },
   "api/ng/directive/ngMouseenter": {
@@ -1054,7 +982,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngMouseenter",
     "searchTerms": {
       "titleWords": "ngMouseenter mouseenter",
-      "keywords": "$event api behavior custom directive evaluate event example-example29 expression guide js js-angular-release mouseenter ng ngeventdirs ngmouseenter object src"
+      "keywords": "$event api behavior custom directive evaluate event example-example26 expression guide js js-angular-release mouseenter ng ngeventdirs ngmouseenter object src"
     }
   },
   "api/ng/directive/ngMouseleave": {
@@ -1066,7 +994,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngMouseleave",
     "searchTerms": {
       "titleWords": "ngMouseleave mouseleave",
-      "keywords": "$event api behavior custom directive evaluate event example-example30 expression guide js js-angular-release mouseleave ng ngeventdirs ngmouseleave object src"
+      "keywords": "$event api behavior custom directive evaluate event example-example27 expression guide js js-angular-release mouseleave ng ngeventdirs ngmouseleave object src"
     }
   },
   "api/ng/directive/ngMousemove": {
@@ -1078,7 +1006,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngMousemove",
     "searchTerms": {
       "titleWords": "ngMousemove mousemove",
-      "keywords": "$event api behavior custom directive evaluate event example-example31 expression guide js js-angular-release mousemove ng ngeventdirs ngmousemove object src"
+      "keywords": "$event api behavior custom directive evaluate event example-example28 expression guide js js-angular-release mousemove ng ngeventdirs ngmousemove object src"
     }
   },
   "api/ng/directive/ngKeydown": {
@@ -1090,7 +1018,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngKeydown",
     "searchTerms": {
       "titleWords": "ngKeydown keydown",
-      "keywords": "$event altkey api behavior custom directive evaluate event example-example32 expression guide interrogated js js-angular-release keycode keydown ng ngeventdirs ngkeydown object src"
+      "keywords": "$event altkey api behavior custom directive evaluate event example-example29 expression guide interrogated js js-angular-release keycode keydown ng ngeventdirs ngkeydown object src"
     }
   },
   "api/ng/directive/ngKeyup": {
@@ -1102,7 +1030,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngKeyup",
     "searchTerms": {
       "titleWords": "ngKeyup keyup",
-      "keywords": "$event altkey api behavior custom directive evaluate event example-example33 expression guide interrogated js js-angular-release keycode keyup ng ngeventdirs ngkeyup object src"
+      "keywords": "$event altkey api behavior custom directive evaluate event example-example30 expression guide interrogated js js-angular-release keycode keyup ng ngeventdirs ngkeyup object src"
     }
   },
   "api/ng/directive/ngKeypress": {
@@ -1114,7 +1042,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngKeypress",
     "searchTerms": {
       "titleWords": "ngKeypress keypress",
-      "keywords": "$event altkey api behavior custom directive evaluate event example-example34 expression guide interrogated js js-angular-release keycode keypress ng ngeventdirs ngkeypress object src"
+      "keywords": "$event altkey api behavior custom directive evaluate event example-example31 expression guide interrogated js js-angular-release keycode keypress ng ngeventdirs ngkeypress object src"
     }
   },
   "api/ng/directive/ngSubmit": {
@@ -1126,7 +1054,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngSubmit",
     "searchTerms": {
       "titleWords": "ngSubmit submit",
-      "keywords": "$event action additionally angular api attributes binding current data-action default directive enables eval event events example-example35 expression expressions form guide js js-angular-release ng ngeventdirs ngsubmit object onsubmit prevents reloading request sending server src x-action"
+      "keywords": "$event action additionally angular api attributes binding current data-action default directive enables eval event events example-example32 expression expressions form guide js js-angular-release ng ngeventdirs ngsubmit object onsubmit prevents reloading request sending server src x-action"
     }
   },
   "api/ng/directive/ngFocus": {
@@ -1162,7 +1090,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngCopy",
     "searchTerms": {
       "titleWords": "ngCopy copy",
-      "keywords": "$event api behavior copy custom directive evaluate event example-example36 expression guide input js js-angular-release ng ngcopy ngeventdirs object select src textarea window"
+      "keywords": "$event api behavior copy custom directive evaluate event example-example33 expression guide input js js-angular-release ng ngcopy ngeventdirs object select src textarea window"
     }
   },
   "api/ng/directive/ngCut": {
@@ -1174,7 +1102,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngCut",
     "searchTerms": {
       "titleWords": "ngCut cut",
-      "keywords": "$event api behavior custom cut directive evaluate event example-example37 expression guide input js js-angular-release ng ngcut ngeventdirs object select src textarea window"
+      "keywords": "$event api behavior custom cut directive evaluate event example-example34 expression guide input js js-angular-release ng ngcut ngeventdirs object select src textarea window"
     }
   },
   "api/ng/directive/ngPaste": {
@@ -1186,7 +1114,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngPaste",
     "searchTerms": {
       "titleWords": "ngPaste paste",
-      "keywords": "$event api behavior custom directive evaluate event example-example38 expression guide input js js-angular-release ng ngeventdirs ngpaste object paste select src textarea window"
+      "keywords": "$event api behavior custom directive evaluate event example-example35 expression guide input js js-angular-release ng ngeventdirs ngpaste object paste select src textarea window"
     }
   },
   "api/ng/directive/ngIf": {
@@ -1198,7 +1126,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngIf",
     "searchTerms": {
       "titleWords": "ngIf if",
-      "keywords": "addclass additionally animate animations api assigned attribute based behavior bind case change changing child class clone common compiled completely container contents copy created css defined destroyed difference differs directive directly display dom effects element elements enter evaluates example example-example39 expression false falsy guide implication inheritance inherits injected javascript jquery js js-angular-release leave lost method modifications modified module ng nganimate nghide ngif ngifdirective ngmodel ngshow note original override parent portion position primitive property provide pseudo-classes recreates regenerate reinserted rely removed removes restored scope selectors src tree truthy variable visibility"
+      "keywords": "addclass additionally animate animations api assigned attribute based behavior bind case change changing child class clone common compiled completely container contents copy created css defined destroyed difference differs directive directly display dom effects element elements enter evaluates example example-example36 expression false falsy guide implication inheritance inherits injected javascript jquery js js-angular-release leave lost method modifications modified module ng nganimate nghide ngif ngifdirective ngmodel ngshow note original override parent portion position primitive property provide pseudo-classes recreates regenerate reinserted rely removed removes restored scope selectors src tree truthy variable visibility"
     }
   },
   "api/ng/directive/ngInclude": {
@@ -1210,7 +1138,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngInclude",
     "searchTerms": {
       "titleWords": "ngInclude include",
-      "keywords": "$anchorscroll $sce $scedelegateprovider access addition angular animate animation api application attribute autoscroll bring browser browsers call calling compiles concurrently constant content contextual cross-domain default directive disable document domain domains eca enable enter escaping evaluate evaluates evaluating example example-example40 existing expression external fetches file fragment gettrustedresourceurl google html includes js js-angular-release leave load loaded mypartialtemplate ng nginclude ngincludedirective occur onload org origin partial policy protocol protocols quotes refer requests resource resourceurlwhitelist restrict restricted same-origin_policy_for_xmlhttprequest scroll scrolling set sharing source src strict string template templates trustasresourceurl trusted truthy url values viewport w3 whitelist won work wrap"
+      "keywords": "$anchorscroll $sce $scedelegateprovider access addition angular animate animation api application attribute autoscroll bring browser browsers call calling compiles concurrently constant content contextual cross-domain default directive disable document domain domains eca enable enter escaping evaluate evaluates evaluating example example-example37 existing expression external fetches file fragment gettrustedresourceurl google html includes js js-angular-release leave load loaded mypartialtemplate ng nginclude ngincludedirective occur onload org origin partial policy protocol protocols quotes refer requests resource resourceurlwhitelist restrict restricted same-origin_policy_for_xmlhttprequest scroll scrolling set sharing source src strict string template templates trustasresourceurl trusted truthy url values viewport w3 whitelist won work wrap"
     }
   },
   "api/ng/directive/ngInit": {
@@ -1222,7 +1150,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngInit",
     "searchTerms": {
       "titleWords": "ngInit init",
-      "keywords": "$filter ac alert alert-error alert-warning aliasing allows api appropriate assignment case class controllers correct current demo directive eval evaluate example-example41 expression guide initialize js js-angular-release ng ng-init nginit nginitdirective ngrepeat orderby parenthesis precedence prettyprint properties scope special src test1 values"
+      "keywords": "$filter ac alert alert-error alert-warning aliasing allows api appropriate assignment case class controllers correct current demo directive eval evaluate example-example38 expression guide initialize js js-angular-release ng ng-init nginit nginitdirective ngrepeat orderby parenthesis precedence prettyprint properties scope special src test1 values"
     }
   },
   "api/ng/directive/ngNonBindable": {
@@ -1234,7 +1162,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngNonBindable",
     "searchTerms": {
       "titleWords": "ngNonBindable nonbindable",
-      "keywords": "ac angular api appears bind binding bindings case code compile contents current directive directives displays dom element example example-example42 ignored instance interpolation js js-angular-release left locations ng ngnonbindable ngnonbindabledirective simple site snippets src tells wrapped"
+      "keywords": "ac angular api appears bind binding bindings case code compile contents current directive directives displays dom element example example-example39 ignored instance interpolation js js-angular-release left locations ng ngnonbindable ngnonbindabledirective simple site snippets src tells wrapped"
     }
   },
   "api/ng/directive/ngPluralize": {
@@ -1246,7 +1174,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngPluralize",
     "searchTerms": {
       "titleWords": "ngPluralize pluralize",
-      "keywords": "actual allows angular api attribute attributes better bound braces bundled case categories category closed configure configuring corresponding count current customization decide deduct default desired dev directive display displayed displays document documentation dozen ea en-us evaluated example example-example43 examples experience explicit expression guide html i18n including john js js-angular-release json kate locale localization mapping mappings marry match matched matches message messages ng ng-non-bindable ngpluralize ngpluralizedirective note notice number numbers object offset offsets optional org overridden people person personcount placeholder plural pluralized previous provide providing replace rest result rule rules scope set showing specifies src string strings substituted text three total user variable view viewing views"
+      "keywords": "actual allows angular api attribute attributes better bound braces bundled case categories category closed configure configuring corresponding count current customization decide deduct default desired dev directive display displayed displays document documentation dozen ea en-us evaluated example example-example40 examples experience explicit expression guide html i18n including john js js-angular-release json kate locale localization mapping mappings mary match matched matches message messages ng ng-non-bindable ngpluralize ngpluralizedirective note notice number numbers object offset offsets optional org overridden people person personcount placeholder plural pluralized previous provide providing replace rest result rule rules scope set showing specifies src string strings substituted text three total user variable view viewing views"
     }
   },
   "api/ng/directive/ngRepeat": {
@@ -1258,7 +1186,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngRepeat",
     "searchTerms": {
       "titleWords": "ngRepeat repeat",
-      "keywords": "$even $first $id $index $last $middle $odd adam adjacent age album albums aliases amalie angularjs api applied apply array artist assign associate associated associates body boolean built case causing class code collection conjunction considered contents corresponding creating current currently custom database defined defining details directive directives display distinct dom element elements enter enumerate equivalent error evaluate example example-example44 explicit exposed expression extending false feature filter filtered filters flavors footer formats function header html identifiers identity implies including indicating initializes input instance instantiates item items iterator js js-angular-release key leave length-1 list local long loop mapped matter move moving names nesting ng ng-repeat ng-repeat-end ng-repeat-start nginit ngrepeat ngrepeatdirective ngrepeats number object objects odd offset optional output parent pattern person points position properties property provide provided range removed reorder reordered repeat repeated repeater resolve revealed scope series set special src start support supported supports syntax tag template track tracking tracking_expression true type typical unique user variable works"
+      "keywords": "$even $first $id $index $last $middle $odd adam adjacent age album albums aliases amalie angularjs api applied apply array artist assign associate associated associates body boolean built case causing class code collection conjunction considered contents corresponding creating current currently custom database defined defining details directive directives display distinct dom element elements enter enumerate equivalent error evaluate example example-example41 explicit exposed expression extending false feature filter filtered filters flavors footer formats function header html identifiers identity implies including indicating initializes input instance instantiates item items iterator js js-angular-release key leave length-1 list local long loop mapped matter move moving names nesting ng ng-repeat ng-repeat-end ng-repeat-start nginit ngrepeat ngrepeatdirective ngrepeats number object objects odd offset optional output parent pattern person points position properties property provide provided range removed reorder reordered repeat repeated repeater resolve revealed scope series set special src start support supported supports syntax tag template track tracking tracking_expression true type typical unique user variable works"
     }
   },
   "api/ng/directive/ngShow": {
@@ -1270,7 +1198,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngShow",
     "searchTerms": {
       "titleWords": "ngShow show",
-      "keywords": "$scope achieved active add addclass adding alert alert-warning angular-csp angularjs animation animations api appear apply attribute based behavior bigger block bottom causing change changing chooses clash class code conflicting consider contents csp css dealing default defined despite developer directive display easily element elements evaluates events example example-example45 expected expression false falsy file flag form frameworks function guide heavier hidden hide hides hiding html include insensitive isn issue item js js-angular-release left linear list matter mode my-element myvalue ng ng-hide ng-hide-add ng-hide-add-active ng-hide-remove ng-hide-remove-active ng-show ngclass ngcsp ngshow ngshowdirective ngshowhide note overridden override overriding perform position predefined properly property provided remember removeclass removed removing required restating selector selectors set sets simple specificity src style styles styling system time top transition triggered true truthy values visible wondering work working works worry"
+      "keywords": "$scope achieved add addclass adding alert alert-warning angular-csp angularjs animation animations api appear attribute automatically based behavior bigger block bottom causing change changing chooses clash class code conflicting consider contents csp css dealing default despite developer directive display don easily element elements evaluates events example example-example42 expected expression false falsy file flag form frameworks guide handle heavier hidden hide hides hiding html include insensitive isn issue item js js-angular-release left linear list matter mind mode my-element myvalue ng ng-hide ng-hide-add ng-hide-add-active ng-hide-remove ng-hide-remove-active ng-show ngclass ngcsp ngshow ngshowdirective ngshowhide note overridden override overriding perform position predefined property provided removeclass removed removing restating selector selectors set sets simple specificity src states--nganimate style styles styling system time toggling top transition triggered true truthy values version visible wondering work working works"
     }
   },
   "api/ng/directive/ngHide": {
@@ -1282,7 +1210,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngHide",
     "searchTerms": {
       "titleWords": "ngHide hide",
-      "keywords": "$scope achieved add addclass adding alert alert-warning angular-csp angularjs animation animations api appear attribute based behavior bigger bottom causing change changing chooses clash class code conflicting consider contents csp css dealing default despite developer directive display easily element elements evaluates events example example-example46 expected expression false falsy file flag form frameworks function guide heavier hidden hide hides hiding html include insensitive isn issue item js js-angular-release left linear list matter mode my-element myvalue ng ng-hide ng-hide-add ng-hide-add-active ng-hide-remove ng-hide-remove-active ngclass ngcsp nghide nghidedirective ngshow ngshowhide note overridden override overriding perform position predefined property provided remember removeclass removed removing restating selector selectors set sets simple specificity src style styles styling system time top transition triggered true truthy values visible wondering work working works worry"
+      "keywords": "$scope achieved add addclass adding alert alert-warning angular-csp angularjs animation animations api appear attribute automatically based behavior bigger block bottom causing change changing chooses clash class code conflicting consider contents csp css dealing default despite developer directive display don easily element elements evaluates events example example-example43 expected expression false falsy file flag form frameworks guide handle heavier hidden hide hides hiding html insensitive isn issue item js js-angular-release left linear list matter mind mode my-element myvalue ng ng-hide ng-hide-add ng-hide-add-active ng-hide-remove ng-hide-remove-active ngclass ngcsp nghide nghidedirective ngshow ngshowhide note overridden override overriding position predefined property provided removeclass removed removing restating selector selectors set sets simple specificity src states--nganimate style styles styling system toggling top transition triggered true truthy values version visible wondering work working works"
     }
   },
   "api/ng/directive/ngStyle": {
@@ -1294,7 +1222,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngStyle",
     "searchTerms": {
       "titleWords": "ngStyle style",
-      "keywords": "ac allows api background-color conditionally corresponding css directive element evals example example-example47 expression guide html js js-angular-release names ng ngstyle ngstyledirective object quoted set src style valid values"
+      "keywords": "ac allows api background-color conditionally corresponding css directive element evals example example-example44 expression guide html js js-angular-release names ng ngstyle ngstyledirective object quoted set src style valid values"
     }
   },
   "api/ng/directive/ngSwitch": {
@@ -1306,7 +1234,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngSwitch",
     "searchTerms": {
       "titleWords": "ngSwitch switch",
-      "keywords": "$scope add alert alert-info api appears attribute aware based cache case cases change child chooses class code conditionally container contents default define directive directives display displayed dom downloading ea element elements enter evaluated example example-example48 expression expressions inform inner inside interpreted js js-angular-release leave literal loading location match matched matches matching matchvalue1 matchvalue2 multiple nested ng ng-switch ng-switch-default ng-switch-when nginclude ngswitch ngswitchdefault ngswitchdirective ngswitchwhen place preserved removed scope simply someval src statement string structure swap template times values visible works"
+      "keywords": "$scope add alert alert-info api appears attribute aware based cache case cases change child chooses class code conditionally container contents default define directive directives display displayed dom downloading ea element elements enter evaluated example example-example45 expression expressions inform inner inside interpreted js js-angular-release leave literal loading location match matched matches matching matchvalue1 matchvalue2 multiple nested ng ng-switch ng-switch-default ng-switch-when nginclude ngswitch ngswitchdefault ngswitchdirective ngswitchwhen place preserved removed scope simply someval src statement string structure swap template times values visible works"
     }
   },
   "api/ng/directive/ngTransclude": {
@@ -1318,7 +1246,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/ngTransclude",
     "searchTerms": {
       "titleWords": "ngTransclude transclude",
-      "keywords": "ac api content directive dom element example-example49 existing inserted insertion js js-angular-release marks nearest ng ngtransclude ngtranscludedirective parent point removed src transcluded transclusion"
+      "keywords": "ac api content directive dom element example-example46 existing inserted insertion js js-angular-release marks nearest ng ngtransclude ngtranscludedirective parent point removed src transcluded transclusion"
     }
   },
   "api/ng/directive/script": {
@@ -1330,7 +1258,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/script",
     "searchTerms": {
       "titleWords": "script",
-      "keywords": "$templatecache api assigned cache content directive directives element example-example50 guide js js-angular-release load ng nginclude ngroute ngview script scriptdirective set src template templateurl text type"
+      "keywords": "$templatecache api assigned cache content directive directives element example-example47 guide js js-angular-release load ng nginclude ngroute ngview script scriptdirective set src template templateurl text type"
     }
   },
   "api/ng/directive/select": {
@@ -1342,7 +1270,7 @@ angular.module('pagesData', [])
     "path": "api/ng/directive/select",
     "searchTerms": {
       "titleWords": "select",
-      "keywords": "adds alert alert-warning angular api array assignable attribute binding bound class compares comprehension_expression considered constraint control data data-bind data-binding default demonstration directive dom dynamically element elements empty entered evaluates evaluating example example-example51 expression facility form forms generate group hard-coded html identified identify item iterate iteration iterator js js-angular-release jsfiddle key label list local menu model nested net ng ngmodel ngoptions ngoptionsdirective ngrepeat ngrequired non-string null object objects option optionally options parent property propertyname published refer reference represent represented required result select selected set single sources src string track trackexpr true valid validation values variable working"
+      "keywords": "adds alert alert-warning angular api array assignable attribute binding bound class compares comprehension_expression considered constraint control data data-bind data-binding default demonstration directive dom dynamically element elements empty entered evaluates evaluating example example-example48 expression facility form forms generate group hard-coded html identified identify item iterate iteration iterator js js-angular-release jsfiddle key label list local menu model nested net ng ngmodel ngoptions ngoptionsdirective ngrepeat ngrequired non-string null object objects option optionally options parent property propertyname published refer reference represent represented required result select selected set single sources src string track trackexpr true valid validation values variable working"
     }
   },
   "api/ng/service/$document": {
@@ -1354,7 +1282,7 @@ angular.module('pagesData', [])
     "path": "api/ng/service/$document",
     "searchTerms": {
       "titleWords": "$document",
-      "keywords": "$document $documentprovider $window angular api browser document element example-example52 jqlite jquery js js-angular-release ng object service src window wrapper"
+      "keywords": "$document $documentprovider $window angular api browser document element example-example49 jqlite jquery js js-angular-release ng object service src window wrapper"
     }
   },
   "api/ng/service/$exceptionHandler": {
@@ -1402,7 +1330,7 @@ angular.module('pagesData', [])
     "path": "api/ng/filter/filter",
     "searchTerms": {
       "titleWords": "filter",
-      "keywords": "accept actual angular api arbitrary array called case comparator compare comparison considered contained contents described determining element elements equals equivalent essentially evaluated example example-example53 expected expression false filter filtered filterfilter filters final function hand included insensitive item items js js-angular-release match negated ng object objects pattern phone predicate prefixing properties property result return returned returns selecting selects short shorthand simple source special specific src strict string strings subset substring text true write"
+      "keywords": "accept actual angular api arbitrary array called case comparator compare comparison considered contained contents described determining element elements equals equivalent essentially evaluated example example-example50 expected expression false filter filtered filterfilter filters final function hand included insensitive item items js js-angular-release match negated ng object objects pattern phone predicate prefixing properties property result return returned returns selecting selects short shorthand simple source special specific src strict string strings subset substring text true write"
     }
   },
   "api/ng/filter/currency": {
@@ -1414,7 +1342,7 @@ angular.module('pagesData', [])
     "path": "api/ng/filter/currency",
     "searchTerms": {
       "titleWords": "currency",
-      "keywords": "$1 $inject amount api currency current default displayed example-example54 filter filters formats formatted identifier input js js-angular-release locale ng number provided src symbol"
+      "keywords": "$1 $inject amount api currency current default displayed example-example51 filter filters formats formatted function identifier input js js-angular-release locale ng number provided src symbol"
     }
   },
   "api/ng/filter/number": {
@@ -1426,7 +1354,7 @@ angular.module('pagesData', [])
     "path": "api/ng/filter/number",
     "searchTerms": {
       "titleWords": "number",
-      "keywords": "$inject api case computed current decimal decimalplaces default digit empty example-example55 filter filters format formats formatting fraction fractionsize input js js-angular-release locale ng number pattern places provided returned round rounded size src string text third"
+      "keywords": "$inject api case computed current decimal decimalplaces default digit empty example-example52 filter filters format formats formatting fraction fractionsize function input js js-angular-release locale ng number pattern places provided returned round rounded size src string text third"
     }
   },
   "api/ng/filter/date": {
@@ -1438,7 +1366,7 @@ angular.module('pagesData', [])
     "path": "api/ng/filter/date",
     "searchTerms": {
       "titleWords": "date",
-      "keywords": "$inject ad api based clock composed considered datetime day dd description digit eee eeee elements en_us equivalent example-example56 filter filters format formats formatted formatting friday fulldate guide hh hour input iso iso-8601 js js-angular-release literal local locale localizable longdate marker medium mediumdate mediumtime millisecond milliseconds minute mm mmm mmmm month morning ng number object offset order output padded pm predefined quote quoted quotes recognized representation requested rules second sep september sequence short shortdate shorter shorttime single src ss sss sssz string time timezone values versions week ww year yy yyyy yyyy-mm-dd yyyy-mm-ddthh yyyymmddthhmmssz"
+      "keywords": "$inject ad api based clock composed considered datetime day dd description digit eee eeee elements en_us equivalent example-example53 filter filters format formats formatted formatting friday fulldate function guide hh hour input iso js js-angular-release literal local locale localizable longdate marker medium mediumdate mediumtime millisecond milliseconds minute mm mmm mmmm month morning ng number object offset order output padded pm predefined quote quoted quotes recognized representation requested rules second sep september sequence short shortdate shorter shorttime single src ss sss sssz string time timezone values versions week year yy yyyy yyyy-mm-dd yyyy-mm-ddthh yyyymmddthhmmssz"
     }
   },
   "api/ng/filter/json": {
@@ -1450,7 +1378,7 @@ angular.module('pagesData', [])
     "path": "api/ng/filter/json",
     "searchTerms": {
       "titleWords": "json",
-      "keywords": "allows api arrays automatically binding convert converted curly debugging double example-example57 filter filters javascript js js-angular-release json jsonfilter ng notation object primitive src string types"
+      "keywords": "allows api arrays automatically binding convert converted curly debugging double example-example54 filter filters function javascript js js-angular-release json jsonfilter ng notation object primitive src string types"
     }
   },
   "api/ng/filter/lowercase": {
@@ -1462,7 +1390,7 @@ angular.module('pagesData', [])
     "path": "api/ng/filter/lowercase",
     "searchTerms": {
       "titleWords": "lowercase",
-      "keywords": "angular api converts filter filters js js-angular-release lowercase lowercasefilter ng src string"
+      "keywords": "angular api converts filter filters function js js-angular-release lowercase lowercasefilter ng src string"
     }
   },
   "api/ng/filter/uppercase": {
@@ -1474,7 +1402,7 @@ angular.module('pagesData', [])
     "path": "api/ng/filter/uppercase",
     "searchTerms": {
       "titleWords": "uppercase",
-      "keywords": "angular api converts filter filters js js-angular-release ng src string uppercase uppercasefilter"
+      "keywords": "angular api converts filter filters function js js-angular-release ng src string uppercase uppercasefilter"
     }
   },
   "api/ng/filter/limitTo": {
@@ -1486,7 +1414,7 @@ angular.module('pagesData', [])
     "path": "api/ng/filter/limitTo",
     "searchTerms": {
       "titleWords": "limitTo",
-      "keywords": "api array copied creates elements example-example58 exceeds filter input items js js-angular-release length limit limited limitto limittofilter negative ng number positive returned sign source src string sub-array substring trimmed"
+      "keywords": "api array copied creates elements example-example55 exceeds filter function input items js js-angular-release length limit limited limitto limittofilter negative ng number positive returned sign source src string sub-array substring trimmed"
     }
   },
   "api/ng/filter/orderBy": {
@@ -1498,7 +1426,19 @@ angular.module('pagesData', [])
     "path": "api/ng/filter/orderBy",
     "searchTerms": {
       "titleWords": "orderBy",
-      "keywords": "$inject alphabetically angular api array ascending called comparator control copy correctly descending determine elements equivalent evaluates example example-example59 expression filter function getter items js js-angular-release ng note notice numbers numerically object operator optionally order orderby ordered orders predicate predicates prefixed property result reverse saved sort sorted sorting source src string strings"
+      "keywords": "$filter $inject alphabetically angular api array ascending call called calling comparator control copy correctly descending desired determine elements equivalent evaluates example example-example56 example-example57 expression filter function getter injecting items js js-angular-release manually ng note notice numbers numerically object operator optionally order orderby ordered orders parameters predicate predicates prefixed property result retrieving returned reverse routine saved sort sorted sorting source src string strings"
+    }
+  },
+  "api/ng/provider/$httpProvider": {
+    "docType": "provider",
+    "id": "module:ng.provider:$httpProvider",
+    "name": "$httpProvider",
+    "area": "api",
+    "outputPath": "partials/api/ng/provider/$httpProvider.html",
+    "path": "api/ng/provider/$httpProvider",
+    "searchTerms": {
+      "titleWords": "$httpProvider",
+      "keywords": "$http $httpprovider api behavior change default http js js-angular-release ng provider service src"
     }
   },
   "api/ng/service/$http": {
@@ -1510,7 +1450,7 @@ angular.module('pagesData', [])
     "path": "api/ng/service/$http",
     "searchTerms": {
       "titleWords": "$http",
-      "keywords": "$cachefactory $http $httpbackend $httpprovider $injector $provide $q $resource $rootscope abort absolute abstraction accept accessing add adding addition address advanced advantage allows alternatively angular anonymous api apis application applications applies argument arguments array aspx assigning assured asynchronous asynchronously attack augment authentication authorization automatically backend based basic body browser built cache cached caching call callback callbacks called calling chain change changing check client code common communication complete completely conditions config config-time configuration configured consider considerations considered content-type cookie cooperate cooperation core counter create creating credentials cross cross-domain currently custom data debugging decide default defaults deferred delete delivery dependencies dependency1 dependency2 describing deserialize deserialized designing desirable destructured details detected digest directly doesn domain eliminate enable enabled error example example-example60 expectget exposed facilitates factories factory fails false familiarize fashion flag flush follow forgery format free fulfill fulfilled fully function functions gain general generate getter global globally guarantees handed handling head header headers headersgetter higher http info initiated injected instance intercept interceptor interceptors involved issues javascript js js-angular-release json jsonified jsonp key kind kinds level leverage list locally lowercased making map matches matter meaning meant mechanism message method methods milliseconds mock modify module mozilla multiple my-header myhttpinterceptor ng ngmock ngresource note null object objects occurs optional order org override overrides overwrite parser party passed passing patterns pending pendingrequests per-request performing populate populated post postprocessing pre-configured pre-processing prefix prevent previous private processed processing promise properties properties_defaults property protection provide purposes push read readable reads real receive recommend redirect register registered reject rejection relative remaining remote remove representation representing request requested requesterror requests require required resolved resource response responseerror responseornewpromise responses responsetype result return returned returns run-time running runs runtime section_5 security send sending serialize serialized served server servers service services session set sets setting shortcut signature simple simply single site specific src standard start status stores strategies string strings strip subsequent succeeds success supply synchronous takes technique testing tests text third threats threw time timeout token tokens trained transform transformation transformations transformed transforming transformrequest transformresponse transforms transparently true turn turned type unauthorized understand unique unit unshift updating url usage user verifiable verify version vulnerability vulnerable web website wikipedia withcredentials work wrapper writing x-xsrf-token xhr xmlhttprequest xsrf xsrf-token xsrfcookiename xsrfheadername ymvlcdpib29w"
+      "keywords": "$cachefactory $http $httpbackend $httpprovider $injector $provide $q $resource $rootscope abort absolute abstraction accept accessing add adding addition address advanced advantage allows alternatively angular anonymous api apis application applications applies argument arguments array aspx assigning assured asynchronous asynchronously attack augment authentication authorization automatically backend based basic body browser built cache cached caching call callback callbacks called calling chain change changing check client code common communication complete completely conditions config config-time configuration configured consider considerations considered content-type cookie cooperate cooperation core counter create creating credentials cross cross-domain currently custom data debugging decide default defaults deferred delete delivery dependencies dependency1 dependency2 describing deserialize deserialized designing desirable destructured details detected digest directly doesn domain eliminate enable enabled error example example-example58 expectget exposed facilitates factories factory fails false familiarize fashion flag flush follow forgery format free fulfil fulfill fulfilled fully function functions gain general generate getter global globally guarantees handed handling head header headers headersgetter higher http info initiated injected instance intercept interceptor interceptors involved issues javascript js js-angular-release json jsonified jsonp key kind kinds level leverage list locally lowercased making map matches matter meaning meant mechanism message method methods milliseconds mock modify module mozilla multiple my-header myhttpinterceptor ng ngmock ngresource note null object objects occurs optional order org original override overrides overwrite parser party passed passing patterns pending pendingrequests per-request performing populate populated post postprocessing pre-configured pre-processing prefix preprocessing prevent previous private processed processing promise properties properties_defaults property protection provide purposes push read readable reads real receive received recommend redirect register registered reject rejection relative remaining remote remove representation representing request requested requesterror requests require required resolved resource response responseerror responseinterceptors responseornewpromise responses responsetype result return returned returns run-time running runs runtime section_5 security send sending serialize serialized served server servers service services session set sets setting shortcut signature simple simply single site specific src standard start status stores strategies string strings strip subsequent succeeds success supply synchronous takes technique testing tests text third threats threw time timeout token tokens trained transform transformation transformations transformed transforming transformrequest transformresponse transforms transparently true turn turned type unauthorized understand unique unit unshift updating url usage user verifiable verify version vulnerability vulnerable web website wikipedia withcredentials work wrapper writing x-xsrf-token xhr xmlhttprequest xsrf xsrf-token xsrfcookiename xsrfheadername ymvlcdpib29w"
     }
   },
   "api/ng/service/$httpBackend": {
@@ -1534,7 +1474,7 @@ angular.module('pagesData', [])
     "path": "api/ng/provider/$interpolateProvider",
     "searchTerms": {
       "titleWords": "$interpolateProvider",
-      "keywords": "$interpolateprovider api configuring defaults example-example61 interpolate interpolation js js-angular-release markup ng provider src"
+      "keywords": "$interpolateprovider api configuring defaults example-example59 function interpolate interpolation js js-angular-release markup ng provider src"
     }
   },
   "api/ng/service/$interpolate": {
@@ -1546,7 +1486,7 @@ angular.module('pagesData', [])
     "path": "api/ng/service/$interpolate",
     "searchTerms": {
       "titleWords": "$interpolate",
-      "keywords": "$compile $interpolate $interpolateprovider $parse $sce actual allornothing angle angular api argument attacks behavior binding brackets characters code compiles compute configuring context contextual counterparts data defacing default degree details directive elements embedded enables enabling encouraged escape escaped escaping evaluate evaluation example-example62 examples exp expect expression expressions false forgiving fourth function gettrusted hello html injected injection interpolate interpolated interpolating interpolation interpreted js js-angular-release marker markers markup mechanism mode musthaveexpression ng ngnonbindable ngsrc ngsrcset null optional order output parameter parameters passes preceding prevent processes provided purposes refer regular relying rendered rendering replaced replacing result return returned returning returns reverse script security server servers service set solidus src start strict string strings takes template text tobeundefined toequal true trustedcontext typically undefined unescaped untrusted uppercase urls user-data user-supplied var web web-servers work"
+      "keywords": "$compile $interpolate $interpolateprovider $parse $sce angular api binding compiles compute configuring context contextual data details embedded escaping evaluated exp expect expression expressions function gettrusted hello html injected interpolate interpolated interpolation js js-angular-release markup musthaveexpression ng null object order parameters passes provided refer result return returned returning service set src strict string strings text toequal true trustedcontext uppercase var"
     }
   },
   "api/ng/service/$interval": {
@@ -1558,7 +1498,7 @@ angular.module('pagesData', [])
     "path": "api/ng/service/$interval",
     "searchTerms": {
       "titleWords": "$interval",
-      "keywords": "$apply $interval $rootscope alert alert-warning angular api appropriate automatically block call called cancel checking class consideration controller count created defined delay destroyed details directive dirty element example example-example63 executed explicitly false finished flush fn forward function functions indefinitely interval intervals invoke iteration iterations js js-angular-release millis milliseconds model moment move ng ngmock notification notified number promise registering repeat repeatedly resolved return scheduled scope service set setinterval skips src tests tick time times trigger window wrapper"
+      "keywords": "$apply $interval $rootscope alert alert-warning angular api appropriate automatically block call called cancel checking class consideration controller count created defined delay destroyed details directive dirty element example example-example60 executed explicitly false finished flush fn forward function functions indefinitely interval intervals invoke iteration iterations js js-angular-release millis milliseconds model moment move ng ngmock notification notified number promise registering repeat repeatedly resolved return scheduled scope service set setinterval skips src tests tick time times trigger window wrapper"
     }
   },
   "api/ng/service/$locale": {
@@ -1606,7 +1546,7 @@ angular.module('pagesData', [])
     "path": "api/ng/service/$log",
     "searchTerms": {
       "titleWords": "$log",
-      "keywords": "$log $logprovider $window api browser change console debug debugenabled debugging default example-example64 implementation js js-angular-release log logging main message messages ng purpose safely service simple simplify src troubleshooting writes"
+      "keywords": "$log $logprovider $window api browser change console debug debugenabled debugging default example-example61 implementation js js-angular-release log logging main message messages ng purpose safely service simple simplify src troubleshooting writes"
     }
   },
   "api/ng/provider/$logProvider": {
@@ -1642,7 +1582,7 @@ angular.module('pagesData', [])
     "path": "api/ng/provider/$parseProvider",
     "searchTerms": {
       "titleWords": "$parseProvider",
-      "keywords": "$parse $parseprovider api behavior configuring default js js-angular-release ng parse provider service src"
+      "keywords": "$parse $parseprovider api behavior configuring default function js js-angular-release ng parse provider service src"
     }
   },
   "api/ng/service/$q": {
@@ -1654,7 +1594,7 @@ angular.module('pagesData', [])
     "path": "api/ng/service/$q",
     "searchTerms": {
       "titleWords": "$q",
-      "keywords": "$apply $http $q $qprovider $rootscope access action additionally alert allow allowed allows android angular api apis approach argument associated assume async asyncgreet asynchronous asynchronously avoiding browser bytes call callback callbacks called calling calls catch chain chaining chains changes clean-up code common commonjs compatible completes completion complexity composition constructed cost create created current dealing defer deferred derived describes differences documentation easily equivalent error errorcallback es3 event example executes execution expect expose extra failed faster features final finally finished flickering fn fulfillment function functionality functions future greet greeting guarantees handling hard hello hood https ie8 implement implementation incremented indication inject injected inspired instance integrated interacting interceptors interested interface invoke javascript joining js js-angular-release keywords kowal kris length lexical ll loop main md mechanism method model models modifying multiple names needed ng note notification notifies notify notifycallback object observation observe observed obvious oktogreet org parallel parties passed pause payoff performed perspective point powerful programming progress promise promisea promiseb promisefinallycallback promises propagate propagation properly property proposal provide purpose reason reject rejected rejection rejects release repaints represents reserved resolution resolve resolved resolvedvalue resolves resolving resources response result retrieved return returns robin scope serial service settimeout shorthand signaling simulate single specification src status success successcallback successful supported synchronous synchronously task tasks testing throw time times tiny tobeundefined toequal traditional trouble turn ui unnecessary unsuccessful update updates var variables wikipedia word worth wrap"
+      "keywords": "$apply $http $q $qprovider $rootscope access action additionally alert allow allowed allows android angular api apis approach argument associated assume async asyncgreet asynchronous asynchronously avoiding browser bytes callback callbacks called calling calls catch chain chaining chains clean-up code common commonjs compatible completes completion complexity composition constructed cost create created current dealing defer deferred derived describes differences documentation easily equivalent error errorcallback es3 example execution expect expose extra failed faster features final finally finished flickering fulfillment function functionality functions greet greeting guarantees handling hard hello hood https ie8 implement implementation incremented indication inject injected inspired instance integrated interacting interceptors interested interface invoke javascript joining js js-angular-release keywords kowal kris length lexical ll main md mechanism method model models modifying multiple names needed ng note notification notifies notify notifycallback object observation observe obvious oktogreet org parallel parties passed pause payoff performed perspective point powerful programming progress promise promisea promiseb promisefinallycallback promises propagate propagation property proposal provide purpose reason reject rejected rejection rejects release repaints represents reserved resolution resolve resolved resolvedvalue resolves resolving resources response result retrieved return returns robin scope serial service settimeout shorthand signaling simulate single specification src status success successcallback successful supported synchronous synchronously task tasks testing throw time times tiny tobeundefined toequal traditional trouble ui unnecessary unsuccessful update updates var variables wikipedia word worth"
     }
   },
   "api/ng/service/$rootElement": {
@@ -1714,7 +1654,7 @@ angular.module('pagesData', [])
     "path": "api/ng/service/$sceDelegate",
     "searchTerms": {
       "titleWords": "$sceDelegate",
-      "keywords": "$sce $scedelegate $scedelegateprovider angularjs api behavior blacklists box case change common completely configure configuring contextual core customize default delegates escaping functions gettrusted instance involve js js-angular-release loading methods ng numerous operations override pain provide refer replace resources resourceurlblacklist resourceurlwhitelist sce service services setting shorthand src strict templates things trustas trusting typically urls valueof whitelists work works"
+      "keywords": "$sce $scedelegate $scedelegateprovider angularjs api behavior blacklists box case change common completely configure configuring contextual core customize default delegates escaping function functions gettrusted instance involve js js-angular-release loading methods ng numerous operations override pain provide refer replace resources resourceurlblacklist resourceurlwhitelist sce service services setting shorthand src strict templates things trustas trusting typically urls valueof whitelists work works"
     }
   },
   "api/ng/provider/$sceDelegateProvider": {
@@ -1726,7 +1666,7 @@ angular.module('pagesData', [])
     "path": "api/ng/provider/$sceDelegateProvider",
     "searchTerms": {
       "titleWords": "$sceDelegateProvider",
-      "keywords": "$sce $scedelegate $scedelegateprovider allow allows angular api app assets blacklist blacklists blocked case class config configuration configure consider contextual control details developers difference domain domains ensure escaping example general hosted http js js-angular-release loading loads main module myapp ng notice open origin overrides prettyprint provider read redirect refer resource resourceurlblacklist resourceurlwhitelist safe sce scenario secure service sourcing src strict templates url urls whitelist whitelists"
+      "keywords": "$sce $scedelegate $scedelegateprovider allow allows angular api app assets blacklist blacklists blocked case config configuration configure consider contextual control details developers difference domain domains ensure escaping example general hosted http js js-angular-release loading loads main module myapp ng notice open origin overrides provider read redirect refer resource resourceurlblacklist resourceurlwhitelist safe sce scenario secure service sourcing src strict templates url urls whitelist whitelists"
     }
   },
   "api/ng/provider/$sceProvider": {
@@ -1750,7 +1690,7 @@ angular.module('pagesData', [])
     "path": "api/ng/service/$sce",
     "searchTerms": {
       "titleWords": "$sce",
-      "keywords": "$parse $sanitize $sce $scedelegate $scedelegateprovider $sceprovider $watch absolute accepted accidentally actual adding addition additionally allow allowing allows angular angularjs api application applies apply appropriate arbitrary arrays articles aspx assists attr attribute audit audited auditing automatically aware benefits bind binding bindings blacklist blacklists blocks blog bolting bound browser browsers bug built call calling case cases caveat change character characters class clickjacking client closure closure-library code codebase codes coding comments completely complex config constant constitute contents context contexts contextual controlled correct cors coverage creates css currently custom default defaults delete demonstration depending determine didn directive directives directly directory disable disabled disallowed discouraged div document doesn domain domains don ease easier easily easy element enable enabled encountered engine ensure ensuring error escape escaping exactly example example-example65 examples execute existing explicitly exposed expression expressions fall feel feels file files flags flexibility follow forgot format free full function generating gettrusted gettrustedresourceurl global good google googlecode great grep guide harder help highly href html http https ie8 iframe ignorecase ignored img impact include included inevitable input instance intended intention internal interpolated interpolation introduce introduced issue items javascript js js-angular-release lacks learn level library line962 links literal literals load loaded loading loads lot maintain manageable marked markup match matched matches matching mechanism method-c-escape methods migrating mode module msdn multiline myappwithscedisabledmyapp ng ng-bind-html ng-include ng-model ngbindhtml ngbindhtmldirective ngsanitize ngsrc non-constant note notes notice number object occurrences offer org organize origin overhead parse parseas parseashtml pass path patterns pay performs place platform play policy powerful prettyprint privileged projects properties protocol protocols purposes python quirks realistic received recommended reduces refer regex regexes regexp regexpescape regular remember renamed render rendering required requires requiring resort resource resource_url resourceurlblacklist resourceurlpatternitem resourceurlwhitelist restrict result return returned role ruby ruby-doc safe same-origin_policy_for_xmlhttprequest sane sanitize sanitized sce scenes scheme scope secure security sense sequences served server service services setting sharing ships shorthand side simple simplified small source special specific src stage standards statement strict string stronger subdomain supported syntax tags task template templates templateurl templating test tested throwing time top trustas trustashtml trustasresourceurl trusted types unsafe unused update updates url urls usage user userhtml values var verify version vulnerabilities w3 watch whitelist whitelists wildcard won work works wrap writing written xss"
+      "keywords": "$parse $sanitize $sce $scedelegate $scedelegateprovider $sceprovider $watch absolute accepted accidentally actual adding addition additionally allow allowing allows angular angularjs api application applies apply appropriate arbitrary arrays articles aspx assists attr attribute audit audited auditing automatically aware benefits bind binding bindings blacklist blacklists blocks blog bolting bound browser browsers bug built call calling case cases caveat change character characters clickjacking client closure closure-library code codebase codes coding comments completely complex config constant constitute contents context contexts contextual controlled correct cors coverage creates css currently custom default defaults delete demonstration depending determine developer didn directive directives directly directory disable disabled disallowed discouraged div document doesn domain domains don ease easier easily easy element enable enabled encountered engine ensure ensuring error escape escaping exactly example example-example62 examples execute existing explicitly exposed expression expressions fall feel feels file files flags flexibility follow forgot format free full function generating gettrusted gettrustedresourceurl global good google googlecode great grep guide harder help highly href html http https ie8 iframe ignorecase ignored img impact include included inevitable input instance intended intention internal interpolated interpolation introduce introduced issue items javascript js js-angular-release lacks learn level library line962 links literal literals load loaded loading loads lot maintain manageable marked markup match matched matches matching mechanism method-c-escape methods migrating mode module msdn multiline myappwithscedisabledmyapp ng ng-bind-html ng-include ng-model ngbindhtml ngbindhtmldirective ngsanitize ngsrc non-constant note notes notice number object occurrences offer org organize origin overhead parse parseas parseashtml pass path patterns pay performs place platform play policy powerful privileged projects properties protocol protocols purposes python quirks realistic received recommended reduces refer regex regexes regexp regexpescape regular remember renamed render rendering required requires requiring resort resource resource_url resourceurlblacklist resourceurlpatternitem resourceurlwhitelist restrict result return returned role ruby ruby-doc safe same-origin_policy_for_xmlhttprequest sane sanitize sanitized sce scenes scheme scope secure security sense sequences served server service services setting sharing ships shorthand side simple simplified small source special specific src stage standards statement strict string stronger subdomain supported syntax tags task template templates templateurl templating test tested throwing time top trustas trustashtml trustasresourceurl trusted types unsafe unused update updates url urls usage user userhtml values var verify version vulnerabilities w3 watch whitelist whitelists wildcard won work works wrap writing written xss"
     }
   },
   "api/ng/service/$timeout": {
@@ -1774,7 +1714,7 @@ angular.module('pagesData', [])
     "path": "api/ng/service/$window",
     "searchTerms": {
       "titleWords": "$window",
-      "keywords": "$window $windowprovider angular api browser coding current defined dependency directive evaluated example example-example66 expression expressions global globally inadvertently javascript js js-angular-release mocked ng ngclick object overridden problems refer reference removed respect risk scope service src testability testing variable window"
+      "keywords": "$window $windowprovider angular api browser coding current defined dependency directive evaluated example example-example63 expression expressions global globally inadvertently javascript js js-angular-release mocked ng ngclick object overridden problems refer reference removed respect risk scope service src testability testing variable window"
     }
   },
   "api/ngAnimate": {
@@ -1786,7 +1726,7 @@ angular.module('pagesData', [])
     "path": "api/ngAnimate",
     "searchTerms": {
       "titleWords": "ngAnimate animate",
-      "keywords": "$animate $timeout accidental action active add addclass addition advantage aid allow allowed allows angular angularjs animate animated animation animations apart api application applied apply appropriate attached attaching attempting attribute automatically avoid base based beforeaddclass beforeremoveclass blocking break breakdown browser browsers call callback callbacks called calls cancel cancelled case caused child children class class-based classes classname code coding collection combine compared compatible complete completed complex config conflicts core correct created creating css css-defined css-like css-specificity css3 currently curtain-like custom cut dealing decorates default define defined delay demonstrates designed detailed detect determine developer directive directives distinction doc-module-components doesn dom duration earlier element elements ends ensure enter enter_sequence event events example executed existing expected explained fade fade-add fade-add-active false figure final find fired firing fits flavors force form function functionality functions future handle hooks html ie10 incase inheritance inside instantly invalid issue issued javascript javascript-defined js js-angular-release keyframe kids leave length linear long markup match matching mind mix modern module move multiple mutation my-animation my-crazy-animation mymodule naming natural ng ng-enter ng-enter-active ng-enter-stagger ng-hide ng-inactive ng-include ng-leave ng-leave-active ng-move ng-view nganimate ngclass nghide ngif nginclude ngmessage ngmessages ngmodel ngmodule ngrepeat ngroute ngshow ngswitch ngview non-nganimate object offer opacity operating operation order overly parent passed perform performed place play pre-existing preparation prepares pristine properly property provided refer register remember remove removeclass removed render rendered rendering required reset restrictions return returned reveal-animation running safari selector selectors service set setclass setup simple single slide slight special src stagger staggering standard start starting structural structure style styles stylesheet styling successive support supported supporting supports surrounding temporarily terminal text timing transition transition-delay transition-duration transitions trigger triggered triggering triggers true type unable unnecessary usage usage_animations valid validations values var versions view-container visiting work workaround works yourapp"
+      "keywords": "$animate $timeout accidental action active add addclass addition advantage allowed angular angularjs animate animated animation animations apart api application applied apply appropriate attached attaching attribute automatically avoid base based beforeaddclass beforeremoveclass block blocking breakdown browser browsers call callback callbacks called calls cancelled case changes child children class classes classname code collection combine complete completed config conflicts container core correct created creating css css-defined css-like css-specificity css3 currently curtain-like custom default define defined delay demonstrates designed detailed detect determine directive directives doc-module-components doesn dom duration element elements ends enter enter_sequence event events example executed existing expected explained explode-animation expression fade-animation false feature figure final find fired firing fits form function functions future handle hooks html ie10 inheritance inside invalid issue issued javascript javascript-defined js js-angular-release keyframe kids leave linear long match matching mind modern module move multiple mutation my-animation my-crazy-animation mymodule naming ng ng-animate-children ng-enter ng-enter-active ng-enter-stagger ng-hide ng-if ng-include ng-leave ng-leave-active ng-view nganimate ngclass nghide ngif nginclude ngmodel ngmodule ngrepeat ngroute ngshow ngswitch ngview object offer opacity operation overridden parent passed perform performed placing play pre-existing preparation prepares pristine property provided register remove removeclass removed required reset restrictions return returned reveal-animation running safari selector selectors service set simple single slide slide-animation slight src stagger staggering standard start starting structure style styles stylesheet styling successive support supported supports surrounding tag terminal text timing transition transition-delay transition-duration transitions trigger triggered triggers true type usage usage_animations valid validations values var view-container visiting work yourapp"
     }
   },
   "api/ngAnimate/provider/$animateProvider": {
@@ -1798,7 +1738,7 @@ angular.module('pagesData', [])
     "path": "api/ngAnimate/provider/$animateProvider",
     "searchTerms": {
       "titleWords": "$animateProvider",
-      "keywords": "$animate $animateprovider allows animate animation animations api application developers directly event find handlers inside installed javascript js js-angular-release learn match module nganimate overview provided provider query register requires service src triggered visit"
+      "keywords": "$animate $animateprovider allows animate animation animations api application developers directly event find handlers inside installed javascript js js-angular-release learn match module nganimate nganimatechildren overview provided provider query register requires service src triggered visit"
     }
   },
   "api/ngAnimate/service/$animate": {
@@ -1810,7 +1750,7 @@ angular.module('pagesData', [])
     "path": "api/ngAnimate/service/$animate",
     "searchTerms": {
       "titleWords": "$animate",
-      "keywords": "$animate $animateprovider addclass animate animation animations api application box classes configuration css css-defined defined detection directives dom element examine extra installed javascript-defined js js-angular-release learn leave module move nganimate object operation operations overview performing pre-existing provider removeclass requires scenes service src support visit work"
+      "keywords": "$animate $animateprovider addclass animate animation animations api application box classes configuration css css-defined defined detection directives dom element examine extra function installed javascript-defined js js-angular-release learn leave module move nganimate object operation operations overview performing pre-existing provider removeclass requires scenes service src support visit work"
     }
   },
   "api/ngCookies": {
@@ -1834,7 +1774,7 @@ angular.module('pagesData', [])
     "path": "api/ngCookies/service/$cookies",
     "searchTerms": {
       "titleWords": "$cookies",
-      "keywords": "$cookies $eval access adding api browser cookie cookies created current examplecontroller exposed favoritecookie function installed js js-angular-release module myfavorite ngcookies oatmeal object properties read removing requires retrieving service setting simple src strings var"
+      "keywords": "$cookies $eval access adding angular api browser controller cookie cookies cookiesexample created current examplecontroller exposed favoritecookie function installed js js-angular-release module myfavorite ngcookies oatmeal object properties read removing requires retrieving service setting simple src strings var"
     }
   },
   "api/ngCookies/service/$cookieStore": {
@@ -1846,43 +1786,7 @@ angular.module('pagesData', [])
     "path": "api/ngCookies/service/$cookieStore",
     "searchTerms": {
       "titleWords": "$cookieStore",
-      "keywords": "$cookies $cookiestore angular api automatically backed cookie cookies deserialized examplecontroller favoritecookie function installed js js-angular-release key-value module myfavorite ngcookies oatmeal objects remove removing requires retrieved serialized service session src storage tojson var"
-    }
-  },
-  "api/ngMessages": {
-    "docType": "module",
-    "id": "module:ngMessages",
-    "name": "ngMessages",
-    "area": "api",
-    "outputPath": "partials/api/ngMessages/index.html",
-    "path": "api/ngMessages",
-    "searchTerms": {
-      "titleWords": "ngMessages messages",
-      "keywords": "$error ability active addition address addresses alert allows angular animation animations api appear application applied attached attribute autocomplete automatically based bound brand case class classes click code collection complex complexity container control corresponding css currently custom data default defined designed determine determined directive directives display displayed displaying dom easier element email enhanced enter entered entries error error-messages errors example exposes fail false field fields flag flags form forms general generic handle handled happen hidden hide hook html including inheritance inline inner input inputs invalid javascript js js-angular-release key keyframes learn leave linear listens match message messages mind minlength module multiple my-custom-messages my-messages myemail myfield myform mymessages ng-active ng-enter ng-enter-active ng-if ng-inactive ng-leave ng-leave-active ng-message ng-messages ng-messages-include ng-messages-multiple ng-model nganimate ngmessage ngmessages ngmodel object objects order ordered overridden override overriding parts presentation prioritization priority provided redefining regular relying remote removed render rendering required return reused reusing sequencing set sets short some-message specialized specific src statements support template templates text time transition transitions trigger triggered true type usage values visible"
-    }
-  },
-  "api/ngMessages/directive/ngMessages": {
-    "docType": "directive",
-    "id": "module:ngMessages.directive:ngMessages",
-    "name": "ngMessages",
-    "area": "api",
-    "outputPath": "partials/api/ngMessages/directive/ngMessages.html",
-    "path": "api/ngMessages/directive/ngMessages",
-    "searchTerms": {
-      "titleWords": "ngMessages messages",
-      "keywords": "$error ae angular api attribute based changed click compliments container default depending depends designed directive directives displayed element error errors evaluating example-ngmessages-directive expression hide html included inserted instance internal js js-angular-release key keyvalue1 keyvalue2 keyvalue3 learn listens manages message messages module ng-message ng-messages ng-messages-multiple ngmessage ngmessages ngmessagesinclude ngmessagesmultiple ngmodel object overridden prioritization promote remote reporting reuseability set src stores template time true typically validation"
-    }
-  },
-  "api/ngMessages/directive/ngMessage": {
-    "docType": "directive",
-    "id": "module:ngMessages.directive:ngMessage",
-    "name": "ngMessage",
-    "area": "api",
-    "outputPath": "partials/api/ngMessages/directive/ngMessage.html",
-    "path": "api/ngMessages/directive/ngMessage",
-    "searchTerms": {
-      "titleWords": "ngMessage message",
-      "keywords": "ae api attribute based click corresponding determines directive directives dom element expression hide html js js-angular-release key keyvalue1 keyvalue2 keyvalue3 learn listens map message messages module ng-message ng-messages ngmessage ngmessages operate parent provided purpose situated src string visible"
+      "keywords": "$cookies $cookiestore angular api automatically backed controller cookie cookies cookiestoreexample deserialized examplecontroller favoritecookie function installed js js-angular-release key-value module myfavorite ngcookies oatmeal objects remove removing requires retrieved serialized service session src storage tojson var"
     }
   },
   "api/ngMock/object/angular.mock": {
@@ -2002,7 +1906,7 @@ angular.module('pagesData', [])
     "path": "api/ngMock",
     "searchTerms": {
       "titleWords": "ngMock mock",
-      "keywords": "addition angular angular-mocks api code config controlled core doc-module-components extends inject inspected js js-angular-release manner mock module ng ngmock providers services src support synchronous test tests unit"
+      "keywords": "addition angular angular-mocks api code config controlled core doc-module-components extends inject inspected js js-angular-release manner mock module ng ngmock services src support synchronous test tests unit"
     }
   },
   "api/ngMockE2E": {
@@ -2062,7 +1966,7 @@ angular.module('pagesData', [])
     "path": "api/ngResource",
     "searchTerms": {
       "titleWords": "ngResource resource",
-      "keywords": "$resource api doc-module-components interaction js js-angular-release module ngresource provider resource restful service services src support usage"
+      "keywords": "$resource api doc-module-components factory interaction js js-angular-release module ngresource resource restful service services src support usage"
     }
   },
   "api/ngResource/service/$resource": {
@@ -2074,7 +1978,7 @@ angular.module('pagesData', [])
     "path": "api/ngResource/service/$resource",
     "searchTerms": {
       "titleWords": "$resource",
-      "keywords": "$action $cachefactory $charge $http $id $promise $q $resolved $resource $resourceprovider $routeparams $routeprovider $save $scope abc abort access action action2 actions actual add additional allows angular api apis app appear appended argument arguments array arrives assigned automatically backends behavior behaviors body bound built cache caching calculated call callback called calling card cardid cards case cases charge class collapse collapsed collection completed config configuring controller corresponding create created creates creating credentials credit creditcard crud custom data data-binding declaration default defaults defer define definition delete depending deserialized destination disabled don easily easy empty error escape example excess executed execution existing expect extend extended factory failure false flag format function functions getresponseheaders getter greet hash header headers headersgetter hello high-level http installed instance instanceof instances interact interaction interceptor interceptors invoke invoked invoking isarray item js js-angular-release json jsonp key knowing level loaded low mapped method methods mike milliseconds model module mozilla newcard ng ngresource ngroute non-get note notes notesctrl noting null number object operations option optional optionally options org original overridden override param paramdefaults parameter parameters parametrized params pass passed passing payload perform populated port pose post postdata pre-bound prefix prefixed problems promise properties property provide provided provider putresponseheaders query raw re-renders read realize reference rejection remove rendered rendering request requires resolve resolved resource resource-level respected response responseerror responseheaders responsetype retrieve return returned returns rewrite salutation save saved search section_5 sequence serialized server server-side service set settings showing single slashes smith sources specific src static strip stripped striptrailingslashes success suffix support supported takes template templating time timeout toequal trailing transform transformed transformrequest transformresponse trick true type update updated updating url urls usage_parameters user valid values var version view wikipedia withcredentials worth write xhr"
+      "keywords": "$action $cachefactory $charge $http $id $promise $q $resolved $resource $routeparams $routeprovider $save $scope abc abort access action action2 actions actual add additional allows angular api apis app appear appended argument arguments array arrives assigned automatically behaviors body bound built cache caching call callback called calling card cardid cards case cases charge class collapse collapsed collection completed config controller corresponding create created creates creating credentials credit creditcard crud custom data data-binding declaration default defer define definition delete depending deserialized destination easily easy empty error escape example excess executed execution existing expect extend extended factory failure false flag format function functions getresponseheaders getter greet hash header headers headersgetter hello high-level http insensitive installed instance instanceof instances interact interaction interceptor interceptors invoke invoked invoking isarray item js js-angular-release json jsonp key knowing level loaded low mapped method methods mike milliseconds model module mozilla newcard ng ngresource ngroute non-get note notes notesctrl noting null number object operations optional optionally org original overridden override param paramdefaults parameter parameters parametrized params pass passed passing payload perform populated port post postdata pre-bound prefix prefixed promise properties property provide provided putresponseheaders query raw re-renders read realize reference rejection remove rendered rendering request requires resolve resolved resource resource-level respected response responseerror responseheaders responsetype retrieve return returned returns rewrite salutation save saved search section_5 sequence serialized server server-side service set showing single smith sources specific src static success suffix support supported takes template templating time timeout toequal transform transformed transformrequest transformresponse trick true type update updated updating url urls usage_parameters user values var version view wikipedia withcredentials worth write xhr"
     }
   },
   "api/ngRoute/directive/ngView": {
@@ -2110,7 +2014,7 @@ angular.module('pagesData', [])
     "path": "api/ngRoute/provider/$routeProvider",
     "searchTerms": {
       "titleWords": "$routeProvider",
-      "keywords": "$route $routeprovider api configuring dependencies example installed js js-angular-release module ngroute provider requires route routes src"
+      "keywords": "$route $routeprovider api configuring dependencies example function installed js js-angular-release module ngroute provider requires route routes src"
     }
   },
   "api/ngRoute/service/$route": {
@@ -2146,7 +2050,7 @@ angular.module('pagesData', [])
     "path": "api/ngSanitize/filter/linky",
     "searchTerms": {
       "titleWords": "linky",
-      "keywords": "address api email example-example67 filter finds frame html html-linkified http input installed js js-angular-release links linky linky_expression module named ng-bind-html ngsanitize open plain requires src supports target text turns window"
+      "keywords": "address api email example-example64 filter finds frame function html html-linkified http input installed js js-angular-release links linky linky_expression module named ng-bind-html ngsanitize open plain requires src supports target text turns window"
     }
   },
   "api/ngSanitize": {
@@ -2170,7 +2074,7 @@ angular.module('pagesData', [])
     "path": "api/ngSanitize/service/$sanitize",
     "searchTerms": {
       "titleWords": "$sanitize",
-      "keywords": "$compileprovider $sanitize $sanitizeprovider ahrefsanitizationwhitelist api browser configured escaped example-example68 functions html imgsrcsanitizationwhitelist input js js-angular-release ng ngsanitize obscure parser parsing properly recognized returned safe sanitize sanitized sanitizer serialized service src strict string tokens typical unsafe valid whitelist won"
+      "keywords": "$compileprovider $sanitize $sanitizeprovider ahrefsanitizationwhitelist api browser configured escaped example-example65 function functions html imgsrcsanitizationwhitelist input js js-angular-release ng ngsanitize obscure parser parsing properly recognized returned safe sanitize sanitized sanitizer serialized service src strict string tokens typical unsafe valid whitelist won"
     }
   },
   "api/ngTouch/directive/ngClick": {
@@ -2182,7 +2086,7 @@ angular.module('pagesData', [])
     "path": "api/ngTouch/directive/ngClick",
     "searchTerms": {
       "titleWords": "ngClick click",
-      "keywords": "$event api browsers class click config css default depressed designed desktop devices directive element evaluate event example-example69 expression fall guide handles held installed js js-angular-release mobile module mouse ng-click-active ngclick ngtouch object ordinary powerful prevents propagating replacement requires restyle sending sets src tap tap-and-release touch touchscreen version wait works"
+      "keywords": "$event api browsers class click config css default depressed designed desktop devices directive element evaluate event example-example66 expression fall guide handles held installed js js-angular-release mobile module mouse ng-click-active ngclick ngtouch object ordinary powerful prevents propagating replacement requires restyle sending sets src tap tap-and-release touch touchscreen version wait works"
     }
   },
   "api/ngTouch/directive/ngSwipeLeft": {
@@ -2194,7 +2098,7 @@ angular.module('pagesData', [])
     "path": "api/ngTouch/directive/ngSwipeLeft",
     "searchTerms": {
       "titleWords": "ngSwipeLeft swipeleft",
-      "keywords": "$event add api behavior click custom designed device devices directive disable dom drag element evaluate example-example70 expression finger functionality guide installed js js-angular-release left leftward makeswipedirective module mouse ng-swipe-disable-mouse ng-swipe-left ng-swipe-right ngswipe ngswipeleft ngtouch object quick requires right-to-left slide src swipe swiped touch-based touchscreen work"
+      "keywords": "$event api behavior click custom designed device devices directive drag element evaluate example-example67 expression finger guide installed js js-angular-release left leftward makeswipedirective module mouse ngswipe ngswipeleft ngtouch object quick requires right-to-left slide src swipe swiped touch-based touchscreen work"
     }
   },
   "api/ngTouch/directive/ngSwipeRight": {
@@ -2206,7 +2110,7 @@ angular.module('pagesData', [])
     "path": "api/ngTouch/directive/ngSwipeRight",
     "searchTerms": {
       "titleWords": "ngSwipeRight swiperight",
-      "keywords": "$event api behavior click custom designed device devices directive drag element evaluate example-example71 expression finger guide installed js js-angular-release left-to-right makeswipedirective module mouse ngswipe ngswiperight ngtouch object quick requires rightward slide src swipe swiped touch-based touchscreen work"
+      "keywords": "$event api behavior click custom designed device devices directive drag element evaluate example-example68 expression finger guide installed js js-angular-release left-to-right makeswipedirective module mouse ngswipe ngswiperight ngtouch object quick requires rightward slide src swipe swiped touch-based touchscreen work"
     }
   },
   "api/ngTouch/service/$swipe": {
@@ -2242,7 +2146,7 @@ angular.module('pagesData', [])
     "path": "api",
     "searchTerms": {
       "titleWords": "API Reference",
-      "keywords": "$animate $compile $cookie $cookies $cookiestore $http $httpbackend $interval $location $log $resource $route $routeparams $routeprovider $sanitize $swipe $timeout access accessed accidental alert alert-info angular angularjs animation animations api apis application attached aware behavior browser browsers build callbacks class clean code collection collisions communicate complex components convenient cookie cookies copy core css css-based currency current currently dangerous data default define defined definition-table dependency details developing di directive directives display docs documentation dom dump element emulate enable equals events examples expressions extend factories features file filter filters follow function functions global guide handle hashbang helper hooks html html5 include included inject javascript js js-angular-release js-based keyframe level links linky low lowercase manage manageable management manipulate manner materials mobile mock mocks module modules names namespace namespaces naming ng ng-bind nganimate ngclick ngcookies ngdoc nginclude ngmock ngrepeat ngresource ngroute ngsanitize ngtouch ngview object objects operations organized overview parse posting prefix prefixes prevent private provide provided providers public pushstate querying querystring quick reference referencing register registered rendered rest restful route routes routing runner securely serialization service services set simple spaced store string structure supports synchronous template test testing tests transform transitions trigger triggered turn types unit uppercase url urls values version work wrapper"
+      "keywords": "$animate $compile $cookie $cookies $cookiestore $http $httpbackend $interval $location $log $resource $route $routeparams $routeprovider $sanitize $swipe $timeout access accessed accidental alert alert-info angular angularjs animation animations api apis application attached aware behavior browser browsers build callbacks class clean code collection collisions communicate complex components convenient cookie cookies copy core css css-based currency current currently dangerous data default define defined definition-table dependency details developing di directive directives display docs documentation dom dump element emulate enable equals events examples expressions extend factories features file filter filters follow function functions global guide handle hashbang helper hooks html html5 include included inject javascript js js-angular-release js-based keyframe level links linky low lowercase manage manageable management manipulate manner materials mobile mock mocks module modules names namespace namespaces naming ng ng-bind nganimate ngclick ngcookies ngdoc nginclude ngmock ngrepeat ngresource ngroute ngsanitize ngtouch ngview object objects operations organized overview parse posting prefix prefixes prevent private provide provided providers public pushstate querying querystring quick reference referencing register registered rendered rest restful route routes routing runner securely serialization service services set simple spaced store string structure supports synchronous template templates test testing tests transform transitions trigger triggered turn unit uppercase url urls values version work wrapper"
     }
   },
   "error/$animate/notcsel": {
@@ -2326,7 +2230,7 @@ angular.module('pagesData', [])
     "path": "error/$compile/nonassign",
     "searchTerms": {
       "titleWords": "$compile:nonassign",
-      "keywords": "$compile attribute bind data-binding data-bound defined defines definition description_comprehensive-directive-api_directive-definition-object directive docs error example expression expressions factory function invalid isolate js-angular-release mode mydirective myfn mymodule ng ngdoc non-assignable nonassign not-assignable occurs option order path properties property provided resolve return scope statement two-way values wasn work write"
+      "keywords": "$compile attribute bind data-binding data-bound defined defines definition description_comprehensive-directive-api_directive-definition-object directive docs error example expression expressions factory function invalid isolate js-angular-release localvalue mode mydirective myfn mymodule ng ngdoc non-assignable nonassign not-assignable occurs option order path properties property provided resolve return scope statement two-way values wasn work write"
     }
   },
   "error/$compile/selmulti": {
@@ -2362,7 +2266,7 @@ angular.module('pagesData', [])
     "path": "error/$compile/tplrt",
     "searchTerms": {
       "titleWords": "$compile:tplrt",
-      "keywords": "$compile blah commonly contained content declared defines definition directive div docs element elements error exactly example factory fragment function html invalid js-angular-release mode multiple mydirective mymodule needed ngdoc nodes operation practice property provided referenced replace replaced replacement result return root simply single someurl template templateurl text tplrt true unsupported url world"
+      "keywords": "$compile blah class comment comments commonly consider contained container content declared defines definition directive div docs element elements error exactly example factory fragment function html interpreted invalid js-angular-release mode multiple mydirective mymodule needed ngdoc nodes operation practice property provided referenced replace replaced replacement result return root second simply single someurl template templates templateurl text tplrt true unsupported url watch world wrapper"
     }
   },
   "error/$compile/uterdir": {
@@ -2461,18 +2365,6 @@ angular.module('pagesData', [])
       "keywords": "$get $injector $provide angular api attempting auto bad badprovider doc docs error example fill function good goodprovider js-angular-release method missing module myapp ngdoc noop occurs pget provider refer register throws"
     }
   },
-  "error/$injector/strictdi": {
-    "docType": "error",
-    "id": "$injector:strictdi",
-    "name": "strictdi",
-    "area": "error",
-    "outputPath": "partials/error/$injector/strictdi.html",
-    "path": "error/$injector/strictdi",
-    "searchTerms": {
-      "titleWords": "$injector:strictdi",
-      "keywords": "$filter $http $inject $injector $scope angular annotate annotated annotation api application array attempting badcontroller bootstrap bracket controller dependencies dependency directive docs enabled error example explicit explicitly function goodcontroller1 goodcontroller2 inject injected inline invoke invoked js-angular-release listed mode module myapp names ng ngapp ngdoc notation occurs order property provider required running strict-di strictdi trailing"
-    }
-  },
   "error/$injector/unpr": {
     "docType": "error",
     "id": "$injector:unpr",
@@ -2554,7 +2446,19 @@ angular.module('pagesData', [])
     "path": "error/$parse/isecdom",
     "searchTerms": {
       "titleWords": "$parse:isecdom",
-      "keywords": "$parse access angular angularjs arbitrary attempts avoid calls chain check code developer directly docs dom dotted error execute expose expression expressions function guard harder isecdom javascript js-angular-release member ngdoc node nodes object objects occurs perform performed places powerful referencing resolve restricts scope sensitive"
+      "keywords": "$parse $scope access accessing add angular angularjs arbitrary attempts avoid called calls chain check code coding coffeescript concerns controllers dereferenced developer directly docs dom dotted error event example execute explicit expose expression expressions false feature frequently function guard handler handlers harder html implicit invokes isecdom issue iwillreturndom javascript js js-angular-release language member ng-click ngdoc node nodes object objects occur occurs perform performed places poor powerful referencing resolve restricts return returning returns scenario scope sensitive separation sign solution somedomnode statement style values violates"
+    }
+  },
+  "error/$parse/isecff": {
+    "docType": "error",
+    "id": "$parse:isecff",
+    "name": "isecff",
+    "area": "error",
+    "outputPath": "partials/error/$parse/isecff.html",
+    "path": "error/$parse/isecff",
+    "searchTerms": {
+      "titleWords": "$parse:isecff",
+      "keywords": "$parse access angular apply attempts avoid bans behaviour bind call disallowed docs error example existing expression expressions function functions invocation invoke isecff js-angular-release methods modify ngdoc occurs referencing resolve result sendinfo true"
     }
   },
   "error/$parse/isecfld": {
@@ -2566,7 +2470,7 @@ angular.module('pagesData', [])
     "path": "error/$parse/isecfld",
     "searchTerms": {
       "titleWords": "$parse:isecfld",
-      "keywords": "$parse access alias angularjs arbitrary attempts avoid bans code docs error example execute expression expressions field isecfld javascript js-angular-release ngdoc objects occurs referencing resolve resort result"
+      "keywords": "$emit $parse __definegetter__ __definesetter__ __lookupgetter__ __lookupsetter__ access alias angularjs arbitrary attempts avoid bans code disallowed docs error example execute expression expressions field fields hasownproperty isecfld javascript js-angular-release mess native ngdoc noop objects occurs referencing resolve resort result"
     }
   },
   "error/$parse/isecfn": {
@@ -2579,6 +2483,18 @@ angular.module('pagesData', [])
     "searchTerms": {
       "titleWords": "$parse:isecfn",
       "keywords": "$parse access angular arbitrary attempts avoid bans code disallowed docs error execute expression expressions function functions isecfn javascript js-angular-release ngdoc object occurs referencing resolve"
+    }
+  },
+  "error/$parse/isecobj": {
+    "docType": "error",
+    "id": "$parse:isecobj",
+    "name": "isecobj",
+    "area": "error",
+    "outputPath": "partials/error/$parse/isecobj.html",
+    "path": "error/$parse/isecobj",
+    "searchTerms": {
+      "titleWords": "$parse:isecobj",
+      "keywords": "$parse access angular attempts avoid bans behaviour disallowed docs error existing expression expressions isecobj javascript js-angular-release modify ngdoc object objects occurs referencing resolve"
     }
   },
   "error/$parse/isecwindow": {
@@ -2698,7 +2614,7 @@ angular.module('pagesData', [])
     "path": "error/$rootScope/inprog",
     "searchTerms": {
       "titleWords": "$rootScope:inprog",
-      "keywords": "$apply $digest $element $rootscope $scope action allows angular api apis async asynchronous call callback called callsite check click code compiled component concepts context controller currently cycle data-structure directive doc docs doesn dosomework enables enter error example exception execute executing fixed function getdata guide inprog inside instantiated interacting issue js-angular-release leads learn link model models moved mutation myapp mycontroller mydirective ng ngdoc observation operation operational origin point processing programming progress reenter resolve return reuse scope settimeout sign situation somedata stack sync synchronous synchronously templates third-party thirdpartycomponent throw time trace type typically update work wrap"
+      "keywords": "$apply $attr $digest $element $eval $get $parse $rootscope $scope $timeout $watch accepts action allows angular apart api app application applied array arrives async asynchronous asynchronously attr attribute background bad best block blur bugs button cached call callback called calling calls case cases caused causing changed changes check checking choice click code common compile completes concepts consider context control controller conversely copy correctly course currently cut data daunting dblclick decides defined defines described design detect diagnose diagnosing digest directive directivename directivenormalize directly dirty-checking doc docs dom dostuff earlier element ensure enter entered entering error event events example example-error- executing expect external false fault finally find fits fixed fn focus force foreach function future getdata good guide handle handler handlers happen hard hasfocus htmlinputelement ideal identified imagine inconsistent incorrect inprog input inside instantiated interacting interaction interacts investigate issue js js-angular-release keydown keypress keyup leads learn library link making manually matches mechanism memory method min minified model monitor mouse mousedown mouseenter mouseleave mousemove mouseout mouseover mouseup moving msg myapp mycontroller ng ng- ng-click ng-focus ngclick ngdoc ngeventdirectives ngfocus object occur occurred occurs operation origin oversight party paste period phase phases piece place places point prevent previous problem process processing programmatic programmatically programming progress providing pseudo-code reading receives reenter reevaluate relevant resolve responses retrieve return running runs scenario schedule scope second server service services set set-focus-if setfocusif sets setting setup sign simple simply single situation situations somedata source split stack stacktrace submit subsequent sync synchronous synchronously tells thirdpartycomponent throw thrown time timeout timeouts top trace track tree trigger triggered triggering triggers true type typically update user values var watch watched ways work workaround works wrap wrapped"
     }
   },
   "error/$sanitize/badparse": {
@@ -2758,7 +2674,7 @@ angular.module('pagesData', [])
     "path": "error/$sce/insecurl",
     "searchTerms": {
       "titleWords": "$sce:insecurl",
-      "keywords": "$sce $scedelegateprovider adjust angular angularjs api application apply attempting belong blacklist blocked browser browsers call calling contextual cross-domain custom default directive directives docs document domain domains error escaping file gettrustedresourceurl google guide insecure insecurl js-angular-release load loaded loading loads mode ng ngdoc nginclude occur org origin policy port processing protocol protocols reason requests require resource resourceurlblacklist resourceurlwhitelist restrict same-origin_policy_for_xmlhttprequest sharing source strict template templates templateurl threw trustasresourceurl trusted typically untrusted url urls w3 whitelist won work wrap"
+      "keywords": "$sce $scedelegateprovider adjust angular angularjs application apply attempting belong blacklist blocked browser browsers call calling contextual cross-domain custom default directive directives docs document domain domains error escaping file gettrustedresourceurl google guide insecure insecurl js-angular-release load loaded loading loads mode ng ngdoc nginclude occur org origin policy port processing protocol protocols reason requests require resource resourceurlblacklist resourceurlwhitelist restrict same-origin_policy_for_xmlhttprequest sharing source strict template templates templateurl threw trustasresourceurl trusted typically untrusted url urls w3 whitelist won work wrap"
     }
   },
   "error/$sce/itype": {
@@ -2794,7 +2710,7 @@ angular.module('pagesData', [])
     "path": "error/$sce/unsafe",
     "searchTerms": {
       "titleWords": "$sce:unsafe",
-      "keywords": "$sce angular api bindings considered context contexts contextual default docs error escaping helps issues js-angular-release loading mode ng ngdoc prevent provided read require requires resources result safe security specific strict template trusted unsafe url xss"
+      "keywords": "$sce angular api automatic bindings considered context contexts contextual default docs error escaping helps include issues js-angular-release loading mode module ng ngdoc ngsanitize prevent provided read require requires resources result safe sanitizing security specific strict template trusted unsafe url xss"
     }
   },
   "error": {
@@ -2998,7 +2914,7 @@ angular.module('pagesData', [])
     "path": "guide/$location",
     "searchTerms": {
       "titleWords": "Using $location",
-      "keywords": "$apply $compile $digest $location $locationprovider $observe $observers $provide $rootscope $routeprovider $watch $watchers $window _escaped_fragment_ _self absolute absurl access add addition address ajax allow allows angular angularjs api apis app application applications appropriate apps attributes automatically aware bar base based basically beforeeach behave best binding bot break browser browsers button call called calls capability care cases caveats chain chaining change changed changes changing character characters check class clicks coalesces code commit comparing compiler compose configuration configure connected content control conversion crawlable crawler crawling create creating current currently customizing decoded default defined depending describe differences differently directions directive directly directory displaying docroot docs document doesn dom domain don earlier element empty-corner-lt enable enabled encode encoded encoding encouraged entire entry equivalents event example example-example72 example-example73 examples exposes extra facilitate factory fake fall fallback false features field file files flag form format forward fragment frees full function future general getter getters google guide handle handled handler hasbang hash hashbang hashpath hashprefix hashsearch head history host href html html5 html5mode http ietf images img implement including indexing initial inject input inside instances instantiated integrates integration interact intercepted internal issues item jpg jquery-style js js-angular-release lead legacy level life-cycle link links loaded location locationpath locations lower lower-level main maintains management map meta method methods migrating missing mode model modern modes modified mozilla multiple mutations navigate navigation ng ngdoc ngmodel normal note notified notify object observe obtains older open opening operation option org original overview param parameters parses parsing parts pass passed path perform phase phases point port prefix prefixed prefixes prevent process processes propagate properties property protocol provided push pushed raw react read read-only recognize record records redirect redirection redirects reflected regular relative release releases reload replace replaced replacing represents request require requires resets resolved responsibility retrieve retrigger return returned returns rewrite rewrites rewriting rewritten root route routed rule rules running scope scripts search segments sending serve server server-side service services serviceundertest set setter setters side single slash snapshots special src starting static suitable supplies support supported supports synced synchronization table tag takes target technique test testing time transparent transparently true two-way txt type update updated updatehash updates url urls user users values versa vice viewing w3 watch window work worry write"
+      "keywords": "$apply $compile $digest $location $locationprovider $observe $observers $provide $rootscope $routeprovider $watch $watchers $window _escaped_fragment_ _self absolute absurl access add addition address ajax allow allows angular angularjs api apis app application applications appropriate apps attributes automatically aware bar base based basically beforeeach behave best binding bot break browser browsers button call called calls capability care cases caveats chain chaining change changed changes changing character characters check class clicks coalesces code commit comparing compiler compose configuration configure connected content control conversion crawlable crawler crawling create creating current currently customizing decoded default defined depending describe differences differently directions directive directly directory displaying docroot docs document doesn dom domain don earlier element empty-corner-lt enable enabled encode encoded encoding encouraged entire entry equivalents event example example-example69 example-location-hashbang-mode example-location-html5-mode examples exposes extra facilitate factory fake fall fallback false features field file files flag form format forward fragment frees full function future general getter getters google guide handle handled handler hasbang hash hashbang hashpath hashprefix hashsearch head history host href html html5 html5mode http ietf images img implement including indexing initial inject input inside instances instantiated integrates integration interact intercepted internal issues item jpg jquery-style js js-angular-release lead legacy level life-cycle link links loaded location locationpath locations lower lower-level main maintains management map meta method methods migrating missing mode model modern modes modified mozilla multiple mutations navigate navigation ng ngdoc ngmodel normal note notified notify object observe obtains older open opening operation option org original overview param parameters parses parsing parts pass passed path pathname perform phase phases point port prefix prefixed prefixes prevent process processes propagate properties property protocol provided push pushed raw react read read-only recognize record records redirect redirection redirects reflected regular relative release releases reload replace replaced replacing represents request require requires resets resolved responsibility retrieve retrigger return returned returns rewrite rewrites rewriting rewritten root route routed rule rules running scope scripts search segments sending serve server server-side service services serviceundertest set setter setters side single slash snapshots special src starting static suitable supplies support supported supports synced synchronization table tag takes target technique test testing time transparent transparently true two-way txt type update updated updatehash updates url urls user users values versa vice viewing w3 watch window work worry write"
     }
   },
   "guide/animations": {
@@ -3010,7 +2926,7 @@ angular.module('pagesData', [])
     "path": "guide/animations",
     "searchTerms": {
       "titleWords": "Animations",
-      "keywords": "$animate add addclass addition angularjs animate animation animations api application apply approach attached attempt attention attrs automatically based breakdown browser callback calls capture changes class classes classname cleanup click clicked code common complete completely conventions css css-based custom cycle defined defining definition demo dependency destination detail directive directives directly docs documentation element elements enabled enter established event events example example-example74 example-example75 executed explains factory figures file finalized full function generated guide handful handle hasclass hooks html idea include injecting installation installing instructions involved item items javascript jquery js js-angular-release keyframe leave life linear list long major making match method mind module move moved my-directive my_animation mymodule names naming needed ng ng-enter ng-enter-active ng-hide ng-leave ng-move ng-move-active ng-repeat nganimate ngclass ngdoc nghide ngif nginclude ngrepeat ngroute ngshow ngswitch ngview occur occurs oncancel ondone opacity operations optional overview pays perform phonecat place post-animation properties quick refer reference removal remove removeclass removed repeated repeated-item repeater requires return separate service set setup step steps support supported table template thing time transition transitions trigger triggered triggering triggers tutorial usage_animations vanilla vendor website work"
+      "keywords": "$animate add addclass addition angularjs animate animation animations api application apply approach attached attempt attention attrs automatically based bind breakdown browser callback calls capture changes class classes classname cleanup click clicked code common complete completely conventions css css-based custom cycle defined defining definition demo dependency destination detail directive directives directly docs documentation element elements enabled enter established event events example example-example70 example-example71 executed explains factory figures file finalized form full function generated guide handful handle hasclass hooks html idea include injecting installation installing instructions invalid involved item items javascript jquery js js-angular-release keyframe leave life linear list long major making match method mind module move moved my-directive my_animation mymodule names naming needed ng ng-enter ng-enter-active ng-hide ng-leave ng-move ng-move-active ng-repeat nganimate ngclass ngdoc nghide ngif nginclude ngmodel ngrepeat ngroute ngshow ngswitch ngview occur occurs oncancel ondone opacity operations optional overview pays perform phonecat place post-animation pristine properties quick refer reference removal remove removeclass removed repeated repeated-item repeater requires return scope separate service set setup step steps support supported table template thing time transition transitions trigger triggered triggering triggers tutorial usage_animations valid validations vanilla vendor website work"
     }
   },
   "guide/bootstrap": {
@@ -3034,7 +2950,7 @@ angular.module('pagesData', [])
     "path": "guide/compiler",
     "searchTerms": {
       "titleWords": "HTML Compiler",
-      "keywords": "$compile $compileprovider $interpolate $rootscope $watch accept accidentally achieve action actions add alert alert-success alert-warning align aligned allow allows angular angularjs answer api app append appendchild appended application applications approach array attach attached attribute attributes automatically basics behavior behavioral bind binding bindings body bound box break browser building button buttons call calling calls cases center centered chance change changes changing child class clean clicking clobber clobbering clobbers clone cloned clones cloning code collect collection combine combined comments common compilation compile compiled compiler compiles compiling complexity complicated component components composed concerned configured consider constructs consume consumes contained content copy corresponding create created creates creating custom data data-binding declarative declares deeper defined definition delegate descending description desired destroyed developer developers dialog difference dilemma directive directives divided docs documentation documents dom domain don dosomething draggable duplicate easy element elements encountered encounters equivalent evaluate event example example-example76 examples executed executes exp expect expects expression expressiveness extended extensions false familiar fashion final find finds footer forgets formatting function functions guide half handle handlers hello help hold html idea identified img improves in-depth individual inherit initially injected innerhtml input insert inserted inserting instance instructions interactions internally interpolating interpolation invokes invoking involved isolated isolation issue issues item items js js-angular-release lack language lifetime limited limits link linked linkfn linking links list listeners live loads local locals lot magic making managing mapping match matches matching merge merging model modify moved multiple naive names natural needed ng ng-bind ng-click ng-repeat ng-show ng-transclude ngdoc ngrepeat node nodes note notice on-cancel on-ok oncancel onok open operates operation original overview overwrite overwriting parent parse parses performance performed phase phases place png point position power practice pre-bundled pre-compilation presence preventing previous principles priority problem problems process produce produces properly properties property prototypically provide pseudo purposes rare re-merged reading ready real-world reason reasons recommend reference reflected register registering removing render replace responsive restrict restriction result returned returns reusable runtime save scope scopes separate separately separation server service set setting shared short showing siblings side simplified simply single size slower solution solve solving sorted sorts source special specific src stable started static step string strings structure surprise sync syntax systems takes targeted teach template templates templating text three time title transclude transcluded transclusion transparent traverse traverses traversing triggered trivial true truth turn tutorial ul understand understanding undesirable unexpected unpredictable update user username var variables versus view visible visits vocabulary watches web widget window won wonder work working works worry write"
+      "keywords": "$compile $compileprovider $interpolate $rootscope $watch accept accidentally achieve action actions add alert alert-success alert-warning align aligned allow allows angular angularjs answer api app append appendchild appended application applications approach array attach attached attribute attributes automatically basics behavior behavioral bind binding bindings body bound box break browser building button buttons call calling calls cases center centered chance change changes changing child class clean clicking clobber clobbering clobbers clone cloned clones cloning code collect collection combine combined comments common compilation compile compiled compiler compiles compiling complexity complicated component components composed concerned configured consider constructs consume consumes contained content copy corresponding create created creates creating custom data data-binding declarative declares deeper defined definition delegate descending description desired destroyed developer developers dialog difference dilemma directive directives divided docs documentation documents dom domain don dosomething draggable duplicate easy element elements encountered encounters equivalent evaluate event example example-example72 examples executed executes exp expect expects expression expressiveness extended extensions false familiar fashion final find finds footer forgets formatting function functions guide half handle handlers hello help hold html idea identified img improves in-depth individual inherit initially injected innerhtml input insert inserted inserting instance instructions interactions internally interpolating interpolation invokes invoking involved isolated isolation issue issues item items js js-angular-release lack language lifetime limited limits link linked linkfn linking links list listeners live loads local locals lot magic making managing mapping match matches matching merge merging model modify moved multiple naive names natural needed ng ng-bind ng-click ng-repeat ng-show ng-transclude ngdoc ngrepeat node nodes note notice on-cancel on-ok oncancel onok open operates operation original overview overwrite overwriting parent parse parses performance performed phase phases place png point position power practice pre-bundled pre-compilation presence preventing previous principles priority problem problems process produce produces properly properties property prototypically provide pseudo purposes rare re-merged reading ready real-world reason reasons recommend reference reflected register registering removing render replace responsive restrict restriction result returned returns reusable runtime save scope scopes separate separately separation server service set setting shared short showing siblings side simplified simply single size slower solution solve solving sorted sorts source special specific src stable started static step string strings structure surprise sync syntax systems takes targeted teach template templates templating text three time title transclude transcluded transclusion transparent traverse traverses traversing triggered trivial true truth turn tutorial ul understand understanding undesirable unexpected unpredictable update user username var variables versus view visible visits vocabulary watches web widget window won wonder work working works worry write"
     }
   },
   "guide/concepts": {
@@ -3046,7 +2962,7 @@ angular.module('pagesData', [])
     "path": "guide/concepts",
     "searchTerms": {
       "titleWords": "Conceptual Overview",
-      "keywords": "$http _live_ access accessible accessing actual add adding additional adds alert alert-info allows angular angularjs api app application applied apply argument arguments array artifacts attribute attributes automatically backend behavior bind binding bindings border braces build built-in business button calculate called calling calls change changed changes changing children class classes clicked code compiler concept concepts conceptual configuration configures container context controller controllers conversion convertcurrency corresponding cost costs create created creates creating css curly currencies currency currencyconverter current custom data databinding deals define defined defines defining definition depend dependencies dependency depends describe description design di directive directives directly directs display docs documentation dom double element elements empty encounters enter entered entry evaluate evaluated evaluating exactly example example-guide-concepts-1 example-guide-concepts-2 example-guide-concepts-21 example-guide-concepts-3 exchange existing explains explanation expose expression expressions extend extra factories factory fetching field fields file filter filters finance finance2 finish form formats function functionality functions global going good graphic grows guide hard hold html img in-depth including independent initial initializes injection injector input instance instantiate instantiates interacts introduced invoice invoice2 invoicecontroller javascript javascript-like js js-angular-release kind linked live load loaded logic main mark markup minifying model module modules money move moved mozilla multiple multiplied multiply named names ng ng-app ng-controller ng-model ng-repeat ngclick ngdoc normal note number objects order org output overview padding-bottom padding-left parses parts pass pattern pay place plain play png practice prefixing preview previous processes produce provided pull-right purpose quantity question rates read recalculated red refactor reference referred register registered rename rendered replace required responsible rest result returns reusable reused save scope second sees separated server service services shorter simple simply snippet software special specifies src start starts stored stores style sync syntax talk tells template templates test text thing things total touches transformed transports tutorial two-way ui updated user validate validation values variable variables view views walk ways web widgets wikipedia wired wires work works wrapper write xmlhttprequest yahoo"
+      "keywords": "$http _live_ access accessible accessing actual add adding additional adds alert alert-info allows angular angularjs api app application applied apply argument arguments array artifacts attribute attributes automatically backend behavior bind binding bindings braces build built-in business button calculate called calling calls change changed changes changing children class clicked code compiler concept concepts conceptual configuration configures container context controller controllers conversion convertcurrency corresponding cost costs create created creates creating curly currencies currency currencyconverter current custom data databinding deals define defined defines defining definition depend dependencies dependency depends describe description design di directive directives directly directs display docs documentation dom double element elements encounters enter entry evaluate evaluated exactly example example-guide-concepts-1 example-guide-concepts-2 example-guide-concepts-21 example-guide-concepts-3 exchange existing explains explanation expose expression expressions extend extra factories factory fetching field fields file filter filters finance finance2 finish form formats function functionality functions global going good graphic grows guide hard hold html img in-depth including independent initial initializes injection injector input instance instantiate instantiates interacts introduced invoice invoice2 invoicecontroller javascript javascript-like js js-angular-release kind linked live load loaded logic main markup minifying model module modules money move moved mozilla multiple multiplied multiply named names ng ng-app ng-controller ng-model ng-repeat ngclick ngdoc normal note number objects order org output overview padding-bottom padding-left parses parts pass pattern pay place plain play png practice prefixing preview previous processes produce provided pull-right purpose quantity question rates read recalculated refactor reference referred register registered rename rendered replace responsible rest result returns reusable reused save scope second sees separated server service services shorter simple simply snippet software special specifies src start starts stored stores style sync syntax talk tells template templates test thing things total touches transformed transports tutorial two-way ui updated user values variable variables view views walk ways web widgets wikipedia wired wires work works wrapper write xmlhttprequest yahoo"
     }
   },
   "guide/controller": {
@@ -3058,7 +2974,7 @@ angular.module('pagesData', [])
     "path": "guide/controller",
     "searchTerms": {
       "titleWords": "Controllers",
-      "keywords": "$controller $new $rootscope $route $scope access add adding allows angular angularjs annotation app application argument arguments assigned assigning assignment associate associating attach attached attaches attaching augment augmented automatically baby beforeeach behavior belong best binding box business button buttons called capital cases child childcontroller children childscope chili chilispicy clicked code common components computation concepts consisting constant controller controllers controls convention conventions correctly create created creates customspice data-binding data-bound databinding default defined defines definition demonstrated dependency depending describe di direct directive directives discussed docs doesn dom double doublecontroller doubles element encapsulate encapsulating ends equals evening event events example example-example77 example-example78 example-example79 examples execute exists expect explicitly expression expressions filter filters form format forms function functions general gingerbreak global grandchildcontroller grandchildscope greeting greetingcontroller guide habanero handler hierarchy higher hola hot illustrate implicitly inherit inheritance inherits initial injectable injecting injection input instances instantiate invoked involves jalape jalapeno javascript js js-angular-release lava length letter levels life-cycle logic maincontroller mainscope manage manipulate manipulation manual mattie message method methods mild model module morning myapp mycontroller named naming needed nested ng ng-controller ng-model ngclick ngcontroller ngdoc ngroute nikki notice num number object objects order org output overrides overview parameter pasilla passes plain point presentation presented previous primitives properties property provide provided putting react real receives recommended refers registered replaced result return root scope scopes second sections selected service services set setting share shouldn simple single slim spice spices spiciness spicy spicycontroller starts string takes template templates test testability testing things three timeofday times tobe typically understanding updated updates values var variation view ways work works"
+      "keywords": "$controller $new $rootscope $route $scope access add adding alert alert-info angular annotation app application argument arguments assigned assigning assignment associate associating attach attached attaches attaching augment augmented automatically baby beforeeach behavior belong best binding box business button buttons called capital cases child childcontroller children childscope chili chilispicy class clicked code common components computation concepts consisting constant controller controllers controls convention conventions correctly create created creates creating customspice data-binding data-bound databinding default defined defines definition demonstrated demonstrates dependency depending describe di direct directive directives discussed docs doesn dom double doublecontroller doubles element encapsulate encapsulating ends equals evening event events example example-example73 example-example74 example-example75 examples execute exists expect explicitly expression expressions filter filters form format forms function functions general gingerbreak global grandchildcontroller grandchildscope greeting greetingcontroller guide habanero handler hierarchy higher hola hot illustrate implicitly inherit inheritance inherits initial injectable injecting injection input instances instantiate invoked involves jalape jalapeno javascript js js-angular-release lava length letter levels life-cycle logic maincontroller mainscope manage manipulate manipulation manual mattie message method methods mild model module morning myapp mycontroller named naming needed nested ng ng-controller ng-model ngclick ngcontroller ngdoc ngroute nikki notice num number object objects order output overrides overview parameter pasilla passes plain point presentation presented previous primitives properties property provide provided putting react receives refers registered replaced result return root scope scopes second sections selected service services set setting share shouldn simple single slim spice spices spiciness spicy spicycontroller starts string takes template templates test testability testing things three timeofday times tobe typically understanding updated updates values var variation view ways work works"
     }
   },
   "guide/css-styling": {
@@ -3094,7 +3010,7 @@ angular.module('pagesData', [])
     "path": "guide/di",
     "searchTerms": {
       "titleWords": "Dependency Injection",
-      "keywords": "$inject $rootscope $route $scope $window accept access actual additional alert allow amethod angular animations annotated annotating annotation api application applications arguments array asks assigns associated assume automatically avoids behavior behinds best bloat blocks book bootstrap break breaks build calling care charge class classes code coding compiles component components concerned config configuration consist construction constructs control controller controllers convenient create creating creation deal deals declaration declarations declarative declares declaring defined defining demeter demo dep1 dep2 dependencies dependency dependent depprovider depservice design desirable developer di difficult directive directivename directives discussion docs documentation dom dosomething elements equivalent examining example examples extracting factories factory favorite filter filtername filters fit fowler function functions global greet greeter greeterfactory guide hand handed hard hello hold html img implicit implicitly impossible in-depth infer inject injectable injected injection injector inline instance instances instantiate instantiated interchangeably invoked isolation issue javascript js js-angular-release knowing law list locating locator lookup manage markup martin match method methods mind minification minifiers mock modify module mycontroller mymodule names needed needing ng ng-click ng-controller ngdoc notation notice nutshell object objects operator optimal option options order ordering org outcome overview padding-bottom padding-left parameter parameters pass passed passing pattern pervasive png point pretotyping problematic processes property protects prototype provide provided providing pull-right puts read reason recommended referring registered remedy removes rename renamed renamedgreeter request requested resolve resolved resolves resolving responsibility responsible return route satisfy sayhello scenario scenes scope service serviceid services setup simplest simply singleton snippet software solves someclass somemodule special src straightforward strings style styles subsystem supported supports sync teach template templates temporary test tests third three time turn typically values var variable viable ways wikipedia wiring work world"
+      "keywords": "$inject $rootscope $route $scope $window accepts access actual additional alert allow amethod angular animations annotated annotating annotation api application applications arguments array asks assigns associated assume automatically avoids behavior behinds best bloat blocks book bootstrap break breaks build calling care charge class classes code coding compiles component components concerned config configuration consist constant construction constructs control controller controllers convenient create creating creation deal deals declaration declarations declarative declares declaring defined defining demeter demo dep1 dep2 dependencies dependency dependent depprovider depservice design desirable details developer di difficult directive directivename directives discussion docs documentation dom dosomething elements equivalent examining example examples extracting factories factory favorite filter filtername filters fit fowler function functions global greet greeter greeterfactory guide hand handed hard hello hold html img implicit implicitly impossible in-depth infer inject injectable injected injecting injection injector inline instance instances instantiate instantiated interchangeably invoked isolation issue javascript js js-angular-release knowing law list locating locator lookup manage markup martin match method methods mind minification minifiers mock modify module module-loading-dependencies modules mycontroller mymodule names needed needing ng ng-click ng-controller ngdoc notation note notice nutshell object objects operator optimal option options order ordering org outcome overview padding-bottom padding-left parameter parameters pass passed passing pattern pervasive png point pretotyping problematic processes property protects prototype provide provided provider providers providing pull-right puts read reason recommended referring registered remedy removes rename renamed renamedgreeter request requested resolve resolved resolves resolving responsibility responsible return route satisfy sayhello scenario scenes scope service serviceid services setup simplest simply singleton snippet software solves someclass somemodule special src straightforward strings style styles subsystem supported supports sync teach template templates temporary test tests third three time turn typically values var variable viable ways wikipedia wiring work world"
     }
   },
   "guide/directive": {
@@ -3106,7 +3022,7 @@ angular.module('pagesData', [])
     "path": "guide/directive",
     "searchTerms": {
       "titleWords": "Directives",
-      "keywords": "$compile $compileprovider $destroy $digest $injector $interpolate $interval $on $rootscope $timeout $timeouts $watch ability accepted access active acts add adding addpane address adds advantage advise aec alert alert-info alert-success alert-warning allow allowed allows angular angular-provided angularjs annoying apart api app application applied arbitrary argument attach attaches attaching attribute attributes attrs auto automatically avoid based basic basics basis behave behavior behaviors best better bind bind-to-this binding bindings binds bootstraps box break broadcasts browsers btfcarousel build building built built-in buttons call callback called camelcase case case-insensitive case-sensitive cases change changes changing check children choice chunk circle class clean clean-up cleaned clearly clicks close closer code collisions combination combined comment comments common commonly communicate compilation compile compiled compiler compiles compiling completed completing component components compose comprehensive computers conflict consider considering console container content contents context control controller controllers convert core correspond corresponding corresponds couple create created creating creating-custom-directives_demo_creating-directives-that-communicate creating-custom-directives_matching-directives css current custom customer customerinfo cx cycle dash-delimited data data- data-ng data-ng-bind datefilter decorating deep default defined defining definition deleted demonstrates dependency description_comprehensive-directive-api_directive-definition-object desirable destroyed determine determines developers dialog difference digest directive directive-definition-object directives displayed displays dive docs document doesn dom domain-specific don drag eagerly earlier easier element elements embedded emits empty encouraged end-to-end ensure entire equivalent error evaluates evaluation event events exactly example example-example80 example-example81 example-example82 example-example83 example-example84 example-example85 example-example86 example-example87 example-example88 example-example89 example-example90 example-example91 example-example92 examples existing exp expect explains explanation explicitly expose exposed expression expressions factory familiar fatal file fires flaw foo format formatting forms fourth front function functionality functions future generally good great grows guide handler hash helpful hidedialog high html html7 ideal igor illustrate imagine img implement implementation in-depth in-lined included including info inherits initialization injectable injected inner inside instance interact interactive interested interpolation introduce introduced introduces introducing invalid invoke invoked invoking isn isolate isolated isolates isolating javascript jeff jpg jqlite-wrapped js js-angular-release key-value language languages leak leaks legacy legal letter level limits link links list listener listeners listening ll load lower-case main making manipulated manipulates map markers match matched matches matching meaning memory mirrors model models modify module modules moved multiple my-customer my-dir mycustomer mydir mypane mytabs named names naomi needed nested ng ng-attr- ng-attr-cx ng-bind ng-click ng-href ng-model ng-repeat-end ng-repeat-start ngattr ngbind ngcontroller ngdoc nginclude ngmodel ngview node normal normalized note notice object opportunity option options order ordinarily org original outer output overview pairs parent parents parts pass perform picky place places point practice prefer prefix prefixed prevents problem problematic process processed programming property prototypically re-use reacts readers reason reasons receives recommend recursive redefines refer reference referenced reflect register registered registering regular remove removed repeated replaces represents require requires resolve restrict restricted restrictions return returning reusable reuse risk running samples savvy scope scopes script searches second sense separate separately service services set shorthand signature simplify simply size small solution source spanned special specific standard started starting static string strip suggests summary svg syntax tab tabs tabsctrl tag takes talk targeted tells template template-expanding templates templateurl term test testing text thing things three throw time times tobias tool transclude transcluded transform traverses trigger triggered true tutorial typically undefined unprefixed unsurprisingly update updates user valid validating values ve version versus vojta wanted watches ways web wikipedia wondering work works wrap wraps write writing x-"
+      "keywords": "$compile $compileprovider $destroy $digest $injector $interpolate $interval $on $rootscope $timeout $watch ability accepted access active acts add adding addpane address adds advantage advise aec alert alert-info alert-success alert-warning alias allow allowed allows angular angular-provided angularjs annoying apart api app application applied arbitrary argument attach attaches attaching attribute attributes attrs auto automatically avoid based basic basics basis behave behavior behaviors best better bind bind-to-this binding bindings binds bootstraps bound box break broadcasts browsers btfcarousel build building built built-in buttons call callback called camelcase case case-insensitive case-sensitive cases change changes changing check children choice chunk circle class clean clean-up cleaned clearly clicks close closer code collisions combination combined comment comments common commonly communicate compilation compile compiled compiler compiles compiling completed completing component components compose comprehensive computers configuration conflict consider considering console container content contents context control controller controlleras controllers convert core correspond corresponding corresponds couple create created creating creating-custom-directives_demo_creating-directives-that-communicate creating-custom-directives_matching-directives css current custom customer customerinfo cx cycle dash-delimited data data- data-ng data-ng-bind datefilter decorating deep default define defined defining definition deleted demonstrates dependency description_comprehensive-directive-api_directive-definition-object desirable destroyed determine determines developers dialog difference digest directive directive-definition-object directives displayed displays dive docs document doesn dom domain-specific don drag eagerly earlier easier element elements embedded emits empty encouraged end-to-end ensure entire equivalent error evaluates evaluation event events exactly example example-example76 example-example77 example-example78 example-example79 example-example80 example-example81 example-example82 example-example83 example-example84 example-example85 example-example86 example-example87 example-example88 examples existing exp expect explains explanation explicitly expose exposed expression expressions factory familiar fatal file fires flaw foo format formatting forms fourth front function functionality functions future generally good great grows guide handler hash helpful hidedialog high html html7 ideal igor illustrate imagine img implement implementation in-depth in-lined included including info inherits initialization injectable injected inner inside instance interact interactive interested interpolation introduce introduced introduces introducing invalid invoke invoked invoking isn isolate isolated isolates isolating javascript jeff jpg jqlite-wrapped js js-angular-release key-value language languages leak leaks legacy legal letter level limits link links list listener listeners listening ll load lower-case main making manipulated manipulates map markers match matched matches matching meaning memory mirrors model models modify module modules moved multiple my-customer my-dir mycustomer mydir mypane mytabs named names naomi needed nested ng ng-attr- ng-attr-cx ng-bind ng-click ng-href ng-model ng-repeat-end ng-repeat-start ngattr ngbind ngcontroller ngdoc nginclude ngmodel ngview node normal normalized note notice object opportunity option options order ordinarily org original outer output overview pairs parent parents parts pass perform picky place places point practice prefer prefix prefixed prevents problem problematic process processed programming property prototypically re-use reacts readers reason reasons receives recommend recursive redefines refer reference referenced reflect register registered registering regular remove removed repeated replaces represents require requires resolve restrict restricted restrictions return returning reusable reuse risk running samples savvy scope scopes script searches second sense separate separately service services set shorthand signature simplify simply size small solution source spanned special specific standard started starting static string strip suggests summary svg syntax tab tabs tabsctrl tag takes talk targeted tells template template-expanding templates templateurl term test testing text thing things three throw time times tobias tool transclude transcluded transform traverses trigger triggered true tutorial typically undefined unprefixed unsurprisingly update updates user valid validating values ve version versus vojta wanted watches ways web wikipedia wondering work works wrap wraps write writing x-"
     }
   },
   "guide/e2e-testing": {
@@ -3130,7 +3046,7 @@ angular.module('pagesData', [])
     "path": "guide/expression",
     "searchTerms": {
       "titleWords": "Expressions",
-      "keywords": "$eval $event $parse $rootscope $window access accidental alert algorithm allows angular apart application attr attributes benefit bidirectional binding bindings bugs call candidate case change check clickme clutter code color common complex conditional conditionals considered context control controller controllers core create cycle data default defined delegate deregister deregistered deregistration differences digest directive directives dirty-checked dirty-checking displayed displaying docs entered eval evaluate evaluated evaluates evaluating evaluation evaluations example example-example93 example-example94 example-example95 example-example96 example-example97 exception exceptions exit explicitly expose expression expressions faster feature filters flow forgiving format frees fulfilled function future general generates global guide html intentional interpolating invoking item items javascript javascript-like js js-angular-release language logic long loop loops main mark method names ng ng-repeat ngclick ngdoc ngfocus non-undefined normal note null number object one-time operator overview parameters pass philosophy prevents process processes properties provide purpose queue real reason recalculating reducing refer referenceerror remain resources response restriction result retain return returns schedule scope sense server service set settled simply snippets some-directive somedirective somemodule source stabilization stabilized stable starting starts statement statements step store subtle takes task tasks template ternary text throw throws time typeerror undefined user valid values view views waiting wasn watch watched window write"
+      "keywords": "$eval $event $location $parse $rootscope $window access accidental angular apart application binding bindings bugs call called clickme clutter code common complex conditional conditionals context control controller controllers core data defined delegate differences directive directives displaying docs document eval evaluate evaluated evaluating evaluation evaluations example example-example89 example-example90 example-example91 example-example92 exception exceptions expose expression expressions filters flow forgiving format function functions general generates global globals guide intentional invoking items javascript javascript-like js-angular-release language location logic loop loops method mockable ng ngclick ngdoc ngfocus note null object operator overview pass philosophy prevents processes properties provide purpose real reason referenceerror response restriction returns scope sense server service services simply snippets source statement statements subtle ternary throw throws typeerror undefined user valid variables view views waiting wasn window write"
     }
   },
   "guide/filter": {
@@ -3142,7 +3058,7 @@ angular.module('pagesData', [])
     "path": "guide/filter",
     "searchTerms": {
       "titleWords": "Filters",
-      "keywords": "$12 $filterprovider addition additional angularjs api applied argument arguments array arrays backend based big call called calls chaining changed conditionally conditions controller controllers costly creating currency custom data decimal define dependency digest directives directly display docs easy example example-example98 example-example99 expression expressions factory filter filter1 filter2 filterprovider filters format formats fulltext function guide inject injected input internally js-angular-release loaded markup module needed ng ngdoc number numberfilter org overview parameters passed points reduces reevaluate register result return reverses sample search second services starting string syntax takes template templates test testing text tutorial underlying upper-case user view writing"
+      "keywords": "$12 $filterprovider addition additional angularjs api applied argument arguments array arrays backend based big call called calls chaining changed conditionally conditions controller controllers costly creating currency custom data decimal define dependency digest directives directly display docs easy example example-example93 example-example94 expression expressions factory filter filter1 filter2 filterprovider filters format formats fulltext function guide inject injected input internally js-angular-release loaded markup module needed ng ngdoc number numberfilter org overview parameters passed points reduces reevaluate register result return reverses sample search second services starting string syntax takes template templates test testing text tutorial underlying upper-case user view writing"
     }
   },
   "guide/forms": {
@@ -3154,7 +3070,7 @@ angular.module('pagesData', [])
     "path": "guide/forms",
     "searchTerms": {
       "titleWords": "Forms",
-      "keywords": "$compileprovider $dirty $formatters $parsers $pristine $render $setvalidity $setviewvalue achieve add addition adds agree allow allows angular api application applied apply array attribute attributes augment background basic behavior better bind binding blur bound browser browsers button call calls cases change changes checkbox child circumstances circumvented classes client-side collection common consider consume content contenteditable control controller controls conversion convert correct create css custom data data-binding debounce debouncing default defining delay delimited dependency directive directives dirty disable display distracted docs dom easily element elements email enabled ensures enter error event events example example-example100 example-example101 example-example102 example-example103 example-example104 example-example105 example-example106 execute experience extend failing features feedback flags flexibility float focus force form format formcontroller forms fraction function functions good grouping guide half hold holds html html5 implement implementation implementing implements implies info inherit input inputs inside instance instant integer interacting interacts internal invalid js-angular-release key list listener loses max maxlength messages method milliseconds min mind minlength model mousedown native ng ng-dirty ng-invalid ng-model-options ng-pristine ng-valid ngdoc ngmodel ngmodelcontroller ngmodeloptions non-immediate note notified novalidate number object occur occurs opportunity optionally order overridden override overview parser parsers parses passed pattern pipe-lined pipelines places plays primitives properties_ property provide providing published purpose pushing radio red rendered rendering required reset responsible role satisfy save scope second secure select server-side services set simple smart-float space specific specifies standard string styling sufficient synchronizing text textarea timeouts trigger triggering triggers trusted turn two-way type types understanding unshift update updated updateon updates url user valid validate validates validation validator validators validity view wait ways work write"
+      "keywords": "$compileprovider $formatters $parsers $render $setvalidity $setviewvalue achieve add addition adds agree allow allows angular api application array attribute augment background basic behavior better binding bound browser browsers button call calls cases change changes checkbox circumvented classes client-side collection common consider consume contenteditable control controller controls conversion convert correct create css custom data data-binding defining dependency directive directives dirty disable display distracted docs dom easily elements email enabled ensures enter error event example example-example95 example-example96 example-example97 example-example98 example-example99 execute experience extend failing features feedback flexibility float form format formcontroller forms fraction function functions good grouping guide hold holds html html5 implement implementation implementing implements implies info input inside instance instant integer interacting interacts internal invalid js-angular-release key listener max maxlength messages method min mind minlength model native ng ng-dirty ng-invalid ng-pristine ng-valid ngdoc ngmodel ngmodelcontroller note notified novalidate number occur occurs opportunity optionally order overview parser parses passed pattern pipe-lined pipelines places plays primitives properties_ property provide providing published purpose pushing radio red rendered rendering required reset responsible role satisfy save scope second secure select server-side services simple smart-float specifies standard string styling sufficient synchronizing text textarea trusted turn two-way type types understanding unshift update updated url user valid validates validation validator validity view ways work write"
     }
   },
   "guide/i18n": {
@@ -3166,7 +3082,7 @@ angular.module('pagesData', [])
     "path": "guide/i18n",
     "searchTerms": {
       "titleWords": "i18n and l10n",
-      "keywords": "$1000 $locale abstracted abstracting account adapting additionally alert alert-success allows angular angular_de-de anticipate app application applications approach approaches automatically balance banking behave binding bits browser case cat caveats change class client code codes commonly comparison components computer concatenating configure conscious consists content contents convenient correct correspond country create cultural cultures currency currently custom datetime de default depend depending described desired develop developer developers developing directive directory display displaying docs dollars easily en en-au en-us enable example examples expected explicitly extra file files filter filters find fine format formats generic geographical german greatly guide html i18n icu-project ids include including index_de-de internationalization internationalizing ja japanese javascript js js-angular-release june junio l10n language languages length linguistic list loaded locale locale-specific locales localizable localization localized localizing managed market min ng ng-app ngdoc ngpluralize number optional org override overview parameter parts pluralization political practice pre-bundle pre-bundled pre-configured prepare problematinc process products provide providing region rely require requires rule rules running script second separates serve server service sets settings showcase size sk slower source spanish specific src starts strings support supported supports symbol testing text things thorough time timezone timezones translated translation translations ui usability usd valid vary viewers views website write writing zh zh-cn zone"
+      "keywords": "$1000 $locale abstracted abstracting account adapting additionally alert alert-success allows angular angular_de-de anticipate app application applications approach approaches automatically balance banking behave binding bits browser case cat caveats change class client code codes commonly comparison components computer concatenating configure conscious consists content contents convenient correct correspond country create cultural cultures currency currently custom datetime de default depend depending described desired develop developer developers developing directive directory display displaying docs dollars easily en en-au en-us enable example examples expected explicitly extra file files filter filters find fine format formats generic geographical german greatly guide html i18n icu-project ids include including index_de-de internationalization internationalizing ja japanese javascript js js-angular-release june junio l10n language languages length linguistic list loaded locale locale-specific locales localizable localization localized localizing managed market min ng ng-app ngdoc ngpluralize number optional org override overview parameter parts pluralization political practice pre-bundle pre-bundled pre-configured prepare problematic process products provide providing region rely require requires rule rules running script second separates serve server service sets settings showcase size sk slower source spanish specific src starts strings support supported supports symbol testing text things thorough time timezone timezones translated translation translations ui usability usd valid vary viewers views website write writing zh zh-cn zone"
     }
   },
   "guide/ie": {
@@ -3190,7 +3106,7 @@ angular.module('pagesData', [])
     "path": "guide",
     "searchTerms": {
       "titleWords": "Developer Guide",
-      "keywords": "$http $resource $route $sanitize $sce alex amazon analytics angular angularjs api app application applications apps ari authorization automation awesome backends background bacon belong bennadel better binding bits blog book books bootstrap brad breezejs brombone brunoscopelliti channel channels check christopher client client-side cloud codecademy coffeescriptlove complementary complete comprehensive concepts conceptual content contextual contributing contributors controllers core courses create creativebloq currency dart darwin data dependency deployment developer developers development didn dietz directive directives django docs documentation doesn dynamic edge endpoints errors escaping events example expressions external features filling filter filters final find firebase folks forms framework frederik freenode full general github google green group guide hand help hiller htm html hundreds i18n injection io irc issue jetbrains job jquery js js-angular-release js-applications karma kevinastone kozlowski l10n languages laravel learn learning lerner lessons libraries links list ll localization logging love lynda mailing meetup minification minutes misc mobile model mongodb mourafiq move multilingual net news newsletter ng ng-newsletter nganimate ngdoc ngresource ngroute ngsanitize ngtouch nosql novanet official online onsite open org overview pawel pete platform pluralsight policy post posts principles project rails4 read readthedocs ready reasons recipe releases resources rest restful result roberthorvick rocketeer routes routing scopes security seo4ajax server server-specific servers service services seshadri session shareable short shyam site sitepoint social source specific stack started storage strategy strict structure structured studio support system templates testing testing_services text thinkster tool tools topics touch tutorial tutorials uk unique unit unit-testing updates vanston video videos views web webstorm widgets wintellectnow wiring wordpress work working yearofmoo yeoman youtube"
+      "keywords": "$http $resource $route $sanitize $sce alex amazon analytics angular angularjs api app application applications apps ari authorization automation awesome backends background bacon belong bennadel better binding bits blog book books bootstrap brad breezejs brombone brunoscopelliti channel channels check christopher client client-side cloud codecademy codeschool coffeescriptlove complementary complete comprehensive concepts conceptual content contextual contributing contributors controllers core courses create creativebloq currency dart darwin data dependency deployment developer developers development didn dietz directive directives django docs documentation doesn dynamic edge endpoints errors escaping events example expressions external features filling filter filters final find firebase folks forms framework frederik freenode full general github google green group guide hand help hiller htm html hundreds i18n injection io irc issue jetbrains job jquery js js-angular-release js-applications karma kevinastone kozlowski l10n languages laravel learn learning lerner lessons libraries links list ll localization logging love lynda mailing maps meetup minification minutes misc mobile model mongodb mourafiq move multilingual net news newsletter ng ng-newsletter nganimate ngdoc ngresource ngroute ngsanitize ngtouch nosql novanet official online onsite open org overview pawel pete platform pluralsight policy post posts principles project rails4 read readthedocs ready reasons recipe releases resources rest restful result roberthorvick rocketeer routes routing scopes security seo4ajax server server-specific servers service services seshadri session shareable short shyam site sitepoint social source specific stack started storage strategy strict structure structured studio support system templates testing testing_services text thinkster tool tools topics touch tutorial tutorials uk unique unit unit-testing updates vanston video videos views web webstorm widgets wintellectnow wiring wordpress work working yearofmoo yeoman youtube"
     }
   },
   "guide/introduction": {
@@ -3202,7 +3118,7 @@ angular.module('pagesData', [])
     "path": "guide/introduction",
     "searchTerms": {
       "titleWords": "Introduction",
-      "keywords": "_really_ _you_ abstraction ajax allowing allows amount angular angularjs app application applications approach apps attaching attempts auto-injected automated basic belief better binding boilerplate bonus bootstrap browser build building built business call callbacks calls cases centric change changes charge clearly client client-side clutters code code-behind coding cohesive collection common complete components construct constructs control cornerstone cost creates creating crud cumbersome currently data data-binding declarative declaratively decouple deep-linking dependency dependency-injection describes describing designed designing details developer developers developing development difficult difficulty directives directory displaying docs document documents dom dramatically dynamic easier easily editors elements eliminate eliminates ember end-to-end entire equal error-prone errors examples excellent exercise express expressing extend features fills fit flexibility flow forest form forms fragments framework freed frees full functions games glue good google great grouping gui guide guides hand handles hard harnesses hello helpful helps higher html idea ideal impedance imperative implementation improves include initialization injection intensive internal introduction javascript journey jquery js-angular-release kinds knockout language layout leaving level library logic lot low-level lower luckily majority making manipulate manipulating manipulation marshaling mind minimize mismatch mocks model modify ngdoc object operations opinion opinionated out-of-the-box overview pains parallel partner piece plumbing point presenting process programmatically progress puts puzzle reduces regard registering removing repeating represent result returning reusable reuse routing scripts seed sees server services set side sides simplifies single software solution solved specific spot started starting static story structural structure structured structures style succinctly support sweet syntax takes tasks teaches technology template templating test testability testing tests thing tons trees trick tricky trivial typically ui uis understand unit-testing users validating validation vastly web well-defined wiring work working world write writing written wrote zen"
+      "keywords": "_really_ _you_ abstraction ajax allowing allows amount angular angularjs app application applications approach apps attaching attempts auto-injected automated basic belief better binding boilerplate bonus bootstrap browser build building built business call callbacks calls cases centric change changes charge clearly client client-side clutters code code-behind coding cohesive collection common complete components construct constructs control cornerstone cost creates creating crud cumbersome currently data data-binding declarative declaratively decouple deep-linking dependency dependency-injection describes describing designed designing details developer developers developing development difficult difficulty directives directory displaying docs document documents dom dramatically durandal dynamic easier easily editors elements eliminate eliminates ember end-to-end entire equal error-prone errors examples excellent exercise express expressing extend features fills fit flexibility flow forest form forms fragments framework freed frees full functions games glue good google great grouping gui guide guides hand handles hard harnesses hello helpful helps higher html idea ideal impedance imperative implementation improves include initialization injection intensive internal introduction javascript journey jquery js-angular-release kinds language layout leaving level library logic lot low-level lower luckily majority making manipulate manipulating manipulation marshaling mind minimize mismatch mocks model modify ngdoc object operations opinion opinionated out-of-the-box overview pains parallel partner piece plumbing point presenting process programmatically progress puts puzzle reduces regard registering removing repeating represent result returning reusable reuse routing scripts seed sees server services set side sides simplifies single software solution solved specific spot started starting static story structural structure structured structures style succinctly support sweet syntax takes tasks teaches technology template templating test testability testing tests thing tons trees trick tricky trivial typically ui uis understand unit-testing users validating validation vastly web well-defined wiring work working world write writing written wrote zen"
     }
   },
   "guide/migration": {
@@ -3226,7 +3142,7 @@ angular.module('pagesData', [])
     "path": "guide/module",
     "searchTerms": {
       "titleWords": "Modules",
-      "keywords": "$compileprovider $filterprovider $injector $provide $window accidental add advantage advantages alert alert-info alertspy angular angularjs api app application applications applied applies apply approach apps array assume asynchronous basics beforeeach beware block blocks bootstrap bootstrapped bootstrapping bootstraps box break calling class closest code collection component concise config configuration configured consist constant constants container controllers convenience create created createspy creating creation deal declarative declaratively declared defined definition definitions delay dependencies depending depends describe directive directivename directives docs document don easier empty end-to-end equivalent error example example-example107 example-example108 examples execute executed execution existing expect factory fast feature filter filtername filters focused form fully function going google greet greetmod guide hard hello help html hurry ignored implies initialization inject injected injector inline instance-injector instances instantiates instantiating instantiation isolated jasmine js js-angular-release kickstart kinds large level list load loaded loaders loading main managing method methods mock module modules multiple myapp mydirective mymodule myothermodule myservice named ng-app ngdoc notice order org organize override overrides overriding overview overwrite overwrites package parallel parallelize parts phase prevent process projects property provider provider-injector providers real reason recommend recommended reference register registered registrations relevant require required requiring retrieval retrieve return reusable runner salutation scale script scripts service services setup simple simplest small special stimulus structured subset suggestion system tailor test testing tests thing things throws time times tohavebeencalledwith true typically understand unit unit-test unit-tests var ve version versus vm window wires working world write"
+      "keywords": "$compileprovider $filterprovider $injector $provide $window accidental add advantage advantages alert alert-info alertspy angular angularjs api app application applications applied applies apply approach apps array assume asynchronous basics beforeeach beware block blocks bootstrap bootstrapped bootstrapping bootstraps box break calling class closest code collection component concise config configuration configured consist constant constants container controllers convenience create created createspy creating creation deal declarative declaratively declared defined definition definitions delay dependencies depending depends describe directive directivename directives docs document don easier empty end-to-end equivalent error example example-example100 example-example101 examples execute executed execution existing expect factory fast feature filter filtername filters focused form fully function going google greet greetmod guide hard hello help html hurry ignored implies initialization inject injected injector inline instance-injector instances instantiates instantiating instantiation isolated jasmine js js-angular-release kickstart kinds large level list load loaded loaders loading main managing method methods mock module modules multiple myapp mydirective mymodule myothermodule myservice named ng-app ngdoc notice order org organize override overrides overriding overview overwrite overwrites package parallel parallelize parts phase prevent process projects property provider provider-injector providers real reason recommend recommended reference register registered registrations relevant require required requiring retrieval retrieve return reusable runner salutation scale script scripts service services setup simple simplest small special stimulus structured subset suggestion system tailor test testing tests thing things throws time times tohavebeencalledwith true typically understand unit unit-test unit-tests var ve version versus vm window wires working world write"
     }
   },
   "guide/providers": {
@@ -3238,7 +3154,7 @@ angular.module('pagesData', [])
     "path": "guide/providers",
     "searchTerms": {
       "titleWords": "Providers",
-      "keywords": "$element $get $injector a12345654321x abilities ability accept access accessible accomplish adds algorithm angular animation animations api apitoken apitokenfactory app application application-wide applications appropriate apps argument arguments asks assume atmosphere authentication auto automatically awesome bag base based behavior belongs best better bit bootstrap boy browser build building burn caches call called case changed child class client clientid clientidfactory code code-table collaborate commonly complex component composed comprehensive computed computes conclusion config configurable configuration configure configures conform constant construct constructing constructorinjectionwithpicocontainer constructs consults controller controllers convention core cost cover create created creates creating custom data-binding data2 debugger declares default define defined definition delayed demo democontroller dependencies dependency depends description design developer developers difference directive directives directly disallowed display displays docs doesn don eager earlier early easier empty encrypt encryption error exactly example examples exception explore expose extend fact factories factory fairly false features filter filters follow framework friendly fun function functions future getitem giant global greasy great guide handy haven helps holds hood html identifier implement implements include infrequently initialization injected injection injector instance instances instantiated instantiates instructions interaction interesting interfaces intergalactic intro javascript js-angular-release keeping lacks launch launched launchedcount launcher learned left life-cycle link literal ll local localstorage manually martinfowler mentioned mess method mis-deed module modules myapp myplanet myplanetdirectivefactory named naming navigating needed ng ng-app ng-controller ngdoc note notice nsa-proof object object-oriented objects offspring operator order overkill overview passing pattern phase phases piece places planet planetname planets plugins points powerful practice prefix previous primitive primitives process produce produces protective provide provided provider providers punished purpose ready recipe recipes reference registered registering registry regret regular remaining remote replace represent representing request requested required restrict return reusable rewrite runs runtime satisfy scenarios scenes scope secret sending service services set shared shielding shoots sibling simple simpler simplest singletons space special specialized specific splits stack stamp stamptext start starts sticking storage stored string stuff success sugar suitable summarize syntactic syntactically syntax table table-bordered teachers template text thick time tinfoil token top touppercase traces track trip turn type types unicorn unicornlauncher unicornlauncherfactory unicornlauncherprovider unicorns union url use-case usetinfoilshielding values var vary ve verbose version web window wire wired wires word work works wrap write writing"
+      "keywords": "$element $get $injector a12345654321x abilities ability accept access accessible accomplish adds alert alert-success algorithm angular animation animations api apitoken apitokenfactory app application application-wide applications appropriate apps argument arguments asks assume atmosphere authentication auto automatically awesome bag base based behavior belongs better bit bootstrap boy browser build building burn caches call called case changed child class client clientid clientidfactory code code-table collaborate commonly complex component composed comprehensive computed computes conclusion config configurable configuration configure configures conform constant construct constructing constructorinjectionwithpicocontainer constructs consults controller controllers convention core cost create created creates creating custom data-binding data2 debugger declares default define defined definition delayed demo democontroller dependencies dependency depends description design developer developers difference directive directives directly disallowed display displays docs doesn don eager earlier early easier empty encrypt encryption error exactly example examples exception explore expose extend fact factories factory false features filter filters follow framework friendly fun function functions future getitem giant global greasy great guide handy haven helps holds hood html identifier implement implements include initialization injected injection injector instance instances instantiated instantiates instructions interaction interesting interfaces intergalactic intro javascript js-angular-release keeping lacks launch launched launchedcount launcher learned life-cycle link literal ll local localstorage manually martinfowler mentioned mess method mis-deed module modules myapp myplanet myplanetdirectivefactory named naming navigating needed ng ng-app ng-controller ngdoc note notice nsa-proof object object-oriented objects offspring operator order overkill overview passing pattern phase phases piece places planet planetname planets plugins points powerful practice prefix previous primitive primitives process produce produces protective provide provided provider providers punished purpose ready recipe recipes reference registered registering registry regret regular remaining remote replace represent representing request requested required restrict return reusable rewrite runs runtime satisfy scenarios scenes scope secret sending service services set shared shielding shoots sibling simple simpler simplest singletons space special specialized specific splits stack stamp stamptext start starts sticking storage stored string stuff success sugar suitable summarize syntactic syntactically syntax table table-bordered teachers template text thick time tinfoil token top touppercase traces track trip turn type types unicorn unicornlauncher unicornlauncherfactory unicornlauncherprovider unicorns union url use-case usetinfoilshielding values var vary ve verbose version web window wire wired wires word work works wrap write writing"
     }
   },
   "guide/scope": {
@@ -3250,7 +3166,7 @@ angular.module('pagesData', [])
     "path": "guide/scope",
     "searchTerms": {
       "titleWords": "Scopes",
-      "keywords": "$0 $apply $broadcast $compileprovider $destroy $digest $emit $evalasync $http $injector $interpolate $interval $rootscope $scope $timeout $watch access accounted achieves action additional agnostic allow allows angular api apis application applications applied applies approach arranged arrangement arrive assert assign assignment assigns associated asynchronous asynchronously attach attached auto automatically based behavior benefit bootstrap bound boundaries broadcasted browser button call callback callbacks called calling calls captures care cases categories center change changed changes characteristics checked checking child children class classical click clicked clicks cntl coalesces code collector common compares compilation compiler completes components considerations console context control controlled controller controllers correctly corresponding create created creates creating-custom-directives_demo_isolating-the-scope-of-a-directive creator current currently custom cycle data data-binding data-model debugger debugging define defined defines definition delay delayed demonstrates department depending depicting describe desirable destroy destruction details detect detected detects diagram directive directives dirty discuss distracted docs documentation dom double-curly efficient element elements emit emitted empty enclosing enter enters es evaluate evaluated evaluates evaluating evaluation event event-loop events exactly examine examines example example-example109 example-example110 example-example111 exception execute executed executes execution exits expect explanation explicit expose expression expressions external extra fall fashion field finishes fires flickering flow force frame function functions garbage glue greatly greet greeting guarantees guide handlers handling hello hierarchical hierarchies highlighted highlights html illustrates img implementing implicitly improves inherit inheritance inherits input inside inspect instances integration interact interaction interacts interest interpolation invoked involves isolate isolated isolates iterating iteration javascript js js-angular-release key keydown leaves library life limit linking list listener listeners listens location locations logically longer loop loops magnitude matches meaningless memory method methods mimic mind model models modifications modifies modify multiple mutate mutation mutations mycontroller needed nested network ng ng-app ng-click ng-controller ng-model ng-repeat ng-scope ngdoc node normal notice notification notified notifies object observation observe observed observing occur operation operations orders overview padding-bottom padding-left parallels parent parents passed performance performs phase place places png point portion pre-filled pressing previous process processing produces propagate propagates propagation properly properties property prototypical prototypically provide providing pull-right purposes queue re-rendering re-renders reached read realm reason received receiving reclaimed red reference refers reflect register registration render rendering renders repeater responsibility result retrieval retrieve retrieved retrieving returns root running runtime sayhello schedule scope scopemock scopes searches select selected separation server services set sets settimeout shared single situations slower slowness smaller source-of-truth specific splits src stabilizes stack stimulusfn story structure style suffers synchronous system template templates test testability testing text things third-party timer toequal tree turn type typically unaware update updated updates user username values var variable view waiting waits watch watches watching widgets work working world write xhr"
+      "keywords": "$0 $apply $broadcast $compileprovider $destroy $digest $emit $evalasync $http $injector $interpolate $interval $rootscope $scope $timeout $watch access accounted achieves action additional agnostic allow allows angular api apis application applications applied applies approach arranged arrangement arrive assert assign assignment assigns associated asynchronous asynchronously attach attached auto automatically based behavior benefit bootstrap bound boundaries broadcasted browser button call callback callbacks called calling calls captures care cases categories center change changed changes characteristics checked checking child children class classical click clicked clicks cntl coalesces code collector common compares compilation compiler completes components considerations console context control controlled controller controllers correctly corresponding create created creates creating-custom-directives_demo_isolating-the-scope-of-a-directive creator current currently custom cycle data data-binding data-model debugger debugging define defined defines definition delay delayed demonstrates department depending depicting describe desirable destroy destruction details detect detected detects diagram directive directives dirty discuss distracted docs documentation dom double-curly efficient element elements emit emitted empty enclosing enter enters es evaluate evaluated evaluates evaluating evaluation event event-loop events exactly examine examines example example-example102 example-example103 example-example104 exception execute executed executes execution exits expect explanation explicit expose expression expressions external extra fall fashion field finishes fires flickering flow force frame function functions garbage glue greatly greet greeting guarantees guide handlers handling hello hierarchical hierarchies highlighted highlights html illustrates img implementing implicitly improves inherit inheritance inherits input inside inspect instances integration interact interaction interacts interest interpolation invoked involves isolate isolated isolates iterating iteration javascript js js-angular-release key keydown leaves library life limit linking list listener listeners listens location locations logically longer loop loops magnitude matches meaningless memory method methods mimic mind model models modifications modifies modify multiple mutate mutation mutations mycontroller needed nested network ng ng-app ng-click ng-controller ng-model ng-repeat ng-scope ngdoc node normal notice notification notified notifies object observation observe observed observing occur operation operations orders overview padding-bottom padding-left parallels parent parents passed performance performs phase place places png point portion pre-filled pressing previous process processing produces propagate propagates propagation properly properties property prototypical prototypically provide providing pull-right purposes queue re-rendering re-renders reached read realm reason received receiving reclaimed red reference refers reflect register registration render rendering renders repeater responsibility result retrieval retrieve retrieved retrieving returns root running runtime sayhello schedule scope scopemock scopes searches select selected separation server services set sets settimeout shared single situations slower slowness smaller source-of-truth specific splits src stabilizes stack stimulusfn story structure style suffers synchronous system template templates test testability testing text things third-party timer toequal tree turn type typically unaware update updated updates user username values var variable view waiting waits watch watches watching widgets work working world write xhr"
     }
   },
   "guide/services": {
@@ -3262,7 +3178,7 @@ angular.module('pagesData', [])
     "path": "guide/services",
     "searchTerms": {
       "titleWords": "Services",
-      "keywords": "$http $inject $injector $interval $location $log $on $provide $rootscope $route $routechangesuccess $scope $window add alert alert-danger alert-info alert-success allows angular angularjs annotate annotation api app application applications args argument array auto automatically batchlog batchmodule beforeeach body browser built-in callcount called care change checking class clear code codebase component config console constructs controller convert core create createspy creating creating-services current custom declare declaring define dependencies dependency dependent depends determine developers di directive docs don example example-example112 example-example113 expect explicit explicitly factory filter flushed free function functions generated generates guide hevery identifiers implicit inject injectable injected injection injector inline inside instance instantiated instantiates jasmine javascript js js-angular-release lazily length ll log logged logs memory message messagequeue messages methods minifying mock module modules monitors mostrecentcall mycontroller mymodule names ng ngdoc ngmin ngroute notation note notification notifications notify null object objects offers order org organize overview parameter periodic plan practice prior property push queued real reference register registered registering renamed represents rest return returned rewrite routetemplatemonitor seconds service serviceid services share shinynewserviceinstance signature single singletons specifies spy start substitutable subsystem takes technique techniques template test testing tests third three toequal tohavebeencalled tohavebeencalledwith tool topics typically unit var variable wikipedia wired workflow"
+      "keywords": "$http $inject $injector $interval $location $log $on $provide $rootscope $route $routechangesuccess $scope $window add alert alert-danger alert-info alert-success allows angular angularjs annotate annotation api app application applications args argument array auto automatically batchlog batchmodule beforeeach body browser built-in callcount called care change checking class clear code codebase component config console constructs controller convert core create createspy creating creating-services current custom declare declaring define dependencies dependency dependent depends determine developers di directive docs don example example-example105 example-example106 expect explicit explicitly factory filter flushed free function functions generated generates guide hevery identifiers implicit inject injectable injected injection injector inline inside instance instantiated instantiates jasmine javascript js js-angular-release lazily length ll log logged logs memory message messagequeue messages methods minifying mock module modules monitors mostrecentcall mycontroller mymodule names ng ngdoc ngmin ngroute notation note notification notifications notify null object objects offers order org organize overview parameter periodic plan practice prior property push queued real reference register registered registering renamed represents rest return returned rewrite routetemplatemonitor seconds service serviceid services share shinynewserviceinstance signature single singletons specifies spy start substitutable subsystem takes technique techniques template test testing tests third three toequal tohavebeencalled tohavebeencalledwith tool topics typically unit var variable wikipedia wired workflow"
     }
   },
   "guide/templates": {
@@ -3286,7 +3202,7 @@ angular.module('pagesData', [])
     "path": "guide/unit-testing",
     "searchTerms": {
       "titleWords": "Unit Testing",
-      "keywords": "$compile $controller $digest $filter $filterprovider $rootscope $scope abc abstractions actual add addclass advantage agreateye allow angular answer app append application applications apply approach appropriate arguments arises arrive assert asserting assumptions attributes avoid bad basic beforeeach binds bits block body bound built built-in call called calling calls cares chance change check class classes code comments compile compiled compiler complete complex components concerns consider content contexts controllers correct correctly create created creating creation creator custom data dependencies dependency dependency-injection describe developers di differs difficult directive directives directory div docs document dom don dowork dynamically easier easy element elements empty encapsulating ensure entire evaluated ex1 example excuse executes execution exists expect explanation expression external failures fake features feel filter filters find fire flame follow forced forget format formatting forward function functionality functions fundamentally global going grade great guide guidelines handed happen happening hard harmed help hevery hierarchy hold html http idea ignore implies individual inject injection injector input instance instantiate intercept isolate issue issues jasmine javascript js js-angular-release kind language length lidless list load location logic look-up making manipulates manipulating manipulation matching medium method mind mix mock mockxhr model module monkey msg mutated myapp myclass mymodule names needed network ng ngdoc note notice nutshell obvious oldservicelocator oldxhr onreadystatechange open operator options order origin overview parameter passed passing password passwordctrl patch patching pc permanently piece pieces place point power pre-compile preferred problem problematic project provide purposes pwd question questions quotes random readable reason reasons references registry remove removeclass render rendered rendering replace replaced replaces request requires reset resetting resort resorting response responsibility responsible restrict retrieve return returned sample scope send separated separates separation server service servicelocator serviceregistry services set shorter simple simplifying simulate singleton singletons site size solved sort sorts span start store story straight strength strictly strong surfaces tag tags tells template templated templates templateurl test testability testable testing tests text thing things times tocontain toequal transform true type typed typical underscores unique unit unit-testing units untestable unwraps url user val var variable variables verify view wait watches ways weak well-known wreathed write writing written wrong xhr xhrmock"
+      "keywords": "$compile $controller $digest $filter $filterprovider $rootscope $scope abc ability abstractions access actual add addclass advantage agreateye allow angular answer app append appended application applications apply approach appropriate arguments arises arrive assert asserting assumptions attributes avoid aware bad basic beforeeach binds bits block body bound built built-in call called calling calls cares chance change check class classes code comment comment_node comments compilation compile compiled compiler complete complex components concerns consider content contents contexts controllers cope correct correctly create created creating creation creator custom data dependencies dependency dependency-injection describe developers di differs difficult directive directives directory div docs document dom don dowork dynamically easier easy element element-transclude element_node elements elementtransclude empty encapsulating ensure entire evaluated ex1 example excuse executes execution exists expect explanation expression external extraction failures fake features feel filter filters find fire flame follow forced forget format formatting forward fragment function functionality functions fundamentally global going grade great guide guidelines handed happen happening hard harmed help hevery hierarchy hold html http idea ignore implies individual inject injection injector input insert inserts instance instantiate intercept isolate issue issues jasmine javascript js js-angular-release kind language length lidless linking list load location logic look-up lose making manipulates manipulating manipulation matching medium method mind mix mock mockxhr model module monkey msg mutated myapp myclass mymodule names needed network ng ng-transclude ngdoc node nodetype note notice nutshell obvious oldservicelocator oldxhr onreadystatechange open operator options order origin overview parameter pass passed passing password passwordctrl patch patching pc permanently piece pieces place point power pre-compile preferred problem problematic project provide provided purposes pwd question questions quotes random readable reason reasons references registry remove removeclass removed render rendered rendering replace replaced replaces request requires reset resetting resort resorting response responsibility responsible restrict retrieve return returned root sample scope send separated separates separation server service servicelocator serviceregistry services set shorter sibling simple simplifying simply simulate singleton singletons site size solved sort sorts span specially start store story straight strength strictly strong surfaces tag tags tells template templated templates templateurl test testability testable testing tests text thing things times tobeundefined tocontain toequal transclude transclude-directive transcluded transclusion transform translude-directive treated true type typed typical underscores unique unit unit-testing units untestable unwraps url user val var variable variables verify view wait watches ways weak well-known wrapped wreathed write writing written wrong xhr xhrmock"
     }
   },
   "misc/contribute": {
@@ -3322,7 +3238,7 @@ angular.module('pagesData', [])
     "path": "misc/faq",
     "searchTerms": {
       "titleWords": "FAQ",
-      "keywords": "$apply $http $rootscope $scope $watch active add adding aims angular angularjs app application applies apply applying apps array artwork attached attack attacks attribution-sharealike authentication authorization awesome backend bad based basic best better bidirectional big billing bind binding bindings bits boolean bootstrap bootstrapped brackets break bring browser browsers build built-in bundled cache call called calls canada chance change changes channel check checks child chrome class classes client closure code combining common commonly commons communication compatibility compatible compilation compiled complexity compressed conditional conditionally conditions confuse connection consider constantly contact container content contents controller controllers conversely costs counterpart countries course create creates cross-site css custom data define definitely definition dependencies dependency depending depends describe design designed desktop details developers development direction directive directives discount discover docs document doesn dog dom don download downloading duplicate duplicating easily element elements email environment errorclass es escaping event events evil exactly example exciting exclusive executed existing exists explorer expressions extension extensive extremely fall falls falsy faq features fetch fetched file files find finished firefox fit fits flip folks form framework freenode frequently function functionality generally github global good google greatly ground guide habit habits handful handlers handy happy hard hardware heavily heavy hide hiding hierarchy highest highly holes host href html https hundreds identical ie8 ie9 ignored illustration impervious implementation include includes including info inherit inheriting inject injected injection inner instructions integrated internet intro ios iserror isn iswarning javascript job jqlite jquery js js-angular-release july language leads learn legacy level library license licensed life lightweight live ll local locally log logo long lot magic making manipulation manually measure measures milliseconds mind minified misc mobile mocks model modify mutually names namespace native needed network ng ng-class ng-class-even ng-class-odd ng-click ng-controller ng-disabled ng-hide ng-model ng-repeat ng-show ng-style ng-switch ngdoc ngmock note nudge number object observing occasionally offers okclass open-source opera operates order orders ordinary org overview parent path pattern people performance piece pieces pitfalls plugin point policy powerful presenting problems produces project protection prototypically provide purpose quantity questions react reason recommended recurring reduce reimplemented removing reorder repeat repository require retrieving return root round-trip running runtime safari sales schwag scope scopes script scripting second security sees server server-side service set setup shipping showing side situations size smaller snappy sounds source sparingly speed startup stays step stickergiant stickers store strings struggling subset substantial sucks suite support supporting sync syntax system systems t-shirts talk technology template templating tempted tens terms test testability testable tested thing things thousands three time tom top transformation tree trigger truthy two-way typical typically unbind united unnecessary unported update updates users values variable variables vary vectors view views waive warningclass watch whitespace-separated widgets witting work worry wrap write writing xsrf youtube"
+      "keywords": "$apply $http $rootscope $scope $watch active add adding aims angular angularjs app application applies apply applying apps array artwork attached attack attacks attribution-sharealike authentication authorization awesome backend bad based basic best better bidirectional big billing bind binding bindings bits boolean bootstrap bootstrapped brackets break bring browser browsers build built-in bundled cache call called calls canada chance change changes channel check checks child chrome class classes client-side closure code combining common commonly commons communication compatibility compatible compilation compiled complexity compressed conditional conditionally conditions confuse connection consider constantly contact container content contents controller controllers conversely costs counterpart countries course create creates cross-site css currently custom data define definitely definition dependencies dependency depending depends describe design designed desktop details developers development direction directive directives discount discover docs document doesn dog dom don download downloading duplicate duplicating easily element elements email environment errorclass es escaping event events evil exactly example exciting exclusive executed existing exists explorer expressions extension extensive extremely fall falls falsy faq features fetch fetched file files find finished firefox fit fits flip folks form framework freenode frequently function functionality generally github global good google greatly ground guide habit habits handful handlers handy happy hard hardware heavily heavy hide hiding hierarchy highest highly holes host href html https hundreds identical ie8 ie9 ignored illustration impervious implementation include includes including info inherit inheriting inject injected injection inner instructions integrated internet intro ios iserror isn iswarning javascript job jqlite jquery js js-angular-release july language leads learn legacy level library license licensed life lightweight live ll local locally log logo long lot magic making manipulation manually measure measures milliseconds mind minified misc mobile mocks model modify mutually names namespace native needed network ng ng-class ng-class-even ng-class-odd ng-click ng-controller ng-disabled ng-hide ng-model ng-repeat ng-show ng-style ng-switch ngdoc ngmock note nudge number object observing occasionally offers okclass open-source opera operates order orders ordinary org overview parent path pattern people performance piece pieces pitfalls plugin point policy powerful presenting problems produces project protection prototypically provide purpose quantity questions react reason recommended recurring reduce reimplemented removing reorder repeat repository require retrieving return root round-trip running runtime safari sales schwag scope scopes script scripting second security sees server server-side service set setup shipping showing side situations size smaller snappy sounds source sparingly speed startup stays step stickergiant stickers store strings struggling subset substantial sucks suite support supporting sync syntax system systems t-shirts talk technology template templating tempted tens terms test testability testable tested thing things thousands three time tom top transformation tree trigger truthy two-way typical typically unbind united unnecessary unported update updates users values variable variables vary vectors view views waive warningclass watch whitespace-separated widgets witting work worry wrap write writing xsrf youtube"
     }
   },
   "misc": {
@@ -3358,7 +3274,7 @@ angular.module('pagesData', [])
     "path": "tutorial",
     "searchTerms": {
       "titleWords": "Tutorial",
-      "keywords": "access actions alert alert-info allow alt android angular angular-phonecat angularjs animations app application applications apply apps assume automatically background based behaving better binding bootstrapping bower branch browse browser browsers build building catalog cd change changes check checkout chrome class client client-side clone close code comfort command commands commit commits common computer conf configuration configured connect consider construction controllers correctly couple create creates current data day debian decide demo dependencies dependency designed details developing development device devices diagram digging directly directory displaying displays distributions docs document dom don download drivers dynamic easier easy end-to-end ensure entire environment examples executable executables execute executing exit expected experiments explains extensions faster feedback file files filter finish focus follow framework git github globally good great guides hack hands-on height helper hosting hours href html http http-server https identify img including injection install installed installer installing instance instructions interact interacting interaction interest introduced introduction io isolated javascript js js-angular-release karma learn learning leave link list listening loaded local located logic machine main management manager manipulation misc model modern modules move native needed nganimate ngdoc node node_modules nodejs note npm number open operates operating option org package parts pass phonecat pleasant plug-ins png port practice preconfigured process project prompt protractor provide pull purely pushing re-run read real reasons recommended relies remote repo report repository requests resources response rest runner running scripts security separate serve server services set setup shorter side simple simulating small smaller smarter source spend src start started static step straight sudo suggestions synch system tagged tasks tells template terminal test testing tests time title tool tools tutorial unit update-webdriver user utilities v0 version versioning versions view views walks watch web web-server webserver width window windows wire work working works writing"
+      "keywords": "access actions alert alert-info allow alt android angular angular-phonecat angularjs animations app application applications apply apps apt apt-get assume automatically background based behaving better binding bootstrapping bower branch browse browser browsers build building called catalog cd change changes check checkout chrome clash class client client-side clone close code comfort command commands commit commits common computer conf configuration configured connect consider construction controllers correctly couple create creates current data day debian decide demo dependencies dependency designed details developing development device devices diagram digging directly directory displaying displays distributions docs document dom don download drivers dynamic easier easy end-to-end ensure entire environment examples executable executables execute executing exit expected experiments explains extensions faster feedback file files filter finish focus follow framework git github globally good great guides hack hands-on height helper hosting hours href html http http-server https identify img including injection install installed installer installing instance instructions interact interacting interaction interest introduced introduction io isolated javascript js js-angular-release karma learn learning leave link list listening loaded local located logic machine main management manager manipulation misc model modern modules move native needed nganimate ngdoc node node_modules nodejs nodejs-legacy note npm number open operates operating option org package parts pass phonecat pleasant plug-ins png port practice preconfigured process project prompt protractor provide pull purely pushing re-run read real reasons recommended relies remote renames repo report repository requests resources response rest runner running scripts security separate serve server services set setup shorter side simple simulating small smaller smarter solution source spend src start started static step straight sudo suggested suggestions sync system tagged tasks tells template terminal test testing tests time title tool tools tutorial unit update-webdriver user utilities utility v0 version versioning versions view views walks watch web web-server webserver width window windows wire work working works writing"
     }
   },
   "tutorial/step_00": {
@@ -3370,7 +3286,7 @@ angular.module('pagesData', [])
     "path": "tutorial/step_00",
     "searchTerms": {
       "titleWords": "0 - Bootstrapping",
-      "keywords": "$injector $rootscope __ _blank add adding advanced angular angular-phonecat angular-seed angularjs app application apps attribute attributes auto automatically binding bindings bootstrap bootstrapped bootstrapping bower bower_components browser build bundled callback camelcase capabilities cases caused change changes charset checkout class click code command compile consider constructed content context continuous core corresponding create created css current currently custom data defined demonstrates denoted dependencies dependency detects developers developing development diagram directive directives directory displays doc-tutorial-nav docs dom double-curlies double-curly downloaded downloads easy efficient element elements empty en entire evaluate evaluated evaluation event events example exciting executed expected experiments expression familiar feature file files finds flag folder framework freedom fully future git global guide happen haven href html http https images img imperative implement incoming injection injector insert install javascript-like js js-angular-release json key lang learn ll loaders lost manual math model modified mouse named navigate ng ng-app ngapp ngdoc npm number occurs one-time open phone phonecat place png portion pre-configured press processed processing progress project projects purposes ready reflect registers rel removed repeat represents resets response result root running scope script seed server servers simple snippet source spinal-case src start starting static step step-0 step_00 step_01 steps structure stylesheet suitable summary tab tag target tells template templating terminal text things tools treated tutorial typical typically updates updating utf-8 view wait web window working workspace"
+      "keywords": "$injector $rootscope __ _blank add adding advanced angular angular-phonecat angular-seed angularjs app application apps attribute attributes auto automatically binding bindings bootstrap bootstrapped bootstrapping bower bower_components browser build bundled callback camelcase capabilities cases caused change changes charset checkout class click code command compile consider constructed content context continuous core corresponding create created css current currently custom data defined demonstrates denoted dependencies dependency detects developers developing development diagram directive directives directory displays doc-tutorial-nav docs dom double-curlies double-curly downloaded downloads easy efficient element elements empty en entire evaluate evaluated evaluation event events example exciting executed expected experiments expression familiar features file files finds flag folder framework freedom fully future git global guide happen haven href html http https images img imperative implement incoming injection injector insert install javascript-like js js-angular-release json key lang learn ll loaders lost manual math model modified mouse name-with-dashes named navigate ng ng-app ngapp ngdoc npm number occurs one-time open phone phonecat place png portion pre-configured press processed processing progress project projects purposes ready reflect registers rel removed repeat represents resets response result root running scope script seed server servers simple snippet source src start starting static step step-0 step_00 step_01 steps structure stylesheet suitable summary tab tag target tells template templating terminal text things tools treated tutorial typical typically updates updating utf-8 view wait web window working workspace"
     }
   },
   "tutorial/step_01": {
@@ -3394,7 +3310,7 @@ angular.module('pagesData', [])
     "path": "tutorial/step_02",
     "searchTerms": {
       "titleWords": "2 - Angular Templates",
-      "keywords": "$controller $rootscope $scope __ __controller__ __model__ __template__ __view__ add adding allows angular angular-seed angularjs anonymous app application appropriate apps array attaches attribute automatically background beforeeach behavior-driven bind binding bindings bootstrapping bower_components braces browser called case change changes changing chrome class code component components concept concerns connected constructed constructs contained context controller controllers create created critical crucial ctrl curly data data-binding declared decouple defined demonstrates denote descendant describe design developed developers development diagram directive doc-tutorial-nav doc-tutorial-reset docs documentation dom dots dynamic dynamically easy element encourage encouraged ensure establish example executed execution expect experiments expressions fail fast faster features file files framework full function functions generated generation github global glue going guide hard-coded hello html http ignore img incrementing info inject injected install installed instance instantiate instantiated instantiates io isn jasmine javascript js js-angular-release karma learn length list literal ll load located logic mind mock model model-view-controller models module motorola namespace nexus ng ng-app ng-controller ng-repeat ngcontroller ngdoc ngrepeat non-global notation notice npm number object occur org output parameter passed pattern phone phonecatapp phonelistctrl phones plays plugins png point points practice pre-configured prefer presentation previous project projection property prototypical providing records references referring reflect reflected refresh refreshes registered repeater replaced require rerun retrieve role running scope scopes search secs separate separating server service set simple simply snippet socket software source specifies src start started starting step step_02 step_03 structure success summary sweet sync syntax table tablet tag takes tells template templates terminal test testing tests text three time tobe tpum9dxclhtztkbaeo-n tutorial unit update updates v1 var verifies verify view views watch ways web wi-fi wikipedia work world wrapped write writing wrote xoom yay"
+      "keywords": "$controller $rootscope $scope __ __controller__ __model__ __template__ __view__ add adding alert alert-info allows angular angular-seed angularjs anonymous app application appropriate apps array attaches attribute automatically background beforeeach behavior-driven bind binding bindings bootstrapping bower_components braces browser called case change changes changing chrome class code component components concept concerns connected constructed constructs contained context controller controllers create created critical crucial ctrl curly data data-binding declared decouple defined demonstrates denote descendant describe design developed developers development diagram directive doc-tutorial-nav doc-tutorial-reset docs documentation dom dots dynamic dynamically easy element encourage encouraged ensure establish example executed execution expect experiments expressions fail fast faster features file files framework full function functions generated generation github global glue going guide hard-coded hello html http ignore img incrementing info inject injected install installed instance instantiate instantiated instantiates io isn jasmine javascript js js-angular-release karma learn length list literal ll load located logic mind mock model model-view-controller models module motorola namespace nexus ng ng-app ng-controller ng-repeat ngcontroller ngdoc ngrepeat non-global notation note notice npm number object occur org output parameter passed pattern phone phonecatapp phonelistctrl phones plays plugins png point points practice pre-configured prefer presentation previous project projection property prototypical providing records references referring reflect reflected refresh refreshes registered repeater replaced require rerun retrieve role running scope scopes search secs separate separating server service set simple simply snippet socket software source specifies src start started starting step step_02 step_03 structure success summary sweet sync syntax table tablet tag takes tells template templates terminal test testing tests text three time tobe tpum9dxclhtztkbaeo-n tutorial unit update updates v1 var verifies verify view views watch ways web wi-fi wikipedia work world wrapped write writing wrote xoom yay"
     }
   },
   "tutorial/step_03": {
@@ -3406,7 +3322,7 @@ angular.module('pagesData', [])
     "path": "tutorial/step_03",
     "searchTerms": {
       "titleWords": "3 - Filtering Repeaters",
-      "keywords": "__ __move__ __remove__ add adding alert alert-info angular apis app appear application array automatically bar beforeeach better bind binding binds block body box browser capability change changes changing choice class clear code col-md-10 col-md-2 common completely components container-fluid content-- controller controllers core correctly count create criteria curlies current data data-binding declaration defined demonstrates depending describe detects developer diagram directive directives display displayed doc-tutorial-nav doc-tutorial-reset docs dom double easily easy effects efficiently element elements end-to-end ensure enter example execute exit expect expected experiments eye fail feature features file filter filtering fine foundation friend full fully function functional gallery gettitle good google html https img implemented included input install installed invisible issuing jasmine javascript js js-angular-release karma laying learn learned list lives ll loading loads lot manipulation match md model motorola nexus ng ng-app ng-bind-template ng-controller ng-model ng-repeat ngbind ngbindtemplate ngcontroller ngdoc ngrepeat note notice noticed npm number parent pass perfect phone phonecat phonecatapp phonelist phonelistctrl phones png prior process protractor query re-run read readable records reflect regressions reload repeater repeaters rerun response result returned row runner running scope search second sendkeys set simple slow snippet solution sorting split src standard stays step step_03 step_04 suite summary sync syntax tag template templates terminal test testing tests text title tobe tomatch transparent tutorial type types unit update-webdriver updated updates user var variable ve verifies verify view webdriver wired wiring won work works write written"
+      "keywords": "__ __move__ __remove__ add adding alert alert-info angular apis app appear application array automatically bar beforeeach better bind binding binds block body box browser capability change changes changing choice class clear code col-md-10 col-md-2 common completely components container-fluid content-- controller controllers core correctly count create criteria curlies current data data-binding declaration defined demonstrates depending describe detects developer diagram directive directives display displayed doc-tutorial-nav doc-tutorial-reset docs dom double easily easy effects efficiently element elements end-to-end ensure enter example execute exit expect expected experiments eye fail feature features file filter filtering fine foundation friend full fully function functional gallery gettitle good google html https img implemented included input install installed invisible issuing jasmine javascript js js-angular-release karma laying learn learned list lives ll loading loads lot manipulation match md model motorola nexus ng ng-app ng-bind-template ng-controller ng-model ng-repeat ngbind ngbindtemplate ngcontroller ngdoc ngrepeat note notice noticed npm number parent pass perfect phone phonecat phonecatapp phonelist phonelistctrl phones png prior process protractor query re-run read readable records reflect regressions reload repeater repeaters rerun response result returned row runner running scope search second sendkeys served set simple slow snippet solution sorting split src standard start stays step step_03 step_04 suite summary sync syntax tag template templates terminal test testing tests text title tobe tomatch transparent tutorial type types unit update-webdriver updated updates user var variable ve verifies verify view web-server webdriver wired wiring won work works write written"
     }
   },
   "tutorial/step_04": {
@@ -3418,7 +3334,7 @@ angular.module('pagesData', [])
     "path": "tutorial/step_04",
     "searchTerms": {
       "titleWords": "4 - Two-way Data Binding",
-      "keywords": "$controller $scope __ add adding addition age allows alphabetically angular api app array assertions attention automatically beforeeach binding bloated block box browser chained changes class click code column construction control controller controllers copies copy correctly create creates creating css ctrl current data data-binding dataset default dependency describe diagram direction discussed display displays doc-tutorial-nav doc-tutorial-reset docs dom drop drop-down dynamic element elm end-to-end example executed expect experiments extract fast faster feature filter findelement function generation getnames gettext good html img implemented injection input items jasmine job js js-angular-release karma learn length letting list listed ll loaded magic manipulation map mechanism menu model modified module motorola named narrow newest nexus ng ng-model ng-repeat ngdoc notice npm opposite option options order orderby ordering orderprop output parent phone phonecat phonecatapp phonelistctrl phonenamecolumn phones pick picked png process property protractor provided query record remain remove reordered reorders repeater rerun rest return returned reverse scope search secs select selected sendkeys services set sets shared shorter snippet sort sorting src statement step step_04 step_05 success summary symbol tab tablet takes talk template temporarily test tested tests text time tobe toequal turn tutorial two-way ui uninitialized unit unknown unordered update updated user users var verified verifies view wi-fi wiring work working works xoom"
+      "keywords": "$controller $scope __ add adding addition age allows alphabetically angular api app array assertions attention automatically beforeeach binding bloated block box browser chained changes class click code column construction control controller controllers copies copy correctly create creates creating css ctrl current data data-binding dataset default dependency describe diagram direction discussed display displays doc-tutorial-nav doc-tutorial-reset docs dom drop drop-down dynamic element elm end-to-end example executed expect experiments extract fast faster feature filter function generation getnames gettext good html img implemented injection input items jasmine job js js-angular-release karma learn length letting list listed ll loaded magic manipulation map mechanism menu model modified module motorola named narrow newest nexus ng ng-model ng-repeat ngdoc notice npm opposite option options order orderby ordering orderprop output parent phone phonecat phonecatapp phonelistctrl phonenamecolumn phones pick picked png process property protractor provided query record remain remove reordered reorders repeater rerun rest return returned reverse scope search secs select selected sendkeys services set sets shared shorter snippet sort sorting src statement step step_04 step_05 success summary symbol tab tablet takes talk template temporarily test tested tests text time tobe toequal turn tutorial two-way ui uninitialized unit unknown unordered update updated user users var verified verifies view wi-fi wiring work working works xoom"
     }
   },
   "tutorial/step_05": {
@@ -3430,7 +3346,7 @@ angular.module('pagesData', [])
     "path": "tutorial/step_05",
     "searchTerms": {
       "titleWords": "5 - XHRs & Dependency Injection",
-      "keywords": "$controller $http $httpbackend $inject $new $q $rootscope $scope __ access accessed add age allows angular angular-mocks angular-provided annotating annotation annotations anonymous apis app apps arguments array assertions assign associated asynchronous attach avoid backend beforeeach best binding bit bottom browser building built-in call callback called calling care child class code collisions common complicated components configure considered constructed constructing control controlled controller controllers convention correctly corresponding coupled create created creating ctrl data dataset deal decide declare default definition defy depend dependencies dependency describe detected di diagram displayed doc-tutorial-nav doc-tutorial-reset docs doesn droid dynamically easy environment exactly example executed exist exists expect expectget experiments facilitates fact fake fetch fetched file finally flush format front function generated gl global going guarantees guide handle hard-coded harness helper helps holds html http identify ignores images img implementation incoming infers inject injected injection injector injects inline inspect instances isolated jasmine javascript js js-angular-release json jsonp karma kind larger leading learned life limiting links list ll load loaded loosely managed method methods mind minification minified mock model models modified module motoblur motorola motorola-defy-with-motoblur names namespace naming native nexus ng ngdoc nightmare note notice number object onward operations operator orderprop output overcome parameter parameters parsed passing phone phonecat phonecatapp phonelistctrl phones png point pre-process prefix presentation prevent private problem production project promise properties property provide provided providing queue ready received recreated registering relative request requests resolved respond responds response responses returned returns sake sample scope scratch second secs separate server service services set simplicity simply single snippet splice src started starting starts step step_05 step_06 stored string strings style subsystem success summary tab takes test testing tests three throws thumbnail tobe tobeundefined toequal trailing train trained transitive tutorial underscores unit url var variable verify verifying version ways web well-structured work write xhr xhrs"
+      "keywords": "$controller $http $httpbackend $inject $new $q $rootscope $scope __ access accessed add age allows angular angular-mocks angular-provided annotating annotation annotations anonymous apis app apps arguments array assertions assign associated asynchronous attach avoid backend beforeeach best binding bit bottom browser building built-in call callback called calling care child class code collisions common complicated components configure conflict considered constructed constructing control controlled controller controllers convention correctly corresponding coupled create created creating ctrl data dataset deal decide declare default definition defy depend dependencies dependency describe detected di diagram displayed doc-tutorial-nav doc-tutorial-reset docs doesn droid dynamically easy environment exactly example executed exist exists expect expectget experiments facilitates fact fake fetch fetched file finally flush format front function generated gl global going guarantees guide handle hard-coded harness helper helps holds html http identify ignores images img implementation incoming infers inject injected injection injector injects inline inspect instances isolated jasmine javascript js js-angular-release json jsonp karma kind larger leading learned life limiting links list ll load loaded loosely managed method methods mind minification minified mock model models modified module motoblur motorola motorola-defy-with-motoblur names namespace naming native nexus ng ngdoc nightmare note notice number object onward operations operator order orderprop output overcome parameter parameters parsed passing phone phonecat phonecatapp phonelistctrl phones png point pre-process prefix presentation prevent private problem production project promise properties property provide provided providing queue ready received recreated registering relative request requests resolved respond responds response responses returned returns sake sample scope scratch second secs separate server service services set simplicity simply single snippet splice src started starting starts step step_05 step_06 stored string strings style subsystem success summary tab takes test testing tests three throws thumbnail tobe tobeundefined toequal trailing train trained transitive tutorial underscores unit url var variable verify verifying version ways web well-structured work write xhr xhrs"
     }
   },
   "tutorial/step_06": {
@@ -3454,7 +3370,7 @@ angular.module('pagesData', [])
     "path": "tutorial/step_07",
     "searchTerms": {
       "titleWords": "7 - Routing & Multiple Views",
-      "keywords": "$http $route $routeparams $routeprovider $scope __ add adding additional address age alert alert-info alert-warning allow amd angular angular-mocks angular-route angular-seed angularjs apis app appears application applications apps argument array asked associated attribute automatically batman beforeeach behavior binding bookmarks bootstrap bootstraps bower bower_components browser build building call called captain case changes class click client code col-md-10 col-md-2 common compatible complex component config configuration configured configuring conjunction construct constructed container-fluid content-- control controller controllers core correct create created creates creation current currently data declaration declared deepen define defined defines definition definitions dependencies dependency depending depends describe description detail detailed details devices di diagram directive directives display displayed distributed div doc-tutorial-nav doc-tutorial-reset docs doesn don download easy element empty en end-to-end example existence expand expect expected experiments expose exposes expression extra extracted fact feature fetching file files filter fit forward fragment framework fulfil function functionality functions gettext global globally goals going growing grows guide hash hero history holds homepage href html http https imageurl img implement implemented improve include included independent inheritance inject injected injection injector install installed instances instantiates io javascript js js-angular-release json lang larger layout lazily lazy learn license link linking list listing lists live ll load loaded loading located location major making managed match matched matches messy method mit model module modules moved multiple navigate navigateto navigation nexus-s ng-app ng-model ng-repeat ng-src ng-view ngdoc ngroute ngview notation note notice noticed npm object objects open opposed orderby ordering orderprop org organization parameter partial partials passed perfect phone phone-detail phone-list phonecatapp phonecatcontrollers phonecatctrl phonedetailctrl phoneid phonelistctrl phones placeholder png preconfigured previous private problem project proper properly property proton protractor provide provided provider providers query ready redirect redirected redirection redirectto refactor register removed removing rendered replaced request require rerun responsibilities reused role root route routes routing row runtime scope script search second separate separately service services set shadow shadowing side single slowly small snippet sole solve sort specific src starter starting step step_07 step_08 steps stub stuff style success summary systems tags tbd tells template templates templateurl test tests thing three thumb thumbnail tobe todo totally triggers true turn tutorial understand understanding updates url urls user users utilize var variable variables ve verify version view views visible wikipedia wire wired wonders work works wrote zoro"
+      "keywords": "$http $route $routeparams $routeprovider $scope __ add adding additional address age alert alert-info alert-warning allow amd angular angular-mocks angular-route angular-seed angularjs apis app appears application applications apps argument array asked associated attribute automatically batman beforeeach behavior binding bookmarks bootstrap bootstraps bower bower_components browser build building call called captain carries case changes class click client code col-md-10 col-md-2 common compatible complex component config configuration configured configuring conjunction construct constructed container-fluid content-- control controller controllers core correct create created creates creation current currently data declaration declared deepen define defined defines definition definitions dependencies dependency depending depends describe description detail detailed details devices di diagram directive directives display displayed distributed div doc-tutorial-nav doc-tutorial-reset docs doesn don download easy element empty en end-to-end example existence expand expect expected experiments expose exposes expression extra extracted fact feature fetching file files filter find fit forward fragment framework fulfill function functionality functions getlocationabsurl gettext global globally goals going growing grows guide hash hero history holds homepage href html http https imageurl img implement implemented improve include included independent inheritance inject injected injection injector install installed instances instantiates io javascript js js-angular-release json lang larger layout lazily lazy learn license link linking list listing lists live ll load loaded loading located location major making managed match matched matches messy method mit model module modules moved multiple navigate navigation nexus-s ng-app ng-model ng-repeat ng-src ng-view ngdoc ngroute ngview notation note notice noticed npm object objects open opposed orderby ordering orderprop org organization parameter partial partials passed perfect phone phone-detail phone-list phonecatapp phonecatcontrollers phonecatctrl phonedetailctrl phoneid phonelistctrl phones placeholder png preconfigured previous private problem project proper properly property proton protractor provide provided provider providers query ready redirect redirected redirection redirectto refactor register removed removing rendered replaced request require required rerun reused role root route routes routing row runtime scope script search second separate separately service services set shadow shadowing side single slowly small snippet solve sort specific split src starter starting step step_07 step_08 steps stub style success summary systems tags tbd tells template templates templateurl test tests thing three thumb thumbnail tobe todo totally triggers true turn tutorial understand understanding updates url urls user users utilize var variable variables ve verify version view views visible wikipedia wire wired wonders work works wrote zoro"
     }
   },
   "tutorial/step_08": {
@@ -3478,7 +3394,7 @@ angular.module('pagesData', [])
     "path": "tutorial/step_09",
     "searchTerms": {
       "titleWords": "9 - Filters",
-      "keywords": "$filterprovider __ access add angular app bar baz beforeeach binding bindings boolean built-in call cap characters checkmark chosen code combine component connectivity convert create cross custom dependency describe details display displayed doc-tutorial-nav doc-tutorial-reset docs easy element employ enhance evaluates execute executed expect experiment experiments expression false features file filter filtered filters function glyphs going gps helper html include indicate infrared inject injector input js js-angular-release json karma layout learn learned lives loads lower main mm mock model module ng ng-model ngdoc ngroute note order output phone phonecatapp phonecatcontrollers phonecatfilters previous ready register represent return secs src step step_09 step_10 string strings success summary syntax tab template templates test tested tests text tobe true tutorial unicode uppercase uppercased userinput values write"
+      "keywords": "__ access add angular api app appended bar baz beforeeach binding bindings boolean built-in call cap characters checkmark chosen code combine component connectivity convert create cross custom dependency describe details display displayed doc-tutorial-nav doc-tutorial-reset docs easy element employ enhance evaluates execute executed expect experiment experiments expression false features file filter filtered filters function glyphs going gps guide helper html include indicate infrared inject injected injector input js js-angular-release json karma layout learn learned lives loads lower main mm mock model module ng-model ngdoc ngroute note notice order outlined output phone phonecatapp phonecatcontrollers phonecatfilters previous ready register represent return secs src step step_09 step_10 string strings success suffix summary syntax tab template templates test tested tests text tobe true tutorial unicode uppercase uppercased userinput using-filters-in-controllers-services-and-directives values write"
     }
   },
   "tutorial/step_10": {
@@ -3502,7 +3418,7 @@ angular.module('pagesData', [])
     "path": "tutorial/step_11",
     "searchTerms": {
       "titleWords": "11 - REST and Custom Services",
-      "keywords": "$controller $http $httpbackend $new $resource $rootscope $routeparams $scope __ access account actual add additionally addmatchers age alert alert-info angular angular-mocks angular-resource angular-route angular-seed angularjs animations api app application arguments array arrives augments automatically beforeeach bind bootstrap bower bower_components callback called case cases change check class client code compares compatible component configuration controller controllers core correctly create ctrl custom data data-binding deal declare declared default defined deleting dependencies dependency describe description detail distributed doc-tutorial-nav doc-tutorial-reset docs don download droid easier easy equals exactly executed expect expected expectget exposed factoring factory fail fetch fetched fetches file filled flush framework function functionality functions future globally homepage html http https ignores illustrates image images imageurl improve include injected install installed interacting invoking io isarray issuing js js-angular-release json karma layout learn license lines load lower-level mainimageurl match matcher methods mit model modified module motorola newly-defined nexus ng ngdoc ngresource ngroute notice npm object objects orderprop org output params pass passed phone phonecat phonecatapp phonecatcontrollers phonecatfilters phonecatservices phonedetailctrl phoneid phonelistctrl phones place png preconfigured private problem process processing project properties provide provided query ready register relying replaced replacing represents requests require requires resource resources respond response responses rest restful result return returned returns running scope secs separately server service services set setimage setting side simple simplified solve sources src standard starter statement step step_11 step_12 sub-controllers success sufficient summary swapper synchronously tab takes tells template test tests thing tobe toequal toequaldata true tutorial understand unit update updates updating urls values var verify version view wikipedia xhr xyz xyzphonedata"
+      "keywords": "$controller $http $httpbackend $new $resource $rootscope $routeparams $scope __ access account actual add additionally addmatchers age alert alert-info angular angular-mocks angular-resource angular-route angular-seed angularjs animations api app application arguments array arrives augments automatically beforeeach bind bootstrap bower bower_components callback called case cases change check class client code compares compatible component conf config configuration controller controllers core correctly create ctrl custom data data-binding deal declare declared default defined deleting dependencies dependency describe description detail distributed doc-tutorial-nav doc-tutorial-reset docs don download droid easier easy equals exactly executed expect expected expectget exposed factoring factory fail fetch fetched fetches file files filled flush framework function functionality functions future globally homepage html http https ignores illustrates image images imageurl improve include injected install installed interacting invoking io isarray issuing js js-angular-release json karma layout learn license lines load lower-level mainimageurl match matcher methods mit model modified module motorola newly-defined nexus ng ngdoc ngresource ngroute notice npm object objects orderprop org output params pass passed phone phonecat phonecatapp phonecatcontrollers phonecatfilters phonecatservices phonedetailctrl phoneid phonelistctrl phones place png preconfigured private problem process processing project properties provide provided query ready register relying replaced replacing represents requests require requires resource resources respond response responses rest restful result return returned returns running scope secs separately server service services set setimage setting side simple simplified solve sources src standard starter statement step step_11 step_12 sub-controllers success sufficient summary swapper synchronously tab takes tells template test tests thing tobe toequal toequaldata true tutorial understand unit update updates updating urls values var verify version view wikipedia xhr xyz xyzphonedata"
     }
   },
   "tutorial/step_12": {
@@ -3514,7 +3430,7 @@ angular.module('pagesData', [])
     "path": "tutorial/step_12",
     "searchTerms": {
       "titleWords": "12 - Applying Animations",
-      "keywords": "__ absolute active active-add active-add-active active-remove active-remove-active actual add addclass adding addition adds alert alert-error alert-info allows amount angular angular-animate angular-mocks angular-resource angular-route angular-seed angularjs animate animated animatedown animates animateup animating animation animations api app append application applied applying asset attach attaching attribute automatically aware background background-color backwards-compatible basically best block boolean bootstrap bower bower_components browsers business callback called calling calls cancelled case change changed changes changing class classes classname cleanup click clicking client closing code collapsing combined common compatible complete completed component configuration consider contained contents control convention conveyor-belt copy core correctly cover craft crazy create created cross css css-enabled data declarations default define defined dependencies dependency depending described description detail developer directive directives display displayed distributed doc-tutorial-nav doc-tutorial-reset docs documentation dom don download earlier easy element elements enable ended enhance ensure ensures enter event example expand extra eye fade fade-in fade-out fades feat file files filter final finishes fire fired float flow fluidly forget framework function functionality functions globally going good guide handled height hidden homepage hook hooks href html http https idea ie9 image images imageurl img implement include inserted inserting inside install installed io isn issued item items javascript javascript-based javascript-enabled jquery js js-angular-release json jumping keeping keyframe learn leave left libraries library license linear link list listed listing ll loaded manipulating margin-bottom margin-right matching method mit modern module move moved naming naturally nested newly ng ng- ng-class ng-enter ng-enter-active ng-leave ng-leave-active ng-mouseenter ng-move ng-move-active ng-repeat ng-src ng-view nganimate ngclass ngdoc ngrepeat ngresource ngroute ngview nice nodes note notes notice npm occur occurs offset older opacity operation opportunity order orderby ordinary org overflow padding padding-bottom padding-top parameter parent party passed performing phone phone-detail phone-images phone-list phone-listing phone-thumbs phonecat phonecatanimations phonecatapp phonecatcontrollers phonecatfilters phonecatservices phones pixels place platform plays position positioning positions preconfigured prefixed previous private profile project provided purpose range read reflect registered rel relative removeclass removed removing render rendered rendering repeat repeat-related repeated repeater represents required result return route running scope screen selected separately setimage sets shifting short side signal simple single small snippet src standard start started starter starting step step_12 style styles stylesheet suffix summary support swapper switching takes tap tells template the_end thing thinking thumb thumbnail thumbnails time times top transition transitions trigger triggered true turn tutorial tweak two-class updates var vendor-prefixes version view view-container view-frame views visible web webplatform white wide width work working works writing z-index"
+      "keywords": "__ absolute active active-add active-add-active active-remove active-remove-active actual add addclass adding addition adds alert alert-error alert-info allows amount angular angular-animate angular-mocks angular-resource angular-route angular-seed angularjs animate animated animatedown animates animateup animating animation animations api app append application applied applying asset attach attaching attribute automatically aware background background-color backwards-compatible basically best block boolean bootstrap bower bower_components browsers business callback called calling calls cancelled case change changed changes changing class classes classname cleanup click clicking client closing code collapsing combined common compatible complete completed component configuration consider contained contents control convention conveyor-belt copy core correctly cover craft crazy create created cross css css-enabled data declarations default define defined dependencies dependency depending described description detail detect developer directive directives display displayed distributed doc-tutorial-nav doc-tutorial-reset docs documentation dom don download earlier easy element elements enable ended enhance ensure ensures enter event example expand expected extra eye fade fade-in fade-out fades feat file files filter final finishes fire fired float flow fluidly forget framework function functionality functions globally going good guide handled height hidden homepage hook hooks href html http https idea ie9 image images imageurl img implement include inserted inserting inside install installed io isn issued item items javascript javascript-based javascript-enabled jquery js js-angular-release json jumping keeping keyframe learn leave left libraries library license linear link list listed listing ll load loaded manipulating margin-bottom margin-right matching method mit modern module move moved naming naturally nested newly ng ng- ng-class ng-enter ng-enter-active ng-leave ng-leave-active ng-mouseenter ng-move ng-move-active ng-repeat ng-src ng-view nganimate ngclass ngdoc ngrepeat ngresource ngroute ngview nice nodes note notes notice npm occur occurs offset older opacity operation opportunity order orderby ordinary org overflow padding padding-bottom padding-top parameter parent party passed performing phone phone-detail phone-images phone-list phone-listing phone-thumbs phonecat phonecatanimations phonecatapp phonecatcontrollers phonecatfilters phonecatservices phones pixels place platform plays position positioning positions preconfigured prefixed previous private profile project provided purpose range read reflect registered rel relative removeclass removed removing render rendered rendering repeat repeat-related repeated repeater represents required result return route running scope screen scripts selected separately setimage sets shifting short side signal simple single small snippet src standard start started starter starting step step_12 style styles stylesheet suffix summary support swapper switching takes tap tells template the_end thing thinking thumb thumbnail thumbnails time times top transition transitions trigger triggered true turn tutorial tweak two-class updates var vendor-prefixes version view view-container view-frame views visible web webplatform white wide width won work working works writing z-index"
     }
   },
   "tutorial/the_end": {
@@ -3592,13 +3508,6 @@ angular.module('pagesData', [])
     "outputPath": "partials/api/auto/service/index.html",
     "path": "api/auto/service"
   },
-  "api/auto/object": {
-    "docType": "componentGroup",
-    "id": "module:auto.object",
-    "area": "api",
-    "outputPath": "partials/api/auto/object/index.html",
-    "path": "api/auto/object"
-  },
   "api/ngAnimate/provider": {
     "docType": "componentGroup",
     "id": "module:ngAnimate.provider",
@@ -3619,13 +3528,6 @@ angular.module('pagesData', [])
     "area": "api",
     "outputPath": "partials/api/ngCookies/service/index.html",
     "path": "api/ngCookies/service"
-  },
-  "api/ngMessages/directive": {
-    "docType": "componentGroup",
-    "id": "module:ngMessages.directive",
-    "area": "api",
-    "outputPath": "partials/api/ngMessages/directive/index.html",
-    "path": "api/ngMessages/directive"
   },
   "api/ngMock/object": {
     "docType": "componentGroup",
@@ -3751,14 +3653,14 @@ angular.module('pagesData', [])
   },
   "src/undefined": {
     "docType": "example-manifest",
-    "id": "example-example2-manifest",
-    "outputPath": "examples/example-example2/manifest.json",
+    "id": "example-multi-bootstrap-manifest",
+    "outputPath": "examples/example-multi-bootstrap/manifest.json",
     "path": "src/undefined"
   },
   "script.js": {
     "docType": "example-js",
-    "id": "example-example113/script.js",
-    "outputPath": "examples/example-example113/script.js",
+    "id": "example-example106/script.js",
+    "outputPath": "examples/example-example106/script.js",
     "path": "script.js"
   },
   "example-example1-debug": {
@@ -3785,10 +3687,46 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-example1/index-production.html",
     "path": "example-example1-production"
   },
+  "controller.js": {
+    "docType": "example-js",
+    "id": "example-multi-bootstrap/controller.js",
+    "outputPath": "examples/example-multi-bootstrap/controller.js",
+    "path": "controller.js"
+  },
+  "protractor.js": {
+    "docType": "example-protractor",
+    "id": "example-example105/protractor.js",
+    "outputPath": "examples/example-example105/protractor.js",
+    "path": "protractor.js"
+  },
+  "example-multi-bootstrap-debug": {
+    "docType": "example",
+    "id": "example-multi-bootstrap-debug",
+    "outputPath": "examples/example-multi-bootstrap/index-debug.html",
+    "path": "example-multi-bootstrap-debug"
+  },
+  "example-multi-bootstrap": {
+    "docType": "example",
+    "id": "example-multi-bootstrap",
+    "outputPath": "examples/example-multi-bootstrap/index.html",
+    "path": "example-multi-bootstrap"
+  },
+  "example-multi-bootstrap-jquery": {
+    "docType": "example",
+    "id": "example-multi-bootstrap-jquery",
+    "outputPath": "examples/example-multi-bootstrap/index-jquery.html",
+    "path": "example-multi-bootstrap-jquery"
+  },
+  "example-multi-bootstrap-production": {
+    "docType": "example",
+    "id": "example-multi-bootstrap-production",
+    "outputPath": "examples/example-multi-bootstrap/index-production.html",
+    "path": "example-multi-bootstrap-production"
+  },
   "style.css": {
     "docType": "example-css",
-    "id": "example-example110/style.css",
-    "outputPath": "examples/example-example110/style.css",
+    "id": "example-example103/style.css",
+    "outputPath": "examples/example-example103/style.css",
     "path": "style.css"
   },
   "example-example2-debug": {
@@ -3815,6 +3753,12 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-example2/index-production.html",
     "path": "example-example2-production"
   },
+  "src/ng/undefined": {
+    "docType": "example-manifest",
+    "id": "example-example63-manifest",
+    "outputPath": "examples/example-example63/manifest.json",
+    "path": "src/ng/undefined"
+  },
   "example-example3-debug": {
     "docType": "example",
     "id": "example-example3-debug",
@@ -3838,12 +3782,6 @@ angular.module('pagesData', [])
     "id": "example-example3-production",
     "outputPath": "examples/example-example3/index-production.html",
     "path": "example-example3-production"
-  },
-  "src/ng/undefined": {
-    "docType": "example-manifest",
-    "id": "example-example66-manifest",
-    "outputPath": "examples/example-example66/manifest.json",
-    "path": "src/ng/undefined"
   },
   "example-example4-debug": {
     "docType": "example",
@@ -3869,12 +3807,6 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-example4/index-production.html",
     "path": "example-example4-production"
   },
-  "protractor.js": {
-    "docType": "example-protractor",
-    "id": "example-example112/protractor.js",
-    "outputPath": "examples/example-example112/protractor.js",
-    "path": "protractor.js"
-  },
   "example-example5-debug": {
     "docType": "example",
     "id": "example-example5-debug",
@@ -3899,6 +3831,12 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-example5/index-production.html",
     "path": "example-example5-production"
   },
+  "src/ng/directive/undefined": {
+    "docType": "example-manifest",
+    "id": "example-example48-manifest",
+    "outputPath": "examples/example-example48/manifest.json",
+    "path": "src/ng/directive/undefined"
+  },
   "example-example6-debug": {
     "docType": "example",
     "id": "example-example6-debug",
@@ -3922,12 +3860,6 @@ angular.module('pagesData', [])
     "id": "example-example6-production",
     "outputPath": "examples/example-example6/index-production.html",
     "path": "example-example6-production"
-  },
-  "src/ng/directive/undefined": {
-    "docType": "example-manifest",
-    "id": "example-example51-manifest",
-    "outputPath": "examples/example-example51/manifest.json",
-    "path": "src/ng/directive/undefined"
   },
   "example-example7-debug": {
     "docType": "example",
@@ -4049,30 +3981,6 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-example11/index-production.html",
     "path": "example-example11-production"
   },
-  "example-example12-debug": {
-    "docType": "example",
-    "id": "example-example12-debug",
-    "outputPath": "examples/example-example12/index-debug.html",
-    "path": "example-example12-debug"
-  },
-  "example-example12": {
-    "docType": "example",
-    "id": "example-example12",
-    "outputPath": "examples/example-example12/index.html",
-    "path": "example-example12"
-  },
-  "example-example12-jquery": {
-    "docType": "example",
-    "id": "example-example12-jquery",
-    "outputPath": "examples/example-example12/index-jquery.html",
-    "path": "example-example12-jquery"
-  },
-  "example-example12-production": {
-    "docType": "example",
-    "id": "example-example12-production",
-    "outputPath": "examples/example-example12/index-production.html",
-    "path": "example-example12-production"
-  },
   "example-text-input-directive-debug": {
     "docType": "example",
     "id": "example-text-input-directive-debug",
@@ -4096,126 +4004,6 @@ angular.module('pagesData', [])
     "id": "example-text-input-directive-production",
     "outputPath": "examples/example-text-input-directive/index-production.html",
     "path": "example-text-input-directive-production"
-  },
-  "example-date-input-directive-debug": {
-    "docType": "example",
-    "id": "example-date-input-directive-debug",
-    "outputPath": "examples/example-date-input-directive/index-debug.html",
-    "path": "example-date-input-directive-debug"
-  },
-  "example-date-input-directive": {
-    "docType": "example",
-    "id": "example-date-input-directive",
-    "outputPath": "examples/example-date-input-directive/index.html",
-    "path": "example-date-input-directive"
-  },
-  "example-date-input-directive-jquery": {
-    "docType": "example",
-    "id": "example-date-input-directive-jquery",
-    "outputPath": "examples/example-date-input-directive/index-jquery.html",
-    "path": "example-date-input-directive-jquery"
-  },
-  "example-date-input-directive-production": {
-    "docType": "example",
-    "id": "example-date-input-directive-production",
-    "outputPath": "examples/example-date-input-directive/index-production.html",
-    "path": "example-date-input-directive-production"
-  },
-  "example-datetimelocal-input-directive-debug": {
-    "docType": "example",
-    "id": "example-datetimelocal-input-directive-debug",
-    "outputPath": "examples/example-datetimelocal-input-directive/index-debug.html",
-    "path": "example-datetimelocal-input-directive-debug"
-  },
-  "example-datetimelocal-input-directive": {
-    "docType": "example",
-    "id": "example-datetimelocal-input-directive",
-    "outputPath": "examples/example-datetimelocal-input-directive/index.html",
-    "path": "example-datetimelocal-input-directive"
-  },
-  "example-datetimelocal-input-directive-jquery": {
-    "docType": "example",
-    "id": "example-datetimelocal-input-directive-jquery",
-    "outputPath": "examples/example-datetimelocal-input-directive/index-jquery.html",
-    "path": "example-datetimelocal-input-directive-jquery"
-  },
-  "example-datetimelocal-input-directive-production": {
-    "docType": "example",
-    "id": "example-datetimelocal-input-directive-production",
-    "outputPath": "examples/example-datetimelocal-input-directive/index-production.html",
-    "path": "example-datetimelocal-input-directive-production"
-  },
-  "example-time-input-directive-debug": {
-    "docType": "example",
-    "id": "example-time-input-directive-debug",
-    "outputPath": "examples/example-time-input-directive/index-debug.html",
-    "path": "example-time-input-directive-debug"
-  },
-  "example-time-input-directive": {
-    "docType": "example",
-    "id": "example-time-input-directive",
-    "outputPath": "examples/example-time-input-directive/index.html",
-    "path": "example-time-input-directive"
-  },
-  "example-time-input-directive-jquery": {
-    "docType": "example",
-    "id": "example-time-input-directive-jquery",
-    "outputPath": "examples/example-time-input-directive/index-jquery.html",
-    "path": "example-time-input-directive-jquery"
-  },
-  "example-time-input-directive-production": {
-    "docType": "example",
-    "id": "example-time-input-directive-production",
-    "outputPath": "examples/example-time-input-directive/index-production.html",
-    "path": "example-time-input-directive-production"
-  },
-  "example-week-input-directive-debug": {
-    "docType": "example",
-    "id": "example-week-input-directive-debug",
-    "outputPath": "examples/example-week-input-directive/index-debug.html",
-    "path": "example-week-input-directive-debug"
-  },
-  "example-week-input-directive": {
-    "docType": "example",
-    "id": "example-week-input-directive",
-    "outputPath": "examples/example-week-input-directive/index.html",
-    "path": "example-week-input-directive"
-  },
-  "example-week-input-directive-jquery": {
-    "docType": "example",
-    "id": "example-week-input-directive-jquery",
-    "outputPath": "examples/example-week-input-directive/index-jquery.html",
-    "path": "example-week-input-directive-jquery"
-  },
-  "example-week-input-directive-production": {
-    "docType": "example",
-    "id": "example-week-input-directive-production",
-    "outputPath": "examples/example-week-input-directive/index-production.html",
-    "path": "example-week-input-directive-production"
-  },
-  "example-month-input-directive-debug": {
-    "docType": "example",
-    "id": "example-month-input-directive-debug",
-    "outputPath": "examples/example-month-input-directive/index-debug.html",
-    "path": "example-month-input-directive-debug"
-  },
-  "example-month-input-directive": {
-    "docType": "example",
-    "id": "example-month-input-directive",
-    "outputPath": "examples/example-month-input-directive/index.html",
-    "path": "example-month-input-directive"
-  },
-  "example-month-input-directive-jquery": {
-    "docType": "example",
-    "id": "example-month-input-directive-jquery",
-    "outputPath": "examples/example-month-input-directive/index-jquery.html",
-    "path": "example-month-input-directive-jquery"
-  },
-  "example-month-input-directive-production": {
-    "docType": "example",
-    "id": "example-month-input-directive-production",
-    "outputPath": "examples/example-month-input-directive/index-production.html",
-    "path": "example-month-input-directive-production"
   },
   "example-number-input-directive-debug": {
     "docType": "example",
@@ -4385,59 +4173,29 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-NgModelController/index-production.html",
     "path": "example-NgModelController-production"
   },
-  "app.js": {
-    "docType": "example-js",
-    "id": "example-example79/app.js",
-    "outputPath": "examples/example-example79/app.js",
-    "path": "app.js"
-  },
-  "example-ng-model-cancel-update-debug": {
+  "example-example12-debug": {
     "docType": "example",
-    "id": "example-ng-model-cancel-update-debug",
-    "outputPath": "examples/example-ng-model-cancel-update/index-debug.html",
-    "path": "example-ng-model-cancel-update-debug"
+    "id": "example-example12-debug",
+    "outputPath": "examples/example-example12/index-debug.html",
+    "path": "example-example12-debug"
   },
-  "example-ng-model-cancel-update": {
+  "example-example12": {
     "docType": "example",
-    "id": "example-ng-model-cancel-update",
-    "outputPath": "examples/example-ng-model-cancel-update/index.html",
-    "path": "example-ng-model-cancel-update"
+    "id": "example-example12",
+    "outputPath": "examples/example-example12/index.html",
+    "path": "example-example12"
   },
-  "example-ng-model-cancel-update-jquery": {
+  "example-example12-jquery": {
     "docType": "example",
-    "id": "example-ng-model-cancel-update-jquery",
-    "outputPath": "examples/example-ng-model-cancel-update/index-jquery.html",
-    "path": "example-ng-model-cancel-update-jquery"
+    "id": "example-example12-jquery",
+    "outputPath": "examples/example-example12/index-jquery.html",
+    "path": "example-example12-jquery"
   },
-  "example-ng-model-cancel-update-production": {
+  "example-example12-production": {
     "docType": "example",
-    "id": "example-ng-model-cancel-update-production",
-    "outputPath": "examples/example-ng-model-cancel-update/index-production.html",
-    "path": "example-ng-model-cancel-update-production"
-  },
-  "example-example13-debug": {
-    "docType": "example",
-    "id": "example-example13-debug",
-    "outputPath": "examples/example-example13/index-debug.html",
-    "path": "example-example13-debug"
-  },
-  "example-example13": {
-    "docType": "example",
-    "id": "example-example13",
-    "outputPath": "examples/example-example13/index.html",
-    "path": "example-example13"
-  },
-  "example-example13-jquery": {
-    "docType": "example",
-    "id": "example-example13-jquery",
-    "outputPath": "examples/example-example13/index-jquery.html",
-    "path": "example-example13-jquery"
-  },
-  "example-example13-production": {
-    "docType": "example",
-    "id": "example-example13-production",
-    "outputPath": "examples/example-example13/index-production.html",
-    "path": "example-example13-production"
+    "id": "example-example12-production",
+    "outputPath": "examples/example-example12/index-production.html",
+    "path": "example-example12-production"
   },
   "example-ngChange-directive-debug": {
     "docType": "example",
@@ -4511,53 +4269,29 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-ngValue-directive/index-production.html",
     "path": "example-ngValue-directive-production"
   },
-  "example-ngModelOptions-directive-blur-debug": {
+  "example-example13-debug": {
     "docType": "example",
-    "id": "example-ngModelOptions-directive-blur-debug",
-    "outputPath": "examples/example-ngModelOptions-directive-blur/index-debug.html",
-    "path": "example-ngModelOptions-directive-blur-debug"
+    "id": "example-example13-debug",
+    "outputPath": "examples/example-example13/index-debug.html",
+    "path": "example-example13-debug"
   },
-  "example-ngModelOptions-directive-blur": {
+  "example-example13": {
     "docType": "example",
-    "id": "example-ngModelOptions-directive-blur",
-    "outputPath": "examples/example-ngModelOptions-directive-blur/index.html",
-    "path": "example-ngModelOptions-directive-blur"
+    "id": "example-example13",
+    "outputPath": "examples/example-example13/index.html",
+    "path": "example-example13"
   },
-  "example-ngModelOptions-directive-blur-jquery": {
+  "example-example13-jquery": {
     "docType": "example",
-    "id": "example-ngModelOptions-directive-blur-jquery",
-    "outputPath": "examples/example-ngModelOptions-directive-blur/index-jquery.html",
-    "path": "example-ngModelOptions-directive-blur-jquery"
+    "id": "example-example13-jquery",
+    "outputPath": "examples/example-example13/index-jquery.html",
+    "path": "example-example13-jquery"
   },
-  "example-ngModelOptions-directive-blur-production": {
+  "example-example13-production": {
     "docType": "example",
-    "id": "example-ngModelOptions-directive-blur-production",
-    "outputPath": "examples/example-ngModelOptions-directive-blur/index-production.html",
-    "path": "example-ngModelOptions-directive-blur-production"
-  },
-  "example-ngModelOptions-directive-debounce-debug": {
-    "docType": "example",
-    "id": "example-ngModelOptions-directive-debounce-debug",
-    "outputPath": "examples/example-ngModelOptions-directive-debounce/index-debug.html",
-    "path": "example-ngModelOptions-directive-debounce-debug"
-  },
-  "example-ngModelOptions-directive-debounce": {
-    "docType": "example",
-    "id": "example-ngModelOptions-directive-debounce",
-    "outputPath": "examples/example-ngModelOptions-directive-debounce/index.html",
-    "path": "example-ngModelOptions-directive-debounce"
-  },
-  "example-ngModelOptions-directive-debounce-jquery": {
-    "docType": "example",
-    "id": "example-ngModelOptions-directive-debounce-jquery",
-    "outputPath": "examples/example-ngModelOptions-directive-debounce/index-jquery.html",
-    "path": "example-ngModelOptions-directive-debounce-jquery"
-  },
-  "example-ngModelOptions-directive-debounce-production": {
-    "docType": "example",
-    "id": "example-ngModelOptions-directive-debounce-production",
-    "outputPath": "examples/example-ngModelOptions-directive-debounce/index-production.html",
-    "path": "example-ngModelOptions-directive-debounce-production"
+    "id": "example-example13-production",
+    "outputPath": "examples/example-example13/index-production.html",
+    "path": "example-example13-production"
   },
   "example-example14-debug": {
     "docType": "example",
@@ -4726,6 +4460,60 @@ angular.module('pagesData', [])
     "id": "example-example20-production",
     "outputPath": "examples/example-example20/index-production.html",
     "path": "example-example20-production"
+  },
+  "app.js": {
+    "docType": "example-js",
+    "id": "example-example75/app.js",
+    "outputPath": "examples/example-example75/app.js",
+    "path": "app.js"
+  },
+  "example-ngControllerAs-debug": {
+    "docType": "example",
+    "id": "example-ngControllerAs-debug",
+    "outputPath": "examples/example-ngControllerAs/index-debug.html",
+    "path": "example-ngControllerAs-debug"
+  },
+  "example-ngControllerAs": {
+    "docType": "example",
+    "id": "example-ngControllerAs",
+    "outputPath": "examples/example-ngControllerAs/index.html",
+    "path": "example-ngControllerAs"
+  },
+  "example-ngControllerAs-jquery": {
+    "docType": "example",
+    "id": "example-ngControllerAs-jquery",
+    "outputPath": "examples/example-ngControllerAs/index-jquery.html",
+    "path": "example-ngControllerAs-jquery"
+  },
+  "example-ngControllerAs-production": {
+    "docType": "example",
+    "id": "example-ngControllerAs-production",
+    "outputPath": "examples/example-ngControllerAs/index-production.html",
+    "path": "example-ngControllerAs-production"
+  },
+  "example-ngController-debug": {
+    "docType": "example",
+    "id": "example-ngController-debug",
+    "outputPath": "examples/example-ngController/index-debug.html",
+    "path": "example-ngController-debug"
+  },
+  "example-ngController": {
+    "docType": "example",
+    "id": "example-ngController",
+    "outputPath": "examples/example-ngController/index.html",
+    "path": "example-ngController"
+  },
+  "example-ngController-jquery": {
+    "docType": "example",
+    "id": "example-ngController-jquery",
+    "outputPath": "examples/example-ngController/index-jquery.html",
+    "path": "example-ngController-jquery"
+  },
+  "example-ngController-production": {
+    "docType": "example",
+    "id": "example-ngController-production",
+    "outputPath": "examples/example-ngController/index-production.html",
+    "path": "example-ngController-production"
   },
   "example-example21-debug": {
     "docType": "example",
@@ -5087,6 +4875,12 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-example35/index-production.html",
     "path": "example-example35-production"
   },
+  "animations.css": {
+    "docType": "example-css",
+    "id": "example-example70/animations.css",
+    "outputPath": "examples/example-example70/animations.css",
+    "path": "animations.css"
+  },
   "example-example36-debug": {
     "docType": "example",
     "id": "example-example36-debug",
@@ -5110,6 +4904,18 @@ angular.module('pagesData', [])
     "id": "example-example36-production",
     "outputPath": "examples/example-example36/index-production.html",
     "path": "example-example36-production"
+  },
+  "template1.html": {
+    "docType": "example-html",
+    "id": "example-example37/template1.html",
+    "outputPath": "examples/example-example37/template1.html",
+    "path": "template1.html"
+  },
+  "template2.html": {
+    "docType": "example-html",
+    "id": "example-example37/template2.html",
+    "outputPath": "examples/example-example37/template2.html",
+    "path": "template2.html"
   },
   "example-example37-debug": {
     "docType": "example",
@@ -5159,12 +4965,6 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-example38/index-production.html",
     "path": "example-example38-production"
   },
-  "animations.css": {
-    "docType": "example-css",
-    "id": "example-example74/animations.css",
-    "outputPath": "examples/example-example74/animations.css",
-    "path": "animations.css"
-  },
   "example-example39-debug": {
     "docType": "example",
     "id": "example-example39-debug",
@@ -5188,18 +4988,6 @@ angular.module('pagesData', [])
     "id": "example-example39-production",
     "outputPath": "examples/example-example39/index-production.html",
     "path": "example-example39-production"
-  },
-  "template1.html": {
-    "docType": "example-html",
-    "id": "example-example40/template1.html",
-    "outputPath": "examples/example-example40/template1.html",
-    "path": "template1.html"
-  },
-  "template2.html": {
-    "docType": "example-html",
-    "id": "example-example40/template2.html",
-    "outputPath": "examples/example-example40/template2.html",
-    "path": "template2.html"
   },
   "example-example40-debug": {
     "docType": "example",
@@ -5248,6 +5036,12 @@ angular.module('pagesData', [])
     "id": "example-example41-production",
     "outputPath": "examples/example-example41/index-production.html",
     "path": "example-example41-production"
+  },
+  "glyphicons.css": {
+    "docType": "example-css",
+    "id": "example-example43/glyphicons.css",
+    "outputPath": "examples/example-example43/glyphicons.css",
+    "path": "glyphicons.css"
   },
   "example-example42-debug": {
     "docType": "example",
@@ -5320,12 +5114,6 @@ angular.module('pagesData', [])
     "id": "example-example44-production",
     "outputPath": "examples/example-example44/index-production.html",
     "path": "example-example44-production"
-  },
-  "glyphicons.css": {
-    "docType": "example-css",
-    "id": "example-example46/glyphicons.css",
-    "outputPath": "examples/example-example46/glyphicons.css",
-    "path": "glyphicons.css"
   },
   "example-example45-debug": {
     "docType": "example",
@@ -5447,6 +5235,30 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-example49/index-production.html",
     "path": "example-example49-production"
   },
+  "example-$filter-debug": {
+    "docType": "example",
+    "id": "example-$filter-debug",
+    "outputPath": "examples/example-$filter/index-debug.html",
+    "path": "example-$filter-debug"
+  },
+  "example-$filter": {
+    "docType": "example",
+    "id": "example-$filter",
+    "outputPath": "examples/example-$filter/index.html",
+    "path": "example-$filter"
+  },
+  "example-$filter-jquery": {
+    "docType": "example",
+    "id": "example-$filter-jquery",
+    "outputPath": "examples/example-$filter/index-jquery.html",
+    "path": "example-$filter-jquery"
+  },
+  "example-$filter-production": {
+    "docType": "example",
+    "id": "example-$filter-production",
+    "outputPath": "examples/example-$filter/index-production.html",
+    "path": "example-$filter-production"
+  },
   "example-example50-debug": {
     "docType": "example",
     "id": "example-example50-debug",
@@ -5470,6 +5282,12 @@ angular.module('pagesData', [])
     "id": "example-example50-production",
     "outputPath": "examples/example-example50/index-production.html",
     "path": "example-example50-production"
+  },
+  "src/ng/filter/undefined": {
+    "docType": "example-manifest",
+    "id": "example-example57-manifest",
+    "outputPath": "examples/example-example57/manifest.json",
+    "path": "src/ng/filter/undefined"
   },
   "example-example51-debug": {
     "docType": "example",
@@ -5519,30 +5337,6 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-example52/index-production.html",
     "path": "example-example52-production"
   },
-  "example-$filter-debug": {
-    "docType": "example",
-    "id": "example-$filter-debug",
-    "outputPath": "examples/example-$filter/index-debug.html",
-    "path": "example-$filter-debug"
-  },
-  "example-$filter": {
-    "docType": "example",
-    "id": "example-$filter",
-    "outputPath": "examples/example-$filter/index.html",
-    "path": "example-$filter"
-  },
-  "example-$filter-jquery": {
-    "docType": "example",
-    "id": "example-$filter-jquery",
-    "outputPath": "examples/example-$filter/index-jquery.html",
-    "path": "example-$filter-jquery"
-  },
-  "example-$filter-production": {
-    "docType": "example",
-    "id": "example-$filter-production",
-    "outputPath": "examples/example-$filter/index-production.html",
-    "path": "example-$filter-production"
-  },
   "example-example53-debug": {
     "docType": "example",
     "id": "example-example53-debug",
@@ -5566,12 +5360,6 @@ angular.module('pagesData', [])
     "id": "example-example53-production",
     "outputPath": "examples/example-example53/index-production.html",
     "path": "example-example53-production"
-  },
-  "src/ng/filter/undefined": {
-    "docType": "example-manifest",
-    "id": "example-example59-manifest",
-    "outputPath": "examples/example-example59/manifest.json",
-    "path": "src/ng/filter/undefined"
   },
   "example-example54-debug": {
     "docType": "example",
@@ -5669,6 +5457,12 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-example57/index-production.html",
     "path": "example-example57-production"
   },
+  "http-hello.html": {
+    "docType": "example-html",
+    "id": "example-example58/http-hello.html",
+    "outputPath": "examples/example-example58/http-hello.html",
+    "path": "http-hello.html"
+  },
   "example-example58-debug": {
     "docType": "example",
     "id": "example-example58-debug",
@@ -5716,12 +5510,6 @@ angular.module('pagesData', [])
     "id": "example-example59-production",
     "outputPath": "examples/example-example59/index-production.html",
     "path": "example-example59-production"
-  },
-  "http-hello.html": {
-    "docType": "example-html",
-    "id": "example-example60/http-hello.html",
-    "outputPath": "examples/example-example60/http-hello.html",
-    "path": "http-hello.html"
   },
   "example-example60-debug": {
     "docType": "example",
@@ -5771,6 +5559,12 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-example61/index-production.html",
     "path": "example-example61-production"
   },
+  "test_data.json": {
+    "docType": "example-json",
+    "id": "example-example62/test_data.json",
+    "outputPath": "examples/example-example62/test_data.json",
+    "path": "test_data.json"
+  },
   "example-example62-debug": {
     "docType": "example",
     "id": "example-example62-debug",
@@ -5818,114 +5612,6 @@ angular.module('pagesData', [])
     "id": "example-example63-production",
     "outputPath": "examples/example-example63/index-production.html",
     "path": "example-example63-production"
-  },
-  "example-example64-debug": {
-    "docType": "example",
-    "id": "example-example64-debug",
-    "outputPath": "examples/example-example64/index-debug.html",
-    "path": "example-example64-debug"
-  },
-  "example-example64": {
-    "docType": "example",
-    "id": "example-example64",
-    "outputPath": "examples/example-example64/index.html",
-    "path": "example-example64"
-  },
-  "example-example64-jquery": {
-    "docType": "example",
-    "id": "example-example64-jquery",
-    "outputPath": "examples/example-example64/index-jquery.html",
-    "path": "example-example64-jquery"
-  },
-  "example-example64-production": {
-    "docType": "example",
-    "id": "example-example64-production",
-    "outputPath": "examples/example-example64/index-production.html",
-    "path": "example-example64-production"
-  },
-  "test_data.json": {
-    "docType": "example-json",
-    "id": "example-example65/test_data.json",
-    "outputPath": "examples/example-example65/test_data.json",
-    "path": "test_data.json"
-  },
-  "example-example65-debug": {
-    "docType": "example",
-    "id": "example-example65-debug",
-    "outputPath": "examples/example-example65/index-debug.html",
-    "path": "example-example65-debug"
-  },
-  "example-example65": {
-    "docType": "example",
-    "id": "example-example65",
-    "outputPath": "examples/example-example65/index.html",
-    "path": "example-example65"
-  },
-  "example-example65-jquery": {
-    "docType": "example",
-    "id": "example-example65-jquery",
-    "outputPath": "examples/example-example65/index-jquery.html",
-    "path": "example-example65-jquery"
-  },
-  "example-example65-production": {
-    "docType": "example",
-    "id": "example-example65-production",
-    "outputPath": "examples/example-example65/index-production.html",
-    "path": "example-example65-production"
-  },
-  "example-example66-debug": {
-    "docType": "example",
-    "id": "example-example66-debug",
-    "outputPath": "examples/example-example66/index-debug.html",
-    "path": "example-example66-debug"
-  },
-  "example-example66": {
-    "docType": "example",
-    "id": "example-example66",
-    "outputPath": "examples/example-example66/index.html",
-    "path": "example-example66"
-  },
-  "example-example66-jquery": {
-    "docType": "example",
-    "id": "example-example66-jquery",
-    "outputPath": "examples/example-example66/index-jquery.html",
-    "path": "example-example66-jquery"
-  },
-  "example-example66-production": {
-    "docType": "example",
-    "id": "example-example66-production",
-    "outputPath": "examples/example-example66/index-production.html",
-    "path": "example-example66-production"
-  },
-  "example-ngMessages-directive-debug": {
-    "docType": "example",
-    "id": "example-ngMessages-directive-debug",
-    "outputPath": "examples/example-ngMessages-directive/index-debug.html",
-    "path": "example-ngMessages-directive-debug"
-  },
-  "example-ngMessages-directive": {
-    "docType": "example",
-    "id": "example-ngMessages-directive",
-    "outputPath": "examples/example-ngMessages-directive/index.html",
-    "path": "example-ngMessages-directive"
-  },
-  "example-ngMessages-directive-jquery": {
-    "docType": "example",
-    "id": "example-ngMessages-directive-jquery",
-    "outputPath": "examples/example-ngMessages-directive/index-jquery.html",
-    "path": "example-ngMessages-directive-jquery"
-  },
-  "example-ngMessages-directive-production": {
-    "docType": "example",
-    "id": "example-ngMessages-directive-production",
-    "outputPath": "examples/example-ngMessages-directive/index-production.html",
-    "path": "example-ngMessages-directive-production"
-  },
-  "src/ngMessages/undefined": {
-    "docType": "example-manifest",
-    "id": "example-ngMessages-directive-manifest",
-    "outputPath": "examples/example-ngMessages-directive/manifest.json",
-    "path": "src/ngMessages/undefined"
   },
   "book.html": {
     "docType": "example-html",
@@ -5999,6 +5685,96 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-$route-service/manifest.json",
     "path": "src/ngRoute/undefined"
   },
+  "example-example64-debug": {
+    "docType": "example",
+    "id": "example-example64-debug",
+    "outputPath": "examples/example-example64/index-debug.html",
+    "path": "example-example64-debug"
+  },
+  "example-example64": {
+    "docType": "example",
+    "id": "example-example64",
+    "outputPath": "examples/example-example64/index.html",
+    "path": "example-example64"
+  },
+  "example-example64-jquery": {
+    "docType": "example",
+    "id": "example-example64-jquery",
+    "outputPath": "examples/example-example64/index-jquery.html",
+    "path": "example-example64-jquery"
+  },
+  "example-example64-production": {
+    "docType": "example",
+    "id": "example-example64-production",
+    "outputPath": "examples/example-example64/index-production.html",
+    "path": "example-example64-production"
+  },
+  "src/ngSanitize/filter/undefined": {
+    "docType": "example-manifest",
+    "id": "example-example64-manifest",
+    "outputPath": "examples/example-example64/manifest.json",
+    "path": "src/ngSanitize/filter/undefined"
+  },
+  "example-example65-debug": {
+    "docType": "example",
+    "id": "example-example65-debug",
+    "outputPath": "examples/example-example65/index-debug.html",
+    "path": "example-example65-debug"
+  },
+  "example-example65": {
+    "docType": "example",
+    "id": "example-example65",
+    "outputPath": "examples/example-example65/index.html",
+    "path": "example-example65"
+  },
+  "example-example65-jquery": {
+    "docType": "example",
+    "id": "example-example65-jquery",
+    "outputPath": "examples/example-example65/index-jquery.html",
+    "path": "example-example65-jquery"
+  },
+  "example-example65-production": {
+    "docType": "example",
+    "id": "example-example65-production",
+    "outputPath": "examples/example-example65/index-production.html",
+    "path": "example-example65-production"
+  },
+  "src/ngSanitize/undefined": {
+    "docType": "example-manifest",
+    "id": "example-example65-manifest",
+    "outputPath": "examples/example-example65/manifest.json",
+    "path": "src/ngSanitize/undefined"
+  },
+  "example-example66-debug": {
+    "docType": "example",
+    "id": "example-example66-debug",
+    "outputPath": "examples/example-example66/index-debug.html",
+    "path": "example-example66-debug"
+  },
+  "example-example66": {
+    "docType": "example",
+    "id": "example-example66",
+    "outputPath": "examples/example-example66/index.html",
+    "path": "example-example66"
+  },
+  "example-example66-jquery": {
+    "docType": "example",
+    "id": "example-example66-jquery",
+    "outputPath": "examples/example-example66/index-jquery.html",
+    "path": "example-example66-jquery"
+  },
+  "example-example66-production": {
+    "docType": "example",
+    "id": "example-example66-production",
+    "outputPath": "examples/example-example66/index-production.html",
+    "path": "example-example66-production"
+  },
+  "src/ngTouch/directive/undefined": {
+    "docType": "example-manifest",
+    "id": "example-example68-manifest",
+    "outputPath": "examples/example-example68/manifest.json",
+    "path": "src/ngTouch/directive/undefined"
+  },
   "example-example67-debug": {
     "docType": "example",
     "id": "example-example67-debug",
@@ -6022,12 +5798,6 @@ angular.module('pagesData', [])
     "id": "example-example67-production",
     "outputPath": "examples/example-example67/index-production.html",
     "path": "example-example67-production"
-  },
-  "src/ngSanitize/filter/undefined": {
-    "docType": "example-manifest",
-    "id": "example-example67-manifest",
-    "outputPath": "examples/example-example67/manifest.json",
-    "path": "src/ngSanitize/filter/undefined"
   },
   "example-example68-debug": {
     "docType": "example",
@@ -6053,11 +5823,101 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-example68/index-production.html",
     "path": "example-example68-production"
   },
-  "src/ngSanitize/undefined": {
+  "example-error-$rootScope-inprog-debug": {
+    "docType": "example",
+    "id": "example-error-$rootScope-inprog-debug",
+    "outputPath": "examples/example-error-$rootScope-inprog/index-debug.html",
+    "path": "example-error-$rootScope-inprog-debug"
+  },
+  "example-error-$rootScope-inprog": {
+    "docType": "example",
+    "id": "example-error-$rootScope-inprog",
+    "outputPath": "examples/example-error-$rootScope-inprog/index.html",
+    "path": "example-error-$rootScope-inprog"
+  },
+  "example-error-$rootScope-inprog-jquery": {
+    "docType": "example",
+    "id": "example-error-$rootScope-inprog-jquery",
+    "outputPath": "examples/example-error-$rootScope-inprog/index-jquery.html",
+    "path": "example-error-$rootScope-inprog-jquery"
+  },
+  "example-error-$rootScope-inprog-production": {
+    "docType": "example",
+    "id": "example-error-$rootScope-inprog-production",
+    "outputPath": "examples/example-error-$rootScope-inprog/index-production.html",
+    "path": "example-error-$rootScope-inprog-production"
+  },
+  "error/$rootScope/undefined": {
     "docType": "example-manifest",
-    "id": "example-example68-manifest",
-    "outputPath": "examples/example-example68/manifest.json",
-    "path": "src/ngSanitize/undefined"
+    "id": "example-error-$rootScope-inprog-manifest",
+    "outputPath": "examples/example-error-$rootScope-inprog/manifest.json",
+    "path": "error/$rootScope/undefined"
+  },
+  "fakeBrowser.js": {
+    "docType": "example-js",
+    "id": "example-location-hashbang-mode/fakeBrowser.js",
+    "outputPath": "examples/example-location-hashbang-mode/fakeBrowser.js",
+    "path": "fakeBrowser.js"
+  },
+  "addressBar.js": {
+    "docType": "example-js",
+    "id": "example-location-hashbang-mode/addressBar.js",
+    "outputPath": "examples/example-location-hashbang-mode/addressBar.js",
+    "path": "addressBar.js"
+  },
+  "example-location-html5-mode-debug": {
+    "docType": "example",
+    "id": "example-location-html5-mode-debug",
+    "outputPath": "examples/example-location-html5-mode/index-debug.html",
+    "path": "example-location-html5-mode-debug"
+  },
+  "example-location-html5-mode": {
+    "docType": "example",
+    "id": "example-location-html5-mode",
+    "outputPath": "examples/example-location-html5-mode/index.html",
+    "path": "example-location-html5-mode"
+  },
+  "example-location-html5-mode-jquery": {
+    "docType": "example",
+    "id": "example-location-html5-mode-jquery",
+    "outputPath": "examples/example-location-html5-mode/index-jquery.html",
+    "path": "example-location-html5-mode-jquery"
+  },
+  "example-location-html5-mode-production": {
+    "docType": "example",
+    "id": "example-location-html5-mode-production",
+    "outputPath": "examples/example-location-html5-mode/index-production.html",
+    "path": "example-location-html5-mode-production"
+  },
+  "guide/undefined": {
+    "docType": "example-manifest",
+    "id": "example-example106-manifest",
+    "outputPath": "examples/example-example106/manifest.json",
+    "path": "guide/undefined"
+  },
+  "example-location-hashbang-mode-debug": {
+    "docType": "example",
+    "id": "example-location-hashbang-mode-debug",
+    "outputPath": "examples/example-location-hashbang-mode/index-debug.html",
+    "path": "example-location-hashbang-mode-debug"
+  },
+  "example-location-hashbang-mode": {
+    "docType": "example",
+    "id": "example-location-hashbang-mode",
+    "outputPath": "examples/example-location-hashbang-mode/index.html",
+    "path": "example-location-hashbang-mode"
+  },
+  "example-location-hashbang-mode-jquery": {
+    "docType": "example",
+    "id": "example-location-hashbang-mode-jquery",
+    "outputPath": "examples/example-location-hashbang-mode/index-jquery.html",
+    "path": "example-location-hashbang-mode-jquery"
+  },
+  "example-location-hashbang-mode-production": {
+    "docType": "example",
+    "id": "example-location-hashbang-mode-production",
+    "outputPath": "examples/example-location-hashbang-mode/index-production.html",
+    "path": "example-location-hashbang-mode-production"
   },
   "example-example69-debug": {
     "docType": "example",
@@ -6082,12 +5942,6 @@ angular.module('pagesData', [])
     "id": "example-example69-production",
     "outputPath": "examples/example-example69/index-production.html",
     "path": "example-example69-production"
-  },
-  "src/ngTouch/directive/undefined": {
-    "docType": "example-manifest",
-    "id": "example-example71-manifest",
-    "outputPath": "examples/example-example71/manifest.json",
-    "path": "src/ngTouch/directive/undefined"
   },
   "example-example70-debug": {
     "docType": "example",
@@ -6160,108 +6014,6 @@ angular.module('pagesData', [])
     "id": "example-example72-production",
     "outputPath": "examples/example-example72/index-production.html",
     "path": "example-example72-production"
-  },
-  "guide/undefined": {
-    "docType": "example-manifest",
-    "id": "example-example113-manifest",
-    "outputPath": "examples/example-example113/manifest.json",
-    "path": "guide/undefined"
-  },
-  "example-example73-debug": {
-    "docType": "example",
-    "id": "example-example73-debug",
-    "outputPath": "examples/example-example73/index-debug.html",
-    "path": "example-example73-debug"
-  },
-  "example-example73": {
-    "docType": "example",
-    "id": "example-example73",
-    "outputPath": "examples/example-example73/index.html",
-    "path": "example-example73"
-  },
-  "example-example73-jquery": {
-    "docType": "example",
-    "id": "example-example73-jquery",
-    "outputPath": "examples/example-example73/index-jquery.html",
-    "path": "example-example73-jquery"
-  },
-  "example-example73-production": {
-    "docType": "example",
-    "id": "example-example73-production",
-    "outputPath": "examples/example-example73/index-production.html",
-    "path": "example-example73-production"
-  },
-  "example-example74-debug": {
-    "docType": "example",
-    "id": "example-example74-debug",
-    "outputPath": "examples/example-example74/index-debug.html",
-    "path": "example-example74-debug"
-  },
-  "example-example74": {
-    "docType": "example",
-    "id": "example-example74",
-    "outputPath": "examples/example-example74/index.html",
-    "path": "example-example74"
-  },
-  "example-example74-jquery": {
-    "docType": "example",
-    "id": "example-example74-jquery",
-    "outputPath": "examples/example-example74/index-jquery.html",
-    "path": "example-example74-jquery"
-  },
-  "example-example74-production": {
-    "docType": "example",
-    "id": "example-example74-production",
-    "outputPath": "examples/example-example74/index-production.html",
-    "path": "example-example74-production"
-  },
-  "example-example75-debug": {
-    "docType": "example",
-    "id": "example-example75-debug",
-    "outputPath": "examples/example-example75/index-debug.html",
-    "path": "example-example75-debug"
-  },
-  "example-example75": {
-    "docType": "example",
-    "id": "example-example75",
-    "outputPath": "examples/example-example75/index.html",
-    "path": "example-example75"
-  },
-  "example-example75-jquery": {
-    "docType": "example",
-    "id": "example-example75-jquery",
-    "outputPath": "examples/example-example75/index-jquery.html",
-    "path": "example-example75-jquery"
-  },
-  "example-example75-production": {
-    "docType": "example",
-    "id": "example-example75-production",
-    "outputPath": "examples/example-example75/index-production.html",
-    "path": "example-example75-production"
-  },
-  "example-example76-debug": {
-    "docType": "example",
-    "id": "example-example76-debug",
-    "outputPath": "examples/example-example76/index-debug.html",
-    "path": "example-example76-debug"
-  },
-  "example-example76": {
-    "docType": "example",
-    "id": "example-example76",
-    "outputPath": "examples/example-example76/index.html",
-    "path": "example-example76"
-  },
-  "example-example76-jquery": {
-    "docType": "example",
-    "id": "example-example76-jquery",
-    "outputPath": "examples/example-example76/index-jquery.html",
-    "path": "example-example76-jquery"
-  },
-  "example-example76-production": {
-    "docType": "example",
-    "id": "example-example76-production",
-    "outputPath": "examples/example-example76/index-production.html",
-    "path": "example-example76-production"
   },
   "example-guide-concepts-1-debug": {
     "docType": "example",
@@ -6389,6 +6141,114 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-guide-concepts-3/index-production.html",
     "path": "example-guide-concepts-3-production"
   },
+  "example-example73-debug": {
+    "docType": "example",
+    "id": "example-example73-debug",
+    "outputPath": "examples/example-example73/index-debug.html",
+    "path": "example-example73-debug"
+  },
+  "example-example73": {
+    "docType": "example",
+    "id": "example-example73",
+    "outputPath": "examples/example-example73/index.html",
+    "path": "example-example73"
+  },
+  "example-example73-jquery": {
+    "docType": "example",
+    "id": "example-example73-jquery",
+    "outputPath": "examples/example-example73/index-jquery.html",
+    "path": "example-example73-jquery"
+  },
+  "example-example73-production": {
+    "docType": "example",
+    "id": "example-example73-production",
+    "outputPath": "examples/example-example73/index-production.html",
+    "path": "example-example73-production"
+  },
+  "example-example74-debug": {
+    "docType": "example",
+    "id": "example-example74-debug",
+    "outputPath": "examples/example-example74/index-debug.html",
+    "path": "example-example74-debug"
+  },
+  "example-example74": {
+    "docType": "example",
+    "id": "example-example74",
+    "outputPath": "examples/example-example74/index.html",
+    "path": "example-example74"
+  },
+  "example-example74-jquery": {
+    "docType": "example",
+    "id": "example-example74-jquery",
+    "outputPath": "examples/example-example74/index-jquery.html",
+    "path": "example-example74-jquery"
+  },
+  "example-example74-production": {
+    "docType": "example",
+    "id": "example-example74-production",
+    "outputPath": "examples/example-example74/index-production.html",
+    "path": "example-example74-production"
+  },
+  "app.css": {
+    "docType": "example-css",
+    "id": "example-example75/app.css",
+    "outputPath": "examples/example-example75/app.css",
+    "path": "app.css"
+  },
+  "example-example75-debug": {
+    "docType": "example",
+    "id": "example-example75-debug",
+    "outputPath": "examples/example-example75/index-debug.html",
+    "path": "example-example75-debug"
+  },
+  "example-example75": {
+    "docType": "example",
+    "id": "example-example75",
+    "outputPath": "examples/example-example75/index.html",
+    "path": "example-example75"
+  },
+  "example-example75-jquery": {
+    "docType": "example",
+    "id": "example-example75-jquery",
+    "outputPath": "examples/example-example75/index-jquery.html",
+    "path": "example-example75-jquery"
+  },
+  "example-example75-production": {
+    "docType": "example",
+    "id": "example-example75-production",
+    "outputPath": "examples/example-example75/index-production.html",
+    "path": "example-example75-production"
+  },
+  "protractorTest.js": {
+    "docType": "example-js",
+    "id": "example-example76/protractorTest.js",
+    "outputPath": "examples/example-example76/protractorTest.js",
+    "path": "protractorTest.js"
+  },
+  "example-example76-debug": {
+    "docType": "example",
+    "id": "example-example76-debug",
+    "outputPath": "examples/example-example76/index-debug.html",
+    "path": "example-example76-debug"
+  },
+  "example-example76": {
+    "docType": "example",
+    "id": "example-example76",
+    "outputPath": "examples/example-example76/index.html",
+    "path": "example-example76"
+  },
+  "example-example76-jquery": {
+    "docType": "example",
+    "id": "example-example76-jquery",
+    "outputPath": "examples/example-example76/index-jquery.html",
+    "path": "example-example76-jquery"
+  },
+  "example-example76-production": {
+    "docType": "example",
+    "id": "example-example76-production",
+    "outputPath": "examples/example-example76/index-production.html",
+    "path": "example-example76-production"
+  },
   "example-example77-debug": {
     "docType": "example",
     "id": "example-example77-debug",
@@ -6412,6 +6272,12 @@ angular.module('pagesData', [])
     "id": "example-example77-production",
     "outputPath": "examples/example-example77/index-production.html",
     "path": "example-example77-production"
+  },
+  "my-customer.html": {
+    "docType": "example-html",
+    "id": "example-example80/my-customer.html",
+    "outputPath": "examples/example-example80/my-customer.html",
+    "path": "my-customer.html"
   },
   "example-example78-debug": {
     "docType": "example",
@@ -6437,12 +6303,6 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-example78/index-production.html",
     "path": "example-example78-production"
   },
-  "app.css": {
-    "docType": "example-css",
-    "id": "example-example79/app.css",
-    "outputPath": "examples/example-example79/app.css",
-    "path": "app.css"
-  },
   "example-example79-debug": {
     "docType": "example",
     "id": "example-example79-debug",
@@ -6466,12 +6326,6 @@ angular.module('pagesData', [])
     "id": "example-example79-production",
     "outputPath": "examples/example-example79/index-production.html",
     "path": "example-example79-production"
-  },
-  "protractorTest.js": {
-    "docType": "example-js",
-    "id": "example-example80/protractorTest.js",
-    "outputPath": "examples/example-example80/protractorTest.js",
-    "path": "protractorTest.js"
   },
   "example-example80-debug": {
     "docType": "example",
@@ -6497,6 +6351,12 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-example80/index-production.html",
     "path": "example-example80-production"
   },
+  "my-customer-iso.html": {
+    "docType": "example-html",
+    "id": "example-example81/my-customer-iso.html",
+    "outputPath": "examples/example-example81/my-customer-iso.html",
+    "path": "my-customer-iso.html"
+  },
   "example-example81-debug": {
     "docType": "example",
     "id": "example-example81-debug",
@@ -6521,11 +6381,11 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-example81/index-production.html",
     "path": "example-example81-production"
   },
-  "my-customer.html": {
+  "my-customer-plus-vojta.html": {
     "docType": "example-html",
-    "id": "example-example84/my-customer.html",
-    "outputPath": "examples/example-example84/my-customer.html",
-    "path": "my-customer.html"
+    "id": "example-example82/my-customer-plus-vojta.html",
+    "outputPath": "examples/example-example82/my-customer-plus-vojta.html",
+    "path": "my-customer-plus-vojta.html"
   },
   "example-example82-debug": {
     "docType": "example",
@@ -6575,6 +6435,12 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-example83/index-production.html",
     "path": "example-example83-production"
   },
+  "my-dialog.html": {
+    "docType": "example-html",
+    "id": "example-example85/my-dialog.html",
+    "outputPath": "examples/example-example85/my-dialog.html",
+    "path": "my-dialog.html"
+  },
   "example-example84-debug": {
     "docType": "example",
     "id": "example-example84-debug",
@@ -6598,12 +6464,6 @@ angular.module('pagesData', [])
     "id": "example-example84-production",
     "outputPath": "examples/example-example84/index-production.html",
     "path": "example-example84-production"
-  },
-  "my-customer-iso.html": {
-    "docType": "example-html",
-    "id": "example-example85/my-customer-iso.html",
-    "outputPath": "examples/example-example85/my-customer-iso.html",
-    "path": "my-customer-iso.html"
   },
   "example-example85-debug": {
     "docType": "example",
@@ -6629,11 +6489,11 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-example85/index-production.html",
     "path": "example-example85-production"
   },
-  "my-customer-plus-vojta.html": {
+  "my-dialog-close.html": {
     "docType": "example-html",
-    "id": "example-example86/my-customer-plus-vojta.html",
-    "outputPath": "examples/example-example86/my-customer-plus-vojta.html",
-    "path": "my-customer-plus-vojta.html"
+    "id": "example-example86/my-dialog-close.html",
+    "outputPath": "examples/example-example86/my-dialog-close.html",
+    "path": "my-dialog-close.html"
   },
   "example-example86-debug": {
     "docType": "example",
@@ -6683,11 +6543,17 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-example87/index-production.html",
     "path": "example-example87-production"
   },
-  "my-dialog.html": {
+  "my-tabs.html": {
     "docType": "example-html",
-    "id": "example-example89/my-dialog.html",
-    "outputPath": "examples/example-example89/my-dialog.html",
-    "path": "my-dialog.html"
+    "id": "example-example88/my-tabs.html",
+    "outputPath": "examples/example-example88/my-tabs.html",
+    "path": "my-tabs.html"
+  },
+  "my-pane.html": {
+    "docType": "example-html",
+    "id": "example-example88/my-pane.html",
+    "outputPath": "examples/example-example88/my-pane.html",
+    "path": "my-pane.html"
   },
   "example-example88-debug": {
     "docType": "example",
@@ -6737,12 +6603,6 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-example89/index-production.html",
     "path": "example-example89-production"
   },
-  "my-dialog-close.html": {
-    "docType": "example-html",
-    "id": "example-example90/my-dialog-close.html",
-    "outputPath": "examples/example-example90/my-dialog-close.html",
-    "path": "my-dialog-close.html"
-  },
   "example-example90-debug": {
     "docType": "example",
     "id": "example-example90-debug",
@@ -6790,18 +6650,6 @@ angular.module('pagesData', [])
     "id": "example-example91-production",
     "outputPath": "examples/example-example91/index-production.html",
     "path": "example-example91-production"
-  },
-  "my-tabs.html": {
-    "docType": "example-html",
-    "id": "example-example92/my-tabs.html",
-    "outputPath": "examples/example-example92/my-tabs.html",
-    "path": "my-tabs.html"
-  },
-  "my-pane.html": {
-    "docType": "example-html",
-    "id": "example-example92/my-pane.html",
-    "outputPath": "examples/example-example92/my-pane.html",
-    "path": "my-pane.html"
   },
   "example-example92-debug": {
     "docType": "example",
@@ -7163,174 +7011,6 @@ angular.module('pagesData', [])
     "outputPath": "examples/example-example106/index-production.html",
     "path": "example-example106-production"
   },
-  "example-example107-debug": {
-    "docType": "example",
-    "id": "example-example107-debug",
-    "outputPath": "examples/example-example107/index-debug.html",
-    "path": "example-example107-debug"
-  },
-  "example-example107": {
-    "docType": "example",
-    "id": "example-example107",
-    "outputPath": "examples/example-example107/index.html",
-    "path": "example-example107"
-  },
-  "example-example107-jquery": {
-    "docType": "example",
-    "id": "example-example107-jquery",
-    "outputPath": "examples/example-example107/index-jquery.html",
-    "path": "example-example107-jquery"
-  },
-  "example-example107-production": {
-    "docType": "example",
-    "id": "example-example107-production",
-    "outputPath": "examples/example-example107/index-production.html",
-    "path": "example-example107-production"
-  },
-  "example-example108-debug": {
-    "docType": "example",
-    "id": "example-example108-debug",
-    "outputPath": "examples/example-example108/index-debug.html",
-    "path": "example-example108-debug"
-  },
-  "example-example108": {
-    "docType": "example",
-    "id": "example-example108",
-    "outputPath": "examples/example-example108/index.html",
-    "path": "example-example108"
-  },
-  "example-example108-jquery": {
-    "docType": "example",
-    "id": "example-example108-jquery",
-    "outputPath": "examples/example-example108/index-jquery.html",
-    "path": "example-example108-jquery"
-  },
-  "example-example108-production": {
-    "docType": "example",
-    "id": "example-example108-production",
-    "outputPath": "examples/example-example108/index-production.html",
-    "path": "example-example108-production"
-  },
-  "example-example109-debug": {
-    "docType": "example",
-    "id": "example-example109-debug",
-    "outputPath": "examples/example-example109/index-debug.html",
-    "path": "example-example109-debug"
-  },
-  "example-example109": {
-    "docType": "example",
-    "id": "example-example109",
-    "outputPath": "examples/example-example109/index.html",
-    "path": "example-example109"
-  },
-  "example-example109-jquery": {
-    "docType": "example",
-    "id": "example-example109-jquery",
-    "outputPath": "examples/example-example109/index-jquery.html",
-    "path": "example-example109-jquery"
-  },
-  "example-example109-production": {
-    "docType": "example",
-    "id": "example-example109-production",
-    "outputPath": "examples/example-example109/index-production.html",
-    "path": "example-example109-production"
-  },
-  "example-example110-debug": {
-    "docType": "example",
-    "id": "example-example110-debug",
-    "outputPath": "examples/example-example110/index-debug.html",
-    "path": "example-example110-debug"
-  },
-  "example-example110": {
-    "docType": "example",
-    "id": "example-example110",
-    "outputPath": "examples/example-example110/index.html",
-    "path": "example-example110"
-  },
-  "example-example110-jquery": {
-    "docType": "example",
-    "id": "example-example110-jquery",
-    "outputPath": "examples/example-example110/index-jquery.html",
-    "path": "example-example110-jquery"
-  },
-  "example-example110-production": {
-    "docType": "example",
-    "id": "example-example110-production",
-    "outputPath": "examples/example-example110/index-production.html",
-    "path": "example-example110-production"
-  },
-  "example-example111-debug": {
-    "docType": "example",
-    "id": "example-example111-debug",
-    "outputPath": "examples/example-example111/index-debug.html",
-    "path": "example-example111-debug"
-  },
-  "example-example111": {
-    "docType": "example",
-    "id": "example-example111",
-    "outputPath": "examples/example-example111/index.html",
-    "path": "example-example111"
-  },
-  "example-example111-jquery": {
-    "docType": "example",
-    "id": "example-example111-jquery",
-    "outputPath": "examples/example-example111/index-jquery.html",
-    "path": "example-example111-jquery"
-  },
-  "example-example111-production": {
-    "docType": "example",
-    "id": "example-example111-production",
-    "outputPath": "examples/example-example111/index-production.html",
-    "path": "example-example111-production"
-  },
-  "example-example112-debug": {
-    "docType": "example",
-    "id": "example-example112-debug",
-    "outputPath": "examples/example-example112/index-debug.html",
-    "path": "example-example112-debug"
-  },
-  "example-example112": {
-    "docType": "example",
-    "id": "example-example112",
-    "outputPath": "examples/example-example112/index.html",
-    "path": "example-example112"
-  },
-  "example-example112-jquery": {
-    "docType": "example",
-    "id": "example-example112-jquery",
-    "outputPath": "examples/example-example112/index-jquery.html",
-    "path": "example-example112-jquery"
-  },
-  "example-example112-production": {
-    "docType": "example",
-    "id": "example-example112-production",
-    "outputPath": "examples/example-example112/index-production.html",
-    "path": "example-example112-production"
-  },
-  "example-example113-debug": {
-    "docType": "example",
-    "id": "example-example113-debug",
-    "outputPath": "examples/example-example113/index-debug.html",
-    "path": "example-example113-debug"
-  },
-  "example-example113": {
-    "docType": "example",
-    "id": "example-example113",
-    "outputPath": "examples/example-example113/index.html",
-    "path": "example-example113"
-  },
-  "example-example113-jquery": {
-    "docType": "example",
-    "id": "example-example113-jquery",
-    "outputPath": "examples/example-example113/index-jquery.html",
-    "path": "example-example113-jquery"
-  },
-  "example-example113-production": {
-    "docType": "example",
-    "id": "example-example113-production",
-    "outputPath": "examples/example-example113/index-production.html",
-    "path": "example-example113-production"
-  },
   "error/$animate": {
     "docType": "errorNamespace",
     "name": "$animate",
@@ -7633,23 +7313,8 @@ angular.module('pagesData', [])
             "type": "input"
           },
           {
-            "name": "input[dateTimeLocal]",
-            "href": "api/ng/input/input[dateTimeLocal]",
-            "type": "input"
-          },
-          {
-            "name": "input[date]",
-            "href": "api/ng/input/input[date]",
-            "type": "input"
-          },
-          {
             "name": "input[email]",
             "href": "api/ng/input/input[email]",
-            "type": "input"
-          },
-          {
-            "name": "input[month]",
-            "href": "api/ng/input/input[month]",
             "type": "input"
           },
           {
@@ -7668,18 +7333,8 @@ angular.module('pagesData', [])
             "type": "input"
           },
           {
-            "name": "input[time]",
-            "href": "api/ng/input/input[time]",
-            "type": "input"
-          },
-          {
             "name": "input[url]",
             "href": "api/ng/input/input[url]",
-            "type": "input"
-          },
-          {
-            "name": "input[week]",
-            "href": "api/ng/input/input[week]",
             "type": "input"
           },
           {
@@ -7830,11 +7485,6 @@ angular.module('pagesData', [])
           {
             "name": "ngModel",
             "href": "api/ng/directive/ngModel",
-            "type": "directive"
-          },
-          {
-            "name": "ngModelOptions",
-            "href": "api/ng/directive/ngModelOptions",
             "type": "directive"
           },
           {
@@ -8153,6 +7803,11 @@ angular.module('pagesData', [])
             "type": "provider"
           },
           {
+            "name": "$httpProvider",
+            "href": "api/ng/provider/$httpProvider",
+            "type": "provider"
+          },
+          {
             "name": "$interpolateProvider",
             "href": "api/ng/provider/$interpolateProvider",
             "type": "provider"
@@ -8255,14 +7910,9 @@ angular.module('pagesData', [])
             "type": "service"
           },
           {
-            "name": "object",
-            "type": "section",
-            "href": "api/auto/object"
-          },
-          {
             "name": "$provide",
-            "href": "api/auto/object/$provide",
-            "type": "object"
+            "href": "api/auto/service/$provide",
+            "type": "service"
           }
         ]
       },
@@ -8312,28 +7962,6 @@ angular.module('pagesData', [])
             "name": "$cookies",
             "href": "api/ngCookies/service/$cookies",
             "type": "service"
-          }
-        ]
-      },
-      {
-        "name": "ngMessages",
-        "href": "api/ngMessages",
-        "type": "group",
-        "navItems": [
-          {
-            "name": "directive",
-            "type": "section",
-            "href": "api/ngMessages/directive"
-          },
-          {
-            "name": "ngMessage",
-            "href": "api/ngMessages/directive/ngMessage",
-            "type": "directive"
-          },
-          {
-            "name": "ngMessages",
-            "href": "api/ngMessages/directive/ngMessages",
-            "type": "directive"
           }
         ]
       },
@@ -8696,11 +8324,6 @@ angular.module('pagesData', [])
             "type": "error"
           },
           {
-            "name": "strictdi",
-            "href": "error/$injector/strictdi",
-            "type": "error"
-          },
-          {
             "name": "unpr",
             "href": "error/$injector/unpr",
             "type": "error"
@@ -8751,6 +8374,11 @@ angular.module('pagesData', [])
             "type": "error"
           },
           {
+            "name": "isecff",
+            "href": "error/$parse/isecff",
+            "type": "error"
+          },
+          {
             "name": "isecfld",
             "href": "error/$parse/isecfld",
             "type": "error"
@@ -8758,6 +8386,11 @@ angular.module('pagesData', [])
           {
             "name": "isecfn",
             "href": "error/$parse/isecfn",
+            "type": "error"
+          },
+          {
+            "name": "isecobj",
+            "href": "error/$parse/isecobj",
             "type": "error"
           },
           {

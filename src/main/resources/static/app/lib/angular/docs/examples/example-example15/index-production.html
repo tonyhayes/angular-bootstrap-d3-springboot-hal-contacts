@@ -5,22 +5,16 @@
   <title>Example - example-example15-production</title>
   
 
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.9/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular-sanitize.js"></script>
+  <script src="script.js"></script>
   
 
   
 </head>
-<body ng-app="">
-    <script>
-    function Ctrl($scope) {
-      $scope.salutation = 'Hello';
-      $scope.name = 'World';
-    }
-  </script>
-  <div ng-controller="Ctrl">
-   Salutation: <input type="text" ng-model="salutation"><br>
-   Name: <input type="text" ng-model="name"><br>
-   <pre ng-bind-template="{{salutation}} {{name}}!"></pre>
+<body ng-app="bindHtmlExample">
+    <div ng-controller="ExampleController">
+   <p ng-bind-html="myHTML"></p>
   </div>
 </body>
 </html>

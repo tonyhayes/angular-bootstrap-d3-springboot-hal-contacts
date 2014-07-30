@@ -1,11 +1,11 @@
-describe("module:ng.directive:ngChecked", function() {
+describe("module:ng.directive:ngReadonly", function() {
   beforeEach(function() {
     browser.get("./examples/example-example8/index-jquery.html");
   });
 
-  it('should check both checkBoxes', function() {
-    expect(element(by.id('checkSlave')).getAttribute('checked')).toBeFalsy();
-    element(by.model('master')).click();
-    expect(element(by.id('checkSlave')).getAttribute('checked')).toBeTruthy();
+  it('should toggle readonly attr', function() {
+    expect(element(by.css('[type="text"]')).getAttribute('readonly')).toBeFalsy();
+    element(by.model('checked')).click();
+    expect(element(by.css('[type="text"]')).getAttribute('readonly')).toBeTruthy();
   });
 });

@@ -3,23 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>Example - example-example74-debug</title>
-  <link href="animations.css" rel="stylesheet" type="text/css">
   
 
   <script src="../../../angular.js"></script>
-  <script src="../../../angular-animate.js"></script>
+  <script src="app.js"></script>
   
 
   
 </head>
-<body ng-app="ngAnimate">
-    <div ng-init="checked=true">
-    <label>
-      <input type="checkbox" ng-model="checked" style="float:left; margin-right:10px;"> Is Visible...
-    </label>
-    <div class="check-element sample-show-hide" ng-show="checked" style="clear:both;">
-      Visible...
-    </div>
-  </div>
+<body ng-app="spicyApp2">
+  <div ng-controller="SpicyController">
+ <input ng-model="customSpice">
+ <button ng-click="spicy('chili')">Chili</button>
+ <button ng-click="spicy(customSpice)">Custom spice</button>
+ <p>The food is {{spice}} spicy!</p>
+</div>
 </body>
 </html>
