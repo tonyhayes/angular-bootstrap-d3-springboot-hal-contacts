@@ -6,12 +6,15 @@ html, body {height: 100%;}
 
 body {font-family:'Roboto';font-weight:100;background-color:#f9f9f9;}
 
-.panel, table, .panel-heading, .panel-group .panel  {border-radius:2px;-webkit-border-radius:2px;-moz-border-radius:2px;}
+.panel, table, .panel-heading, .panel-group .panel, .modal-content, button, .btn  {border-radius:2px;-webkit-border-radius:2px;-moz-border-radius:2px;}
 
 a, .btn-link {cursor:pointer;color:#4b7dfe;}
 a:hover {color:#0033cc;}
 
-h1 {font-weight:100;font-size:30px;}
+h1, .modal-header h3 {font-weight:100;font-size:30px;}
+
+/** buttons ****************************************************************************************************************************/
+.btn-primary {background-color:#4b7dfe;}
 
 #white-section {background:#fff;padding:15px;}
 .ngViewport {height:auto !important}
@@ -106,4 +109,5 @@ a .circle-inner:active {color:#ffffff;}
 
 .panel-heading button {margin-top:-6px;font-size:11px;}
 
-.progress-bar {background-color:#4b7dfe;font-size:6px;}
+.progress-bar {background-color:#4b7dfe;font-size:6px;color:#222;}
+

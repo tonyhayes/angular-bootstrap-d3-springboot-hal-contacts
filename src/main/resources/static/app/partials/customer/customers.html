@@ -25,7 +25,10 @@
 <!-- this is our display of customers as contact cards, which is set as the default view.  it is hidden when a user selects a table view. -->
 	<div id="cards-display" class="view">
 		<div class="container">
+			<h1 class="page-title">Customer Cards</h1>
+			<br />
             <div id="infinite-scroll" infinite-scroll='customerPages.nextPage()' infinite-scroll-disabled='customerPages.busy' infinite-scroll-distance='0'>
+            <div class="row">
                 <div class="col-xs-12 col-sm-6" data-ng-repeat="customer in customerPages.items | orderBy: customer.companyName track by $index">
                 	<div class="panel panel-default panel-cards">
 						<div id="card-header" class="panel-heading">
@@ -63,9 +66,8 @@
 							</div>
 						</div>
 						<div class="cardFooter">
-							<div class="col-xs-6 pull-left">
-							
+							<div class="col-xs-6 pull-left">							
 			            </div>	
-        </div>
-    </div>
-</div>
+					</div>
+				</div>
+			</div>

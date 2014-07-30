@@ -25,9 +25,12 @@
 <div class="container">
 	<div class="charts view">
 		<div class="col-xs-12">
+		<h1 class="page-title">Opportunity Status</h1>
 		<br />
-		<h1 class="panel-title">Opportunity Status</h1>
-		<br />
+ <div class="btn-group">
+        <a class="btn btn-primary" ng-model="radioModel" ng-click="{tng-click="countValue"}" btn-radio="'Left'">Revenue</a>
+        <a class="btn btn-primary" ng-model="radioModel" ng-class="{tng-click="!countValue"}" btn-radio="'Sales'">Sales</a>
+</div>		
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="col-sm-4">

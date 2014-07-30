@@ -1,21 +1,28 @@
-<link th:href="@{app/css/card-view.css}" rel="stylesheet"/>
-	<div class="top-header scroller hidden-sm hidden-xs">
-		<div class="container no-pad">
-			<div class="hidden-xs">
-				<div class="dm-head-70pct">
-			    	<h4 class="breadcrumb-title">States Details</h4>
-			    </div>			
-			    <div class="pull-right">
-			    <button class="btn btn-default btn-skinny toolbar-padding" data-ng-click="onDblClickRow()"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add Status</button>
-			    </div>
-			
-			</div>					
-	    </div>
-	</div>
+<div class="dm-app-header">
+	<div class="container">
+		<div class="row nav-row">
+			<div class="form-horizontal">
+				<div class="form-group form-group-sm">
+					<label class="col-sm-10 control-label" for="filter">
+						<h3 class="panel-title hidden-xs pull-left">									
+							<ol class="breadcrumb pull-left">
+								<li>Administration</li>			
+								<li class="active">Probabilities</li>
+							</ol>
+						</h3>	
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div><!-- #dm-app-header -->	
 
 <br/>
 <div class="container">
 	<div class="col-xs-12">
+	<h1 class="page-title">Manage Probabilities</h1>
+	<br />
+
 		<div class="panel panel-default">
 			<div class="gridStyle" ng-grid="myStates"></div>
             </div>
