@@ -106,8 +106,10 @@
 			</tr>
 			<tr data-ng-repeat="contact in contactPages.items track by $index">
 				<td class="col-xs-3">
+                    <a  ng-click="editContact(contact)">
 				{{contact.firstName+' '+contact.lastName}}</a>
-				</td>
+                    </a>
+                </td>
 				<td class="col-xs-2 contact-stack">
 				<div class="phone-width">
 				<a href="tel:{{contact.phone}}"><span class="glyphicon glyphicon-earphone"></span>&nbsp;&nbsp;&nbsp;{{contact.phone}}</a>
