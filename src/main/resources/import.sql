@@ -373,280 +373,201 @@ insert into app_crm_opportunities(tenant_id, company_id, sales_id, contact_id, p
 -- opportunity form
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '3', 1, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '3', 1, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '2', 1, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 1, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '2', 1, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '3', 1, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 2, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 2, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 2, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 2, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 2, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 2, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '3', 3, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '3', 3, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '2', 3, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 3, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '2', 3, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '3', 3, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 4, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 4, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 4, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 4, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 4, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 4, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '3', 5, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '3', 5, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '2', 5, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 5, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '2', 5, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '3', 5, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 6, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 6, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 6, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 6, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 6, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 6, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '3', 7, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '3', 7, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '2', 7, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 7, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '2', 7, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '3', 7, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 8, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 8, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 8, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 8, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 8, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 8, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '3', 9, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '3', 9, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '2', 9, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 9, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '2', 9, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '3', 9, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 10, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 10, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 10, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 10, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 10, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 10, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '3', 11, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '3', 11, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '2', 11, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 11, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '2', 11, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '3', 11, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 12, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 12, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 12, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 12, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 12, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 12, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '3', 13, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '3', 13, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '2', 13, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 13, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '2', 13, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '3', 13, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 14, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 14, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 14, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 14, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 14, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 14, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '3', 15, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '3', 15, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '2', 15, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 15, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '2', 15, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '3', 15, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 16, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 16, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 16, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 16, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 16, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 16, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '3', 17, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '3', 17, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '2', 17, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 17, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '2', 17, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '3', 17, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 18, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 18, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 18, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 18, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 18, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 18, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '3', 19, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '3', 19, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '2', 19, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 19, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '2', 19, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '3', 19, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 20, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 20, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 20, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 20, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 20, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 20, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 21, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 21, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 21, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 21, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 21, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 21, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 22, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 22, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 22, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 22, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 22, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 22, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 23, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 23, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 23, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 23, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 23, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 23, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 24, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 24, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 24, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 24, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 24, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 24, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 25, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 25, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 25, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 25, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 25, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 25, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 26, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 26, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 26, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 26, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 26, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 26, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 27, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 27, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 27, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 27, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 27, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 27, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 28, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 28, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 20, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 28, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 28, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 28, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 29, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 29, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 29, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 29, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 29, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 29, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 30, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 30, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 30, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 30, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 30, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 30, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 31, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 31, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 31, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 31, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 31, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 31, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 32, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 32, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 32, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 32, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 32, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 32, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 33, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 33, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 33, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 33, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 33, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 33, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 34, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 34, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 34, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 34, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 34, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 34, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 35, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 35, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 35, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 35, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 35, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 35, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 36, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 36, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 36, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 36, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 36, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 36, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 37, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 37, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 37, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 37, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 37, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 37, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 38, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 38, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 38, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 38, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 38, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 38, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 39, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 39, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'status', '1', 39, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 39, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 39, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 39, now(), now());
 
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'location', '15', 40, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'revenueSchedule', '1', 40, now(), now());
-insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'dealDate', '2014-03-13', 40, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'typeConversation', '1', 40, now(), now());
 insert into app_crm_opportunity_form_values (tenant_id, name, value, opportunity_id, created_at, updated_at) values (1, 'region', '15', 40, now(), now());
 
@@ -821,83 +742,71 @@ insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, oppo
 insert into app_crm_opportunity_details(tenant_id, sales_id, follow_update, opportunity_id, action, created_at, updated_at) values (1, 1, now(), 80, 'call back in May', now(), now());
 
 -- opportunity form component
-insert into app_crm_opportunity_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required, field_sequence, created_at, updated_at) values (1, 'dealDate','Deal Date','date','','date',false, 1, now(), now());
-insert into app_crm_opportunity_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required, field_sequence, created_at, updated_at) values (1, 'status','Status','dropdown','nothing selected','',false, 2, now(), now());
 insert into app_crm_opportunity_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required, field_sequence, created_at, updated_at) values (1, 'location','Location','dropdown','nothing selected','',false, 3, now(), now());
 insert into app_crm_opportunity_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required, field_sequence, created_at, updated_at) values (1, 'typeConversation','Type of Conversation','dropdown','nothing selected','',false, 4, now(), now());
 insert into app_crm_opportunity_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required, field_sequence, created_at, updated_at) values (1, 'revenueSchedule','Revenue Schedule','dropdown','nothing selected','',false, 5, now(), now());
 insert into app_crm_opportunity_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required, field_sequence, created_at, updated_at) values (1, 'region','Region','checklist','','',false, 6, now(), now());
 
 -- opportunity form component option
---status
-insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (1, 'won', 1, 2);
-insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (2, 'loss', 2, 2);
-insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (3, 'pending', 3, 2);
 
 --location
-insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (15, 'London', 15, 3);
-insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (2, 'Houston', 2, 3);
-insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (3, 'Boston', 3, 3);
+insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (15, 'London', 15, 1);
+insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (2, 'Houston', 2, 1);
+insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (3, 'Boston', 3, 1);
 
 --typeConversation
-insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (1, 'New Business', 15, 4);
-insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (2, 'Proposal', 2, 4);
-insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (3, 'Continuing Business', 3, 4);
-insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (4, 'Follow-up', 4, 4);
-insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (5, 'Meeting', 5, 4);
+insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (1, 'New Business', 15, 2);
+insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (2, 'Proposal', 2, 2);
+insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (3, 'Continuing Business', 3, 2);
+insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (4, 'Follow-up', 4, 2);
+insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (5, 'Meeting', 5, 2);
 
 --revenueSchedule
-insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (1, 'daily', 1, 5);
-insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (2, 'weekly', 2, 5);
-insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (3, 'monthly', 3, 5);
-insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (4, 'yearly', 4, 5);
+insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (1, 'daily', 1, 3);
+insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (2, 'weekly', 2, 3);
+insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (3, 'monthly', 3, 3);
+insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (4, 'yearly', 4, 3);
 
 --region
-insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (1, 'North East', 1, 6);
-insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (2, 'All', 2, 6);
-insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (3, 'South Texas', 3, 6);
-insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (4, 'Permian', 4, 6);
-insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (15, 'Mid Continent', 5, 6);
+insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (1, 'North East', 1, 4);
+insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (2, 'All', 2, 4);
+insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (3, 'South Texas', 3, 4);
+insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (4, 'Permian', 4, 4);
+insert into app_crm_opportunity_form_component_option(option_id, option_title, option_value, component_id) values (15, 'Mid Continent', 5, 4);
 
 
 -- form component
-insert into app_crm_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required,created_at, updated_at) values (1, 'dealDate','Deal Date','date','','date',false, now(), now());
-insert into app_crm_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required,created_at, updated_at) values (1, 'status','Deal Description','dropdown','nothing selected','',false, now(), now());
 insert into app_crm_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required,created_at, updated_at) values (1, 'location','Location','dropdown','nothing selected','',false, now(), now());
 insert into app_crm_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required,created_at, updated_at) values (1, 'typeConversation','Type of Conversation','dropdown','nothing selected','',false, now(), now());
 insert into app_crm_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required,created_at, updated_at) values (1, 'revenueSchedule','Revenue Schedule','dropdown','nothing selected','',false, now(), now());
 insert into app_crm_form_component(tenant_id, field_id, field_title, field_type, field_value, field_placeholder, field_required,created_at, updated_at) values (1, 'region','Region','checklist','','',false, now(), now());
 
 -- form component option
---status
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (1, 'won', 1, 2);
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (2, 'loss', 2, 2);
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (3, 'pending', 3, 2);
 
 --location
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (15, 'London', 15, 3);
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (2, 'Houston', 2, 3);
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (3, 'Boston', 3, 3);
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (15, 'London', 15, 1);
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (2, 'Houston', 2, 1);
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (3, 'Boston', 3, 1);
 
 --typeConversation
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (1, 'New Business', 15, 4);
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (2, 'Proposal', 2, 4);
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (3, 'Continuing Business', 3, 4);
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (4, 'Follow-up', 4, 4);
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (5, 'Meeting', 5, 4);
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (1, 'New Business', 15, 2);
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (2, 'Proposal', 2, 2);
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (3, 'Continuing Business', 3, 2);
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (4, 'Follow-up', 4, 2);
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (5, 'Meeting', 5, 2);
 
 --revenueSchedule
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (1, 'daily', 1, 5);
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (2, 'weekly', 2, 5);
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (3, 'monthly', 3, 5);
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (4, 'yearly', 4, 5);
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (1, 'daily', 1, 3);
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (2, 'weekly', 2, 3);
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (3, 'monthly', 3, 3);
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values (4, 'yearly', 4, 3);
 
 --region
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values ('1', 'North East', '1', 6);
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values ('2', 'All', '2', 6);
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values ('3', 'South Texas', '3', 6);
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values ('4', 'Permian', '4', 6);
-insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values ('15', 'Mid Continent', '15', 6);
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values ('1', 'North East', '1', 4);
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values ('2', 'All', '2', 4);
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values ('3', 'South Texas', '3', 4);
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values ('4', 'Permian', '4', 4);
+insert into app_crm_form_component_option(option_id, option_title, option_value, component_id) values ('15', 'Mid Continent', '15', 4);
 
 
 

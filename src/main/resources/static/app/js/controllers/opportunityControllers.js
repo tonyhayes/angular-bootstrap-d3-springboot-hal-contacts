@@ -355,6 +355,10 @@ angular.module('customersApp.opportunityControllers', [])
 
                 $scope.opportunity = CustomersService.getStoredOpportunity();
                 if ($scope.opportunity) {
+                    if ($scope.opportunity.opportunityDate) {
+                        var d = new Date($scope.opportunity.opportunityDate);
+                        $scope.opportunity.opportunityDate = d;
+                    }
                     if ($scope.opportunity.potentialRevenue){
                         if (typeof $scope.opportunity.potentialRevenue === 'string') {
                             var money = parseFloat($scope.opportunity.potentialRevenue.replace(/[^\d\.]/g, ''));
@@ -369,7 +373,10 @@ angular.module('customersApp.opportunityControllers', [])
                     OpportunityServices.getOpportunity($scope.opportunityID).then(function (data) {
                         $scope.opportunity = data;
                         CustomersService.storeOpportunity(data);
-
+                        if ($scope.opportunity.opportunityDate) {
+                            var d = new Date($scope.opportunity.opportunityDate);
+                            $scope.opportunity.opportunityDate = d;
+                        }
                         if ($scope.opportunity.potentialRevenue){
                             if (typeof $scope.opportunity.potentialRevenue === 'string') {
                                 var money = parseFloat($scope.opportunity.potentialRevenue.replace(/[^\d\.]/g, ''));

@@ -17,7 +17,7 @@ input .checklist {float:left;}
 					<label class="col-sm-12 control-label" for="filter">
 						<h3 class="panel-title hidden-xs pull-left">									
 							<ol class="breadcrumb pull-left">			
-									<li><a href="#" data-ng-click="navigate('/customers)">Customers</a></li>
+									<li><a href="#" data-ng-click="navigate('/customers')">Customers</a></li>
 									<li><a href="#" data-ng-click="navigate('/contactcards',customer)" title="View Customer Page" class="ellipsis btn-link">{{customer.companyName}}</a>
 									<li ng-show="master.discussion" id="discussion-breadcrumb" class="active ellipsis ">{{master.discussion}}</li>
 									<li ng-hide="master.discussion" id="discussion-breadcrumb" class="active ellipsis ">New Opportunity</li>
@@ -91,7 +91,19 @@ input .checklist {float:left;}
 							<h3 class="panel-title">Probability and Status</h3>
 						</div>									
 						<div class="panel-body">					
-							<form class="form-horizontal" role="form" name="customerOpportunitiesForm" ng-submit="submitForm()">					
+							<form class="form-horizontal" role="form" name="customerOpportunitiesForm" ng-submit="submitForm()">
+                                <div class="form-group"
+                                     ng-class="{ 'has-error' : customerOpportunitiesForm.opportunityDate.$invalid && !customerOpportunitiesForm.opportunityDate.$pristine }">
+                                    <label for="opportunityDate" class="col-sm-5 control-label">Deal Date</label>
+                                    <div class="col-sm-7" >
+                                    <quick-datepicker   ng-disabled="!buttonEdit" icon-class='icon-calendar' label-format='EEEE, MMMM d, yyyy' required="true"
+                                                      name="opportunityDate" ng-model='master.opportunityDate' placeholder='Pick a Date'
+                                                      disable-timepicker='true'></quick-datepicker>
+
+                                    <p ng-show="customerOpportunitiesForm.opportunityDate.$invalid && !customerOpportunitiesForm.opportunityDate.$pristine"
+                                       class="help-block">Deal Date is required.</p>
+                                    </div>
+                                </div>
 								<div class="form-group" ng-class="{ 'has-error' : customerOpportunitiesForm.probability.$invalid && !customerOpportunitiesForm.probability.$pristine }">
 									<label for="probability" class="col-sm-5 control-label">Probability</label>
 									<div class="col-sm-7">
@@ -132,9 +144,12 @@ input .checklist {float:left;}
 							<h3 class="panel-title">Custom Fields</h3>
 						</div>
 						<div class="panel-body">
-							<dynamic-form class="vertical" template="opportunityFormTemplate" ng-model="opportunityFormObject">
+                            <ng-form>
 
-							</dynamic-form>
+                            <dynamic-form class="vertical" template="opportunityFormTemplate" ng-model="opportunityFormObject">
+                            </ng-form>
+
+                            </dynamic-form>
 							<button type="submit" class="btn btn-primary" ng-disabled="!buttonEdit || customerOpportunitiesForm.$invalid">
 							Submit
 							</button>
@@ -181,15 +196,8 @@ input .checklist {float:left;}
   											<address>
 												<select required ng-model="master.contactId" class="form-control dm-form" name="contact" ng-options="c.contactName as c.contactDescription for c in contact_array" ng-disabled="!buttonEdit"></select>
   												<br />
-  												<span class="glyphicon glyphicon-earphone"></span>&nbsp;&nbsp;{{customer.phone}}
   											</address>
 											<br />
-											<address>										
-											<strong>{{master.salesPersonDescription}}</strong>
-											{{opportunity.firstName+' '+contact.lastName}}</a>
-
-											  <a href="mailto:#">first.last@example.com</a>											  
-											</address>
 											<button type="submit" class="btn btn-default pull-right" ng-disabled="!buttonEdit || customerOpportunitiesForm.$invalid">Save Changes</button>
 
 											</div>
