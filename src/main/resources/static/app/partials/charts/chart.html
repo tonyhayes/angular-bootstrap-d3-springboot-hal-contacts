@@ -28,8 +28,8 @@
 		<h1 class="page-title">Opportunity Status</h1>
 		<br />
  <div class="btn-group">
-        <a class="btn btn-primary" ng-model="radioModel" ng-click="countValue = false" btn-radio="'Left'">Revenue</a>
-        <a class="btn btn-primary" ng-model="radioModel" ng-click="countValue = true" btn-radio="'Sales'">Sales</a>
+        <a class="btn btn-primary" ng-model="radioModel" ng-click="countValue = false"  btn-radio="'revenue'">Revenue</a>
+        <a class="btn btn-primary" ng-model="radioModel" ng-click="countValue = true" btn-radio="'count'">Sales</a>
 </div>		
 			<div class="panel panel-default">
 				<div class="panel-body">
@@ -37,7 +37,7 @@
 						<a class="btn" ng-class="{true: 'btn-default', false: 'btn-default'}[!countValue]" ng-click="countValue = !countValue">{{!countValue && 'Revenue' || 'Deals'}} </a>               		                   
 						<br />
 						<br />
-						<div ng-controller="DatepickerCtrl">
+						<div>
 							<div style="display:inline-block; min-height:290px;">
 								<datepicker ng-model="selectedDate" min-date="minDate" show-weeks="true" class="well well-sm"></datepicker>
 							</div>

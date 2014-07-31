@@ -16,6 +16,7 @@ angular.module('customersApp.chartsController', [])
             var chartData = {};
             var savedData;
 
+            $scope.radioModel = 'revenue';
 
             if (!$scope.opportunityData) {
 
