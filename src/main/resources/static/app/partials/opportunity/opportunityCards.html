@@ -36,37 +36,37 @@
 						<td>
 						Description
                             <button class="pull-right btn btn-xs" ng-click="orderByField='discussion'; reverseSort = !reverseSort">
-                                <span class="glyphicon glyphicon-sort"></span><span ng-show="orderByField == 'discussion'"></span>
+                                <span class="glyphicon glyphicon-sort"></span>
                             </button>
 						</td>
 						<td>
 						Company
                             <button class="pull-right btn btn-xs" ng-click="orderByField='companyName'; reverseSort = !reverseSort">
-                                <span class="glyphicon glyphicon-sort"></span><span ng-show="orderByField == 'companyName'"></span>
+                                <span class="glyphicon glyphicon-sort"></span>
                             </button>
 						</td>
 						<td>
 						Potential Revenue
                             <button class="pull-right btn btn-xs" ng-click="orderByField='potentialRevenue'; reverseSort = !reverseSort">
-                                <span class="glyphicon glyphicon-sort"></span><span ng-show="orderByField == 'potentialRevenue'"></span>
+                                <span class="glyphicon glyphicon-sort"></span>
                             </button>
 						</td>
 						<td>
 						Deal Date
                             <button class="pull-right btn btn-xs" ng-click="orderByField='opportunityDate'; reverseSort = !reverseSort">
-                                <span class="glyphicon glyphicon-sort"></span><span ng-show="orderByField == 'opportunityDate'"></span>
+                                <span class="glyphicon glyphicon-sort"></span>
                             </button>
 						</td>
 						<td>
 						Probability
                             <button class="pull-right btn btn-xs" ng-click="orderByField='probabilityPercentage'; reverseSort = !reverseSort">
-                                <span class="glyphicon glyphicon-sort"></span><span ng-show="orderByField == 'probabilityPercentage'"></span>
+                                <span class="glyphicon glyphicon-sort"></span>
                             </button>
 						</td>
 						<td>
 						Status
                             <button class="pull-right btn btn-xs" ng-click="orderByField='statusDescription'; reverseSort = !reverseSort">
-                                <span class="glyphicon glyphicon-sort"></span><span ng-show="orderByField == 'statusDescription'"></span>
+                                <span class="glyphicon glyphicon-sort"></span>
                             </button>
 						</td>
 						<td>
@@ -74,7 +74,7 @@
 						</td>
 		
 					</thead>
-					<tr data-ng-repeat="opportunity in opportunityPages.items | orderBy: opportunity.opportunityDate |orderBy:orderByField:reverseSort track by $index">
+					<tr data-ng-repeat="opportunity in opportunityPages.items |orderBy:orderByField:reverseSort track by $index">
 						<td>
 							<a data-ng-click="navigateToOpportunity('/opportunitiesedit',opportunity )" title="click to edit" class="ellipsis btn-link">{{opportunity.discussion}}</a>
 						</td>
