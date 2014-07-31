@@ -18,6 +18,8 @@ angular.module('customersApp.contactControllers', [])
             $scope.contactPages = new ContactPages();
             $scope.contactPages.company = $scope.companyNumber;
 
+            $scope.orderByField = 'lastName';
+            $scope.reverseSort = false;
 
             //Grab contacts for company
             if (!$scope.customer) {

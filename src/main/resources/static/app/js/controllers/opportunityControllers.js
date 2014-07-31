@@ -150,6 +150,10 @@ angular.module('customersApp.opportunityControllers', [])
 
         function ($scope, $routeParams, $location, CustomersService, ModalService, OpportunityServices, CompanyServices) {
 
+
+            $scope.orderByField = 'opportunityDate';
+            $scope.reverseSort = false;
+
             //Grab customerID off of the route
             $scope.customerID = parseInt($routeParams.customerID);
 
