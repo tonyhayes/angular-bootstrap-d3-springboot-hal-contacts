@@ -62,7 +62,7 @@ angular.module('customersApp.probabilityController', [])
 
                     },
                     { field: '',
-                        width: '90',
+                        width: '40',
                         cellTemplate: 'app/partials/util/cellTemplateButtonDelete.html'
                     }
                 ]

@@ -76,7 +76,7 @@ angular.module('customersApp.salesPersonController', [])
 
                     },
                     { field: '',
-                        width: '90',
+                        width: '40',
                         cellTemplate: 'app/partials/util/cellTemplateButtonDelete.html'
                     }
                 ]
