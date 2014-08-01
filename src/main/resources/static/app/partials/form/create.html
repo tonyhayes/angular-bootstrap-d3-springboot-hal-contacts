@@ -49,17 +49,17 @@
 	<div ng-repeat="field in form.form_fields">
 	  <accordion>
     	<accordion-group class="accordion-group-parent">
-			<accordion-heading is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+			<accordion-heading is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled" >
 				{{field.field_title}}
 				<div id="panel-top" class="panel-buttons pull-right">      
 					<a ng-click="deleteField(field.field_id)" class="heading-icon trash pull-right" title="click to delete" >
 						<span class="glyphicon glyphicon-trash"></span>
 					</a>
-					<a ng-if='$index>0' class="pull-right" ng-click="moveFieldUp($index, field)">
+					<a ng-if='$index>0' class="pull-right" ng-click="moveFieldUp($index, $event, field)">
 						<span class="glyphicon glyphicon-arrow-up"></span>
 						
 					</a>					
-					<a ng-if='$index+1 < form.form_fields.length ' class="pull-right" ng-click="moveFieldDown($index, field)">
+					<a ng-if='$index+1 < form.form_fields.length ' class="pull-right" ng-click="moveFieldDown($index, $event, field)">
 						<span class="glyphicon glyphicon-arrow-down"></span> 					
 					</a>     
 				</div>

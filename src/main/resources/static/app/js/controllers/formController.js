@@ -9,7 +9,8 @@ angular.module('customersApp.formControllers', [])
         $scope.form = {};
         $scope.form.form_id = 1;
         $scope.form.form_name = 'My Form';
-
+        var customFields;
+        var types;
         // get the current form
         // use $q.all to wait until all promises are resolved
         $q.all([
@@ -24,8 +25,8 @@ angular.module('customersApp.formControllers', [])
                     // add new field drop-down:
                     $scope.addField = {};
 
-                    var types = FormService.fields;
-                    var customFields = FormComponentFormatService.getCustomFormTypes();
+                    types = FormService.fields;
+                    customFields = FormComponentFormatService.getCustomFormTypes();
                     $scope.addField.types = types.concat(customFields);
 
 
@@ -285,6 +286,9 @@ angular.module('customersApp.formControllers', [])
         };
 
         $scope.moveFieldUp = function (idx, field) {
+            // stop accordion behavior
+            event.preventDefault();
+            event.stopPropagation();
             // change the sequence number then sort the array
             /*
              first re-sequence everything, just in case of bad data, then
@@ -308,6 +312,9 @@ angular.module('customersApp.formControllers', [])
 
         };
         $scope.moveFieldDown = function (idx, field) {
+            // stop accordion behavior
+            event.preventDefault();
+            event.stopPropagation();
             // change the sequence number then sort the array
             /*
              first re-sequence everything, just in case of bad data, then
