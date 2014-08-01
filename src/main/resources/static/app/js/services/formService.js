@@ -126,7 +126,7 @@ angular.module('customersApp.formsService', [])
                     angular.forEach(oldForm, function (field) {
                         if (field._links) {
                             // the delete command is self contained so any service can process it
-                            formComponentService.deleteFormComponents(field);
+                            FormComponentService.deleteFormComponents(field);
                         }
                     });
                 }
@@ -179,9 +179,9 @@ angular.module('customersApp.formsService', [])
                         // send to host, then get back the location in order to send options
 
                         if (form === 'global') {
-                            formComponentService.postFormComponents(field);
+                            FormComponentService.postFormComponents(field);
                         } else {
-                            formComponentService.postOpportunityFormComponents(field);
+                            FormComponentService.postOpportunityFormComponents(field);
                         }
                     });
                 }
