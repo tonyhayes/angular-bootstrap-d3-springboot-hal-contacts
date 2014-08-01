@@ -123,7 +123,7 @@ angular.module('customersApp.directives', []).
 .directive('backButton', function () {
     return {
         restrict: 'E',
-        template: '<button type="button" class="btn btn-default pull-right toolbar-padding" ><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Back</button>',
+        template: '<button type="button" class="btn btn-default pull-right toolbar-padding" ><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;{{back}}</button>',
         scope: {
             back: '@back',
             icons: '@icons'
