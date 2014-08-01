@@ -236,7 +236,7 @@ angular.module('customersApp.formControllers', [])
                 });
                 sortJSONint(fields, 'fieldSequence', '123');
 
-                $scope.previewForm = FormService.setDynamicForm(angular.copy($scope.form.form_fields));
+                $scope.previewForm = FormService.setDynamicForm(angular.copy(fields));
                 $scope.formData = {};
 
                 modalDefaults = {

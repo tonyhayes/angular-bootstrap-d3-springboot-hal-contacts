@@ -86,6 +86,7 @@ angular.module('customersApp.formsService', [])
                     dynamicForm[name] = {};
                     dynamicForm[name].type = type;
                     dynamicForm[name].label = field.field_title;
+                    dynamicForm[name].fieldSequence = field.fieldSequence;
 
                     if (type != 'checklist') {
                         dynamicForm[name].required = field.field_required;
@@ -113,7 +114,15 @@ angular.module('customersApp.formsService', [])
                         }
                     }
                 });
-                return dynamicForm;
+                var filtered = [];
+                angular.forEach(dynamicForm, function(item) {
+                    filtered.push(item);
+                });
+                filtered.sort(function (a, b) {
+                    return (a['fieldSequence'] > b['fieldSequence'] ? 1 : -1);
+                });
+
+                return filtered;
             }
         };
 

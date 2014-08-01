@@ -120,4 +120,19 @@ angular.module('customersApp.directives', []).
         }
     ])
 
-;
+.directive('backButton', function () {
+    return {
+        restrict: 'E',
+        template: '<button type="button" class="btn btn-default pull-right toolbar-padding" ><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Back</button>',
+        scope: {
+            back: '@back',
+            icons: '@icons'
+        },
+        link: function(scope, element, attrs) {
+            $(element[0]).on('click', function() {
+                history.back();
+                scope.$apply();
+            });
+        }
+    };
+});
