@@ -15,14 +15,15 @@ angular.module('customersApp.ajaxService', [])
             this.busy = true;
 
             if (this.searchText) {
+                var filter = angular.copy(this.searchText.toLowerCase()) + '%';
                 $http.get(dmApplicationEntryPoint + '/companies/search' +
                         '/findByCompanyNameStartsWithOrCityStartsWithOrStateStartsWithOrContactNameStartsWith', {
                         params: {
                             sort: 'companyName', page: this.pageNo,
-                            companyName: this.searchText.toLowerCase(),
-                            city: this.searchText.toLowerCase(),
-                            state: this.searchText.toLowerCase(),
-                            contactName: this.searchText.toLowerCase()}}
+                            companyName: filter,
+                            city: filter,
+                            state: filter,
+                            contactName: filter}}
                 ).success(function (data) {
                         if (data._embedded) {
                             var items = data._embedded.companies;
@@ -78,14 +79,15 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 if (searchText) {
+                    var filter = angular.copy(this.searchText.toLowerCase()) + '%';
                     return $http.get(dmApplicationEntryPoint + '/companies/search' +
                             '/findByCompanyNameStartsWithOrCityStartsWithOrStateStartsWithOrContactNameStartsWith', {
                             params: {
                                 sort: 'companyName', page: pageNo,
-                                companyName: searchText.toLowerCase(),
-                                city: searchText.toLowerCase(),
-                                state: searchText.toLowerCase(),
-                                contactName: searchText.toLowerCase()}}
+                                companyName: filter,
+                                city: filter,
+                                state: filter,
+                                contactName: filter}}
                     ).then(function (result) {
                             //this sends back the search URL
                             return result.data;
@@ -145,9 +147,10 @@ angular.module('customersApp.ajaxService', [])
                     return result.data;
                 });
             },
-            getCompanyList: function (term) {
+            getCompanyList: function (searchText) {
+                var filter = angular.copy(this.searchText.toLowerCase()) + '%';
                 return $http.get(dmApplicationEntryPoint + '/companies/search/findByCompanyNameLike', {
-                    params: {companyName: term.toLowerCase() + '%', page: 0}}).then(function (response) {
+                    params: {companyName: filter, page: 0}}).then(function (response) {
                     // have to loop through result because it's key => value
                     _list = [];
                     _locator = [];
