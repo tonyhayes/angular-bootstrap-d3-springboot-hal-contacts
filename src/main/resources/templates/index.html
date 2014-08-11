@@ -44,13 +44,13 @@
 			
 			<div class="dm-head-7 pull-right">
 				<!-- regular navigation menu, hidden at 768px via .collapse tag -->
-				<div class="collapse navbar-collapse pull-right">
+				<div class="navbar-collapse pull-right">
 					<ul class="nav navbar-nav">
-						<li ng-class="{ active: isCurrentPath('/customers') }"><a href="#/customers">Customers</a></li>
-						<li ng-class="{ active: isCurrentPath('/opportunities') }"><a href="#/opportunities">Opportunities</a></li>
-						<li ng-class="{ active: isCurrentPath('/charts') }"><a href="#/charts">Reports</a></li>
+						<li ng-class="{ active: isCurrentPath('/customers') }"><a href="#/customers"><span class="glyphicon glyphicon-phone-alt"></span><span class="hidden-xs">&nbsp;&nbsp;Customers</a></span></li>
+						<li ng-class="{ active: isCurrentPath('/opportunities') }"><a href="#/opportunities"><span class="glyphicon glyphicon-record"></span><span class="hidden-xs">&nbsp;&nbsp;Opportunities</span></a></li>
+						<li ng-class="{ active: isCurrentPath('/charts') }"><a href="#/charts"><span class="glyphicon glyphicon-list-alt"></span><span class="hidden-xs">&nbsp;&nbsp;Reports</span></a></li>
 		                <li class="dropdown" ng-class="{ active: isCurrentPath('/forms/create') }" >
-            			        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration <b class="caret"></b></a>
+            			        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span><span class="hidden-xs">&nbsp;&nbsp;Administration </span><b class="caret"></b></a>
 		                    <ul class="dropdown-menu" >
 								<li><a href="#/forms/create">Dynamic Forms</a></li>
 								<li class="divider"></li>

@@ -50,8 +50,8 @@ h1, .modal-header h3 {font-weight:100;font-size:30px;}
 /**** styling our navbar menu ****/
 
 .navbar-dm .navbar-nav	{float:right;} /**** making sure our menu stays to the right side of the screen **/
-.navbar-dm .navbar-nav>li>a {color:#fff;font-size:12px;font-weight:400;} 
-
+.navbar-dm .navbar-nav>li>a {color:#fff;font-size:12px;font-weight:400;float:left;} 
+.nav>li {float:left;}
 .nav .open>a, .nav .open>a:hover, .nav .open>a:focus {background-color:#666666;} /**** the background color of a navbar menu item when it's selected and open. ****/
 
 .nav>li>a:hover {background-color:#555555;}  /**** the background color of a navbar menu item when it's hovered over. ****/
@@ -111,3 +111,6 @@ a .circle-inner:active {color:#ffffff;}
 
 .progress-bar {background-color:#4b7dfe;font-size:6px;color:#222;}
 
+.navbar-nav .open .dropdown-menu {
+	background:#fff 
+	!important;}
