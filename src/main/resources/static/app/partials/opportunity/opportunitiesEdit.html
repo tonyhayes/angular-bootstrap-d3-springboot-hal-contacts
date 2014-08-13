@@ -18,18 +18,19 @@ input .checklist {float:left;}
 						<h3 class="panel-title hidden-xs pull-left">									
 							<ol class="breadcrumb pull-left">			
 									<li><a data-ng-click="navigate('/customers')">Customers</a></li>
-									<li><a data-ng-click="navigate('/contactcards',customer)" title="View Customer Page" class="ellipsis btn-link">{{customer.companyName}}</a>
+									<li><a data-ng-click="navigate('/opportunitydetails',customer)" title="View Customer Page" class="ellipsis btn-link">{{customer.companyName}}</a>
 									<li ng-show="master.discussion" id="discussion-breadcrumb" class="active ellipsis ">{{master.discussion}}</li>
 									<li ng-hide="master.discussion" id="discussion-breadcrumb" class="active ellipsis ">New Opportunity</li>
 							</ol>
-						</h3>	
-					</label>					
+						</h3>
+                                <span class="dm-head-14pct pull-right">
+                                    <back-Button back="Back"></back-Button>
+                                    <button type="button" class="btn btn-default pull-right toolbar-padding"  ng-click="buttonEdit=!buttonEdit"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;{{!buttonEdit && 'Edit this page' || 'Edit Mode'}} </button>
+                                    <button type="submit" class="btn btn-default" ng-hide="!buttonEdit || customerOpportunitiesForm.$invalid">Save Changes</button>
+                                </span>
+					</label>
 				</div>
 			</div>
-            <div class="dm-head-14pct pull-right">
-                <back-Button back="Back"></back-Button>
-                <button type="button" class="btn btn-default pull-right toolbar-padding"  ng-click="buttonEdit=!buttonEdit"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;{{!buttonEdit && 'Edit this page' || 'Edit Mode'}} </button>
-            </div>
 		</div>
 	</div>	
 </div><!-- #dm-app-header -->
@@ -131,9 +132,9 @@ input .checklist {float:left;}
 										<input type="text" name="potentialRevenueCalc" readonly class="form-control dm-form" ng-model="master.potentialRevenueCalc" ng-disabled="!buttonEdit">
 									</div>
 								</div>
-							<button type="submit" class="btn btn-default pull-right" ng-disabled="!buttonEdit || customerOpportunitiesForm.$invalid">
-							Save Changes
-							</button>
+							<!--<button type="submit" class="btn btn-default pull-right" ng-disabled="!buttonEdit || customerOpportunitiesForm.$invalid">-->
+							<!--Save Changes-->
+							<!--</button>-->
 						</form>
 						
 
@@ -151,9 +152,9 @@ input .checklist {float:left;}
                             </ng-form>
 
                             </dynamic-form>
-							<button type="submit" class="btn btn-primary" ng-disabled="!buttonEdit || customerOpportunitiesForm.$invalid">
-							Submit
-							</button>
+							<!--<button type="submit" class="btn btn-primary" ng-disabled="!buttonEdit || customerOpportunitiesForm.$invalid">-->
+							<!--Submit-->
+							<!--</button>-->
 						</div>						
 					</div>
 				</div>
@@ -198,9 +199,6 @@ input .checklist {float:left;}
 												<select required ng-model="master.contactId" class="form-control dm-form" name="contact" ng-options="c.contactId as c.contactDescription for c in contact_array" ng-disabled="!buttonEdit"></select>
   												<br />
   											</address>
-											<br />
-											<button type="submit" class="btn btn-default pull-right" ng-disabled="!buttonEdit || customerOpportunitiesForm.$invalid">Save Changes</button>
-
 											</div>
 										</div>
 									</div>
@@ -209,12 +207,15 @@ input .checklist {float:left;}
 								<div class="col-xs-12 col-sm-6 pull-right">
 					
 								
-							</form>	
+							</form>
+
+
+                                    <br />
+                                    <button type="submit" class="btn btn-default" ng-disabled="!buttonEdit || customerOpportunitiesForm.$invalid">Save Changes</button>
 
 
 
-
-					</div>
+                                </div>
 
 
 
