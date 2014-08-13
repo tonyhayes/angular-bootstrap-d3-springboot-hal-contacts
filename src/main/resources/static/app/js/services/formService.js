@@ -122,7 +122,7 @@ angular.module('customersApp.formsService', [])
                     return (a['fieldSequence'] > b['fieldSequence'] ? 1 : -1);
                 });
 
-                return filtered;
+                return dynamicForm;
             }
         };
 
