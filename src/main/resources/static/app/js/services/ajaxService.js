@@ -148,7 +148,7 @@ angular.module('customersApp.ajaxService', [])
                 });
             },
             getCompanyList: function (searchText) {
-                var filter = angular.copy(this.searchText.toLowerCase()) + '%';
+                var filter = angular.copy(searchText.toLowerCase()) + '%';
                 return $http.get(dmApplicationEntryPoint + '/companies/search/findByCompanyNameLike', {
                     params: {companyName: filter, page: 0}}).then(function (response) {
                     // have to loop through result because it's key => value
