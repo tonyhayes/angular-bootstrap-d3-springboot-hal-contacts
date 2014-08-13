@@ -10,8 +10,11 @@
 								<li>Customers</li>
 								<li class="active">Company Details</li>
 							</ol>
-						</h3>	
-					</label>					
+						</h3>
+                        <span class="dm-head-14pct pull-right">
+                            <back-Button back="Back"></back-Button>
+                        </span>
+					</label>
 				</div>
 			</div>
 		</div>
@@ -22,7 +25,10 @@
 <br />
 		
 	<div id="company-address" class="col-xs-12 col-sm-8">
-		<h3 class="panel-title">{{customer.companyName}}</h3>
+		<h3 class="panel-title">
+            <a data-ng-click="navigate('/customeredit',customer )" title="click to edit" class="heading-icon "><span class="glyphicon glyphicon-pencil"></span></a>
+            {{customer.companyName}}
+        </h3>
 		<br />
 		<address>
 		{{customer.addressLine1}}<br>
@@ -58,7 +64,7 @@
 <div  id="white-section" class="container">
 	<div class="col-xs-12">
 		<div class="infocard pull-left">
-			<span class="glyphicon glyphicon-globe"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{customer.webPage | webHrefFilter}}">{{customer.webPage}}</a>
+			<span class="glyphicon glyphicon-globe"></span></abbr>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{customer.webPage | webHrefFilter}}" target="_blank">{{customer.webPage}}</a>
 		</div>
 		<div class="infocard pull-left">
 			<span class="glyphicon glyphicon-envelope"></span></abbr>&nbsp;&nbsp;&nbsp;<a href="mailto:{{customer.email}}">{{customer.email}}</a>

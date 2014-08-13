@@ -111,7 +111,7 @@ angular.module('customersApp.statusController', [])
 
 
                 var modalDefaults = {
-                    templateUrl: 'app/partials/admin/states/modalStatusEdit.html'
+                    templateUrl: 'app/partials/admin/status/modalStatusEdit.html'
                 };
                 var modalOptions = {
                     closeButtonText: 'Cancel',

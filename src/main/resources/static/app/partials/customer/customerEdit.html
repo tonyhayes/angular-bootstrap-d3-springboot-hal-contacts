@@ -2,14 +2,18 @@
 	<div class="top-header scroller hidden-md hidden-sm hidden-xs">
 		<div id="dm-app-header" class="container">
 			<div class="dm-head-70pct">
-				<div class="panel-heading">			
+				<div class="panel-heading">
 				<h3 class="panel-title">
 					<ol class="breadcrumb hidden-xs">
 						<li>Customers</li>
 						<li class="active">Edit Customer</li>
 						<li class="active">{{customer.companyName}}</li>
+                        <span class="dm-head-14pct pull-right">
+                            <back-Button back="Back"></back-Button>
+                            <button type="button" class="btn btn-default pull-right toolbar-padding" ng-click="buttonEdit=!buttonEdit"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;{{!buttonEdit && 'Edit this page' || 'Edit Mode'}} </button>
+                        </span>
 					</ol>
-				</h3>				
+				</h3>
 			</div>
 			</div>
 		</div>
@@ -24,9 +28,12 @@
 		
 			<div class="panel-heading">
 				<div class="col-sm-12 input-group">
-					<label for="companyName" class="sr-only">Company Name</label>	    							
+					<label for="companyName" class="sr-only">Customer Name</label>
+										<span class="input-group-addon">
+											<small>Name</small>
+										</span>
 
-						<input type="text" name="companyName" class="form-control panel-title" ng-model="master.companyName" required>
+						<input ng-disabled="!buttonEdit" type="text" name="companyName" class="form-control panel-title" ng-model="master.companyName" required>
 			
 				</div>
 
@@ -41,17 +48,17 @@
 									<div class="col-sm-12 input-group">
 										<label for="addressLine1" class="sr-only">Address</label>
 										<span class="input-group-addon">
-											<small>&nbsp;&nbsp;&nbsp;Address<small>
+											<small>&nbsp;&nbsp;&nbsp;Address</small>
 										</span>
-										<input type="text" name="addressLine1" class="form-control" ng-model="master.addressLine1" required>
+										<input ng-disabled="!buttonEdit" type="text" name="addressLine1" class="form-control" ng-model="master.addressLine1" required>
 									</div>
 									<br />
 									<div class="col-sm-12 input-group">
 										<label for="addressLine2" class="sr-only">Address line 2</label>	
 											<span class="input-group-addon">	
-												<small>&nbsp;&nbsp;&nbsp;Address 2<small>																
+												<small>&nbsp;&nbsp;&nbsp;Address 2</small>
 											</span>
-											<input type="text" name="addressLine2" class="form-control" ng-model="master.addressLine2">
+											<input ng-disabled="!buttonEdit" type="text" name="addressLine2" class="form-control" ng-model="master.addressLine2">
 									</div>
 	
 									<br />
@@ -60,11 +67,11 @@
 										<span class="input-group-addon">
 											<span class="glyphicon glyphicon-map-marker"></span><small>&nbsp;&nbsp;City</small>
 										</span>
-										<input type="text" name="city" class="form-control" ng-model="master.city" required>
+										<input ng-disabled="!buttonEdit" type="text" name="city" class="form-control" ng-model="master.city" required>
 									</div>
 									<div class="col-xs-4 pull-right input-group">
 										<label for="state" class="sr-only">State</label>
-										<select required ng-model="master.state" class="form-control" name="state" ng-options="s.stateAbbr as s.name for s in state_array"></select>
+										<select ng-disabled="!buttonEdit" required ng-model="master.state" class="form-control" name="state" ng-options="s.stateAbbr as s.name for s in state_array"></select>
 									</div>
 									
 									<br />
@@ -75,7 +82,7 @@
 											<span class="glyphicon glyphicon-home"></span><small>&nbsp;&nbsp;Zip</small>
 										</span>
 										<label for="zip" class="sr-only">Zip code</label>								
-										<input type="text" name="zip" class="form-control" ng-model="master.zip" required>
+										<input ng-disabled="!buttonEdit" type="text" name="zip" class="form-control" ng-model="master.zip" required>
 									</div>
 								
 								</address>
@@ -85,16 +92,16 @@
 	                    			<div class="input-group">
 	                    				<label for="phone" class="sr-only">Phone</label>
 		                    			<span class="input-group-addon">
-											<span class="glyphicon glyphicon-earphone"></span><small>&nbsp;&nbsp;&nbsp;Phone<small>
+											<span class="glyphicon glyphicon-earphone"></span><small>&nbsp;&nbsp;&nbsp;Phone</small>
 										</span>
-										<input type="text" name="phone" class="form-control" ng-model="master.phone">
+										<input ng-disabled="!buttonEdit" type="text" name="phone" class="form-control" ng-model="master.phone">
 									</div>
 									<br />
 									<div class="input-group">
 										<span class="input-group-addon">
-											<span class="glyphicon glyphicon-phone"></span><small>&nbsp;&nbsp;&nbsp;Mobile<small>
+											<span class="glyphicon glyphicon-phone"></span><small>&nbsp;&nbsp;&nbsp;Mobile</small>
 										</span>
-					                    <input type="text" name="cell" class="form-control" ng-model="master.cell">
+					                    <input ng-disabled="!buttonEdit" type="text" name="cell" class="form-control" ng-model="master.cell">
 									</div>
 									
 									<br />
@@ -103,9 +110,9 @@
 									
 									<div class="input-group">
 		                    			<span class="input-group-addon">
-											<span class="glyphicon glyphicon-globe"></span><small>&nbsp;&nbsp;Website<small>
+											<span class="glyphicon glyphicon-globe"></span><small>&nbsp;&nbsp;Website</small>
 										</span>										
-                   						 <input type="text" name="webPage" class="form-control" ng-model="master.webPage">
+                   						 <input ng-disabled="!buttonEdit" type="text" name="webPage" class="form-control" ng-model="master.webPage">
 									</div>	
 
 									<br />
@@ -115,7 +122,7 @@
 											<span class="glyphicon glyphicon-envelope"></span><small>&nbsp;&nbsp;Email</small>
 										</span>
 										<label for="email" class="sr-only">Email</label>
-					                    <input type="email" name="email" class="form-control" ng-model="master.email">
+					                    <input ng-disabled="!buttonEdit" type="email" name="email" class="form-control" ng-model="master.email">
 									</div>
 
 							</div>
@@ -142,12 +149,12 @@
 
                 <div class="form-group">
                     <label>Notes</label>
-                    <textarea name="notes" class="form-control" ng-model="master.notes"/>
+                    <textarea ng-disabled="!buttonEdit" name="notes" class="form-control" ng-model="master.notes"/>
                 </div>
 
                 <div class="form-group">
                     <label>Primary Contact</label>
-                    <select ng-model="master.primaryContactId" class="form-control" name="primaryContact"
+                    <select ng-disabled="!buttonEdit" ng-model="master.primaryContactId" class="form-control" name="primaryContact"
                             ng-options="c.contactId as c.contactDescription for c in contact_array"></select>
 
                 </div>

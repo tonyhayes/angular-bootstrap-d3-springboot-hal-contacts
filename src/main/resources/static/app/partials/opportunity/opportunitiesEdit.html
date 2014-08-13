@@ -17,8 +17,8 @@ input .checklist {float:left;}
 					<label class="col-sm-12 control-label" for="filter">
 						<h3 class="panel-title hidden-xs pull-left">									
 							<ol class="breadcrumb pull-left">			
-									<li><a href="#" data-ng-click="navigate('/customers')">Customers</a></li>
-									<li><a href="#" data-ng-click="navigate('/contactcards',customer)" title="View Customer Page" class="ellipsis btn-link">{{customer.companyName}}</a>
+									<li><a data-ng-click="navigate('/customers')">Customers</a></li>
+									<li><a data-ng-click="navigate('/contactcards',customer)" title="View Customer Page" class="ellipsis btn-link">{{customer.companyName}}</a>
 									<li ng-show="master.discussion" id="discussion-breadcrumb" class="active ellipsis ">{{master.discussion}}</li>
 									<li ng-hide="master.discussion" id="discussion-breadcrumb" class="active ellipsis ">New Opportunity</li>
 							</ol>
@@ -28,7 +28,7 @@ input .checklist {float:left;}
 			</div>
             <div class="dm-head-14pct pull-right">
                 <back-Button back="Back"></back-Button>
-                <button type="button" class="btn btn-default pull-right toolbar-padding" ng-init="buttonEdit = false" ng-click="buttonEdit=!buttonEdit"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;{{!buttonEdit && 'Edit this page' || 'Edit Mode'}} </button>
+                <button type="button" class="btn btn-default pull-right toolbar-padding"  ng-click="buttonEdit=!buttonEdit"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;{{!buttonEdit && 'Edit this page' || 'Edit Mode'}} </button>
             </div>
 		</div>
 	</div>	

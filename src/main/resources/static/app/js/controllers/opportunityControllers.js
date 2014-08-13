@@ -315,6 +315,7 @@ angular.module('customersApp.opportunityControllers', [])
             $scope.customerID = $routeParams.customerID;
             $scope.opportunityID = ($routeParams.id);
             $scope.opportunityFormTemplate = FormComponentFormatService.getOpportunityForm();
+            $scope.buttonEdit = false;
 
 
             // get all contacts for contact drop down
@@ -404,8 +405,20 @@ angular.module('customersApp.opportunityControllers', [])
                     });
                 }
 
+            }else{
+                $scope.buttonEdit = true;
+
             }
 
+            $scope.navigate = function (url, customerObject) {
+                var companyArray = [0];
+                if (customerObject) {
+                    CustomersService.storeCustomer(customerObject);
+                    companyArray = customerObject._links.self.href.split('/');
+                }
+
+                $location.path(url + '/' + companyArray[companyArray.length - 1]);
+            };
 
 
             var filterBarPlugin = {

@@ -90,6 +90,7 @@ angular.module('customersApp.customerControllers', [])
             $scope.state_array = StatesService.getStates();
             $scope.customerId = 0;
             $scope.contact_array = [];
+            $scope.buttonEdit = false;
 
 
             //Grab ID off of the route
@@ -116,6 +117,10 @@ angular.module('customersApp.customerControllers', [])
                     });
                 }
                 $scope.master = angular.copy($scope.customer);
+            }
+
+            if ($scope.customerId == 0){
+                $scope.buttonEdit = true;
             }
 
             // function to submit the form after all validation has occurred
