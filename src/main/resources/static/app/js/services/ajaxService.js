@@ -79,7 +79,7 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 if (searchText) {
-                    var filter = angular.copy(this.searchText.toLowerCase()) + '%';
+                    var filter = angular.copy(searchText.toLowerCase()) + '%';
                     return $http.get(dmApplicationEntryPoint + '/companies/search' +
                             '/findByCompanyNameStartsWithOrCityStartsWithOrStateStartsWithOrContactNameStartsWith', {
                             params: {
