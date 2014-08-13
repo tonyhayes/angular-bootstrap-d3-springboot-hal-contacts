@@ -35,37 +35,37 @@
 					<thead>
 						<td>
 						Description
-                            <button class="pull-right btn btn-xs" ng-click="orderByField='discussion'; reverseSort = !reverseSort">
+                            <button class="pull-right btn btn-xs" ng-click="orderByField='discussion'; reverseSort = !reverseSort; sortChange('discussion', reverseSort)">
                                 <span class="glyphicon glyphicon-sort"></span>
                             </button>
 						</td>
 						<td>
 						Company
-                            <button class="pull-right btn btn-xs" ng-click="orderByField='companyName'; reverseSort = !reverseSort">
+                            <button class="pull-right btn btn-xs" ng-click="orderByField='companyName'; reverseSort = !reverseSort; sortChange('company.companyName', reverseSort)">
                                 <span class="glyphicon glyphicon-sort"></span>
                             </button>
 						</td>
 						<td>
 						Potential Revenue
-                            <button class="pull-right btn btn-xs" ng-click="orderByField='potentialRevenue'; reverseSort = !reverseSort">
+                            <button class="pull-right btn btn-xs" ng-click="orderByField='potentialRevenue'; reverseSort = !reverseSort; sortChange('potentialRevenue', reverseSort)">
                                 <span class="glyphicon glyphicon-sort"></span>
                             </button>
 						</td>
 						<td>
 						Deal Date
-                            <button class="pull-right btn btn-xs" ng-click="orderByField='opportunityDate'; reverseSort = !reverseSort">
+                            <button class="pull-right btn btn-xs" ng-click="orderByField='opportunityDate'; reverseSort = !reverseSort; sortChange('opportunityDate', reverseSort)">
                                 <span class="glyphicon glyphicon-sort"></span>
                             </button>
 						</td>
 						<td>
 						Probability
-                            <button class="pull-right btn btn-xs" ng-click="orderByField='probabilityPercentage'; reverseSort = !reverseSort">
+                            <button class="pull-right btn btn-xs" ng-click="orderByField='probabilityPercentage'; reverseSort = !reverseSort; sortChange('probability.name', reverseSort)">
                                 <span class="glyphicon glyphicon-sort"></span>
                             </button>
 						</td>
 						<td>
 						Status
-                            <button class="pull-right btn btn-xs" ng-click="orderByField='statusDescription'; reverseSort = !reverseSort">
+                            <button class="pull-right btn btn-xs" ng-click="orderByField='statusDescription'; reverseSort = !reverseSort; sortChange('status.description', reverseSort)">
                                 <span class="glyphicon glyphicon-sort"></span>
                             </button>
 						</td>

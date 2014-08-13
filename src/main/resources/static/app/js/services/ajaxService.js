@@ -325,6 +325,7 @@ angular.module('customersApp.ajaxService', [])
             this.allPages = false;
             this.searchText = null;
             this.company = 0;
+            this.sort = 'company.companyName,asc';
 
         };
 
@@ -337,7 +338,7 @@ angular.module('customersApp.ajaxService', [])
                 $http.get(dmApplicationEntryPoint + '/opportunities/search' +
                         '/findBySearch', {
                         params: {
-                            sort: 'company.companyName',
+                            sort: this.sort,
                             page: this.pageNo,
                             discussion: filter,
                             name: filter,
@@ -369,7 +370,7 @@ angular.module('customersApp.ajaxService', [])
 
             } else {
                 $http.get(dmApplicationEntryPoint + '/opportunities/search' + '/findByOpportunity', {
-                    params: { sort: 'company.companyName', page: this.pageNo}}).success(function (data) {
+                    params: { sort: this.sort, page: this.pageNo}}).success(function (data) {
                     if (data._embedded) {
                         var items = data._embedded.opportunities;
                         for (var i = 0; i < items.length; i++) {

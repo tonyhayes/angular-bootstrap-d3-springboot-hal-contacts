@@ -36,6 +36,22 @@ angular.module('customersApp.opportunityControllers', [])
 
             };
 
+            // company, contact or opportunities
+            $scope.sortChange = function (field, direction) {
+                // if all pages have been loaded, filter on the client
+                if(direction){
+                    var ascDesc = 'desc'
+                }else{
+                    ascDesc = 'asc'
+                }
+                if (!$scope.opportunityPages.allPages) {
+                    $scope.opportunityPages.pageNo = 0;
+                    $scope.opportunityPages.busy = false;
+                    $scope.opportunityPages.sort = field+','+ascDesc;
+                    $scope.opportunityPages.items = [];
+                    $scope.opportunityPages.nextPage();
+                }
+             };
 
             // company, contact or opportunities
             $scope.navigate = function (url, opportunityObject) {
