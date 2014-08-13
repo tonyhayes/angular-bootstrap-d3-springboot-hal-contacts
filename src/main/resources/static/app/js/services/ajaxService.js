@@ -441,6 +441,9 @@ angular.module('customersApp.ajaxService', [])
                 if (opportunity.probabilityId) {
                     opportunity.probability = dmApplicationEntryPoint + '/probabilities/' + opportunity.probabilityId;
                 }
+                if (opportunity.statusId) {
+                    opportunity.status = dmApplicationEntryPoint + '/statuses/' + opportunity.statusId;
+                }
                 return $http.post(dmApplicationEntryPoint + '/opportunities', opportunity).then(function (result) {
                     return result.headers('location');
                 });
@@ -458,6 +461,9 @@ angular.module('customersApp.ajaxService', [])
                 }
                 if (opportunity.probabilityId) {
                     opportunity.probability = dmApplicationEntryPoint + '/probabilities/' + opportunity.probabilityId;
+                }
+                if (opportunity.statusId) {
+                    opportunity.status = dmApplicationEntryPoint + '/statuses/' + opportunity.statusId;
                 }
                 var body = angular.copy(opportunity);
                 var url = body._links.self.href;

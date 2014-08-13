@@ -586,6 +586,17 @@ angular.module('customersApp.opportunityControllers', [])
 
                 }
             });
+            $scope.$watch('master.statusId', function (statusId) {
+                if ($scope.master) {
+
+                        angular.forEach($scope.status_array, function (status) {
+                            if (status.statusId === statusId)
+                                $scope.master.statusDescription = status.description;
+                        });
+
+
+                }
+            });
 
             $scope.formatOpportunityRevenue = function (value) {
                 var money = parseFloat(value.replace(/[^\d\.]/g, ''));
