@@ -117,13 +117,14 @@ angular.module('customersApp.formsService', [])
 
                 // filter turns the object into an array -- which isn't what I want
                 // so I'm ignoring until I can figure out a better way
-                var filtered = [];
-                angular.forEach(dynamicForm, function(item) {
-                    filtered.push(item);
-                });
-                filtered.sort(function (a, b) {
-                    return (a['fieldSequence'] > b['fieldSequence'] ? 1 : -1);
-                });
+//                var filtered = [];
+//                angular.forEach(dynamicForm, function(item) {
+//                    filtered.push(item);
+//                });
+//                filtered.sort(function (a, b) {
+//                    return (a['fieldSequence'] > b['fieldSequence'] ? 1 : -1);
+//                });
+//
 
                 return dynamicForm;
             }
