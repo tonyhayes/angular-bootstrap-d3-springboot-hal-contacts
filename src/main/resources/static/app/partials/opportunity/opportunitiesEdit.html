@@ -26,7 +26,7 @@ input .checklist {float:left;}
                                 <span class="dm-head-14pct pull-right">
                                     <back-Button back="Back"></back-Button>
                                     <button type="button" class="btn btn-default pull-right toolbar-padding"  ng-click="buttonEdit=!buttonEdit"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;{{!buttonEdit && 'Edit this page' || 'Edit Mode'}} </button>
-                                    <button type="submit" class="btn btn-default" ng-hide="!buttonEdit || customerOpportunitiesForm.$invalid">Save Changes</button>
+                                    <button type="submit" data-ng-click="submitForm()" class="btn btn-default" ng-hide="!buttonEdit || customerOpportunitiesForm.$invalid">Save Changes</button>
                                 </span>
 					</label>
 				</div>
@@ -211,7 +211,7 @@ input .checklist {float:left;}
 
 
                                     <br />
-                                    <button type="submit" class="btn btn-default" ng-disabled="!buttonEdit || customerOpportunitiesForm.$invalid">Save Changes</button>
+                                    <button data-ng-click="submitForm()" type="submit" class="btn btn-default" ng-disabled="!buttonEdit || customerOpportunitiesForm.$invalid">Save Changes</button>
 
 
 
