@@ -2,115 +2,353 @@
 
 /**** making sure everything is setup correctly ****/
 
-html, body {height: 100%;}
+html, body {
+	height: 100%;
+}
 
-body {font-family:'Roboto';font-weight:100;background-color:#f9f9f9;}
+body {
+	font-family:'Roboto';
+	font-weight:100;
+	background-color:#f9f9f9;
+}
 
-.panel, table, .panel-heading, .panel-group .panel, .modal-content, button, .btn  {border-radius:2px;-webkit-border-radius:2px;-moz-border-radius:2px;}
+.panel, table, .panel-heading, .panel-group .panel, .modal-content, button, .btn  {
+	border-radius:2px;
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+}
 
-a, .btn-link {cursor:pointer;color:#4b7dfe;}
-a:hover {color:#0033cc;}
+a, .btn-link {
+	cursor:pointer;
+	color:#4b7dfe;
+}
 
-h1, .modal-header h3 {font-weight:100;font-size:30px;}
+a:hover {
+	color:#0033cc;
+}
+
+h1, .modal-header h3 {
+	font-weight:100;
+	font-size:30px;
+}
 
 /** buttons ****************************************************************************************************************************/
-.btn-primary {background-color:#4b7dfe;}
+.btn-primary {
+	background-color:#4b7dfe;
+}
 
-#white-section {background:#fff;padding:15px;}
-.ngViewport {height:auto !important}
-.ngHeaderContainer {font-weight:100;}
-.ngTopPanel {height:110px !important;background-color:#f9f9f9}
-.ngGroupPanel {height:auto !important;padding:7px 10px;}
-.ngGrid input {display: block;width: 100%;height: 34px;padding: 6px 12px;font-size: 14px;line-height: 1.42857143;color: #555;background-color: #fff;background-image: none;border: 1px solid #ccc;border-radius: 2px;-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);box-shadow: inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;margin-left:7px;}
-.ngHeaderSortColumn {padding-left:4px;}
-.ngGrid {border:1px solid #ddd;}
+.top-button {
+	margin-top:20px;
+}
+
+#white-section {
+	background:#fff;
+	padding:15px;
+}
+
+.ngViewport {
+	height:auto !important;
+}
+
+.ngHeaderContainer {
+	font-weight:100;
+}
+
+.ngTopPanel {
+	height:110px !important;
+	background-color:#f9f9f9
+}
+
+.ngGroupPanel {
+	height:auto !important;
+	padding:7px 10px;
+}
+
+.ngGrid input {
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	margin-left:7px;
+}
+
+.ngHeaderSortColumn {
+	padding-left:4px;
+	}
+	
+.ngGrid {
+	border:1px solid #ddd;
+}
+
 /** the header *************************************************************************************************************************/
 
 /**** setting up the dm black navbar ****/
-.navbar-dm {color:#fff;background-color:#222222;border-bottom:1px solid #000;}
+.navbar-dm {
+	color:#fff;
+	background-color:#222222;
+	border-bottom:1px solid #000;
+}
 
 /**** setting some custom columns for the header ****/
 
-.dm-head-1, .dm-head-2, .dm-head-3, .dm-head-4, .dm-head-5, .dm-head-6, .dm-head-7, .dm-head-8, .dm-head-9 {float:left;position:relative;min-height:1px;}
-.dm-head-1 {width:10%;}
-.dm-head-2 {width:20%;}
-.dm-head-3 {width:30%;}
-.dm-head-4 {width:40%;}
-.dm-head-5 {width:50%;}
-.dm-head-6 {width:60%;}
-.dm-head-7 {width:70%;}
-.dm-head-8 {width:80%;}
-.dm-head-9 {width:90%;}
+.dm-head-1, .dm-head-2, .dm-head-3, .dm-head-4, .dm-head-5, .dm-head-6, .dm-head-7, .dm-head-8, .dm-head-9 {
+	float:left;
+	position:relative;
+	min-height:1px;
+}
+
+.dm-head-1 {
+	width:10%;
+}
+
+.dm-head-2 {
+	width:20%;
+}
+
+.dm-head-3 {
+	width:30%;
+}
+
+.dm-head-4 {
+	width:40%;
+}
+
+.dm-head-5 {
+	width:50%;
+}
+
+.dm-head-6 {
+	width:60%;
+}
+
+.dm-head-7 {
+	width:70%;
+}
+
+.dm-head-8 {
+	width:80%;
+}
+
+.dm-head-9 {
+	width:90%;
+}
 
 /**** our logo gets constrained to the size of the container here ****/
 
-.navbar-brand {padding:9px;} /** bootstrap sets navbar-brand's padding to 15px by default, but that's too big and makes our logo stick out of the bottom. this fixes that. **/
-.logo-image {height:100%;max-height:35px;} /** making sure our logo stays within the size of the container, which is our navbar. to be certain, we use max-height to constrain it. **/
+.navbar-brand {
+	padding:9px;
+} /** bootstrap sets navbar-brand's padding to 15px by default, but that's too big and makes our logo stick out of the bottom. this fixes that. **/
+
+.logo-image {
+	height:100%;
+	max-height:35px;
+} /** making sure our logo stays within the size of the container, which is our navbar. to be certain, we use max-height to constrain it. **/
 
 /**** styling our navbar menu ****/
 
-.navbar-dm .navbar-nav	{float:right;} /**** making sure our menu stays to the right side of the screen **/
-.navbar-dm .navbar-nav>li>a {color:#fff;font-size:12px;font-weight:400;float:left;} 
-.nav>li {float:left;}
-.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {background-color:#666666;} /**** the background color of a navbar menu item when it's selected and open. ****/
+.navbar-dm .navbar-nav	{
+	float:right;
+} /**** making sure our menu stays to the right side of the screen **/
 
-.nav>li>a:hover {background-color:#555555;}  /**** the background color of a navbar menu item when it's hovered over. ****/
-.nav>li>a:active {background-color:#666666;}
+.navbar-dm .navbar-nav>li>a {
+	color:#fff;
+	font-size:12px;
+	font-weight:400;
+	float:left;
+} 
+
+.nav>li {
+	float:left;
+}
+
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+	background-color:#666666;
+} /**** the background color of a navbar menu item when it's selected and open. ****/
+
+.nav>li>a:hover {
+	background-color:#555555;
+}  /**** the background color of a navbar menu item when it's hovered over. ****/
+
+.nav>li>a:active {
+	background-color:#666666;
+}
 
 /** pushing the page down so the header doesn't cover it up **/
-.content-push {width:100%;height:50px;}
+.content-push {
+	width:100%;
+	height:50px;
+}
 
 /** dm-app-header *************************************************************************************************************************/
-.dm-app-header {background-color:#dedede;}
-.dm-app-header .breadcrumb {margin:0px;padding:3px 0 0 15px;background-color:transparent;font-family:'Roboto';font-weight:200;} /** taking the default background out of bootstrap's breadcrumb when it's included in our dm-app-header. **/
-.dm-app-header .breadcrumb li.active a {font-weight:600;color:#222;transition:.2s all;}
-.dm-app-header .breadcrumb li.active {font-weight:600;color:#222;transition:.2s all;}
-.dm-app-header .breadcrumb li.active a:hover {font-weight:600;color:#000;}
-.dm-app-header .nav-row {padding:8px 0px;} /** making sure our row inside the dm-app-header is properly centered. **/
-.dm-app-header .form-group {margin-bottom:0px;}
-.dm-app-header .form-group input {margin-right:7px;}
+.dm-app-header {
+	background-color:#dedede;
+}
+
+.dm-app-header .breadcrumb {
+	margin:0px;
+	padding:3px 0 0 15px;
+	background-color:transparent;
+	font-family:'Roboto';
+	font-weight:200;
+} /** taking the default background out of bootstrap's breadcrumb when it's included in our dm-app-header. **/
+
+.dm-app-header .breadcrumb li.active a {
+	font-weight:600;
+	color:#222;
+	transition:.2s all;
+}
+.dm-app-header .breadcrumb li.active {
+	font-weight:600;
+	color:#222;
+	transition:.2s all;
+}
+
+.dm-app-header .breadcrumb li.active a:hover {
+	font-weight:600;
+	color:#000;
+}
+
+.dm-app-header .nav-row {
+	padding:8px 0px;
+} /** making sure our row inside the dm-app-header is properly centered. **/
+
+.dm-app-header .form-group {
+	margin-bottom:0px;
+}
+
+.dm-app-header .form-group input {
+	margin-right:7px;
+}
 
 /** styling our cards *************************************************************************************************************************/
-#card-header.panel-heading {background-color:#f5f5f5;}
-#card-header .heading-icon {padding-left:7px;}
+
+#card-header.panel-heading {
+	background-color:#f5f5f5;
+}
+
+#card-header .heading-icon {
+	padding-left:7px;
+}
 
 /** opportunity table *************************************************************************************************************************/
-#opportunity-table>thead>tr>th, #opportunity-table>tbody>tr>th, #opportunity-table>tfoot>tr>th, #opportunity-table>thead>tr>td, #opportunity-table>tbody>tr>td, #opportunity-table>tfoot>tr>td {padding:3px 10px;vertical-align:middle;}
-#opportunity-table .progress {margin:7px 10px;}
-#opportunity-panel.panel-body {padding-top:0px;}
+
+#opportunity-table>thead>tr>th, #opportunity-table>tbody>tr>th, #opportunity-table>tfoot>tr>th, #opportunity-table>thead>tr>td, #opportunity-table>tbody>tr>td, #opportunity-table>tfoot>tr>td {
+	padding:3px 10px;
+	vertical-align:middle;
+}
+
+#opportunity-table .progress {
+	margin:7px 10px;
+}
+
+#opportunity-panel.panel-body {
+	padding-top:0px;
+}
 
 /** modifying how company address is displayed on detail page ********************************************************************/
-#company-address h3 {font-size:26px;}
-#company-address address {font-size:20px;}
-#company-address {padding-top:20px;}
+#company-address h3 {
+	font-size:26px;
+}
+#company-address address {
+	font-size:20px;
+}
+
+#company-address {
+	padding-top:20px;
+}
 
 /** the footer *************************************************************************************************************************/
-.footer {width:100vw;}
+
+.footer {
+	width:100vw;
+}
 
 
 
 
 
 
-#contacts-grid {margin-top:30px;}
+#contacts-grid {
+	margin-top:30px;
+}
 
-.infocard {padding-right:15px;}
-#company-right .contacts-circle {padding:10px;}
-.contacts-circle {width:50%;float:left;}
-.contacts-circle:after {content:"";display:block;width:100%;height:0;padding-bottom:100%;background:rgba(75,125,254,1);-moz-border-radius:50%;-webkit-border-radius:50%;border-radius:50%;}
-.contacts-circle .circle-inner {float:left;width:100%;padding-top:40%;line-height:1.5em;text-align:center;}
+.infocard {
+	padding-right:15px;
+}
 
-.circle-inner {color:#fff;}
-.circle-inner .number-text {font-family:'Montserrat';font-size:56px;font-weight:700}
+#company-right .contacts-circle {
+	padding:10px;
+}
 
-a .circle-inner {color:#f1f1f1;}
-a .circle-inner:hover {color:#f9f9f9;}
-a .circle-inner:active {color:#ffffff;}
+.contacts-circle {
+	width:50%;
+	float:left;
+}
 
-.panel-heading button {margin-top:-6px;font-size:11px;}
+.contacts-circle:after {
+	content:"";
+	display:block;
+	width:100%;
+	height:0;
+	padding-bottom:100%;
+	background:rgba(75,125,254,1);
+	-moz-border-radius:50%;
+	-webkit-border-radius:50%;
+	border-radius:50%;
+}
 
-.progress-bar {background-color:#4b7dfe;font-size:6px;color:#222;}
+.contacts-circle .circle-inner {
+	float:left;
+	width:100%;
+	padding-top:40%;
+	line-height:1.5em;
+	text-align:center;
+}
+
+.circle-inner {
+	color:#fff;
+}
+
+.circle-inner .number-text {
+	font-family:'Montserrat', sans-serif;
+	font-size:56px;
+	font-weight:700;
+}
+
+a .circle-inner {
+	color:#f1f1f1;
+}
+
+a .circle-inner:hover {
+	color:#f9f9f9;
+}
+
+a .circle-inner:active {
+	color:#ffffff;
+}
+
+.panel-heading button {
+	margin-top:-6px;
+	font-size:11px;
+}
+
+.progress-bar {
+	background-color:#4b7dfe;
+	font-size:6px;
+	color:#222;
+}
 
 .navbar-nav .open .dropdown-menu {
-	background:#fff 
-	!important;}
+	background:#fff !important;
+}
