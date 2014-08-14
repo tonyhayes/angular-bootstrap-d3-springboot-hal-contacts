@@ -50,7 +50,7 @@
                                 <span class="glyphicon glyphicon-sort"></span>
                             </button>
 						</td>
-						<td class="table-xl truncate">
+						<td class="table-lg truncate">
 						Deal Date
                             <button class="pull-right btn btn-xs" ng-click="orderByField='opportunityDate'; reverseSort = !reverseSort; sortChange('opportunityDate', reverseSort)">
                                 <span class="glyphicon glyphicon-sort"></span>
@@ -68,13 +68,13 @@
                                 <span class="glyphicon glyphicon-sort"></span>
                             </button>
 						</td>
-						<td>
+						<td class="table-lg truncate">
 
 						</td>
 		
 					</thead>
 					<tr data-ng-repeat="opportunity in opportunityPages.items |orderBy:orderByField:reverseSort track by $index">
-						<td class="table-lg truncate">
+						<td class="table-xl truncate">
 							<a data-ng-click="navigateToOpportunity('/opportunitiesedit',opportunity )" title="click to edit" class="ellipsis btn-link">{{opportunity.discussion}}</a>
 						</td>
 						<td class="table-lg truncate">

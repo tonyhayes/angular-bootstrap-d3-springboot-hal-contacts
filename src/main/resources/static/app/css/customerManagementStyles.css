@@ -364,15 +364,23 @@ a .circle-inner:active {
 	white-space:nowrap;
 }
 
+.table-sm {
+	min-width:80px;
+	max-width:80px;
+}
+
 .table-md {
 	min-width:100px;
-	}
+	max-width:100px;
+}
 
 .table-lg {
 	min-width:120px;
+	max-width:120px;
 }
 
 .table-xl {
 	min-width:150px;
+	max-width:150px;
 }
 
