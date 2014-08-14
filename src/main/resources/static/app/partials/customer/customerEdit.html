@@ -21,139 +21,146 @@
 
 	
 	<br />
-<div class="content-push">
-</div>
-
-<div class="container">
-		<h1 class="page-title pull-left">Edit Customer</h1>
-		<button type="submit" class="btn btn-primary pull-right top-button" ng-disabled="customerForm.$invalid">Submit</button>
-
-</div>
-
-<br />
-
-<div class="container">
-	<div class="customerEdit view">
-			<div class="panel panel-default">		
-				<div class="panel-heading">
-					<div class="col-sm-12 input-group">
-						<label for="companyName" class="sr-only">Customer Name</label>
-						<span class="input-group-addon">
-							<small>Name</small>
-						</span>
-						<input ng-disabled="!buttonEdit" type="text" name="companyName" class="form-control panel-title" ng-model="master.companyName" required>	
-					</div>
-				</div>
-				<div class="panel-body">	
-							<form name="customerForm" ng-submit="submitForm()">
-							<div class="row">
-								<div class="col-xs-12 col-sm-6 pull-left">
-									<address class="edit-address">
-										<div class="col-sm-12 input-group">
-											<label for="addressLine1" class="sr-only">Address</label>
-											<span class="input-group-addon">
-												<small>&nbsp;&nbsp;&nbsp;Address</small>
-											</span>
-											<input ng-disabled="!buttonEdit" type="text" name="addressLine1" class="form-control" ng-model="master.addressLine1" required>
-										</div>
-										<br />
-										<div class="col-sm-12 input-group">
-											<label for="addressLine2" class="sr-only">Address line 2</label>	
-												<span class="input-group-addon">	
-													<small>&nbsp;&nbsp;&nbsp;Address 2</small>
-												</span>
-												<input ng-disabled="!buttonEdit" type="text" name="addressLine2" class="form-control" ng-model="master.addressLine2">
-										</div>
 	
-										<br />
-										<div class="col-xs-8 pull-left input-group">
-											<label for="city" class="sr-only">City</label>
-											<span class="input-group-addon">
-												<span class="glyphicon glyphicon-map-marker"></span><small>&nbsp;&nbsp;City</small>
+<div class="customerEdit view">
+	<div class="container">
+		<div class="panel panel-default">
+		
+			<div class="panel-heading">
+				<div class="col-sm-12 input-group">
+					<label for="companyName" class="sr-only">Customer Name</label>
+										<span class="input-group-addon">
+											<small>Name</small>
+										</span>
+
+						<input ng-disabled="!buttonEdit" type="text" name="companyName" class="form-control panel-title" ng-model="master.companyName" required>
+			
+				</div>
+
+
+			</div>
+			<div class="panel-body">	
+					<div class="col-xs-12">
+            	        <form name="customerForm" ng-submit="submitForm()">
+            	        <div class="row">
+							<div class="col-xs-12 col-sm-6 pull-left">
+								<address class="edit-address">
+									<div class="col-sm-12 input-group">
+										<label for="addressLine1" class="sr-only">Address</label>
+										<span class="input-group-addon">
+											<small>&nbsp;&nbsp;&nbsp;Address</small>
+										</span>
+										<input ng-disabled="!buttonEdit" type="text" name="addressLine1" class="form-control" ng-model="master.addressLine1" required>
+									</div>
+									<br />
+									<div class="col-sm-12 input-group">
+										<label for="addressLine2" class="sr-only">Address line 2</label>	
+											<span class="input-group-addon">	
+												<small>&nbsp;&nbsp;&nbsp;Address 2</small>
 											</span>
-											<input ng-disabled="!buttonEdit" type="text" name="city" class="form-control" ng-model="master.city" required>
-										</div>
-										<div class="col-xs-4 pull-right input-group">
-											<label for="state" class="sr-only">State</label>
-											<select ng-disabled="!buttonEdit" required ng-model="master.state" class="form-control" name="state" ng-options="s.stateAbbr as s.name for s in state_array"></select>
-										</div>
+											<input ng-disabled="!buttonEdit" type="text" name="addressLine2" class="form-control" ng-model="master.addressLine2">
+									</div>
+	
+									<br />
+									<div class="col-xs-8 pull-left input-group">
+										<label for="city" class="sr-only">City</label>
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-map-marker"></span><small>&nbsp;&nbsp;City</small>
+										</span>
+										<input ng-disabled="!buttonEdit" type="text" name="city" class="form-control" ng-model="master.city" required>
+									</div>
+									<div class="col-xs-4 pull-right input-group">
+										<label for="state" class="sr-only">State</label>
+										<select ng-disabled="!buttonEdit" required ng-model="master.state" class="form-control" name="state" ng-options="s.stateAbbr as s.name for s in state_array"></select>
+									</div>
 									
-										<br />
-										<br />
-										<br />
-										<div class="col-xs-6 input-group">								
-											<span class="input-group-addon">
-												<span class="glyphicon glyphicon-home"></span><small>&nbsp;&nbsp;Zip</small>
-											</span>
-											<label for="zip" class="sr-only">Zip code</label>								
-											<input ng-disabled="!buttonEdit" type="text" name="zip" class="form-control" ng-model="master.zip" required>
-										</div>
+									<br />
+									<br />
+									<br />
+									<div class="col-xs-6 input-group">								
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-home"></span><small>&nbsp;&nbsp;Zip</small>
+										</span>
+										<label for="zip" class="sr-only">Zip code</label>								
+										<input ng-disabled="!buttonEdit" type="text" name="zip" class="form-control" ng-model="master.zip" required>
+									</div>
 								
-									</address>
-								</div>                    
-								<div class="col-xs-12 col-sm-6 pull-right">
-									<address>
-										<div class="input-group">
-											<label for="phone" class="sr-only">Phone</label>
-											<span class="input-group-addon">
-												<span class="glyphicon glyphicon-earphone"></span><small>&nbsp;&nbsp;&nbsp;Phone</small>
-											</span>
-											<input ng-disabled="!buttonEdit" type="text" name="phone" class="form-control" ng-model="master.phone">
-										</div>
-										<br />
-										<div class="input-group">
-											<span class="input-group-addon">
-												<span class="glyphicon glyphicon-phone"></span><small>&nbsp;&nbsp;&nbsp;Mobile</small>
-											</span>
-											<input ng-disabled="!buttonEdit" type="text" name="cell" class="form-control" ng-model="master.cell">
-										</div>
+								</address>
+							</div>                    
+                    		<div class="col-xs-12 col-sm-6 pull-right">
+	                    		<address>
+	                    			<div class="input-group">
+	                    				<label for="phone" class="sr-only">Phone</label>
+		                    			<span class="input-group-addon">
+											<span class="glyphicon glyphicon-earphone"></span><small>&nbsp;&nbsp;&nbsp;Phone</small>
+										</span>
+										<input ng-disabled="!buttonEdit" type="text" name="phone" class="form-control" ng-model="master.phone">
+									</div>
+									<br />
+									<div class="input-group">
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-phone"></span><small>&nbsp;&nbsp;&nbsp;Mobile</small>
+										</span>
+					                    <input ng-disabled="!buttonEdit" type="text" name="cell" class="form-control" ng-model="master.cell">
+									</div>
 									
-										<br />
-										<br />
-										<br />
+									<br />
+									<br />
+									<br />
 									
-										<div class="input-group">
-											<span class="input-group-addon">
-												<span class="glyphicon glyphicon-globe"></span><small>&nbsp;&nbsp;Website</small>
-											</span>										
-											 <input ng-disabled="!buttonEdit" type="text" name="webPage" class="form-control" ng-model="master.webPage">
-										</div>	
+									<div class="input-group">
+		                    			<span class="input-group-addon">
+											<span class="glyphicon glyphicon-globe"></span><small>&nbsp;&nbsp;Website</small>
+										</span>										
+                   						 <input ng-disabled="!buttonEdit" type="text" name="webPage" class="form-control" ng-model="master.webPage">
+									</div>	
 
-										<br />
+									<br />
 									
-										<div class="input-group">
-											<span class="input-group-addon">
-												<span class="glyphicon glyphicon-envelope"></span><small>&nbsp;&nbsp;Email</small>
-											</span>
-											<label for="email" class="sr-only">Email</label>
-											<input ng-disabled="!buttonEdit" type="email" name="email" class="form-control" ng-model="master.email">
-										</div>
+									<div class="input-group">
+		                    			<span class="input-group-addon">
+											<span class="glyphicon glyphicon-envelope"></span><small>&nbsp;&nbsp;Email</small>
+										</span>
+										<label for="email" class="sr-only">Email</label>
+					                    <input ng-disabled="!buttonEdit" type="email" name="email" class="form-control" ng-model="master.email">
+									</div>
 
-								</div>
-						</div>
-						<div class="cardFooter">
-						
-						</div>
-					<div class="form-group"
-						 ng-class="{ 'has-error' : customerForm.email.$invalid && !customerForm.email.$pristine }">
-						<p ng-show="customerForm.email.$invalid && !customerForm.email.$pristine" class="help-block">email
-							is wrong.</p>
-					</div>
+							</div>
+                    </div>
+                    	<div class="cardFooter">
+                    		
+			            </div>
+        
+        
+        
+        
+        
+        
 
 
-					<div class="form-group">
-						<label>Notes</label>
-						<textarea ng-disabled="!buttonEdit" name="notes" class="form-control" ng-model="master.notes"/>
-					</div>
+                
 
-					<div class="form-group">
-						<label>Primary Contact</label>
-						<select ng-disabled="!buttonEdit" ng-model="master.primaryContactId" class="form-control" name="primaryContact"
-								ng-options="c.contactId as c.contactDescription for c in contact_array"></select>
+                <div class="form-group"
+                     ng-class="{ 'has-error' : customerForm.email.$invalid && !customerForm.email.$pristine }">
+                    <p ng-show="customerForm.email.$invalid && !customerForm.email.$pristine" class="help-block">email
+                        is wrong.</p>
+                </div>
 
-					</div>
 
-					<button type="submit" class="btn btn-primary" ng-disabled="customerForm.$invalid">Submit</button>
-				</form>
-		</div>
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea ng-disabled="!buttonEdit" name="notes" class="form-control" ng-model="master.notes"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Primary Contact</label>
+                    <select ng-disabled="!buttonEdit" ng-model="master.primaryContactId" class="form-control" name="primaryContact"
+                            ng-options="c.contactId as c.contactDescription for c in contact_array"></select>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary" ng-disabled="customerForm.$invalid">Submit</button>
+            </form>
+        </div>
+    </div>
 </div>
