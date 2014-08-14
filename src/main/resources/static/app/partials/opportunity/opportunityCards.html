@@ -29,41 +29,40 @@
 	<br />
 	<div class="panel panel-default">
 		<div id="opportunity-panel" class="panel-body">
-			<div class="row">
-				
+			<div class="row table-overflow">				
 				<table id="opportunity-table" class="table table-striped" infinite-scroll='opportunityPages.nextPage()' infinite-scroll-disabled='opportunityPages.busy' infinite-scroll-distance='0'>
 					<thead>
-						<td>
+						<td class="table-xl truncate">
 						Description
                             <button class="pull-right btn btn-xs" ng-click="orderByField='discussion'; reverseSort = !reverseSort; sortChange('discussion', reverseSort)">
                                 <span class="glyphicon glyphicon-sort"></span>
                             </button>
 						</td>
-						<td>
+						<td class="table-lg truncate">
 						Company
                             <button class="pull-right btn btn-xs" ng-click="orderByField='companyName'; reverseSort = !reverseSort; sortChange('company.companyName', reverseSort)">
                                 <span class="glyphicon glyphicon-sort"></span>
                             </button>
 						</td>
-						<td>
-						Potential Revenue
+						<td class="table-lg truncate">
+						Potential &#36;
                             <button class="pull-right btn btn-xs" ng-click="orderByField='potentialRevenue'; reverseSort = !reverseSort; sortChange('potentialRevenue', reverseSort)">
                                 <span class="glyphicon glyphicon-sort"></span>
                             </button>
 						</td>
-						<td>
+						<td class="table-xl truncate">
 						Deal Date
                             <button class="pull-right btn btn-xs" ng-click="orderByField='opportunityDate'; reverseSort = !reverseSort; sortChange('opportunityDate', reverseSort)">
                                 <span class="glyphicon glyphicon-sort"></span>
                             </button>
 						</td>
-						<td>
+						<td class="table-lg truncate">
 						Probability
                             <button class="pull-right btn btn-xs" ng-click="orderByField='probabilityPercentage'; reverseSort = !reverseSort; sortChange('probability.name', reverseSort)">
                                 <span class="glyphicon glyphicon-sort"></span>
                             </button>
 						</td>
-						<td>
+						<td class="table-md truncate">
 						Status
                             <button class="pull-right btn btn-xs" ng-click="orderByField='statusDescription'; reverseSort = !reverseSort; sortChange('status.description', reverseSort)">
                                 <span class="glyphicon glyphicon-sort"></span>
@@ -75,31 +74,31 @@
 		
 					</thead>
 					<tr data-ng-repeat="opportunity in opportunityPages.items |orderBy:orderByField:reverseSort track by $index">
-						<td>
+						<td class="table-lg truncate">
 							<a data-ng-click="navigateToOpportunity('/opportunitiesedit',opportunity )" title="click to edit" class="ellipsis btn-link">{{opportunity.discussion}}</a>
 						</td>
-						<td>
+						<td class="table-lg truncate">
 							<a data-ng-click="navigate('/opportunitydetails',opportunity )" title="click to edit" class="ellipsis  btn-link">{{opportunity.companyName}}</a>
 						</td>
-						<td>
+						<td class="table-lg truncate">
 							{{opportunity.potentialRevenue | currency}}
 						</td>
-						<td>
+						<td class="table-lg truncate">
 							{{opportunity.opportunityDate | date}}
 						</td>
-						<td class="col-xs-2">
+						<td class="table-lg truncate">
 							<div class="progress">
 								<div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: {{opportunity.probabilityId + '0'}}%;">
 									{{opportunity.probabilityPercentage + '%'}}
 								</div>
 							</div>
 						</div>
-						<td class="col-xs-1">
+						<td class="table-md truncate">
 							{{opportunity.statusDescription}}
 						</td>
-						<td>
-							<a data-ng-click="navigate('/contactcards',opportunity)" class="badge">{{opportunity.contactsCount}}&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span></a>
-							<a data-ng-click="navigate('/opportunitydetails',opportunity)" class="badge">{{opportunity.opportunitiesCount}}&nbsp;&nbsp;<span class="glyphicon glyphicon-folder-open"></span></a>
+						<td class="table-lg truncate">
+							<a data-ng-click="navigate('/contactcards',opportunity)" class="badge pull-left">{{opportunity.contactsCount}}&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span></a>
+							<a data-ng-click="navigate('/opportunitydetails',opportunity)" class="badge pull-left">{{opportunity.opportunitiesCount}}&nbsp;&nbsp;<span class="glyphicon glyphicon-folder-open"></span></a>
 							<a data-ng-click="deleteOpportunity($index, opportunity)" class="pull-right"><span class="glyphicon glyphicon-trash"></span></a>
 						</td>
 					</tr>

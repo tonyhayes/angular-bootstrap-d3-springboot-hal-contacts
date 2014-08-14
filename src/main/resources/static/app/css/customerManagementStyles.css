@@ -246,6 +246,7 @@ h1, .modal-header h3 {
 #opportunity-table>thead>tr>th, #opportunity-table>tbody>tr>th, #opportunity-table>tfoot>tr>th, #opportunity-table>thead>tr>td, #opportunity-table>tbody>tr>td, #opportunity-table>tfoot>tr>td {
 	padding:3px 10px;
 	vertical-align:middle;
+	border-right:1px solid #dedede;
 }
 
 #opportunity-table .progress {
@@ -352,3 +353,26 @@ a .circle-inner:active {
 .navbar-nav .open .dropdown-menu {
 	background:#fff !important;
 }
+
+.table-overflow {
+	overflow:scroll;
+}
+
+.truncate {
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+
+.table-md {
+	min-width:100px;
+	}
+
+.table-lg {
+	min-width:120px;
+}
+
+.table-xl {
+	min-width:150px;
+}
+
