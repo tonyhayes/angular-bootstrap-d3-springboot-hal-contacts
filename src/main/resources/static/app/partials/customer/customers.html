@@ -48,12 +48,15 @@
 
 								<strong>
 								<a data-ng-click="navigate('/contactcards',customer)" class="card-number">
-								{{customer.contactsCount}} Customer contacts</span></a>
+								{{customer.contactsCount}} Contacts</span></a>
 								<br />
     		                    <a data-ng-click="navigate('/opportunitydetails',customer)" class="card-number">{{customer.opportunitiesCount}} Opportunities</a>                    
 								</strong>
+								<div class="hidden-sm hidden-md hidden-lg hidden-xl">
+									<hr />
+								</div>
 							</div>
-							<div class="col-xs-12 col-sm-6 pull-right">
+							<div class="col-xs-12 col-sm-6 pull-right truncate">
 								<address>
 									<span class="glyphicon glyphicon-envelope"></span></abbr>&nbsp;&nbsp;&nbsp;<a ng-href="mailto:{{customer.email}}">{{customer.email}}</a><br>
 									<br />
