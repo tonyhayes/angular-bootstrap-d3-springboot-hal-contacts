@@ -34,7 +34,7 @@ angular.module('customersApp.chartsController', [])
             }
             /*organize opportunity data into chart data categories */
             function sliceAndDice() {
-                if ($scope.opportunityData.length) {
+                if ($scope.opportunityData && $scope.opportunityData.length) {
 
                     $scope.opportunityDataBySalesPerson = {};
 
