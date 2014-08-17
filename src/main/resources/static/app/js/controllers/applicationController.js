@@ -34,16 +34,16 @@ angular.module('customersApp.applicationControllers', [])
                     if (data[0]._embedded) {
                         StatesService.setStates(data[0]);
                     }
-                    if (data[1]) {
+                    if (data[1]._embedded) {
                         SalesPersonService.setSalesPeople(data[1]);
                     }
-                    if (data[2]) {
+                    if (data[2]._embedded) {
                         ProbabilitiesService.setProbabilities(data[2]);
                     }
-                    if (data[3] && data[4]) {
+                    if (data[3]._embedded && data[4]._embedded) {
                         FormComponentFormatService.setOpportunityForm(data[3], data[4]);
                     }
-                    if (data[5]) {
+                    if (data[5]._embedded) {
                         StatusService.setStatus(data[5]);
                     }
                     console.log('All services are resolved!');

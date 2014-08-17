@@ -3,15 +3,16 @@
  */
 angular.module('customersApp.salesPersonController', [])
     .controller('SalesPersonController', ['$scope', '$routeParams', '$location', '$filter',
-        'SalesPersonService', 'ModalService',
+        'SalesPersonService', 'ModalService', 'StatesService',
 
-        function ($scope, $routeParams, $location, $filter, SalesPersonService, ModalService) {
+        function ($scope, $routeParams, $location, $filter, SalesPersonService, ModalService, StatesService) {
 
             $scope.master = {};
             $scope.salesPeople_array = SalesPersonService.getSalesPeople();
             $scope.filterOptions = {
                 filterText: ''
             };
+            $scope.state_array = StatesService.getStates();
 
 
 
@@ -131,7 +132,8 @@ angular.module('customersApp.salesPersonController', [])
                     closeButtonText: 'Cancel',
                     actionButtonText: 'Submit',
                     headerText: 'Sales Person',
-                    record: $scope.master
+                    record: $scope.master,
+                    model1: $scope.state_array
                 };
 
                 ModalService.showModal(modalDefaults, modalOptions).then(function (result) {
@@ -142,7 +144,7 @@ angular.module('customersApp.salesPersonController', [])
                             SalesPersonService.patchSalesPeople($scope.master);
                         } else {
                             SalesPersonService.postSalesPeople($scope.master);
-                            $scope.probability_array.push($scope.master);
+                            $scope.salesPeople_array.push($scope.master);
                         }
                     } else {
                         if (row) {

@@ -2,13 +2,18 @@ package com.drillmap.crm;
 
 import com.drillmap.crm.repository.extensions.invoker.CustomRepositoryInvokerFactory;
 import com.drillmap.crm.security.TenantAwareUser;
+import com.drillmap.crm.security.legacy.manager.CRMUserDetailsChecker;
+import com.drillmap.crm.security.legacy.manager.CRMUserDetailsService;
+import com.drillmap.crm.security.legacy.repository.CRMUserCompanyRepository;
+import com.drillmap.crm.security.legacy.repository.CRMUserRepository;
+import com.drillmap.crm.security.legacy.token.JdbcTokenRepositoryImpl;
+import com.drillmap.crm.security.legacy.token.PersistentTokenBasedRememberMeServices;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.ComponentScan.Filter;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.core.invoke.RepositoryInvokerFactory;
 import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration;
@@ -26,11 +31,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.RememberMeServices;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.socket.config.annotation.AbstractWebSocketMessageBrokerConfigurer;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 
+import javax.sql.DataSource;
 import java.io.Serializable;
 import java.util.Collection;
 
@@ -72,8 +80,7 @@ public class Application {
      * Repository Configuration
      */
     @Configuration
-    static class CustomRepositoryRestConfiguration extends  RepositoryRestMvcConfiguration {
-
+    static class CustomRepositoryRestConfiguration extends RepositoryRestMvcConfiguration {
 
         @Override
         @Bean
@@ -113,8 +120,65 @@ public class Application {
      * Defines what the login/logout urls are.
      */
     @Configuration
+    @Profile({"dev","prod","stage"})
     static class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
-        @Override
+
+
+        @Autowired
+        CRMUserRepository userRepository;
+
+        @Autowired
+        CRMUserCompanyRepository userCompanyRepository;
+
+        @Autowired
+        DataSource dataSource;
+
+        @Value("${sso.cookie.name}")
+        public String SSO_COOKIE_NAME;
+
+        @Value("${sso.cookie.domain}")
+        public String SSO_COOKIE_DOMAIN;
+
+        @Bean
+        public PersistentTokenRepository persistentTokenRepository() {
+            JdbcTokenRepositoryImpl repository = new JdbcTokenRepositoryImpl();
+            repository.setDataSource(dataSource);
+            return repository;
+        }
+
+        @Bean
+        public RememberMeServices rememberMeServices() {
+            PersistentTokenBasedRememberMeServices service = new PersistentTokenBasedRememberMeServices("DM-SECRET-RMKEY", new CRMUserDetailsService(userRepository,userCompanyRepository), persistentTokenRepository());
+            service.setAlwaysRemember(true);
+            service.setCookieName(SSO_COOKIE_NAME);
+            service.setCookiePath("/");
+            service.setCookieDomain(SSO_COOKIE_DOMAIN);
+            service.setUpdateToken(false);
+            service.setUserDetailsChecker(new CRMUserDetailsChecker(userCompanyRepository));
+            return service;
+        }
+
+        protected void configure(HttpSecurity http) throws Exception {
+
+            http    .csrf().disable()
+                    .authorizeRequests()
+                    .antMatchers("/app/**").permitAll()
+                    .antMatchers("/webjars/**").permitAll()
+                    .anyRequest().authenticated();
+
+
+            http.rememberMe().rememberMeServices(rememberMeServices()).key("DM-SECRET-RMKEY");
+        }
+
+    }
+
+    /**
+     * Web security configuration. Allow only webjars and assets unless logged in.
+     * Defines what the login/logout urls are.
+     */
+    @Configuration
+    @Profile({"test"})
+    static class TestWebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         protected void configure(HttpSecurity http) throws Exception {
             http    .httpBasic()
                     .and()
@@ -134,11 +198,9 @@ public class Application {
                     .loginPage("/login.html")
                     .failureUrl("/login.html?error")
                     .permitAll();
-
-
         }
 
-        /**
+       /**
          * Configure user details service and password encoder that takes any user and any password.
          * @param auth
          * @throws Exception

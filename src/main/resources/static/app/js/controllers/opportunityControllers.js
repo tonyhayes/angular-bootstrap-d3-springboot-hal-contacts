@@ -320,6 +320,7 @@ angular.module('customersApp.opportunityControllers', [])
             $scope.customer = {};
             $scope.opportunities = {};
             $scope.opportunity = {};
+            $scope.opportunityDetails = {};
             $scope.opportunityForm = {};
             $scope.salesPerson_array = SalesPersonService.getSalesPeople();
             $scope.probability_array = ProbabilitiesService.getProbabilities();

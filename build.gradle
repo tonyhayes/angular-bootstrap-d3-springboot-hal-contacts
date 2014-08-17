@@ -57,3 +57,5 @@ dependencies {
     testCompile "junit:junit"
 }
 
+test.onlyIf { ! Boolean.getBoolean('skip.tests') }
+
