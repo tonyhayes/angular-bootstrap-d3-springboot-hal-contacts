@@ -63,7 +63,7 @@ then
 echo "Process $(print_process) already running"
 exit 1
 fi
-nohup /drillmap/java/bin/java $SPRING_OPTS -jar $JARFile &
+nohup /drillmap/java/bin/java $SPRING_OPTS -jar $JARFile  >/dev/null 2>&1 &
 echo "Process started"
 ;;
 restart)
