@@ -11,6 +11,7 @@ import com.drillmap.crm.security.legacy.token.PersistentTokenBasedRememberMeServ
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.actuate.system.ApplicationPidListener;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.ComponentScan.Filter;
@@ -51,6 +52,7 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(WebConfiguration.class);
         app.setShowBanner(false);
+        app.addListeners(new ApplicationPidListener("app.pid"));
         app.run(args);
     }
 
