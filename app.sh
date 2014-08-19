@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 JARFile="*.jar"
 PIDFile="app.pid"
 SPRING_OPTS="-DLOG_FILE=application.log"
@@ -6,7 +6,7 @@ function check_if_pid_file_exists {
 if [ ! -f $PIDFile ]
 then
 echo "PID file not found: $PIDFile"
-exit 1
+exit 0
 fi
 }
 function check_if_process_is_running {
@@ -63,7 +63,7 @@ then
 echo "Process $(print_process) already running"
 exit 1
 fi
-nohup java $SPRING_OPTS -jar $JARFile &
+nohup /drillmap/java/bin/java $SPRING_OPTS -jar $JARFile &
 echo "Process started"
 ;;
 restart)
