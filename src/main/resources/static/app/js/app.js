@@ -91,7 +91,10 @@ angular.module('customersApp', [
                 redirectTo: '/customers'
             });
         }
-    ]);
+    ])
+    .config(['$httpProvider', function($httpProvider) {
+        $httpProvider.interceptors.push('ajaxInterceptor');
+    }]);
 
 
 

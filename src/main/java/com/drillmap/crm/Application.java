@@ -2,8 +2,10 @@ package com.drillmap.crm;
 
 import com.drillmap.crm.repository.extensions.invoker.CustomRepositoryInvokerFactory;
 import com.drillmap.crm.security.TenantAwareUser;
+import com.drillmap.crm.security.legacy.filter.RememberMeValidatingAuthenticationFilter;
 import com.drillmap.crm.security.legacy.manager.CRMUserDetailsChecker;
 import com.drillmap.crm.security.legacy.manager.CRMUserDetailsService;
+import com.drillmap.crm.security.legacy.repository.CRMGrantedAuthorityRepository;
 import com.drillmap.crm.security.legacy.repository.CRMUserCompanyRepository;
 import com.drillmap.crm.security.legacy.repository.CRMUserRepository;
 import com.drillmap.crm.security.legacy.token.JdbcTokenRepositoryImpl;
@@ -22,6 +24,7 @@ import org.springframework.hateoas.UriTemplate;
 import org.springframework.hateoas.hal.CurieProvider;
 import org.springframework.hateoas.hal.DefaultCurieProvider;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.security.authentication.RememberMeAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -133,6 +136,9 @@ public class Application {
         CRMUserCompanyRepository userCompanyRepository;
 
         @Autowired
+        CRMGrantedAuthorityRepository authorityRepository;
+
+        @Autowired
         DataSource dataSource;
 
         @Value("${sso.cookie.name}")
@@ -150,7 +156,7 @@ public class Application {
 
         @Bean
         public RememberMeServices rememberMeServices() {
-            PersistentTokenBasedRememberMeServices service = new PersistentTokenBasedRememberMeServices("DM-SECRET-RMKEY", new CRMUserDetailsService(userRepository,userCompanyRepository), persistentTokenRepository());
+            PersistentTokenBasedRememberMeServices service = new PersistentTokenBasedRememberMeServices("DM-SECRET-RMKEY", new CRMUserDetailsService(userRepository,userCompanyRepository,authorityRepository), persistentTokenRepository());
             service.setAlwaysRemember(true);
             service.setCookieName(SSO_COOKIE_NAME);
             service.setCookiePath("/");
@@ -160,16 +166,21 @@ public class Application {
             return service;
         }
 
+        @Override
+        protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+            auth.authenticationProvider(new RememberMeAuthenticationProvider("DM-SECRET-RMKEY"));
+        }
+
         protected void configure(HttpSecurity http) throws Exception {
 
             http    .csrf().disable()
                     .authorizeRequests()
                     .antMatchers("/app/**").permitAll()
                     .antMatchers("/webjars/**").permitAll()
+                    .antMatchers("/**").hasRole("CRM")
                     .anyRequest().authenticated();
 
-
-            http.rememberMe().rememberMeServices(rememberMeServices()).key("DM-SECRET-RMKEY");
+            http.addFilter(new RememberMeValidatingAuthenticationFilter( authenticationManager(),rememberMeServices()));
         }
 
     }
