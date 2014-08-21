@@ -1,4 +1,37 @@
 angular.module('customersApp.ajaxService', [])
+    .factory('ajaxInterceptor', ['$q', function ($q) {
+        //http://jsnlog.com/Documentation/GetStartedLogging/AngularJsErrorHandling
+        var myInterceptor = {
+            'request': function (config) {
+                config.msBeforeAjaxCall = new Date().getTime();
+                return config;
+            },
+            'response': function (response) {
+                if (response.config) {
+                    var msAfterAjaxCall = new Date().getTime();
+                    var timeTakenInMs = msAfterAjaxCall - response.config.msBeforeAjaxCall;
+                    console.log('AngularCRM.Ajax '+'url:'+ response.config.url +' timeTakenInMs:'+ timeTakenInMs + ' status:'+ response.status);
+                }
+                return response;
+            },
+            'responseError': function (rejection) {
+                var errorMessage = "timeout";
+                if (rejection.status != 0) {
+                    errorMessage = rejection.data.ExceptionMessage;
+                }
+                console.log('AngularCRM.AjaxError '+'errorMessage:'+ errorMessage + ' status:'+ rejection.status);
+
+                if (rejection.status == 403) {
+
+                    //SHANE!! - this is for you!!!
+
+                }
+
+                return $q.reject(rejection);
+            }
+        };
+        return myInterceptor;
+    }])
 //  constructor function to encapsulate HTTP and pagination logic
     .factory('CustomerPages', function ($http) {
         var CustomerPages = function () {
