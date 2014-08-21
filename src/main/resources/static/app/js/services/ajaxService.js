@@ -17,7 +17,11 @@ angular.module('customersApp.ajaxService', [])
             'responseError': function (rejection) {
                 var errorMessage = "timeout";
                 if (rejection.status != 0) {
-                    errorMessage = rejection.data.ExceptionMessage;
+                    if(rejection.data.ExceptionMessage){
+                        errorMessage = rejection.data.ExceptionMessage;
+                    }else if(rejection.data.message){
+                        errorMessage = rejection.data.message;
+                    }
                 }
                 console.log('AngularCRM.AjaxError '+'errorMessage:'+ errorMessage + ' status:'+ rejection.status);
 
