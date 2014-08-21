@@ -56,7 +56,7 @@ public class CRMUser implements TenantAwareUser, UserDetails {
     private String status = "Unknown";
 
     @Transient
-    private Set<GrantedAuthority> authorities = Collections.emptySet();
+    private Set<? extends GrantedAuthority> authorities = Collections.emptySet();
 
     @Override
     public Serializable getTenantId() {
