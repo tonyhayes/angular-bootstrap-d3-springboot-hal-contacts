@@ -46,6 +46,7 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-websocket:${springBootVersion}"
     compile "org.springframework.data:spring-data-rest-webmvc:${springDataRestVersion}"
     compile "org.springframework:spring-messaging:${springMessagingVersion}"
+    compile "com.google.guava:guava:17.0"
 
     compile "net.sourceforge.nekohtml:nekohtml:1.9.20"
     compile "org.postgresql:postgresql:9.3-1100-jdbc41"

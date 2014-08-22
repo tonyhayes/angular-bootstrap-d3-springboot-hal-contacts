@@ -107,6 +107,7 @@
     <orderEntry type="library" exported="" name="Gradle: spring-data-jpa-1.5.2.RELEASE" level="project" />
     <orderEntry type="library" exported="" name="Gradle: spring-data-rest-core-2.0.2.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: spring-boot-starter-test-1.0.2.RELEASE" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: guava-17.0" level="project" />
   </component>
 </module>
 

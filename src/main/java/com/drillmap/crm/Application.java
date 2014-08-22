@@ -15,6 +15,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.system.ApplicationPidListener;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.cache.Cache;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.support.SimpleCacheManager;
 import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
@@ -45,6 +48,8 @@ import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import javax.sql.DataSource;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by sfrensley on 3/27/14.
@@ -72,12 +77,23 @@ public class Application {
      * Web Configuration
      */
     @Configuration
+    @EnableCaching
     @Import({ ApplicationConfiguration.class, WebSecurityConfiguration.class, CustomRepositoryRestConfiguration.class, WebSocketConfiguration.class})
     @ComponentScan(excludeFilters = @Filter({ Service.class, Configuration.class }))
     static class WebConfiguration {
         @Bean
         public CurieProvider curieProvider() {
             return new DefaultCurieProvider("crm", new UriTemplate("http://localhost:9090/rels/{rel}"));
+        }
+
+        @Bean
+        public SimpleCacheManager simpleCacheManager() {
+            Collection<Cache> caches = new HashSet<Cache>(1);
+            //token cache
+            caches.add(new com.drillmap.crm.cache.Cache("token",5, TimeUnit.MINUTES,500, true));
+            SimpleCacheManager manager = new SimpleCacheManager();
+            manager.setCaches(caches);
+            return manager;
         }
     }
 
@@ -165,6 +181,8 @@ public class Application {
             service.setUserDetailsChecker(new CRMUserDetailsChecker(userCompanyRepository));
             return service;
         }
+
+
 
         @Override
         protected void configure(AuthenticationManagerBuilder auth) throws Exception {
