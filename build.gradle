@@ -23,13 +23,18 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 apply plugin: 'compileOnly'
+
 sourceCompatibility = 1.7
 version = '1.0'
+
 
 jar {
     baseName = 'dm-crm'
     version =  '0.0.1'
-
+    ext.build = System.env.BUILD_NUMBER ?: 'dev'
+    manifest {
+            attributes("Implementation-Title": baseName, "Implementation-Version": ext.build)
+    }
 }
 
 repositories {
