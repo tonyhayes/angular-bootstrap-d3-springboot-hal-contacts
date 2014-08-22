@@ -1,5 +1,6 @@
 package com.drillmap.crm.security.legacy.token;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
@@ -66,6 +67,7 @@ public class JdbcTokenRepositoryImpl extends JdbcDaoSupport implements Persisten
      * @param seriesId
      * @return the token matching the series, or null if no match found or an exception occurred.
      */
+    @Cacheable(value="token",key = "#seriesId")
     public PersistentRememberMeToken getTokenForSeries(String seriesId) {
         try {
             return getJdbcTemplate().queryForObject(tokensBySeriesSql, new RowMapper<PersistentRememberMeToken>() {
