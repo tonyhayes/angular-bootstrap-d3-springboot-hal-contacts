@@ -67,7 +67,7 @@ public class JdbcTokenRepositoryImpl extends JdbcDaoSupport implements Persisten
      * @param seriesId
      * @return the token matching the series, or null if no match found or an exception occurred.
      */
-    @Cacheable(value="token",key = "#seriesId")
+    @Cacheable(value="token",key = "#seriesId", unless = "#result == null")
     public PersistentRememberMeToken getTokenForSeries(String seriesId) {
         try {
             return getJdbcTemplate().queryForObject(tokensBySeriesSql, new RowMapper<PersistentRememberMeToken>() {
