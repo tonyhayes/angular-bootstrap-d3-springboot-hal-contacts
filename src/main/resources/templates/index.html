@@ -32,6 +32,7 @@
 			<div id="full-logo" class="hidden-xs">
 				<div class="dm-head-3 pull-left">
 					<a href="#/" class="navbar-brand"><img th:src="@{app/img/dm-logo-alt.svg}" alt="logo" class="logo-image"></a>
+                    <span class="dm-username" th:text="${crmuser.firstName + ' ' + crmuser.lastName}"></span>
 				</div>
 			</div>
 
