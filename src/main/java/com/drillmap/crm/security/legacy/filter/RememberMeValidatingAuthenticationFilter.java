@@ -6,6 +6,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.RememberMeServices;
 import org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter;
+import org.springframework.security.web.session.InvalidSessionStrategy;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -21,15 +22,19 @@ import java.io.IOException;
 public class RememberMeValidatingAuthenticationFilter extends
         RememberMeAuthenticationFilter {
 
-    private AuthenticationManager authenticationManager;
     private RememberMeServices rememberMeServices;
+    private InvalidSessionStrategy invalidSessionStrategy;
 
     public RememberMeValidatingAuthenticationFilter(AuthenticationManager authenticationManager,
                                                             RememberMeServices rememberMeServices) {
         super(authenticationManager,rememberMeServices);
-        this.authenticationManager = authenticationManager;
         this.rememberMeServices = rememberMeServices;
 
+    }
+
+    public RememberMeValidatingAuthenticationFilter setInvalidSessionStrategy(InvalidSessionStrategy strategy) {
+        this.invalidSessionStrategy = strategy;
+        return this;
     }
 
     @Override
@@ -46,9 +51,8 @@ public class RememberMeValidatingAuthenticationFilter extends
                 if (logger.isDebugEnabled()) {
                     logger.debug("Failed to initially validate token on request.", ae);
                 }
-                //rememberMeServices.loginFail(request, response);
                 onUnsuccessfulAuthentication(request, response, ae);
-
+                return;
             }
 
         }
@@ -62,6 +66,19 @@ public class RememberMeValidatingAuthenticationFilter extends
         super.onUnsuccessfulAuthentication(request, response, failed);
         //remove this threads authentication
         SecurityContextHolder.getContext().setAuthentication(null);
+        //respond with 403 for xmlhttp requests so that the client can do more intelligent processing.
+        if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
+            try {
+                response.sendError(HttpServletResponse.SC_FORBIDDEN, "Access Denied");
+            } catch (IOException e) {
+                logger.error("Unable to send Access Denied error.",e);
+            }
+        } else if (invalidSessionStrategy !=  null) {
+            try {
+                invalidSessionStrategy.onInvalidSessionDetected(request,response);
+            } catch (Exception e) {
+               logger.error("Unable to handle invalid session.",e);
+            }
+        }
     }
-
 }
