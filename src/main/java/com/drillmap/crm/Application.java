@@ -40,6 +40,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.RememberMeServices;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.security.web.session.InvalidSessionStrategy;
+import org.springframework.security.web.session.SimpleRedirectInvalidSessionStrategy;
 import org.springframework.stereotype.Service;
 import org.springframework.web.socket.config.annotation.AbstractWebSocketMessageBrokerConfigurer;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
@@ -142,7 +144,7 @@ public class Application {
      */
     @Configuration
     @Profile({"dev","prod","stage"})
-    static class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
+    static class  WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 
         @Autowired
@@ -162,6 +164,9 @@ public class Application {
 
         @Value("${sso.cookie.domain}")
         public String SSO_COOKIE_DOMAIN;
+
+        @Value("${application.login.url}")
+        public String APPLICATION_LOGIN_URL;
 
         @Bean
         public PersistentTokenRepository persistentTokenRepository() {
@@ -189,16 +194,21 @@ public class Application {
             auth.authenticationProvider(new RememberMeAuthenticationProvider("DM-SECRET-RMKEY"));
         }
 
+        protected InvalidSessionStrategy invalidSessionStrategy() {
+            return new SimpleRedirectInvalidSessionStrategy(APPLICATION_LOGIN_URL);
+        }
+
         protected void configure(HttpSecurity http) throws Exception {
 
-            http    .csrf().disable()
+            http
+                    .addFilter(new RememberMeValidatingAuthenticationFilter( authenticationManager(),rememberMeServices()).setInvalidSessionStrategy(invalidSessionStrategy()))
+                    .csrf().disable()
                     .authorizeRequests()
                     .antMatchers("/app/**").permitAll()
                     .antMatchers("/webjars/**").permitAll()
                     .antMatchers("/**").hasRole("CRM")
                     .anyRequest().authenticated();
 
-            http.addFilter(new RememberMeValidatingAuthenticationFilter( authenticationManager(),rememberMeServices()));
         }
 
     }
