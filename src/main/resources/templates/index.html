@@ -32,7 +32,7 @@
 			<div id="full-logo" class="hidden-xs">
 				<div class="pull-left">
 					<a href="#/" class="navbar-brand"><img th:src="@{app/img/dm-logo-alt.svg}" alt="logo" class="logo-image"></a>
-                    <span class="dm-username" th:text="${crmuser.firstName + ' ' + crmuser.lastName}"></span>
+                    <p class="navbar-text" th:text="${crmuser.firstName + ' ' + crmuser.lastName}"></p>
 				</div>
 			</div>
 
@@ -40,7 +40,7 @@
 			<div id="#small-logo" class="hidden-sm hidden-md hidden-lg hidden-xl">
 				<div class="pull-left">
 					<a href="#/" class="navbar-brand"><img th:src="@{app/img/dm-circle.svg}" alt="logo" class="logo-image"></a>
-                    <span class="navbar-text pull-left" th:text="${crmuser.firstName + ' ' + crmuser.lastName}"></span>
+                    <p class="navbar-text pull-left" th:text="${crmuser.firstName + ' ' + crmuser.lastName}"></p>
 				</div>
 			</div>
 			
