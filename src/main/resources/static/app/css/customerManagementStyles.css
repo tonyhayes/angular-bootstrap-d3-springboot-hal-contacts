@@ -144,8 +144,19 @@ h1, .modal-header h3 {
 	width:90%;
 }
 
-/**** our logo gets constrained to the size of the container here ****/
+@media (min-width: 768px){
+    /*adjust container width to fit all items in the navbar in a single row*/
+    .container {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
 
+    .navbar-text {
+        margin-left: 5px;
+    }
+}
+
+/**** our logo gets constrained to the size of the container here ****/
 .navbar-brand {
 	padding:9px;
 } /** bootstrap sets navbar-brand's padding to 15px by default, but that's too big and makes our logo stick out of the bottom. this fixes that. **/
@@ -166,7 +177,13 @@ h1, .modal-header h3 {
 	font-size:12px;
 	font-weight:400;
 	float:left;
-} 
+}
+
+/* adjust navbar text to in aligns vertically with all other elements in the navbar.*/
+.navbar-dm .navbar-text {
+    margin-top: 16px;
+    margin-bottom: 14px;
+}
 
 .nav>li {
 	float:left;
@@ -383,4 +400,5 @@ a .circle-inner:active {
 	min-width:150px;
 	max-width:150px;
 }
+
 
