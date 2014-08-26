@@ -30,7 +30,7 @@
 
 			<!-- this is the regularly-sized logo. it appears in all configurations except xs. -->
 			<div id="full-logo" class="hidden-xs">
-				<div class="dm-head-3 pull-left">
+				<div class="pull-left">
 					<a href="#/" class="navbar-brand"><img th:src="@{app/img/dm-logo-alt.svg}" alt="logo" class="logo-image"></a>
                     <span class="dm-username" th:text="${crmuser.firstName + ' ' + crmuser.lastName}"></span>
 				</div>
@@ -38,12 +38,13 @@
 
 			<!-- this is the logo without the wordmark. it only appears when the screen is at breakpoint xs. -->
 			<div id="#small-logo" class="hidden-sm hidden-md hidden-lg hidden-xl">
-				<div class="dm-head-1 pull-left">
+				<div class="pull-left">
 					<a href="#/" class="navbar-brand"><img th:src="@{app/img/dm-circle.svg}" alt="logo" class="logo-image"></a>
+                    <span class="navbar-text pull-left" th:text="${crmuser.firstName + ' ' + crmuser.lastName}"></span>
 				</div>
 			</div>
 			
-			<div class="dm-head-7 pull-right">
+			<div class="pull-right">
 				<!-- regular navigation menu, hidden at 768px via .collapse tag -->
 				<div class="navbar-collapse pull-right">
 					<ul class="nav navbar-nav">

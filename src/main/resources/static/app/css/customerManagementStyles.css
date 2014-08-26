@@ -144,16 +144,7 @@ h1, .modal-header h3 {
 	width:90%;
 }
 
-.dm-username {
-    margin-top: 16px;
-    margin-left: 16px;
-    display: inherit;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
 /**** our logo gets constrained to the size of the container here ****/
-
 .navbar-brand {
 	padding:9px;
 } /** bootstrap sets navbar-brand's padding to 15px by default, but that's too big and makes our logo stick out of the bottom. this fixes that. **/
