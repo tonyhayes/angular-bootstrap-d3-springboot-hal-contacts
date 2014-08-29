@@ -1,11 +1,14 @@
 #!/bin/bash
-JARFile="*.jar"
-PIDFile="app.pid"
-SPRING_OPTS="-DLOG_FILE=application.log"
+
+#SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+#TODO make this more robust
+#read environmental configuration
+. *.env
+SPRING_OPTS="-DLOG_FILE=$LOG_FILE -Dspring.profiles.active=$spring_profiles_active"
 function check_if_pid_file_exists {
-if [ ! -f $PIDFile ]
+if [ ! -f $PID_FILE ]
 then
-echo "PID file not found: $PIDFile"
+echo "PID file not found: $PID_FILE"
 exit 0
 fi
 }
@@ -18,7 +21,7 @@ return 1
 fi
 }
 function print_process {
-echo $(<"$PIDFile")
+echo $(<"$PID_FILE")
 }
 case "$1" in
 status)
@@ -58,12 +61,12 @@ fi
 echo "Process stopped"
 ;;
 start)
-if [ -f $PIDFile ] && check_if_process_is_running
+if [ -f $PID_FILE ] && check_if_process_is_running
 then
 echo "Process $(print_process) already running"
 exit 1
 fi
-nohup /drillmap/java/bin/java $SPRING_OPTS -jar $JARFile  >/dev/null 2>&1 &
+nohup /drillmap/java/bin/java $SPRING_OPTS -jar $JAR_FILE  >/dev/null 2>&1 &
 echo "Process started"
 ;;
 restart)
