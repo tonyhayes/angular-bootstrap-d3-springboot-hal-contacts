@@ -19,8 +19,7 @@ input .checklist {float:left;}
 							<ol class="breadcrumb pull-left">			
 									<li><a data-ng-click="navigate('/customers')">Customers</a></li>
 									<li><a data-ng-click="navigate('/opportunitydetails',customer)" title="View Customer Page" class="ellipsis btn-link">{{customer.companyName}}</a>
-									<li ng-show="master.discussion" id="discussion-breadcrumb" class="active ellipsis ">{{master.discussion}}</li>
-									<li ng-hide="master.discussion" id="discussion-breadcrumb" class="active ellipsis ">New Opportunity</li>
+
 							</ol>
 						</h3>
                                 <span class="dm-head-14pct pull-right">
@@ -82,7 +81,7 @@ input .checklist {float:left;}
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="discussion" class="col-sm-2 control-label sr-only" >Description</label>
-							<textarea name="discussion" class="form-control dm-form" ng-model="master.discussion" ng-disabled="!buttonEdit">
+							<textarea name="discussion" class="form-control dm-form quick-description" ng-model="master.discussion" ng-disabled="!buttonEdit">
 								</textarea>
 							</div>
 						</div>

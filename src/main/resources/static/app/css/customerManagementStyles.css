@@ -402,3 +402,7 @@ a .circle-inner:active {
 }
 
 
+.form-control.dm-form.quick-description {
+    min-height:150px;
+
+}
