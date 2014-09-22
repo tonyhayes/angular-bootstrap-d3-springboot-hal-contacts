@@ -238,6 +238,13 @@ angular.module('customersApp.opportunityControllers', [])
                         displayName: 'Contact Name'
                     },
                     {
+                        field: 'opportunityDate',
+                        headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
+                        width: '*',
+                        cellFilter: 'date',
+                        displayName: 'Deal Date'
+                    },
+                    {
                         field: 'discussion',
                         headerCellTemplate: 'app/partials/util/filterHeaderTemplate.html',
                         width: '***',
