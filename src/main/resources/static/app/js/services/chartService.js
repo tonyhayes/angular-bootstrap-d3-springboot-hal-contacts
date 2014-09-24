@@ -244,7 +244,26 @@ angular.module('customersApp.chartService', [])
                         showControls: true,
                         showValues: true,
                         valueFormat: function (d) {
-                            return d3.format('s,.4f')(d);
+                            /*
+                             separate the number into the integer and decimal parts.
+                             then, for counts (numbers less than 1000), vary the precision and rounding.
+                             in addition, for numbers (revenue) less than 100,000 - round to 1 position
+                             */
+                            var n = Math.floor(d);
+                            var dec = (d % 1).toFixed(2);
+                            if (dec == 0){
+                                if(n < 10 ){
+                                    return d3.format(',.1s')(d);
+                                }else if(n < 100){
+                                    return d3.format(',.2s')(d);
+                                }else if(n < 1000){
+                                    return d3.format(',.3s')(d);
+                                }else if(n < 100000){
+                                    return d3.format(',.1s')(d);
+                                }
+
+                            }
+                            return d3.format(',.3s')(d);
                         },
                         transitionDuration: 500,
                         xAxis: {
@@ -253,7 +272,7 @@ angular.module('customersApp.chartService', [])
                         yAxis: {
                             axisLabel: 'Opportunities',
                             tickFormat: function (d) {
-                                return d3.format('s,.2f')(d);
+                                return d3.format(',.3s')(d);
                             }
                         }
                     }
