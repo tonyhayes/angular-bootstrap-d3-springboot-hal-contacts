@@ -46,7 +46,7 @@
 			
 			
 <div ng-controller="AccordionCtrl">
-	<div ng-repeat="field in form.form_fields">
+	<div ng-repeat="field in form.form_fields track by $index">
 	  <accordion>
     	<accordion-group class="accordion-group-parent">
 			<accordion-heading is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled" >
