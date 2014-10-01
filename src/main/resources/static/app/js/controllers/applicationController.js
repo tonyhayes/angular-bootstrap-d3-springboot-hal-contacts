@@ -40,7 +40,7 @@ angular.module('customersApp.applicationControllers', [])
                     if (data[2]._embedded) {
                         ProbabilitiesService.setProbabilities(data[2]);
                     }
-                    if (data[3]._embedded && data[4]._embedded) {
+                    if (data[3]._links && data[4]._links) {
                         FormComponentFormatService.setOpportunityForm(data[3], data[4]);
                     }
                     if (data[5]._embedded) {

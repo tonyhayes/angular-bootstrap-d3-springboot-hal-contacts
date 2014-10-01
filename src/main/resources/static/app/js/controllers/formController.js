@@ -145,6 +145,7 @@ angular.module('customersApp.formControllers', [])
                     for (var i = 0; i < $scope.form.form_fields.length; i++) {
                         if ($scope.form.form_fields[i].field_id == field_id) {
                             $scope.form.form_fields.splice(i, 1);
+                            updateForm('reload');
                             break;
                         }
                     }
@@ -356,12 +357,20 @@ angular.module('customersApp.formControllers', [])
 
         // send all the fields to the store
         $scope.submit = function () {
+            updateForm('reload');
+        };
+
+        function updateForm(action) {
             FormUpdateService.updateForm($scope.old_form_fields, angular.copy($scope.form.form_fields), 'opportunity');
             FormComponentFormatService.replaceDynamicForm($scope.form.form_fields);
 
-            // return to applications default page
-            $location.path('/');
-        };
+            if(action == 'reload'){
+                window.location.reload();
+            }else{
+                // return to applications default page
+                $location.path('/');
+            }
+        }
 
         $scope.navigate = function (url) {
             $location.path(url);

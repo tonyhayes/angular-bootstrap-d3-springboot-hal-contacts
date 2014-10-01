@@ -595,7 +595,11 @@ angular.module('customersApp.opportunityControllers', [])
                     if (newValues[0] && newValues[1]) {
 
                         var divisor = 1;
-                        var money = parseFloat(newValues[0].replace(/[^\d\.]/g, ''));
+                        if(typeof newValues[0] === "number"){
+                            var money = parseFloat(newValues[0]);
+                        }else{
+                            var money = parseFloat(newValues[0].replace(/[^\d\.]/g, ''));
+                        }
 
                         angular.forEach($scope.probability_array, function (probability) {
                             if (probability.probabilityId === newValues[1])
@@ -631,6 +635,7 @@ angular.module('customersApp.opportunityControllers', [])
             $scope.submitForm = function () {
 
                 $scope.opportunity = angular.copy($scope.master);
+                $scope.master.potentialRevenue =  parseFloat($scope.master.potentialRevenue.replace(/[^\d\.]/g, ''));
 
                 if (parseInt($scope.opportunityID)) {
                     OpportunityServices.patchOpportunity($scope.master);
