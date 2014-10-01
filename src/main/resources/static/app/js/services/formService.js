@@ -99,7 +99,7 @@ angular.module('customersApp.formsService', [])
                         if (type === 'radio') {
                             dynamicForm[name].values = {};
                             angular.forEach(options, function (option) {
-                                dynamicForm[name].values[option.option_id] = option.option_title;
+                                dynamicForm[name].values[option.option_title] = option.option_value;
                                 delete dynamicForm[name].option_title;
                                 delete dynamicForm[name].option_value;
 
@@ -136,10 +136,14 @@ angular.module('customersApp.formsService', [])
             updateForm: function (oldForm, newForm, form) {
                 // delete everything, then post
                 if (oldForm) {
+                    var lastLink;
                     angular.forEach(oldForm, function (field) {
                         if (field._links) {
-                            // the delete command is self contained so any service can process it
-                            FormComponentService.deleteFormComponents(field);
+                            if(field._links.self.href != lastLink){
+                                // the delete command is self contained so any service can process it
+                                FormComponentService.deleteFormComponents(field);
+                                lastLink = field._links.self.href;
+                            }
                         }
                     });
                 }
