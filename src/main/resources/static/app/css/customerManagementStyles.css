@@ -172,6 +172,10 @@ h1, .modal-header h3 {
 	float:right;
 } /**** making sure our menu stays to the right side of the screen **/
 
+.navbar-dm .navbar-nav .app-link {
+    background-color: #666;
+}
+
 .navbar-dm .navbar-nav>li>a {
 	color:#fff;
 	font-size:12px;

@@ -48,7 +48,6 @@
 				<!-- regular navigation menu, hidden at 768px via .collapse tag -->
 				<div class="navbar-collapse pull-right">
 					<ul class="nav navbar-nav">
-                        <li><a href="/dashboard"><img th:src="@{app/img/back-to-dashboard.png}" alt="logo" class="logo-image">&nbsp;&nbsp;Back to drillMap</a></span></li>
                         <li ng-class="{ active: isCurrentPath('/customers') }"><a href="#/customers"><span class="glyphicon glyphicon-phone-alt"></span><span class="hidden-xs">&nbsp;&nbsp;Customers</a></span></li>
 						<li ng-class="{ active: isCurrentPath('/opportunities') }"><a href="#/opportunities"><span class="glyphicon glyphicon-record"></span><span class="hidden-xs">&nbsp;&nbsp;Opportunities</span></a></li>
 						<li ng-class="{ active: isCurrentPath('/charts') }"><a href="#/charts"><span class="glyphicon glyphicon-list-alt"></span><span class="hidden-xs">&nbsp;&nbsp;Reports</span></a></li>
@@ -63,6 +62,7 @@
                                 <li><a href="#/admin/status">Status</a></li>
 		                    </ul>
 		                </li>
+                        <li class="app-link"><a href="/dashboard"><img th:src="@{app/img/back-to-dashboard.png}" alt="logo" class="logo-image"></a></span></li>
 		            </ul>
 		        </div>
 		    </div>
