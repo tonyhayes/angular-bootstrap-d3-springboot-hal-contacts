@@ -8,11 +8,16 @@ angular.module('customersApp.salesPersonController', [])
         function ($scope, $routeParams, $location, $filter, SalesPersonService, ModalService, StatesService) {
 
             $scope.master = {};
-            $scope.salesPeople_array = SalesPersonService.getSalesPeople();
+            $scope.salesPeople_array = SalesPersonService.getConfiguredSalesPeople();
+            SalesPersonService.getConfiguredSalesPeople().then(function (result) {
+                $scope.salesPeople_array =  SalesPersonService.getSalesPeople();
+            });
             $scope.filterOptions = {
                 filterText: ''
             };
-            $scope.state_array = StatesService.getStates();
+            StatesService.getConfiguredStates().then(function (result) {
+                $scope.state_array =  StatesService.getStates();
+            });
 
 
 

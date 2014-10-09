@@ -8,7 +8,9 @@ angular.module('customersApp.stateController', [])
         function ($scope, $routeParams, $location, $filter, StatesService, ModalService) {
 
             $scope.master = {};
-            $scope.states_array = StatesService.getStates();
+            StatesService.getConfiguredStates().then(function (result) {
+                $scope.states_array =  StatesService.getStates();
+            });
             $scope.filterOptions = {
                 filterText: ''
             };

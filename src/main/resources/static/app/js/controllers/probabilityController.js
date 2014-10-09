@@ -8,7 +8,9 @@ angular.module('customersApp.probabilityController', [])
         function ($scope, $routeParams, $location, $filter, ProbabilitiesService, ModalService) {
 
             $scope.master = {};
-            $scope.probability_array = ProbabilitiesService.getProbabilities();
+            ProbabilitiesService.getConfiguredProbabilities().then(function (result) {
+                $scope.probability_array =  ProbabilitiesService.getProbabilities();
+            });
             $scope.filterOptions = {
                 filterText: ''
             };

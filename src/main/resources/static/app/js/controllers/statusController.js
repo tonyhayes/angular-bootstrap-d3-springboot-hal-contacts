@@ -8,7 +8,10 @@ angular.module('customersApp.statusController', [])
         function ($scope, $routeParams, $location, $filter, StatusService, ModalService) {
 
             $scope.master = {};
-            $scope.status_array = StatusService.getStatus();
+            $scope.status_array = StatusService.getConfiguredStatus();
+            StatusService.getConfiguredStatus().then(function (result) {
+                $scope.status_array =  StatusService.getStatus();
+            });
             $scope.filterOptions = {
                 filterText: ''
             };
