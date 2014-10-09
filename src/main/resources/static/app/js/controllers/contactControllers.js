@@ -52,22 +52,12 @@ angular.module('customersApp.contactControllers', [])
 
             function filterContacts(filterText) {
                 // if all pages have been loaded, filter on the client
-                if ($scope.contactPages.allPages) {
-                    //save pages
-                    if ($scope.contactPages.savedPages) {
-                        $scope.contactPages.items = angular.copy($scope.contactPages.savedPages);
-                    } else {
-                        $scope.contactPages.savedPages = angular.copy($scope.contactPages.items);
-                    }
-                    $scope.contactPages.items = $filter("contactNameCityStateFilter")($scope.contactPages.items, filterText);
-                } else {
                     $scope.contactPages.allPages = false;
                     $scope.contactPages.searchText = filterText;
                     $scope.contactPages.pageNo = 0;
                     $scope.contactPages.busy = false;
                     $scope.contactPages.items = [];
                     $scope.contactPages.nextPage();
-                }
             }
 
             $scope.deleteContact = function (idx, contact) {

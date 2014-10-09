@@ -44,13 +44,11 @@ angular.module('customersApp.opportunityControllers', [])
                 }else{
                     ascDesc = 'asc'
                 }
-                if (!$scope.opportunityPages.allPages) {
                     $scope.opportunityPages.pageNo = 0;
                     $scope.opportunityPages.busy = false;
                     $scope.opportunityPages.sort = field+','+ascDesc;
                     $scope.opportunityPages.items = [];
                     $scope.opportunityPages.nextPage();
-                }
              };
 
             // company, contact or opportunities
@@ -137,23 +135,12 @@ angular.module('customersApp.opportunityControllers', [])
 
 
             function filterOpportunities(filterText) {
-                // if all pages have been loaded, filter on the client
-                if ($scope.opportunityPages.allPages) {
-                    //save pages
-                    if ($scope.opportunityPages.savedPages) {
-                        $scope.opportunityPages.items = angular.copy($scope.opportunityPages.savedPages);
-                    } else {
-                        $scope.opportunityPages.savedPages = angular.copy($scope.opportunityPages.items);
-                    }
-                    $scope.opportunityPages.items = $filter("opportunityNameCityStateFilter")($scope.opportunityPages.items, filterText);
-                } else {
                     $scope.opportunityPages.allPages = false;
                     $scope.opportunityPages.searchText = filterText;
                     $scope.opportunityPages.pageNo = 0;
                     $scope.opportunityPages.busy = false;
                     $scope.opportunityPages.items = [];
                     $scope.opportunityPages.nextPage();
-                }
             }
         }
     ])

@@ -662,6 +662,9 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 return $http.get(dmApplicationEntryPoint + '/states').then(function (result) {
+                    if(result.data._embedded){
+                        states = result.data._embedded.states;
+                    }
                     return result.data;
                 });
             },
@@ -747,6 +750,9 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 return $http.get(dmApplicationEntryPoint + '/salesPersons').then(function (result) {
+                    if(result.data._embedded){
+                        salesPersons = result.data._embedded.salesPersons;
+                    }
                     return result.data;
                 });
             },
@@ -876,7 +882,10 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 return $http.get(dmApplicationEntryPoint + '/probabilities').then(function (result) {
-                    return result.data;
+                    if(result.data._embedded){
+                        probabilities = result.data._embedded.probabilities;
+                    }
+                     return result.data;
                 });
             },
             postProbabilities: function (probabilities) {
@@ -993,6 +1002,9 @@ angular.module('customersApp.ajaxService', [])
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
                 return $http.get(dmApplicationEntryPoint + '/statuses').then(function (result) {
+                    if(result.data._embedded){
+                        status = result.data._embedded.statuses;
+                    }
                     return result.data;
                 });
             },
