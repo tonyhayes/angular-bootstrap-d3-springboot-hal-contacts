@@ -661,7 +661,8 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                return $http.get(dmApplicationEntryPoint + '/states').then(function (result) {
+//                return $http.get(dmApplicationEntryPoint + '/states').then(function (result) {
+                return $http.get(dmApplicationEntryPoint + '/states/search' + '/findAllStates').then(function (result) {
                     if(result.data._embedded){
                         states = result.data._embedded.states;
                     }
@@ -749,7 +750,8 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                return $http.get(dmApplicationEntryPoint + '/salesPersons').then(function (result) {
+//                return $http.get(dmApplicationEntryPoint + '/salesPersons').then(function (result) {
+                return $http.get(dmApplicationEntryPoint + '/salesPersons/search' + '/findAllSalesPersons').then(function (result) {
                     if(result.data._embedded){
                         salesPersons = result.data._embedded.salesPersons;
                     }
@@ -881,7 +883,8 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                return $http.get(dmApplicationEntryPoint + '/probabilities').then(function (result) {
+//                return $http.get(dmApplicationEntryPoint + '/probabilities').then(function (result) {
+                return $http.get(dmApplicationEntryPoint + '/probabilities/search' + '/findAllProbabilities').then(function (result) {
                     if(result.data._embedded){
                         probabilities = result.data._embedded.probabilities;
                     }
@@ -1001,7 +1004,8 @@ angular.module('customersApp.ajaxService', [])
                 //and promise.then() also returns a promise
                 //that resolves to whatever value is returned in it's
                 //callback argument, we can return that.
-                return $http.get(dmApplicationEntryPoint + '/statuses').then(function (result) {
+//                return $http.get(dmApplicationEntryPoint + '/statuses').then(function (result) {
+                return $http.get(dmApplicationEntryPoint + '/statuses/search' + '/findAllStatuses').then(function (result) {
                     if(result.data._embedded){
                         status = result.data._embedded.statuses;
                     }
