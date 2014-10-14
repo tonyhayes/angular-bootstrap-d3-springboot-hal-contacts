@@ -56,6 +56,7 @@ angular.module('customersApp.opportunityControllers', [])
                 var company = 0;
                 if (opportunityObject) {
                     CustomersService.storeCustomer(null);
+                    CustomersService.storeOpportunity(null);
                     company = opportunityObject.companyId;
                 }
 
@@ -68,6 +69,7 @@ angular.module('customersApp.opportunityControllers', [])
                 var opportunityArray = [0];
                 if (opportunityObject) {
                     CustomersService.storeCustomer(null);
+                    CustomersService.storeOpportunity(null);
                     company = opportunityObject.companyId;
                     var opportunityId = opportunityObject.companyId;
                     opportunityArray = opportunityObject._links.self.href.split('/');
@@ -160,13 +162,11 @@ angular.module('customersApp.opportunityControllers', [])
             //Grab customerID off of the route
             $scope.customerID = parseInt($routeParams.customerID);
 
-            $scope.customer = CustomersService.getStoredCustomer();
-            if (!$scope.customer) {
-                CompanyServices.getCompany($scope.customerID).then(function (data) {
-                    $scope.customer = data;
-                    CustomersService.storeCustomer(data);
-                });
-            }
+            CompanyServices.getCompany($scope.customerID).then(function (data) {
+                $scope.customer = data;
+                CustomersService.storeCustomer(data);
+            });
+
             $scope.filterOptions = {
                 filterText: ''
             };
@@ -337,14 +337,10 @@ angular.module('customersApp.opportunityControllers', [])
             });
 
             if ($scope.customerID) {
-                $scope.customer = CustomersService.getStoredCustomer();
-                if (!$scope.customer) {
-                    CompanyServices.getCompany($scope.customerID).then(function (data) {
-                        $scope.customer = data;
-                        CustomersService.storeCustomer(data);
-                    });
-                }
-
+                CompanyServices.getCompany($scope.customerID).then(function (data) {
+                    $scope.customer = data;
+                    CustomersService.storeCustomer(data);
+                });
             }
             if (parseInt($scope.opportunityID)) {
                 OpportunityFormServices.getOpportunities($scope.opportunityID).then(function (data) {
@@ -378,8 +374,9 @@ angular.module('customersApp.opportunityControllers', [])
                     }
                 });
 
-                $scope.opportunity = CustomersService.getStoredOpportunity();
-                if ($scope.opportunity) {
+                OpportunityServices.getOpportunity($scope.opportunityID).then(function (data) {
+                    $scope.opportunity = data;
+                    CustomersService.storeOpportunity(data);
                     if ($scope.opportunity.opportunityDate) {
                         var d = new Date($scope.opportunity.opportunityDate);
                         $scope.opportunity.opportunityDate = d;
@@ -392,29 +389,10 @@ angular.module('customersApp.opportunityControllers', [])
                         }
                         $scope.opportunity.potentialRevenue = $filter("currency")(money);
                     }
-                }
-                $scope.master = angular.copy($scope.opportunity);
-                if (!$scope.opportunity) {
-                    OpportunityServices.getOpportunity($scope.opportunityID).then(function (data) {
-                        $scope.opportunity = data;
-                        CustomersService.storeOpportunity(data);
-                        if ($scope.opportunity.opportunityDate) {
-                            var d = new Date($scope.opportunity.opportunityDate);
-                            $scope.opportunity.opportunityDate = d;
-                        }
-                        if ($scope.opportunity.potentialRevenue){
-                            if (typeof $scope.opportunity.potentialRevenue === 'string') {
-                                var money = parseFloat($scope.opportunity.potentialRevenue.replace(/[^\d\.]/g, ''));
-                            }else{
-                                money = $scope.opportunity.potentialRevenue;
-                            }
-                            $scope.opportunity.potentialRevenue = $filter("currency")(money);
-                        }
 
-                        $scope.master = angular.copy($scope.opportunity);
-                        $scope.customerOpportunitiesForm.$setPristine();
-                    });
-                }
+                    $scope.master = angular.copy($scope.opportunity);
+                    $scope.customerOpportunitiesForm.$setPristine();
+                });
 
             }else{
                 $scope.buttonEdit = true;

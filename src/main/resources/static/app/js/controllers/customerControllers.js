@@ -93,18 +93,12 @@ angular.module('customersApp.customerControllers', [])
                     }
                 });
 
-                $scope.customer = CustomersService.getStoredCustomer();
-
-                // if the user reloads the page, I need to get the data from the server then reset the form
-                // as the promise is resolved after the page has been rendered
-                if (!$scope.customer) {
-                    CompanyServices.getCompany($scope.customerId).then(function (data) {
+                CompanyServices.getCompany($scope.customerId).then(function (data) {
                         $scope.customer = data;
                         $scope.master = angular.copy($scope.customer);
                         $scope.customerForm.$setPristine();
                         CustomersService.storeCustomer(data);
                     });
-                }
                 $scope.master = angular.copy($scope.customer);
             }
 
