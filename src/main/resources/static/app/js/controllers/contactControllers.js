@@ -22,12 +22,10 @@ angular.module('customersApp.contactControllers', [])
             $scope.reverseSort = false;
 
             //Grab contacts for company
-            if (!$scope.customer) {
-                CompanyServices.getCompany($scope.companyNumber).then(function (data) {
-                    $scope.customer = data;
-                    CustomersService.storeCustomer(data);
-                });
-            }
+            CompanyServices.getCompany($scope.companyNumber).then(function (data) {
+                $scope.customer = data;
+                CustomersService.storeCustomer(data);
+            });
 
             createWatches();
 
