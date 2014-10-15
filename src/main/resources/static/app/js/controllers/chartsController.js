@@ -10,6 +10,7 @@ angular.module('customersApp.chartsController', [])
 
             $scope.selectedDate = new Date(2012, 1, 16).getTime();
             $scope.options = ChartService.chart.multiBarHorizontalChart;
+
             $scope.opportunityData = CustomersService.getStoredOpportunityData();
             $scope.opportunityDataBySalesPerson = {};
 
@@ -40,6 +41,20 @@ angular.module('customersApp.chartsController', [])
 
 
                     angular.forEach($scope.opportunityData, function (opportunity) {
+
+                        if(!opportunity.statusDescription){
+                            opportunity.statusDescription = 'n/a';
+                        }
+                        if(!opportunity.salesPersonId){
+                            opportunity.salesPersonId = '99999';
+                        }
+                        if(!opportunity.salesPersonDescription || opportunity.salesPersonDescription == ' '){
+                            opportunity.salesPersonDescription = 'Unknown';
+                        }
+                        if(!opportunity.potentialRevenue){
+                            opportunity.potentialRevenue = 0;
+                        }
+
 //sales person
                         if ($scope.opportunityDataBySalesPerson[opportunity.statusDescription]) {
                             if ($scope.opportunityDataBySalesPerson[opportunity.statusDescription][opportunity.salesPersonId]) {
@@ -111,6 +126,8 @@ angular.module('customersApp.chartsController', [])
                     }
                 });
                 $scope.data = chartData.multiBarHorizontalChart.sales;
+
+
                 $scope.options.chart.height = items * 30 + 100;
                 if($scope.countValue){
                     $scope.options.chart.yAxis.axisLabel = 'Opportunities by Deals'
