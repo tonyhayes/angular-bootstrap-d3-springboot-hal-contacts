@@ -158,7 +158,7 @@ angular.module('customersApp.chartsController', [])
                             if (!found){
                                 status.values.push({label: person, value: 0})
                             }
-
+                            sortJSON(status.values, 'label', '123');
                         }
 
                     });
@@ -195,6 +195,19 @@ angular.module('customersApp.chartsController', [])
                 sliceAndDice();
 
             });
+
+            function sortJSON(data, key, way) {
+                return data.sort(function (a, b) {
+                    var x = a[key];
+                    var y = b[key];
+                    if (way === '123') {
+                        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+                    }
+                    if (way === '321') {
+                        return ((x > y) ? -1 : ((x < y) ? 1 : 0));
+                    }
+                });
+            }
 
 
         }
