@@ -147,15 +147,15 @@ angular.module('customersApp.chartsController', [])
 
                     angular.forEach(chartData.multiBarHorizontalChart.sales, function (status) {
 
-                        if(status.values.length != names.length ){
+                        if(status.values.length !== names.length ){
                             var found = false;
                             angular.forEach(status.values, function (sales) {
-                                if(sales.label == person){
+                                if(sales.label === person){
                                     found = true;
                                 }
                             });
 
-                            if (found == false){
+                            if (!found){
                                 status.values.push({label: person, value: 0})
                             }
 
