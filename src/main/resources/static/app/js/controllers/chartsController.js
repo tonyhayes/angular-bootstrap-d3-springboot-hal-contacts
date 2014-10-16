@@ -3,10 +3,10 @@
  */
 angular.module('customersApp.chartsController', [])
     .controller('ChartsController', ['$scope', '$routeParams', '$location', '$filter',
-         'ChartService', 'CustomersService', 'OpportunityServices',
+         'ChartService', 'CustomersService', 'OpportunityServices', 'StatusService',
 
         function ($scope, $routeParams, $location, $filter,
-                  ChartService, CustomersService, OpportunityServices) {
+                  ChartService, CustomersService, OpportunityServices, StatusService) {
 
             $scope.selectedDate = new Date(2012, 1, 16).getTime();
             $scope.options = ChartService.chart.multiBarHorizontalChart;
@@ -16,6 +16,7 @@ angular.module('customersApp.chartsController', [])
 
             var chartData = {};
             var savedData;
+            var status_array = StatusService.getStatus;
 
             $scope.radioModel = 'revenue';
 
@@ -40,6 +41,11 @@ angular.module('customersApp.chartsController', [])
                     $scope.opportunityDataBySalesPerson = {};
 
 
+                    angular.forEach(status_array, function (status) {
+                        $scope.opportunityDataBySalesPerson[status.description] = {};
+                    });
+
+
                     angular.forEach($scope.opportunityData, function (opportunity) {
 
                         if(!opportunity.statusDescription){
@@ -54,6 +60,10 @@ angular.module('customersApp.chartsController', [])
                         if(!opportunity.potentialRevenue){
                             opportunity.potentialRevenue = 0;
                         }
+
+                            /* for each status, set an object
+                            each salesperson must have a record in each status
+                             */
 
 //sales person
                         if ($scope.opportunityDataBySalesPerson[opportunity.statusDescription]) {
@@ -108,6 +118,7 @@ angular.module('customersApp.chartsController', [])
 
                 chartData.multiBarHorizontalChart = [];
                 chartData.multiBarHorizontalChart.sales = [];
+                var names = [];
                 var items = 0;
                 angular.forEach($scope.opportunityDataBySalesPerson, function (opportunity) {
                     var values = [];
@@ -119,12 +130,40 @@ angular.module('customersApp.chartsController', [])
                                 values.push({"label": type.name, "value": type.money});
                             }
                             items++;
+                            var idx = names.indexOf(type.name);
+                            // empty
+                            if (idx === -1) {
+                                names.push(type.name);
+                            }
                         }
                     });
                     if(values.length){
                         chartData.multiBarHorizontalChart.sales.push({"key": opportunity.name, "values": values});
                     }
                 });
+
+                // now read through each data object and add any missing status types for a salesman
+                angular.forEach(names, function (person) {
+
+                    angular.forEach(chartData.multiBarHorizontalChart.sales, function (status) {
+
+                        if(status.values.length != names.length ){
+                            var found = false;
+                            angular.forEach(status.values, function (sales) {
+                                if(sales.label == person){
+                                    found = true;
+                                }
+                            });
+
+                            if (found == false){
+                                status.values.push({label: person, value: 0})
+                            }
+
+                        }
+
+                    });
+                });
+
                 $scope.data = chartData.multiBarHorizontalChart.sales;
 
 
