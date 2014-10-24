@@ -44,8 +44,6 @@ public class RememberMeSessionInvalidatorFilter  implements Filter {
                 req.getSession().invalidate();
             }
         }
-
-        req.getSession().invalidate();
         chain.doFilter(request,response);
     }
 
