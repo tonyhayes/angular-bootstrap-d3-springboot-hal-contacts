@@ -2,8 +2,6 @@ package com.drillmap.crm.security.legacy.filter;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.crypto.codec.Base64;
-import org.springframework.security.web.authentication.rememberme.InvalidCookieException;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
